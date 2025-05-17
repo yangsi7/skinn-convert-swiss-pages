@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -95,6 +94,15 @@ const Physicians = () => {
     });
   };
 
+  // Handler for tracking patient referrals
+  const handlePatientReferral = () => {
+    trackEvent('physician_patient_referral', {
+      source: 'physicians_page',
+      section: 'hero',
+      language
+    });
+  };
+
   const cmoBio = content.cmoBio;
 
   return (
@@ -152,20 +160,36 @@ const Physicians = () => {
                   {content.hero.description}
                   <Citation id="1" text={citations[0].text} />
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
                   <ConversionButton 
                     size="lg" 
                     className="bg-myant-green hover:bg-myant-darkgreen"
                     eventName="request_trial_kit"
                     eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handleTrialRequest}
+                    href="https://myant-care360.com"
+                    external={true}
                   >
                     {content.hero.primaryCta}
                   </ConversionButton>
-                  <Button 
+                  
+                  <ConversionButton 
                     size="lg" 
                     variant="outline" 
                     className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                    eventName="refer_patient_holter"
+                    eventParams={{source: "physician_page", section: "hero", language}}
+                    onClick={handlePatientReferral}
+                    href="https://myant-care360.com/refer"
+                    external={true}
+                  >
+                    {content.hero.tertiaryCta}
+                  </ConversionButton>
+                  
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
                     onClick={() => {
                       const howItWorksSection = document.getElementById('how-it-works');
                       if (howItWorksSection) {
@@ -355,9 +379,12 @@ const Physicians = () => {
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   conversionId="AW-XXXXXXXXXX"
                   conversionLabel="physician_trial_request"
+                  href="https://myant-care360.com"
+                  external={true}
                 >
                   {content.cta.primaryButton} <ArrowRight className="ml-2 h-5 w-5" />
                 </ConversionButton>
+                
                 <Button 
                   size="lg" 
                   variant="outline" 
@@ -372,6 +399,18 @@ const Physicians = () => {
                 >
                   {content.cta.secondaryButton}
                 </Button>
+                
+                <ConversionButton 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-white border-white hover:bg-myant-darkgreen"
+                  eventName="refer_patient_holter_footer"
+                  eventParams={{source: "physician_page", section: "footer_cta", language}}
+                  href="https://myant-care360.com/refer"
+                  external={true}
+                >
+                  {content.cta.tertiaryButton}
+                </ConversionButton>
               </div>
               <p className="text-sm mt-6 opacity-80">
                 {content.cta.note}

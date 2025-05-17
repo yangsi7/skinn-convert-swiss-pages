@@ -1,3 +1,4 @@
+
 export const physiciansContent = {
   meta: {
     title: "SKIIN pour médecins – Surveillance cardiaque à domicile pour vos patients",
@@ -9,6 +10,7 @@ export const physiciansContent = {
     description: "Avez-vous des patients souffrant de palpitations inexpliquées ou de possible fibrillation atriale? SKIIN rend la surveillance cardiaque avancée aussi simple que la remise d'un vêtement. En quelques minutes, vous pouvez référer un patient pour une étude ECG de 3 jours à domicile – pas de configuration en clinique, pas d'attente à l'hôpital.",
     primaryCta: "Demander un kit d'essai gratuit",
     secondaryCta: "Découvrir comment ça fonctionne",
+    tertiaryCta: "Référer un patient pour Holter",
     supportCta: "Obtenir de l'aide"
   },
   benefits: {
@@ -94,6 +96,7 @@ export const physiciansContent = {
     description: "En tant que médecin pratiquant, vous pouvez tester notre service avec votre premier patient sans frais – y compris la location de l'appareil et le rapport. Nous sommes confiants que vous et votre patient apprécierez la commodité et les informations.",
     primaryButton: "Essayez SKIIN gratuitement sur un patient",
     secondaryButton: "Contactez notre équipe médicale",
+    tertiaryButton: "Référer un patient pour Holter",
     note: "Aucune carte de crédit nécessaire pour l'essai. Notre équipe vous aidera à vous installer et vous guidera tout au long du processus."
   },
   footer: {

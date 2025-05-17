@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { trackConversion, trackEvent } from '@/lib/analytics';
@@ -9,6 +8,8 @@ interface ConversionButtonProps extends ButtonProps {
   eventName: string;
   eventValue?: number;
   eventParams?: Record<string, string | number | boolean>;
+  href?: string;
+  external?: boolean;
 }
 
 export default function ConversionButton({
@@ -17,6 +18,8 @@ export default function ConversionButton({
   eventName,
   eventValue,
   eventParams = {},
+  href,
+  external = false,
   children,
   onClick,
   ...props
@@ -39,6 +42,34 @@ export default function ConversionButton({
     }
   };
   
+  // If href is provided, render an anchor tag with button styling
+  if (href) {
+    return (
+      <a 
+        href={href}
+        className={Button({ ...props })}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        onClick={(e) => {
+          // Run tracking logic on anchor click
+          trackEvent(eventName, {
+            value: eventValue,
+            ...eventParams
+          });
+          
+          if (conversionId && conversionLabel) {
+            trackConversion(conversionId, conversionLabel, eventValue);
+          }
+          
+          // We don't prevent default as we want the link to work
+        }}
+      >
+        {children}
+      </a>
+    );
+  }
+  
+  // Otherwise render a regular button
   return (
     <Button onClick={handleClick} {...props}>
       {children}

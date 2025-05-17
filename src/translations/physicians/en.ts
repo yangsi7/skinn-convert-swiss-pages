@@ -1,3 +1,4 @@
+
 export const physiciansContent = {
   meta: {
     title: "SKIIN for Physicians – At-Home Cardiac Monitoring for Patients",
@@ -9,6 +10,7 @@ export const physiciansContent = {
     description: "Do you have patients with unexplained palpitations or possible AFib? SKIIN makes advanced cardiac monitoring as easy as handing out a garment. In just minutes, you can refer a patient for a 3-day at-home ECG study – no in-clinic setup, no hospital wait.",
     primaryCta: "Request a Free Trial Kit",
     secondaryCta: "Learn How It Works",
+    tertiaryCta: "Refer a Patient for Holter",
     supportCta: "Get Support"
   },
   benefits: {
@@ -94,6 +96,7 @@ export const physiciansContent = {
     description: "As a practicing physician, you can test our service with your first patient at no cost – including the device rental and report. We're confident you and your patient will appreciate the convenience and insight.",
     primaryButton: "Try SKIIN Free on a Patient",
     secondaryButton: "Contact Our Medical Team",
+    tertiaryButton: "Refer a Patient for Holter",
     note: "No credit card needed for the trial. Our team will get you set up and walk you through the process."
   },
   footer: {
