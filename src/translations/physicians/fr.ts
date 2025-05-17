@@ -21,7 +21,7 @@ export const physiciansContent = {
       },
       {
         title: "Meilleure conformité des patients",
-        description: "Le vêtement SKIIN est un vêtement confortable. Les patients le portent simplement à la maison – pas de câbles ni de gadgets qui perturbent le sommeil ou la routine. Cela signifie une meilleure conformité et des données plus fiables."
+        description: "Le bandeau thoracique SKIIN est confortable à porter. Les patients le portent simplement à la maison – pas de câbles ni de gadgets qui perturbent le sommeil ou la routine. Cela signifie une meilleure conformité et des données plus fiables."
       },
       {
         title: "Surveillance sur plusieurs nuits",
@@ -54,12 +54,12 @@ export const physiciansContent = {
       {
         number: "02",
         title: "Le patient le porte à la maison",
-        description: "Votre patient reçoit le vêtement SKIIN (un sous-vêtement confortable) et le porte jour et nuit pendant 3 jours. Le vêtement enregistre automatiquement l'ECG, la fréquence cardiaque, les patterns respiratoires et la tension artérielle pendant le sommeil."
+        description: "Votre patient reçoit le SKIIN (un bandeau thoracique confortable avec des électrodes textiles) et le porte jour et nuit pendant 3 jours. Le bandeau enregistre automatiquement l'ECG, la fréquence cardiaque, les patterns respiratoires et la tension artérielle pendant le sommeil."
       },
       {
         number: "03",
         title: "Recevez un rapport détaillé",
-        description: "Une fois la période de surveillance terminée, le patient retourne le vêtement (frais de port payés). Notre système, aidé par l'IA et examiné par des techniciens cardiaques certifiés, analyse les données. Vous recevez un rapport concis en 24-48 heures."
+        description: "Une fois la période de surveillance terminée, le patient retourne le bandeau thoracique (frais de port payés). Notre système, aidé par l'IA et examiné par des techniciens cardiaques certifiés, analyse les données. Vous recevez un rapport concis en 24-48 heures."
       },
       {
         number: "04",

@@ -21,7 +21,7 @@ export const physiciansContent = {
       },
       {
         title: "Better Patient Compliance",
-        description: "The SKIIN garment is comfortable clothing. Patients simply wear it at home – no cables or gadgets that disrupt sleep or routine. This means higher compliance and more reliable data."
+        description: "The SKIIN chest band is comfortable to wear. Patients simply wear it at home – no cables or gadgets that disrupt sleep or routine. This means higher compliance and more reliable data."
       },
       {
         title: "Multi-Night Monitoring",
@@ -54,12 +54,12 @@ export const physiciansContent = {
       {
         number: "02",
         title: "Patient Wears It at Home",
-        description: "Your patient receives the SKIIN wearable (a comfortable undergarment) and wears it day and night for 3 days. The garment automatically records ECG, heart rate, respiratory patterns, and sleep-time blood pressure."
+        description: "Your patient receives the SKIIN wearable (a comfortable chest band with textile-based electrodes) and wears it day and night for 3 days. The band automatically records ECG, heart rate, respiratory patterns, and sleep-time blood pressure."
       },
       {
         number: "03",
         title: "Receive a Detailed Report",
-        description: "Once the monitoring period is over, the patient returns the garment (postage-paid). Our system, aided by AI and reviewed by certified cardiac technicians, analyzes the data. You receive a concise report in 24-48 hours."
+        description: "Once the monitoring period is over, the patient returns the chest band (postage-paid). Our system, aided by AI and reviewed by certified cardiac technicians, analyzes the data. You receive a concise report in 24-48 hours."
       },
       {
         number: "04",

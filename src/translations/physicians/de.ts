@@ -21,7 +21,7 @@ export const physiciansContent = {
       },
       {
         title: "Bessere Patientencompliance",
-        description: "Das SKIIN-Kleidungsstück ist bequeme Kleidung. Patienten tragen es einfach zu Hause – keine Kabel oder Geräte, die den Schlaf oder die Routine stören. Dies bedeutet höhere Compliance und zuverlässigere Daten."
+        description: "Das SKIIN-Brustband ist bequem zu tragen. Patienten tragen es einfach zu Hause – keine Kabel oder Geräte, die den Schlaf oder die Routine stören. Dies bedeutet höhere Compliance und zuverlässigere Daten."
       },
       {
         title: "Mehrnächtige Überwachung",
@@ -54,12 +54,12 @@ export const physiciansContent = {
       {
         number: "02",
         title: "Patient trägt es zu Hause",
-        description: "Ihr Patient erhält das SKIIN-Wearable (ein bequemes Unterkleidungsstück) und trägt es Tag und Nacht für 3 Tage. Das Kleidungsstück zeichnet automatisch EKG, Herzfrequenz, Atmungsmuster und Blutdruck während des Schlafs auf."
+        description: "Ihr Patient erhält das SKIIN-Wearable (ein bequemes Brustband mit textilbasierten Elektroden) und trägt es Tag und Nacht für 3 Tage. Das Brustband zeichnet automatisch EKG, Herzfrequenz, Atmungsmuster und Blutdruck während des Schlafs auf."
       },
       {
         number: "03",
         title: "Erhalten Sie einen detaillierten Bericht",
-        description: "Nach Abschluss der Überwachungsperiode gibt der Patient das Kleidungsstück zurück (Porto bezahlt). Unser System, unterstützt durch KI und überprüft von zertifizierten Herztechnikern, analysiert die Daten. Sie erhalten innerhalb von 24-48 Stunden einen präzisen Bericht."
+        description: "Nach Abschluss der Überwachungsperiode gibt der Patient das Brustband zurück (Porto bezahlt). Unser System, unterstützt durch KI und überprüft von zertifizierten Herztechnikern, analysiert die Daten. Sie erhalten innerhalb von 24-48 Stunden einen präzisen Bericht."
       },
       {
         number: "04",
