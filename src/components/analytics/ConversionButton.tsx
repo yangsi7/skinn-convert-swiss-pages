@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button, ButtonProps } from '@/components/ui/button';
+import { Button, buttonVariants, ButtonProps } from '@/components/ui/button';
 import { trackConversion, trackEvent } from '@/lib/analytics';
 
 interface ConversionButtonProps extends ButtonProps {
@@ -48,7 +48,7 @@ export default function ConversionButton({
     return (
       <a 
         href={href}
-        className={Button({ ...props }).toString()}
+        className={buttonVariants({ variant: props.variant, size: props.size, className: props.className })}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
         onClick={(e) => {
