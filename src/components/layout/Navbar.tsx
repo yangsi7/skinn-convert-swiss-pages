@@ -41,6 +41,7 @@ const Navbar = () => {
     { label: "How It Works", path: "/how-it-works" },
     { label: "Clinical Evidence", path: "/evidence" },
     { label: "About Us", path: "/about" },
+    { label: "Support", path: "https://skiin-support.netlify.app/", external: true },
   ];
 
   const languages = [
@@ -65,13 +66,25 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navigationItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </Link>
+              item.external ? (
+                <a 
+                  key={item.path} 
+                  href={item.path} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-foreground hover:text-primary transition-colors font-medium"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="text-foreground hover:text-primary transition-colors font-medium"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -117,14 +130,27 @@ const Navbar = () => {
         <div className="container-custom py-8">
           <nav className="flex flex-col space-y-4">
             {navigationItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="text-foreground text-lg py-2 hover:text-primary"
-                onClick={closeMobileMenu}
-              >
-                {item.label}
-              </Link>
+              item.external ? (
+                <a 
+                  key={item.path} 
+                  href={item.path} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-foreground text-lg py-2 hover:text-primary"
+                  onClick={closeMobileMenu}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="text-foreground text-lg py-2 hover:text-primary"
+                  onClick={closeMobileMenu}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <div className="pt-4">
               <div className="flex border rounded-full px-1 py-1 self-start mb-4">

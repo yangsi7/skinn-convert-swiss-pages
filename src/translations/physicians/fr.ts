@@ -1,4 +1,3 @@
-
 export const physiciansContent = {
   meta: {
     title: "SKIIN pour médecins – Surveillance cardiaque à domicile pour vos patients",
@@ -9,7 +8,8 @@ export const physiciansContent = {
     subtitle: "Surveillance cardiaque à domicile sans effort pour votre cabinet – données de qualité médicale sans tracas.",
     description: "Avez-vous des patients souffrant de palpitations inexpliquées ou de possible fibrillation atriale? SKIIN rend la surveillance cardiaque avancée aussi simple que la remise d'un vêtement. En quelques minutes, vous pouvez référer un patient pour une étude ECG de 3 jours à domicile – pas de configuration en clinique, pas d'attente à l'hôpital.",
     primaryCta: "Demander un kit d'essai gratuit",
-    secondaryCta: "Découvrir comment ça fonctionne"
+    secondaryCta: "Découvrir comment ça fonctionne",
+    supportCta: "Obtenir de l'aide"
   },
   benefits: {
     title: "Pourquoi SKIIN dans votre cabinet?",

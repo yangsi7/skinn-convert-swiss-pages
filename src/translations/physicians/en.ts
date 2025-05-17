@@ -1,4 +1,3 @@
-
 export const physiciansContent = {
   meta: {
     title: "SKIIN for Physicians – At-Home Cardiac Monitoring for Patients",
@@ -9,7 +8,8 @@ export const physiciansContent = {
     subtitle: "Seamless at-home heart monitoring for your practice – medical-grade data without the hassle.",
     description: "Do you have patients with unexplained palpitations or possible AFib? SKIIN makes advanced cardiac monitoring as easy as handing out a garment. In just minutes, you can refer a patient for a 3-day at-home ECG study – no in-clinic setup, no hospital wait.",
     primaryCta: "Request a Free Trial Kit",
-    secondaryCta: "Learn How It Works"
+    secondaryCta: "Learn How It Works",
+    supportCta: "Get Support"
   },
   benefits: {
     title: "Why SKIIN in Your Practice?",

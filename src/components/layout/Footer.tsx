@@ -120,9 +120,14 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/support" className="hover:underline opacity-80 hover:opacity-100">
+                <a 
+                  href="https://skiin-support.netlify.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:underline opacity-80 hover:opacity-100"
+                >
                   Get Support
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -144,6 +149,16 @@ const Footer = () => {
                 <Link to="/physicians/resources" className="hover:underline opacity-80 hover:opacity-100">
                   Resources
                 </Link>
+              </li>
+              <li>
+                <a 
+                  href="https://skiin-support.netlify.app/physicians" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:underline opacity-80 hover:opacity-100"
+                >
+                  Healthcare Provider Support
+                </a>
               </li>
               <li>
                 <Link to="/request-demo" className="hover:underline opacity-80 hover:opacity-100">
@@ -175,6 +190,16 @@ const Footer = () => {
                 <Link to="/contact" className="hover:underline opacity-80 hover:opacity-100">
                   Contact
                 </Link>
+              </li>
+              <li>
+                <a 
+                  href="https://skiin-support.netlify.app/contact" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:underline opacity-80 hover:opacity-100"
+                >
+                  Technical Support
+                </a>
               </li>
             </ul>
           </div>

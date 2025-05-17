@@ -1,4 +1,3 @@
-
 export const physiciansContent = {
   meta: {
     title: "SKIIN für Ärzte – Herzüberwachung für Patienten zu Hause",
@@ -9,7 +8,8 @@ export const physiciansContent = {
     subtitle: "Nahtlose Herzüberwachung zu Hause für Ihre Praxis – medizinische Daten ohne Aufwand.",
     description: "Haben Sie Patienten mit ungeklärten Herzklopfen oder möglichem Vorhofflimmern? SKIIN macht fortschrittliche Herzüberwachung so einfach wie die Übergabe eines Kleidungsstücks. In nur wenigen Minuten können Sie einen Patienten für eine 3-tägige EKG-Untersuchung zu Hause anmelden – keine Einrichtung in der Klinik, keine Krankenhauswartezeit.",
     primaryCta: "Kostenloses Testpaket anfordern",
-    secondaryCta: "Erfahren Sie, wie es funktioniert"
+    secondaryCta: "Erfahren Sie, wie es funktioniert",
+    supportCta: "Support erhalten"
   },
   benefits: {
     title: "Warum SKIIN in Ihrer Praxis?",
