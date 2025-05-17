@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,6 +11,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,14 +37,80 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navigationItems = [
-    { label: "For Patients", path: "/patients" },
-    { label: "For Physicians", path: "/physicians" },
-    { label: "How It Works", path: "/how-it-works" },
-    { label: "Clinical Evidence", path: "/evidence" },
-    { label: "About Us", path: "/about" },
-    { label: "Support", path: "https://skiin-support.netlify.app/", external: true },
-  ];
+  // Get localized paths based on the current path and target language
+  const getLocalizedPath = (targetLang) => {
+    const currentPath = location.pathname;
+    
+    // Root path is special case
+    if (currentPath === '/' || currentPath === '/de' || currentPath === '/fr') {
+      return targetLang === 'en' ? '/' : `/${targetLang}`;
+    }
+    
+    // For physicians page and its translations
+    if (currentPath === '/physicians' || currentPath === '/de/arzt' || currentPath === '/fr/medecin') {
+      if (targetLang === 'en') return '/physicians';
+      if (targetLang === 'de') return '/de/arzt';
+      if (targetLang === 'fr') return '/fr/medecin';
+    }
+    
+    // Default fallback - just add language prefix
+    return targetLang === 'en' ? currentPath.replace(/^\/de\/|^\/fr\//, '/') : `/${targetLang}${currentPath}`;
+  };
+
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    const newPath = getLocalizedPath(lang);
+    navigate(newPath);
+  };
+
+  // Determine which navigation links to show based on language
+  const getNavigationItems = () => {
+    // Basic structure for all languages
+    const items = [
+      { labelKey: "forPatients", path: "/patients" },
+      { labelKey: "forPhysicians", path: language === 'en' ? "/physicians" : language === 'de' ? "/de/arzt" : "/fr/medecin" },
+      { labelKey: "howItWorks", path: "/how-it-works" },
+      { labelKey: "evidence", path: "/evidence" },
+      { labelKey: "about", path: "/about" },
+      { labelKey: "support", path: "https://skiin-support.netlify.app/", external: true },
+    ];
+
+    // Localized labels for each language
+    const labels = {
+      en: {
+        forPatients: "For Patients",
+        forPhysicians: "For Physicians",
+        howItWorks: "How It Works",
+        evidence: "Clinical Evidence",
+        about: "About Us",
+        support: "Support",
+      },
+      de: {
+        forPatients: "Für Patienten",
+        forPhysicians: "Für Ärzte",
+        howItWorks: "Wie es funktioniert",
+        evidence: "Klinische Evidenz",
+        about: "Über uns",
+        support: "Support",
+      },
+      fr: {
+        forPatients: "Pour les Patients",
+        forPhysicians: "Pour les Médecins",
+        howItWorks: "Comment ça marche",
+        evidence: "Preuves Cliniques",
+        about: "À propos",
+        support: "Support",
+      }
+    };
+
+    // Return items with localized labels
+    return items.map(item => ({
+      ...item,
+      label: labels[language][item.labelKey]
+    }));
+  };
+
+  const navigationItems = getNavigationItems();
 
   const languages = [
     { code: "en", label: "EN" },
@@ -58,7 +126,7 @@ const Navbar = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
+          <Link to={language === 'en' ? '/' : `/${language}`} className="flex items-center" onClick={closeMobileMenu}>
             <span className="sr-only">Myant Health</span>
             <MyantLogo className="h-10" />
           </Link>
@@ -98,14 +166,14 @@ const Navbar = () => {
                       ? "bg-primary text-white"
                       : "text-foreground hover:bg-muted"
                   }`}
-                  onClick={() => setLanguage(lang.code as 'en' | 'de' | 'fr')}
+                  onClick={() => handleLanguageChange(lang.code)}
                 >
                   {lang.label}
                 </button>
               ))}
             </div>
             <Button size="sm" className="bg-myant-green hover:bg-myant-darkgreen">
-              Contact Us
+              {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
             </Button>
           </div>
 
@@ -162,14 +230,14 @@ const Navbar = () => {
                         ? "bg-primary text-white"
                         : "text-foreground hover:bg-muted"
                     }`}
-                    onClick={() => setLanguage(lang.code as 'en' | 'de' | 'fr')}
+                    onClick={() => handleLanguageChange(lang.code)}
                   >
                     {lang.label}
                   </button>
                 ))}
               </div>
               <Button className="w-full" size="lg">
-                Contact Us
+                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
               </Button>
             </div>
           </nav>
