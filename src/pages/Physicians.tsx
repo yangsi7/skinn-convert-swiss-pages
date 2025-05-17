@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -12,13 +13,22 @@ import DoctorQuote from '@/components/physicians/DoctorQuote';
 import BenefitItem from '@/components/physicians/BenefitItem';
 import Citation from '@/components/physicians/Citation';
 import { trackEvent } from '@/lib/analytics';
+import { useTranslation } from '@/hooks/useTranslation';
+import { physiciansContent as enContent } from '@/translations/physicians/en';
+import { physiciansContent as deContent } from '@/translations/physicians/de';
+import { physiciansContent as frContent } from '@/translations/physicians/fr';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Physicians = () => {
+  const content = useTranslation(enContent, deContent, frContent);
+  const { language } = useLanguage();
+
   // Track page view for enhanced analytics
   useEffect(() => {
     trackEvent('physician_page_view', {
       page: 'physicians',
-      source: document.referrer
+      source: document.referrer,
+      language
     });
     
     // Fade-in animation for sections on scroll
@@ -36,117 +46,66 @@ const Physicians = () => {
     });
     
     return () => observer.disconnect();
-  }, []);
+  }, [language]);
 
   // Benefits for physicians
   const benefits = [
     {
       icon: Stethoscope,
-      title: "Medical-Grade Data, Effortlessly",
-      description: "3-lead ECG and nightly blood pressure readings collected automatically, with accuracy comparable to clinical Holter monitors. You get a detailed report without referring the patient to a lab."
+      title: content.benefits.items[0].title,
+      description: content.benefits.items[0].description
     },
     {
       icon: Heart,
-      title: "Better Patient Compliance",
-      description: "The SKIIN garment is comfortable clothing. Patients simply wear it at home – no cables or gadgets that disrupt sleep or routine. This means higher compliance and more reliable data."
+      title: content.benefits.items[1].title,
+      description: content.benefits.items[1].description
     },
     {
       icon: Clock,
-      title: "Multi-Night Monitoring",
-      description: "Capture abnormalities that a 24h Holter might miss. SKIIN measures over 3 nights (or more), improving detection of intermittent arrhythmias. You'll catch issues that one-day tests could overlook."
+      title: content.benefits.items[2].title,
+      description: content.benefits.items[2].description
     },
     {
       icon: Layers,
-      title: "Seamless Integration & Billing",
-      description: "Our referral process takes < 2 minutes. Results come back to you with clear summaries. In Switzerland, use existing billing codes (e.g., TARMED) for interpretation – making adoption financially viable."
+      title: content.benefits.items[3].title,
+      description: content.benefits.items[3].description
     },
     {
       icon: ShieldCheck,
-      title: "Data Security & Compliance",
-      description: "SKIIN is produced by Myant, an ISO-13485 certified manufacturer. Data is encrypted and stored in Switzerland; our platform is HIPAA and GDPR compliant, ensuring your patients' privacy is protected."
+      title: content.benefits.items[4].title,
+      description: content.benefits.items[4].description
     }
   ];
 
   // Steps for how it works
-  const steps = [
-    {
-      number: "01",
-      title: "Order a SKIIN Kit for Your Patient",
-      description: "Fill out our online referral form (or use our integrated portal) with the patient's details. It takes 2 minutes, and you can do it during the consultation. Choose to have the kit sent to your clinic or directly to the patient's home."
-    },
-    {
-      number: "02",
-      title: "Patient Wears It at Home",
-      description: "Your patient receives the SKIIN wearable (a comfortable undergarment) and wears it day and night for 3 days. The garment automatically records ECG, heart rate, respiratory patterns, and sleep-time blood pressure."
-    },
-    {
-      number: "03",
-      title: "Receive a Detailed Report",
-      description: "Once the monitoring period is over, the patient returns the garment (postage-paid). Our system, aided by AI and reviewed by certified cardiac technicians, analyzes the data. You receive a concise report in 24-48 hours."
-    },
-    {
-      number: "04",
-      title: "Follow-Up & Support",
-      description: "If you or your patient have questions about the report, our medical liaison is available for discussion. We also offer an option to seamlessly transition the patient to ongoing monitoring or a specialty consult if needed."
-    }
-  ];
+  const steps = content.howItWorks.steps;
 
   // Testimonials
-  const testimonials = [
-    {
-      quote: "SKIIN helped me diagnose an AFib in a patient who had normal in-office ECGs. The multi-day data gave us the proof we needed to start treatment. And it was so easy – my nurse ordered it during the appointment, and we had results that guided our next steps. It's a game-changer for general practice.",
-      name: "Dr. Anna Müller",
-      title: "General Practitioner, Zurich",
-      image: ""
-    },
-    {
-      quote: "As a cardiologist, I see SKIIN as an excellent triage tool. Primary care colleagues send me patients with solid data already in hand. It streamlines who actually needs in-person Holter or further studies.",
-      name: "Dr. Marc Dubois",
-      title: "Cardiology Specialist, Geneva",
-      image: ""
-    }
-  ];
+  const testimonials = content.testimonials.items;
 
   // Clinical evidence citations
-  const citations = [
-    {
-      id: "1",
-      text: "Randomized controlled trial showing 37% higher diagnostic yield of multi-day monitoring vs. 24-hour Holter (Smith et al., 2023)"
-    },
-    {
-      id: "2",
-      text: "Comparative study demonstrating 98.7% correlation between SKIIN ECG data and clinical-grade Holter monitors (Johnson et al., 2022)"
-    },
-    {
-      id: "3",
-      text: "Swiss physician survey showing 94% satisfaction with SKIIN integration into practice workflows (Kessler et al., 2023)"
-    }
-  ];
+  const citations = content.citations;
 
   // Handler for tracking trial kit requests
   const handleTrialRequest = () => {
     trackEvent('physician_trial_request', {
       source: 'physicians_page',
-      section: 'hero'
+      section: 'hero',
+      language
     });
   };
 
-  const cmoBio = {
-    quote: "Our goal with SKIIN is to democratize cardiac diagnostics – providing physicians with the data they need through a patient-friendly experience that integrates seamlessly into clinical workflows.",
-    name: "Dr. Yaariv Khaykin",
-    title: "Chief Medical Officer, Myant Health",
-    image: "/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
-  };
+  const cmoBio = content.cmoBio;
 
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>SKIIN for Physicians – At-Home Cardiac Monitoring for Patients</title>
-        <meta name="description" content="GPs: Offer your patients multi-day ECG & BP monitoring at home with SKIIN's medical-grade smart garment. Get accurate reports with zero hassle. Free trial kit available." />
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
         <meta name="keywords" content="at-home heart monitoring, 3-day ECG, Holter alternative, remote diagnostics, cardiac monitoring, ECG monitoring for physicians" />
-        <link rel="canonical" href="https://myant-health.com/physicians" />
-        <meta property="og:title" content="SKIIN for Physicians – At-Home Cardiac Monitoring" />
-        <meta property="og:description" content="Offer your patients multi-day ECG & BP monitoring at home with SKIIN's medical-grade smart garment." />
+        <link rel="canonical" href={`https://myant-health.com${language === 'en' ? '/physicians' : language === 'de' ? '/de/arzt' : '/fr/medecin'}`} />
+        <meta property="og:title" content={content.meta.title} />
+        <meta property="og:description" content={content.meta.description} />
         <meta property="og:type" content="website" />
         {/* Multilingual support */}
         <link rel="alternate" hrefLang="en" href="https://myant-health.com/physicians" />
@@ -184,24 +143,24 @@ const Physicians = () => {
           <div className="container-custom relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-on-scroll">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight text-foreground">
-                  Empower Your Patients with <span className="text-myant-green">Continuous Cardiac Insights</span>
-                </h1>
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight text-foreground" 
+                    dangerouslySetInnerHTML={{ __html: content.hero.title }} />
                 <h2 className="text-xl md:text-2xl text-muted-foreground">
-                  Seamless at-home heart monitoring for your practice – medical-grade data without the hassle.
+                  {content.hero.subtitle}
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Do you have patients with unexplained palpitations or possible AFib? SKIIN makes advanced cardiac monitoring as easy as handing out a garment. In just minutes, you can refer a patient for a 3-day at-home ECG study – no in-clinic setup, no hospital wait<Citation id="1" text="Comparative study showing average wait time reduction of 17 days vs. traditional Holter scheduling (Miller et al., 2022)" />.
+                  {content.hero.description}
+                  <Citation id="1" text={citations[0].text} />
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <ConversionButton 
                     size="lg" 
                     className="bg-myant-green hover:bg-myant-darkgreen"
                     eventName="request_trial_kit"
-                    eventParams={{source: "physician_page", section: "hero"}}
+                    eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handleTrialRequest}
                   >
-                    Request a Free Trial Kit
+                    {content.hero.primaryCta}
                   </ConversionButton>
                   <Button 
                     size="lg" 
@@ -214,11 +173,12 @@ const Physicians = () => {
                       }
                       trackEvent('learn_more_click', {
                         source: 'physicians_page',
-                        section: 'hero'
+                        section: 'hero',
+                        language
                       });
                     }}
                   >
-                    Learn How It Works
+                    {content.hero.secondaryCta}
                   </Button>
                 </div>
               </div>
@@ -241,10 +201,11 @@ const Physicians = () => {
             <div className="text-center mb-12">
               <span className="text-primary font-medium">For Medical Professionals</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                Why SKIIN in Your Practice?
+                {content.benefits.title}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                SKIIN is designed to integrate seamlessly into your clinical workflow while providing superior diagnostic insights<Citation id="2" text="Comparative study demonstrating 98.7% correlation between SKIIN ECG data and clinical-grade Holter monitors (Johnson et al., 2022)" />.
+                {content.benefits.subtitle}
+                <Citation id="2" text={citations[1].text} />
               </p>
             </div>
 
@@ -276,12 +237,12 @@ const Physicians = () => {
               </div>
               <div className="space-y-6">
                 <span className="text-primary font-medium">Who We Are</span>
-                <h2 className="text-3xl font-bold">Meet SKIIN by Myant Health</h2>
+                <h2 className="text-3xl font-bold">{content.about.title}</h2>
                 <p className="text-muted-foreground">
-                  A breakthrough in textile computing. We're a multidisciplinary team of cardiologists, engineers, and innovators (including partners at leading cardiac centers) committed to simplifying remote diagnostics.
+                  {content.about.description1}
                 </p>
                 <p className="text-muted-foreground">
-                  Since 2020, we have been refining SKIIN through clinical trials and real-world testing to ensure it meets the highest medical standards. Myant, the company behind SKIIN, is a pioneer in integrating sensors into everyday clothing, with a vision of "Continuous Medical Grade Diagnostics for All People Through Clothing."
+                  {content.about.description2}
                 </p>
                 
                 <TrustBadges />
@@ -290,7 +251,7 @@ const Physicians = () => {
                   quote={cmoBio.quote}
                   name={cmoBio.name}
                   title={cmoBio.title}
-                  image={cmoBio.image} 
+                  image="/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png" 
                 />
               </div>
             </div>
@@ -303,10 +264,11 @@ const Physicians = () => {
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Simple Process</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                From Referral to Results: It's as Easy as 1-2-3
+                {content.howItWorks.title}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Designed to fit seamlessly into your clinical workflow<Citation id="3" text="Swiss physician survey showing 94% satisfaction with SKIIN integration into practice workflows (Kessler et al., 2023)" />
+                {content.howItWorks.subtitle}
+                <Citation id="3" text={citations[2].text} />
               </p>
             </div>
 
@@ -333,8 +295,8 @@ const Physicians = () => {
                     <Download className="h-6 w-6 text-myant-green" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">Sample Cardiac Report</h4>
-                    <p className="text-muted-foreground">See an example of the detailed analytics you'll receive</p>
+                    <h4 className="font-semibold text-lg">{content.howItWorks.sampleReport.title}</h4>
+                    <p className="text-muted-foreground">{content.howItWorks.sampleReport.description}</p>
                   </div>
                 </div>
                 <Button 
@@ -342,11 +304,12 @@ const Physicians = () => {
                   className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
                   onClick={() => {
                     trackEvent('sample_report_download', {
-                      source: 'physicians_page'
+                      source: 'physicians_page',
+                      language
                     });
                   }}
                 >
-                  Download Sample Report
+                  {content.howItWorks.sampleReport.buttonText}
                 </Button>
               </div>
             </div>
@@ -359,10 +322,10 @@ const Physicians = () => {
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Testimonials</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-                What Healthcare Providers Say
+                {content.testimonials.title}
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Hear from doctors who have integrated SKIIN into their practice
+                {content.testimonials.subtitle}
               </p>
             </div>
 
@@ -379,21 +342,21 @@ const Physicians = () => {
           <div className="container-custom">
             <div className="text-center text-white max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to experience SKIIN?
+                {content.cta.title}
               </h2>
               <p className="text-xl mb-8">
-                As a practicing physician, you can test our service with your first patient at no cost – including the device rental and report. We're confident you and your patient will appreciate the convenience and insight.
+                {content.cta.description}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <ConversionButton 
                   size="lg" 
                   className="bg-white text-myant-green hover:bg-gray-100"
                   eventName="try_skiin_free_click"
-                  eventParams={{source: "physician_page", section: "footer_cta"}}
+                  eventParams={{source: "physician_page", section: "footer_cta", language}}
                   conversionId="AW-XXXXXXXXXX"
                   conversionLabel="physician_trial_request"
                 >
-                  Try SKIIN Free on a Patient <ArrowRight className="ml-2 h-5 w-5" />
+                  {content.cta.primaryButton} <ArrowRight className="ml-2 h-5 w-5" />
                 </ConversionButton>
                 <Button 
                   size="lg" 
@@ -402,15 +365,16 @@ const Physicians = () => {
                   onClick={() => {
                     trackEvent('contact_medical_team', {
                       source: 'physicians_page',
-                      section: 'footer_cta'
+                      section: 'footer_cta',
+                      language
                     });
                   }}
                 >
-                  Contact Our Medical Team
+                  {content.cta.secondaryButton}
                 </Button>
               </div>
               <p className="text-sm mt-6 opacity-80">
-                No credit card needed for the trial. Our team will get you set up and walk you through the process.
+                {content.cta.note}
               </p>
             </div>
           </div>
@@ -420,8 +384,8 @@ const Physicians = () => {
         <div className="bg-white py-6 border-t border-gray-100">
           <div className="container-custom">
             <div className="text-xs text-muted-foreground">
-              <p>SKIIN™ is a trademark of Myant Health. ©{new Date().getFullYear()} Myant Health. All rights reserved.</p>
-              <p className="mt-1">SKIIN is a Class IIa medical device pending regulatory approvals. Always consult healthcare professionals for medical advice.</p>
+              <p>{content.footer.copyright}</p>
+              <p className="mt-1">{content.footer.disclaimer}</p>
               <p className="mt-1">
                 <span className="font-medium">References: </span>
                 {citations.map((citation, index) => (

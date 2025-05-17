@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import MyantLogo from "@/components/ui/MyantLogo";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState("en");
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,11 +81,11 @@ const Navbar = () => {
                 <button
                   key={lang.code}
                   className={`px-2 py-1 rounded-full text-sm ${
-                    activeLang === lang.code
+                    language === lang.code
                       ? "bg-primary text-white"
                       : "text-foreground hover:bg-muted"
                   }`}
-                  onClick={() => setActiveLang(lang.code)}
+                  onClick={() => setLanguage(lang.code as 'en' | 'de' | 'fr')}
                 >
                   {lang.label}
                 </button>
@@ -131,11 +132,11 @@ const Navbar = () => {
                   <button
                     key={lang.code}
                     className={`px-3 py-1 rounded-full text-sm ${
-                      activeLang === lang.code
+                      language === lang.code
                         ? "bg-primary text-white"
                         : "text-foreground hover:bg-muted"
                     }`}
-                    onClick={() => setActiveLang(lang.code)}
+                    onClick={() => setLanguage(lang.code as 'en' | 'de' | 'fr')}
                   >
                     {lang.label}
                   </button>
