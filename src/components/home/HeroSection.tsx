@@ -1,8 +1,31 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const HeroSection = () => {
+  const { language } = useLanguage();
+  
+  const buttonTexts = useTranslation(
+    { forPatients: "For Patients", forPhysicians: "For Physicians" },
+    { forPatients: "Für Patienten", forPhysicians: "Für Ärzte" },
+    { forPatients: "Pour les Patients", forPhysicians: "Pour les Médecins" }
+  );
+  
+  // Get the correct path based on language
+  const getPhysiciansPath = () => {
+    switch(language) {
+      case 'de':
+        return '/de/arzt';
+      case 'fr':
+        return '/fr/medecin';
+      default:
+        return '/physicians';
+    }
+  };
+
   return (
     <div className="pt-28 pb-16 md:pt-32 md:pb-24">
       <div className="container-custom">
@@ -17,10 +40,17 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
-                For Patients
+                {buttonTexts.forPatients}
               </Button>
-              <Button size="lg" variant="outline" className="border-myant-green text-myant-green hover:bg-myant-lightgreen">
-                For Physicians
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                asChild
+              >
+                <Link to={getPhysiciansPath()}>
+                  {buttonTexts.forPhysicians}
+                </Link>
               </Button>
             </div>
             <div className="pt-4">
