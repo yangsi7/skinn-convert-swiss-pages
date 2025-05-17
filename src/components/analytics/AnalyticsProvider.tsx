@@ -1,15 +1,19 @@
 
-import React, { createContext, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView, storeUtmParams } from '@/lib/analytics';
 import AnalyticsScripts from './AnalyticsScripts';
+import CookieConsent from './CookieConsent';
+import { getConsentPreferences, type ConsentPreferences } from '@/lib/consentManager';
 
 interface AnalyticsContextType {
   trackPageView: (url: string, title: string) => void;
+  consentPreferences: ConsentPreferences | null;
 }
 
 const AnalyticsContext = createContext<AnalyticsContextType>({
   trackPageView: () => {},
+  consentPreferences: null,
 });
 
 export const useAnalytics = () => useContext(AnalyticsContext);
@@ -26,21 +30,48 @@ export function AnalyticsProvider({
   hubspotId?: string;
 }) {
   const location = useLocation();
+  const [consentPreferences, setConsentPreferences] = useState<ConsentPreferences | null>(null);
+  
+  // Initialize consent from localStorage on mount
+  useEffect(() => {
+    const storedPreferences = getConsentPreferences();
+    if (storedPreferences) {
+      setConsentPreferences(storedPreferences);
+    }
+  }, []);
+  
+  // Handle consent changes
+  const handleConsentChange = (preferences: ConsentPreferences) => {
+    setConsentPreferences(preferences);
+    
+    // If analytics consent was given, track current page
+    if (preferences.analytics) {
+      const pageTitle = document.title;
+      trackPageView(window.location.href, pageTitle);
+    }
+  };
   
   // Track page views when route changes
   useEffect(() => {
     // Store UTM parameters on initial load
     storeUtmParams();
     
-    const pageTitle = document.title;
-    trackPageView(window.location.href, pageTitle);
-  }, [location]);
+    // Only track page view if we have analytics consent
+    if (consentPreferences?.analytics) {
+      const pageTitle = document.title;
+      trackPageView(window.location.href, pageTitle);
+    }
+  }, [location, consentPreferences?.analytics]);
   
   // Expose analytics functions to components
   const value = {
     trackPageView: (url: string, title: string) => {
-      trackPageView(url, title);
-    }
+      // Only track if we have consent
+      if (consentPreferences?.analytics) {
+        trackPageView(url, title);
+      }
+    },
+    consentPreferences
   };
 
   return (
@@ -49,7 +80,9 @@ export function AnalyticsProvider({
         googleAnalyticsId={googleAnalyticsId}
         googleAdsId={googleAdsId}
         hubspotId={hubspotId}
+        respectConsent={true}
       />
+      <CookieConsent onConsentChange={handleConsentChange} />
       {children}
     </AnalyticsContext.Provider>
   );

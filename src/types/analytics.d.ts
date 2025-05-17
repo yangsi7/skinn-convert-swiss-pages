@@ -1,12 +1,16 @@
 
-// Global analytics objects
+// Global type definitions for analytics scripts
+
 interface Window {
+  // Google Analytics / Tag Manager
   dataLayer?: any[];
   gtag?: (...args: any[]) => void;
+  
+  // HubSpot
   _hsq?: any[];
   hbspt?: {
     forms: {
-      create: (config: any) => void;
+      create: (options: any) => void;
     };
   };
 }

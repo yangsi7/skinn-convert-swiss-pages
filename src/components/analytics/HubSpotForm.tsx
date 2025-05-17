@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { getStoredUtmParams } from '@/lib/analytics';
+import { hasConsent } from '@/lib/consentManager';
 
 interface HubSpotFormProps {
   formId: string;
@@ -34,7 +35,22 @@ export default function HubSpotForm({
       const utmParams = getStoredUtmParams();
       
       if (formContainerRef.current) {
-        window.hbspt.forms.create({
+        // Get HubSpot user token cookie if available
+        const getHubSpotUtk = () => {
+          const cookies = document.cookie.split(';');
+          let hubspotUtk = '';
+          
+          cookies.forEach(cookie => {
+            const trimmedCookie = cookie.trim();
+            if (trimmedCookie.startsWith('hubspotutk=')) {
+              hubspotUtk = trimmedCookie.substring('hubspotutk='.length);
+            }
+          });
+          
+          return hubspotUtk;
+        };
+        
+        const formOptions: any = {
           region,
           portalId,
           formId,
@@ -54,7 +70,17 @@ export default function HubSpotForm({
               form.appendChild(hiddenField);
             });
           }
-        });
+        };
+        
+        // Only add tracking fields if we have marketing consent
+        if (hasConsent('marketing')) {
+          const hubspotUtk = getHubSpotUtk();
+          if (hubspotUtk) {
+            formOptions.hutk = hubspotUtk; // Add the HubSpot user token for tracking
+          }
+        }
+        
+        window.hbspt.forms.create(formOptions);
       }
     };
     

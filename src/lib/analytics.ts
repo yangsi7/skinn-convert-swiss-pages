@@ -2,6 +2,8 @@
  * Analytics utilities for tracking page views, events and conversions
  */
 
+import { hasConsent } from './consentManager';
+
 type EventParams = Record<string, string | number | boolean>;
 
 /**
@@ -16,20 +18,22 @@ export function trackPageView(
   params?: EventParams
 ) {
   // Google Analytics 4 page view tracking
-  try {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'page_view', {
-        page_title: title,
-        page_location: url,
-        ...params
-      });
-      console.log(`[Analytics] Tracked page view: ${title}`);
+  if (hasConsent('analytics')) {
+    try {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_title: title,
+          page_location: url,
+          ...params
+        });
+        console.log(`[Analytics] Tracked page view: ${title}`);
+      }
+    } catch (error) {
+      console.error('[Analytics] Error tracking page view:', error);
     }
-  } catch (error) {
-    console.error('[Analytics] Error tracking page view:', error);
   }
 
-  // HubSpot page view tracking happens automatically via their script
+  // HubSpot page view tracking happens automatically via their script if loaded
 }
 
 /**
@@ -39,25 +43,29 @@ export function trackPageView(
  */
 export function trackEvent(eventName: string, params?: EventParams) {
   // Google Analytics 4 event tracking
-  try {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, params);
-      console.log(`[Analytics] Tracked event: ${eventName}`, params);
+  if (hasConsent('analytics')) {
+    try {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', eventName, params);
+        console.log(`[Analytics] Tracked event: ${eventName}`, params);
+      }
+    } catch (error) {
+      console.error(`[Analytics] Error tracking event ${eventName}:`, error);
     }
-  } catch (error) {
-    console.error(`[Analytics] Error tracking event ${eventName}:`, error);
   }
 
   // HubSpot event tracking
-  try {
-    if (typeof window !== 'undefined' && window._hsq) {
-      window._hsq.push(['trackEvent', { 
-        id: eventName,
-        value: params 
-      }]);
+  if (hasConsent('marketing')) {
+    try {
+      if (typeof window !== 'undefined' && window._hsq) {
+        window._hsq.push(['trackEvent', { 
+          id: eventName,
+          value: params 
+        }]);
+      }
+    } catch (error) {
+      console.error(`[Analytics] Error tracking HubSpot event ${eventName}:`, error);
     }
-  } catch (error) {
-    console.error(`[Analytics] Error tracking HubSpot event ${eventName}:`, error);
   }
 }
 
@@ -72,17 +80,20 @@ export function trackConversion(
   conversionLabel: string,
   value?: number
 ) {
-  try {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'conversion', {
-        send_to: `${conversionId}/${conversionLabel}`,
-        value: value,
-        currency: 'CHF',
-      });
-      console.log(`[Analytics] Tracked conversion: ${conversionLabel}`);
+  // Only track conversions if we have marketing consent
+  if (hasConsent('marketing')) {
+    try {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: `${conversionId}/${conversionLabel}`,
+          value: value,
+          currency: 'CHF',
+        });
+        console.log(`[Analytics] Tracked conversion: ${conversionLabel}`);
+      }
+    } catch (error) {
+      console.error('[Analytics] Error tracking conversion:', error);
     }
-  } catch (error) {
-    console.error('[Analytics] Error tracking conversion:', error);
   }
 }
 
@@ -141,15 +152,18 @@ export function identifyUserInHubSpot(
   email: string, 
   properties: Record<string, any> = {}
 ) {
-  try {
-    if (typeof window !== 'undefined' && window._hsq) {
-      window._hsq.push(['identify', {
-        email: email,
-        ...properties
-      }]);
-      console.log('[Analytics] Identified user in HubSpot:', email);
+  // Only identify if we have marketing consent
+  if (hasConsent('marketing')) {
+    try {
+      if (typeof window !== 'undefined' && window._hsq) {
+        window._hsq.push(['identify', {
+          email: email,
+          ...properties
+        }]);
+        console.log('[Analytics] Identified user in HubSpot:', email);
+      }
+    } catch (error) {
+      console.error('[Analytics] Error identifying user in HubSpot:', error);
     }
-  } catch (error) {
-    console.error('[Analytics] Error identifying user in HubSpot:', error);
   }
 }
