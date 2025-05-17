@@ -20,39 +20,46 @@ export default function HubSpotForm({
   const formContainerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Make sure the script is loaded
-    if (!window.hbspt) {
-      console.warn('[HubSpotForm] HubSpot form script not loaded yet');
-      return;
-    }
+    // Function to check if HubSpot script is ready
+    const checkHubspotReady = () => {
+      if (window.hbspt) {
+        createForm();
+      } else {
+        // If not ready, check again in 500ms
+        setTimeout(checkHubspotReady, 500);
+      }
+    };
     
-    const utmParams = getStoredUtmParams();
+    const createForm = () => {
+      const utmParams = getStoredUtmParams();
+      
+      if (formContainerRef.current) {
+        window.hbspt.forms.create({
+          region,
+          portalId,
+          formId,
+          target: `#${formContainerRef.current.id}`,
+          formInstanceId: `form-${formId}`,
+          inlineMessage: true,
+          onFormSubmit: (data: any) => {
+            if (onFormSubmit) onFormSubmit(data);
+          },
+          onFormReady: (form: any) => {
+            // Add UTM parameters as hidden fields
+            Object.entries(utmParams).forEach(([key, value]) => {
+              const hiddenField = document.createElement('input');
+              hiddenField.type = 'hidden';
+              hiddenField.name = key;
+              hiddenField.value = value as string;
+              form.appendChild(hiddenField);
+            });
+          }
+        });
+      }
+    };
     
-    // Create the form
-    if (formContainerRef.current) {
-      // @ts-ignore - hbspt is globally available from HubSpot script
-      window.hbspt.forms.create({
-        region,
-        portalId,
-        formId,
-        target: `#${formContainerRef.current.id}`,
-        formInstanceId: `form-${formId}`,
-        inlineMessage: true,
-        onFormSubmit: (data: any) => {
-          if (onFormSubmit) onFormSubmit(data);
-        },
-        onFormReady: (form: any) => {
-          // Add UTM parameters as hidden fields
-          Object.entries(utmParams).forEach(([key, value]) => {
-            const hiddenField = document.createElement('input');
-            hiddenField.type = 'hidden';
-            hiddenField.name = key;
-            hiddenField.value = value;
-            form.appendChild(hiddenField);
-          });
-        }
-      });
-    }
+    // Start checking for HubSpot script
+    checkHubspotReady();
     
     return () => {
       // Clean up the form when component unmounts

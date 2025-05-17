@@ -1,4 +1,3 @@
-
 /**
  * Analytics utilities for tracking page views, events and conversions
  */
@@ -18,7 +17,6 @@ export function trackPageView(
 ) {
   // Google Analytics 4 page view tracking
   try {
-    // @ts-ignore - gtag is globally available
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
         page_title: title,
@@ -42,7 +40,6 @@ export function trackPageView(
 export function trackEvent(eventName: string, params?: EventParams) {
   // Google Analytics 4 event tracking
   try {
-    // @ts-ignore - gtag is globally available
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', eventName, params);
       console.log(`[Analytics] Tracked event: ${eventName}`, params);
@@ -53,7 +50,6 @@ export function trackEvent(eventName: string, params?: EventParams) {
 
   // HubSpot event tracking
   try {
-    // @ts-ignore - _hsq is globally available from HubSpot script
     if (typeof window !== 'undefined' && window._hsq) {
       window._hsq.push(['trackEvent', { 
         id: eventName,
@@ -77,7 +73,6 @@ export function trackConversion(
   value?: number
 ) {
   try {
-    // @ts-ignore - gtag is globally available
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'conversion', {
         send_to: `${conversionId}/${conversionLabel}`,
@@ -147,7 +142,6 @@ export function identifyUserInHubSpot(
   properties: Record<string, any> = {}
 ) {
   try {
-    // @ts-ignore - _hsq is globally available from HubSpot script
     if (typeof window !== 'undefined' && window._hsq) {
       window._hsq.push(['identify', {
         email: email,
