@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { trackConversion, trackEvent } from '@/lib/analytics';
@@ -47,7 +48,7 @@ export default function ConversionButton({
     return (
       <a 
         href={href}
-        className={Button({ ...props })}
+        className={Button({ ...props }).toString()}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
         onClick={(e) => {
