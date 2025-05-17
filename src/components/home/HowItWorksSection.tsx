@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Button } from "@/components/ui/button";
+import ConversionButton from "@/components/analytics/ConversionButton";
 
 const HowItWorksSection = () => {
   const steps = [
@@ -76,9 +76,14 @@ const HowItWorksSection = () => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
+          <ConversionButton 
+            size="lg" 
+            className="bg-myant-green hover:bg-myant-darkgreen"
+            eventName="learn_more_process"
+            eventParams={{ section: "how_it_works", page: "home" }}
+          >
             Learn More About the Process
-          </Button>
+          </ConversionButton>
         </div>
       </div>
     </section>
