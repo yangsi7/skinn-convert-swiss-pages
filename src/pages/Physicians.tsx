@@ -167,7 +167,7 @@ const Physicians = () => {
                     eventName="request_trial_kit"
                     eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handleTrialRequest}
-                    href="https://myant-care360.com"
+                    href="https://meetings-eu1.hubspot.com/peter-wood"
                     external={true}
                   >
                     {content.hero.primaryCta}
@@ -180,7 +180,7 @@ const Physicians = () => {
                     eventName="refer_patient_holter"
                     eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handlePatientReferral}
-                    href="https://myant-care360.com/refer"
+                    href="https://myant-care360.com"
                     external={true}
                   >
                     {content.hero.tertiaryCta}
@@ -379,7 +379,7 @@ const Physicians = () => {
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   conversionId="AW-XXXXXXXXXX"
                   conversionLabel="physician_trial_request"
-                  href="https://myant-care360.com"
+                  href="https://meetings-eu1.hubspot.com/peter-wood"
                   external={true}
                 >
                   {content.cta.primaryButton} <ArrowRight className="ml-2 h-5 w-5" />
@@ -406,7 +406,7 @@ const Physicians = () => {
                   className="text-white border-white hover:bg-myant-darkgreen"
                   eventName="refer_patient_holter_footer"
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
-                  href="https://myant-care360.com/refer"
+                  href="https://myant-care360.com"
                   external={true}
                 >
                   {content.cta.tertiaryButton}
