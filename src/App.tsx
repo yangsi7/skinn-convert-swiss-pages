@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Physicians from "./pages/Physicians";
 import NotFound from "./pages/NotFound";
@@ -19,22 +20,24 @@ const HUBSPOT_ID = "XXXXXXXX";
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AnalyticsProvider
-          googleAnalyticsId={GOOGLE_ANALYTICS_ID}
-          googleAdsId={GOOGLE_ADS_ID}
-          hubspotId={HUBSPOT_ID}
-        >
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/physicians" element={<Physicians />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AnalyticsProvider>
-      </BrowserRouter>
+      <HelmetProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AnalyticsProvider
+            googleAnalyticsId={GOOGLE_ANALYTICS_ID}
+            googleAdsId={GOOGLE_ADS_ID}
+            hubspotId={HUBSPOT_ID}
+          >
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/physicians" element={<Physicians />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnalyticsProvider>
+        </BrowserRouter>
+      </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

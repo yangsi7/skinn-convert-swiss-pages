@@ -1,12 +1,25 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from "@/components/ui/button";
 import { Check, Download, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import ConversionButton from "@/components/analytics/ConversionButton";
+import TrustBadges from '@/components/physicians/TrustBadges';
+import TestimonialCard from '@/components/physicians/TestimonialCard';
+import { trackEvent } from '@/lib/analytics';
 
 const Physicians = () => {
+  // Track page view for enhanced analytics
+  useEffect(() => {
+    trackEvent('physician_page_view', {
+      page: 'physicians',
+      source: document.referrer
+    });
+  }, []);
+
   // Benefits for physicians
   const benefits = [
     {
@@ -71,13 +84,33 @@ const Physicians = () => {
     }
   ];
 
+  // Handler for tracking trial kit requests
+  const handleTrialRequest = () => {
+    trackEvent('physician_trial_request', {
+      source: 'physicians_page',
+      section: 'hero'
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>SKIIN for Physicians – At-Home Cardiac Monitoring for Patients</title>
+        <meta name="description" content="GPs: Offer your patients multi-day ECG & BP monitoring at home with SKIIN's medical-grade smart garment. Get accurate reports with zero hassle. Free trial kit available." />
+        <meta name="keywords" content="at-home heart monitoring, 3-day ECG, Holter alternative, remote diagnostics, cardiac monitoring, ECG monitoring for physicians" />
+        <link rel="canonical" href="https://myant-health.com/physicians" />
+        <meta property="og:title" content="SKIIN for Physicians – At-Home Cardiac Monitoring" />
+        <meta property="og:description" content="Offer your patients multi-day ECG & BP monitoring at home with SKIIN's medical-grade smart garment." />
+        <meta property="og:type" content="website" />
+        {/* Multilingual support - to be expanded when translations are ready */}
+        <link rel="alternate" hrefLang="en" href="https://myant-health.com/physicians" />
+      </Helmet>
+      
       <Navbar />
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-white to-myant-lightgreen/10">
+        <section id="overview" className="pt-32 pb-20 bg-gradient-to-b from-white to-myant-lightgreen/10">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -91,10 +124,30 @@ const Physicians = () => {
                   Do you have patients with unexplained palpitations or possible AFib? SKIIN makes advanced cardiac monitoring as easy as handing out a garment. In just minutes, you can refer a patient for a 3-day at-home ECG study – no in-clinic setup, no hospital wait.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
+                  <ConversionButton 
+                    size="lg" 
+                    className="bg-myant-green hover:bg-myant-darkgreen"
+                    eventName="request_trial_kit"
+                    eventParams={{source: "physician_page", section: "hero"}}
+                    onClick={handleTrialRequest}
+                  >
                     Request a Free Trial Kit
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-myant-green text-myant-green hover:bg-myant-lightgreen">
+                  </ConversionButton>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                    onClick={() => {
+                      const howItWorksSection = document.getElementById('how-it-works');
+                      if (howItWorksSection) {
+                        howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      trackEvent('learn_more_click', {
+                        source: 'physicians_page',
+                        section: 'hero'
+                      });
+                    }}
+                  >
                     Learn How It Works
                   </Button>
                 </div>
@@ -103,7 +156,7 @@ const Physicians = () => {
                 <div className="bg-myant-lightgreen rounded-2xl p-6 relative">
                   <img
                     src="/lovable-uploads/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
-                    alt="Doctor using SKIIN with patient"
+                    alt="Doctor using SKIIN with patient for at-home cardiac monitoring"
                     className="w-full h-auto rounded-xl"
                   />
                 </div>
@@ -113,7 +166,7 @@ const Physicians = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-white">
+        <section id="benefits" className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">For Medical Professionals</span>
@@ -144,14 +197,14 @@ const Physicians = () => {
         </section>
 
         {/* About Section */}
-        <section className="py-20 bg-myant-lightgreen/20">
+        <section id="about" className="py-20 bg-myant-lightgreen/20">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="mb-8 bg-white p-6 rounded-xl shadow-sm">
                   <img
                     src="/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
-                    alt="SKIIN Smart Garment"
+                    alt="SKIIN Smart Garment for cardiac monitoring"
                     className="w-full h-auto rounded-lg"
                   />
                 </div>
@@ -165,27 +218,15 @@ const Physicians = () => {
                 <p className="text-muted-foreground">
                   Since 2020, we have been refining SKIIN through clinical trials and real-world testing to ensure it meets the highest medical standards. Myant, the company behind SKIIN, is a pioneer in integrating sensors into everyday clothing, with a vision of "Continuous Medical Grade Diagnostics for All People Through Clothing."
                 </p>
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <div className="flex items-center px-4 py-2 bg-white rounded-lg shadow-sm">
-                    <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-xs font-medium mr-3">ISO</div>
-                    <span className="text-sm font-medium">ISO-13485 Certified</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-white rounded-lg shadow-sm">
-                    <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-xs font-medium mr-3">CE</div>
-                    <span className="text-sm font-medium">CE Medical Device</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-white rounded-lg shadow-sm">
-                    <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-xs font-medium mr-3">CT</div>
-                    <span className="text-sm font-medium">Clinically Tested</span>
-                  </div>
-                </div>
+                
+                <TrustBadges />
               </div>
             </div>
           </div>
         </section>
 
         {/* How It Works */}
-        <section className="py-20 bg-white">
+        <section id="how-it-works" className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Simple Process</span>
@@ -224,7 +265,15 @@ const Physicians = () => {
                     <p className="text-muted-foreground">See an example of the detailed analytics you'll receive</p>
                   </div>
                 </div>
-                <Button variant="outline" className="border-myant-green text-myant-green hover:bg-myant-lightgreen">
+                <Button 
+                  variant="outline" 
+                  className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                  onClick={() => {
+                    trackEvent('sample_report_download', {
+                      source: 'physicians_page'
+                    });
+                  }}
+                >
                   Download Sample Report
                 </Button>
               </div>
@@ -233,7 +282,7 @@ const Physicians = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 bg-gradient-to-b from-white to-myant-lightgreen/20">
+        <section id="testimonials" className="py-20 bg-gradient-to-b from-white to-myant-lightgreen/20">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Testimonials</span>
@@ -247,48 +296,14 @@ const Physicians = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 42 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mb-4 text-myant-green/30"
-                  >
-                    <path
-                      d="M11.6249 36L0.374945 24.75V13.5H15.7499V28.125H4.49995L11.6249 36ZM33.7499 36L22.4999 24.75V13.5H37.8749V28.125H26.6249L33.7499 36Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <p className="text-muted-foreground mb-6">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    {testimonial.image ? (
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover mr-4"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-myant-green/10 flex items-center justify-center mr-4">
-                        <span className="text-myant-green font-medium text-lg">
-                          {testimonial.name.charAt(0)}
-                        </span>
-                      </div>
-                    )}
-                    <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                    </div>
-                  </div>
-                </div>
+                <TestimonialCard key={index} testimonial={testimonial} />
               ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-myant-green">
+        <section id="get-started" className="py-20 bg-myant-green">
           <div className="container-custom">
             <div className="text-center text-white max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -298,10 +313,27 @@ const Physicians = () => {
                 As a practicing physician, you can test our service with your first patient at no cost – including the device rental and report. We're confident you and your patient will appreciate the convenience and insight.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button size="lg" className="bg-white text-myant-green hover:bg-gray-100">
+                <ConversionButton 
+                  size="lg" 
+                  className="bg-white text-myant-green hover:bg-gray-100"
+                  eventName="try_skiin_free_click"
+                  eventParams={{source: "physician_page", section: "footer_cta"}}
+                  conversionId="AW-XXXXXXXXXX"
+                  conversionLabel="physician_trial_request"
+                >
                   Try SKIIN Free on a Patient <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-myant-darkgreen">
+                </ConversionButton>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="text-white border-white hover:bg-myant-darkgreen"
+                  onClick={() => {
+                    trackEvent('contact_medical_team', {
+                      source: 'physicians_page',
+                      section: 'footer_cta'
+                    });
+                  }}
+                >
                   Contact Our Medical Team
                 </Button>
               </div>
