@@ -1,47 +1,50 @@
 
 import React from "react";
 import { Check, X } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const ComparisonSection = () => {
+  const translations = useTranslation('home');
+  
   const comparisonData = [
     {
-      feature: "Continuous Monitoring",
+      feature: translations.comparison.features[0],
       skiin: true,
       holter: false,
       event: false,
     },
     {
-      feature: "14-Day Wear Period",
+      feature: translations.comparison.features[1],
       skiin: true,
       holter: false,
       event: true,
     },
     {
-      feature: "No Adhesives or Wires",
+      feature: translations.comparison.features[2],
       skiin: true,
       holter: false,
       event: false,
     },
     {
-      feature: "Washable & Reusable",
+      feature: translations.comparison.features[3],
       skiin: true,
       holter: false,
       event: false,
     },
     {
-      feature: "Real-time Data Transmission",
+      feature: translations.comparison.features[4],
       skiin: true,
       holter: false,
       event: true,
     },
     {
-      feature: "AI-powered Arrhythmia Detection",
+      feature: translations.comparison.features[5],
       skiin: true,
       holter: false,
       event: true,
     },
     {
-      feature: "Patient Comfort for Long-term Wear",
+      feature: translations.comparison.features[6],
       skiin: true,
       holter: false,
       event: false,
@@ -52,12 +55,12 @@ const ComparisonSection = () => {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-medium">Comparison</span>
+          <span className="text-primary font-medium">{translations.comparison.tagline}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            How SKIIN Compares
+            {translations.comparison.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            See how SKIIN Smart Garments compare to traditional cardiac monitoring solutions
+            {translations.comparison.subtitle}
           </p>
         </div>
 
@@ -65,21 +68,21 @@ const ComparisonSection = () => {
           <table className="min-w-full bg-white rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-myant-lightgreen text-foreground">
-                <th className="py-4 px-6 text-left w-1/3">Feature</th>
+                <th className="py-4 px-6 text-left w-1/3">{translations.comparison.columns.feature}</th>
                 <th className="py-4 px-6 text-center">
-                  <span className="font-bold text-myant-darkgreen">SKIIN</span>
+                  <span className="font-bold text-myant-darkgreen">{translations.comparison.columns.skiin}</span>
                   <br />
-                  <span className="text-sm font-normal">Smart Garment</span>
+                  <span className="text-sm font-normal">{translations.comparison.columns.skiinSubtitle}</span>
                 </th>
                 <th className="py-4 px-6 text-center">
-                  <span className="font-bold">Holter Monitor</span>
+                  <span className="font-bold">{translations.comparison.columns.holter}</span>
                   <br />
-                  <span className="text-sm font-normal">Traditional</span>
+                  <span className="text-sm font-normal">{translations.comparison.columns.holterSubtitle}</span>
                 </th>
                 <th className="py-4 px-6 text-center">
-                  <span className="font-bold">Event Monitor</span>
+                  <span className="font-bold">{translations.comparison.columns.event}</span>
                   <br />
-                  <span className="text-sm font-normal">Patch-based</span>
+                  <span className="text-sm font-normal">{translations.comparison.columns.eventSubtitle}</span>
                 </th>
               </tr>
             </thead>
