@@ -4,43 +4,32 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useRouteTranslations } from "@/utils/routeTranslations";
 
+/**
+ * HeroSection component for the homepage
+ * Uses the translation system to display content in the appropriate language
+ */
 const HeroSection = () => {
   const { language } = useLanguage();
+  const translations = useTranslation('home');
+  const { getRoutePath } = useRouteTranslations();
   
-  const buttonTexts = useTranslation(
-    { forPatients: "For Patients", forPhysicians: "For Physicians" },
-    { forPatients: "Für Patienten", forPhysicians: "Für Ärzte" },
-    { forPatients: "Pour les Patients", forPhysicians: "Pour les Médecins" }
-  );
-  
-  // Get the correct path based on language
-  const getPhysiciansPath = () => {
-    switch(language) {
-      case 'de':
-        return '/de/arzt';
-      case 'fr':
-        return '/fr/medecin';
-      default:
-        return '/physicians';
-    }
-  };
-
   return (
     <div className="pt-28 pb-16 md:pt-32 md:pb-24">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight text-foreground text-balance">
-              Continuous Cardiac Monitoring{" "}
-              <span className="text-primary">Without Compromising Comfort</span>
+              {translations.hero.title}{" "}
+              <span className="text-primary">{translations.hero.titleHighlight}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-              SKIIN Smart Garments are revolutionizing how we monitor and manage heart health, providing clinical-grade ECG without wires, adhesives, or discomfort.
+              {translations.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
-                {buttonTexts.forPatients}
+                {translations.hero.buttons.forPatients}
               </Button>
               <Button 
                 size="lg" 
@@ -48,8 +37,8 @@ const HeroSection = () => {
                 className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
                 asChild
               >
-                <Link to={getPhysiciansPath()}>
-                  {buttonTexts.forPhysicians}
+                <Link to={getRoutePath('physicians')}>
+                  {translations.hero.buttons.forPhysicians}
                 </Link>
               </Button>
             </div>
@@ -61,7 +50,7 @@ const HeroSection = () => {
                   <div className="w-8 h-8 rounded-full bg-blue-100 border border-white flex items-center justify-center text-xs font-medium">HD</div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Certified medical device, clinically tested and validated
+                  {translations.hero.certification}
                 </p>
               </div>
             </div>
@@ -84,10 +73,10 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium">
-                    "Finally, cardiac monitoring that my patients actually want to wear!"
+                    "{translations.hero.testimonial.quote}"
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Dr. Sarah Klein, Cardiologist
+                    {translations.hero.testimonial.author}
                   </p>
                 </div>
               </div>

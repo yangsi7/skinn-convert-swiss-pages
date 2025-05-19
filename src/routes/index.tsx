@@ -6,13 +6,19 @@ import Physicians from '@/pages/Physicians';
 import NotFound from '@/pages/NotFound';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+/**
+ * Main routing component that handles multilingual routes
+ * Detects language from URL path and updates language context accordingly
+ */
 const AppRoutes = () => {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
 
-  // Update language based on URL path
+  // Update language context based on URL path
   useEffect(() => {
     const path = location.pathname;
+    
+    // Set language based on URL path prefix
     if (path.startsWith('/de')) {
       setLanguage('de');
     } else if (path.startsWith('/fr')) {
@@ -37,7 +43,7 @@ const AppRoutes = () => {
       <Route path="/fr" element={<Index />} />
       <Route path="/fr/medecin" element={<Physicians />} />
       
-      {/* Catch-all */}
+      {/* Catch-all for 404 */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
