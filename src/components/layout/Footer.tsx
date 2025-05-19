@@ -2,9 +2,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MyantLogo from "@/components/ui/MyantLogo";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const t = useTranslation('home');
 
   return (
     <footer className="bg-myant-darkgreen text-white pt-16 pb-8">
@@ -13,7 +15,7 @@ const Footer = () => {
           <div className="space-y-4">
             <MyantLogo className="invert" />
             <p className="text-sm opacity-80 max-w-xs">
-              Pioneering garment-based continuous cardiac monitoring for better health outcomes.
+              {t.footer.tagline}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="hover:opacity-80 transition-opacity">
@@ -102,21 +104,21 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-lg">For Patients</h3>
+            <h3 className="font-semibold mb-4 text-lg">{t.footer.sections.patients.title}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/patients" className="hover:underline opacity-80 hover:opacity-100">
-                  SKIIN Smart Garments
+                  {t.footer.sections.patients.links.main}
                 </Link>
               </li>
               <li>
                 <Link to="/patients/testimonials" className="hover:underline opacity-80 hover:opacity-100">
-                  Patient Stories
+                  {t.footer.sections.patients.links.testimonials}
                 </Link>
               </li>
               <li>
                 <Link to="/patients/faq" className="hover:underline opacity-80 hover:opacity-100">
-                  FAQ
+                  {t.footer.sections.patients.links.faq}
                 </Link>
               </li>
               <li>
@@ -126,28 +128,28 @@ const Footer = () => {
                   rel="noopener noreferrer" 
                   className="hover:underline opacity-80 hover:opacity-100"
                 >
-                  Get Support
+                  {t.footer.sections.patients.links.support}
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-lg">For Physicians</h3>
+            <h3 className="font-semibold mb-4 text-lg">{t.footer.sections.physicians.title}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/physicians" className="hover:underline opacity-80 hover:opacity-100">
-                  Clinical Solutions
+                  {t.footer.sections.physicians.links.main}
                 </Link>
               </li>
               <li>
                 <Link to="/physicians/research" className="hover:underline opacity-80 hover:opacity-100">
-                  Clinical Studies
+                  {t.footer.sections.physicians.links.research}
                 </Link>
               </li>
               <li>
                 <Link to="/physicians/resources" className="hover:underline opacity-80 hover:opacity-100">
-                  Resources
+                  {t.footer.sections.physicians.links.resources}
                 </Link>
               </li>
               <li>
@@ -157,38 +159,38 @@ const Footer = () => {
                   rel="noopener noreferrer" 
                   className="hover:underline opacity-80 hover:opacity-100"
                 >
-                  Healthcare Provider Support
+                  {t.footer.sections.physicians.links.support}
                 </a>
               </li>
               <li>
                 <Link to="/request-demo" className="hover:underline opacity-80 hover:opacity-100">
-                  Request Demo
+                  {t.footer.sections.physicians.links.requestDemo}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-lg">Company</h3>
+            <h3 className="font-semibold mb-4 text-lg">{t.footer.sections.company.title}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/about" className="hover:underline opacity-80 hover:opacity-100">
-                  About Us
+                  {t.footer.sections.company.links.about}
                 </Link>
               </li>
               <li>
                 <Link to="/team" className="hover:underline opacity-80 hover:opacity-100">
-                  Our Team
+                  {t.footer.sections.company.links.team}
                 </Link>
               </li>
               <li>
                 <Link to="/careers" className="hover:underline opacity-80 hover:opacity-100">
-                  Careers
+                  {t.footer.sections.company.links.careers}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:underline opacity-80 hover:opacity-100">
-                  Contact
+                  {t.footer.sections.company.links.contact}
                 </Link>
               </li>
               <li>
@@ -198,7 +200,7 @@ const Footer = () => {
                   rel="noopener noreferrer" 
                   className="hover:underline opacity-80 hover:opacity-100"
                 >
-                  Technical Support
+                  {t.footer.sections.company.links.support}
                 </a>
               </li>
             </ul>
@@ -209,17 +211,17 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex space-x-4 text-xs opacity-70">
               <Link to="/privacy" className="hover:underline">
-                Privacy Policy
+                {t.footer.legal.privacy}
               </Link>
               <Link to="/terms" className="hover:underline">
-                Terms of Use
+                {t.footer.legal.terms}
               </Link>
               <Link to="/cookies" className="hover:underline">
-                Cookie Policy
+                {t.footer.legal.cookies}
               </Link>
             </div>
             <p className="text-xs opacity-70">
-              © {currentYear} Myant Health. All rights reserved.
+              © {currentYear} Myant Health. {t.footer.legal.rights}
             </p>
           </div>
         </div>

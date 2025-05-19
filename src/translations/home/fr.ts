@@ -184,6 +184,70 @@ export const homeTranslations = {
         title: "Adresse",
         content: "Bahnhofstrasse 100, 8001 Zürich, Suisse"
       }
+    },
+    form: {
+      name: "Nom",
+      namePlaceholder: "Votre nom complet",
+      email: "Email",
+      emailPlaceholder: "votre.email@exemple.com",
+      phone: "Numéro de téléphone",
+      phonePlaceholder: "+41 XX XXX XX XX",
+      role: "Je suis un(e) :",
+      rolePlaceholder: "Sélectionnez votre rôle",
+      roleOptions: {
+        patient: "Patient",
+        physician: "Médecin",
+        healthcareAdmin: "Administrateur de soins de santé",
+        other: "Autre"
+      },
+      message: "Message",
+      messagePlaceholder: "Comment pouvons-nous vous aider ?",
+      consent: "Je consens à ce que SKIIN traite mes données pour me contacter concernant ma demande. Voir notre",
+      privacyPolicy: "Politique de confidentialité",
+      submit: "Envoyer le message",
+      submitting: "Envoi en cours...",
+      successTitle: "Demande soumise",
+      successDescription: "Nous vous répondrons dans les 24 heures."
+    }
+  },
+  footer: {
+    tagline: "Pionnier de la surveillance cardiaque continue basée sur les vêtements pour de meilleurs résultats de santé.",
+    sections: {
+      patients: {
+        title: "Pour les Patients",
+        links: {
+          main: "Vêtements Intelligents SKIIN",
+          testimonials: "Témoignages de patients",
+          faq: "FAQ",
+          support: "Obtenir de l'aide"
+        }
+      },
+      physicians: {
+        title: "Pour les Médecins",
+        links: {
+          main: "Solutions Cliniques",
+          research: "Études Cliniques",
+          resources: "Ressources",
+          support: "Support pour les professionnels de santé",
+          requestDemo: "Demander une démo"
+        }
+      },
+      company: {
+        title: "Entreprise",
+        links: {
+          about: "À propos de nous",
+          team: "Notre équipe",
+          careers: "Carrières",
+          contact: "Contact",
+          support: "Support technique"
+        }
+      }
+    },
+    legal: {
+      privacy: "Politique de confidentialité",
+      terms: "Conditions d'utilisation",
+      cookies: "Politique des cookies",
+      rights: "Tous droits réservés."
     }
   }
 };

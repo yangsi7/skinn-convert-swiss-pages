@@ -184,6 +184,70 @@ export const homeTranslations = {
         title: "Address",
         content: "Bahnhofstrasse 100, 8001 Zürich, Switzerland"
       }
+    },
+    form: {
+      name: "Name",
+      namePlaceholder: "Your full name",
+      email: "Email",
+      emailPlaceholder: "your.email@example.com",
+      phone: "Phone Number",
+      phonePlaceholder: "+41 XX XXX XX XX",
+      role: "I am a:",
+      rolePlaceholder: "Select your role",
+      roleOptions: {
+        patient: "Patient",
+        physician: "Physician",
+        healthcareAdmin: "Healthcare Administrator",
+        other: "Other"
+      },
+      message: "Message",
+      messagePlaceholder: "How can we help you?",
+      consent: "I consent to SKIIN processing my data to contact me regarding my inquiry. See our",
+      privacyPolicy: "Privacy Policy",
+      submit: "Send Message",
+      submitting: "Submitting...",
+      successTitle: "Request submitted",
+      successDescription: "We'll get back to you within 24 hours."
+    }
+  },
+  footer: {
+    tagline: "Pioneering garment-based continuous cardiac monitoring for better health outcomes.",
+    sections: {
+      patients: {
+        title: "For Patients",
+        links: {
+          main: "SKIIN Smart Garments",
+          testimonials: "Patient Stories",
+          faq: "FAQ",
+          support: "Get Support"
+        }
+      },
+      physicians: {
+        title: "For Physicians",
+        links: {
+          main: "Clinical Solutions",
+          research: "Clinical Studies",
+          resources: "Resources",
+          support: "Healthcare Provider Support",
+          requestDemo: "Request Demo"
+        }
+      },
+      company: {
+        title: "Company",
+        links: {
+          about: "About Us",
+          team: "Our Team",
+          careers: "Careers",
+          contact: "Contact",
+          support: "Technical Support"
+        }
+      }
+    },
+    legal: {
+      privacy: "Privacy Policy",
+      terms: "Terms of Use",
+      cookies: "Cookie Policy",
+      rights: "All rights reserved."
     }
   }
 };

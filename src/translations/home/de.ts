@@ -184,6 +184,70 @@ export const homeTranslations = {
         title: "Adresse",
         content: "Bahnhofstrasse 100, 8001 Zürich, Schweiz"
       }
+    },
+    form: {
+      name: "Name",
+      namePlaceholder: "Ihr vollständiger Name",
+      email: "E-Mail",
+      emailPlaceholder: "ihre.email@beispiel.com",
+      phone: "Telefonnummer",
+      phonePlaceholder: "+41 XX XXX XX XX",
+      role: "Ich bin ein(e):",
+      rolePlaceholder: "Wählen Sie Ihre Rolle",
+      roleOptions: {
+        patient: "Patient",
+        physician: "Arzt",
+        healthcareAdmin: "Gesundheitsadministrator",
+        other: "Andere"
+      },
+      message: "Nachricht",
+      messagePlaceholder: "Wie können wir Ihnen helfen?",
+      consent: "Ich stimme zu, dass SKIIN meine Daten verarbeitet, um mich bezüglich meiner Anfrage zu kontaktieren. Siehe unsere",
+      privacyPolicy: "Datenschutzrichtlinie",
+      submit: "Nachricht senden",
+      submitting: "Wird gesendet...",
+      successTitle: "Anfrage eingereicht",
+      successDescription: "Wir melden uns innerhalb von 24 Stunden bei Ihnen."
+    }
+  },
+  footer: {
+    tagline: "Bahnbrechende kleidungsbasierte kontinuierliche Herzüberwachung für bessere Gesundheitsergebnisse.",
+    sections: {
+      patients: {
+        title: "Für Patienten",
+        links: {
+          main: "SKIIN Smart Kleidung",
+          testimonials: "Patientenberichte",
+          faq: "FAQ",
+          support: "Support erhalten"
+        }
+      },
+      physicians: {
+        title: "Für Ärzte",
+        links: {
+          main: "Klinische Lösungen",
+          research: "Klinische Studien",
+          resources: "Ressourcen",
+          support: "Gesundheitsdienstleister-Support",
+          requestDemo: "Demo anfragen"
+        }
+      },
+      company: {
+        title: "Unternehmen",
+        links: {
+          about: "Über uns",
+          team: "Unser Team",
+          careers: "Karriere",
+          contact: "Kontakt",
+          support: "Technischer Support"
+        }
+      }
+    },
+    legal: {
+      privacy: "Datenschutzrichtlinie",
+      terms: "Nutzungsbedingungen",
+      cookies: "Cookie-Richtlinie",
+      rights: "Alle Rechte vorbehalten."
     }
   }
 };

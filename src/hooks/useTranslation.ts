@@ -3,6 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { homeTranslations as enHomeTranslations } from '@/translations/home/en';
 import { homeTranslations as deHomeTranslations } from '@/translations/home/de';
 import { homeTranslations as frHomeTranslations } from '@/translations/home/fr';
+import { physiciansTranslations as enPhysiciansTranslations } from '@/translations/physicians/en';
+import { physiciansTranslations as dePhysiciansTranslations } from '@/translations/physicians/de';
+import { physiciansTranslations as frPhysiciansTranslations } from '@/translations/physicians/fr';
 
 /**
  * Hook for handling translations in the application
@@ -20,6 +23,7 @@ export function useTranslation<T>(
 ): T;
 
 export function useTranslation(section: 'home'): typeof enHomeTranslations;
+export function useTranslation(section: 'physicians'): typeof enPhysiciansTranslations;
 
 export function useTranslation<T>(
   enContentOrSection: T | string,
@@ -38,6 +42,12 @@ export function useTranslation<T>(
           case 'de': return deHomeTranslations;
           case 'fr': return frHomeTranslations;
           default: return enHomeTranslations;
+        }
+      case 'physicians':
+        switch (language) {
+          case 'de': return dePhysiciansTranslations;
+          case 'fr': return frPhysiciansTranslations;
+          default: return enPhysiciansTranslations;
         }
       // Add other sections as needed
       default:

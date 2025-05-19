@@ -11,9 +11,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const translations = useTranslation('home');
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -39,8 +42,8 @@ const ContactForm = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Request submitted",
-        description: "We'll get back to you within 24 hours.",
+        title: translations.contact.form.successTitle,
+        description: translations.contact.form.successDescription,
       });
       
       // Reset form
@@ -61,20 +64,20 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-1">
-            Name
+            {translations.contact.form.name}
           </label>
           <Input
             id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Your full name"
+            placeholder={translations.contact.form.namePlaceholder}
             required
           />
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-1">
-            Email
+            {translations.contact.form.email}
           </label>
           <Input
             id="email"
@@ -82,13 +85,13 @@ const ContactForm = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="your.email@example.com"
+            placeholder={translations.contact.form.emailPlaceholder}
             required
           />
         </div>
         <div>
           <label htmlFor="phone" className="block text-sm font-medium mb-1">
-            Phone Number
+            {translations.contact.form.phone}
           </label>
           <Input
             id="phone"
@@ -96,22 +99,22 @@ const ContactForm = () => {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+41 XX XXX XX XX"
+            placeholder={translations.contact.form.phonePlaceholder}
           />
         </div>
         <div>
           <label htmlFor="role" className="block text-sm font-medium mb-1">
-            I am a:
+            {translations.contact.form.role}
           </label>
           <Select value={formData.role} onValueChange={handleRoleChange}>
             <SelectTrigger id="role">
-              <SelectValue placeholder="Select your role" />
+              <SelectValue placeholder={translations.contact.form.rolePlaceholder} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="patient">Patient</SelectItem>
-              <SelectItem value="physician">Physician</SelectItem>
-              <SelectItem value="healthcare_admin">Healthcare Administrator</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="patient">{translations.contact.form.roleOptions.patient}</SelectItem>
+              <SelectItem value="physician">{translations.contact.form.roleOptions.physician}</SelectItem>
+              <SelectItem value="healthcare_admin">{translations.contact.form.roleOptions.healthcareAdmin}</SelectItem>
+              <SelectItem value="other">{translations.contact.form.roleOptions.other}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -119,14 +122,14 @@ const ContactForm = () => {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-1">
-          Message
+          {translations.contact.form.message}
         </label>
         <Textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="How can we help you?"
+          placeholder={translations.contact.form.messagePlaceholder}
           rows={4}
           required
         />
@@ -140,8 +143,10 @@ const ContactForm = () => {
           required
         />
         <label htmlFor="consent" className="text-sm text-muted-foreground">
-          I consent to SKIIN processing my data to contact me regarding my inquiry.
-          See our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
+          {translations.contact.form.consent}{' '}
+          <a href="/privacy" className="text-primary hover:underline">
+            {translations.contact.form.privacyPolicy}
+          </a>.
         </label>
       </div>
 
@@ -150,7 +155,7 @@ const ContactForm = () => {
         className="w-full bg-myant-green hover:bg-myant-darkgreen" 
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Send Message"}
+        {isSubmitting ? translations.contact.form.submitting : translations.contact.form.submit}
       </Button>
     </form>
   );
