@@ -2,26 +2,29 @@
 import React from "react";
 import ContactForm from "./ContactForm";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const ContactSection = () => {
+  const translations = useTranslation('home');
+  
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5 text-primary" />,
-      title: "Email",
-      content: "info@myant-health.com",
-      link: "mailto:info@myant-health.com",
+      title: translations.contact.contactInfo.email.title,
+      content: translations.contact.contactInfo.email.content,
+      link: `mailto:${translations.contact.contactInfo.email.content}`,
     },
     {
       icon: <Phone className="h-5 w-5 text-primary" />,
-      title: "Phone",
-      content: "+41 44 123 45 67",
-      link: "tel:+41441234567",
+      title: translations.contact.contactInfo.phone.title,
+      content: translations.contact.contactInfo.phone.content,
+      link: `tel:${translations.contact.contactInfo.phone.content.replace(/\s/g, "")}`,
     },
     {
       icon: <MapPin className="h-5 w-5 text-primary" />,
-      title: "Address",
-      content: "Bahnhofstrasse 100, 8001 Zürich, Switzerland",
-      link: "https://maps.google.com/?q=Bahnhofstrasse+100+Zurich",
+      title: translations.contact.contactInfo.address.title,
+      content: translations.contact.contactInfo.address.content,
+      link: `https://maps.google.com/?q=${encodeURIComponent(translations.contact.contactInfo.address.content)}`,
     },
   ];
 
@@ -30,13 +33,12 @@ const ContactSection = () => {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <span className="text-primary font-medium">Get In Touch</span>
+            <span className="text-primary font-medium">{translations.contact.tagline}</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-              Contact Us
+              {translations.contact.title}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Have questions about SKIIN or want to learn how it can benefit you or your practice? 
-              Fill out the form and our team will get back to you shortly.
+              {translations.contact.description}
             </p>
 
             <div className="space-y-6 mb-8">

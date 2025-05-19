@@ -1,40 +1,43 @@
 
 import React from "react";
 import ConversionButton from "@/components/analytics/ConversionButton";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const HowItWorksSection = () => {
+  const translations = useTranslation('home');
+  
   const steps = [
     {
-      number: "01",
-      title: "Prescription",
-      description: "Your healthcare provider prescribes SKIIN for continuous cardiac monitoring",
+      number: translations.howItWorks.steps[0].number,
+      title: translations.howItWorks.steps[0].title,
+      description: translations.howItWorks.steps[0].description
     },
     {
-      number: "02",
-      title: "Delivery",
-      description: "Receive your SKIIN Smart Garment kit directly at your home",
+      number: translations.howItWorks.steps[1].number,
+      title: translations.howItWorks.steps[1].title,
+      description: translations.howItWorks.steps[1].description,
       image: "/lovable-uploads/a94ae42b-2b12-49d8-a6af-965c9691535f.png"
     },
     {
-      number: "03",
-      title: "Wear",
-      description: "Simply wear the comfortable garment as part of your daily routine",
+      number: translations.howItWorks.steps[2].number,
+      title: translations.howItWorks.steps[2].title,
+      description: translations.howItWorks.steps[2].description
     },
     {
-      number: "04",
-      title: "Monitor",
-      description: "Your heart rhythm is continuously monitored and analyzed",
+      number: translations.howItWorks.steps[3].number,
+      title: translations.howItWorks.steps[3].title,
+      description: translations.howItWorks.steps[3].description
     },
     {
-      number: "05",
-      title: "Connect",
-      description: "Data is securely shared with your healthcare provider in real-time",
+      number: translations.howItWorks.steps[4].number,
+      title: translations.howItWorks.steps[4].title,
+      description: translations.howItWorks.steps[4].description,
       image: "/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
     },
     {
-      number: "06",
-      title: "Results",
-      description: "Get personalized insights and treatment recommendations",
+      number: translations.howItWorks.steps[5].number,
+      title: translations.howItWorks.steps[5].title,
+      description: translations.howItWorks.steps[5].description
     },
   ];
 
@@ -42,12 +45,12 @@ const HowItWorksSection = () => {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-medium">Simple Process</span>
+          <span className="text-primary font-medium">{translations.howItWorks.tagline}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            How SKIIN Works
+            {translations.howItWorks.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Designed to fit seamlessly into your life while providing clinical-grade cardiac monitoring
+            {translations.howItWorks.subtitle}
           </p>
         </div>
 
@@ -82,7 +85,7 @@ const HowItWorksSection = () => {
             eventName="learn_more_process"
             eventParams={{ section: "how_it_works", page: "home" }}
           >
-            Learn More About the Process
+            {translations.howItWorks.cta}
           </ConversionButton>
         </div>
       </div>

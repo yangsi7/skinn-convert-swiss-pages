@@ -1,25 +1,28 @@
 
 import React from "react";
 import { Card } from "@/components/ui/card";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const TestimonialsSection = () => {
+  const translations = useTranslation('home');
+  
   const testimonials = [
     {
-      quote: "SKIIN has transformed how I monitor my patients with arrhythmias. The continuous data gives me confidence in my diagnoses, and patients actually keep wearing it.",
-      name: "Dr. Michael Rodriguez",
-      title: "Cardiologist, Swiss Heart Center",
+      quote: translations.testimonials.items[0].quote,
+      name: translations.testimonials.items[0].name,
+      title: translations.testimonials.items[0].title,
       image: "/lovable-uploads/2c470df9-6b84-48a2-b3f4-d958760f8b36.png"
     },
     {
-      quote: "As someone who needs regular cardiac monitoring, SKIIN has been life-changing. I forget I'm wearing a medical device - it's just like regular underwear but keeps me connected to my doctor.",
-      name: "Maria Schmidt",
-      title: "Patient with Atrial Fibrillation",
+      quote: translations.testimonials.items[1].quote,
+      name: translations.testimonials.items[1].name,
+      title: translations.testimonials.items[1].title,
       image: ""
     },
     {
-      quote: "The quality of data we receive from SKIIN garments is exceptional. The continuous monitoring has helped us detect patterns that would have been missed with traditional Holter monitoring.",
-      name: "Dr. Sophia Levine",
-      title: "Electrophysiologist",
+      quote: translations.testimonials.items[2].quote,
+      name: translations.testimonials.items[2].name,
+      title: translations.testimonials.items[2].title,
       image: "/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
     },
   ];
@@ -28,12 +31,12 @@ const TestimonialsSection = () => {
     <section className="section-padding bg-gradient-to-b from-white to-myant-lightgreen/30">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-medium">Testimonials</span>
+          <span className="text-primary font-medium">{translations.testimonials.tagline}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Trusted by Doctors and Patients
+            {translations.testimonials.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Hear from healthcare providers and patients who have experienced the benefits of SKIIN
+            {translations.testimonials.subtitle}
           </p>
         </div>
 

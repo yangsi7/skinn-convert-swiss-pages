@@ -139,7 +139,33 @@ export const homeTranslations = {
   faq: {
     tagline: "FAQ",
     title: "Questions fréquemment posées",
-    subtitle: "Trouvez des réponses aux questions courantes sur les vêtements intelligents SKIIN"
+    subtitle: "Trouvez des réponses aux questions courantes sur les vêtements intelligents SKIIN",
+    items: [
+      {
+        question: "Quelle est la précision des données ECG de SKIIN ?",
+        answer: "Les vêtements intelligents SKIIN fournissent des données ECG de qualité clinique avec une précision comparable aux moniteurs Holter traditionnels. Notre technologie a été validée dans des études cliniques et répond aux exigences réglementaires des dispositifs médicaux."
+      },
+      {
+        question: "Combien de temps les patients peuvent-ils porter les vêtements SKIIN ?",
+        answer: "Les vêtements intelligents SKIIN peuvent être portés jusqu'à 14 jours consécutifs, offrant une surveillance cardiaque prolongée. Les vêtements sont conçus pour être suffisamment confortables pour être portés jour et nuit, permettant une surveillance véritablement continue."
+      },
+      {
+        question: "Les vêtements SKIIN sont-ils couverts par l'assurance ?",
+        answer: "De nombreux fournisseurs d'assurance et systèmes de santé couvrent SKIIN comme solution de surveillance cardiaque. La couverture varie selon le pays et le fournisseur. Nous pouvons vous aider à vérifier la couverture pour votre situation spécifique via notre équipe de support de remboursement."
+      },
+      {
+        question: "Comment les patients obtiennent-ils les vêtements intelligents SKIIN ?",
+        answer: "Les vêtements intelligents SKIIN nécessitent une prescription d'un professionnel de la santé. Une fois prescrit, le kit SKIIN est livré directement au domicile du patient avec des instructions simples d'utilisation et d'entretien."
+      },
+      {
+        question: "SKIIN peut-il détecter tous les types d'arythmies ?",
+        answer: "SKIIN est conçu pour détecter un large éventail d'arythmies cardiaques, y compris la fibrillation auriculaire, la bradycardie, la tachycardie et autres. Nos algorithmes d'IA analysent en continu les données ECG pour identifier les schémas irréguliers et alerter les prestataires de soins si nécessaire."
+      },
+      {
+        question: "Comment les données des patients sont-elles protégées ?",
+        answer: "SKIIN prend la sécurité des données au sérieux. Toutes les données des patients sont cryptées tant en transit qu'au repos. Nos systèmes sont conformes au RGPD, à l'HIPAA et à d'autres réglementations régionales de protection des données pour assurer la confidentialité des patients."
+      }
+    ]
   },
   contact: {
     tagline: "Nous contacter",

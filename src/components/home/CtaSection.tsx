@@ -1,25 +1,28 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const CtaSection = () => {
+  const translations = useTranslation('home');
+  
   return (
     <section className="section-padding bg-myant-green text-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to transform cardiac monitoring?
+              {translations.cta.title}
             </h2>
             <p className="text-lg opacity-90 mb-8">
-              Whether you're a healthcare provider looking to offer better cardiac care or a patient seeking a more comfortable monitoring solution, SKIIN is ready for you.
+              {translations.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-myant-green hover:bg-myant-lightgreen">
-                Request Information
+                {translations.cta.buttons.requestInfo}
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-myant-darkgreen">
-                Schedule a Demo
+                {translations.cta.buttons.scheduleDemo}
               </Button>
             </div>
           </div>
@@ -40,7 +43,7 @@ const CtaSection = () => {
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-white">
-                  97% patient satisfaction rate
+                  {translations.cta.statistic}
                 </span>
               </div>
             </div>

@@ -139,7 +139,33 @@ export const homeTranslations = {
   faq: {
     tagline: "FAQ",
     title: "Häufig gestellte Fragen",
-    subtitle: "Finden Sie Antworten auf häufig gestellte Fragen zu SKIIN Smart Kleidung"
+    subtitle: "Finden Sie Antworten auf häufig gestellte Fragen zu SKIIN Smart Kleidung",
+    items: [
+      {
+        question: "Wie genau sind die EKG-Daten von SKIIN?",
+        answer: "SKIIN Smart Kleidung liefert EKG-Daten in klinischer Qualität mit einer Genauigkeit, die mit herkömmlichen Holter-Monitoren vergleichbar ist. Unsere Technologie wurde in klinischen Studien validiert und erfüllt die Anforderungen an Medizinprodukte."
+      },
+      {
+        question: "Wie lange können Patienten SKIIN-Kleidung tragen?",
+        answer: "SKIIN Smart Kleidung kann bis zu 14 aufeinanderfolgende Tage getragen werden und bietet eine erweiterte Herzüberwachung. Die Kleidungsstücke sind bequem genug für Tag- und Nachtgebrauch und ermöglichen eine wirklich kontinuierliche Überwachung."
+      },
+      {
+        question: "Werden SKIIN-Kleidungsstücke von der Versicherung übernommen?",
+        answer: "Viele Versicherungsanbieter und Gesundheitssysteme decken SKIIN als Herzüberwachungslösung ab. Die Abdeckung variiert je nach Land und Anbieter. Wir können Ihnen helfen, die Abdeckung für Ihre spezifische Situation über unser Erstattungsteam zu überprüfen."
+      },
+      {
+        question: "Wie erhalten Patienten SKIIN Smart Kleidung?",
+        answer: "SKIIN Smart Kleidung erfordert ein Rezept von einem Gesundheitsdienstleister. Nach der Verschreibung wird das SKIIN-Kit direkt zum Patienten nach Hause geliefert, mit einfachen Anweisungen zur Verwendung und Pflege."
+      },
+      {
+        question: "Kann SKIIN alle Arten von Arrhythmien erkennen?",
+        answer: "SKIIN ist darauf ausgelegt, eine breite Palette von Herzrhythmusstörungen zu erkennen, einschließlich Vorhofflimmern, Bradykardie, Tachykardie und andere. Unsere KI-Algorithmen analysieren kontinuierlich die EKG-Daten, um unregelmäßige Muster zu identifizieren und Gesundheitsdienstleister bei Bedarf zu alarmieren."
+      },
+      {
+        question: "Wie werden Patientendaten geschützt?",
+        answer: "SKIIN nimmt die Datensicherheit ernst. Alle Patientendaten werden sowohl während der Übertragung als auch im Ruhezustand verschlüsselt. Unsere Systeme entsprechen der DSGVO, HIPAA und anderen regionalen Datenschutzbestimmungen, um die Privatsphäre der Patienten zu gewährleisten."
+      }
+    ]
   },
   contact: {
     tagline: "Kontakt aufnehmen",
