@@ -3,9 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { homeTranslations as enHomeTranslations } from '@/translations/home/en';
 import { homeTranslations as deHomeTranslations } from '@/translations/home/de';
 import { homeTranslations as frHomeTranslations } from '@/translations/home/fr';
-import { physiciansTranslations as enPhysiciansTranslations } from '@/translations/physicians/en';
-import { physiciansTranslations as dePhysiciansTranslations } from '@/translations/physicians/de';
-import { physiciansTranslations as frPhysiciansTranslations } from '@/translations/physicians/fr';
+import { physiciansContent as enPhysiciansTranslations } from '@/translations/physicians/en';
+import { physiciansContent as dePhysiciansTranslations } from '@/translations/physicians/de';
+import { physiciansContent as frPhysiciansTranslations } from '@/translations/physicians/fr';
 
 /**
  * Hook for handling translations in the application
