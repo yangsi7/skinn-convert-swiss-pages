@@ -11,6 +11,10 @@ import CtaSection from '@/components/home/CtaSection';
 import FaqSection from '@/components/home/FaqSection';
 import ContactSection from '@/components/home/ContactSection';
 
+/**
+ * Home page composed of multiple marketing sections. Each section uses the
+ * translation hooks so text is rendered in the currently selected language.
+ */
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">

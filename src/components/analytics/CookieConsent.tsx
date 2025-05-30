@@ -25,6 +25,10 @@ interface CookieConsentProps {
   onConsentChange?: (preferences: ConsentPreferences) => void;
 }
 
+/**
+ * Manages cookie consent UI and persistence. Displays a banner and preference
+ * dialog allowing users to accept all, necessary only or granular categories.
+ */
 export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);

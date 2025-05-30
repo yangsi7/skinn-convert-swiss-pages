@@ -1,5 +1,12 @@
 import * as React from "react"
 
+/**
+ * Custom toast notification system modeled after Radix UI's toast component.
+ * Provides a global `toast` function for triggering notifications and a
+ * `useToast` hook for accessing the current list of toasts inside React
+ * components. Toasts are automatically removed after a delay.
+ */
+
 import type {
   ToastActionElement,
   ToastProps,
@@ -55,6 +62,9 @@ interface State {
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
 
+/**
+ * Adds a toast id to a queue so it can be removed after the configured delay.
+ */
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
     return
@@ -71,6 +81,9 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout)
 }
 
+/**
+ * Reducer handling the different toast actions.
+ */
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
@@ -139,6 +152,10 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">
 
+/**
+ * Create and display a new toast notification. Returns helper functions to
+ * update or dismiss the toast programmatically.
+ */
 function toast({ ...props }: Toast) {
   const id = genId()
 
@@ -168,6 +185,10 @@ function toast({ ...props }: Toast) {
   }
 }
 
+/**
+ * Hook that subscribes a component to toast state changes. Returns helper
+ * methods for showing and dismissing toasts.
+ */
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 

@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+/**
+ * Fallback page displayed when no route matches. Logs the invalid path for
+ * debugging and provides a link back to the homepage.
+ */
 const NotFound = () => {
   const location = useLocation();
 
