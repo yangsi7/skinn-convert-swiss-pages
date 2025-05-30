@@ -18,6 +18,10 @@ import { physiciansContent as deContent } from '@/translations/physicians/de';
 import { physiciansContent as frContent } from '@/translations/physicians/fr';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+/**
+ * Landing page targeted at physicians. Includes marketing sections, analytics
+ * tracking and dynamic translations based on user language.
+ */
 const Physicians = () => {
   const content = useTranslation(enContent, deContent, frContent);
   const { language } = useLanguage();

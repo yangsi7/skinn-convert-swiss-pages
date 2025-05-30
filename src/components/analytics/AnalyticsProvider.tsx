@@ -18,7 +18,11 @@ const AnalyticsContext = createContext<AnalyticsContextType>({
 
 export const useAnalytics = () => useContext(AnalyticsContext);
 
-export function AnalyticsProvider({ 
+/**
+ * Provider that injects analytics scripts and exposes tracking utilities.
+ * Handles cookie consent, page view tracking and UTM parameter persistence.
+ */
+export function AnalyticsProvider({
   children,
   googleAnalyticsId,
   googleAdsId,

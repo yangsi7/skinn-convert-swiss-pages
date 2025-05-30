@@ -9,7 +9,11 @@ interface AnalyticsScriptsProps {
   respectConsent?: boolean;
 }
 
-export default function AnalyticsScripts({ 
+/**
+ * Loads third-party analytics scripts (GTM, GA4, HubSpot) based on the user's
+ * consent settings. Should be rendered once at the root of the application.
+ */
+export default function AnalyticsScripts({
   googleAnalyticsId = "G-XXXXXXXXXX", // Replace with actual GA4 measurement ID
   googleAdsId = "AW-XXXXXXXXXX", // Replace with actual Google Ads ID
   hubspotId = "XXXXXXXX", // Replace with actual HubSpot tracking code

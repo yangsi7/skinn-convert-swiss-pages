@@ -2,6 +2,11 @@ import * as React from "react"
 
 const MOBILE_BREAKPOINT = 768
 
+/**
+ * React hook that tracks whether the screen width is below the mobile
+ * breakpoint. Useful for conditional rendering between mobile and desktop
+ * layouts.
+ */
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
 

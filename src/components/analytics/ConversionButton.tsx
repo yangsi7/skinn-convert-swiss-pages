@@ -13,6 +13,11 @@ interface ConversionButtonProps extends ButtonProps {
   external?: boolean;
 }
 
+/**
+ * Button component that automatically tracks analytics events and optional
+ * Google Ads conversions when clicked. Can render as a link when `href` is
+ * provided.
+ */
 export default function ConversionButton({
   conversionId,
   conversionLabel,
