@@ -1,9 +1,36 @@
-
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
-import Physicians from '@/pages/Physicians';
 import NotFound from '@/pages/NotFound';
+
+// Solutions pages
+import Solutions14DayHolter from '@/pages/solutions/14DayHolter';
+import SolutionsTritest from '@/pages/solutions/Tritest';
+
+// Partners pages
+import PartnersOverview from '@/pages/partners/Overview';
+import PartnersGPs from '@/pages/partners/GeneralPractitioners';
+import PartnersCardiologists from '@/pages/partners/Cardiologists';
+import PartnersTelemedicine from '@/pages/partners/Telemedicine';
+import PartnersCorporate from '@/pages/partners/Corporate';
+
+// How It Works pages
+import HowItWorksOverview from '@/pages/how-it-works/Overview';
+import HowItWorksProcess from '@/pages/how-it-works/Process';
+import HowItWorksReimbursement from '@/pages/how-it-works/Reimbursement';
+import HowItWorksTechnology from '@/pages/how-it-works/Technology';
+import HowItWorksEvidence from '@/pages/how-it-works/Evidence';
+import HowItWorksFAQ from '@/pages/how-it-works/FAQ';
+
+// About Us pages
+import AboutOverview from '@/pages/about/Overview';
+import AboutCompany from '@/pages/about/Company';
+import AboutBoard from '@/pages/about/MedicalBoard';
+import AboutBlog from '@/pages/about/Blog';
+import AboutTestimonials from '@/pages/about/Testimonials';
+import AboutCompliance from '@/pages/about/Compliance';
+import AboutContact from '@/pages/about/Contact';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
@@ -33,15 +60,96 @@ const AppRoutes = () => {
     <Routes>
       {/* English Routes */}
       <Route path="/" element={<Index />} />
-      <Route path="/physicians" element={<Physicians />} />
+      
+      {/* Solutions Routes */}
+      <Route path="/solutions/14-day-holter" element={<Solutions14DayHolter />} />
+      <Route path="/solutions/tritest" element={<SolutionsTritest />} />
+      
+      {/* Partners Routes */}
+      <Route path="/partners" element={<PartnersOverview />} />
+      <Route path="/partners/general-practitioners" element={<PartnersGPs />} />
+      <Route path="/partners/cardiologists" element={<PartnersCardiologists />} />
+      <Route path="/partners/telemedicine" element={<PartnersTelemedicine />} />
+      <Route path="/partners/corporate" element={<PartnersCorporate />} />
+      
+      {/* How It Works Routes */}
+      <Route path="/how-it-works" element={<HowItWorksOverview />} />
+      <Route path="/how-it-works/process" element={<HowItWorksProcess />} />
+      <Route path="/how-it-works/reimbursement" element={<HowItWorksReimbursement />} />
+      <Route path="/how-it-works/technology" element={<HowItWorksTechnology />} />
+      <Route path="/how-it-works/evidence" element={<HowItWorksEvidence />} />
+      <Route path="/how-it-works/faq" element={<HowItWorksFAQ />} />
+      
+      {/* About Us Routes */}
+      <Route path="/about" element={<AboutOverview />} />
+      <Route path="/about/company" element={<AboutCompany />} />
+      <Route path="/about/medical-board" element={<AboutBoard />} />
+      <Route path="/about/blog" element={<AboutBlog />} />
+      <Route path="/about/testimonials" element={<AboutTestimonials />} />
+      <Route path="/about/compliance" element={<AboutCompliance />} />
+      <Route path="/about/contact" element={<AboutContact />} />
       
       {/* German Routes */}
       <Route path="/de" element={<Index />} />
-      <Route path="/de/arzt" element={<Physicians />} />
+      
+      {/* German Solutions Routes */}
+      <Route path="/de/loesungen/14-tage-holter" element={<Solutions14DayHolter />} />
+      <Route path="/de/loesungen/tritest" element={<SolutionsTritest />} />
+      
+      {/* German Partners Routes */}
+      <Route path="/de/partner" element={<PartnersOverview />} />
+      <Route path="/de/partner/hausaerzte" element={<PartnersGPs />} />
+      <Route path="/de/partner/kardiologen" element={<PartnersCardiologists />} />
+      <Route path="/de/partner/telemedizin" element={<PartnersTelemedicine />} />
+      <Route path="/de/partner/unternehmen" element={<PartnersCorporate />} />
+      
+      {/* German How It Works Routes */}
+      <Route path="/de/wie-es-funktioniert" element={<HowItWorksOverview />} />
+      <Route path="/de/wie-es-funktioniert/prozess" element={<HowItWorksProcess />} />
+      <Route path="/de/wie-es-funktioniert/kostenerstattung" element={<HowItWorksReimbursement />} />
+      <Route path="/de/wie-es-funktioniert/technologie" element={<HowItWorksTechnology />} />
+      <Route path="/de/wie-es-funktioniert/evidenz" element={<HowItWorksEvidence />} />
+      <Route path="/de/wie-es-funktioniert/faq" element={<HowItWorksFAQ />} />
+      
+      {/* German About Us Routes */}
+      <Route path="/de/ueber-uns" element={<AboutOverview />} />
+      <Route path="/de/ueber-uns/unternehmen" element={<AboutCompany />} />
+      <Route path="/de/ueber-uns/beirat" element={<AboutBoard />} />
+      <Route path="/de/ueber-uns/blog" element={<AboutBlog />} />
+      <Route path="/de/ueber-uns/erfahrungsberichte" element={<AboutTestimonials />} />
+      <Route path="/de/ueber-uns/compliance" element={<AboutCompliance />} />
+      <Route path="/de/ueber-uns/kontakt" element={<AboutContact />} />
       
       {/* French Routes */}
       <Route path="/fr" element={<Index />} />
-      <Route path="/fr/medecin" element={<Physicians />} />
+      
+      {/* French Solutions Routes */}
+      <Route path="/fr/solutions/holter-14-jours" element={<Solutions14DayHolter />} />
+      <Route path="/fr/solutions/tritest" element={<SolutionsTritest />} />
+      
+      {/* French Partners Routes */}
+      <Route path="/fr/partenaires" element={<PartnersOverview />} />
+      <Route path="/fr/partenaires/medecins-generalistes" element={<PartnersGPs />} />
+      <Route path="/fr/partenaires/cardiologues" element={<PartnersCardiologists />} />
+      <Route path="/fr/partenaires/telemedecine" element={<PartnersTelemedicine />} />
+      <Route path="/fr/partenaires/entreprises" element={<PartnersCorporate />} />
+      
+      {/* French How It Works Routes */}
+      <Route path="/fr/comment-ca-marche" element={<HowItWorksOverview />} />
+      <Route path="/fr/comment-ca-marche/processus" element={<HowItWorksProcess />} />
+      <Route path="/fr/comment-ca-marche/remboursement" element={<HowItWorksReimbursement />} />
+      <Route path="/fr/comment-ca-marche/technologie" element={<HowItWorksTechnology />} />
+      <Route path="/fr/comment-ca-marche/evidence" element={<HowItWorksEvidence />} />
+      <Route path="/fr/comment-ca-marche/faq" element={<HowItWorksFAQ />} />
+      
+      {/* French About Us Routes */}
+      <Route path="/fr/a-propos" element={<AboutOverview />} />
+      <Route path="/fr/a-propos/entreprise" element={<AboutCompany />} />
+      <Route path="/fr/a-propos/conseil-medical" element={<AboutBoard />} />
+      <Route path="/fr/a-propos/blog" element={<AboutBlog />} />
+      <Route path="/fr/a-propos/temoignages" element={<AboutTestimonials />} />
+      <Route path="/fr/a-propos/conformite" element={<AboutCompliance />} />
+      <Route path="/fr/a-propos/contact" element={<AboutContact />} />
       
       {/* Catch-all for 404 */}
       <Route path="*" element={<NotFound />} />

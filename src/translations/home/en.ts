@@ -136,6 +136,70 @@ export const homeTranslations = {
     },
     statistic: "97% patient satisfaction rate"
   },
+  problemSolution: {
+    title: "Finally, a heart monitor you'll actually want to wear",
+    problems: {
+      title: "Traditional Holter Problems",
+      items: [
+        {
+          title: "Uncomfortable wires and patches",
+          description: "Bulky wires and irritating adhesive pads disrupt daily life"
+        },
+        {
+          title: "Short monitoring duration", 
+          description: "24-48 hours often miss intermittent arrhythmias"
+        },
+        {
+          title: "Lifestyle interruptions",
+          description: "No showering, sports, or normal activities possible"
+        }
+      ]
+    },
+    solutions: {
+      title: "SKIIN Solutions",
+      items: [
+        {
+          title: "Textile comfort without wires",
+          description: "Soft fabric band with invisible sensors - discreet and comfortable"
+        },
+        {
+          title: "14-day continuous monitoring",
+          description: "Higher detection rate for rare heart rhythm disorders"
+        },
+        {
+          title: "Continue living normally",
+          description: "Work, sleep, shower - SKIIN adapts to your life"
+        }
+      ]
+    }
+  },
+  insurance: {
+    title: "Coverage by Your Health Insurance",
+    subtitle: "SKIIN is covered by basic insurance when medically prescribed",
+    models: [
+      {
+        title: "GP Model",
+        description: "Consult your family doctor for a SKIIN referral. Once medically prescribed, it's covered by basic insurance.",
+        icon: "👨‍⚕️"
+      },
+      {
+        title: "HMO Model", 
+        description: "Visit your HMO practice first for evaluation. When approved, SKIIN is fully covered.",
+        icon: "🏥"
+      },
+      {
+        title: "Telmed Model",
+        description: "Call your telemedicine hotline first. Once approved by the tele-doctor, SKIIN is covered.",
+        icon: "📞"
+      },
+      {
+        title: "Self-Pay",
+        description: "For preventive screening without symptoms. Transparent pricing available.",
+        icon: "💳"
+      }
+    ],
+    cta: "Check Coverage"
+  },
   faq: {
     tagline: "FAQ",
     title: "Frequently Asked Questions",

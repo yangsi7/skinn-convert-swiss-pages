@@ -1,9 +1,14 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import MyantLogo from "@/components/ui/MyantLogo";
 
@@ -46,14 +51,44 @@ const Navbar = () => {
       return targetLang === 'en' ? '/' : `/${targetLang}`;
     }
     
-    // For physicians page and its translations
-    if (currentPath === '/physicians' || currentPath === '/de/arzt' || currentPath === '/fr/medecin') {
-      if (targetLang === 'en') return '/physicians';
-      if (targetLang === 'de') return '/de/arzt';
-      if (targetLang === 'fr') return '/fr/medecin';
+    // Handle the new route structure
+    const pathMappings = {
+      // Solutions
+      '/solutions/14-day-holter': { de: '/de/loesungen/14-tage-holter', fr: '/fr/solutions/holter-14-jours' },
+      '/solutions/tritest': { de: '/de/loesungen/tritest', fr: '/fr/solutions/tritest' },
+      
+      // Partners
+      '/partners': { de: '/de/partner', fr: '/fr/partenaires' },
+      '/partners/general-practitioners': { de: '/de/partner/hausaerzte', fr: '/fr/partenaires/medecins-generalistes' },
+      '/partners/cardiologists': { de: '/de/partner/kardiologen', fr: '/fr/partenaires/cardiologues' },
+      '/partners/telemedicine': { de: '/de/partner/telemedizin', fr: '/fr/partenaires/telemedecine' },
+      '/partners/corporate': { de: '/de/partner/unternehmen', fr: '/fr/partenaires/entreprises' },
+      
+      // How It Works
+      '/how-it-works': { de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche' },
+      '/how-it-works/process': { de: '/de/wie-es-funktioniert/prozess', fr: '/fr/comment-ca-marche/processus' },
+      '/how-it-works/reimbursement': { de: '/de/wie-es-funktioniert/kostenerstattung', fr: '/fr/comment-ca-marche/remboursement' },
+      '/how-it-works/technology': { de: '/de/wie-es-funktioniert/technologie', fr: '/fr/comment-ca-marche/technologie' },
+      '/how-it-works/evidence': { de: '/de/wie-es-funktioniert/evidenz', fr: '/fr/comment-ca-marche/evidence' },
+      '/how-it-works/faq': { de: '/de/wie-es-funktioniert/faq', fr: '/fr/comment-ca-marche/faq' },
+      
+      // About
+      '/about': { de: '/de/ueber-uns', fr: '/fr/a-propos' },
+      '/about/company': { de: '/de/ueber-uns/unternehmen', fr: '/fr/a-propos/entreprise' },
+      '/about/medical-board': { de: '/de/ueber-uns/beirat', fr: '/fr/a-propos/conseil-medical' },
+      '/about/blog': { de: '/de/ueber-uns/blog', fr: '/fr/a-propos/blog' },
+      '/about/testimonials': { de: '/de/ueber-uns/erfahrungsberichte', fr: '/fr/a-propos/temoignages' },
+      '/about/compliance': { de: '/de/ueber-uns/compliance', fr: '/fr/a-propos/conformite' },
+      '/about/contact': { de: '/de/ueber-uns/kontakt', fr: '/fr/a-propos/contact' }
+    };
+    
+    // Find the mapping for current path
+    const mapping = pathMappings[currentPath];
+    if (mapping && mapping[targetLang]) {
+      return mapping[targetLang];
     }
     
-    // Default fallback - just add language prefix
+    // Default fallback
     return targetLang === 'en' ? currentPath.replace(/^\/de\/|^\/fr\//, '/') : `/${targetLang}${currentPath}`;
   };
 
@@ -63,54 +98,77 @@ const Navbar = () => {
     navigate(newPath);
   };
 
-  // Determine which navigation links to show based on language
+  // Navigation structure based on new architecture
   const getNavigationItems = () => {
-    // Basic structure for all languages
-    const items = [
-      { labelKey: "forPatients", path: "/patients" },
-      { labelKey: "forPhysicians", path: language === 'en' ? "/physicians" : language === 'de' ? "/de/arzt" : "/fr/medecin" },
-      { labelKey: "howItWorks", path: "/how-it-works" },
-      { labelKey: "evidence", path: "/evidence" },
-      { labelKey: "about", path: "/about" },
-      { labelKey: "support", path: "https://skiin-support.netlify.app/", external: true },
-    ];
-
-    // Localized labels for each language
+    const basePrefix = language === 'en' ? '' : `/${language}`;
+    
     const labels = {
       en: {
-        forPatients: "For Patients",
-        forPhysicians: "For Physicians",
+        solutions: "Solutions",
+        partners: "Partners", 
         howItWorks: "How It Works",
-        evidence: "Clinical Evidence",
-        about: "About Us",
-        support: "Support",
+        about: "About Us"
       },
       de: {
-        forPatients: "Für Patienten",
-        forPhysicians: "Für Ärzte",
-        howItWorks: "Wie es funktioniert",
-        evidence: "Klinische Evidenz",
-        about: "Über uns",
-        support: "Support",
+        solutions: "Lösungen",
+        partners: "Partner",
+        howItWorks: "Wie es funktioniert", 
+        about: "Über uns"
       },
       fr: {
-        forPatients: "Pour les Patients",
-        forPhysicians: "Pour les Médecins",
+        solutions: "Solutions",
+        partners: "Partenaires",
         howItWorks: "Comment ça marche",
-        evidence: "Preuves Cliniques",
-        about: "À propos",
-        support: "Support",
+        about: "À propos"
       }
     };
 
-    // Return items with localized labels
-    return items.map(item => ({
-      ...item,
-      label: labels[language][item.labelKey]
-    }));
+    const solutionsItems = {
+      en: [
+        { label: "14-Day Holter ECG", path: "/solutions/14-day-holter" },
+        { label: "SKIIN 3X Tritest", path: "/solutions/tritest" }
+      ],
+      de: [
+        { label: "14-Tage Holter EKG", path: "/de/loesungen/14-tage-holter" },
+        { label: "SKIIN 3X Tritest", path: "/de/loesungen/tritest" }
+      ],
+      fr: [
+        { label: "Holter ECG 14 Jours", path: "/fr/solutions/holter-14-jours" },
+        { label: "SKIIN 3X Tritest", path: "/fr/solutions/tritest" }
+      ]
+    };
+
+    const partnersItems = {
+      en: [
+        { label: "General Practitioners", path: "/partners/general-practitioners" },
+        { label: "Cardiologists", path: "/partners/cardiologists" },
+        { label: "Telemedicine", path: "/partners/telemedicine" },
+        { label: "Corporate/Insurers", path: "/partners/corporate" }
+      ],
+      de: [
+        { label: "Hausärzte", path: "/de/partner/hausaerzte" },
+        { label: "Kardiologen", path: "/de/partner/kardiologen" },
+        { label: "Telemedizin", path: "/de/partner/telemedizin" },
+        { label: "Unternehmen", path: "/de/partner/unternehmen" }
+      ],
+      fr: [
+        { label: "Médecins Généralistes", path: "/fr/partenaires/medecins-generalistes" },
+        { label: "Cardiologues", path: "/fr/partenaires/cardiologues" },
+        { label: "Télémédecine", path: "/fr/partenaires/telemedecine" },
+        { label: "Entreprises", path: "/fr/partenaires/entreprises" }
+      ]
+    };
+
+    return {
+      labels: labels[language],
+      solutions: solutionsItems[language],
+      partners: partnersItems[language],
+      howItWorks: language === 'en' ? '/how-it-works' : language === 'de' ? '/de/wie-es-funktioniert' : '/fr/comment-ca-marche',
+      about: language === 'en' ? '/about' : language === 'de' ? '/de/ueber-uns' : '/fr/a-propos'
+    };
   };
 
-  const navigationItems = getNavigationItems();
+  const nav = getNavigationItems();
 
   const languages = [
     { code: "en", label: "EN" },
@@ -127,33 +185,57 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <Link to={language === 'en' ? '/' : `/${language}`} className="flex items-center" onClick={closeMobileMenu}>
-            <span className="sr-only">Myant Health</span>
+            <span className="sr-only">SKIIN</span>
             <MyantLogo className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navigationItems.map((item) => (
-              item.external ? (
-                <a 
-                  key={item.path} 
-                  href={item.path} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-foreground hover:text-primary transition-colors font-medium"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
-                >
-                  {item.label}
-                </Link>
-              )
-            ))}
+            {/* Solutions Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+                {nav.labels.solutions}
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {nav.solutions.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path}>{item.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Partners Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+                {nav.labels.partners}
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {nav.partners.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path}>{item.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* How It Works */}
+            <Link
+              to={nav.howItWorks}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              {nav.labels.howItWorks}
+            </Link>
+
+            {/* About Us */}
+            <Link
+              to={nav.about}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              {nav.labels.about}
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-2">
@@ -172,8 +254,10 @@ const Navbar = () => {
                 </button>
               ))}
             </div>
-            <Button size="sm" className="bg-myant-green hover:bg-myant-darkgreen">
-              {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
+              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : '/fr/a-propos/contact'}>
+                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+              </Link>
             </Button>
           </div>
 
@@ -197,29 +281,52 @@ const Navbar = () => {
       >
         <div className="container-custom py-8">
           <nav className="flex flex-col space-y-4">
-            {navigationItems.map((item) => (
-              item.external ? (
-                <a 
-                  key={item.path} 
-                  href={item.path} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-foreground text-lg py-2 hover:text-primary"
-                  onClick={closeMobileMenu}
-                >
-                  {item.label}
-                </a>
-              ) : (
+            {/* Mobile Solutions */}
+            <div className="space-y-2">
+              <div className="text-foreground text-lg py-2 font-medium">{nav.labels.solutions}</div>
+              {nav.solutions.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-foreground text-lg py-2 hover:text-primary"
+                  className="text-muted-foreground text-base py-1 pl-4 hover:text-primary block"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
                 </Link>
-              )
-            ))}
+              ))}
+            </div>
+
+            {/* Mobile Partners */}
+            <div className="space-y-2">
+              <div className="text-foreground text-lg py-2 font-medium">{nav.labels.partners}</div>
+              {nav.partners.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="text-muted-foreground text-base py-1 pl-4 hover:text-primary block"
+                  onClick={closeMobileMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <Link
+              to={nav.howItWorks}
+              className="text-foreground text-lg py-2 hover:text-primary"
+              onClick={closeMobileMenu}
+            >
+              {nav.labels.howItWorks}
+            </Link>
+
+            <Link
+              to={nav.about}
+              className="text-foreground text-lg py-2 hover:text-primary"
+              onClick={closeMobileMenu}
+            >
+              {nav.labels.about}
+            </Link>
+
             <div className="pt-4">
               <div className="flex border rounded-full px-1 py-1 self-start mb-4">
                 {languages.map((lang) => (
@@ -236,8 +343,10 @@ const Navbar = () => {
                   </button>
                 ))}
               </div>
-              <Button className="w-full" size="lg">
-                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+              <Button className="w-full" size="lg" asChild onClick={closeMobileMenu}>
+                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : '/fr/a-propos/contact'}>
+                  {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+                </Link>
               </Button>
             </div>
           </nav>
