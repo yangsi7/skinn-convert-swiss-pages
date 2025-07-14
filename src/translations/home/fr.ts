@@ -5,8 +5,8 @@ export const homeTranslations = {
     titleHighlight: "Sans Compromettre le Confort",
     description: "Les vêtements intelligents SKIIN révolutionnent la façon dont nous surveillons et gérons la santé cardiaque, en fournissant un ECG de qualité clinique sans fils, adhésifs ou inconfort.",
     buttons: {
-      forPatients: "Pour les Patients",
-      forPhysicians: "Pour les Médecins"
+      solutions: "Solutions de Dépistage",
+      partners: "Pour les Prestataires de Santé"
     },
     certification: "Dispositif médical certifié, testé et validé cliniquement",
     testimonial: {

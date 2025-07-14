@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import './styles/design-system.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,43 +9,43 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 211 39% 23%; /* Navy 900 */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 211 39% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 211 39% 23%;
 
-    --primary: 167 50% 33%;
+    --primary: 211 39% 23%; /* Navy 900 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 167 22% 92%;
-    --secondary-foreground: 167 60% 20%;
+    --secondary: 172 100% 24%; /* Teal 600 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 215 10% 56%;
+    --muted: 210 29% 97%; /* Navy 50 */
+    --muted-foreground: 211 25% 45%; /* Navy 600 */
 
-    --accent: 167 22% 92%;
-    --accent-foreground: 167 60% 20%;
+    --accent: 172 100% 24%; /* Teal 600 */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 167 50% 33%;
+    --border: 214 25% 91%; /* Navy 100 */
+    --input: 214 25% 91%;
+    --ring: 172 100% 24%; /* Teal 600 */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 167 50% 33%;
+    --sidebar-primary: 211 39% 23%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 167 50% 33%;
+    --sidebar-ring: 172 100% 24%;
   }
 
   .dark {
@@ -82,7 +85,30 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-display antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Prevent horizontal overflow from animations */
+  #root {
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Premium typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection colors */
+  ::selection {
+    @apply bg-teal-600 text-white;
   }
 }
 
@@ -102,6 +128,95 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Premium glass morphism effects */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-navy-900/80 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Premium gradients */
+  .gradient-premium {
+    @apply bg-gradient-to-br from-navy-900 via-navy-800 to-teal-800;
+  }
+
+  .gradient-medical {
+    @apply bg-gradient-to-tr from-teal-50 via-white to-navy-50;
+  }
+
+  .gradient-mesh-overlay {
+    background-image: radial-gradient(at 40% 20%, rgb(30, 58, 95, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 80% 0%, rgb(0, 121, 107, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 0% 50%, rgb(231, 76, 60, 0.1) 0px, transparent 50%);
+  }
+
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-navy-900 to-teal-700 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-reverse {
+    @apply bg-gradient-to-r from-teal-600 to-navy-800 bg-clip-text text-transparent;
+  }
+
+  /* Premium shadows */
+  .shadow-premium {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-medical {
+    box-shadow: 0 0 40px rgba(0, 121, 107, 0.15);
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  /* Fix for disappearing content during animations */
+  .animate-fade-up,
+  .animate-scale-in,
+  .animate-slide-up {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Swiss quality badge */
+  .swiss-quality {
+    @apply relative overflow-hidden;
+  }
+
+  .swiss-quality::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-200%] animate-shimmer;
+  }
 }
 
 @keyframes gradient {
@@ -115,4 +230,80 @@
 
 .animate-gradient {
   animation: gradient 8s infinite alternate ease-in-out;
+}
+
+/* Animation keyframes for scroll-triggered animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(200%);
+  }
+}
+
+/* Animation classes for intersection observer */
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Fix for elements with opacity-0 and animate-on-scroll */
+.animate-on-scroll {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.animate-on-scroll.animate-in .animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-on-scroll.animate-in .animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Alternative approach - directly animate elements with animate-in class */
+.opacity-0.animate-in {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

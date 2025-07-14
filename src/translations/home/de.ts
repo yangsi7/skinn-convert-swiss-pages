@@ -1,17 +1,17 @@
 
 export const homeTranslations = {
   hero: {
-    title: "Kontinuierliche Herzüberwachung",
-    titleHighlight: "Ohne Kompromisse beim Komfort",
-    description: "SKIIN Smart Kleidung revolutioniert die Art und Weise, wie wir die Herzgesundheit überwachen und verwalten, und bietet EKG in klinischer Qualität ohne Kabel, Klebestoffe oder Unbehagen.",
+    title: "Herzüberwachung, die sich",
+    titleHighlight: "Ihrem Leben anpasst",
+    description: "Klinisch präzise, außergewöhnlich komfortabel – SKIIN revolutioniert die Herzdiagnostik zu Hause. 14 Tage kontinuierliche Überwachung ohne Kabel oder Pflaster.",
     buttons: {
-      forPatients: "Für Patienten",
-      forPhysicians: "Für Ärzte"
+      solutions: "Jetzt starten",
+      partners: "Für Ärzte"
     },
-    certification: "Zertifiziertes Medizinprodukt, klinisch getestet und validiert",
+    certification: "CE-zertifiziert • Swissmedic zugelassen • Klinisch validiert",
     testimonial: {
-      quote: "Endlich eine Herzüberwachung, die meine Patienten tatsächlich tragen wollen!",
-      author: "Dr. Sarah Klein, Kardiologin"
+      quote: "Ich habe fast vergessen, dass ich den SKIIN Sensor trug – er war so bequem, und er entdeckte ein Problem, das mein 24h-Holter übersehen hatte!",
+      author: "Maria, 58, Basel"
     }
   },
   features: {
@@ -45,39 +45,34 @@ export const homeTranslations = {
     ]
   },
   howItWorks: {
-    tagline: "Einfacher Prozess",
-    title: "Wie SKIIN funktioniert",
-    subtitle: "So konzipiert, dass es sich nahtlos in Ihr Leben einfügt und gleichzeitig eine Herzüberwachung in klinischer Qualität bietet",
+    tagline: "5 einfache Schritte",
+    title: "So funktioniert SKIIN",
+    subtitle: "Von der Verschreibung bis zu den Ergebnissen – ein nahtloser Prozess für Patienten und Ärzte",
     steps: [
       {
         number: "01",
-        title: "Verschreibung",
-        description: "Ihr Arzt verschreibt SKIIN zur kontinuierlichen Herzüberwachung"
+        title: "SKIIN verschrieben bekommen",
+        description: "Ihr Arzt oder unser Partner-Arzt verschreibt den SKIIN Monitor und Sie erhalten das Textilband-Kit"
       },
       {
         number: "02",
-        title: "Lieferung",
-        description: "Erhalten Sie Ihr SKIIN Smart Kleidungs-Kit direkt bei Ihnen zu Hause"
+        title: "Tragen und aufzeichnen",
+        description: "Ziehen Sie das smarte Kleidungsstück an und leben Sie bis zu 14 Tage normal weiter, während es kontinuierlich Ihre Herzdaten aufzeichnet"
       },
       {
         number: "03",
-        title: "Tragen",
-        description: "Tragen Sie einfach die bequeme Kleidung als Teil Ihrer täglichen Routine"
+        title: "Datenanalyse",
+        description: "Die Daten werden automatisch hochgeladen und von KI-Algorithmen plus Kardiologen analysiert"
       },
       {
         number: "04",
-        title: "Überwachen",
-        description: "Ihr Herzrhythmus wird kontinuierlich überwacht und analysiert"
+        title: "Ergebnisse & Nachbesprechung",
+        description: "Ihr Arzt erhält einen umfassenden Bericht zur Planung der nächsten Schritte"
       },
       {
         number: "05",
-        title: "Verbinden",
-        description: "Daten werden in Echtzeit sicher mit Ihrem Arzt geteilt"
-      },
-      {
-        number: "06",
-        title: "Ergebnisse",
-        description: "Erhalten Sie personalisierte Einblicke und Behandlungsempfehlungen"
+        title: "Kostenübernahme",
+        description: "Bei ärztlicher Verordnung übernimmt die Grundversicherung die Kosten – genau wie bei einem normalen Holter"
       }
     ],
     cta: "Mehr über den Prozess erfahren"
@@ -105,9 +100,9 @@ export const homeTranslations = {
     ]
   },
   comparison: {
-    tagline: "Vergleich",
-    title: "Wie SKIIN sich vergleicht",
-    subtitle: "Sehen Sie, wie SKIIN Smart Kleidung im Vergleich zu herkömmlichen Herzüberwachungslösungen abschneidet",
+    tagline: "Der Unterschied",
+    title: "Der alte Weg vs. Der SKIIN Weg",
+    subtitle: "Traditionelle Holter-Monitore können umständlich sein: klebrige Elektroden, Kabel, ein sperriges Gerät – und typischerweise nur 24-48 Stunden Aufzeichnung. SKIIN ändert das.",
     columns: {
       feature: "Funktion",
       skiin: "SKIIN",
@@ -118,13 +113,13 @@ export const homeTranslations = {
       eventSubtitle: "Patch-basiert"
     },
     features: [
-      "Kontinuierliche Überwachung",
-      "14-Tage-Tragezeit",
-      "Keine Klebestoffe oder Kabel",
-      "Waschbar & Wiederverwendbar",
-      "Echtzeit-Datenübertragung",
-      "KI-gestützte Arrhythmie-Erkennung",
-      "Patientenkomfort für langfristiges Tragen"
+      "Kontinuierliche Überwachung für 14 Tage",
+      "Keine Kabel oder klebrigen Pads – nur ein bequemes Band",
+      "14-tägige kontinuierliche EKG-Aufzeichnung – weit länger als Standard-Holter",
+      "Nachweislich gleich genau wie traditionelle Holter-Monitore",
+      "94% Patienten-Compliance dank außergewöhnlichem Komfort",
+      "Kann zu Hause getragen werden – keine Klinikbesuche nötig",
+      "Von Schweizer Grundversicherung übernommen bei ärztlicher Verordnung"
     ]
   },
   cta: {

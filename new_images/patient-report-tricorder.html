@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Myant Heart & Health Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Reset and Variables --- */
+        :root {
+            --brand-primary: #005f9e;
+            --brand-secondary: #0095DA;
+            --brand-light-blue: #63c5f4;
+            --status-green: #77BFA3;
+            --status-yellow: #E9C46A;
+            --status-red: #E07A5F;
+            --status-green-text: #3A7D6C;
+            --status-yellow-text: #B58900;
+            --status-red-text: #A54C38;
+            --bg-color: #FFFFFF;
+            --surface-color: #F8F9FA; /* Slightly off-white for subtle contrast */
+            --surface-alt-color: #EFF3F7; /* Slightly darker surface for elements */
+            --border-color: #E1E8F0; /* Softer border color */
+            --text-primary: #212529;
+            --text-secondary: #6C757D;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+            /* --- New Variables for Compactness --- */
+            --spacing-xs: 0.4rem;
+            --spacing-sm: 0.8rem;
+            --spacing-md: 1.2rem;
+            --spacing-lg: 1.8rem;
+            --spacing-xl: 2.5rem;
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --font-size-sm: 0.875rem; /* 14px */
+            --font-size-md: 1rem; /* 16px */
+            --font-size-lg: 1.125rem; /* 18px */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px; /* Base font size */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--surface-alt-color); /* Use a light grey bg */
+            padding: 0;
+            margin: 0;
+            font-weight: 400; /* Default to normal weight */
+        }
+
+        /* --- Typography Adjustments --- */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        h1 { /* Report Title */
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            color: var(--brand-primary);
+            margin-top: 0;
+            font-weight: 300; /* Lighter weight for main title */
+            letter-spacing: -0.5px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h2 { /* Section Titles */
+            font-size: clamp(1.5rem, 3vw, 1.7rem);
+            color: var(--brand-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 { /* Module Titles / Sub-sections */
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            color: var(--text-primary);
+            font-weight: 600; /* Make module titles stand out */
+            margin-top: 0; /* Remove top margin for module titles */
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary); /* Default P text is secondary */
+            font-size: var(--font-size-sm); /* Slightly smaller paragraph text */
+            max-width: 75ch; /* Improve readability */
+        }
+        strong {
+             color: var(--text-primary); /* Make strong text primary color */
+             font-weight: 600;
+        }
+
+        /* --- Layout & Container --- */
+        .container {
+            max-width: 8.5in;
+            margin: var(--spacing-lg) auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .report-container {
+            background-color: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* Softer shadow */
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- Header --- */
+        .report-header {
+            background: var(--bg-color); /* Simpler background */
+            padding: var(--spacing-lg) var(--spacing-md);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .logo-myant {
+            height: 40px; /* Increased height for single logo */
+            width: auto;
+            object-fit: contain;
+        }
+
+        .report-title {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .report-subtitle {
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            font-size: var(--font-size-lg);
+        }
+
+        /* --- View Toggle --- */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            background: var(--surface-color);
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .toggle-btn {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) var(--spacing-lg); /* More padding */
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: var(--border-radius-sm);
+            margin: 0 var(--spacing-xs);
+        }
+         .toggle-btn:hover {
+            background-color: var(--surface-alt-color);
+            border-color: var(--brand-primary);
+            color: var(--brand-primary);
+         }
+
+        .toggle-btn.active {
+            background-color: var(--brand-primary);
+            border-color: var(--brand-primary);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 95, 158, 0.2);
+        }
+
+        /* --- Main Report Content Area --- */
+        .report-content {
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        /* --- Patient Info Card --- */
+        .patient-info {
+            margin: 0 0 var(--spacing-lg) 0; /* Remove side margins, add bottom */
+            padding: var(--spacing-md);
+            background: var(--surface-color);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .patient-info h3 {
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+            font-size: 1.2rem; /* Explicit size */
+        }
+
+        .patient-info-grid {
+            display: grid;
+            /* More columns on wider screens */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm) var(--spacing-md); /* Tighter gap */
+        }
+
+        .patient-info-item {
+            margin-bottom: 0; /* Remove bottom margin, handled by grid gap */
+        }
+
+        .patient-info-item strong {
+            font-weight: 500;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary); /* Label is secondary */
+        }
+
+        .patient-info-item span {
+            font-size: var(--font-size-md); /* Value is base size */
+            color: var(--text-primary);
+        }
+
+        /* --- Color Legend --- */
+        .color-legend {
+            margin: 0 0 var(--spacing-lg) 0;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--surface-color);
+            border-left: 4px solid var(--brand-secondary); /* Use secondary color */
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .color-legend h4 {
+            margin-top: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--brand-primary);
+            font-size: 1rem; /* Smaller legend title */
+        }
+         /* Hide the <p> tag in the legend */
+        .color-legend > p {
+             display: none;
+        }
+
+        .color-legend ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm) var(--spacing-lg); /* Use gap */
+        }
+
+        .color-legend li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0; /* Handled by gap */
+        }
+         .color-legend li strong {
+             font-weight: 500; /* Less emphasis */
+         }
+
+        .status-indicator {
+            display: inline-block;
+            width: 14px; /* Slightly larger */
+            height: 14px;
+            border-radius: 3px;
+            margin-right: var(--spacing-sm);
+            border: 1px solid rgba(0, 0, 0, 0.15); /* Darker border */
+            flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        /* Status Colors are already defined */
+        .status-green { background-color: var(--status-green); }
+        .status-yellow { background-color: var(--status-yellow); }
+        .status-red { background-color: var(--status-red); }
+
+
+        /* --- Health Summary Section (Patient & Clinical) --- */
+        .health-summary {
+            background: var(--bg-color); /* White background for summary */
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .health-summary h2 {
+            margin-top: 0;
+            border-bottom-color: var(--border-color);
+        }
+        .health-summary > p { /* Select only direct child p */
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-md); /* Base size for intro */
+            color: var(--text-primary);
+        }
+
+        .key-findings {
+            margin-top: var(--spacing-lg);
+        }
+        .key-findings h3 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.2rem;
+        }
+
+        .key-findings-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid; /* Use grid for key findings */
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Responsive columns */
+            gap: var(--spacing-md);
+        }
+
+        .key-findings-list li {
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background-color: var(--surface-color); /* Subtle background */
+            display: flex;
+            flex-direction: column; /* Stack category and description */
+            gap: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+        }
+        .key-findings-list li .status-indicator {
+             margin-bottom: var(--spacing-sm); /* Space below indicator */
+        }
+
+
+        .finding-category {
+            font-weight: 600;
+            margin-right: 0; /* Remove margin */
+            color: var(--brand-primary);
+            font-size: 1rem; /* Slightly larger category */
+            margin-bottom: var(--spacing-xs); /* Space below category */
+        }
+        /* Add alignment for indicator in grid item */
+        .key-findings-list li > div:not(.finding-category) {
+             display: flex;
+             align-items: flex-start;
+             color: var(--text-secondary);
+         }
+         .key-findings-list li > div:not(.finding-category) .status-indicator {
+             margin-top: 4px; /* Align indicator better with text */
+         }
+
+        /* --- Next Steps --- */
+        .next-steps {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-md); /* Add padding */
+            background-color: var(--surface-alt-color); /* Add background */
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-color);
+        }
+        
+        .next-steps h3 {
+             margin-bottom: var(--spacing-md);
+             font-size: 1.2rem;
+             color: var(--brand-primary); /* Brand color for heading */
+        }
+
+        .next-steps ol {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: steps-counter;
+        }
+
+        .next-steps li {
+            counter-increment: steps-counter;
+            margin-bottom: var(--spacing-lg); /* More space between items */
+            position: relative;
+            padding-left: 2.8rem; /* Adjust padding */
+            padding-top: 0; /* Remove top padding */
+            font-size: var(--font-size-md); /* Slightly larger */
+            color: var(--text-primary); /* Darker text */
+        }
+         
+        .next-steps li strong { /* Highlight doctor appt */
+              color: var(--status-red-text);
+              font-weight: 600;
+              background-color: rgba(224, 122, 95, 0.08); /* Subtle highlight */
+              padding: 0 3px;
+         }
+
+
+        .next-steps li::before {
+            content: counter(steps-counter);
+            position: absolute;
+            left: 0;
+            top: -2px; /* Align number better */
+            width: 2rem; /* Larger number circle */
+            height: 2rem;
+            background-color: var(--brand-secondary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: 600;
+            font-size: var(--font-size-md); /* Larger font */
+            box-shadow: 0 2px 4px rgba(0, 95, 158, 0.2); /* More visible shadow */
+        }
+        
+        .next-steps li:last-child {
+            margin-bottom: 0; /* No margin on last item */
+        }
+
+        /* --- Detailed Results Section --- */
+        .detailed-results h2 {
+            margin-bottom: var(--spacing-lg); /* More space below heading */
+        }
+
+        .results-module {
+            background: var(--bg-color); /* White background */
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg); /* Increased padding */
+            margin-bottom: var(--spacing-xl);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .results-module:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            /* transform: translateY(-2px); REMOVED transform for less jarring hover */
+        }
+
+        .results-module h3 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm); /* Gap for icon */
+        }
+         /* Remove ::before style for h3 */
+         .results-module h3::before {
+             content: none;
+         }
+         /* Style the SVG icon directly */
+         .module-icon {
+             width: 22px; /* Adjust icon size */
+             height: 22px;
+             fill: var(--brand-primary); /* Color the icon */
+             flex-shrink: 0;
+         }
+
+        /* --- Layout within Results Module (Side-by-Side) --- */
+        .module-content-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); /* Grid for content */
+            gap: var(--spacing-xl); /* Increased gap */
+            align-items: start; /* Align items to the top */
+            margin-bottom: var(--spacing-md);
+        }
+        .module-text-table-group {
+            /* Container for text and table */
+        }
+        .module-text-table-group > p { /* Target direct p children */
+            margin-bottom: var(--spacing-md);
+        }
+        .module-guidance { 
+             background-color: var(--surface-alt-color); /* Slightly darker background */
+             padding: var(--spacing-lg); /* More padding */
+             border-radius: var(--border-radius-sm);
+             border: 1px solid var(--border-color);
+             margin-top: var(--spacing-md);
+             font-size: var(--font-size-sm);
+             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); /* Subtle shadow */
+        }
+         
+        .module-guidance strong { 
+             color: var(--brand-primary); /* Brand color for headings */
+             font-weight: 600;
+             display: block; /* Make heading stand alone */
+             margin-bottom: var(--spacing-xs);
+             font-size: 1rem; /* Slightly larger */
+        }
+         
+        .module-guidance ul { 
+             padding-left: var(--spacing-lg); 
+             margin-top: var(--spacing-sm);
+             list-style-type: square; /* Square bullets */
+        }
+         
+        .module-guidance li { 
+             margin-bottom: var(--spacing-sm); /* More space between items */
+             padding-left: var(--spacing-xs);
+        }
+
+
+        /* --- Results Tables --- */
+        .results-table {
+            width: 100%;
+            border-collapse: separate; /* Change to separate for better borders */
+            border-spacing: 0;
+            margin-bottom: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            font-size: var(--font-size-sm);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Value cells with indicators should have more padding */
+        .results-table td:nth-child(2) {
+            padding-left: var(--spacing-xl); /* Add extra padding for indicator + text */
+        }
+        
+        /* Status value styling */
+        .results-table .value-with-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md); /* Add gap between indicator and text */
+        }
+
+        .results-table th {
+            font-weight: 600; 
+            color: var(--text-primary);
+            background-color: var(--surface-alt-color); /* Slightly darker background */
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+        }
+        
+        /* Alternating row colors */
+        .results-table tbody tr:nth-child(even) {
+            background-color: var(--surface-color);
+        }
+        
+        .results-table tbody tr:hover {
+            background-color: rgba(0, 95, 158, 0.03); /* Subtle hover effect */
+        }
+
+        .results-table td:first-child {
+            width: auto; /* Remove fixed width */
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        /* Align status indicator in table */
+        .results-table .status-indicator {
+             margin-right: var(--spacing-md); /* Increased spacing */
+             vertical-align: middle; /* Align better with text */
+        }
+        .results-table td:last-child .status-indicator {
+              margin-right: var(--spacing-md); /* Add spacing even for last cell */
+        }
+
+
+        /* --- Graph Container --- */
+        .graph-container {
+            margin: 0; /* Removed margin, handled by wrapper */
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            background-color: var(--surface-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Add subtle shadow */
+        }
+        
+        .graph-container img {
+            width: 100%;
+            height: auto; 
+            display: block;
+            padding: var(--spacing-sm); /* Add padding to images */
+        }
+
+        .graph-placeholder {
+            background-color: transparent; /* Remove double background */
+            padding: var(--spacing-xl) var(--spacing-md); /* Adjust padding */
+            text-align: center;
+            color: var(--text-secondary);
+            min-height: 200px; /* Reduced height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            /* Keep SVG background */
+             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 40 L25 35 L35 55 L45 20 L55 45 L70 30' stroke='%23CBD5E0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-position: center 30px; /* Move graph icon up */
+            background-size: 60px 60px; /* Smaller icon */
+        }
+
+        .graph-placeholder span {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-style: normal;
+            font-weight: 500;
+            margin-top: 50px; /* Space below icon */
+            font-size: var(--font-size-sm);
+        }
+
+
+        /* --- Expandable Technical Details --- */
+        .technical-details {
+            margin-top: var(--spacing-lg);
+        }
+
+        .technical-toggle {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md); /* Reduced padding */
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--brand-primary);
+            transition: all 0.2s ease;
+            box-shadow: none; /* Remove shadow */
+        }
+
+        .technical-toggle:hover {
+            background: var(--surface-alt-color);
+            border-color: var(--brand-secondary);
+        }
+
+        .technical-toggle::after {
+            content: "+";
+            font-size: 1.5rem; /* Smaller icon */
+            color: var(--brand-secondary);
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        .technical-toggle.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-color: transparent; /* Hide bottom border when open */
+             background: var(--surface-alt-color);
+        }
+
+        .technical-toggle.active::after {
+            content: "−";
+        }
+
+        .technical-content {
+            display: none;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+            background-color: var(--bg-color);
+            margin-top: 0; /* Remove margin */
+            box-shadow: none;
+            font-size: var(--font-size-sm);
+        }
+         .technical-content p {
+             margin-bottom: var(--spacing-sm);
+         }
+
+        .technical-content.active {
+            display: block;
+        }
+
+        /* --- Footer --- */
+        .report-footer {
+            background: var(--surface-color);
+            padding: var(--spacing-lg) var(--spacing-md);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm); /* Smaller footer text */
+        }
+
+        .disclaimer {
+            max-width: 650px; /* Tighter max-width */
+            margin: 0 auto var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .disclaimer strong {
+            color: var(--status-red-text);
+            font-weight: 600; /* Bolder warning */
+        }
+
+        .copyright {
+            font-size: 0.8rem; /* Even smaller copyright */
+            opacity: 0.7;
+        }
+
+        /* --- View Toggling --- */
+        .technical-view-content { display: none; }
+        .technical-view-content.active { display: block; }
+        .patient-view-content { display: block; }
+        .patient-view-content.inactive { display: none; }
+
+        /* --- Medical Term Tooltip --- */
+        .medical-term {
+            border-bottom: 1px dotted var(--brand-primary);
+            color: var(--brand-primary);
+            cursor: help;
+            position: relative;
+            font-weight: 600; /* Make terms bolder */
+            padding: 0 1px; /* Small padding */
+            transition: background-color 0.2s ease;
+        }
+        
+        .medical-term:hover {
+            background-color: rgba(0, 95, 158, 0.05); /* Subtle highlight */
+        }
+        
+        .medical-term:hover::after {
+            content: attr(data-definition);
+            position: absolute;
+            bottom: 110%; /* Position above */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-primary); /* Dark background */
+            color: white;
+            padding: var(--spacing-md); /* More padding */
+            border-radius: var(--border-radius-sm);
+            width: 250px; /* Slightly wider */
+            z-index: 10;
+            font-size: var(--font-size-sm);
+            text-align: left; /* Left align text */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            line-height: 1.5;
+            font-weight: 400; /* Normal weight in tooltip */
+            display: block; /* Ensure it shows */
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .report-content {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+            
+            .patient-info-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            
+            .key-findings-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .color-legend ul {
+                gap: var(--spacing-sm);
+                flex-direction: column;
+            }
+            
+            .report-header, .report-footer {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            .results-module {
+                padding: var(--spacing-md);
+            }
+            
+            /* Make tables more mobile-friendly */
+            .results-table {
+                font-size: 0.8rem;
+            }
+            
+            .results-table th, .results-table td {
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            html { 
+                font-size: 15px; 
+            }
+            
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                margin: var(--spacing-sm) auto;
+                padding: 0;
+            }
+            
+            .report-container {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .logo-myant { 
+                height: 35px;
+            }
+
+            .patient-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .toggle-btn {
+                padding: var(--spacing-xs) var(--spacing-md);
+                font-size: 0.8rem;
+            }
+            
+            .next-steps li { 
+                padding-left: 2.5rem;
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .next-steps li::before { 
+                width: 1.8rem; 
+                height: 1.8rem; 
+                line-height: 1.8rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Stack table data on very small screens */
+            .results-table, .results-table tbody, .results-table tr, .results-table td {
+                display: block;
+                width: 100%;
+            }
+            
+            .results-table td:first-child {
+                font-weight: 600;
+                background-color: var(--surface-alt-color);
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            
+            .results-table td:not(:first-child) {
+                padding-top: var(--spacing-xs);
+                padding-left: var(--spacing-md);
+            }
+            
+            /* Hide table headers on mobile */
+            .results-table thead {
+                display: none;
+            }
+        }
+
+        /* --- Resources Section --- */
+        .resources-section h2 {
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .resources-module {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .resources-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+        
+        .resources-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .resources-list li {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+        
+        .resources-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--brand-primary);
+            font-weight: bold;
+        }
+        
+        .qr-code-container {
+            text-align: center;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background-color: var(--surface-color);
+        }
+        
+        .qr-code-placeholder {
+            height: 120px;
+            width: 120px;
+            margin: var(--spacing-md) auto;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: var(--spacing-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .resources-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .qr-code-container {
+                margin-top: var(--spacing-md);
+            }
+        }
+        @media print {
+            body { 
+                background-color: white; 
+                font-size: 11pt; 
+                margin: 0; 
+                padding: 0;
+            }
+            
+            .container { 
+                margin: 0; 
+                max-width: 100%; 
+                padding: 0; 
+            }
+            
+            .report-container { 
+                box-shadow: none; 
+                border: none; 
+                border-radius: 0; 
+            }
+            
+            .view-toggle, .technical-toggle { 
+                display: none; 
+            }
+            
+            .patient-view-content, .technical-view-content, .technical-content {
+                display: block !important; /* Ensure all content is visible */
+            }
+            
+            .results-module, .health-summary, .patient-info, .color-legend {
+                border: 1px solid #ccc;
+                padding: 15px;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .module-content-wrapper { 
+                display: block; /* Stack content for print */
+            }
+            
+            .health-summary, .detailed-results {
+                page-break-before: always; /* Start on new page */
+            }
+            
+            h1, h2, h3, h4 { 
+                page-break-after: avoid; 
+                color: #000; 
+                break-after: avoid;
+            }
+            
+            a { 
+                text-decoration: none; 
+                color: #000; 
+            }
+            
+            .status-indicator {
+                border: 1px solid #000 !important;
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            .results-table { 
+                font-size: 10pt; 
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            .results-table th, .results-table td { 
+                padding: 5px 8px; 
+                border: 1px solid #ddd;
+            }
+            
+            .report-footer { 
+                background: none; 
+                border-top: 1px solid #ccc; 
+                margin-top: 20px;
+                page-break-before: avoid;
+                break-before: avoid;
+            }
+            
+            .graph-container img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="report-container">
+            <header class="report-header">
+                <div class="logo-container">
+                    <img src="https://i.imgur.com/KFif4xF.png" alt="Myant Health Logo" class="logo-myant">
+                </div>
+                <h1 class="report-title">Your Myant Heart & Health Insights</h1>
+                <div class="report-subtitle">Comprehensive Health Insights</div>
+            </header>
+
+            <div class="view-toggle">
+                <button class="toggle-btn active" id="patient-view-btn">Patient View</button>
+                <button class="toggle-btn" id="technical-view-btn">Clinical View</button>
+            </div>
+
+            <div class="report-content">
+                <div class="patient-info">
+                    <h3>Patient Information</h3>
+                    <div class="patient-info-grid">
+                        <div class="patient-info-item">
+                            <strong>Patient Name</strong>
+                            <span>John Smith</span>
+                        </div>
+                        <div class="patient-info-item">
+                            <strong>Date of Birth</strong>
+                            <span>January 15, 1965</span>
+                        </div>
+                        <div class="patient-info-item">
+                            <strong>Patient ID</strong>
+                            <span>MYT-2025-10547</span>
+                        </div>
+                        <div class="patient-info-item">
+                            <strong>Date of Report</strong>
+                            <span>May 2, 2025</span>
+                        </div>
+                        <div class="patient-info-item">
+                            <strong>Monitoring Period</strong>
+                            <span>April 15 - 28, 2025</span>
+                        </div>
+                        <div class="patient-info-item">
+                            <strong>Referring Physician</strong>
+                            <span>Dr. Sarah Johnson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-legend">
+                    <h4>Result Indicators</h4>
+                    <!-- Removed <p> tag -->
+                    <ul>
+                        <li><span class="status-indicator status-green"></span><strong>Normal Range</strong></li>
+                        <li><span class="status-indicator status-yellow"></span><strong>Needs Attention / Lifestyle Change</strong></li>
+                        <li><span class="status-indicator status-red"></span><strong>Requires Discussion with Doctor</strong></li>
+                    </ul>
+                </div>
+
+                <!-- PATIENT VIEW -->
+                <div class="patient-view-content" id="patient-view">
+                    <div class="health-summary">
+                        <h2>Your Health Summary</h2>
+                        <p>Findings from your 14-day Tricorder study (295 hrs ECG, 48 hrs BP, 3 nights sleep).</p>
+
+                        <div class="key-findings">
+                            <h3>Key Findings</h3>
+                            <ul class="key-findings-list">
+                                <li>
+                                    <div class="finding-category">Heart Rhythm</div>
+                                    <div><span class="status-indicator status-red"></span>Brief episodes of Atrial Fibrillation detected (3 episodes, longest 16m 58s). Discuss this irregular rhythm with your doctor.</div>
+                                </li>
+                                <li>
+                                    <div class="finding-category">Blood Pressure</div>
+                                    <div><span class="status-indicator status-red"></span>Mildly elevated average (135/83 mmHg) with increased arterial stiffness (10m/s). Blood pressure did not dip sufficiently during sleep.</div>
+                                </li>
+                                <li>
+                                    <div class="finding-category">Sleep Quality</div>
+                                    <div><span class="status-indicator status-yellow"></span>Results suggest mild obstructive sleep apnea (approx. 12 breathing interruptions/hour), potentially affecting sleep quality.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="next-steps">
+                            <h3>Recommended Next Steps</h3>
+                            <ol>
+                                <li>Review this report's details.</li>
+                                <li><strong>Schedule an appointment with your doctor</strong> to discuss these findings, especially Atrial Fibrillation.</li>
+                                <li>Discuss lifestyle recommendations (diet, exercise, sleep habits) with your doctor.</li>
+                                <li>Consider annual cardiovascular screening for ongoing monitoring.</li>
+                            </ol>
+                            <p style="margin-top: 1.5rem;">Remember that these tests represent your current health state. As your health is constantly changing, please consider repeating the tests on a regular basis - for instance once a year or more often as recommended by your doctor.</p>
+                        </div>
+                    </div>
+
+                    <div class="detailed-results">
+                        <h2>Detailed Results (Patient View)</h2>
+
+                        <!-- ECG Module -->
+                        <div class="results-module">
+                            <h3><svg class="module-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#005f9e" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Heart Rhythm (ECG/Holter)</h3>
+                            <div class="module-content-wrapper">
+                                <div class="graph-container">
+                                    <img src="https://imgur.com/0lHwtWr.png" alt="Heart Rate & Arrhythmia Timeline" style="width:100%; height:auto; display:block;">
+                                </div>
+                                <div class="module-text-table-group">
+                                    <p>Continuous heart rhythm monitoring for 14 days.</p>
+                                    <table class="results-table">
+                                        <tbody>
+                                            <tr><td>Avg. Heart Rate</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>94 bpm</div></td></tr>
+                                            <tr><td>Heart Rate Range</td><td>46 - 174 bpm</td></tr>
+                                            <tr><td>Arrhythmias</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>Atrial Fibrillation (3 episodes, max 16m 58s)</div></td></tr>
+                                            <tr><td>AFib Burden</td><td>1.2% (~65 mins/day)</td></tr>
+                                            <tr><td>Symptom Match</td><td>Racing heart matched AFib episodes</td></tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="module-guidance">
+                                         <p><strong>What This Means:</strong> Mostly normal rhythm, but episodes of <span class="medical-term" data-definition="An irregular heart rhythm starting in the upper heart chambers (atria). Can increase risk of stroke if untreated.">Atrial Fibrillation</span> were detected, matching your symptoms.</p>
+                                         <p><strong>Guidance:</strong> AFib needs medical evaluation. This condition may put you at risk of stroke and congestive heart failure. Professional guidelines may recommend blood thinners, and medications that can slow your heart rate or help keep you in rhythm. Many AFib patients may benefit from an ablation procedure. It is important to stay hydrated, aiming for 2L of non-alcoholic/non-caffeinated beverages daily, reduce or abstain from alcoholic and caffeinated beverages, maintain a healthy weight, exercise regularly and get quality sleep. Please see afibclinic.ca for more information.</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+                        <!-- BP Module -->
+                        <div class="results-module">
+                             <h3><svg class="module-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#005f9e" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg> Blood Pressure (48-hour)</h3>
+                            <div class="module-content-wrapper">
+                                <div class="graph-container">
+                                    <img src="https://imgur.com/IozCydS.png" alt="24-Hour Blood Pressure Profile" style="width:100%; height:auto; display:block;">
+                                </div>
+                                <div class="module-text-table-group">
+                                    <p>Regular measurements over 48 hours, day and night.</p>
+                                    <table class="results-table">
+                                        <tbody>
+                                            <tr><td>Avg. 24-Hour BP</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>135/83 mmHg</div></td></tr>
+                                            <tr><td>Avg. Daytime BP</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>138/85 mmHg</div></td></tr>
+                                            <tr><td>Avg. Nighttime BP</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>132/81 mmHg</div></td></tr>
+                                            <tr><td>Nighttime Dip</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>4% (Low - "Non-dipper")</div></td></tr>
+                                            <tr><td>Arterial Stiffness</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span>10 m/s (Elevated)</div></td></tr>
+                                        </tbody>
+                                    </table>
+                                     <div class="module-guidance">
+                                        <p><strong>What This Means:</strong> Your average BP is mildly elevated. It didn't drop enough during sleep (non-dipper pattern), and your arteries show some stiffness, indicating higher cardiovascular risk.</p>
+                                        <p><strong>Guidance:</strong> Your nighttime blood pressure showed that you did not have a natural and normal drop in blood pressure when you slept. This can mean that you have a high risk of heart disease in the future. Some lifestyle recommendations to reduce your blood pressure naturally are:
+                                            <ul>
+                                                <li><strong>Reduce your salt intake</strong> (the WHO recommends less than 5 grams of salt per day)</li>
+                                                <li><strong>Reduce your weight</strong> (5 kgs of weight loss can lead to a 5 mmHg decrease in BP)</li>
+                                                <li>Increase your aerobic activity (can have the same benefit level as medication with mild forms of elevated blood pressure)</li>
+                                                <li>Consistent sleep schedule</li>
+                                                <li>Stress reduction</li>
+                                            </ul>
+                                            Discuss further management with your physician.
+                                        </p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Sleep Module -->
+                        <div class="results-module">
+                            <h3><svg class="module-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#005f9e" d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V7H1v10h22v-6c0-2.21-1.79-4-4-4zm-2 9h-8V9h6c1.1 0 2 .9 2 2v5z"/></svg> Sleep Study (3-night)</h3>
+                             <div class="module-content-wrapper">
+                                <div class="graph-container">
+                                    <div class="graph-placeholder"><span>Sleep Stages & Breathing Events</span></div>
+                                </div>
+                                <div class="module-text-table-group">
+                                    <p>Monitoring sleep patterns, breathing, and oxygen levels.</p>
+                                    <table class="results-table">
+                                        <tbody>
+                                            <tr><td>Avg. Sleep Time</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span>5.8 hours/night</div></td></tr>
+                                            <tr><td>Breathing Events (AHI)</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span>12.4 events/hour</div></td></tr>
+                                            <tr><td>Lowest Oxygen</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span>91%</div></td></tr>
+                                            <tr><td>Time <90% Oxygen</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span>2.4% of sleep</div></td></tr>
+                                            <tr><td>Sleep Efficiency</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span>78%</div></td></tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="module-guidance">
+                                        <p><strong>What This Means:</strong> Findings suggest <span class="medical-term" data-definition="Sleep disorder with repeated breathing interruptions (apneas/hypopneas) during sleep, affecting quality.">mild obstructive sleep apnea</span> (OSA), with breathing interrupted ~12 times/hour. AHI 5-15 is considered mild. While oxygen stayed mostly stable, this can impact sleep quality and health.</p>
+                                        <p><strong>Guidance:</strong> Your sleep study suggests possible sleep apnea. Consider follow-up testing if symptoms persist. For mild OSA, options include:
+                                            <ul>
+                                                <li>Weight loss (if needed)</li>
+                                                <li>Avoiding sleeping on your back</li>
+                                                <li>Regular sleep schedule</li>
+                                                <li>Avoiding alcohol/sedatives before bed</li>
+                                            </ul>
+                                        </p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Detailed Results -->
+
+                    <!-- Resources Section -->
+                    <div class="resources-section">
+                        <h2>Resources & Next Steps</h2>
+                        <div class="resources-module">
+                            <h3><svg class="module-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#005f9e" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> Additional Resources</h3>
+                            <div class="resources-content">
+                                <ul class="resources-list">
+                                    <li><strong>Video guides</strong> to test results</li>
+                                    <li><strong>Personalized risk reduction tips</strong> - For more information or to access lifestyle coaching, follow my-view.ca</li>
+                                    <li><strong>Trusted links:</strong> Hypertension Canada, Sleep Foundation, Heart & Stroke, afibclinic.ca</li>
+                                </ul>
+                                <div class="qr-code-container">
+                                    <p><strong>Scan for Digital Report</strong></p>
+                                    <div class="qr-code-placeholder">QR Code for digital report + AI summary</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Patient View -->
+
+
+                <!-- TECHNICAL / CLINICAL VIEW -->
+                <div class="technical-view-content" id="technical-view">
+                     <div class="health-summary">
+                        <h2>Clinical Summary</h2>
+                        <p>14-day RPM study via Myant Tricorder: Extended Holter, ABPM, HST.</p>
+
+                        <div class="key-findings">
+                            <h3>Key Clinical Findings</h3>
+                            <ul class="key-findings-list">
+                                <li>
+                                    <div class="finding-category">Cardiac</div>
+                                    <div><span class="status-indicator status-red"></span>Paroxysmal AFib (1.2% burden), symptomatic correlation. Mild sinus tachycardia. SVPB/VPB WNL. HRV normal.</div>
+                                </li>
+                                <li>
+                                    <div class="finding-category">Hemodynamic</div>
+                                    <div><span class="status-indicator status-red"></span>Stage 1 HTN (mean 135/83). Non-dipper (4% dip). Elevated PWV (10 m/s). High nocturnal BP load (67%).</div>
+                                </li>
+                                <li>
+                                    <div class="finding-category">Sleep</div>
+                                    <div><span class="status-indicator status-yellow"></span>Mild OSA (AHI 12.4/hr, ODI 8.7). Min SpO2 91%. Reduced TST (5.8h) & efficiency (78%). Positional component noted.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="next-steps">
+                            <h3>Clinical Recommendations</h3>
+                            <ol>
+                                <li>Assess stroke risk (CHA₂DS₂-VASc) for anticoagulation necessity re: PAF.</li>
+                                <li>Consider rate/rhythm control strategy for symptomatic PAF.</li>
+                                <li>Initiate HTN management (lifestyle +/- pharmaco), address non-dipping pattern.</li>
+                                <li>Recommend formal PSG to confirm OSA & guide therapy.</li>
+                                <li>Investigate OSA contribution to non-dipping HTN.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="detailed-results">
+                        <h2>Detailed Clinical Results</h2>
+
+                        <!-- ECG Module (Clinical) -->
+                        <div class="results-module">
+                            <h3>Extended Holter Analysis (14-day)</h3>
+                             <div class="module-content-wrapper">
+                                <div class="graph-container">
+                                    <img src="https://imgur.com/0lHwtWr.png" alt="ECG Strip: Atrial Fibrillation" style="width:100%; height:auto; display:block;">
+                                </div>
+                                <div class="module-text-table-group">
+                                    <table class="results-table">
+                                        <thead><tr><th>Parameter</th><th>Value</th><th>Ref.</th><th></th></tr></thead>
+                                        <tbody>
+                                            <tr><td>HR Mean</td><td>94 bpm</td><td>60-100</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                            <tr><td>HR Min / Max</td><td>46 / 174 bpm</td><td>40-170</td><td></td></tr>
+                                            <tr><td>PAF Episodes</td><td>3</td><td>0</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                            <tr><td>PAF Max Duration</td><td>16m 58s</td><td>0</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                            <tr><td>PAF Burden</td><td>1.2%</td><td>&lt;1%</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                            <tr><td>SVPB (avg/24h)</td><td>187</td><td>&lt;200</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span></div></td></tr>
+                                            <tr><td>VPB (avg/24h)</td><td>42</td><td>&lt;500</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span></div></td></tr>
+                                            <tr><td>SDNN</td><td>112 ms</td><td>&gt;100ms</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span></div></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                             </div>
+                             <div class="technical-details">
+                                <button class="technical-toggle">Detailed Arrhythmia Analysis</button>
+                                <div class="technical-content">
+                                    <p>Baseline: Sinus rhythm, mild sinus tachycardia. Findings: Paroxysmal AFib (longest 16m 58s on 2025-04-22 @ 14:32), correlated with patient-reported palpitations. Mean vent. rate during AF: 118 bpm. No significant pauses. SVPB/VPB counts WNL. SDNN (112ms) suggests preserved autonomic function.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BP Module (Clinical) -->
+                        <div class="results-module">
+                            <h3>Ambulatory BP Monitoring (48-hour)</h3>
+                             <div class="module-content-wrapper">
+                                 <div class="graph-container">
+                                     <img src="https://imgur.com/IozCydS.png" alt="48-Hour ABPM Profile Plot" style="width:100%; height:auto; display:block;">
+                                 </div>
+                                 <div class="module-text-table-group">
+                                     <table class="results-table">
+                                         <thead><tr><th>Parameter</th><th>Value</th><th>Ref.</th><th></th></tr></thead>
+                                         <tbody>
+                                             <tr><td>24h Mean SBP/DBP</td><td>135 / 83 mmHg</td><td>&lt;130/80</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>Daytime Mean</td><td>138 / 85 mmHg</td><td>&lt;135/85</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>Nighttime Mean</td><td>132 / 81 mmHg</td><td>&lt;120/70</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>Nocturnal Dip</td><td>4 %</td><td>&gt;10%</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>BP Load Day / Night</td><td>42% / 67%</td><td>&lt;25%</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>BP Variability Idx</td><td>11.4</td><td>&lt;10</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                             <tr><td>Pulse Wave Vel.</td><td>10.0 m/s</td><td>&lt;8</td><td><div class="value-with-indicator"><span class="status-indicator status-red"></span></div></td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                            <div class="technical-details">
+                                <button class="technical-toggle">Hemodynamic Assessment Details</button>
+                                <div class="technical-content">
+                                    <p>ABPM confirms Stage 1 HTN. Non-dipper pattern (4% dip) increases CVD risk. High BP load, particularly nocturnal (67%). Mildly elevated BP variability index (11.4). Increased arterial stiffness (PWV 10.0 m/s). Possible link between non-dipping pattern and suspected OSA.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Sleep Module (Clinical) -->
+                        <div class="results-module">
+                            <h3>Home Sleep Testing (3-night)</h3>
+                             <div class="module-content-wrapper">
+                                 <div class="graph-container">
+                                     <div class="graph-placeholder"><span>Hypnogram & Respiratory Events</span></div>
+                                 </div>
+                                 <div class="module-text-table-group">
+                                     <table class="results-table">
+                                         <thead><tr><th>Parameter</th><th>Value</th><th>Ref.</th><th></th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Total Sleep Time (avg)</td><td>5.8 h</td><td>7-9</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span></div></td></tr>
+                                             <tr><td>AHI (avg)</td><td>12.4 /h</td><td>&lt;5</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span></div></td></tr>
+                                             <tr><td>Event Type (Ob/Cen)</td><td>87% / 13%</td><td>--</td><td></td></tr>
+                                             <tr><td>ODI (avg)</td><td>8.7 /h</td><td>&lt;5</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span></div></td></tr>
+                                             <tr><td>SpO2 Baseline / Nadir</td><td>95% / 91%</td><td>&gt;90%</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span></div></td></tr>
+                                             <tr><td>Time &lt;90% SpO2</td><td>2.4 %</td><td>&lt;5%</td><td><div class="value-with-indicator"><span class="status-indicator status-green"></span></div></td></tr>
+                                             <tr><td>Sleep Efficiency</td><td>78 %</td><td>&gt;85%</td><td><div class="value-with-indicator"><span class="status-indicator status-yellow"></span></div></td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                             <div class="technical-details">
+                                <button class="technical-toggle">Detailed Sleep Architecture Analysis</button>
+                                <div class="technical-content">
+                                    <p>HST indicates mild OSA (AHI 12.4), primarily obstructive. ODI elevated (8.7). Minimal hypoxic burden (Nadir 91%, Time <90% 2.4%). Reduced sleep efficiency (78%), TST (5.8h), and REM% (16%). Increased awakenings (17.3/night). Positional component noted (Supine AHI 18.9 vs. Non-supine 8.1). Formal PSG recommended for confirmation and potential RERA assessment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Detailed Clinical Results -->
+                </div> <!-- End Technical View -->
+
+            </div> <!-- End Report Content -->
+
+            <footer class="report-footer">
+                <div class="disclaimer">
+                    <strong>Important:</strong> This report summarizes collected data and is <strong>not a diagnosis</strong>. Findings require interpretation by a healthcare provider considering your full medical history. Please discuss these results with your doctor. It is recommended that you repeat these tests on a regular basis.
+                </div>
+                <p class="copyright">&copy; 2025 Myant Health. All rights reserved.</p>
+            </footer>
+        </div> <!-- End Report Container -->
+    </div> <!-- End Container -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // View Toggle Logic (remains the same)
+            const patientViewBtn = document.getElementById('patient-view-btn');
+            const techViewBtn = document.getElementById('technical-view-btn');
+            const patientView = document.getElementById('patient-view');
+            const techView = document.getElementById('technical-view');
+
+            // Ensure patient view is default
+             techView.classList.remove('active');
+             patientView.classList.remove('inactive');
+
+            patientViewBtn.addEventListener('click', function() {
+                if (!patientViewBtn.classList.contains('active')) {
+                    patientViewBtn.classList.add('active');
+                    techViewBtn.classList.remove('active');
+                    patientView.classList.remove('inactive');
+                    techView.classList.remove('active');
+                }
+            });
+
+            techViewBtn.addEventListener('click', function() {
+                 if (!techViewBtn.classList.contains('active')) {
+                    techViewBtn.classList.add('active');
+                    patientViewBtn.classList.remove('active');
+                    techView.classList.add('active');
+                    patientView.classList.add('inactive');
+                }
+            });
+
+            // Technical Details Toggle Logic (remains the same)
+            const techToggles = document.querySelectorAll('.technical-toggle');
+            techToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content && content.classList.contains('technical-content')) {
+                        content.style.display = this.classList.contains('active') ? 'block' : 'none';
+                         // Accessibility: Update aria-expanded attribute if present
+                         if (this.hasAttribute('aria-expanded')) {
+                            this.setAttribute('aria-expanded', this.classList.contains('active'));
+                         }
+                    }
+                });
+                 // Accessibility: Add aria-controls and initial aria-expanded
+                 const content = toggle.nextElementSibling;
+                 if (content && content.classList.contains('technical-content')) {
+                     const contentId = 'tech-content-' + Math.random().toString(36).substring(2, 9);
+                     content.id = contentId;
+                     toggle.setAttribute('aria-controls', contentId);
+                     toggle.setAttribute('aria-expanded', 'false');
+                     content.style.display = 'none'; // Ensure it's hidden initially via JS too
+                 }
+            });
+        });
+    </script>
+</body>
+</html>

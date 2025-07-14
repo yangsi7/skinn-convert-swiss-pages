@@ -1,0 +1,304 @@
+{
+  "timestamp": "2025-07-11T14:16:08.606Z",
+  "baseUrl": "http://localhost:8080",
+  "findings": [
+    {
+      "type": "missing-element",
+      "element": "language-switcher"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <About> component:\n\n    at About (http://localhost:8080/src/pages/About.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "about",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "about",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <Solutions> component:\n\n    at Solutions (http://localhost:8080/src/pages/Solutions.tsx:19:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "solutions",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "solutions",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <Partners> component:\n\n    at Partners (http://localhost:8080/src/pages/Partners.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "partners",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "partners",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <HowItWorks> component:\n\n    at HowItWorks (http://localhost:8080/src/pages/HowItWorks.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "how-it-works",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "how-it-works",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <Evidence> component:\n\n    at Evidence (http://localhost:8080/src/pages/Evidence.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "evidence",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "evidence",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <FAQ> component:\n\n    at FAQ (http://localhost:8080/src/pages/FAQ.tsx:19:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "faq",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "faq",
+      "viewport": "desktop"
+    },
+    {
+      "type": "console-error",
+      "viewport": "desktop",
+      "message": "The above error occurred in the <Contact> component:\n\n    at Contact (http://localhost:8080/src/pages/Contact.tsx:20:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "missing-element",
+      "page": "contact",
+      "viewport": "desktop",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "contact",
+      "viewport": "desktop"
+    },
+    {
+      "type": "http-error",
+      "page": "home",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/"
+    },
+    {
+      "type": "http-error",
+      "page": "home-de",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/de"
+    },
+    {
+      "type": "http-error",
+      "page": "home-fr",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/fr"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <About> component:\n\n    at About (http://localhost:8080/src/pages/About.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "about",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/about"
+    },
+    {
+      "type": "missing-element",
+      "page": "about",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "about",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <Solutions> component:\n\n    at Solutions (http://localhost:8080/src/pages/Solutions.tsx:19:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "solutions",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/solutions"
+    },
+    {
+      "type": "missing-element",
+      "page": "solutions",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "solutions",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <Partners> component:\n\n    at Partners (http://localhost:8080/src/pages/Partners.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "partners",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/partners"
+    },
+    {
+      "type": "missing-element",
+      "page": "partners",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "partners",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <HowItWorks> component:\n\n    at HowItWorks (http://localhost:8080/src/pages/HowItWorks.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "how-it-works",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/how-it-works"
+    },
+    {
+      "type": "missing-element",
+      "page": "how-it-works",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "how-it-works",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <Evidence> component:\n\n    at Evidence (http://localhost:8080/src/pages/Evidence.tsx:18:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "evidence",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/evidence"
+    },
+    {
+      "type": "missing-element",
+      "page": "evidence",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "evidence",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <FAQ> component:\n\n    at FAQ (http://localhost:8080/src/pages/FAQ.tsx:19:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "faq",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/faq"
+    },
+    {
+      "type": "missing-element",
+      "page": "faq",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "faq",
+      "viewport": "mobile"
+    },
+    {
+      "type": "console-error",
+      "viewport": "mobile",
+      "message": "The above error occurred in the <Contact> component:\n\n    at Contact (http://localhost:8080/src/pages/Contact.tsx:20:15)\n    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4069:5)\n    at Routes (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4508:5)\n    at AppRoutes (http://localhost:8080/src/routes/index.tsx:28:39)\n    at AnalyticsProvider (http://localhost:8080/src/components/analytics/AnalyticsProvider.tsx:29:41)\n    at Router (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:4451:15)\n    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=6359d66a:5196:5)\n    at LanguageProvider (http://localhost:8080/src/contexts/LanguageContext.tsx:24:40)\n    at _a (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=3a158449:624:5)\n    at Provider (http://localhost:8080/node_modules/.vite/deps/chunk-MQDSU7FK.js?v=0b25350c:38:15)\n    at TooltipProvider (http://localhost:8080/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=7b69ffe1:59:5)\n    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/@tanstack_react-query.js?v=2b301066:2794:3)\n    at App\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://reactjs.org/link/error-boundaries to learn more about error boundaries."
+    },
+    {
+      "type": "http-error",
+      "page": "contact",
+      "viewport": "mobile",
+      "status": 304,
+      "url": "http://localhost:8080/contact"
+    },
+    {
+      "type": "missing-element",
+      "page": "contact",
+      "viewport": "mobile",
+      "element": "navbar"
+    },
+    {
+      "type": "no-content",
+      "page": "contact",
+      "viewport": "mobile"
+    }
+  ]
+}

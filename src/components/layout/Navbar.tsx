@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import MyantLogo from "@/components/ui/MyantLogo";
@@ -46,11 +46,52 @@ const Navbar = () => {
       return targetLang === 'en' ? '/' : `/${targetLang}`;
     }
     
-    // For physicians page and its translations
-    if (currentPath === '/physicians' || currentPath === '/de/arzt' || currentPath === '/fr/medecin') {
-      if (targetLang === 'en') return '/physicians';
-      if (targetLang === 'de') return '/de/arzt';
-      if (targetLang === 'fr') return '/fr/medecin';
+    // Route mapping for all pages
+    const routeMap = {
+      // Solutions pages (replaced For Patients)
+      '/solutions': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+      '/de/losungen': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+      '/fr/solutions': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+      
+      // Partners pages (replaced For Physicians)
+      '/partners': { en: '/partners', de: '/de/partner', fr: '/fr/partenaires' },
+      '/de/partner': { en: '/partners', de: '/de/partner', fr: '/fr/partenaires' },
+      '/fr/partenaires': { en: '/partners', de: '/de/partner', fr: '/fr/partenaires' },
+      
+      // How It Works pages
+      '/how-it-works': { en: '/how-it-works', de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche' },
+      '/de/wie-es-funktioniert': { en: '/how-it-works', de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche' },
+      '/fr/comment-ca-marche': { en: '/how-it-works', de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche' },
+      
+      // Evidence pages
+      '/evidence': { en: '/evidence', de: '/de/evidenz', fr: '/fr/preuves' },
+      '/de/evidenz': { en: '/evidence', de: '/de/evidenz', fr: '/fr/preuves' },
+      '/fr/preuves': { en: '/evidence', de: '/de/evidenz', fr: '/fr/preuves' },
+      
+      // About pages
+      '/about': { en: '/about', de: '/de/uber-uns', fr: '/fr/a-propos' },
+      '/de/uber-uns': { en: '/about', de: '/de/uber-uns', fr: '/fr/a-propos' },
+      '/fr/a-propos': { en: '/about', de: '/de/uber-uns', fr: '/fr/a-propos' },
+      
+      // FAQ pages
+      '/faq': { en: '/faq', de: '/de/faq', fr: '/fr/faq' },
+      '/de/faq': { en: '/faq', de: '/de/faq', fr: '/fr/faq' },
+      '/fr/faq': { en: '/faq', de: '/de/faq', fr: '/fr/faq' },
+      
+      // Contact pages
+      '/contact': { en: '/contact', de: '/de/kontakt', fr: '/fr/contact' },
+      '/de/kontakt': { en: '/contact', de: '/de/kontakt', fr: '/fr/contact' },
+      '/fr/contact': { en: '/contact', de: '/de/kontakt', fr: '/fr/contact' },
+      
+      // Legacy physicians page routing
+      '/physicians': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+      '/de/arzt': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+      '/fr/medecin': { en: '/solutions', de: '/de/losungen', fr: '/fr/solutions' },
+    };
+    
+    // Check if we have a mapping for current path
+    if (routeMap[currentPath]) {
+      return routeMap[currentPath][targetLang];
     }
     
     // Default fallback - just add language prefix
@@ -65,41 +106,37 @@ const Navbar = () => {
 
   // Determine which navigation links to show based on language
   const getNavigationItems = () => {
-    // Basic structure for all languages
+    // Target architecture: Home, Solutions, Partners, How It Works, About Us
     const items = [
-      { labelKey: "forPatients", path: "/patients" },
-      { labelKey: "forPhysicians", path: language === 'en' ? "/physicians" : language === 'de' ? "/de/arzt" : "/fr/medecin" },
-      { labelKey: "howItWorks", path: "/how-it-works" },
-      { labelKey: "evidence", path: "/evidence" },
-      { labelKey: "about", path: "/about" },
-      { labelKey: "support", path: "https://skiin-support.netlify.app/", external: true },
+      { labelKey: "home", path: language === 'en' ? "/" : `/${language}` },
+      { labelKey: "solutions", path: language === 'en' ? "/solutions" : language === 'de' ? "/de/losungen" : "/fr/solutions" },
+      { labelKey: "partners", path: language === 'en' ? "/partners" : language === 'de' ? "/de/partner" : "/fr/partenaires" },
+      { labelKey: "howItWorks", path: language === 'en' ? "/how-it-works" : language === 'de' ? "/de/wie-es-funktioniert" : "/fr/comment-ca-marche" },
+      { labelKey: "about", path: language === 'en' ? "/about" : language === 'de' ? "/de/uber-uns" : "/fr/a-propos" },
     ];
 
     // Localized labels for each language
     const labels = {
       en: {
-        forPatients: "For Patients",
-        forPhysicians: "For Physicians",
+        home: "Home",
+        solutions: "Solutions",
+        partners: "Partners", 
         howItWorks: "How It Works",
-        evidence: "Clinical Evidence",
         about: "About Us",
-        support: "Support",
       },
       de: {
-        forPatients: "Für Patienten",
-        forPhysicians: "Für Ärzte",
+        home: "Startseite",
+        solutions: "Lösungen",
+        partners: "Partner",
         howItWorks: "Wie es funktioniert",
-        evidence: "Klinische Evidenz",
-        about: "Über uns",
-        support: "Support",
+        about: "Über uns", 
       },
       fr: {
-        forPatients: "Pour les Patients",
-        forPhysicians: "Pour les Médecins",
+        home: "Accueil",
+        solutions: "Solutions",
+        partners: "Partenaires",
         howItWorks: "Comment ça marche",
-        evidence: "Preuves Cliniques",
         about: "À propos",
-        support: "Support",
       }
     };
 
@@ -120,19 +157,33 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+      className={`fixed top-0 w-full z-fixed transition-all duration-300 ${
+        isScrolled 
+          ? "glass-effect shadow-medical py-3" 
+          : "bg-transparent py-6"
       }`}
+      style={{ zIndex: 9999 }}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          <Link to={language === 'en' ? '/' : `/${language}`} className="flex items-center" onClick={closeMobileMenu}>
-            <span className="sr-only">Myant Health</span>
-            <MyantLogo className="h-10" />
+          <Link 
+            to={language === 'en' ? '/' : `/${language}`} 
+            className="flex items-center group" 
+            onClick={closeMobileMenu}
+          >
+            <div className="relative mr-3">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+              <div className="relative bg-gradient-to-br from-navy-900 to-navy-800 p-2.5 rounded-xl shadow-premium">
+                <Heart className="h-6 w-6 text-white" />
+              </div>
+            </div>
+            <span className="text-2xl font-bold text-gradient">
+              SKIIN
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
               item.external ? (
                 <a 
@@ -140,31 +191,33 @@ const Navbar = () => {
                   href={item.path} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="relative text-navy-700 hover:text-navy-900 font-medium transition-all duration-300 group"
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-600 to-navy-800 group-hover:w-full transition-all duration-300" />
                 </a>
               ) : (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="relative text-navy-700 hover:text-navy-900 font-medium transition-all duration-300 group"
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-600 to-navy-800 group-hover:w-full transition-all duration-300" />
                 </Link>
               )
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-2">
-            <div className="flex border rounded-full px-1 py-1">
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="flex items-center glass rounded-full px-1 py-1">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  className={`px-2 py-1 rounded-full text-sm ${
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                     language === lang.code
-                      ? "bg-primary text-white"
-                      : "text-foreground hover:bg-muted"
+                      ? "bg-gradient-to-r from-navy-900 to-navy-800 text-white shadow-inner"
+                      : "text-navy-700 hover:text-navy-900 hover:bg-navy-50"
                   }`}
                   onClick={() => handleLanguageChange(lang.code)}
                 >
@@ -172,17 +225,25 @@ const Navbar = () => {
                 </button>
               ))}
             </div>
-            <Button size="sm" className="bg-myant-green hover:bg-myant-darkgreen">
-              {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+            <Button 
+              size="sm" 
+              className="group bg-gradient-to-r from-navy-900 to-navy-800 hover:from-navy-800 hover:to-navy-700 text-white font-medium shadow-premium hover-lift px-6"
+              asChild
+            >
+              <Link to={language === 'en' ? '/contact' : language === 'de' ? '/de/kontakt' : '/fr/contact'}>
+                {language === 'en' ? 'Get Started' : language === 'de' ? 'Jetzt starten' : 'Commencer'}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden relative p-2 text-navy-700 hover:text-navy-900 transition-colors"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-teal-600/20 rounded-lg blur-lg opacity-0 hover:opacity-100 transition-opacity duration-300" />
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -190,13 +251,13 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-40 transform transition-transform ease-in-out duration-300 ${
+        className={`md:hidden fixed inset-0 bg-gradient-premium z-40 transform transition-transform ease-in-out duration-300 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ top: "60px" }}
+        style={{ top: "80px" }}
       >
         <div className="container-custom py-8">
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-2">
             {navigationItems.map((item) => (
               item.external ? (
                 <a 
@@ -204,7 +265,7 @@ const Navbar = () => {
                   href={item.path} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-foreground text-lg py-2 hover:text-primary"
+                  className="text-white/90 hover:text-white text-lg py-3 px-4 hover:bg-white/10 rounded-lg transition-all duration-200"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
@@ -213,22 +274,22 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-foreground text-lg py-2 hover:text-primary"
+                  className="text-white/90 hover:text-white text-lg py-3 px-4 hover:bg-white/10 rounded-lg transition-all duration-200"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
                 </Link>
               )
             ))}
-            <div className="pt-4">
-              <div className="flex border rounded-full px-1 py-1 self-start mb-4">
+            <div className="pt-6 space-y-4">
+              <div className="flex glass-dark rounded-full px-1 py-1">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
-                    className={`px-3 py-1 rounded-full text-sm ${
+                    className={`flex-1 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       language === lang.code
-                        ? "bg-primary text-white"
-                        : "text-foreground hover:bg-muted"
+                        ? "bg-gradient-to-r from-teal-600 to-teal-500 text-white shadow-inner"
+                        : "text-white/70 hover:text-white hover:bg-white/10"
                     }`}
                     onClick={() => handleLanguageChange(lang.code)}
                   >
@@ -236,8 +297,15 @@ const Navbar = () => {
                   </button>
                 ))}
               </div>
-              <Button className="w-full" size="lg">
-                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+              <Button 
+                className="w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white font-medium shadow-medical" 
+                size="lg"
+                asChild
+              >
+                <Link to={language === 'en' ? '/contact' : language === 'de' ? '/de/kontakt' : '/fr/contact'}>
+                  {language === 'en' ? 'Get Started' : language === 'de' ? 'Jetzt starten' : 'Commencer'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </nav>

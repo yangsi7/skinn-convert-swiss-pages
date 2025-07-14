@@ -1,86 +1,78 @@
 
 export const homeTranslations = {
   hero: {
-    title: "Continuous Cardiac Monitoring",
-    titleHighlight: "Without Compromising Comfort",
-    description: "SKIIN Smart Garments are revolutionizing how we monitor and manage heart health, providing clinical-grade ECG without wires, adhesives, or discomfort.",
+    title: "Next-Generation Holter Monitoring – Comfortable, 14-Day ECG",
+    titleHighlight: "",
+    description: "SKIIN's wearable cardiac monitor lets you live normally while capturing every heartbeat. No wires, no patches – just reliable insights for better heart care.",
     buttons: {
-      forPatients: "For Patients",
-      forPhysicians: "For Physicians"
+      solutions: "Screening Solutions",
+      partners: "For Healthcare Providers"
     },
     certification: "Certified medical device, clinically tested and validated",
     testimonial: {
-      quote: "Finally, cardiac monitoring that my patients actually want to wear!",
-      author: "Dr. Sarah Klein, Cardiologist"
+      quote: "Wearing the SKIIN garment was so easy – I almost forgot I had it on, and it caught an issue that my previous 24-hour test missed!",
+      author: "Maria, 58, Zurich"
     }
   },
+  problemsSolution: {
+    title: "Finally, a Heart Monitor Without the Hassle",
+    mainText: "Traditional Holter monitors can be cumbersome: sticky electrodes, wires, a bulky device to carry – and typically only 24-48 hours of recording. Many patients feel uncomfortable or even lose sleep wearing them. ",
+    solutionHighlight: "SKIIN changes that",
+    solutionText: ". We've replaced the tangle of wires and patches with a simple wearable garment, capable of continuously monitoring your heart for up to 14 days in total comfort.",
+    benefit1Title: "No wires or sticky pads",
+    benefit1Text: "Just a comfortable band or undershirt that feels like regular clothing.",
+    benefit2Title: "14-day continuous ECG recording",
+    benefit2Text: "Far longer than standard Holters, capturing intermittent issues that short tests miss.",
+    benefit3Title: "Proven clinical accuracy", 
+    benefit3Text: "Matches traditional Holter accuracy while being significantly easier to wear.",
+    stat1: "70% of arrhythmias remain undetected with short-term monitoring",
+    stat2: "30% of undiagnosed AFib patients suffer preventable strokes",
+    stat3: "50% more arrhythmias detected with 14-day SKIIN monitoring"
+  },
   features: {
-    title: "A New Standard in Cardiac Monitoring",
-    subtitle: "SKIIN combines breakthrough textile computing with clinical expertise to deliver unparalleled cardiac care",
+    title: "Key Benefits of SKIIN Monitoring",
+    subtitle: "Experience the future of cardiac care with our revolutionary textile-based ECG technology",
     items: [
       {
-        title: "Continuous ECG",
-        description: "Clinical-grade ECG monitoring for up to 14 days without interruption"
+        title: "Clinical-Grade Accuracy",
+        description: "SKIIN's textile sensors capture 3-lead ECG signals with clinical precision equal to traditional Holter monitors, so your doctor gets all the data they need."
       },
       {
-        title: "Comfortable Design",
-        description: "Soft, breathable fabric with invisible sensors – no wires or adhesives"
+        title: "Comfortable Wear",
+        description: "Soft, breathable fabric band that you can wear under your clothes. No itching or irritation from adhesives. You can go about your daily routine comfortably."
       },
       {
-        title: "Arrhythmia Detection",
-        description: "Advanced algorithms to detect and alert on irregular heartbeats"
+        title: "Extended Insights",
+        description: "By monitoring longer, SKIIN can catch irregular heart rhythms that a 24-hour test might miss. Research shows that multi-day monitoring can dramatically increase arrhythmia detection rates."
       },
       {
-        title: "Real-time Analysis",
-        description: "Instant data transmission to physicians for timely intervention"
-      },
-      {
-        title: "Everyday Usability",
-        description: "Washable, reusable, and designed to be part of daily life"
-      },
-      {
-        title: "Doctor Connected",
-        description: "Seamlessly integrated with clinical workflows and EHR systems"
+        title: "All-in-One Health Data",
+        description: "Beyond heart rhythm, SKIIN tracks your heart rate, activity, breathing, and more to give a full picture of your cardiac health. All data is synced securely via a mobile app for analysis."
       }
     ]
   },
   howItWorks: {
     tagline: "Simple Process",
-    title: "How SKIIN Works",
-    subtitle: "Designed to fit seamlessly into your life while providing clinical-grade cardiac monitoring",
+    title: "How SKIIN Works", 
+    subtitle: "From prescription to results in three simple steps",
     steps: [
       {
-        number: "01",
-        title: "Prescription",
-        description: "Your healthcare provider prescribes SKIIN for continuous cardiac monitoring"
+        number: "01", 
+        title: "Get SKIIN Prescribed",
+        description: "Your doctor or our partner physician prescribes the SKIIN monitor and you receive the garment kit."
       },
       {
         number: "02",
-        title: "Delivery",
-        description: "Receive your SKIIN Smart Garment kit directly at your home"
+        title: "Wear and Record",
+        description: "Slip on the smart garment and go about daily life for up to 14 days while it continuously records your heart data."
       },
       {
         number: "03",
-        title: "Wear",
-        description: "Simply wear the comfortable garment as part of your daily routine"
-      },
-      {
-        number: "04",
-        title: "Monitor",
-        description: "Your heart rhythm is continuously monitored and analyzed"
-      },
-      {
-        number: "05",
-        title: "Connect",
-        description: "Data is securely shared with your healthcare provider in real-time"
-      },
-      {
-        number: "06",
-        title: "Results",
-        description: "Get personalized insights and treatment recommendations"
+        title: "Results & Follow-Up",
+        description: "Return the device or upload the data. Your doctor reviews the comprehensive report to plan next steps."
       }
     ],
-    cta: "Learn More About the Process"
+    cta: "Learn more about how SKIIN works →"
   },
   testimonials: {
     tagline: "Testimonials",
@@ -88,19 +80,14 @@ export const homeTranslations = {
     subtitle: "Hear from healthcare providers and patients who have experienced the benefits of SKIIN",
     items: [
       {
-        quote: "SKIIN has transformed how I monitor my patients with arrhythmias. The continuous data gives me confidence in my diagnoses, and patients actually keep wearing it.",
-        name: "Dr. Michael Rodriguez",
-        title: "Cardiologist, Swiss Heart Center"
+        quote: "I hardly noticed I was wearing the monitor, and it found an issue my 24-hour Holter didn't. SKIIN potentially saved my life.",
+        name: "Michael",
+        title: "62, Basel"
       },
       {
-        quote: "As someone who needs regular cardiac monitoring, SKIIN has been life-changing. I forget I'm wearing a medical device - it's just like regular underwear but keeps me connected to my doctor.",
-        name: "Maria Schmidt",
-        title: "Patient with Atrial Fibrillation"
-      },
-      {
-        quote: "The quality of data we receive from SKIIN garments is exceptional. The continuous monitoring has helped us detect patterns that would have been missed with traditional Holter monitoring.",
-        name: "Dr. Sophia Levine",
-        title: "Electrophysiologist"
+        quote: "SKIIN provided continuous data that helped me catch an intermittent arrhythmia. The ease of use meant my patient actually kept it on for the full 2 weeks.",
+        name: "Dr. Anne Dupont",
+        title: "GP, Geneva"
       }
     ]
   },
@@ -128,11 +115,11 @@ export const homeTranslations = {
     ]
   },
   cta: {
-    title: "Ready to transform cardiac monitoring?",
-    description: "Whether you're a healthcare provider looking to offer better cardiac care or a patient seeking a more comfortable monitoring solution, SKIIN is ready for you.",
+    title: "Ready for the future of heart monitoring?",
+    description: "Whether you're a patient or a healthcare provider, SKIIN is here to improve cardiac care in Switzerland.",
     buttons: {
-      requestInfo: "Request Information",
-      scheduleDemo: "Schedule a Demo"
+      requestInfo: "Get in Touch Today",
+      scheduleDemo: "Learn More"
     },
     statistic: "97% patient satisfaction rate"
   },

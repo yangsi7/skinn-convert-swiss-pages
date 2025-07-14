@@ -6,40 +6,12 @@ import { useTranslation } from "@/hooks/useTranslation";
 const HowItWorksSection = () => {
   const translations = useTranslation('home');
   
-  const steps = [
-    {
-      number: translations.howItWorks.steps[0].number,
-      title: translations.howItWorks.steps[0].title,
-      description: translations.howItWorks.steps[0].description
-    },
-    {
-      number: translations.howItWorks.steps[1].number,
-      title: translations.howItWorks.steps[1].title,
-      description: translations.howItWorks.steps[1].description,
-      image: "/lovable-uploads/a94ae42b-2b12-49d8-a6af-965c9691535f.png"
-    },
-    {
-      number: translations.howItWorks.steps[2].number,
-      title: translations.howItWorks.steps[2].title,
-      description: translations.howItWorks.steps[2].description
-    },
-    {
-      number: translations.howItWorks.steps[3].number,
-      title: translations.howItWorks.steps[3].title,
-      description: translations.howItWorks.steps[3].description
-    },
-    {
-      number: translations.howItWorks.steps[4].number,
-      title: translations.howItWorks.steps[4].title,
-      description: translations.howItWorks.steps[4].description,
-      image: "/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
-    },
-    {
-      number: translations.howItWorks.steps[5].number,
-      title: translations.howItWorks.steps[5].title,
-      description: translations.howItWorks.steps[5].description
-    },
-  ];
+  const steps = translations.howItWorks.steps.map((step, index) => ({
+    ...step,
+    // Add images to specific steps
+    ...(index === 1 && { image: "/lovable-uploads/a94ae42b-2b12-49d8-a6af-965c9691535f.png" }),
+    ...(index === 2 && { image: "/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png" })
+  }));
 
   return (
     <section className="section-padding bg-white">

@@ -1,10 +1,11 @@
 
 import React from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+import PageLayout from '@/components/layout/PageLayout';
 import HeroSection from '@/components/home/HeroSection';
+import ProblemsAndSolutionSection from '@/components/home/ProblemsAndSolutionSection';
 import FeaturesSection from '@/components/home/FeaturesSection';
 import HowItWorksSection from '@/components/home/HowItWorksSection';
+import SwissInsuranceSection from '@/components/home/SwissInsuranceSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ComparisonSection from '@/components/home/ComparisonSection';
 import CtaSection from '@/components/home/CtaSection';
@@ -14,23 +15,22 @@ import ContactSection from '@/components/home/ContactSection';
 /**
  * Home page composed of multiple marketing sections. Each section uses the
  * translation hooks so text is rendered in the currently selected language.
+ * Updated to include problem hierarchy and Swiss insurance coverage sections.
  */
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <HeroSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <TestimonialsSection />
-        <ComparisonSection />
-        <CtaSection />
-        <FaqSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <PageLayout>
+      <HeroSection />
+      <ProblemsAndSolutionSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <SwissInsuranceSection />
+      <TestimonialsSection />
+      <ComparisonSection />
+      <CtaSection />
+      <FaqSection />
+      <ContactSection />
+    </PageLayout>
   );
 };
 

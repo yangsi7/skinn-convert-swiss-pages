@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,13 +66,65 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				myant: {
-					green: '#2A7D71',
-					darkgreen: '#1A4A43',
-					lightgreen: '#E6F0EE',
-					gray: '#F5F5F5',
-					darkgray: '#5A5A5A'
-				}
+				// Medical-grade professional colors
+				navy: {
+					50: '#f0f4f8',
+					100: '#d9e2ec',
+					200: '#bcccdc',
+					300: '#9fb3c8',
+					400: '#829ab1',
+					500: '#627d98',
+					600: '#486581',
+					700: '#334e68',
+					800: '#243b53',
+					900: '#1e3a5f',
+					950: '#0d1929',
+				},
+				teal: {
+					50: '#f0fcf9',
+					100: '#c6f7e9',
+					200: '#8eedd1',
+					300: '#5fe3c0',
+					400: '#2dcca7',
+					500: '#00b388',
+					600: '#00796b',
+					700: '#00695c',
+					800: '#00574b',
+					900: '#004c40',
+				},
+				coral: {
+					50: '#fef3f2',
+					100: '#fee4e2',
+					200: '#fecaca',
+					300: '#fca5a5',
+					400: '#f87171',
+					500: '#ef4444',
+					600: '#e74c3c',
+					700: '#dc2626',
+					800: '#b91c1c',
+					900: '#991b1b',
+				},
+				gold: {
+					50: '#fffbeb',
+					100: '#fef3c7',
+					200: '#fde68a',
+					300: '#fcd34d',
+					400: '#fbbf24',
+					500: '#ffc107',
+					600: '#d97706',
+					700: '#b45309',
+					800: '#92400e',
+					900: '#78350f',
+				},
+			},
+			fontFamily: {
+				'display': ['Inter', 'system-ui', 'sans-serif'],
+				'body': ['Inter', 'system-ui', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'monospace'],
+			},
+			fontSize: {
+				'hero': ['clamp(3rem, 8vw, 5.5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'display': ['clamp(2.5rem, 6vw, 4rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -97,21 +148,85 @@ export default {
 						height: '0'
 					}
 				},
-				'fade-in': {
-					'0%': { opacity: '0' },
-					'100%': { opacity: '1' }
+				'fade-up': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
 				},
-				'slide-in': {
-					'0%': { transform: 'translateY(20px)', opacity: '0' },
-					'100%': { transform: 'translateY(0)', opacity: '1' }
-				}
+				'fade-in': {
+					from: { opacity: '0' },
+					to: { opacity: '1' },
+				},
+				'slide-up': {
+					from: { transform: 'translateY(100%)' },
+					to: { transform: 'translateY(0)' },
+				},
+				'slide-down': {
+					from: { transform: 'translateY(-100%)' },
+					to: { transform: 'translateY(0)' },
+				},
+				'scale-in': {
+					from: { opacity: '0', transform: 'scale(0.9)' },
+					to: { opacity: '1', transform: 'scale(1)' },
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' },
+				},
+				'gradient-shift': {
+					'0%, 100%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'ecg-line': {
+					'0%': { strokeDashoffset: '1000' },
+					'100%': { strokeDashoffset: '0' },
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'slide-in': 'slide-in 0.7s ease-out forwards'
-			}
+				'fade-up': 'fade-up 0.5s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-up': 'slide-up 0.3s ease-out',
+				'slide-down': 'slide-down 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+				'gradient-shift': 'gradient-shift 8s ease infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'ecg-line': 'ecg-line 3s ease-out infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-mesh': 'radial-gradient(at 40% 20%, rgb(30, 58, 95) 0px, transparent 50%), radial-gradient(at 80% 0%, rgb(0, 121, 107) 0px, transparent 50%), radial-gradient(at 0% 50%, rgb(231, 76, 60) 0px, transparent 50%), radial-gradient(at 80% 50%, rgb(30, 58, 95) 0px, transparent 50%), radial-gradient(at 0% 100%, rgb(0, 121, 107) 0px, transparent 50%)',
+				'hero-pattern': "url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239fb3c8' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+				'shimmer': 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+			},
+			backdropBlur: {
+				xs: '2px',
+			},
+			boxShadow: {
+				'glow': '0 0 20px rgba(0, 121, 107, 0.3)',
+				'glow-lg': '0 0 40px rgba(0, 121, 107, 0.4)',
+				'inner-glow': 'inset 0 0 20px rgba(0, 121, 107, 0.1)',
+				'premium': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+				'premium-lg': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+			},
+			spacing: {
+				'18': '4.5rem',
+				'88': '22rem',
+				'128': '32rem',
+			},
+			scale: {
+				'102': '1.02',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
