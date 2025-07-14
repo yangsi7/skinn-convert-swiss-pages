@@ -19,19 +19,19 @@ const HeroSection = () => {
   const { getRoutePath } = useRouteTranslations();
   
   return (
-    <div className="pt-28 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-background via-myant-lightgreen/10 to-myant-green/5">
+    <div className="pt-28 pb-16 md:pt-32 md:pb-24 bg-gradient-subtle">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Main Message */}
           <div className="space-y-8 animate-fade-in">
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="bg-white/80 backdrop-blur-sm">
-                <Shield className="w-4 h-4 mr-2 text-myant-green" />
+              <Badge variant="outline" className="swiss-precision backdrop-blur-sm">
+                <Shield className="w-4 h-4 mr-2 text-medical-teal" />
                 {language === 'en' ? 'CE Medical Device' : language === 'fr' ? 'Dispositif Médical CE' : 'CE Medizinprodukt'}
               </Badge>
-              <Badge variant="outline" className="bg-white/80 backdrop-blur-sm">
-                <Heart className="w-4 h-4 mr-2 text-myant-green" />
+              <Badge variant="outline" className="swiss-precision backdrop-blur-sm">
+                <Heart className="w-4 h-4 mr-2 text-swiss-red" />
                 {language === 'en' ? 'Swiss Quality' : language === 'fr' ? 'Qualité Suisse' : 'Schweizer Qualität'}
               </Badge>
             </div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
                 {translations.hero.title}{" "}
-                <span className="text-myant-green">{translations.hero.titleHighlight}</span>
+                <span className="bg-gradient-trust bg-clip-text text-transparent">{translations.hero.titleHighlight}</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-medium">
                 {translations.hero.description}
@@ -50,7 +50,7 @@ const HeroSection = () => {
             {/* Value Propositions */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-myant-green flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
                 <span className="text-foreground">
                   {language === 'en' ? 'No wires, no patches – 14 days of comfortable wear' : 
                    language === 'fr' ? 'Pas de fils, pas de patchs – 14 jours de port confortable' : 
@@ -58,7 +58,7 @@ const HeroSection = () => {
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-myant-green flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
                 <span className="text-foreground">
                   {language === 'en' ? 'Covered by basic insurance' : 
                    language === 'fr' ? 'Couvert par l\'assurance de base' : 
@@ -66,7 +66,7 @@ const HeroSection = () => {
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-myant-green flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
                 <span className="text-foreground">
                   {language === 'en' ? 'Wear at home, live your life' : 
                    language === 'fr' ? 'Porter à la maison, vivre sa vie' : 
@@ -77,14 +77,13 @@ const HeroSection = () => {
 
             {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen text-white px-8">
+              <Button size="lg" variant="cta" className="px-8">
                 {language === 'en' ? 'Get Started' : language === 'fr' ? 'Commencer' : 'Jetzt starten'}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                variant="outline"
               >
                 <Play className="w-5 h-5 mr-2" />
                 {language === 'en' ? 'How it works' : language === 'fr' ? 'Comment ça marche' : 'Wie es funktioniert'}
@@ -94,13 +93,13 @@ const HeroSection = () => {
             {/* Social Proof Line */}
             <div className="pt-4 border-t border-muted">
               <p className="text-sm text-muted-foreground">
-                <strong className="text-myant-green">
+                <strong className="text-medical-teal">
                   {language === 'en' ? '500+ Patients' : language === 'fr' ? '500+ Patients' : '500+ Patienten'}
                 </strong>
                 {language === 'en' ? ' have already benefited from SKIIN • ' : 
                  language === 'fr' ? ' ont déjà bénéficié de SKIIN • ' : 
                  ' haben bereits von SKIIN profitiert • '}
-                <strong className="text-myant-green">
+                <strong className="text-bridge-teal">
                   {language === 'en' ? '94% Compliance' : language === 'fr' ? '94% Compliance' : '94% Compliance'}
                 </strong>
                 {language === 'en' ? ' Rate' : language === 'fr' ? ' Taux' : ' Rate'}
@@ -137,18 +136,18 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Stats Cards */}
-            <Card className="absolute -top-4 -left-4 bg-white shadow-lg border-myant-green/20">
+            <Card className="absolute -top-4 -left-4 bg-white swiss-precision">
               <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-myant-green">14</div>
+                <div className="text-2xl font-bold text-medical-teal">14</div>
                 <div className="text-xs text-muted-foreground">
                   {language === 'en' ? 'Days Monitoring' : language === 'fr' ? 'Jours Surveillance' : 'Tage Überwachung'}
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="absolute -bottom-4 -right-4 bg-white shadow-lg border-myant-green/20">
+            <Card className="absolute -bottom-4 -right-4 bg-white swiss-precision">
               <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-myant-green">7x</div>
+                <div className="text-2xl font-bold text-bridge-teal">7x</div>
                 <div className="text-xs text-muted-foreground">
                   {language === 'en' ? 'Better Detection' : language === 'fr' ? 'Meilleure Détection' : 'Bessere Erkennung'}
                 </div>
@@ -156,7 +155,7 @@ const HeroSection = () => {
             </Card>
 
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-myant-lightgreen/20 to-transparent rounded-2xl -z-10"></div>
+            <div className="absolute inset-0 bg-gradient-card rounded-2xl -z-10"></div>
           </div>
         </div>
 

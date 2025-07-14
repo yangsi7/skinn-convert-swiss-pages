@@ -7,7 +7,7 @@ const CtaSection = () => {
   const translations = useTranslation('home');
   
   return (
-    <section className="section-padding bg-myant-green text-white">
+    <section className="section-padding bg-gradient-cta text-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -18,10 +18,10 @@ const CtaSection = () => {
               {translations.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-myant-green hover:bg-myant-lightgreen">
+              <Button size="lg" className="bg-white text-primary-navy hover:bg-white/90 shadow-lg">
                 {translations.cta.buttons.requestInfo}
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-myant-darkgreen">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 backdrop-blur-sm">
                 {translations.cta.buttons.scheduleDemo}
               </Button>
             </div>
@@ -33,13 +33,13 @@ const CtaSection = () => {
               alt="SKIIN Smart Garment close-up" 
               className="w-full h-auto object-cover rounded-xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-myant-darkgreen/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/50 to-transparent"></div>
             <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md rounded-lg p-4">
               <div className="flex items-center space-x-2">
                 <div className="bg-white rounded-full p-1">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M14 6.5L10 10.5L8 8.5L2 14.5" stroke="#2A7D71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 10.5V6.5H10" stroke="#2A7D71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14 6.5L10 10.5L8 8.5L2 14.5" stroke="hsl(168 60% 35%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14 10.5V6.5H10" stroke="hsl(168 60% 35%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-white">
