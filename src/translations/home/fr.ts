@@ -136,6 +136,70 @@ export const homeTranslations = {
     },
     statistic: "97% de taux de satisfaction des patients"
   },
+  problemSolution: {
+    title: "Enfin, un moniteur cardiaque que vous voudrez vraiment porter",
+    problems: {
+      title: "Problèmes du Holter traditionnel",
+      items: [
+        {
+          title: "Fils et patchs inconfortables",
+          description: "Des fils encombrants et des patchs adhésifs irritants perturbent la vie quotidienne"
+        },
+        {
+          title: "Durée de surveillance courte", 
+          description: "24-48 heures manquent souvent les arythmies intermittentes"
+        },
+        {
+          title: "Interruptions du mode de vie",
+          description: "Pas de douche, sport ou activités normales possibles"
+        }
+      ]
+    },
+    solutions: {
+      title: "Solutions SKIIN",
+      items: [
+        {
+          title: "Confort textile sans fils",
+          description: "Bande de tissu doux avec capteurs invisibles - discret et confortable"
+        },
+        {
+          title: "Surveillance continue de 14 jours",
+          description: "Taux de détection plus élevé pour les troubles du rythme cardiaque rares"
+        },
+        {
+          title: "Continuer à vivre normalement",
+          description: "Travailler, dormir, se doucher - SKIIN s'adapte à votre vie"
+        }
+      ]
+    }
+  },
+  insurance: {
+    title: "Couverture par votre assurance maladie",
+    subtitle: "SKIIN est couvert par l'assurance de base lorsqu'il est prescrit médicalement",
+    models: [
+      {
+        title: "Modèle Médecin de famille",
+        description: "Consultez votre médecin de famille pour une référence SKIIN. Une fois prescrit médicalement, il est couvert par l'assurance de base.",
+        icon: "👨‍⚕️"
+      },
+      {
+        title: "Modèle HMO", 
+        description: "Visitez d'abord votre cabinet HMO pour évaluation. Une fois approuvé, SKIIN est entièrement couvert.",
+        icon: "🏥"
+      },
+      {
+        title: "Modèle Telmed",
+        description: "Appelez d'abord votre ligne d'assistance télémédecine. Une fois approuvé par le télé-médecin, SKIIN est couvert.",
+        icon: "📞"
+      },
+      {
+        title: "Auto-paiement",
+        description: "Pour le dépistage préventif sans symptômes. Prix transparent disponible.",
+        icon: "💳"
+      }
+    ],
+    cta: "Vérifier la couverture"
+  },
   faq: {
     tagline: "FAQ",
     title: "Questions fréquemment posées",

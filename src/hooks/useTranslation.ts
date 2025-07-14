@@ -6,6 +6,12 @@ import { homeTranslations as frHomeTranslations } from '@/translations/home/fr';
 import { physiciansContent as enPhysiciansTranslations } from '@/translations/physicians/en';
 import { physiciansContent as dePhysiciansTranslations } from '@/translations/physicians/de';
 import { physiciansContent as frPhysiciansTranslations } from '@/translations/physicians/fr';
+import { solutionsTranslations as enSolutionsTranslations } from '@/translations/solutions/en';
+import { solutionsTranslations as deSolutionsTranslations } from '@/translations/solutions/de';
+import { solutionsTranslations as frSolutionsTranslations } from '@/translations/solutions/fr';
+import { partnersTranslations as enPartnersTranslations } from '@/translations/partners/en';
+import { partnersTranslations as dePartnersTranslations } from '@/translations/partners/de';
+import { partnersTranslations as frPartnersTranslations } from '@/translations/partners/fr';
 
 /**
  * Hook for handling translations in the application
@@ -24,6 +30,8 @@ export function useTranslation<T>(
 
 export function useTranslation(section: 'home'): typeof enHomeTranslations;
 export function useTranslation(section: 'physicians'): typeof enPhysiciansTranslations;
+export function useTranslation(section: 'solutions'): typeof enSolutionsTranslations;
+export function useTranslation(section: 'partners'): typeof enPartnersTranslations;
 
 export function useTranslation<T>(
   enContentOrSection: T | string,
@@ -49,7 +57,18 @@ export function useTranslation<T>(
           case 'fr': return frPhysiciansTranslations;
           default: return enPhysiciansTranslations;
         }
-      // Add other sections as needed
+      case 'solutions':
+        switch (language) {
+          case 'de': return deSolutionsTranslations;
+          case 'fr': return frSolutionsTranslations;
+          default: return enSolutionsTranslations;
+        }
+      case 'partners':
+        switch (language) {
+          case 'de': return dePartnersTranslations;
+          case 'fr': return frPartnersTranslations;
+          default: return enPartnersTranslations;
+        }
       default:
         console.warn(`Translation section "${section}" not found`);
         return null;

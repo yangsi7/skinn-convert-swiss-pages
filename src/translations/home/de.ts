@@ -136,6 +136,70 @@ export const homeTranslations = {
     },
     statistic: "97% Patientenzufriedenheitsrate"
   },
+  problemSolution: {
+    title: "Endlich ein Herzmonitor, den Sie gerne tragen werden",
+    problems: {
+      title: "Probleme mit traditionellem Holter",
+      items: [
+        {
+          title: "Unbequeme Kabel und Pflaster",
+          description: "Sperrige Kabel und irritierende Klebepflaster stören das tägliche Leben"
+        },
+        {
+          title: "Kurze Überwachungsdauer", 
+          description: "24-48 Stunden verpassen oft intermittierende Arrhythmien"
+        },
+        {
+          title: "Unterbrechungen des Lebensstils",
+          description: "Kein Duschen, Sport oder normale Aktivitäten möglich"
+        }
+      ]
+    },
+    solutions: {
+      title: "SKIIN Lösungen",
+      items: [
+        {
+          title: "Textilkomfort ohne Kabel",
+          description: "Weiches Stoffband mit unsichtbaren Sensoren - diskret und komfortabel"
+        },
+        {
+          title: "14-tägige kontinuierliche Überwachung",
+          description: "Höhere Erkennungsrate für seltene Herzrhythmusstörungen"
+        },
+        {
+          title: "Normal weiterleben",
+          description: "Arbeiten, schlafen, duschen - SKIIN passt sich Ihrem Leben an"
+        }
+      ]
+    }
+  },
+  insurance: {
+    title: "Abdeckung durch Ihre Krankenversicherung",
+    subtitle: "SKIIN wird von der Grundversicherung übernommen, wenn es medizinisch verschrieben wird",
+    models: [
+      {
+        title: "Hausarztmodell",
+        description: "Konsultieren Sie Ihren Hausarzt für eine SKIIN-Überweisung. Bei medizinischer Verschreibung wird es von der Grundversicherung übernommen.",
+        icon: "👨‍⚕️"
+      },
+      {
+        title: "HMO-Modell", 
+        description: "Besuchen Sie zuerst Ihre HMO-Praxis zur Evaluation. Bei Genehmigung wird SKIIN vollständig übernommen.",
+        icon: "🏥"
+      },
+      {
+        title: "Telmed-Modell",
+        description: "Rufen Sie zuerst Ihre Telemedizin-Hotline an. Nach Genehmigung durch den Tele-Arzt wird SKIIN übernommen.",
+        icon: "📞"
+      },
+      {
+        title: "Selbstzahler",
+        description: "Für präventive Vorsorgeuntersuchungen ohne Symptome. Transparente Preisgestaltung verfügbar.",
+        icon: "💳"
+      }
+    ],
+    cta: "Abdeckung prüfen"
+  },
   faq: {
     tagline: "FAQ",
     title: "Häufig gestellte Fragen",
