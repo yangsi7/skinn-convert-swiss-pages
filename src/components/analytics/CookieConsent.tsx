@@ -54,7 +54,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
         if (onConsentChange) onConsentChange(savedPreferences);
       }
     }
-  }, [onConsentChange]);
+  }, []); // Remove onConsentChange dependency to prevent infinite re-renders
 
   const handleAcceptAll = () => {
     acceptAllCookies();
