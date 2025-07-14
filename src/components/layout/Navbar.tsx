@@ -104,18 +104,21 @@ const Navbar = () => {
     
     const labels = {
       en: {
+        home: "Home",
         solutions: "Solutions",
         partners: "Partners", 
         howItWorks: "How It Works",
         about: "About Us"
       },
       de: {
+        home: "Startseite",
         solutions: "Lösungen",
         partners: "Partner",
         howItWorks: "Wie es funktioniert", 
         about: "Über uns"
       },
       fr: {
+        home: "Accueil",
         solutions: "Solutions",
         partners: "Partenaires",
         howItWorks: "Comment ça marche",
@@ -161,6 +164,7 @@ const Navbar = () => {
 
     return {
       labels: labels[language],
+      home: language === 'en' ? '/' : `/${language}`,
       solutions: solutionsItems[language],
       partners: partnersItems[language],
       howItWorks: language === 'en' ? '/how-it-works' : language === 'de' ? '/de/wie-es-funktioniert' : '/fr/comment-ca-marche',
@@ -191,6 +195,14 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
+            {/* Home */}
+            <Link
+              to={nav.home}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              {nav.labels.home}
+            </Link>
+
             {/* Solutions Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
@@ -281,6 +293,15 @@ const Navbar = () => {
       >
         <div className="container-custom py-8">
           <nav className="flex flex-col space-y-4">
+            {/* Mobile Home */}
+            <Link
+              to={nav.home}
+              className="text-foreground text-lg py-2 hover:text-primary font-medium"
+              onClick={closeMobileMenu}
+            >
+              {nav.labels.home}
+            </Link>
+
             {/* Mobile Solutions */}
             <div className="space-y-2">
               <div className="text-foreground text-lg py-2 font-medium">{nav.labels.solutions}</div>
