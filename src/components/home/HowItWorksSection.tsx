@@ -62,8 +62,8 @@ const HowItWorksSection = () => {
                   <img src={step.image} alt={step.title} className="w-full h-auto object-cover" />
                 </div>
               ) : (
-                <div className="mb-6 h-48 bg-myant-gray rounded-xl flex items-center justify-center">
-                  <span className="text-5xl font-bold text-myant-green opacity-30">{step.number}</span>
+                <div className="mb-6 h-48 bg-muted rounded-xl flex items-center justify-center">
+                  <span className="text-5xl font-bold text-primary opacity-30">{step.number}</span>
                 </div>
               )}
               <h3 className="text-xl font-semibold mb-2 flex items-center">
@@ -72,7 +72,7 @@ const HowItWorksSection = () => {
               <p className="text-muted-foreground">{step.description}</p>
               
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-24 -right-5 w-10 border-t-2 border-dashed border-myant-green opacity-30"></div>
+                <div className="hidden lg:block absolute top-24 -right-5 w-10 border-t-2 border-dashed border-primary opacity-30"></div>
               )}
             </div>
           ))}
@@ -81,7 +81,7 @@ const HowItWorksSection = () => {
         <div className="text-center">
           <ConversionButton 
             size="lg" 
-            className="bg-myant-green hover:bg-myant-darkgreen"
+            className="bg-primary hover:bg-primary/90"
             eventName="learn_more_process"
             eventParams={{ section: "how_it_works", page: "home" }}
           >

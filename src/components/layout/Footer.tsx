@@ -9,7 +9,7 @@ const Footer = () => {
   const t = useTranslation('home');
 
   return (
-    <footer className="bg-myant-darkgreen text-white pt-16 pb-8">
+    <footer className="bg-primary text-primary-foreground pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">

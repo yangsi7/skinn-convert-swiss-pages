@@ -153,7 +153,7 @@ const ContactForm = () => {
 
       <Button 
         type="submit" 
-        className="w-full bg-myant-green hover:bg-myant-darkgreen" 
+        className="w-full bg-primary hover:bg-primary/90" 
         disabled={isSubmitting}
       >
         {isSubmitting ? translations.contact.form.submitting : translations.contact.form.submit}

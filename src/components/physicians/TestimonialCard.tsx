@@ -19,7 +19,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
         viewBox="0 0 42 36"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="mb-4 text-myant-green/30"
+        className="mb-4 text-primary/30"
       >
         <path
           d="M11.6249 36L0.374945 24.75V13.5H15.7499V28.125H4.49995L11.6249 36ZM33.7499 36L22.4999 24.75V13.5H37.8749V28.125H26.6249L33.7499 36Z"
@@ -35,8 +35,8 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
         ) : (
-          <div className="w-12 h-12 rounded-full bg-myant-green/10 flex items-center justify-center mr-4">
-            <span className="text-myant-green font-medium text-lg">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+            <span className="text-primary font-medium text-lg">
               {testimonial.name.charAt(0)}
             </span>
           </div>

@@ -13,8 +13,8 @@ const Citation: React.FC<CitationProps> = ({ id, text }) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <sup className="cursor-help text-myant-green font-medium ml-0.5">
-            <span className="inline-flex items-center justify-center rounded-full h-4 w-4 bg-myant-lightgreen text-myant-green text-[10px]">
+          <sup className="cursor-help text-primary font-medium ml-0.5">
+            <span className="inline-flex items-center justify-center rounded-full h-4 w-4 bg-secondary text-primary text-[10px]">
               {id}
             </span>
           </sup>

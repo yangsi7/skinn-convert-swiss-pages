@@ -101,9 +101,9 @@ export default function HubSpotForm({
     <div id={uniqueId} ref={formContainerRef} className={className}>
       <div className="text-center p-4">
         <div className="animate-pulse flex space-x-4 justify-center">
-          <div className="h-5 w-5 bg-myant-green/20 rounded-full"></div>
-          <div className="h-5 w-5 bg-myant-green/30 rounded-full"></div>
-          <div className="h-5 w-5 bg-myant-green/40 rounded-full"></div>
+          <div className="h-5 w-5 bg-primary/20 rounded-full"></div>
+          <div className="h-5 w-5 bg-primary/30 rounded-full"></div>
+          <div className="h-5 w-5 bg-primary/40 rounded-full"></div>
         </div>
         <p className="text-muted-foreground mt-2">Loading form...</p>
       </div>

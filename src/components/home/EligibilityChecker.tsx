@@ -139,17 +139,17 @@ const EligibilityChecker = () => {
 
   if (result) {
     return (
-      <div className="bg-myant-lightgreen/20 py-16">
+      <div className="bg-muted/20 py-16">
         <div className="container-custom">
           <Card className="max-w-4xl mx-auto">
             <CardHeader className="text-center">
               <div className="flex justify-center mb-4">
                 {result.coverage === 'covered' ? (
-                  <CheckCircle className="w-16 h-16 text-myant-green" />
+                  <CheckCircle className="w-16 h-16 text-primary" />
                 ) : result.coverage === 'consult-first' ? (
-                  <Phone className="w-16 h-16 text-myant-green" />
+                  <Phone className="w-16 h-16 text-primary" />
                 ) : (
-                  <Heart className="w-16 h-16 text-myant-green" />
+                  <Heart className="w-16 h-16 text-primary" />
                 )}
               </div>
               <CardTitle className="text-3xl mb-4">
@@ -174,7 +174,7 @@ const EligibilityChecker = () => {
                   <div className="space-y-3">
                     {result.nextSteps.map((step, index) => (
                       <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-myant-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
                           {index + 1}
                         </div>
                         <p className="text-foreground">{step}</p>
@@ -184,16 +184,16 @@ const EligibilityChecker = () => {
                 </div>
 
                 {result.insuranceInfo && (
-                  <div className="bg-myant-lightgreen/30 p-4 rounded-lg">
+                  <div className="bg-muted/30 p-4 rounded-lg">
                     <div className="flex items-start space-x-3">
-                      <Shield className="w-5 h-5 text-myant-green flex-shrink-0 mt-0.5" />
-                      <p className="text-sm text-myant-darkgreen">{result.insuranceInfo}</p>
+                      <Shield className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-foreground">{result.insuranceInfo}</p>
                     </div>
                   </div>
                 )}
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90">
                     {result.coverage === 'self-pay' ? 'Beratungstermin buchen' : 'Mehr erfahren'}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
@@ -210,7 +210,7 @@ const EligibilityChecker = () => {
   }
 
   return (
-    <div className="bg-myant-lightgreen/20 py-16">
+    <div className="bg-muted/20 py-16">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
@@ -230,7 +230,7 @@ const EligibilityChecker = () => {
             </div>
             <div className="w-full bg-muted rounded-full h-2">
               <div 
-                className="bg-myant-green h-2 rounded-full transition-all duration-300"
+                className="bg-primary h-2 rounded-full transition-all duration-300"
                 style={{ width: `${(currentStep / 4) * 100}%` }}
               ></div>
             </div>
@@ -317,7 +317,7 @@ const EligibilityChecker = () => {
                     (currentStep === 2 && !formData.riskFactors) ||
                     (currentStep === 3 && !formData.insuranceModel)
                   }
-                  className="bg-myant-green hover:bg-myant-darkgreen"
+                  className="bg-primary hover:bg-primary/90"
                 >
                   {currentStep === 4 ? 'Ergebnis anzeigen' : 'Weiter'}
                   <ArrowRight className="w-4 h-4 ml-2" />

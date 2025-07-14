@@ -21,7 +21,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-myant-lightgreen">
+    <section className="section-padding bg-muted/30">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

@@ -14,8 +14,8 @@ const MyantLogo: React.FC<MyantLogoProps> = ({ className = "" }) => {
         className="h-10 w-auto mr-2"
       />
       <div className="flex flex-col">
-        <span className="font-bold text-lg leading-tight text-primary-navy">MYANT</span>
-        <span className="text-xs font-semibold text-medical-teal tracking-wide">HEALTH</span>
+        <span className="font-bold text-lg leading-tight text-primary">MYANT</span>
+        <span className="text-xs font-semibold text-accent tracking-wide">HEALTH</span>
       </div>
     </div>
   );

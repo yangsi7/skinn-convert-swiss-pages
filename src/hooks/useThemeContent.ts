@@ -41,6 +41,18 @@ export const useThemeContent = () => {
           personality: 'premium'
         };
       
+      case 'soft-blue-teal':
+        return {
+          heroTitle: {
+            primary: 'Gentle',
+            secondary: 'Wellness Care'
+          },
+          heroSubtitle: 'Calm, approachable health monitoring that fits naturally into your wellness journey.',
+          ctaText: 'Begin Wellness Journey',
+          trustMessage: 'Wellness Focused',
+          personality: 'wellness'
+        };
+      
       default:
         return {
           heroTitle: {
