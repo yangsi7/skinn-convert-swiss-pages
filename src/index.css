@@ -36,21 +36,34 @@
     --radius: 0.5rem;
 
     /* Refined Medical & Brand Colors */
-    --primary-navy: 210 50% 35%;
+    --primary-navy: 210 45% 40%;
     --primary-charcoal: 210 29% 29%;
-    --medical-teal: 168 65% 32%;
-    --bridge-teal: 185 55% 28%;
+    --medical-teal: 168 60% 35%;
+    --bridge-teal: 185 50% 32%;
     --action-red: 0 70% 58%;
     --success-green: 142 71% 45%;
     --swiss-red: 348 84% 48%;
     --certification-gold: 45 100% 51%;
+    --trust-blue: 210 50% 45%;
+    --medical-grade: 210 40% 42%;
+    --swiss-silver: 210 8% 75%;
+    --precision-gray: 210 10% 85%;
     
-    /* Gradients */
+    /* Advanced Gradient System */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary-navy) / 0.05), hsl(var(--medical-teal) / 0.03));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary-navy) / 0.03), hsl(var(--medical-teal) / 0.02));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
-    --gradient-cta: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
     --gradient-button: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
+    --gradient-trust: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--medical-grade)));
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+    
+    /* Shadow System */
+    --shadow-medical: 0 4px 20px hsl(var(--primary-navy) / 0.08);
+    --shadow-trust: 0 8px 30px hsl(var(--trust-blue) / 0.12);
+    --shadow-swiss: 0 2px 15px hsl(var(--swiss-red) / 0.08);
+    --shadow-precision: 0 1px 10px hsl(var(--precision-gray) / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -129,6 +142,34 @@
   
   .bg-gradient-button {
     background: var(--gradient-button);
+  }
+  
+  .bg-gradient-trust {
+    background: var(--gradient-trust);
+  }
+  
+  .bg-gradient-swiss {
+    background: var(--gradient-swiss);
+  }
+  
+  .bg-gradient-medical {
+    background: var(--gradient-medical);
+  }
+  
+  .shadow-medical {
+    box-shadow: var(--shadow-medical);
+  }
+  
+  .shadow-trust {
+    box-shadow: var(--shadow-trust);
+  }
+  
+  .shadow-swiss {
+    box-shadow: var(--shadow-swiss);
+  }
+  
+  .shadow-precision {
+    box-shadow: var(--shadow-precision);
   }
 
   .section-padding {

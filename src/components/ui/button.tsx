@@ -19,6 +19,10 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         premium: "bg-gradient-primary text-white hover:opacity-90 transition-opacity shadow-lg",
+        medical: "bg-gradient-medical text-white hover:opacity-90 transition-opacity shadow-medical border border-medical-teal/20",
+        trust: "bg-gradient-trust text-white hover:opacity-90 transition-opacity shadow-trust",
+        swiss: "bg-gradient-swiss text-swiss-red border border-swiss-red/30 hover:bg-swiss-red hover:text-white transition-all duration-300",
+        emergency: "bg-action-red text-white hover:bg-action-red/90 shadow-lg border-2 border-action-red animate-pulse",
       },
       size: {
         default: "h-10 px-4 py-2",

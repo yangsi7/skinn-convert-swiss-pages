@@ -75,19 +75,27 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				medical: {
-					teal: 'hsl(var(--medical-teal))'
+					teal: 'hsl(var(--medical-teal))',
+					grade: 'hsl(var(--medical-grade))'
 				},
 				bridge: {
 					teal: 'hsl(var(--bridge-teal))'
+				},
+				trust: {
+					blue: 'hsl(var(--trust-blue))'
+				},
+				swiss: {
+					red: 'hsl(var(--swiss-red))',
+					silver: 'hsl(var(--swiss-silver))'
+				},
+				precision: {
+					gray: 'hsl(var(--precision-gray))'
 				},
 				action: {
 					red: 'hsl(var(--action-red))'
 				},
 				success: {
 					green: 'hsl(var(--success-green))'
-				},
-				swiss: {
-					red: 'hsl(var(--swiss-red))'
 				},
 				certification: {
 					gold: 'hsl(var(--certification-gold))'
