@@ -5,59 +5,91 @@
 
 @layer base {
   :root {
+    /* Base Variables - Medical Blue Theme (Default) */
     --background: 0 0% 100%;
-    --foreground: 210 15% 35%; /* Much softer charcoal instead of black */
-
+    --foreground: 210 15% 35%;
     --card: 0 0% 100%;
     --card-foreground: 210 15% 35%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 210 15% 35%;
-
-    --primary: 195 60% 55%; /* Soft cyan-blue from "Länger" text */
+    --primary: 210 85% 25%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 210 40% 94%;
     --secondary-foreground: 210 60% 20%;
-
-    --muted: 195 35% 96%; /* Soft blue-tinted background */
-    --muted-foreground: 210 8% 50%; /* Softer muted text */
-
-    --accent: 168 65% 32%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 195 60% 45%;
     --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 70% 58%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 210 50% 35%;
-
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 210 85% 25%;
     --radius: 0.5rem;
 
-    /* Refined Medical & Brand Colors - Soft Blue Palette */
-    --primary-navy: 210 85% 35%; /* Softer navy from button in image */
-    --primary-charcoal: 210 12% 40%; /* Much softer charcoal instead of harsh black */
-    --medical-teal: 185 55% 50%; /* Softer medical teal matching image palette */
-    --bridge-teal: 195 50% 45%; /* Bridge between primary and medical teal */
+    /* Medical Blue Palette - Clinical Trust & Precision */
+    --primary-navy: 210 85% 25%;
+    --primary-charcoal: 210 12% 40%;
+    --medical-teal: 185 55% 50%;
+    --bridge-teal: 195 50% 45%;
     --action-red: 0 70% 58%;
     --success-green: 142 71% 45%;
     --swiss-red: 348 84% 48%;
-    --certification-gold: 45 100% 51%;
-    --trust-blue: 210 50% 45%;
-    --medical-grade: 210 40% 42%;
+    --trust-blue: 210 70% 40%;
+    --medical-grade: 168 80% 38%;
+    --clinical-white: 210 20% 98%;
     --swiss-silver: 210 8% 75%;
     --precision-gray: 210 10% 85%;
     
-    /* Advanced Gradient System - Soft Blue Palette */
+    /* Advanced Gradient System */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-teal)));
-    --gradient-subtle: linear-gradient(135deg, hsl(195 60% 85%), hsl(var(--background)));
-    --gradient-hero: linear-gradient(135deg, hsl(195 60% 85%) 0%, hsl(var(--primary)) 50%, hsl(var(--medical-teal)) 100%);
-    --gradient-cta: linear-gradient(120deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--medical-teal) / 0.02));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-button: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--bridge-teal)));
     --gradient-trust: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--medical-grade)));
     --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
     --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+  }
+
+  /* Professional Teal Theme */
+  [data-theme="professional-teal"] {
+    --primary: 185 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 168 60% 35%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 185 30% 96%;
+    --muted-foreground: 185 15% 50%;
+    --secondary: 185 25% 94%;
+    --secondary-foreground: 185 60% 20%;
+    --ring: 185 55% 45%;
+    
+    --primary-navy: 185 55% 45%;
+    --medical-teal: 168 60% 35%;
+    --bridge-teal: 175 50% 40%;
+    --trust-blue: 185 70% 35%;
+    --medical-grade: 168 80% 30%;
+  }
+
+  /* Swiss Innovation Theme */
+  [data-theme="swiss-innovation"] {
+    --primary: 348 84% 48%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 210 8% 45%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 8% 50%;
+    --secondary: 210 10% 94%;
+    --secondary-foreground: 210 30% 20%;
+    --ring: 348 84% 48%;
+    
+    --primary-navy: 210 30% 25%;
+    --medical-teal: 210 8% 45%;
+    --bridge-teal: 210 15% 40%;
+    --trust-blue: 210 50% 35%;
+    --medical-grade: 210 20% 30%;
+    --swiss-red: 348 84% 48%;
+  }
     
     /* Shadow System */
     --shadow-medical: 0 4px 20px hsl(var(--primary-navy) / 0.08);

@@ -23,6 +23,8 @@ const buttonVariants = cva(
         trust: "bg-gradient-trust text-white hover:opacity-90 transition-opacity shadow-trust",
         swiss: "bg-gradient-swiss text-swiss-red border border-swiss-red/30 hover:bg-swiss-red hover:text-white transition-all duration-300",
         emergency: "bg-action-red text-white hover:bg-action-red/90 shadow-lg border-2 border-action-red animate-pulse",
+        "theme-primary": "bg-primary text-primary-foreground hover:bg-primary/90",
+        "theme-accent": "bg-accent text-accent-foreground hover:bg-accent/90",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -20,12 +20,14 @@ import {
   Play
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useThemeContent } from '@/hooks/useThemeContent';
 
 /**
  * Enhanced Home-2 page utilizing marketing assets and comprehensive content
  */
 const Home2 = () => {
   const t = useTranslation('home2');
+  const themeContent = useThemeContent();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -42,17 +44,17 @@ const Home2 = () => {
               
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
-                  <span className="text-primary">Länger</span>{' '}
-                  <span className="text-primary-charcoal">jünger leben.</span>
+                  <span className="text-primary">{themeContent.heroTitle.primary}</span>{' '}
+                  <span className="text-primary-charcoal">{themeContent.heroTitle.secondary}</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  {t.hero.subtitle}
+                  {themeContent.heroSubtitle}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="px-8 py-4 text-lg">
-                  {t.hero.cta}
+                <Button variant="theme-primary" size="lg" className="px-8 py-4 text-lg">
+                  {themeContent.ctaText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
@@ -331,7 +333,7 @@ const Home2 = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
-                  {t.cta.primaryButton}
+                  {themeContent.ctaText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-4 text-lg">

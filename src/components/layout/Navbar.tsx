@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 
 import MyantLogo from "@/components/ui/MyantLogo";
 
@@ -251,6 +252,7 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-2">
+            <ThemeSwitcher />
             <div className="flex border rounded-full px-1 py-1">
               {languages.map((lang) => (
                 <button

@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AnalyticsProvider } from "./components/analytics/AnalyticsProvider";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import AppRoutes from "./routes";
 
 const queryClient = new QueryClient();
@@ -20,19 +21,21 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <HelmetProvider>
-        <LanguageProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AnalyticsProvider
-              googleAnalyticsId={GOOGLE_ANALYTICS_ID}
-              googleAdsId={GOOGLE_ADS_ID}
-              hubspotId={HUBSPOT_ID}
-            >
-              <AppRoutes />
-            </AnalyticsProvider>
-          </BrowserRouter>
-        </LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <AnalyticsProvider
+                googleAnalyticsId={GOOGLE_ANALYTICS_ID}
+                googleAdsId={GOOGLE_ADS_ID}
+                hubspotId={HUBSPOT_ID}
+              >
+                <AppRoutes />
+              </AnalyticsProvider>
+            </BrowserRouter>
+          </LanguageProvider>
+        </ThemeProvider>
       </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>
