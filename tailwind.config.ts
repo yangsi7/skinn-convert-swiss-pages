@@ -77,6 +77,9 @@ export default {
 				medical: {
 					teal: 'hsl(var(--medical-teal))'
 				},
+				bridge: {
+					teal: 'hsl(var(--bridge-teal))'
+				},
 				action: {
 					red: 'hsl(var(--action-red))'
 				},
