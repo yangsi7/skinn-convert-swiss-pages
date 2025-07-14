@@ -33,31 +33,31 @@ const Home2 = () => {
       <HomePageTabs />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen bg-gradient-to-br from-primary/5 to-secondary/5 flex items-center overflow-hidden">
+        <section className="relative min-h-screen gradient-soft flex items-center overflow-hidden">
           <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
-                {t.hero.badge}
+              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 shadow-sm">
+                Swiss Medical Excellence
               </Badge>
               
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
-                  <span className="text-primary">Länger</span>{' '}
-                  <span className="text-muted-foreground">jünger leben.</span>
+                  <span className="gradient-text">Next-Generation</span>{' '}
+                  <span className="text-primary">Heart Monitoring</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  {t.hero.subtitle}
+                  SKIIN's wearable cardiac monitor lets you live normally while capturing every heartbeat. No wires, no patches – just reliable insights for better heart care.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="px-8 py-4 text-lg">
-                  {t.hero.cta}
+                <Button size="lg" className="px-8 py-4 text-lg gradient-primary border-0 hover:opacity-90 transition-opacity">
+                  Screening Solutions
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
-                  <Play className="mr-2 h-5 w-5" />
-                  {t.hero.bookAssessment}
+                <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2 border-primary/30 hover:bg-primary/5">
+                  <Heart className="mr-2 h-5 w-5" />
+                  Learn More
                 </Button>
               </div>
             </div>
@@ -317,7 +317,7 @@ const Home2 = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 gradient-hero text-primary-foreground">
           <div className="container mx-auto px-6 text-center">
             <div className="max-w-4xl mx-auto space-y-8">
               <h2 className="text-3xl lg:text-4xl font-bold">
