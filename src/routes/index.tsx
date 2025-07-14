@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
+import Home2 from '@/pages/Home2';
 import NotFound from '@/pages/NotFound';
 
 // Solutions pages
@@ -60,6 +61,7 @@ const AppRoutes = () => {
     <Routes>
       {/* English Routes */}
       <Route path="/" element={<Index />} />
+      <Route path="/home-2" element={<Home2 />} />
       
       {/* Solutions Routes */}
       <Route path="/solutions/14-day-holter" element={<Solutions14DayHolter />} />
@@ -91,6 +93,7 @@ const AppRoutes = () => {
       
       {/* German Routes */}
       <Route path="/de" element={<Index />} />
+      <Route path="/de/home-2" element={<Home2 />} />
       
       {/* German Solutions Routes */}
       <Route path="/de/loesungen/14-tage-holter" element={<Solutions14DayHolter />} />
@@ -122,6 +125,7 @@ const AppRoutes = () => {
       
       {/* French Routes */}
       <Route path="/fr" element={<Index />} />
+      <Route path="/fr/home-2" element={<Home2 />} />
       
       {/* French Solutions Routes */}
       <Route path="/fr/solutions/holter-14-jours" element={<Solutions14DayHolter />} />
