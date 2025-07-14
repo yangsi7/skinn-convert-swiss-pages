@@ -14,6 +14,156 @@ export const homeTranslations = {
       author: "Dr. Sarah Klein, Cardiologist"
     }
   },
+  // Home-2 Specific Content
+  home2: {
+    hero: {
+      badge: "Certified by the Federal Office of Public Health (BAG)",
+      title: "Live longer, younger.",
+      subtitle: "Revolutionary heart health through AI-powered 14-day monitoring",
+      cta: "Get Started Now",
+      bookAssessment: "Book Assessment"
+    },
+    stats: {
+      title: "Why Early Detection is Critical",
+      subtitle: "Heart disease is the leading cause of death worldwide. Early detection saves lives.",
+      items: [
+        { number: "70%", text: "of heart rhythm disorders go unnoticed" },
+        { number: "30%", text: "of people with atrial fibrillation suffer a stroke" },
+        { number: "50%", text: "more heart rhythm disorders detected with 14-day monitoring" }
+      ]
+    },
+    clinicalEvidence: {
+      title: "Clinically Proven Technology",
+      subtitle: "Backed by rigorous clinical studies and peer-reviewed research",
+      items: [
+        {
+          title: "98.6% Accuracy Rate",
+          description: "Clinical validation shows SKIIN matches traditional Holter monitor accuracy while providing superior comfort"
+        },
+        {
+          title: "Published Research",
+          description: "Our technology has been validated in multiple peer-reviewed studies and clinical trials"
+        },
+        {
+          title: "FDA & CE Certified",
+          description: "SKIIN meets the highest medical device standards for safety and efficacy"
+        },
+        {
+          title: "Cardiologist Endorsed",
+          description: "Recommended by leading Swiss cardiologists and electrophysiologists"
+        }
+      ]
+    },
+    features: {
+      title: "AI-Measured, Cardiologist-Evaluated",
+      subtitle: "Fully covered by Swiss health insurance",
+      items: [
+        {
+          title: "Comfortable Monitoring",
+          description: "Perform a Holter ECG comfortably from home with our SKIIN device"
+        },
+        {
+          title: "AI Analysis",
+          description: "Advanced AI algorithms continuously analyze your heart rhythm data"
+        },
+        {
+          title: "Cardiology Expertise",
+          description: "Swiss cardiologists evaluate your results and create detailed reports"
+        },
+        {
+          title: "Insurance Coverage",
+          description: "Recognized and fully covered by Swiss insurance providers"
+        }
+      ]
+    },
+    technology: {
+      title: "Revolutionary Myant Care360 Technology",
+      subtitle: "Experience the future of heart health monitoring",
+      description: "Our breakthrough 360° monitoring system combines continuous data capture with AI-powered analysis for unprecedented cardiac care.",
+      features: [
+        "14-day continuous monitoring",
+        "Real-time AI analysis",
+        "Swiss cardiologist validation",
+        "Medical-grade accuracy",
+        "Seamless data transmission"
+      ]
+    },
+    patientJourney: {
+      title: "Your Heart Health Journey",
+      subtitle: "From assessment to peace of mind in 5 simple steps",
+      steps: [
+        { 
+          number: "1", 
+          title: "Complete Assessment", 
+          description: "Fill out our comprehensive self-referral form to determine if SKIIN is right for you",
+          duration: "5 minutes"
+        },
+        { 
+          number: "2", 
+          title: "Receive Your Device", 
+          description: "We deliver the SKIIN Holter ECG kit directly to your door with detailed instructions",
+          duration: "24-48 hours"
+        },
+        { 
+          number: "3", 
+          title: "Start Monitoring", 
+          description: "Wear the comfortable SKIIN device for 14 days while living your normal life",
+          duration: "14 days"
+        },
+        { 
+          number: "4", 
+          title: "Data Analysis", 
+          description: "Our AI systems and Swiss cardiologists analyze your comprehensive heart data",
+          duration: "3-5 days"
+        },
+        { 
+          number: "5", 
+          title: "Get Your Results", 
+          description: "Receive a detailed cardiac health report with personalized recommendations",
+          duration: "Same day"
+        }
+      ]
+    },
+    insurance: {
+      title: "Comprehensive Insurance Coverage",
+      subtitle: "SKIIN is recognized and covered by Swiss health insurance when medically prescribed",
+      description: "Navigate the Swiss healthcare system with confidence. Our team helps ensure proper coverage for your cardiac monitoring needs.",
+      benefits: [
+        "Covered by basic insurance when prescribed",
+        "No out-of-pocket costs for qualifying patients",
+        "Reimbursement support included",
+        "Direct billing available"
+      ]
+    },
+    riskAssessment: {
+      title: "Know Your Heart Risk",
+      subtitle: "Understanding your cardiovascular risk can save your life",
+      risks: [
+        {
+          title: "Silent Atrial Fibrillation",
+          description: "Often asymptomatic but increases stroke risk by 5x",
+          prevalence: "Affects 1 in 4 adults over 40"
+        },
+        {
+          title: "Cardiac Arrhythmias",
+          description: "Irregular heartbeats that can be life-threatening if undetected",
+          prevalence: "2.7 million Americans live with AFib"
+        },
+        {
+          title: "Heart Disease Prevention",
+          description: "Early detection enables preventive treatment and lifestyle changes",
+          prevalence: "Leading cause of death worldwide"
+        }
+      ]
+    },
+    cta: {
+      title: "Start Your Heart Health Journey Today",
+      subtitle: "Join thousands of Swiss patients already benefiting from advanced cardiac monitoring",
+      description: "Take control of your heart health with the most comfortable and comprehensive monitoring solution available.",
+      primaryButton: "Get Started Now",
+      secondaryButton: "Book Free Consultation"
+    }
+  },
   features: {
     title: "A New Standard in Cardiac Monitoring",
     subtitle: "SKIIN combines breakthrough textile computing with clinical expertise to deliver unparalleled cardiac care",

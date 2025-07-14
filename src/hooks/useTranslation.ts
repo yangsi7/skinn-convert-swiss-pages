@@ -29,6 +29,7 @@ export function useTranslation<T>(
 ): T;
 
 export function useTranslation(section: 'home'): typeof enHomeTranslations;
+export function useTranslation(section: 'home2'): typeof enHomeTranslations.home2;
 export function useTranslation(section: 'physicians'): typeof enPhysiciansTranslations;
 export function useTranslation(section: 'solutions'): typeof enSolutionsTranslations;
 export function useTranslation(section: 'partners'): typeof enPartnersTranslations;
@@ -50,6 +51,12 @@ export function useTranslation<T>(
           case 'de': return deHomeTranslations;
           case 'fr': return frHomeTranslations;
           default: return enHomeTranslations;
+        }
+      case 'home2':
+        switch (language) {
+          case 'de': return deHomeTranslations.home2;
+          case 'fr': return frHomeTranslations.home2;
+          default: return enHomeTranslations.home2;
         }
       case 'physicians':
         switch (language) {

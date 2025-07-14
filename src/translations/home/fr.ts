@@ -14,6 +14,156 @@ export const homeTranslations = {
       author: "Dr. Sarah Klein, Cardiologue"
     }
   },
+  // Contenu spécifique à Home-2
+  home2: {
+    hero: {
+      badge: "Certifié par l'Office fédéral de la santé publique (OFSP)",
+      title: "Vivre plus longtemps, plus jeune.",
+      subtitle: "Santé cardiaque révolutionnaire grâce à la surveillance IA de 14 jours",
+      cta: "Commencer maintenant",
+      bookAssessment: "Réserver une consultation"
+    },
+    stats: {
+      title: "Pourquoi la détection précoce est cruciale",
+      subtitle: "Les maladies cardiaques sont la première cause de décès dans le monde. La détection précoce sauve des vies.",
+      items: [
+        { number: "70%", text: "des troubles du rythme cardiaque passent inaperçus" },
+        { number: "30%", text: "des personnes avec fibrillation auriculaire subissent un AVC" },
+        { number: "50%", text: "plus de troubles détectés avec surveillance 14 jours" }
+      ]
+    },
+    clinicalEvidence: {
+      title: "Technologie cliniquement prouvée",
+      subtitle: "Soutenue par des études cliniques rigoureuses et des recherches évaluées par les pairs",
+      items: [
+        {
+          title: "98,6% de taux de précision",
+          description: "La validation clinique montre que SKIIN égale la précision des moniteurs Holter traditionnels tout en offrant un confort supérieur"
+        },
+        {
+          title: "Recherche publiée",
+          description: "Notre technologie a été validée dans plusieurs études évaluées par les pairs et essais cliniques"
+        },
+        {
+          title: "Certifié FDA & CE",
+          description: "SKIIN répond aux plus hauts standards de dispositifs médicaux pour la sécurité et l'efficacité"
+        },
+        {
+          title: "Approuvé par les cardiologues",
+          description: "Recommandé par les principaux cardiologues et électrophysiologistes suisses"
+        }
+      ]
+    },
+    features: {
+      title: "Mesuré par IA, évalué par des cardiologues",
+      subtitle: "Entièrement couvert par l'assurance maladie suisse",
+      items: [
+        {
+          title: "Surveillance confortable",
+          description: "Effectuez un Holter-ECG confortablement depuis chez vous avec notre dispositif SKIIN"
+        },
+        {
+          title: "Analyse IA",
+          description: "Des algorithmes IA avancés analysent continuellement vos données de rythme cardiaque"
+        },
+        {
+          title: "Expertise cardiologique",
+          description: "Des cardiologues suisses évaluent vos résultats et créent des rapports détaillés"
+        },
+        {
+          title: "Couverture d'assurance",
+          description: "Reconnu et entièrement couvert par les fournisseurs d'assurance suisses"
+        }
+      ]
+    },
+    technology: {
+      title: "Technologie révolutionnaire Myant Care360",
+      subtitle: "Découvrez l'avenir de la surveillance de la santé cardiaque",
+      description: "Notre système de surveillance 360° révolutionnaire combine la capture de données continue avec l'analyse alimentée par l'IA pour des soins cardiaques sans précédent.",
+      features: [
+        "Surveillance continue de 14 jours",
+        "Analyse IA en temps réel",
+        "Validation par cardiologues suisses",
+        "Précision de niveau médical",
+        "Transmission de données transparente"
+      ]
+    },
+    patientJourney: {
+      title: "Votre parcours de santé cardiaque",
+      subtitle: "De l'évaluation à la tranquillité d'esprit en 5 étapes simples",
+      steps: [
+        { 
+          number: "1", 
+          title: "Terminer l'évaluation", 
+          description: "Remplissez notre formulaire d'auto-référence complet pour déterminer si SKIIN vous convient",
+          duration: "5 minutes"
+        },
+        { 
+          number: "2", 
+          title: "Recevoir votre dispositif", 
+          description: "Nous livrons le kit Holter-ECG SKIIN directement à votre porte avec des instructions détaillées",
+          duration: "24-48 heures"
+        },
+        { 
+          number: "3", 
+          title: "Commencer la surveillance", 
+          description: "Portez le dispositif SKIIN confortable pendant 14 jours tout en vivant votre vie normale",
+          duration: "14 jours"
+        },
+        { 
+          number: "4", 
+          title: "Analyse des données", 
+          description: "Nos systèmes IA et cardiologues suisses analysent vos données cardiaques complètes",
+          duration: "3-5 jours"
+        },
+        { 
+          number: "5", 
+          title: "Obtenir vos résultats", 
+          description: "Recevez un rapport détaillé de santé cardiaque avec des recommandations personnalisées",
+          duration: "Le jour même"
+        }
+      ]
+    },
+    insurance: {
+      title: "Couverture d'assurance complète",
+      subtitle: "SKIIN est reconnu et couvert par l'assurance maladie suisse lorsqu'il est prescrit médicalement",
+      description: "Naviguez dans le système de santé suisse en toute confiance. Notre équipe aide à assurer une couverture appropriée pour vos besoins de surveillance cardiaque.",
+      benefits: [
+        "Couvert par l'assurance de base lorsque prescrit",
+        "Aucun coût personnel pour les patients qualifiés",
+        "Support de remboursement inclus",
+        "Facturation directe disponible"
+      ]
+    },
+    riskAssessment: {
+      title: "Connaissez votre risque cardiaque",
+      subtitle: "Comprendre votre risque cardiovasculaire peut sauver votre vie",
+      risks: [
+        {
+          title: "Fibrillation auriculaire silencieuse",
+          description: "Souvent asymptomatique mais augmente le risque d'AVC de 5 fois",
+          prevalence: "Affecte 1 adulte sur 4 de plus de 40 ans"
+        },
+        {
+          title: "Arythmies cardiaques",
+          description: "Battements cardiaques irréguliers qui peuvent être mortels s'ils ne sont pas détectés",
+          prevalence: "2,7 millions d'Américains vivent avec une fibrillation auriculaire"
+        },
+        {
+          title: "Prévention des maladies cardiaques",
+          description: "La détection précoce permet un traitement préventif et des changements de mode de vie",
+          prevalence: "Première cause de décès dans le monde"
+        }
+      ]
+    },
+    cta: {
+      title: "Commencez votre parcours de santé cardiaque aujourd'hui",
+      subtitle: "Rejoignez des milliers de patients suisses qui bénéficient déjà d'une surveillance cardiaque avancée",
+      description: "Prenez le contrôle de votre santé cardiaque avec la solution de surveillance la plus confortable et complète disponible.",
+      primaryButton: "Commencer maintenant",
+      secondaryButton: "Réserver une consultation gratuite"
+    }
+  },
   features: {
     title: "Une nouvelle norme en matière de surveillance cardiaque",
     subtitle: "SKIIN combine l'informatique textile révolutionnaire avec l'expertise clinique pour offrir des soins cardiaques sans précédent",

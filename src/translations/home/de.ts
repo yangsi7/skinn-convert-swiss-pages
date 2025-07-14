@@ -14,6 +14,156 @@ export const homeTranslations = {
       author: "Dr. Sarah Klein, Kardiologin"
     }
   },
+  // Home-2 Spezifischer Inhalt
+  home2: {
+    hero: {
+      badge: "Zertifiziert vom Bundesamt für Gesundheit (BAG)",
+      title: "Länger jünger leben.",
+      subtitle: "Revolutionäre Herzgesundheit durch KI-gestützte 14-Tage-Überwachung",
+      cta: "Jetzt beginnen",
+      bookAssessment: "Beratung buchen"
+    },
+    stats: {
+      title: "Warum Früherkennung entscheidend ist",
+      subtitle: "Herzkrankheiten sind weltweit die häufigste Todesursache. Früherkennung rettet Leben.",
+      items: [
+        { number: "70%", text: "der Herzrhythmusstörungen bleiben unbemerkt" },
+        { number: "30%", text: "der Menschen mit Vorhofflimmern erleiden einen Schlaganfall" },
+        { number: "50%", text: "mehr Herzrhythmusstörungen durch 14-Tage-Monitoring erkannt" }
+      ]
+    },
+    clinicalEvidence: {
+      title: "Klinisch bewiesene Technologie",
+      subtitle: "Gestützt auf rigorose klinische Studien und begutachtete Forschung",
+      items: [
+        {
+          title: "98,6% Genauigkeitsrate",
+          description: "Klinische Validierung zeigt, dass SKIIN die Genauigkeit traditioneller Holter-Monitore erreicht bei überlegenem Komfort"
+        },
+        {
+          title: "Veröffentlichte Forschung",
+          description: "Unsere Technologie wurde in mehreren begutachteten Studien und klinischen Versuchen validiert"
+        },
+        {
+          title: "FDA & CE Zertifiziert",
+          description: "SKIIN erfüllt die höchsten Medizingeräte-Standards für Sicherheit und Wirksamkeit"
+        },
+        {
+          title: "Von Kardiologen empfohlen",
+          description: "Empfohlen von führenden Schweizer Kardiologen und Elektrophysiologen"
+        }
+      ]
+    },
+    features: {
+      title: "KI-gemessen, von Kardiologen ausgewertet",
+      subtitle: "Vollständig von der Schweizer Krankenversicherung abgedeckt",
+      items: [
+        {
+          title: "Komfortables Monitoring",
+          description: "Führen Sie ein Holter-EKG bequem von zu Hause aus mit unserem SKIIN-Gerät durch"
+        },
+        {
+          title: "KI-Analyse",
+          description: "Fortschrittliche KI-Algorithmen analysieren kontinuierlich Ihre Herzrhythmusdaten"
+        },
+        {
+          title: "Kardiologie-Expertise",
+          description: "Schweizer Kardiologen bewerten Ihre Ergebnisse und erstellen detaillierte Berichte"
+        },
+        {
+          title: "Versicherungsschutz",
+          description: "Anerkannt und vollständig von Schweizer Versicherungsanbietern abgedeckt"
+        }
+      ]
+    },
+    technology: {
+      title: "Revolutionäre Myant Care360 Technologie",
+      subtitle: "Erleben Sie die Zukunft der Herzgesundheitsüberwachung",
+      description: "Unser bahnbrechendes 360°-Überwachungssystem kombiniert kontinuierliche Datenerfassung mit KI-gestützter Analyse für beispiellose Herzpflege.",
+      features: [
+        "14-tägige kontinuierliche Überwachung",
+        "Echtzeit-KI-Analyse",
+        "Schweizer Kardiologen-Validierung",
+        "Medizinische Genauigkeit",
+        "Nahtlose Datenübertragung"
+      ]
+    },
+    patientJourney: {
+      title: "Ihre Herzgesundheits-Reise",
+      subtitle: "Von der Bewertung bis zur Beruhigung in 5 einfachen Schritten",
+      steps: [
+        { 
+          number: "1", 
+          title: "Bewertung abschließen", 
+          description: "Füllen Sie unser umfassendes Selbstauskunfts-Formular aus, um zu bestimmen, ob SKIIN für Sie geeignet ist",
+          duration: "5 Minuten"
+        },
+        { 
+          number: "2", 
+          title: "Gerät erhalten", 
+          description: "Wir liefern das SKIIN Holter-EKG-Kit direkt vor Ihre Haustür mit detaillierten Anweisungen",
+          duration: "24-48 Stunden"
+        },
+        { 
+          number: "3", 
+          title: "Monitoring beginnen", 
+          description: "Tragen Sie das komfortable SKIIN-Gerät 14 Tage lang, während Sie Ihr normales Leben führen",
+          duration: "14 Tage"
+        },
+        { 
+          number: "4", 
+          title: "Datenanalyse", 
+          description: "Unsere KI-Systeme und Schweizer Kardiologen analysieren Ihre umfassenden Herzdaten",
+          duration: "3-5 Tage"
+        },
+        { 
+          number: "5", 
+          title: "Ergebnisse erhalten", 
+          description: "Erhalten Sie einen detaillierten Herzgesundheitsbericht mit personalisierten Empfehlungen",
+          duration: "Am selben Tag"
+        }
+      ]
+    },
+    insurance: {
+      title: "Umfassende Versicherungsabdeckung",
+      subtitle: "SKIIN wird von der Schweizer Krankenversicherung anerkannt und abgedeckt, wenn medizinisch verschrieben",
+      description: "Navigieren Sie selbstbewusst durch das Schweizer Gesundheitssystem. Unser Team hilft dabei, eine ordnungsgemäße Abdeckung für Ihre Herzüberwachungsbedürfnisse sicherzustellen.",
+      benefits: [
+        "Von der Grundversicherung abgedeckt, wenn verschrieben",
+        "Keine Eigenkosten für qualifizierte Patienten",
+        "Erstattungsunterstützung inbegriffen",
+        "Direktabrechnung verfügbar"
+      ]
+    },
+    riskAssessment: {
+      title: "Kennen Sie Ihr Herzrisiko",
+      subtitle: "Das Verstehen Ihres kardiovaskulären Risikos kann Ihr Leben retten",
+      risks: [
+        {
+          title: "Stilles Vorhofflimmern",
+          description: "Oft asymptomatisch, aber erhöht das Schlaganfallrisiko um das 5-fache",
+          prevalence: "Betrifft 1 von 4 Erwachsenen über 40"
+        },
+        {
+          title: "Herzrhythmusstörungen",
+          description: "Unregelmäßige Herzschläge, die lebensbedrohlich sein können, wenn sie unentdeckt bleiben",
+          prevalence: "2,7 Millionen Amerikaner leben mit Vorhofflimmern"
+        },
+        {
+          title: "Herzkrankheitsprävention",
+          description: "Früherkennung ermöglicht präventive Behandlung und Lebensstiländerungen",
+          prevalence: "Weltweit häufigste Todesursache"
+        }
+      ]
+    },
+    cta: {
+      title: "Beginnen Sie noch heute Ihre Herzgesundheits-Reise",
+      subtitle: "Schließen Sie sich Tausenden von Schweizer Patienten an, die bereits von fortgeschrittener Herzüberwachung profitieren",
+      description: "Übernehmen Sie die Kontrolle über Ihre Herzgesundheit mit der komfortabelsten und umfassendsten verfügbaren Überwachungslösung.",
+      primaryButton: "Jetzt beginnen",
+      secondaryButton: "Kostenlose Beratung buchen"
+    }
+  },
   features: {
     title: "Ein neuer Standard in der Herzüberwachung",
     subtitle: "SKIIN kombiniert bahnbrechende Textiltechnologie mit klinischem Fachwissen, um eine unvergleichliche Herzversorgung zu bieten",
