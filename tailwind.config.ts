@@ -23,6 +23,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+				display: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+				mono: ['IBM Plex Mono', 'Courier New', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -31,7 +36,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					navy: 'hsl(var(--primary-navy))',
+					charcoal: 'hsl(var(--primary-charcoal))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -67,12 +74,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				myant: {
-					green: '#2A7D71',
-					darkgreen: '#1A4A43',
-					lightgreen: '#E6F0EE',
-					gray: '#F5F5F5',
-					darkgray: '#5A5A5A'
+				medical: {
+					teal: 'hsl(var(--medical-teal))'
+				},
+				action: {
+					red: 'hsl(var(--action-red))'
+				},
+				success: {
+					green: 'hsl(var(--success-green))'
+				},
+				swiss: {
+					red: 'hsl(var(--swiss-red))'
+				},
+				certification: {
+					gold: 'hsl(var(--certification-gold))'
 				}
 			},
 			borderRadius: {
