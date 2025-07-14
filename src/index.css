@@ -6,22 +6,22 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 210 15% 35%; /* Much softer charcoal instead of black */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 210 15% 35%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 210 15% 35%;
 
-    --primary: 210 50% 35%;
+    --primary: 195 60% 55%; /* Soft cyan-blue from "Länger" text */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 94%;
     --secondary-foreground: 210 60% 20%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 215 10% 56%;
+    --muted: 195 35% 96%; /* Soft blue-tinted background */
+    --muted-foreground: 210 8% 50%; /* Softer muted text */
 
     --accent: 168 65% 32%;
     --accent-foreground: 0 0% 100%;
@@ -35,11 +35,11 @@
 
     --radius: 0.5rem;
 
-    /* Refined Medical & Brand Colors */
-    --primary-navy: 210 45% 40%;
-    --primary-charcoal: 210 29% 29%;
-    --medical-teal: 168 60% 35%;
-    --bridge-teal: 185 50% 32%;
+    /* Refined Medical & Brand Colors - Soft Blue Palette */
+    --primary-navy: 210 85% 35%; /* Softer navy from button in image */
+    --primary-charcoal: 210 12% 40%; /* Much softer charcoal instead of harsh black */
+    --medical-teal: 185 55% 50%; /* Softer medical teal matching image palette */
+    --bridge-teal: 195 50% 45%; /* Bridge between primary and medical teal */
     --action-red: 0 70% 58%;
     --success-green: 142 71% 45%;
     --swiss-red: 348 84% 48%;
@@ -49,12 +49,12 @@
     --swiss-silver: 210 8% 75%;
     --precision-gray: 210 10% 85%;
     
-    /* Advanced Gradient System */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary-navy) / 0.03), hsl(var(--medical-teal) / 0.02));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
+    /* Advanced Gradient System - Soft Blue Palette */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-teal)));
+    --gradient-subtle: linear-gradient(135deg, hsl(195 60% 85%), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(195 60% 85%) 0%, hsl(var(--primary)) 50%, hsl(var(--medical-teal)) 100%);
     --gradient-cta: linear-gradient(120deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-button: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--bridge-teal)));
     --gradient-trust: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--medical-grade)));
     --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
     --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));

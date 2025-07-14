@@ -33,7 +33,7 @@ const Home2 = () => {
       <HomePageTabs />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen bg-gradient-to-br from-primary/5 to-secondary/5 flex items-center overflow-hidden">
+        <section className="relative min-h-screen bg-gradient-to-br from-primary/8 to-medical-teal/5 flex items-center overflow-hidden">
           <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
@@ -43,7 +43,7 @@ const Home2 = () => {
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
                   <span className="text-primary">Länger</span>{' '}
-                  <span className="text-muted-foreground">jünger leben.</span>
+                  <span className="text-primary-charcoal">jünger leben.</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   {t.hero.subtitle}
@@ -64,7 +64,7 @@ const Home2 = () => {
 
             <div className="relative">
               <img
-                src="/lovable-uploads/b91519c3-7e46-4722-a4f8-1a8ca54cb7c7.png"
+                src="/lovable-uploads/1e3b8979-f9b0-405d-9117-c8f3c4115930.png"
                 alt="Myant Health - Länger jünger leben"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
