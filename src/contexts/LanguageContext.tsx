@@ -28,17 +28,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguage] = useState<LanguageType>('en');
 
   useEffect(() => {
-    // Get language from localStorage or browser preferred language
+    // Get language from localStorage, default to English
     const savedLanguage = localStorage.getItem('myant-language');
     if (savedLanguage && ['en', 'de', 'fr'].includes(savedLanguage)) {
       setLanguage(savedLanguage as LanguageType);
-    } else {
-      // Get browser language
-      const browserLang = navigator.language.split('-')[0];
-      if (['en', 'de', 'fr'].includes(browserLang)) {
-        setLanguage(browserLang as LanguageType);
-      }
     }
+    // Always default to English unless explicitly saved
   }, []);
 
   /**

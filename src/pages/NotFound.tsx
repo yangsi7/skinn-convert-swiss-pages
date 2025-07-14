@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
@@ -30,7 +30,7 @@ const NotFound = () => {
             We couldn't find the page you're looking for. It might have been removed, had its name changed, or is temporarily unavailable.
           </p>
           <Button asChild size="lg" className="bg-myant-green hover:bg-myant-darkgreen">
-            <a href="/">Return to Homepage</a>
+            <Link to="/">Return to Homepage</Link>
           </Button>
         </div>
       </main>

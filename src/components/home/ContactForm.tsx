@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -144,9 +145,9 @@ const ContactForm = () => {
         />
         <label htmlFor="consent" className="text-sm text-muted-foreground">
           {translations.contact.form.consent}{' '}
-          <a href="/privacy" className="text-primary hover:underline">
+          <Link to="/privacy" className="text-primary hover:underline">
             {translations.contact.form.privacyPolicy}
-          </a>.
+          </Link>.
         </label>
       </div>
 
