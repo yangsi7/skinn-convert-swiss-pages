@@ -7,10 +7,7 @@ const MyantLogo: React.FC<MyantLogoProps> = ({
 }) => {
   return <div className={`flex items-center ${className}`}>
       <img alt="Skiin Logo" className="h-10 w-auto mr-2" src="/lovable-uploads/3acb758c-e8c1-44f0-889b-fda9851bd845.png" />
-      <div className="flex flex-col">
-        
-        <span className="text-xs font-semibold text-accent tracking-wide">HEALTH</span>
-      </div>
+      
     </div>;
 };
 export default MyantLogo;
