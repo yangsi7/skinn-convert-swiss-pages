@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Heart, Activity, Moon, ArrowRight, Calendar, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import TriTestReport from '@/components/tritest/TriTestReport';
 
 const SolutionsTritest = () => {
   const { language } = useLanguage();
@@ -325,6 +326,56 @@ const SolutionsTritest = () => {
                   </p>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Example Report Section */}
+        <section className="section-padding bg-muted/30">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Example Report Preview
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                See what your comprehensive health insights report will look like. This interactive example 
+                shows both patient-friendly and clinical views of the results you'll receive.
+              </p>
+            </div>
+            
+            <div className="max-w-none">
+              <Card className="p-6 bg-background">
+                <div className="text-center mb-6">
+                  <Badge variant="secondary" className="mb-4">
+                    Interactive Example Report
+                  </Badge>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    SKIIN Tritest Report Sample
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Toggle between patient and clinical views to see how your results will be presented
+                  </p>
+                </div>
+                
+                <div className="border rounded-lg overflow-hidden">
+                  <div className="bg-gray-50 p-3 text-center text-sm text-muted-foreground">
+                    This is a demonstration report with sample data for preview purposes
+                  </div>
+                  <div className="max-h-[800px] overflow-y-auto">
+                    <TriTestReport />
+                  </div>
+                </div>
+                
+                <div className="mt-6 text-center">
+                  <Button size="lg" className="mr-4">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Get Your Real Report
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    Learn More About Results
+                  </Button>
+                </div>
+              </Card>
             </div>
           </div>
         </section>
