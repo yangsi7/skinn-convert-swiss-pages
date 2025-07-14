@@ -35,28 +35,22 @@
 
     --radius: 0.5rem;
 
-    /* Refined Medical & Brand Colors - Phase 1 */
-    --primary-navy: 210 45% 40%;
+    /* Refined Medical & Brand Colors */
+    --primary-navy: 210 50% 35%;
     --primary-charcoal: 210 29% 29%;
-    --medical-teal: 168 60% 35%;
-    --bridge-teal: 185 50% 32%;
+    --medical-teal: 168 65% 32%;
+    --bridge-teal: 185 55% 28%;
     --action-red: 0 70% 58%;
     --success-green: 142 71% 45%;
     --swiss-red: 348 84% 48%;
     --certification-gold: 45 100% 51%;
     
-    /* Enhanced Gradient System - Phase 1 */
+    /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary-navy) / 0.02), hsl(var(--medical-teal) / 0.01));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary-navy) / 0.05), hsl(var(--medical-teal) / 0.03));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
-    --gradient-cta: linear-gradient(120deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
     --gradient-button: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
-    --gradient-trust: linear-gradient(135deg, hsl(var(--bridge-teal)), hsl(var(--medical-teal)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--primary-navy) / 0.03), hsl(var(--bridge-teal) / 0.02));
-    
-    /* Interactive Gradients */
-    --gradient-button-hover: linear-gradient(135deg, hsl(var(--primary-navy) / 0.9), hsl(var(--bridge-teal) / 0.9));
-    --gradient-cta-hover: linear-gradient(120deg, hsl(var(--primary-navy) / 0.9), hsl(var(--medical-teal) / 0.9));
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -97,17 +91,11 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 210 50% 45%;
 
-    /* Dark mode medical colors - Enhanced */
-    --primary-navy: 210 45% 50%;
-    --medical-teal: 168 60% 45%;
-    --bridge-teal: 185 50% 40%;
+    /* Dark mode medical colors */
+    --primary-navy: 210 50% 45%;
+    --medical-teal: 168 65% 42%;
+    --bridge-teal: 185 55% 38%;
     --action-red: 0 62.8% 50%;
-    
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
-    --gradient-cta: linear-gradient(120deg, hsl(var(--primary-navy)), hsl(var(--medical-teal)));
-    --gradient-button: linear-gradient(135deg, hsl(var(--primary-navy)), hsl(var(--bridge-teal)));
   }
 }
 
@@ -123,7 +111,6 @@
 }
 
 @layer utilities {
-  /* Enhanced Gradient System */
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
@@ -142,37 +129,6 @@
   
   .bg-gradient-button {
     background: var(--gradient-button);
-  }
-  
-  .bg-gradient-trust {
-    background: var(--gradient-trust);
-  }
-  
-  .bg-gradient-card {
-    background: var(--gradient-card);
-  }
-  
-  /* Interactive Hover Effects */
-  .hover-gradient-button:hover {
-    background: var(--gradient-button-hover);
-  }
-  
-  .hover-gradient-cta:hover {
-    background: var(--gradient-cta-hover);
-  }
-  
-  /* Medical UI Elements */
-  .medical-shadow {
-    box-shadow: 0 10px 30px -10px hsl(var(--primary-navy) / 0.2);
-  }
-  
-  .trust-glow {
-    box-shadow: 0 0 20px hsl(var(--bridge-teal) / 0.3);
-  }
-  
-  .swiss-precision {
-    border: 1px solid hsl(var(--bridge-teal) / 0.2);
-    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--bridge-teal) / 0.02));
   }
 
   .section-padding {
