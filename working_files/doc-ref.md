@@ -51,6 +51,13 @@
 ### Documentation Archive
 - **Historical Docs**: docs/archive/2025-01-13/ (if exists)
 - **Superseded Specs**: Any replaced specifications with timestamps
+- **Test Artifacts**: docs/archive/2025-01-14/ (screenshots from cleanup)
+
+### Repository Organization
+- **Repository Conventions**: working_files/repository-conventions.md (directory structure and rules)
+- **Test Scripts**: scripts/tests/ (all test automation scripts)
+- **Test Results**: test-results/ (gitignored, temporary test outputs)
+- **Reports Archive**: docs/reports/ (all analysis and summary reports)
 
 ## 🔄 When to Reference These Documents
 

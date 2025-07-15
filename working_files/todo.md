@@ -1,36 +1,67 @@
-# Todo List - CLAUDE.md Restructuring
+# Todo List - Repository Cleanup & Organization
 
-## 🎯 Project: Streamline Working Files Structure
+## 🎯 Project: Clean Up Repository According to Conventions
 
-### Phase 1: Create New Working Files Structure
-- [x] Create streamlined `planning.md` (current + target specs + plan)
-- [x] Create consolidated `conventions.md` (tech + design + content + quality)
-- [x] Create navigation `doc-ref.md` (references to detailed docs)
-- [x] Update `event-stream.md` with restructuring activities
-- [x] Keep existing `todo.md` (this file)
+### Phase 1: Create Directory Structure
+- [x] Create `scripts/` directory with subdirectories
+  - [x] `scripts/tests/`
+  - [x] `scripts/utils/`
+  - [x] `scripts/build/`
+- [x] Create `test-results/` directory (add to .gitignore)
+  - [x] `test-results/screenshots/`
+  - [x] `test-results/reports/`
+  - [x] `test-results/coverage/`
+- [x] Create `docs/reports/` directory structure
+  - [x] `docs/reports/meetings/`
+  - [x] `docs/reports/visual-tests/`
+  - [x] `docs/assets/` for documentation images
 
-### Phase 2: Update Core Documentation
-- [x] Restructure CLAUDE.md with simplified instructions
-- [x] Update "Critical First Steps" to reference 5 working files only
-- [x] Remove redundant documentation from CLAUDE.md
-- [x] Add clear process flow reference
+### Phase 2: Move Documentation Files
+- [x] Move all `*_SUMMARY.md` files from root → `docs/reports/`
+- [x] Move all `*_REPORT.md` files from root → `docs/reports/`
+- [x] Move `SCROLL_FIX_DOCUMENTATION.md` → `docs/reports/`
+- [x] Move `contact-form-test-report.md` → `docs/reports/`
+- [x] Remove duplicate `GAP_ANALYSIS_REPORT.md` from root (keep docs/ version)
 
-### Phase 3: Archive & Organize
-- [x] Archive current complex working files to archive folder (already in working_files/archive/2025-01-13/)
-- [x] Organize detailed docs in /docs/ structure (already organized)
-- [x] Create archive documentation explaining the restructuring (documented in event-stream.md)
+### Phase 3: Organize Scripts
+- [x] Move all `.cjs` test files → `scripts/tests/`
+- [x] Move `visual-baseline-test.js` → `scripts/tests/`
+- [x] Delete duplicate `take-homepage-screenshot.js` (keep .cjs version)
+- [x] Move utility scripts to appropriate subdirectories
 
-### Phase 4: Validation
-- [x] Test that new structure provides complete context (5 working files provide full context)
-- [x] Verify all essential information is accessible (via doc-ref.md navigation)
-- [x] Confirm agent loop can function with new files (streamlined CLAUDE_PROCESS.md reference)
-- [x] Update any broken references (CLAUDE.md updated to reference new structure)
+### Phase 4: Archive Screenshots
+- [x] Create `docs/archive/2025-01-14/screenshots/`
+- [x] Move all `.png` files from root → archive
+- [x] Keep only essential screenshots in `docs/assets/`
+- [x] Document what was archived in README.md
 
-## Current Status
-- ✅ Analysis completed and plan approved
-- ✅ Implementation completed successfully
+### Phase 5: Consolidate Test Results
+- [x] Move `visual-testing-screenshots/` → `test-results/screenshots/`
+- [x] Move `visual-testing-baseline/` → `test-results/baseline/`
+- [x] Move `navigation-test-screenshots/` → `test-results/screenshots/navigation/`
+- [x] Move test JSON files to `test-results/reports/`
+
+### Phase 6: Final Cleanup
+- [x] Move `new_images/` → `src/assets/images/german/`
+- [x] Update .gitignore with new patterns
+- [x] Update doc-ref.md with new locations
+- [x] Add repository-conventions.md reference to CLAUDE.md
+- [x] Update conventions.md with repository organization section
+
+## Completed Work Summary
+- ✅ CLAUDE.md restructuring completed
+- ✅ Working files streamlined to 5 core files
+- ✅ Created repository-conventions.md
+- ✅ Complete repository cleanup executed:
+  - Created proper directory structure (scripts/, test-results/, docs/reports/)
+  - Moved 12 documentation files from root to docs/reports/
+  - Moved 7 test scripts to scripts/tests/
+  - Archived 30+ screenshots to docs/archive/2025-01-14/
+  - Consolidated test directories into test-results/
+  - Updated all documentation with new conventions
+  - Root directory now contains only config files and CLAUDE.md
 
 ## Notes
-- Maintain all functionality while reducing complexity
-- Ensure backward compatibility during transition
-- Archive provides historical context
+- Follow new repository conventions strictly
+- Archive rather than delete when unsure
+- Update references in all documentation

@@ -1,153 +1,158 @@
-# CLAUDE.md
+# **CLAUDE.md** (Project-Specific Playbook)
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This version is the project-specific entrypoint for Claude Code to help Claude understand how to run, develop and pull information and documentation from this project
 
-## Process Methodology
-🚨 **CRITICAL: ALWAYS FOLLOW THE UNIVERSAL AGENT PROCESS**
+--------------------------------------------------------------------------------
+🔰 **LOAD-ORDER GUARANTEE**
 
-**Step 1:** Read this file (CLAUDE.md) for project context
-**Step 2:** Execute the Universal Agent Process in @working_files/CLAUDE_PROCESS.md
+1.  **Always read this file first.**
+2.  **THEN** load the universal process file embedded below
+    (`@working_files/CLAUDE_PROCESS.md`).
+3.  **THEN** read the five working files in the order shown in
+    **§ 2 Working-File Canon**.
 
-The process will guide you to:
-- Read the 5 working files systematically
-- Understand the request and plan the required research
-- perform extensive research on internal documentation and any external documentation or info required to gather all necessary context
-- Analyze the request in the context of the gathered context and plan your approach
-- Execute with maximum autonomy
-- Maintain quality and documentation
+The rest of this document is organised as follows »
 
-**The 5 Working Files** (read by the process):
-1. **todo.md** - Active tasks and priorities
-2. **planning.md** - Current state + Target specs + Implementation plan  
-3. **conventions.md** - All standards (tech, design, content, quality)
-4. **event-stream.md** - Development history and context
-5. **doc-ref.md** - Navigation to detailed documentation
+1.  Project snapshot & context
+2.  Working-file canon (the five files)
+3.  Critical principles & guard-rails
+4.  Development commands & tech stack
+5.  Road-map & success metrics
+6.  Design system in depth
+7.  Protected artefacts & DON’Ts
+8.  File-naming & archival conventions
+9.  Reference glossary
 
-**Remember:** The Universal Agent Process handles all edge cases, decision trees, and quality assurance. Follow it systematically for every task.
+--------------------------------------------------------------------------------
+## 1  Project snapshot & context
+| Item                      | Value                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------ |
+| **Project name** | *Multilingual Medical Marketing Site* |
+| **Primary goal** | Launch a tri-lingual, medically trustworthy marketing website with interactive calculators |
+| **Current state (automated)** | `planning.md` shows **27%** complete                                                 |
+| **CEO hard-deadline** | Week 6 after project kick-off                                                            |
+| **Live environment** | Vercel Preview → Netlify Prod (DNS TBD)                                                      |
+| **Local dev URL** | http://localhost:8080                                                                        |
 
-### Core Development Principles (NEVER VIOLATE)
-1. **ITERATION OVER CREATION** - Always extend existing components rather than creating new ones
-2. **FOLLOW THE DESIGN SYSTEM** - Use established patterns and color scheme (deep navy, medical teal)
-3. **RESPECT CONVENTIONS** - Follow established file structure and naming patterns
-4. **CHECK WORKING FILES FIRST** - Always read all working files before starting any task
-5. **NO DUPLICATION** - Never duplicate functionality that already exists
-6. **ENGLISH-FIRST APPROACH** - Implement English content first, then translations
-7. **PROFESSIONAL AESTHETICS** - Avoid light blues and "heavenly" colors that undermine trust
+--------------------------------------------------------------------------------
+## 2  Working-File Canon  *(never bypass)*
 
-## Streamlined Working Files Structure (Updated Jan 14, 2025):
+| File                             | Role                                     | ALWAYS read…                   |
+| -------------------------------- | ---------------------------------------- | ------------------------------ |
+| **`@working_files/todo.md`** | Task checklist / sprint board            | first for “What next?”         |
+| **`@working_files/planning.md`** | Technical blueprint & phase status       | to know “Why?” and “How?”      |
+| **`@working_files/conventions.md`** | Coding, naming, design & content rules   | to stay consistent             |
+| **`@working_files/event-stream.md`** | Time-stamped log of every action & reflection | to avoid duplicated effort     |
+| **`@working_files/doc-ref.md`** | Index into deeper docs (`docs/…`)        | for any deep dive              |
 
-### Core Working Files (Always Read First)
-- `@working_files/todo.md` - Active tasks and current priorities
-- `@working_files/planning.md` - Current state (27.5% complete) + Target specs + Implementation plan
-- `@working_files/conventions.md` - All standards (tech, design, content, quality)
-- `@working_files/event-stream.md` - Development history and context
-- `@working_files/doc-ref.md` - Navigation to detailed documentation
+> **One in/one out** — if you need additional scratch space, create a
+> `docs/` artefact _and link to it from `doc-ref.md`_.
+> Never proliferate ad-hoc files inside `working_files/`.
 
-### Process Reference
-- `@working_files/CLAUDE_PROCESS.md` - Agent methodology and agentic loop rules
+--------------------------------------------------------------------------------
+## 3  Critical principles & guard-rails
 
-### Detailed Documentation (Via doc-ref.md)
-- **Specifications**: Target architecture, content requirements, compliance standards
-- **Implementation**: Step-by-step guides, roadmaps, production copy
-- **Analysis**: Gap analysis, current state assessment, CEO summaries
-- **Archives**: Previous working files preserved in working_files/archive/2025-01-13/
+1.  **Iteration > Creation**
+    *Search, extend, parameterise, only then create.*
+2.  **Design-system fidelity**
+    Deep navy (#1E3A5F) + medical teal (#00796B) ± neutrals.
+    Light-blue “heavenly” hues **forbidden**.
+3.  **Atomic components**
+    New UI component → new file, ≤ 50 LOC, Tailwind + shadcn/ui.
+4.  **English-first** content pipeline.
+    Place-holders OK for other locales; translation is Phase 2.
+5.  **Protected artefacts** (unchangeable without written CEO sign-off) →
+    *HeartBalanceRing*, *ContributingFactorCards*, *TabNavigation*, *TodayTab*.
+6.  **Documentation integrity**
+    Code ≠ done until `event-stream.md` & `planning.md` are updated.
 
+--------------------------------------------------------------------------------
+## 4  Dev commands & tech stack
 
-## Development Commands
+```text
+npm run dev       # Vite dev server :8080
+npm run build     # Production build
+npm run build:dev # Dev-mode build (debug)
+npm run preview   # Preview a prod build locally
+npm run lint      # ESLint (React 18 + TypeScript 5)
+````
 
-- `npm run dev` - Start development server on port 8080
-- `npm run build` - Build for production
-- `npm run build:dev` - Build with development mode
-- `npm run lint` - Run ESLint for code quality checks
-- `npm run preview` - Preview production build locally
+**Major libraries**
 
-## Tech Stack
+  * React 18 + TypeScript 5 + Vite
+  * Tailwind CSS 3 + shadcn/ui
+  * React Router DOM 6
+  * TanStack React-Query 5 (object syntax only)
+  * Zod 3 + React-Hook-Form 7
+  * Lucide-React icons
+  * Recharts (charts)
+  * Sonner & Radix Toasts for notifications
 
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with shadcn/ui components
-- **Routing**: React Router DOM with multilingual URL structure
-- **State Management**: React Context (LanguageContext)
-- **Analytics**: Google Analytics 4 + HubSpot tracking
-- **Forms**: React Hook Form with Zod validation
+-----
 
-## Architecture
+## 5  High-level road-map
 
-This is a multilingual marketing website supporting English, German, and French. The application follows a component-based architecture with feature-organized directories.
+| Week | Milestone         | Exit criteria                                     |
+| ---- | ----------------- | ------------------------------------------------- |
+| 1    | English MVP       | 14,000 English words live, CEO green-light on design |
+| 2–3  | German & French   | Pixel-perfect, culturally localised content       |
+| 4–5  | Interactive tools | Eligibility checker & coverage calculator pass QA |
+| 6    | Launch & compliance | Swiss Med-Law checklist ✓, uptime ≥ 95%           |
 
-### Key Systems
+*Progress & burndown charts live in `planning.md`.*
 
-**Multi-Language System**: 
-- Currently broken - fix or use English-only workaround for MVP
-- Supports 3 languages with URL-based routing (`/`, `/de/*`, `/fr/*`)
-- Translation files organized by section in `src/translations/{section}/{language}.ts`
-- Uses `useTranslation` hook for content translation and `useLanguage` context for state
+-----
 
-**Design System**:
-- Professional medical aesthetic (deep navy #1e3a5f, medical teal #00796b)
-- Avoid light blues and "heavenly" colors
-- Swiss quality indicators throughout
-- 30% more whitespace than typical sites
+## 6  Design system — extended spec
 
-**Component Structure**:
-- `src/components/home/` - Home page sections
-- `src/components/physicians/` - Physicians page components  
-- `src/components/analytics/` - Analytics and tracking components
-- `src/components/ui/` - shadcn/ui reusable components
-- `src/pages/` - Page-level components used by router
+  * **Spacing**: base unit 4px; major sections 8 × base.
+  * **Typography**: IBM Plex Sans (400/600/700); headings use optical sizing.
+    Clamp-based fluid sizing (`clamp(1rem, 2vw + 1rem, 1.5rem)`).
+  * **Break-points** (same as Tailwind defaults):
+    `sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px.
+  * **Component states**: `hover` ≥ 150ms fade; focus rings `focus:outline-offset-4`.
+  * **Accessibility**: minimum colour-contrast ratio 4.5:1; toast auto-close 6s.
 
-### Import Aliases
+-----
 
-The `@` alias maps to `src/` directory. All imports should use this alias for consistency.
+## 7  Protected artefacts & absolute DON’Ts
 
-## Implementation Strategy
+| Artefact              | Why protected                   | Allowed?           |
+| --------------------- | ------------------------------- | ------------------ |
+| HeartBalanceRing      | Clinical accuracy & CE marking  | Read-only          |
+| ContributingFactorCards | Regulatory copy approved        | Text only          |
+| TabNavigation         | Used by marketing ops           | Style override only |
+| TodayTab              | Licensed algorithm              | No structural edits |
 
-### Week 1: English MVP (Current Focus)
-1. Fix translation system or implement workaround
-2. Deploy all 14,000 words of English copy
-3. Use German visual assets across all languages
-4. Professional design system (no "heavenly" colors)
-5. CEO review by end of week
+*Never rename or relocate these without explicit CEO slack message.*
 
-### Weeks 2-3: Multilingual
-- Professional German/French translations
-- Cultural adaptations
+-----
 
-### Weeks 4-5: Interactive Features
-- Eligibility checker
-- Coverage calculator
+## 8  File-naming & archival conventions
 
-### Week 6: Launch
-- Compliance review
-- Production deployment
+  * All new docs in `docs/` must start with ISO date, e.g.
+    `2025-07-14-eligibility-algo-adr.md`.
+  * Any file superseded → move to `docs/archive/YYYY-MM-DD/`.
+  * Keep root directory ultra-clean: source code, `README.md`, `CLAUDE.md`,
+    package/config files only.
 
-## Critical Issues Status
+-----
 
-### 🚨 P0 Blockers
-1. **Translation System Broken** - All languages show English (workaround planned)
-2. **Missing Core Pages** - Need to create 13+ pages with medical content
-3. **No Interactive Features** - Eligibility checker and calculator not started
+## 9  Glossary (quick reference)
 
-### ⚠️ Design Requirements
-- Must avoid "heavenly blue" colors (user feedback)
-- Use deep professional tones for medical credibility
-- German visual assets to be used for all languages initially
+| Term            | Meaning                                                        |
+| --------------- | -------------------------------------------------------------- |
+| MCP             | Modular Capability Provider: remote tool service (search, memory, etc.) |
+| TDG             | Test-Driven Generation – AI-assisted TDD loop                  |
+| Atomic component| React component ≤ 50 LOC, single responsibility              |
+| LOE             | Level Of Effort estimate                                       |
+| P0              | Highest urgency/severity level                                 |
 
-## Success Metrics
+-----
 
-### Week 1 MVP
-- All English copy deployed (14,000 words)
-- Professional design implemented
-- Mobile responsive
-- <3 second load times
-- Ready for CEO review
+EOF — remember to read the embedded process below before doing anything
 
-### Full Launch (Week 6)
-- Multilingual support working
-- Interactive tools functional
-- Swiss compliance achieved
-- 95%+ uptime
+\<process\_embed\>
+@include(working\_files/CLAUDE\_PROCESS.md)
+\</process\_embed\>
 
----
-
-**Remember: Always read the 5 core working files first for complete context. Use doc-ref.md to navigate to detailed specifications when needed. The gap between current (27.5%) and target (100%) requires systematic execution following the streamlined process.**

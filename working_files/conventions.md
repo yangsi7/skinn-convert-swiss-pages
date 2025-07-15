@@ -192,7 +192,26 @@ $certification-gold: #ffc107;   // Badges/certifications
 - **After Changes**: Update documentation, run tests
 - **Before Deployment**: Full quality checklist review
 
+## Repository Organization
+
+### Directory Structure
+Follow strict organization defined in `working_files/repository-conventions.md`:
+- **Root**: Only config files, CLAUDE.md, README.md, LICENSE
+- **src/**: All source code with proper subdirectories
+- **docs/**: All documentation, reports, specifications
+- **scripts/**: Test scripts, utilities, build scripts
+- **test-results/**: Temporary test outputs (gitignored)
+- **working_files/**: The 5 core working files + archives
+
+### File Placement Rules
+- Documentation → `docs/` (never in root)
+- Test scripts → `scripts/tests/`
+- Screenshots → `test-results/` or archive
+- Reports → `docs/reports/`
+- Archives → `docs/archive/YYYY-MM-DD/`
+
 ## Reference Documentation
+- **Repository Organization**: working_files/repository-conventions.md
 - **Detailed Design System**: docs/design-system/
 - **Content Guidelines**: docs/content-guidelines/
 - **Compliance Details**: docs/compliance/
