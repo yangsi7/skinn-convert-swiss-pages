@@ -48,9 +48,9 @@ const Compliance = () => {
           </div>
 
           {/* Trust Statement */}
-          <Card className="mb-16 bg-myant-lightgreen/20">
+          <Card className="mb-16 bg-secondary/30">
             <CardContent className="p-8 text-center">
-              <Shield className="h-12 w-12 text-myant-green mx-auto mb-4" />
+              <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
               <h2 className="text-2xl font-bold mb-4">Your Trust, Our Priority</h2>
               <p className="text-lg max-w-4xl mx-auto">
                 By maintaining these policies and notices, we ensure that SKIIN operates with full 

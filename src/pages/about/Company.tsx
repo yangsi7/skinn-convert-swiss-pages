@@ -24,7 +24,7 @@ const Company = () => {
           <Card className="mb-16">
             <CardContent className="p-8">
               <div className="text-center mb-8">
-                <Heart className="h-12 w-12 text-myant-green mx-auto mb-4" />
+                <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                 <Badge variant="outline" className="text-lg px-4 py-2">Precision Comfort</Badge>
               </div>
@@ -60,28 +60,28 @@ const Company = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Card>
                   <CardContent className="p-6 text-center">
-                    <Users className="h-8 w-8 text-myant-green mx-auto mb-2" />
+                    <Users className="h-8 w-8 text-primary mx-auto mb-2" />
                     <h3 className="font-semibold">Local Team</h3>
                     <p className="text-sm text-muted-foreground">Swiss-based professionals</p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6 text-center">
-                    <Heart className="h-8 w-8 text-myant-green mx-auto mb-2" />
+                    <Heart className="h-8 w-8 text-primary mx-auto mb-2" />
                     <h3 className="font-semibold">Medical Focus</h3>
                     <p className="text-sm text-muted-foreground">Healthcare integration</p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6 text-center">
-                    <Shield className="h-8 w-8 text-myant-green mx-auto mb-2" />
+                    <Shield className="h-8 w-8 text-primary mx-auto mb-2" />
                     <h3 className="font-semibold">Multilingual</h3>
                     <p className="text-sm text-muted-foreground">DE, FR, EN support</p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6 text-center">
-                    <Award className="h-8 w-8 text-myant-green mx-auto mb-2" />
+                    <Award className="h-8 w-8 text-primary mx-auto mb-2" />
                     <h3 className="font-semibold">Innovation</h3>
                     <p className="text-sm text-muted-foreground">Textile computing leader</p>
                   </CardContent>
@@ -91,7 +91,7 @@ const Company = () => {
           </div>
 
           {/* Our Vision */}
-          <Card className="mb-16 bg-myant-lightgreen/20">
+          <Card className="mb-16 bg-secondary/30">
             <CardContent className="p-8">
               <h2 className="text-3xl font-bold text-center mb-6">Our Vision</h2>
               <div className="max-w-4xl mx-auto">
@@ -121,7 +121,7 @@ const Company = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardContent className="p-6">
-                  <Shield className="h-8 w-8 text-myant-green mb-4" />
+                  <Shield className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-semibold mb-3">Medical Device Standards</h3>
                   <p className="text-sm text-muted-foreground">
                     CE-marked and registered for medical use in Switzerland (conforming to 
@@ -131,7 +131,7 @@ const Company = () => {
               </Card>
               <Card>
                 <CardContent className="p-6">
-                  <Shield className="h-8 w-8 text-myant-green mb-4" />
+                  <Shield className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-semibold mb-3">Data Protection</h3>
                   <p className="text-sm text-muted-foreground">
                     Full compliance with GDPR and Swiss Data Protection Act. Encrypted data 
@@ -141,7 +141,7 @@ const Company = () => {
               </Card>
               <Card>
                 <CardContent className="p-6">
-                  <Shield className="h-8 w-8 text-myant-green mb-4" />
+                  <Shield className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-semibold mb-3">Cultural Respect</h3>
                   <p className="text-sm text-muted-foreground">
                     Patient materials available in formal German (Sie) and French (vous) 

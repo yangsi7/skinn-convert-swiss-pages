@@ -86,9 +86,9 @@ const Blog = () => {
           </div>
 
           {/* Mission Statement */}
-          <Card className="mb-16 bg-myant-lightgreen/20">
+          <Card className="mb-16 bg-secondary/30">
             <CardContent className="p-8 text-center">
-              <BookOpen className="h-12 w-12 text-myant-green mx-auto mb-4" />
+              <BookOpen className="h-12 w-12 text-primary mx-auto mb-4" />
               <h2 className="text-2xl font-bold mb-4">Education is Our Mission</h2>
               <p className="text-lg max-w-3xl mx-auto">
                 We believe education is a key part of our mission – informed patients make empowered 
@@ -106,7 +106,7 @@ const Blog = () => {
                 <Card key={index} className="h-full">
                   <CardHeader>
                     <div className="flex items-center space-x-3 mb-4">
-                      <category.icon className="h-8 w-8 text-myant-green" />
+                      <category.icon className="h-8 w-8 text-primary" />
                       <CardTitle className="text-xl">{category.title}</CardTitle>
                     </div>
                     <p className="text-muted-foreground">{category.description}</p>
@@ -116,7 +116,7 @@ const Blog = () => {
                       <h4 className="font-semibold text-sm">Recent Posts:</h4>
                       {category.posts.map((post, postIndex) => (
                         <div key={postIndex} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-myant-green rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-sm text-muted-foreground">{post}</span>
                         </div>
                       ))}
@@ -192,7 +192,7 @@ const Blog = () => {
                 <Card key={index}>
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <Download className="h-8 w-8 text-myant-green" />
+                      <Download className="h-8 w-8 text-primary" />
                       <Badge variant="outline">{resource.format}</Badge>
                     </div>
                     <h3 className="font-semibold mb-2">{resource.title}</h3>
@@ -212,7 +212,7 @@ const Blog = () => {
           <Card className="mb-16">
             <CardContent className="p-8">
               <div className="text-center">
-                <Globe className="h-12 w-12 text-myant-green mx-auto mb-4" />
+                <Globe className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold mb-4">Multilingual Content</h2>
                 <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
                   We maintain content in multiple languages to serve all Swiss communities. 

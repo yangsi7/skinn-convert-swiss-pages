@@ -67,10 +67,10 @@ const ComparisonSection = () => {
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white rounded-lg overflow-hidden">
             <thead>
-              <tr className="bg-myant-lightgreen text-foreground">
+              <tr className="bg-secondary/30 text-foreground">
                 <th className="py-4 px-6 text-left w-1/3">{translations.comparison.columns.feature}</th>
                 <th className="py-4 px-6 text-center">
-                  <span className="font-bold text-myant-darkgreen">{translations.comparison.columns.skiin}</span>
+                  <span className="font-bold text-primary">{translations.comparison.columns.skiin}</span>
                   <br />
                   <span className="text-sm font-normal">{translations.comparison.columns.skiinSubtitle}</span>
                 </th>
@@ -90,7 +90,7 @@ const ComparisonSection = () => {
               {comparisonData.map((row, index) => (
                 <tr
                   key={index}
-                  className={index % 2 === 0 ? "bg-white" : "bg-myant-gray/20"}
+                  className={index % 2 === 0 ? "bg-white" : "bg-muted/20"}
                 >
                   <td className="py-4 px-6 border-t">{row.feature}</td>
                   <td className="py-4 px-6 text-center border-t">

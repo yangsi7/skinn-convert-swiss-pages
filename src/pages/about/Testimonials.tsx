@@ -87,7 +87,7 @@ const Testimonials = () => {
               ))}
             </div>
 
-            <Card className="mt-8 bg-myant-lightgreen/20">
+            <Card className="mt-8 bg-secondary/30">
               <CardContent className="p-6 text-center">
                 <p className="text-sm text-muted-foreground">
                   <strong>Privacy Note:</strong> We always obtain patient consent for sharing their stories, 

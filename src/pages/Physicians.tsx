@@ -130,7 +130,7 @@ const Physicians = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section id="overview" className="pt-32 pb-20 bg-gradient-to-b from-white to-myant-lightgreen/10 relative overflow-hidden">
+        <section id="overview" className="pt-32 pb-20 bg-gradient-to-b from-white to-secondary/10 relative overflow-hidden">
           {/* ECG line background decoration */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
@@ -167,7 +167,7 @@ const Physicians = () => {
                 <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
                   <ConversionButton 
                     size="lg" 
-                    className="bg-myant-green hover:bg-myant-darkgreen"
+                    className="bg-primary hover:bg-primary/80"
                     eventName="request_trial_kit"
                     eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handleTrialRequest}
@@ -180,7 +180,7 @@ const Physicians = () => {
                   <ConversionButton 
                     size="lg" 
                     variant="outline" 
-                    className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                    className="border-primary text-primary hover:bg-secondary/20"
                     eventName="refer_patient_holter"
                     eventParams={{source: "physician_page", section: "hero", language}}
                     onClick={handlePatientReferral}
@@ -211,7 +211,7 @@ const Physicians = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="bg-myant-lightgreen rounded-2xl p-6 relative shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
+                <div className="bg-secondary/30 rounded-2xl p-6 relative shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
                   <img
                     src="/lovable-uploads/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
                     alt="Doctor consulting with patient about SKIIN at-home cardiac monitoring solution"
@@ -251,7 +251,7 @@ const Physicians = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-myant-lightgreen/20 animate-on-scroll">
+        <section id="about" className="py-20 bg-secondary/20 animate-on-scroll">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -303,24 +303,24 @@ const Physicians = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {steps.map((step, index) => (
                 <div key={index} className="relative group">
-                  <div className="mb-6 h-20 bg-myant-lightgreen rounded-xl flex items-center justify-center group-hover:bg-myant-lightgreen/80 transition-colors">
-                    <span className="text-4xl font-bold text-myant-green">{step.number}</span>
+                  <div className="mb-6 h-20 bg-secondary/30 rounded-xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors">
+                    <span className="text-4xl font-bold text-primary">{step.number}</span>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 -right-4 w-8 h-2 bg-myant-lightgreen"></div>
+                    <div className="hidden lg:block absolute top-10 -right-4 w-8 h-2 bg-secondary/30"></div>
                   )}
                 </div>
               ))}
             </div>
 
-            <div className="bg-myant-green/5 border border-myant-green/20 p-6 rounded-xl hover:shadow-md transition-shadow">
+            <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center">
-                  <div className="bg-myant-lightgreen p-3 rounded-full mr-4">
-                    <Download className="h-6 w-6 text-myant-green" />
+                  <div className="bg-secondary/30 p-3 rounded-full mr-4">
+                    <Download className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">{content.howItWorks.sampleReport.title}</h4>
@@ -329,7 +329,7 @@ const Physicians = () => {
                 </div>
                 <Button 
                   variant="outline" 
-                  className="border-myant-green text-myant-green hover:bg-myant-lightgreen"
+                  className="border-primary text-primary hover:bg-secondary/20"
                   onClick={() => {
                     trackEvent('sample_report_download', {
                       source: 'physicians_page',
@@ -345,7 +345,7 @@ const Physicians = () => {
         </section>
 
         {/* Testimonials */}
-        <section id="testimonials" className="py-20 bg-gradient-to-b from-white to-myant-lightgreen/20 animate-on-scroll">
+        <section id="testimonials" className="py-20 bg-gradient-to-b from-white to-secondary/20 animate-on-scroll">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Testimonials</span>
@@ -366,7 +366,7 @@ const Physicians = () => {
         </section>
 
         {/* CTA Section */}
-        <section id="get-started" className="py-20 bg-myant-green animate-on-scroll">
+        <section id="get-started" className="py-20 bg-primary animate-on-scroll">
           <div className="container-custom">
             <div className="text-center text-white max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -378,7 +378,7 @@ const Physicians = () => {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <ConversionButton 
                   size="lg" 
-                  className="bg-white text-myant-green hover:bg-gray-100"
+                  className="bg-white text-primary hover:bg-gray-100"
                   eventName="try_skiin_free_click"
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   conversionId="AW-XXXXXXXXXX"
@@ -392,7 +392,7 @@ const Physicians = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="text-white border-white hover:bg-myant-darkgreen"
+                  className="text-white border-white hover:bg-primary/80"
                   onClick={() => {
                     trackEvent('contact_medical_team', {
                       source: 'physicians_page',
@@ -407,7 +407,7 @@ const Physicians = () => {
                 <ConversionButton 
                   size="lg" 
                   variant="outline" 
-                  className="text-white border-white hover:bg-myant-darkgreen"
+                  className="text-white border-white hover:bg-primary/80"
                   eventName="refer_patient_holter_footer"
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   href="https://myant-care360.com"

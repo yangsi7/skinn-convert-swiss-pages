@@ -112,7 +112,7 @@ const Contact = () => {
           </div>
 
           {/* Multilingual Support */}
-          <Card className="mb-16 bg-myant-lightgreen/20">
+          <Card className="mb-16 bg-secondary/30">
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold mb-4">Multilingual Support</h2>
               <p className="text-lg text-muted-foreground mb-6">
@@ -240,7 +240,7 @@ const Contact = () => {
               </div>
 
               {/* Physician Demo */}
-              <Card className="bg-myant-lightgreen/20">
+              <Card className="bg-secondary/30">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <Video className="h-8 w-8 text-myant-green" />

@@ -23,7 +23,7 @@ const MedicalBoard = () => {
           <Card className="mb-16">
             <CardContent className="p-8">
               <div className="text-center mb-8">
-                <Users className="h-12 w-12 text-myant-green mx-auto mb-4" />
+                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-3xl font-bold mb-4">Multidisciplinary Excellence</h2>
               </div>
               <p className="text-lg leading-relaxed text-center max-w-4xl mx-auto mb-6">
@@ -99,7 +99,7 @@ const MedicalBoard = () => {
               </Card>
             </div>
 
-            <Card className="bg-myant-lightgreen/20">
+            <Card className="bg-secondary/30">
               <CardContent className="p-6 text-center">
                 <Award className="h-8 w-8 text-myant-green mx-auto mb-3" />
                 <p className="text-lg">

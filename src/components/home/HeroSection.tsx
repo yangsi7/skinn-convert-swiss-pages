@@ -156,7 +156,7 @@ const HeroSection = () => {
             </Card>
 
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-myant-lightgreen/20 to-transparent rounded-2xl -z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent rounded-2xl -z-10"></div>
           </div>
         </div>
 
