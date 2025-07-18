@@ -115,7 +115,7 @@ const HeroSection = () => {
               <Card className="overflow-hidden border-0 shadow-2xl">
                 <CardContent className="p-0">
                   <img
-                    src="/lovable-uploads/1f227914-01f4-49cb-9a48-3f39976b4898.png"
+                    src="/assets/images/1f227914-01f4-49cb-9a48-3f39976b4898.png"
                     alt="Patient wearing SKIIN heart monitor comfortably at home"
                     className="w-full h-auto"
                   />

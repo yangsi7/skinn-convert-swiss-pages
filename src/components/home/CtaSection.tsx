@@ -29,7 +29,7 @@ const CtaSection = () => {
           
           <div className="rounded-xl overflow-hidden relative">
             <img 
-              src="/lovable-uploads/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png" 
+              src="/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png" 
               alt="SKIIN Smart Garment close-up" 
               className="w-full h-auto object-cover rounded-xl"
             />

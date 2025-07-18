@@ -201,33 +201,28 @@ export const homeTranslations = {
     steps: [
       {
         number: "01",
-        title: "Prescription",
-        description: "Your healthcare provider prescribes SKIIN for continuous cardiac monitoring"
+        title: "Referral",
+        description: "Get a referral from your doctor or start with our eligibility check"
       },
       {
         number: "02",
         title: "Delivery",
-        description: "Receive your SKIIN Smart Garment kit directly at your home"
+        description: "Receive your SKIIN kit delivered directly to your home"
       },
       {
         number: "03",
         title: "Wear",
-        description: "Simply wear the comfortable garment as part of your daily routine"
+        description: "Wear the comfortable SKIIN device for up to 14 days"
       },
       {
         number: "04",
         title: "Monitor",
-        description: "Your heart rhythm is continuously monitored and analyzed"
+        description: "Data is continuously recorded and analyzed by AI and cardiologists"
       },
       {
         number: "05",
-        title: "Connect",
-        description: "Data is securely shared with your healthcare provider in real-time"
-      },
-      {
-        number: "06",
         title: "Results",
-        description: "Get personalized insights and treatment recommendations"
+        description: "Receive your detailed report and discuss with your doctor"
       }
     ],
     cta: "Learn More About the Process"

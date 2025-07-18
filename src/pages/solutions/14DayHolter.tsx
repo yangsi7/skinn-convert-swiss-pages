@@ -7,6 +7,12 @@ import { Badge } from '@/components/ui/badge';
 import { Heart, Clock, Shield, Activity, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ProgressiveSection } from '@/components/ui/progressive-section';
+import { ContentSection } from '@/components/ui/content-section';
+import { FeatureGrid } from '@/components/ui/feature-grid';
+import { ComparisonTable } from '@/components/ui/comparison-table';
+import { ProcessFlow } from '@/components/home/ProcessFlow';
+import { StatCard } from '@/components/ui/stat-card';
 
 const Solutions14DayHolter = () => {
   const { language } = useLanguage();
@@ -231,145 +237,92 @@ const Solutions14DayHolter = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="section-padding bg-gradient-to-br from-background via-secondary/20 to-accent/30 pt-24">
+        <ProgressiveSection className="py-20 md:py-32 bg-gradient-to-br from-primary/8 to-medical-teal/5 pt-24">
           <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <Badge variant="secondary" className="w-fit">
-                  <Heart className="w-4 h-4 mr-2" />
-                  CE Certified Medical Device
-                </Badge>
-                
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                  {t.title}
-                </h1>
-                
-                <p className="text-xl text-muted-foreground">
-                  {t.subtitle}
-                </p>
-                
-                <p className="text-muted-foreground">
-                  {t.description}
-                </p>
-                
-                <Button size="lg" asChild>
-                  <Link to={getEligibilityPath()}>
-                    {t.cta.button}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </div>
-              
-              <div className="relative">
-                <Card className="p-8 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">{t.hero.statValue}</div>
-                  <div className="text-sm text-muted-foreground mb-1">{t.hero.statTitle}</div>
-                  <div className="text-xs text-muted-foreground">{t.hero.statDesc}</div>
-                </Card>
-              </div>
+            <ContentSection
+              badge="CE Certified Medical Device"
+              badgeVariant="secondary"
+              title={t.title}
+              subtitle={t.subtitle}
+              description={t.description}
+              primaryCta={{
+                text: t.cta.button,
+                href: getEligibilityPath()
+              }}
+              image={{
+                src: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png",
+                alt: "Person wearing SKIIN 14-Day Holter monitor",
+                position: "right"
+              }}
+            />
+            <div className="mt-12 max-w-sm mx-auto">
+              <StatCard
+                value={t.hero.statValue}
+                label={t.hero.statTitle}
+                description={t.hero.statDesc}
+                variant="large"
+                icon={Activity}
+              />
             </div>
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* Features Section */}
-        <section className="section-padding bg-background">
+        <ProgressiveSection className="py-20 md:py-30">
           <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               {t.features.title}
             </h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {t.features.items.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <Card key={index} className="group hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6 text-center">
-                      <IconComponent className="w-12 h-12 text-primary mx-auto mb-4" />
-                      <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+            <FeatureGrid
+              features={t.features.items}
+              variant="cards"
+              columns={4}
+            />
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* Comparison Section */}
-        <section className="section-padding bg-muted/30">
+        <ProgressiveSection className="py-20 md:py-30 bg-background-secondary">
           <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
-              {t.comparison.title}
-            </h2>
-            
-            <Card className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b">
-                        <th className="text-left p-6 font-semibold text-foreground">Feature</th>
-                        <th className="text-center p-6 font-semibold text-primary">{t.comparison.skiin}</th>
-                        <th className="text-center p-6 font-semibold text-muted-foreground">{t.comparison.traditional}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {t.comparison.features.map((item, index) => (
-                        <tr key={index} className="border-b last:border-b-0">
-                          <td className="p-6 text-foreground">{item.feature}</td>
-                          <td className="p-6 text-center">
-                            <div className="flex items-center justify-center gap-2">
-                              <CheckCircle className="w-4 h-4 text-primary" />
-                              <span className="text-foreground">{item.skiin}</span>
-                            </div>
-                          </td>
-                          <td className="p-6 text-center text-muted-foreground">{item.traditional}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </CardContent>
-            </Card>
+            <ComparisonTable
+              title={t.comparison.title}
+              items={t.comparison.features.map(item => ({
+                feature: item.feature,
+                competitors: item.traditional,
+                skiin: item.skiin
+              }))}
+              competitorLabel={t.comparison.traditional}
+              skiinLabel={t.comparison.skiin}
+            />
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* Process Section */}
-        <section className="section-padding bg-background">
+        <ProgressiveSection className="py-20 md:py-30">
           <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               {t.process.title}
             </h2>
-            
-            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {t.process.steps.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
-                    {index + 1}
-                  </div>
-                  <p className="text-sm text-foreground">{step}</p>
-                </div>
-              ))}
-            </div>
+            <ProcessFlow />
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* CTA Section */}
-        <section className="section-padding bg-primary">
-          <div className="container-custom text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              {t.cta.title}
-            </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              {t.cta.description}
-            </p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link to={getEligibilityPath()}>
-                {t.cta.button}
-              </Link>
-            </Button>
+        <ProgressiveSection className="py-20 md:py-30 bg-primary text-primary-foreground" dark>
+          <div className="container-custom">
+            <ContentSection
+              title={t.cta.title}
+              description={t.cta.description}
+              align="center"
+              primaryCta={{
+                text: t.cta.button,
+                href: getEligibilityPath(),
+                variant: "outline"
+              }}
+              className="text-primary-foreground"
+            />
           </div>
-        </section>
+        </ProgressiveSection>
       </main>
       <Footer />
     </div>

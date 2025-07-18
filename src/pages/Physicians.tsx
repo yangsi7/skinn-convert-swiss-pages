@@ -17,6 +17,10 @@ import { physiciansContent as enContent } from '@/translations/physicians/en';
 import { physiciansContent as deContent } from '@/translations/physicians/de';
 import { physiciansContent as frContent } from '@/translations/physicians/fr';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ProgressiveSection } from '@/components/ui/progressive-section';
+import { FeatureGrid } from '@/components/ui/feature-grid';
+import { ContentSection } from '@/components/ui/content-section';
+import MvcpSection from '@/components/home/MvcpSection';
 
 /**
  * Landing page targeted at physicians. Includes marketing sections, analytics
@@ -33,22 +37,6 @@ const Physicians = () => {
       source: document.referrer,
       language
     });
-    
-    // Fade-in animation for sections on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    
-    document.querySelectorAll('.animate-on-scroll').forEach(section => {
-      observer.observe(section);
-    });
-    
-    return () => observer.disconnect();
   }, [language]);
 
   // Benefits for physicians
@@ -130,18 +118,19 @@ const Physicians = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section id="overview" className="pt-32 pb-20 bg-gradient-to-b from-white to-secondary/10 relative overflow-hidden">
+        <ProgressiveSection className="pt-32 pb-20 bg-gradient-to-br from-primary/8 to-medical-teal/5 relative overflow-hidden">
           {/* ECG line background decoration */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none">
               <path d="M0,100 L100,100 L150,20 L200,180 L250,100 L300,100 L350,100 L400,100 L450,20 L500,180 L550,100 L600,100 L650,100 L700,100 L750,20 L800,180 L850,100 L900,100 L950,100 L1000,100 L1050,20 L1100,180 L1150,100 L1200,100" 
                     fill="none" 
-                    stroke="#2A7D71" 
+                    stroke="currentColor" 
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeDasharray="1200"
-                    strokeDashoffset="1200">
+                    strokeDashoffset="1200"
+                    className="text-medical-teal">
                 <animate attributeName="stroke-dashoffset" 
                          from="1200" 
                          to="0" 
@@ -153,78 +142,29 @@ const Physicians = () => {
           </div>
           
           <div className="container-custom relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-on-scroll">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight text-foreground" 
-                    dangerouslySetInnerHTML={{ __html: content.hero.title }} />
-                <h2 className="text-xl md:text-2xl text-muted-foreground">
-                  {content.hero.subtitle}
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  {content.hero.description}
-                  <Citation id="1" text={citations[0].text} />
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-                  <ConversionButton 
-                    size="lg" 
-                    className="bg-primary hover:bg-primary/80"
-                    eventName="request_trial_kit"
-                    eventParams={{source: "physician_page", section: "hero", language}}
-                    onClick={handleTrialRequest}
-                    href="https://meetings-eu1.hubspot.com/peter-wood"
-                    external={true}
-                  >
-                    {content.hero.primaryCta}
-                  </ConversionButton>
-                  
-                  <ConversionButton 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-primary text-primary hover:bg-secondary/20"
-                    eventName="refer_patient_holter"
-                    eventParams={{source: "physician_page", section: "hero", language}}
-                    onClick={handlePatientReferral}
-                    href="https://myant-care360.com"
-                    external={true}
-                  >
-                    {content.hero.tertiaryCta}
-                  </ConversionButton>
-                  
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      const howItWorksSection = document.getElementById('how-it-works');
-                      if (howItWorksSection) {
-                        howItWorksSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                      trackEvent('learn_more_click', {
-                        source: 'physicians_page',
-                        section: 'hero',
-                        language
-                      });
-                    }}
-                  >
-                    {content.hero.secondaryCta}
-                  </Button>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="bg-secondary/30 rounded-2xl p-6 relative shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
-                  <img
-                    src="/lovable-uploads/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
-                    alt="Doctor consulting with patient about SKIIN at-home cardiac monitoring solution"
-                    className="w-full h-auto rounded-xl"
-                  />
-                </div>
-              </div>
-            </div>
+            <ContentSection
+              title={content.hero.title.replace(/<br\s*\/?>/gi, ' ')}
+              subtitle={content.hero.subtitle}
+              description={`${content.hero.description} ${citations[0].text}`}
+              primaryCta={{
+                text: content.hero.primaryCta,
+                href: "https://meetings-eu1.hubspot.com/peter-wood"
+              }}
+              secondaryCta={{
+                text: content.hero.tertiaryCta,
+                href: "https://myant-care360.com"
+              }}
+              image={{
+                src: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png",
+                alt: "Doctor consulting with patient about SKIIN at-home cardiac monitoring solution",
+                position: "right"
+              }}
+            />
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-20 bg-white animate-on-scroll">
+        <ProgressiveSection className="py-20 md:py-30">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">For Medical Professionals</span>
@@ -237,57 +177,46 @@ const Physicians = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => (
-                <BenefitItem 
-                  key={index}
-                  title={benefit.title}
-                  description={benefit.description}
-                  icon={benefit.icon}
-                />
-              ))}
-            </div>
+            <FeatureGrid
+              features={benefits}
+              variant="cards"
+              columns={2}
+            />
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-secondary/20 animate-on-scroll">
+        <ProgressiveSection className="py-20 md:py-30 bg-background-secondary">
           <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="mb-8 bg-white p-6 rounded-xl shadow-sm">
-                  <img
-                    src="/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
-                    alt="SKIIN Smart Garment with embedded sensors for continuous cardiac monitoring"
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="space-y-6">
-                <span className="text-primary font-medium">Who We Are</span>
-                <h2 className="text-3xl font-bold">{content.about.title}</h2>
-                <p className="text-muted-foreground">
-                  {content.about.description1}
-                </p>
-                <p className="text-muted-foreground">
-                  {content.about.description2}
-                </p>
-                
-                <TrustBadges />
-                
+            <ContentSection
+              badge="Who We Are"
+              title={content.about.title}
+              description={`${content.about.description1}\n\n${content.about.description2}`}
+              image={{
+                src: "/assets/images/40ba1015-dfac-4b19-9548-8f3319ffe098.png",
+                alt: "SKIIN Smart Garment with embedded sensors for continuous cardiac monitoring",
+                position: "left"
+              }}
+            />
+            <div className="mt-12 max-w-2xl mx-auto">
+              <TrustBadges />
+              <div className="mt-8">
                 <DoctorQuote 
                   quote={cmoBio.quote}
                   name={cmoBio.name}
                   title={cmoBio.title}
-                  image="/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png" 
+                  image="/assets/images/72de88b6-6f7b-4e58-abb2-dc50a762a353.png" 
                 />
               </div>
             </div>
           </div>
-        </section>
+        </ProgressiveSection>
+
+        {/* MVCP Section */}
+        <MvcpSection />
 
         {/* How It Works */}
-        <section id="how-it-works" className="py-20 bg-white animate-on-scroll">
+        <ProgressiveSection className="py-20 md:py-30">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Simple Process</span>
@@ -302,24 +231,28 @@ const Physicians = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {steps.map((step, index) => (
-                <div key={index} className="relative group">
-                  <div className="mb-6 h-20 bg-secondary/30 rounded-xl flex items-center justify-center group-hover:bg-secondary/50 transition-colors">
+                <div 
+                  key={index} 
+                  className="relative group opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-700"
+                  style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
+                >
+                  <div className="mb-6 h-20 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
                     <span className="text-4xl font-bold text-primary">{step.number}</span>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 -right-4 w-8 h-2 bg-secondary/30"></div>
+                    <div className="hidden lg:block absolute top-10 -right-4 w-8 h-2 bg-primary/20"></div>
                   )}
                 </div>
               ))}
             </div>
 
-            <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl hover:shadow-md transition-shadow">
+            <div className="bg-primary/5 border border-primary/20 p-6 rounded-xl hover:shadow-lg transition-all duration-300">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center">
-                  <div className="bg-secondary/30 p-3 rounded-full mr-4">
+                  <div className="bg-primary/10 p-3 rounded-full mr-4">
                     <Download className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -329,7 +262,7 @@ const Physicians = () => {
                 </div>
                 <Button 
                   variant="outline" 
-                  className="border-primary text-primary hover:bg-secondary/20"
+                  className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
                   onClick={() => {
                     trackEvent('sample_report_download', {
                       source: 'physicians_page',
@@ -342,10 +275,10 @@ const Physicians = () => {
               </div>
             </div>
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* Testimonials */}
-        <section id="testimonials" className="py-20 bg-gradient-to-b from-white to-secondary/20 animate-on-scroll">
+        <ProgressiveSection className="py-20 md:py-30 bg-gradient-to-b from-background to-background-accent">
           <div className="container-custom">
             <div className="text-center mb-12">
               <span className="text-primary font-medium">Testimonials</span>
@@ -359,26 +292,32 @@ const Physicians = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
+                <div
+                  key={index}
+                  className="opacity-0 animate-in fade-in slide-in-from-bottom-8 duration-700"
+                  style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
+                >
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
               ))}
             </div>
           </div>
-        </section>
+        </ProgressiveSection>
 
         {/* CTA Section */}
-        <section id="get-started" className="py-20 bg-primary animate-on-scroll">
+        <ProgressiveSection className="py-20 md:py-30 bg-primary text-primary-foreground" dark>
           <div className="container-custom">
-            <div className="text-center text-white max-w-3xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 {content.cta.title}
               </h2>
-              <p className="text-xl mb-8">
+              <p className="text-xl mb-8 opacity-90">
                 {content.cta.description}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <ConversionButton 
                   size="lg" 
-                  className="bg-white text-primary hover:bg-gray-100"
+                  className="bg-background text-primary hover:bg-background/90"
                   eventName="try_skiin_free_click"
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   conversionId="AW-XXXXXXXXXX"
@@ -392,7 +331,7 @@ const Physicians = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="text-white border-white hover:bg-primary/80"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
                   onClick={() => {
                     trackEvent('contact_medical_team', {
                       source: 'physicians_page',
@@ -407,7 +346,7 @@ const Physicians = () => {
                 <ConversionButton 
                   size="lg" 
                   variant="outline" 
-                  className="text-white border-white hover:bg-primary/80"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
                   eventName="refer_patient_holter_footer"
                   eventParams={{source: "physician_page", section: "footer_cta", language}}
                   href="https://myant-care360.com"
@@ -421,10 +360,10 @@ const Physicians = () => {
               </p>
             </div>
           </div>
-        </section>
+        </ProgressiveSection>
         
         {/* Regulatory Footer */}
-        <div className="bg-white py-6 border-t border-gray-100">
+        <div className="bg-background py-6 border-t border-border">
           <div className="container-custom">
             <div className="text-xs text-muted-foreground">
               <p>{content.footer.copyright}</p>

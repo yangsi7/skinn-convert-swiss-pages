@@ -1,0 +1,140 @@
+
+Navigation Structure Test Report
+================================
+Date: 2025-07-12T04:29:54.493Z
+
+All Buttons Found:
+- "Preferences"
+- "Necessary Only"
+- "Accept All"
+- "EN"
+- "DE"
+- "FR"
+- "Contact Us"
+- ""
+- "EN"
+- "DE"
+- "FR"
+- "Contact Us"
+- "Learn more about how SKIIN works →"
+- "Jetzt anmelden"
+- "Get in Touch Today"
+- "Learn More"
+- "How accurate is the ECG data from SKIIN?"
+- "How long can patients wear SKIIN garments?"
+- "Are SKIIN garments covered by insurance?"
+- "How do patients get SKIIN Smart Garments?"
+- "Can SKIIN detect all types of arrhythmias?"
+- "How is patient data protected?"
+- "Select your role"
+- "Send Message"
+
+All Links Found:
+- "Myant HealthMYANT•HEALTH•" -> /
+- "Solutions" -> /solutions
+- "Partners" -> /partners
+- "How It Works" -> /how-it-works
+- "About Us" -> /about
+- "Solutions" -> /solutions
+- "Partners" -> /partners
+- "How It Works" -> /how-it-works
+- "About Us" -> /about
+- "Screening Solutions" -> /solutions
+- "For Healthcare Providers" -> /partners
+- "info@myant-health.com" -> mailto:info@myant-health.com
+- "+41 44 123 45 67" -> tel:+41441234567
+- "Bahnhofstrasse 100, 8001 Zürich, Switzerland" -> https://maps.google.com/?q=Bahnhofstrasse%20100%2C%208001%20Z%C3%BCrich%2C%20Switzerland
+- "" -> #
+- "" -> #
+- "" -> #
+- "Privacy Policy" -> /privacy
+- "LinkedIn" -> #
+- "Twitter" -> #
+- "Instagram" -> #
+- "SKIIN Smart Garments" -> /patients
+- "Patient Stories" -> /patients/testimonials
+- "FAQ" -> /patients/faq
+- "Get Support" -> https://skiin-support.netlify.app/
+- "Clinical Solutions" -> /physicians
+- "Clinical Studies" -> /physicians/research
+- "Resources" -> /physicians/resources
+- "Healthcare Provider Support" -> https://skiin-support.netlify.app/physicians
+- "Request Demo" -> /request-demo
+- "About Us" -> /about
+- "Our Team" -> /team
+- "Careers" -> /careers
+- "Contact" -> /contact
+- "Technical Support" -> https://skiin-support.netlify.app/contact
+- "Privacy Policy" -> /privacy
+- "Terms of Use" -> /terms
+- "Cookie Policy" -> /cookies
+
+Solutions Element: {
+  "found": true,
+  "text": "Solutions",
+  "href": "/solutions",
+  "tagName": "A"
+}
+Partners Element: {
+  "found": true,
+  "text": "Partners",
+  "href": "/partners",
+  "tagName": "A"
+}
+
+Language Options: [
+  {
+    "text": "EN",
+    "href": null,
+    "tagName": "BUTTON"
+  },
+  {
+    "text": "DE",
+    "href": null,
+    "tagName": "BUTTON"
+  },
+  {
+    "text": "FR",
+    "href": null,
+    "tagName": "BUTTON"
+  },
+  {
+    "text": "EN",
+    "href": null,
+    "tagName": "BUTTON"
+  },
+  {
+    "text": "DE",
+    "href": null,
+    "tagName": "BUTTON"
+  },
+  {
+    "text": "FR",
+    "href": null,
+    "tagName": "BUTTON"
+  }
+]
+
+Navigation Structure: {
+  "found": true,
+  "items": [
+    {
+      "text": "Solutions",
+      "href": "/solutions"
+    },
+    {
+      "text": "Partners",
+      "href": "/partners"
+    },
+    {
+      "text": "How It Works",
+      "href": "/how-it-works"
+    },
+    {
+      "text": "About Us",
+      "href": "/about"
+    }
+  ]
+}
+
+Screenshots saved to: /Users/yangsim/Nanoleq/sideProjects/skinn-convert-swiss-pages/navigation-test-screenshots

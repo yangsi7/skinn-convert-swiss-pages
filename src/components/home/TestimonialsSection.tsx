@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
       quote: translations.testimonials.items[0].quote,
       name: translations.testimonials.items[0].name,
       title: translations.testimonials.items[0].title,
-      image: "/lovable-uploads/2c470df9-6b84-48a2-b3f4-d958760f8b36.png"
+      image: "/assets/images/2c470df9-6b84-48a2-b3f4-d958760f8b36.png"
     },
     {
       quote: translations.testimonials.items[1].quote,
@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
       quote: translations.testimonials.items[2].quote,
       name: translations.testimonials.items[2].name,
       title: translations.testimonials.items[2].title,
-      image: "/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
+      image: "/assets/images/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
     },
   ];
 

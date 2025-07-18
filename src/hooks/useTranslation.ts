@@ -12,6 +12,9 @@ import { solutionsTranslations as frSolutionsTranslations } from '@/translations
 import { partnersTranslations as enPartnersTranslations } from '@/translations/partners/en';
 import { partnersTranslations as dePartnersTranslations } from '@/translations/partners/de';
 import { partnersTranslations as frPartnersTranslations } from '@/translations/partners/fr';
+import { eligibilityEn } from '@/translations/eligibility/en';
+import { eligibilityDe } from '@/translations/eligibility/de';
+import { eligibilityFr } from '@/translations/eligibility/fr';
 
 /**
  * Hook for handling translations in the application
@@ -33,6 +36,7 @@ export function useTranslation(section: 'home2'): typeof enHomeTranslations.home
 export function useTranslation(section: 'physicians'): typeof enPhysiciansTranslations;
 export function useTranslation(section: 'solutions'): typeof enSolutionsTranslations;
 export function useTranslation(section: 'partners'): typeof enPartnersTranslations;
+export function useTranslation(section: 'eligibility'): typeof eligibilityEn;
 
 export function useTranslation<T>(
   enContentOrSection: T | string,
@@ -75,6 +79,12 @@ export function useTranslation<T>(
           case 'de': return dePartnersTranslations;
           case 'fr': return frPartnersTranslations;
           default: return enPartnersTranslations;
+        }
+      case 'eligibility':
+        switch (language) {
+          case 'de': return eligibilityDe;
+          case 'fr': return eligibilityFr;
+          default: return eligibilityEn;
         }
       default:
         console.warn(`Translation section "${section}" not found`);

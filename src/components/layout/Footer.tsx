@@ -18,7 +18,7 @@ const Footer = () => {
               {t.footer.tagline}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:opacity-80 transition-opacity">
+              <a href="https://www.linkedin.com/company/myant/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                 <span className="sr-only">LinkedIn</span>
                 <svg
                   width="24"
@@ -50,7 +50,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
+              <a href="https://twitter.com/myant_health" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                 <span className="sr-only">Twitter</span>
                 <svg
                   width="24"
@@ -68,7 +68,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
+              <a href="https://www.instagram.com/myant_health/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                 <span className="sr-only">Instagram</span>
                 <svg
                   width="24"
@@ -106,6 +106,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-lg">{t.footer.sections.patients.title}</h3>
             <ul className="space-y-2 text-sm">
+              {/* Temporarily removed until pages are created
               <li>
                 <Link to="/patients" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.patients.links.main}
@@ -121,6 +122,7 @@ const Footer = () => {
                   {t.footer.sections.patients.links.faq}
                 </Link>
               </li>
+              */}
               <li>
                 <a 
                   href="https://skiin-support.netlify.app/" 
@@ -138,10 +140,11 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-lg">{t.footer.sections.physicians.title}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/physicians" className="hover:underline opacity-80 hover:opacity-100">
+                <Link to="/partners" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.physicians.links.main}
                 </Link>
               </li>
+              {/* Temporarily removed until pages are created
               <li>
                 <Link to="/physicians/research" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.physicians.links.research}
@@ -152,6 +155,7 @@ const Footer = () => {
                   {t.footer.sections.physicians.links.resources}
                 </Link>
               </li>
+              */}
               <li>
                 <a 
                   href="https://skiin-support.netlify.app/physicians" 
@@ -162,11 +166,13 @@ const Footer = () => {
                   {t.footer.sections.physicians.links.support}
                 </a>
               </li>
+              {/* Temporarily removed until page is created
               <li>
                 <Link to="/request-demo" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.physicians.links.requestDemo}
                 </Link>
               </li>
+              */}
             </ul>
           </div>
 
@@ -178,6 +184,7 @@ const Footer = () => {
                   {t.footer.sections.company.links.about}
                 </Link>
               </li>
+              {/* Temporarily removed until pages are created
               <li>
                 <Link to="/team" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.company.links.team}
@@ -188,8 +195,9 @@ const Footer = () => {
                   {t.footer.sections.company.links.careers}
                 </Link>
               </li>
+              */}
               <li>
-                <Link to="/contact" className="hover:underline opacity-80 hover:opacity-100">
+                <Link to="/about/contact" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.company.links.contact}
                 </Link>
               </li>

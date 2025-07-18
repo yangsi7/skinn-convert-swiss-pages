@@ -6,6 +6,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Heart, Shield, AlertCircle, ArrowRight, Phone } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface EligibilityResult {
   eligible: boolean;
@@ -15,6 +16,7 @@ interface EligibilityResult {
 }
 
 const EligibilityChecker = () => {
+  const t = useTranslation('eligibility');
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     symptoms: '',
@@ -25,27 +27,27 @@ const EligibilityChecker = () => {
   const [result, setResult] = useState<EligibilityResult | null>(null);
 
   const symptoms = [
-    { value: 'palpitations', label: 'Herzrasen oder unregelmäßiger Herzschlag' },
-    { value: 'dizziness', label: 'Schwindel oder Ohnmacht' },
-    { value: 'chest-pain', label: 'Brustschmerzen' },
-    { value: 'shortness', label: 'Atemnot bei Anstrengung' },
-    { value: 'none', label: 'Keine Symptome (Vorsorge)' }
+    { value: 'palpitations', label: t.symptoms.palpitations },
+    { value: 'dizziness', label: t.symptoms.dizziness },
+    { value: 'chest-pain', label: t.symptoms.chestPain },
+    { value: 'shortness', label: t.symptoms.shortness },
+    { value: 'none', label: t.symptoms.none }
   ];
 
   const riskFactors = [
-    { value: 'family-history', label: 'Familiengeschichte von Herzerkrankungen' },
-    { value: 'hypertension', label: 'Bluthochdruck' },
-    { value: 'diabetes', label: 'Diabetes' },
-    { value: 'age-over-50', label: 'Über 50 Jahre alt' },
-    { value: 'none', label: 'Keine Risikofaktoren' }
+    { value: 'family-history', label: t.riskFactors.familyHistory },
+    { value: 'hypertension', label: t.riskFactors.hypertension },
+    { value: 'diabetes', label: t.riskFactors.diabetes },
+    { value: 'age-over-50', label: t.riskFactors.ageOver50 },
+    { value: 'none', label: t.riskFactors.none }
   ];
 
   const insuranceModels = [
-    { value: 'standard', label: 'Standard (freie Arztwahl)' },
-    { value: 'gp-model', label: 'Hausarztmodell' },
-    { value: 'hmo', label: 'HMO' },
-    { value: 'telmed', label: 'Telmed' },
-    { value: 'unsure', label: 'Unsicher' }
+    { value: 'standard', label: t.insuranceModels.standard },
+    { value: 'gp-model', label: t.insuranceModels.gpModel },
+    { value: 'hmo', label: t.insuranceModels.hmo },
+    { value: 'telmed', label: t.insuranceModels.telmed },
+    { value: 'unsure', label: t.insuranceModels.unsure }
   ];
 
   const calculateEligibility = (): EligibilityResult => {
@@ -61,43 +63,43 @@ const EligibilityChecker = () => {
       switch (formData.insuranceModel) {
         case 'standard':
           nextSteps = [
-            'Sprechen Sie mit Ihrem Hausarzt oder Kardiologen',
-            'Arzt verschreibt SKIIN-Überwachung', 
-            'SKIIN wird von der Grundversicherung übernommen'
+            t.nextSteps.standard.step1,
+            t.nextSteps.standard.step2, 
+            t.nextSteps.standard.step3
           ];
-          insuranceInfo = 'Bei Standard-Versicherung: Direkt zum Arzt, keine Einschränkungen';
+          insuranceInfo = t.nextSteps.standard.info;
           break;
         case 'gp-model':
           coverage = 'consult-first';
           nextSteps = [
-            'Kontaktieren Sie zuerst Ihren Hausarzt',
-            'Hausarzt beurteilt und überweist bei Bedarf',
-            'SKIIN wird nach Überweisung übernommen'
+            t.nextSteps.gpModel.step1,
+            t.nextSteps.gpModel.step2,
+            t.nextSteps.gpModel.step3
           ];
-          insuranceInfo = 'Hausarztmodell: Zuerst zum GP, dann Überweisung zu SKIIN';
+          insuranceInfo = t.nextSteps.gpModel.info;
           break;
         case 'hmo':
           coverage = 'consult-first';
           nextSteps = [
-            'Wenden Sie sich an Ihr HMO-Zentrum',
-            'HMO-Arzt beurteilt und überweist',
-            'SKIIN wird nach HMO-Genehmigung übernommen'
+            t.nextSteps.hmo.step1,
+            t.nextSteps.hmo.step2,
+            t.nextSteps.hmo.step3
           ];
-          insuranceInfo = 'HMO: Zuerst HMO-Zentrum kontaktieren';
+          insuranceInfo = t.nextSteps.hmo.info;
           break;
         case 'telmed':
           nextSteps = [
-            'Rufen Sie Ihre Telmed-Hotline an',
-            'Telmed-Arzt kann SKIIN direkt verschreiben',
-            'Perfekt für Remote-Überwachung'
+            t.nextSteps.telmed.step1,
+            t.nextSteps.telmed.step2,
+            t.nextSteps.telmed.step3
           ];
-          insuranceInfo = 'Telmed: Ideal für SKIIN - Remote-Verschreibung möglich';
+          insuranceInfo = t.nextSteps.telmed.info;
           break;
         default:
           nextSteps = [
-            'Prüfen Sie Ihr Versicherungsmodell',
-            'Kontaktieren Sie uns für Beratung',
-            'Wir helfen beim richtigen Vorgehen'
+            t.nextSteps.unsure.step1,
+            t.nextSteps.unsure.step2,
+            t.nextSteps.unsure.step3
           ];
       }
 
@@ -113,11 +115,11 @@ const EligibilityChecker = () => {
         eligible: true,
         coverage: 'self-pay',
         nextSteps: [
-          'SKIIN als Vorsorge-Screening verfügbar',
-          'Kosten: ca. CHF 399 (Selbstzahler)',
-          'Termin für Beratung vereinbaren'
+          t.nextSteps.selfPay.step1,
+          t.nextSteps.selfPay.step2,
+          t.nextSteps.selfPay.step3
         ],
-        insuranceInfo: 'Ohne Symptome/Risiken: Meist Selbstzahler, aber wertvolle Vorsorge'
+        insuranceInfo: t.nextSteps.selfPay.info
       };
     }
   };
@@ -154,23 +156,23 @@ const EligibilityChecker = () => {
               </div>
               <CardTitle className="text-3xl mb-4">
                 {result.coverage === 'covered' 
-                  ? 'Sehr gut! SKIIN wird übernommen' 
+                  ? t.results.covered.title 
                   : result.coverage === 'consult-first'
-                  ? 'SKIIN ist möglich - Arzt zuerst kontaktieren'
-                  : 'SKIIN als Vorsorge verfügbar'}
+                  ? t.results.consultFirst.title
+                  : t.results.selfPay.title}
               </CardTitle>
               <Badge variant={result.coverage === 'covered' ? 'default' : 'secondary'} className="text-base px-4 py-2">
                 {result.coverage === 'covered' 
-                  ? 'Grundversicherung übernimmt' 
+                  ? t.results.covered.badge 
                   : result.coverage === 'consult-first'
-                  ? 'Arztbesuch erforderlich'
-                  : 'Selbstzahler-Option'}
+                  ? t.results.consultFirst.badge
+                  : t.results.selfPay.badge}
               </Badge>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-lg mb-4">Ihre nächsten Schritte:</h3>
+                  <h3 className="font-semibold text-lg mb-4">{t.results.covered.nextStepsTitle}</h3>
                   <div className="space-y-3">
                     {result.nextSteps.map((step, index) => (
                       <div key={index} className="flex items-start space-x-3">
@@ -194,11 +196,11 @@ const EligibilityChecker = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    {result.coverage === 'self-pay' ? 'Beratungstermin buchen' : 'Mehr erfahren'}
+                    {result.coverage === 'self-pay' ? t.bookConsultation : t.learnMore}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                   <Button size="lg" variant="outline" onClick={handleRestart}>
-                    Neue Prüfung starten
+                    {t.startNewCheck}
                   </Button>
                 </div>
               </div>
@@ -215,17 +217,17 @@ const EligibilityChecker = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Kostenübernahme prüfen
+              {t.title}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Finden Sie in 4 einfachen Schritten heraus, ob SKIIN von Ihrer Versicherung übernommen wird
+              {t.subtitle}
             </p>
           </div>
 
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm text-muted-foreground">Schritt {currentStep} von 4</span>
+              <span className="text-sm text-muted-foreground">{t.step} {currentStep} {t.of} 4</span>
               <span className="text-sm text-muted-foreground">{Math.round((currentStep / 4) * 100)}%</span>
             </div>
             <div className="w-full bg-muted rounded-full h-2">
@@ -240,7 +242,7 @@ const EligibilityChecker = () => {
             <CardContent className="p-8">
               {currentStep === 1 && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold">Haben Sie eines dieser Symptome?</h3>
+                  <h3 className="text-xl font-semibold">{t.symptomsQuestion}</h3>
                   <RadioGroup value={formData.symptoms} onValueChange={(value) => setFormData({...formData, symptoms: value})}>
                     {symptoms.map((symptom) => (
                       <div key={symptom.value} className="flex items-center space-x-2">
@@ -254,7 +256,7 @@ const EligibilityChecker = () => {
 
               {currentStep === 2 && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold">Haben Sie Risikofaktoren?</h3>
+                  <h3 className="text-xl font-semibold">{t.riskFactorsQuestion}</h3>
                   <RadioGroup value={formData.riskFactors} onValueChange={(value) => setFormData({...formData, riskFactors: value})}>
                     {riskFactors.map((factor) => (
                       <div key={factor.value} className="flex items-center space-x-2">
@@ -268,7 +270,7 @@ const EligibilityChecker = () => {
 
               {currentStep === 3 && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold">Welches Versicherungsmodell haben Sie?</h3>
+                  <h3 className="text-xl font-semibold">{t.insuranceModelQuestion}</h3>
                   <RadioGroup value={formData.insuranceModel} onValueChange={(value) => setFormData({...formData, insuranceModel: value})}>
                     {insuranceModels.map((model) => (
                       <div key={model.value} className="flex items-center space-x-2">
@@ -282,10 +284,10 @@ const EligibilityChecker = () => {
 
               {currentStep === 4 && (
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold">Bei welcher Krankenkasse sind Sie versichert? (Optional)</h3>
+                  <h3 className="text-xl font-semibold">{t.insurerQuestion}</h3>
                   <Select value={formData.insurer} onValueChange={(value) => setFormData({...formData, insurer: value})}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Krankenkasse wählen" />
+                      <SelectValue placeholder={t.insurerPlaceholder} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="css">CSS</SelectItem>
@@ -297,7 +299,7 @@ const EligibilityChecker = () => {
                     </SelectContent>
                   </Select>
                   <p className="text-sm text-muted-foreground">
-                    Diese Information hilft uns, spezifische Hinweise zu geben.
+                    {t.insurerHelp}
                   </p>
                 </div>
               )}
@@ -308,7 +310,7 @@ const EligibilityChecker = () => {
                   onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
                   disabled={currentStep === 1}
                 >
-                  Zurück
+                  {t.back}
                 </Button>
                 <Button 
                   onClick={handleNext}
@@ -319,7 +321,7 @@ const EligibilityChecker = () => {
                   }
                   className="bg-primary hover:bg-primary/90"
                 >
-                  {currentStep === 4 ? 'Ergebnis anzeigen' : 'Weiter'}
+                  {currentStep === 4 ? t.showResult : t.next}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
