@@ -82,28 +82,28 @@ const TriTestReport: React.FC = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Patient Name</div>
-                  <div className="text-gray-900">John Smith</div>
+                  <div className="font-medium text-muted mb-1">Patient Name</div>
+                  <div className="text-foreground">John Smith</div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Date of Birth</div>
-                  <div className="text-gray-900">January 15, 1965</div>
+                  <div className="font-medium text-muted mb-1">Date of Birth</div>
+                  <div className="text-foreground">January 15, 1965</div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Patient ID</div>
-                  <div className="text-gray-900">MYT-2025-10547</div>
+                  <div className="font-medium text-muted mb-1">Patient ID</div>
+                  <div className="text-foreground">MYT-2025-10547</div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Date of Report</div>
-                  <div className="text-gray-900">May 2, 2025</div>
+                  <div className="font-medium text-muted mb-1">Date of Report</div>
+                  <div className="text-foreground">May 2, 2025</div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Monitoring Period</div>
-                  <div className="text-gray-900">April 15 - 28, 2025</div>
+                  <div className="font-medium text-muted mb-1">Monitoring Period</div>
+                  <div className="text-foreground">April 15 - 28, 2025</div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-600 mb-1">Referring Physician</div>
-                  <div className="text-gray-900">Dr. Sarah Johnson</div>
+                  <div className="font-medium text-muted mb-1">Referring Physician</div>
+                  <div className="text-foreground">Dr. Sarah Johnson</div>
                 </div>
               </div>
             </CardContent>

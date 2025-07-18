@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HomePageTabs from '@/components/home/HomePageTabs';
@@ -21,11 +22,18 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useThemeContent } from '@/hooks/useThemeContent';
+import VideoSection from '@/components/home/VideoSection';
+import { ProcessFlow } from '@/components/home/ProcessFlow';
+import MvcpSection from '@/components/home/MvcpSection';
+import { EnhancedComparison } from '@/components/home/EnhancedComparison';
+import { StatisticsShowcase } from '@/components/home/StatisticsShowcase';
+import { ProgressiveSection } from '@/components/ui/progressive-section';
 
 /**
  * Enhanced Home-2 page utilizing marketing assets and comprehensive content
  */
 const Home2 = () => {
+  const navigate = useNavigate();
   const t = useTranslation('home2');
   const themeContent = useThemeContent();
 
@@ -53,11 +61,21 @@ const Home2 = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="theme-primary" size="lg" className="px-8 py-4 text-lg">
+                <Button 
+                  variant="theme-primary" 
+                  size="lg" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => navigate('/about/contact')}
+                >
                   {themeContent.ctaText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => navigate('/how-it-works/process')}
+                >
                   <Play className="mr-2 h-5 w-5" />
                   {t.hero.bookAssessment}
                 </Button>
@@ -66,7 +84,7 @@ const Home2 = () => {
 
             <div className="relative">
               <img
-                src="/lovable-uploads/1e3b8979-f9b0-405d-9117-c8f3c4115930.png"
+                src="/assets/images/1e3b8979-f9b0-405d-9117-c8f3c4115930.png"
                 alt="Myant Health - Länger jünger leben"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
@@ -91,7 +109,7 @@ const Home2 = () => {
                 <CardContent className="space-y-4">
                   <div className="relative">
                     <img
-                      src="/lovable-uploads/25b8354d-c321-4439-8a41-5dcafe49836e.png"
+                      src="/assets/images/25b8354d-c321-4439-8a41-5dcafe49836e.png"
                       alt="70% der Herzrhythmusstörungen bleiben unbemerkt"
                       className="w-full h-auto rounded-xl"
                     />
@@ -103,7 +121,7 @@ const Home2 = () => {
                 <CardContent className="space-y-4">
                   <div className="relative">
                     <img
-                      src="/lovable-uploads/b74365b1-b855-4522-a9d7-f05b3e2ee15e.png"
+                      src="/assets/images/b74365b1-b855-4522-a9d7-f05b3e2ee15e.png"
                       alt="30% der Menschen mit Vorhofflimmern erleiden einen Schlaganfall"
                       className="w-full h-auto rounded-xl"
                     />
@@ -115,7 +133,7 @@ const Home2 = () => {
                 <CardContent className="space-y-4">
                   <div className="relative">
                     <img
-                      src="/lovable-uploads/4ad65a99-4268-46c4-986f-d04c9ac055f4.png"
+                      src="/assets/images/4ad65a99-4268-46c4-986f-d04c9ac055f4.png"
                       alt="50% mehr Herzrhythmusstörungen durch 14-Tage-Monitoring erkannt"
                       className="w-full h-auto rounded-xl"
                     />
@@ -125,6 +143,12 @@ const Home2 = () => {
             </div>
           </div>
         </section>
+
+        {/* Video Education Section */}
+        <VideoSection />
+
+        {/* Statistics Showcase */}
+        <StatisticsShowcase />
 
         {/* Clinical Evidence Section */}
         <section className="py-20 bg-muted/50">
@@ -191,7 +215,7 @@ const Home2 = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src="/lovable-uploads/6e47298b-0a4d-4e21-92ed-0b25c0e34c4c.png"
+                  src="/assets/images/6e47298b-0a4d-4e21-92ed-0b25c0e34c4c.png"
                   alt="Holter-EKG Technology"
                   className="w-full h-auto rounded-2xl shadow-xl"
                 />
@@ -214,7 +238,10 @@ const Home2 = () => {
                     </div>
                   ))}
                 </div>
-                <Button className="mt-6">
+                <Button 
+                  className="mt-6"
+                  onClick={() => navigate('/how-it-works/technology')}
+                >
                   Learn More About Technology
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -223,35 +250,14 @@ const Home2 = () => {
           </div>
         </section>
 
-        {/* Patient Journey Section */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                {t.patientJourney.title}
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                {t.patientJourney.subtitle}
-              </p>
-            </div>
+        {/* Enhanced 5-Step Process Flow */}
+        <ProcessFlow />
 
-            <div className="grid md:grid-cols-5 gap-8">
-              {t.patientJourney.steps.map((step, index) => (
-                <div key={index} className="text-center space-y-4">
-                  <div className="mx-auto w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xl font-bold">
-                    {step.number}
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                  <Badge variant="outline" className="text-xs">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {step.duration}
-                  </Badge>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* MVCP Portal Section */}
+        <MvcpSection />
+
+        {/* Enhanced Comparison */}
+        <EnhancedComparison />
 
         {/* Insurance Coverage Section */}
         <section className="py-20 bg-muted/50">
@@ -278,7 +284,7 @@ const Home2 = () => {
               </div>
               <div className="text-center">
                 <img
-                  src="/lovable-uploads/5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3.png"
+                  src="/assets/images/5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3.png"
                   alt="Vollständig abgedeckt durch die Schweizer Krankenversicherung"
                   className="w-full max-w-lg mx-auto rounded-2xl shadow-lg"
                 />
@@ -332,11 +338,21 @@ const Home2 = () => {
                 {t.cta.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  variant="secondary" 
+                  className="px-8 py-4 text-lg"
+                  onClick={() => navigate('/about/contact')}
+                >
                   {themeContent.ctaText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-4 text-lg"
+                  onClick={() => navigate('/about/contact')}
+                >
                   {t.cta.secondaryButton}
                 </Button>
               </div>

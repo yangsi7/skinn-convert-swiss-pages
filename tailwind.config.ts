@@ -24,8 +24,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-				display: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+				sans: ['IBM Plex Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+				display: ['IBM Plex Sans', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
 				mono: ['IBM Plex Mono', 'Courier New', 'monospace'],
 			},
 			colors: {
@@ -106,6 +106,13 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			spacing: {
+				'18': '4.5rem',
+				'22': '5.5rem',
+				'30': '7.5rem',
+				'34': '8.5rem',
+				'38': '9.5rem'
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -123,6 +130,20 @@ export default {
 						height: '0'
 					}
 				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.9)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'bounce-in': {
+					'0%': { transform: 'scale(0.3)', opacity: '0' },
+					'50%': { transform: 'scale(1.05)' },
+					'70%': { transform: 'scale(0.9)' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.8' }
+				},
 				'fade-in': {
 					'0%': { opacity: '0' },
 					'100%': { opacity: '1' }
@@ -136,7 +157,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'slide-in': 'slide-in 0.7s ease-out forwards'
+				'slide-in': 'slide-in 0.7s ease-out forwards',
+				'scale-in': 'scale-in 0.6s ease-out forwards',
+				'bounce-in': 'bounce-in 0.8s ease-out forwards',
+				'pulse-soft': 'pulse-soft 2s ease-in-out infinite'
 			}
 		}
 	},

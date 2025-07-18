@@ -13,19 +13,19 @@ const Testimonials = () => {
       quote: "I wore SKIIN for two weeks and it found what a year of tests had missed. The band was so comfortable I forget it was there. On day 11 it recorded an episode of atrial fibrillation. Thanks to that, my doctor put me on the right medication. I feel like SKIIN possibly saved my life by catching my arrhythmia early.",
       name: "Maria",
       title: "58, Zürich",
-      image: "/lovable-uploads/1f227914-01f4-49cb-9a48-3f39976b4898.png"
+      image: "/assets/images/1f227914-01f4-49cb-9a48-3f39976b4898.png"
     },
     {
       quote: "I called my telemedicine center and they referred me to SKIIN. Within days I got the device at home. It was easy to use – I even wore it while biking. The report found some heart pauses at night. I'm grateful we found out in a non-invasive way instead of in an emergency.",
       name: "Thomas",
       title: "62, Bern (Telmed Plan)",
-      image: "/lovable-uploads/21284932-ea0e-4aef-b6ba-99d0199e8fa2.png"
+      image: "/assets/images/21284932-ea0e-4aef-b6ba-99d0199e8fa2.png"
     },
     {
       quote: "Je voulais juste vérifier, pour être rassurée. SKIIN was very reassuring. The results were normal, thankfully, and now I have that baseline record of my heart. The team also taught me a lot about my heart rhythm. C'était simple et efficace.",
       name: "Sabine",
       title: "45, Genève (Self-Pay Screening)",
-      image: "/lovable-uploads/2c470df9-6b84-48a2-b3f4-d958760f8b36.png"
+      image: "/assets/images/2c470df9-6b84-48a2-b3f4-d958760f8b36.png"
     }
   ];
 
@@ -34,13 +34,13 @@ const Testimonials = () => {
       quote: "SKIIN has become an indispensable tool in my practice. For patients with elusive palpitations, it offers a convenient solution – they no longer need to queue for a hospital Holter appointment. The diagnostic yield has improved; I've identified cases of AFib and even high-grade AV block that I doubt we would have caught otherwise. What I appreciate as a GP is that SKIIN handles the technical workload: they provide a clear report signed by a cardiologist, which I can then discuss with my patient. It integrates perfectly – it's Holter monitoring upgraded for the 21st century.",
       name: "Dr. Peter Reinhardt",
       title: "General Practitioner, Luzern",
-      image: "/lovable-uploads/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
+      image: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
     },
     {
       quote: "Initially, I was skeptical of any new wearable ECG. But SKIIN has truly proven itself. The ECG data quality is on par with traditional Holters, and the extended duration means we catch arrhythmias that a 24h monitor misses. I had a patient with cryptogenic stroke – the 14-day SKIIN finally caught an AFib episode on day 7, confirming the need for anticoagulation. The device's patient acceptance is high; they find it comfortable, which means compliance is excellent (over 90% wear time). As a cardiologist, I also value that I can log into the portal to examine any raw ECG strip if I want. SKIIN has enhanced our diagnostic process and I foresee extended monitoring becoming a new standard of care for certain patients.",
       name: "Dr. Simone Dubois",
       title: "Cardiologist, CHUV Lausanne",
-      image: "/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
+      image: "/assets/images/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
     }
   ];
 
@@ -48,7 +48,7 @@ const Testimonials = () => {
     quote: "For our telemedicine service, SKIIN has been a game-changer. We can manage patients with palpitations end-to-end. I recently had a patient call with episodes of tachycardia. I arranged SKIIN for him through our system; we got results showing an SVT which we then managed with a specialist. The patient never had to visit a clinic physically until ablation – we coordinated everything remotely. It's efficient for us and satisfying for the patient. Plus, it keeps us compliant with Telmed model rules while offering advanced care.",
     name: "Dr. Andreas Keller",
     title: "Telemedicine Provider",
-    image: "/lovable-uploads/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
+    image: "/assets/images/72de88b6-6f7b-4e58-abb2-dc50a762a353.png"
   };
 
   return (

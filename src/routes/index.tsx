@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Home2 from '@/pages/Home2';
 import NotFound from '@/pages/NotFound';
+import ComponentShowcase from '@/pages/ComponentShowcase';
 
 // Solutions pages
 import Solutions14DayHolter from '@/pages/solutions/14DayHolter';
@@ -32,6 +33,11 @@ import AboutTestimonials from '@/pages/about/Testimonials';
 import AboutCompliance from '@/pages/about/Compliance';
 import AboutContact from '@/pages/about/Contact';
 
+// Legal pages
+import Privacy from '@/pages/legal/Privacy';
+import Terms from '@/pages/legal/Terms';
+import Cookies from '@/pages/legal/Cookies';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
@@ -60,8 +66,9 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* English Routes */}
-      <Route path="/" element={<Index />} />
-      <Route path="/home-2" element={<Home2 />} />
+      <Route path="/" element={<Home2 />} />
+      <Route path="/home-old" element={<Index />} />
+      <Route path="/component-showcase" element={<ComponentShowcase />} />
       
       {/* Solutions Routes */}
       <Route path="/solutions/14-day-holter" element={<Solutions14DayHolter />} />
@@ -91,9 +98,14 @@ const AppRoutes = () => {
       <Route path="/about/compliance" element={<AboutCompliance />} />
       <Route path="/about/contact" element={<AboutContact />} />
       
+      {/* Legal Routes */}
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/cookies" element={<Cookies />} />
+      
       {/* German Routes */}
-      <Route path="/de" element={<Index />} />
-      <Route path="/de/home-2" element={<Home2 />} />
+      <Route path="/de" element={<Home2 />} />
+      <Route path="/de/home-old" element={<Index />} />
       
       {/* German Solutions Routes */}
       <Route path="/de/loesungen/14-tage-holter" element={<Solutions14DayHolter />} />
@@ -123,9 +135,14 @@ const AppRoutes = () => {
       <Route path="/de/ueber-uns/compliance" element={<AboutCompliance />} />
       <Route path="/de/ueber-uns/kontakt" element={<AboutContact />} />
       
+      {/* German Legal Routes */}
+      <Route path="/de/datenschutz" element={<Privacy />} />
+      <Route path="/de/agb" element={<Terms />} />
+      <Route path="/de/cookies" element={<Cookies />} />
+      
       {/* French Routes */}
-      <Route path="/fr" element={<Index />} />
-      <Route path="/fr/home-2" element={<Home2 />} />
+      <Route path="/fr" element={<Home2 />} />
+      <Route path="/fr/home-old" element={<Index />} />
       
       {/* French Solutions Routes */}
       <Route path="/fr/solutions/holter-14-jours" element={<Solutions14DayHolter />} />
@@ -154,6 +171,11 @@ const AppRoutes = () => {
       <Route path="/fr/a-propos/temoignages" element={<AboutTestimonials />} />
       <Route path="/fr/a-propos/conformite" element={<AboutCompliance />} />
       <Route path="/fr/a-propos/contact" element={<AboutContact />} />
+      
+      {/* French Legal Routes */}
+      <Route path="/fr/confidentialite" element={<Privacy />} />
+      <Route path="/fr/conditions" element={<Terms />} />
+      <Route path="/fr/cookies" element={<Cookies />} />
       
       {/* Catch-all for 404 */}
       <Route path="*" element={<NotFound />} />

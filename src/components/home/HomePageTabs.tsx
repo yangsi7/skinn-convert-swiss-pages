@@ -9,8 +9,8 @@ const HomePageTabs = () => {
   const { language } = useLanguage();
 
   const getTabValue = () => {
-    if (location.pathname.includes('/home-2')) {
-      return 'home-2';
+    if (location.pathname.includes('/home-old')) {
+      return 'home-old';
     }
     return 'home';
   };
@@ -20,8 +20,8 @@ const HomePageTabs = () => {
     
     if (value === 'home') {
       navigate(basePrefix === '' ? '/' : basePrefix);
-    } else if (value === 'home-2') {
-      navigate(`${basePrefix}/home-2`);
+    } else if (value === 'home-old') {
+      navigate(`${basePrefix}/home-old`);
     }
   };
 
@@ -29,18 +29,18 @@ const HomePageTabs = () => {
     switch (language) {
       case 'de':
         return {
-          home: 'Startseite',
-          home2: 'Alternative Ansicht'
+          home: 'Modern',
+          homeOld: 'Klassisch'
         };
       case 'fr':
         return {
-          home: 'Accueil',
-          home2: 'Vue Alternative'
+          home: 'Moderne',
+          homeOld: 'Classique'
         };
       default:
         return {
-          home: 'Home',
-          home2: 'Home-2'
+          home: 'Modern',
+          homeOld: 'Classic'
         };
     }
   };
@@ -54,8 +54,8 @@ const HomePageTabs = () => {
           <TabsTrigger value="home" className="px-6 py-2">
             {labels.home}
           </TabsTrigger>
-          <TabsTrigger value="home-2" className="px-6 py-2">
-            {labels.home2}
+          <TabsTrigger value="home-old" className="px-6 py-2">
+            {labels.homeOld}
           </TabsTrigger>
         </TabsList>
       </Tabs>

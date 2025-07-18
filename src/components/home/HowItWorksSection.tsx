@@ -10,35 +10,32 @@ const HowItWorksSection = () => {
     {
       number: translations.howItWorks.steps[0].number,
       title: translations.howItWorks.steps[0].title,
-      description: translations.howItWorks.steps[0].description
+      description: translations.howItWorks.steps[0].description,
+      image: "/assets/images/40ba1015-dfac-4b19-9548-8f3319ffe098.png" // Telehealth consultation
     },
     {
       number: translations.howItWorks.steps[1].number,
       title: translations.howItWorks.steps[1].title,
       description: translations.howItWorks.steps[1].description,
-      image: "/lovable-uploads/a94ae42b-2b12-49d8-a6af-965c9691535f.png"
+      image: "/assets/images/a94ae42b-2b12-49d8-a6af-965c9691535f.png" // Send device
     },
     {
       number: translations.howItWorks.steps[2].number,
       title: translations.howItWorks.steps[2].title,
-      description: translations.howItWorks.steps[2].description
+      description: translations.howItWorks.steps[2].description,
+      image: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png" // Monitor
     },
     {
       number: translations.howItWorks.steps[3].number,
       title: translations.howItWorks.steps[3].title,
-      description: translations.howItWorks.steps[3].description
+      description: translations.howItWorks.steps[3].description,
+      image: "/assets/images/app-live-ecg.png" // Analysis
     },
     {
       number: translations.howItWorks.steps[4].number,
       title: translations.howItWorks.steps[4].title,
-      description: translations.howItWorks.steps[4].description,
-      image: "/lovable-uploads/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
-    },
-    {
-      number: translations.howItWorks.steps[5].number,
-      title: translations.howItWorks.steps[5].title,
-      description: translations.howItWorks.steps[5].description
-    },
+      description: translations.howItWorks.steps[4].description
+    }
   ];
 
   return (
