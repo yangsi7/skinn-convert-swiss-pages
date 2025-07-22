@@ -13,6 +13,7 @@ interface ProgressiveCardProps {
   imageAlt?: string;
   delay?: number;
   href?: string;
+  learnMoreText?: string;
   className?: string;
   iconClassName?: string;
   contentClassName?: string;
@@ -26,6 +27,7 @@ export function ProgressiveCard({
   imageAlt,
   delay = 0,
   href,
+  learnMoreText = "Learn more",
   className,
   iconClassName,
   contentClassName
@@ -59,7 +61,7 @@ export function ProgressiveCard({
         <p className="text-muted-foreground">{description}</p>
         {href && (
           <div className="mt-4 text-primary font-medium flex items-center group-hover:gap-2 transition-all">
-            Learn more
+            {learnMoreText}
             <span className="ml-1 group-hover:ml-0 transition-all">→</span>
           </div>
         )}

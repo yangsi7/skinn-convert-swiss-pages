@@ -8,6 +8,7 @@ import {
   updateConsentPreferences,
   type ConsentPreferences
 } from '@/lib/consentManager';
+import { useTranslation } from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -30,6 +31,7 @@ interface CookieConsentProps {
  * dialog allowing users to accept all, necessary only or granular categories.
  */
 export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
+  const t = useTranslation('ui');
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState<ConsentPreferences>({
@@ -113,7 +115,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
           onClick={() => setShowPreferences(true)}
           className="bg-white text-xs"
         >
-          Cookie Settings
+          {t.cookies.preferences}
         </Button>
       </div>
     );
@@ -127,21 +129,20 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
           <div className="container-custom">
             <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
               <div>
-                <h3 className="text-base font-semibold">We respect your privacy</h3>
+                <h3 className="text-base font-semibold">{t.cookies.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We use cookies to enhance your browsing experience, serve personalized ads or content, 
-                  and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+                  {t.cookies.description}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button variant="outline" onClick={() => setShowPreferences(true)}>
-                  Preferences
+                  {t.cookies.preferences}
                 </Button>
                 <Button variant="outline" onClick={handleAcceptNecessary}>
-                  Necessary Only
+                  {t.cookies.necessaryOnly}
                 </Button>
                 <Button onClick={handleAcceptAll}>
-                  Accept All
+                  {t.cookies.acceptAll}
                 </Button>
               </div>
             </div>
@@ -153,9 +154,9 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
       <Dialog open={showPreferences} onOpenChange={setShowPreferences}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Cookie Preferences</DialogTitle>
+            <DialogTitle>{t.cookies.preferencesTitle}</DialogTitle>
             <DialogDescription>
-              Choose which cookies you want to accept. Necessary cookies help make a website usable by enabling basic functions.
+              {t.cookies.preferencesDescription}
             </DialogDescription>
           </DialogHeader>
           
@@ -168,10 +169,10 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
               />
               <div className="grid gap-1.5 leading-none">
                 <Label htmlFor="necessary" className="font-medium">
-                  Necessary Cookies <span className="text-sm text-muted-foreground">(Always active)</span>
+                  {t.cookies.necessary} <span className="text-sm text-muted-foreground">(Always active)</span>
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  These cookies are essential for the website to function properly.
+                  {t.cookies.necessaryDescription}
                 </p>
               </div>
             </div>
@@ -184,10 +185,10 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
               />
               <div className="grid gap-1.5 leading-none">
                 <Label htmlFor="analytics" className="font-medium">
-                  Analytics Cookies
+                  {t.cookies.analytics}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Help us understand how visitors interact with our website by collecting and reporting information anonymously.
+                  {t.cookies.analyticsDescription}
                 </p>
               </div>
             </div>
@@ -200,10 +201,10 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
               />
               <div className="grid gap-1.5 leading-none">
                 <Label htmlFor="marketing" className="font-medium">
-                  Marketing Cookies
+                  {t.cookies.marketing}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Used to track visitors across websites to display relevant advertisements.
+                  {t.cookies.marketingDescription}
                 </p>
               </div>
             </div>
@@ -211,13 +212,13 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
           
           <DialogFooter>
             <Button variant="outline" onClick={handleAcceptNecessary}>
-              Necessary Only
+              {t.cookies.necessaryOnly}
             </Button>
             <Button onClick={handleAcceptAll}>
-              Accept All
+              {t.cookies.acceptAll}
             </Button>
             <Button onClick={handleSavePreferences}>
-              Save Preferences
+              {t.buttons.save} {t.cookies.preferences}
             </Button>
           </DialogFooter>
         </DialogContent>

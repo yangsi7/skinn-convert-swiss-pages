@@ -166,13 +166,11 @@ const Footer = () => {
                   {t.footer.sections.physicians.links.support}
                 </a>
               </li>
-              {/* Temporarily removed until page is created
               <li>
                 <Link to="/request-demo" className="hover:underline opacity-80 hover:opacity-100">
                   {t.footer.sections.physicians.links.requestDemo}
                 </Link>
               </li>
-              */}
             </ul>
           </div>
 

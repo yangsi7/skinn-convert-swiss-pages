@@ -22,8 +22,13 @@
 - `/working_files/event-stream.md` - Chronological activity log
 - `/working_files/CLAUDE_PROCESS.md` - Universal development methodology
 
-### Content Templates
+### Content Documentation
+- `/docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md` - Complete English website copy v1.2
+- `/docs/content/SKIIN_WEBSITE_COPY_GERMAN.md` - Complete German website copy v1.2
+- `/docs/content/SKIIN_WEBSITE_COPY_FRENCH.md` - Complete French website copy v1.2
+- `/docs/content/COPY_DOCUMENTS_REVIEW.md` - Copy completeness review and gaps
 - `/docs/content-templates/` - Content structure templates
+- `/docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC.md` - Copy update specification v2.0
 
 ### Compliance Documentation
 - `/docs/compliance/` - Swiss medical law compliance docs

@@ -3,10 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ProgressiveSection } from '@/components/ui/progressive-section';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useTranslation } from '@/hooks/useTranslation';
 import { cn } from '@/lib/utils';
 import { Award, Building2, Users, Microscope } from 'lucide-react';
 
 export function SwissHeritage() {
+  const t = useTranslation('about');
   const [ref, isVisible] = useIntersectionObserver({
     threshold: 0.1,
     triggerOnce: true
@@ -15,23 +17,23 @@ export function SwissHeritage() {
   const highlights = [
     {
       icon: Building2,
-      title: "ETH Zurich Heritage",
-      description: "Born from prestigious Swiss Federal Institute of Technology"
+      title: t.overview.swissHeritage.highlights[0].title,
+      description: t.overview.swissHeritage.highlights[0].description
     },
     {
       icon: Award,
-      title: "Swiss Precision",
-      description: "Engineered with legendary Swiss quality standards"
+      title: t.overview.swissHeritage.highlights[1].title,
+      description: t.overview.swissHeritage.highlights[1].description
     },
     {
       icon: Users,
-      title: "European Leadership",
-      description: "Serving Switzerland, Germany, and Austria"
+      title: t.overview.swissHeritage.highlights[2].title,
+      description: t.overview.swissHeritage.highlights[2].description
     },
     {
       icon: Microscope,
-      title: "Innovation Hub",
-      description: "R&D center in the heart of Zurich"
+      title: t.overview.swissHeritage.highlights[3].title,
+      description: t.overview.swissHeritage.highlights[3].description
     }
   ];
 
@@ -40,14 +42,13 @@ export function SwissHeritage() {
       <div className="container-custom">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 border-swiss-red text-swiss-red">
-            Swiss Innovation
+            {t.overview.swissHeritage.badge}
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Swiss Excellence, Global Impact
+            {t.overview.swissHeritage.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Myant Europe, headquartered in Zurich, combines Swiss precision with 
-            cutting-edge cardiac monitoring technology
+            {t.overview.swissHeritage.description}
           </p>
         </div>
 
@@ -57,16 +58,12 @@ export function SwissHeritage() {
             "space-y-6 transition-all duration-1000",
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           )}>
-            <h3 className="text-3xl font-bold">From ETH Zurich to Global Innovation</h3>
+            <h3 className="text-3xl font-bold">{t.overview.swissHeritage.ethTitle}</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Nanoleq, a spin-off from the prestigious ETH Zurich, was founded with a vision 
-              to revolutionize cardiac monitoring. Our Swiss roots run deep, bringing together 
-              the nation's tradition of precision engineering with breakthrough medical technology.
+              {t.overview.swissHeritage.ethDescription1}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              In 2023, Myant Corporation recognized our potential and acquired Nanoleq, 
-              establishing Myant Europe as the center of excellence for cardiac monitoring 
-              innovation in the DACH region.
+              {t.overview.swissHeritage.ethDescription2}
             </p>
             
             {/* Highlights Grid */}
@@ -101,13 +98,13 @@ export function SwissHeritage() {
               <CardContent className="p-0">
                 <img 
                   src="/assets/images/team/Team-CH.jpg"
-                  alt="Nanoleq Founders - Vincent Martinez, Flurin Stauffer, and Serge Weydert"
+                  alt={t.overview.swissHeritage.imageAlt}
                   className="w-full h-auto"
                 />
               </CardContent>
             </Card>
             <p className="text-center text-sm text-muted-foreground mt-4">
-              Nanoleq Founders: Vincent Martinez, Flurin Stauffer, and Serge Weydert
+              {t.overview.swissHeritage.imageAlt}
             </p>
           </div>
         </div>
@@ -127,10 +124,9 @@ export function SwissHeritage() {
           "text-center transition-all duration-1000",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )} style={{ transitionDelay: "600ms" }}>
-          <h3 className="text-2xl font-bold mb-4">Proudly Based in Zurich</h3>
+          <h3 className="text-2xl font-bold mb-4">{t.overview.swissHeritage.zurichTitle}</h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our headquarters in the heart of Switzerland positions us at the intersection 
-            of medical innovation, regulatory excellence, and access to world-class talent.
+            {t.overview.swissHeritage.zurichDescription}
           </p>
         </div>
       </div>

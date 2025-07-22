@@ -15,6 +15,21 @@ import { partnersTranslations as frPartnersTranslations } from '@/translations/p
 import { eligibilityEn } from '@/translations/eligibility/en';
 import { eligibilityDe } from '@/translations/eligibility/de';
 import { eligibilityFr } from '@/translations/eligibility/fr';
+import { aboutTranslations as enAboutTranslations } from '@/translations/about/en';
+import { aboutTranslations as deAboutTranslations } from '@/translations/about/de';
+import { aboutTranslations as frAboutTranslations } from '@/translations/about/fr';
+import { howItWorksTranslations as enHowItWorksTranslations } from '@/translations/howItWorks/en';
+import { howItWorksTranslations as deHowItWorksTranslations } from '@/translations/howItWorks/de';
+import { howItWorksTranslations as frHowItWorksTranslations } from '@/translations/howItWorks/fr';
+import { uiTranslations as enUiTranslations } from '@/translations/ui/en';
+import { uiTranslations as deUiTranslations } from '@/translations/ui/de';
+import { uiTranslations as frUiTranslations } from '@/translations/ui/fr';
+import { notFoundTranslations as enNotFoundTranslations } from '@/translations/notFound/en';
+import { notFoundTranslations as deNotFoundTranslations } from '@/translations/notFound/de';
+import { notFoundTranslations as frNotFoundTranslations } from '@/translations/notFound/fr';
+import { legalTranslations as enLegalTranslations } from '@/translations/legal/en';
+import { legalTranslations as deLegalTranslations } from '@/translations/legal/de';
+import { legalTranslations as frLegalTranslations } from '@/translations/legal/fr';
 
 /**
  * Hook for handling translations in the application
@@ -37,6 +52,11 @@ export function useTranslation(section: 'physicians'): typeof enPhysiciansTransl
 export function useTranslation(section: 'solutions'): typeof enSolutionsTranslations;
 export function useTranslation(section: 'partners'): typeof enPartnersTranslations;
 export function useTranslation(section: 'eligibility'): typeof eligibilityEn;
+export function useTranslation(section: 'about'): typeof enAboutTranslations;
+export function useTranslation(section: 'howItWorks'): typeof enHowItWorksTranslations;
+export function useTranslation(section: 'ui'): typeof enUiTranslations;
+export function useTranslation(section: 'notFound'): typeof enNotFoundTranslations;
+export function useTranslation(section: 'legal'): typeof enLegalTranslations;
 
 export function useTranslation<T>(
   enContentOrSection: T | string,
@@ -85,6 +105,36 @@ export function useTranslation<T>(
           case 'de': return eligibilityDe;
           case 'fr': return eligibilityFr;
           default: return eligibilityEn;
+        }
+      case 'about':
+        switch (language) {
+          case 'de': return deAboutTranslations;
+          case 'fr': return frAboutTranslations;
+          default: return enAboutTranslations;
+        }
+      case 'howItWorks':
+        switch (language) {
+          case 'de': return deHowItWorksTranslations;
+          case 'fr': return frHowItWorksTranslations;
+          default: return enHowItWorksTranslations;
+        }
+      case 'ui':
+        switch (language) {
+          case 'de': return deUiTranslations;
+          case 'fr': return frUiTranslations;
+          default: return enUiTranslations;
+        }
+      case 'notFound':
+        switch (language) {
+          case 'de': return deNotFoundTranslations;
+          case 'fr': return frNotFoundTranslations;
+          default: return enNotFoundTranslations;
+        }
+      case 'legal':
+        switch (language) {
+          case 'de': return deLegalTranslations;
+          case 'fr': return frLegalTranslations;
+          default: return enLegalTranslations;
         }
       default:
         console.warn(`Translation section "${section}" not found`);

@@ -140,7 +140,7 @@ const ContactForm = () => {
         <input
           type="checkbox"
           id="consent"
-          className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+          className="h-4 w-4 rounded border-border text-primary focus:ring-primary"
           required
         />
         <label htmlFor="consent" className="text-sm text-muted-foreground">
