@@ -38,6 +38,9 @@ import Privacy from '@/pages/legal/Privacy';
 import Terms from '@/pages/legal/Terms';
 import Cookies from '@/pages/legal/Cookies';
 
+// Other pages
+import RequestDemo from '@/pages/RequestDemo';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
@@ -102,6 +105,9 @@ const AppRoutes = () => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/cookies" element={<Cookies />} />
+      
+      {/* Other Routes */}
+      <Route path="/request-demo" element={<RequestDemo />} />
       
       {/* German Routes */}
       <Route path="/de" element={<Home2 />} />

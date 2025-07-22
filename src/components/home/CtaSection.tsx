@@ -37,9 +37,9 @@ const CtaSection = () => {
             <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md rounded-lg p-4">
               <div className="flex items-center space-x-2">
                 <div className="bg-white rounded-full p-1">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M14 6.5L10 10.5L8 8.5L2 14.5" stroke="#2A7D71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 10.5V6.5H10" stroke="#2A7D71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-medical-teal">
+                    <path d="M14 6.5L10 10.5L8 8.5L2 14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14 10.5V6.5H10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-white">

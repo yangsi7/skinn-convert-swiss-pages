@@ -44,7 +44,7 @@ function MvcpSection() {
   ];
 
   return (
-    <ProgressiveSection className="py-20 md:py-30 bg-slate-900 text-white" dark>
+    <ProgressiveSection className="py-20 md:py-30 bg-primary text-primary-foreground" dark>
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -59,7 +59,7 @@ function MvcpSection() {
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
                 Myant Virtual Clinic Portal (MVCP)
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-xl text-primary-foreground/80 leading-relaxed">
                 Empower your practice with our comprehensive cardiac monitoring platform. 
                 Manage studies, review ECG data, and collaborate with your care team - all in one secure portal.
               </p>
@@ -81,7 +81,7 @@ function MvcpSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-400">{feature.description}</p>
+                    <p className="text-sm text-primary-foreground/60">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -102,7 +102,7 @@ function MvcpSection() {
           {/* Screenshots */}
           <div className="grid gap-6">
             <Card className={cn(
-              "overflow-hidden bg-gray-800 border-gray-700 transition-all duration-1000",
+              "overflow-hidden bg-primary-foreground/10 border-primary-foreground/20 transition-all duration-1000",
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             )} style={{ transitionDelay: "300ms" }}>
               <CardContent className="p-0">
@@ -116,7 +116,7 @@ function MvcpSection() {
             
             <div className="grid grid-cols-2 gap-6">
               <Card className={cn(
-                "overflow-hidden bg-gray-800 border-gray-700 transition-all duration-1000",
+                "overflow-hidden bg-primary-foreground/10 border-primary-foreground/20 transition-all duration-1000",
                 isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
               )} style={{ transitionDelay: "400ms" }}>
                 <CardContent className="p-0">
@@ -129,7 +129,7 @@ function MvcpSection() {
               </Card>
               
               <Card className={cn(
-                "overflow-hidden bg-gray-800 border-gray-700 transition-all duration-1000",
+                "overflow-hidden bg-primary-foreground/10 border-primary-foreground/20 transition-all duration-1000",
                 isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
               )} style={{ transitionDelay: "500ms" }}>
                 <CardContent className="p-0">
@@ -154,21 +154,21 @@ function MvcpSection() {
               <Shield className="w-8 h-8 text-primary" />
               <div>
                 <p className="font-semibold">HIPAA Compliant</p>
-                <p className="text-sm text-gray-400">Enterprise Security</p>
+                <p className="text-sm text-primary-foreground/60">Enterprise Security</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <BarChart3 className="w-8 h-8 text-primary" />
               <div>
                 <p className="font-semibold">500+ Clinics</p>
-                <p className="text-sm text-gray-400">Trusted Nationwide</p>
+                <p className="text-sm text-primary-foreground/60">Trusted Nationwide</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <Users className="w-8 h-8 text-primary" />
               <div>
                 <p className="font-semibold">50,000+ Studies</p>
-                <p className="text-sm text-gray-400">Managed Monthly</p>
+                <p className="text-sm text-primary-foreground/60">Managed Monthly</p>
               </div>
             </div>
           </div>

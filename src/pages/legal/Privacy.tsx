@@ -2,11 +2,13 @@ import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield } from 'lucide-react';
+import { Shield, CheckCircle } from 'lucide-react';
 import { ProgressiveSection } from '@/components/ui/progressive-section';
 import { ContentSection } from '@/components/ui/content-section';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Privacy = () => {
+  const t = useTranslation('legal').privacy;
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -14,7 +16,7 @@ const Privacy = () => {
       <main className="flex-grow">
         <ProgressiveSection className="py-20 bg-gradient-primary text-white">
           <ContentSection
-            title="Privacy Policy"
+            title={t.title}
             subtitle="Your Privacy Matters to Us"
             description="Learn how SKIIN protects and manages your personal health information"
             icon={Shield}
@@ -28,52 +30,101 @@ const Privacy = () => {
           <div className="container-custom">
             <Card className="max-w-4xl mx-auto">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-semibold mb-6">Privacy Policy</h2>
+                <h2 className="text-2xl font-semibold mb-6">{t.title}</h2>
                 
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-muted-foreground mb-4">
-                    Last updated: {new Date().toLocaleDateString()}
+                  <p className="text-muted-foreground mb-6">
+                    {t.lastUpdated}: {new Date().toLocaleDateString()}
                   </p>
                   
+                  {/* Introduction */}
                   <section className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">1. Information We Collect</h3>
-                    <p className="text-muted-foreground mb-4">
-                      We collect information you provide directly to us, such as when you create an account,
-                      use our services, or contact us for support.
-                    </p>
-                  </section>
-
-                  <section className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">2. How We Use Your Information</h3>
-                    <p className="text-muted-foreground mb-4">
-                      We use the information we collect to provide, maintain, and improve our services,
-                      process transactions, and communicate with you.
-                    </p>
-                  </section>
-
-                  <section className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">3. Data Security</h3>
-                    <p className="text-muted-foreground mb-4">
-                      We implement appropriate technical and organizational measures to protect your
-                      personal information against unauthorized access, alteration, disclosure, or destruction.
-                    </p>
-                  </section>
-
-                  <section className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">4. Contact Us</h3>
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.introduction.title}</h3>
                     <p className="text-muted-foreground">
-                      If you have any questions about this Privacy Policy, please contact us at:
-                      <br />
-                      Email: privacy@myant.ca
-                      <br />
-                      Phone: +41 44 XXX XX XX
+                      {t.sections.introduction.content}
                     </p>
                   </section>
 
-                  <p className="text-sm text-muted-foreground mt-8">
-                    This is a placeholder privacy policy. The complete privacy policy will be provided
-                    by the legal team before launch.
-                  </p>
+                  {/* Data Collection */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.dataCollection.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {t.sections.dataCollection.subtitle}
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {t.sections.dataCollection.items.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">{item}</li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Data Usage */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.dataUsage.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {t.sections.dataUsage.content}
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {t.sections.dataUsage.items.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">{item}</li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Data Protection */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.dataProtection.title}</h3>
+                    <p className="text-muted-foreground">
+                      {t.sections.dataProtection.content}
+                    </p>
+                  </section>
+
+                  {/* Data Sharing */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.dataSharing.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {t.sections.dataSharing.content}
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {t.sections.dataSharing.items.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">{item}</li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Your Rights */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.yourRights.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {t.sections.yourRights.content}
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {t.sections.yourRights.items.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span>{item}</span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Contact */}
+                  <section className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">{t.sections.contact.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {t.sections.contact.content}
+                    </p>
+                    <div className="bg-muted/50 p-4 rounded-lg">
+                      <p className="text-muted-foreground">
+                        Email: <a href={`mailto:${t.sections.contact.email}`} className="text-primary hover:underline">{t.sections.contact.email}</a>
+                      </p>
+                      <p className="text-muted-foreground">
+                        {t.sections.contact.address}
+                      </p>
+                    </div>
+                  </section>
                 </div>
               </CardContent>
             </Card>

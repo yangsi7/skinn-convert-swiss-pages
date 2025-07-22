@@ -30,7 +30,6 @@ The rest of this document is organised as follows »
 | **Project name** | *SKIIN Switzerland - Multilingual Medical Marketing Site* |
 | **Primary goal** | Launch a tri-lingual, medically trustworthy marketing website with interactive calculators |
 | **Current state** | **27%** complete - Phase 1 (English MVP) at 40%                                     |
-| **CEO hard-deadline** | Week 6 after project kick-off                                                       |
 | **Live environment** | Vercel Preview → Netlify Prod (DNS TBD)                                            |
 | **Local dev URL** | http://localhost:8080                                                               |
 | **Key metrics** | 80+ components built, 69 routes configured, 0/4 protected components               |
@@ -143,15 +142,53 @@ npm run lint      # ESLint (React 18 + TypeScript 5)
 
 -----
 
-## 9  Glossary (quick reference)
+## 9  Copy Document Synchronization
 
-| Term            | Meaning                                                        |
-| --------------- | -------------------------------------------------------------- |
-| MCP             | Modular Capability Provider: remote tool service (search, memory, etc.) |
-| TDG             | Test-Driven Generation – AI-assisted TDD loop                  |
-| Atomic component| React component ≤ 50 LOC, single responsibility              |
-| LOE             | Level Of Effort estimate                                       |
-| P0              | Highest urgency/severity level                                 |
+### Core Copy Documents
+- **English**: `/docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md`
+- **German**: `/docs/content/SKIIN_WEBSITE_COPY_GERMAN.md`
+- **French**: `/docs/content/SKIIN_WEBSITE_COPY_FRENCH.md`
+- **Review**: `/docs/content/COPY_DOCUMENTS_REVIEW.md`
+
+### Synchronization Rules
+1. **Any text change in code MUST be reflected in copy documents within 24 hours**
+2. **Translation sync**: Changes in one language must be propagated to all three within 48 hours
+3. **Version tracking**: Update version number and date on any change
+4. **Review cycle**: Monthly review documented in review file
+
+### Update Triggers
+- New page creation
+- Component text changes
+- Translation file updates
+- Legal/medical disclaimer changes
+- CTA modifications
+- Error message updates
+
+### Enforcement
+**CRITICAL**: Before marking any text-related task as complete, verify:
+- [ ] Copy document updated
+- [ ] All three languages synchronized
+- [ ] Version number incremented
+- [ ] Review document notes added
+
+### Iteration Process
+When making iterative changes to copy:
+
+1. **Create iteration folder**: `/docs/content/iterations/YYYY-MM-DD-iteration-name/`
+2. **Copy current documents** to iteration folder before changes
+3. **Make changes** in the main copy documents
+4. **Document changes** in `/docs/content/iterations/YYYY-MM-DD-iteration-name/CHANGES.md`
+5. **Update version** in main documents (e.g., 1.0 → 1.1)
+6. **Sync all languages** within 48 hours
+
+#### Iteration folder structure:
+```
+/docs/content/iterations/2025-01-21-initial-completion/
+├── CHANGES.md                    # What changed and why
+├── SKIIN_WEBSITE_COPY_ENGLISH_v1.0.md    # Previous version
+├── SKIIN_WEBSITE_COPY_GERMAN_v1.0.md     # Previous version
+└── SKIIN_WEBSITE_COPY_FRENCH_v1.0.md     # Previous version
+```
 
 -----
 
@@ -189,6 +226,14 @@ npm run lint      # ESLint (React 18 + TypeScript 5)
 | Myant Team | `/assets/images/team/Myant-Team.png` | Full team at HQ | Company culture |
 | Tony Chahine | `/assets/images/team/tony-chahine-official-headshot-myant-corp.jpg` | CEO Myant Corp | Parent company |
 
+### Medical Advisors
+| Asset | Path | Description | Role |
+| ----- | ---- | ----------- | ---- |
+| Prof. Dr. Frank Ruschitzka | `/assets/images/team/dr-frank-ruschitzka-faceshot.jpeg` | Director Cardiology USZ | Medical Advisor |
+| PD Dr. Mehdi Namdar | `/assets/images/team/pd-dr-med-mehdi-namdar-faceshot.jpg` | Chief Nuclear Cardiology | Medical Advisor |
+| Dr. Mathias Wilhelm | `/assets/images/team/dr-mathias-wilhelm-faceshot.jpg` | Head Preventive Cardiology | Medical Advisor |
+| Dr. Michiel Winter | `/assets/images/team/dr-michiel-winter-faceshot.jpg` | Lead Cardiologist Hirslanden | Medical Advisor |
+
 ### Design References
 | Asset | Path | Description | Design Element |
 | ----- | ---- | ----------- | -------------- |
@@ -199,7 +244,19 @@ npm run lint      # ESLint (React 18 + TypeScript 5)
 
 -----
 
-## 11  Current Implementation Status
+## 11  Glossary (quick reference)
+
+| Term            | Meaning                                                        |
+| --------------- | -------------------------------------------------------------- |
+| MCP             | Modular Capability Provider: remote tool service (search, memory, etc.) |
+| TDG             | Test-Driven Generation – AI-assisted TDD loop                  |
+| Atomic component| React component ≤ 50 LOC, single responsibility              |
+| LOE             | Level Of Effort estimate                                       |
+| P0              | Highest urgency/severity level                                 |
+
+-----
+
+## 12  Current Implementation Status
 
 ### Completed ✅
 - **Component Architecture**: 80+ React components with atomic design

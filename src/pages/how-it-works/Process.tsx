@@ -19,79 +19,83 @@ import {
   Building,
   CreditCard
 } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
+import { useNavigate } from 'react-router-dom';
 
 const Process = () => {
+  const t = useTranslation('howItWorks');
+  const navigate = useNavigate();
   const processSteps = [
     {
-      number: "1",
-      title: "Prescription & Enrollment",
+      number: t.process.steps.step1.number,
+      title: t.process.steps.step1.title,
       icon: <ClipboardList className="h-8 w-8 text-primary" />,
-      patient: "You'll first answer a few questions to ensure SKIIN is right for you. SKIIN can coordinate with your doctor or a telemedicine physician to get an official prescription if needed.",
-      physician: "Identify patient & provide prescription. SKIIN can supply an order template for easy referral.",
-      details: "Under Swiss law, a Holter test requires a physician's order. We make this easy, whether through your own GP or our partner doctors."
+      patient: t.process.steps.step1.patient,
+      physician: t.process.steps.step1.physician,
+      details: t.process.steps.step1.details
     },
     {
-      number: "2", 
-      title: "Device Delivery",
+      number: t.process.steps.step2.number, 
+      title: t.process.steps.step2.title,
       icon: <Package className="h-8 w-8 text-primary" />,
-      patient: "The SKIIN kit is shipped directly to your home within 1-2 business days. The package includes the garment, sensor pod, charger, and simple instructions.",
-      physician: "No action needed - SKIIN handles device provision. Ensure patient has the mobile app installed.",
-      details: "Setup is simple with no technician needed. Download the SKIIN app and follow the Quick Start Guide for device pairing."
+      patient: t.process.steps.step2.patient,
+      physician: t.process.steps.step2.physician,
+      details: t.process.steps.step2.details
     },
     {
-      number: "3",
-      title: "Wearing & Monitoring", 
+      number: t.process.steps.step3.number,
+      title: t.process.steps.step3.title, 
       icon: <Clock className="h-8 w-8 text-primary" />,
-      patient: "Wear the SKIIN band day and night for up to 14 days. Continue your normal activities - work, sleep, exercise. The device is water-resistant and comfortable.",
-      physician: "No action required during monitoring. Patient continues normal activities while data is collected continuously.",
-      details: "The sensor records every heartbeat silently. If you feel symptoms, mark them in the app to help correlate events in the analysis."
+      patient: t.process.steps.step3.patient,
+      physician: t.process.steps.step3.physician,
+      details: t.process.steps.step3.details
     },
     {
-      number: "4",
-      title: "Data Analysis",
+      number: t.process.steps.step4.number,
+      title: t.process.steps.step4.title,
       icon: <Activity className="h-8 w-8 text-primary" />,
-      patient: "Your ECG data is analyzed using advanced AI algorithms, then reviewed by certified cardiologists. All findings are verified by medical professionals.",
-      physician: "SKIIN's team analyzes data with AI + human review. You may be contacted for any urgent findings if preferred.",
-      details: "We use AI to screen for arrhythmias, but every SKIIN recording gets human expert review before finalizing for accuracy."
+      patient: t.process.steps.step4.patient,
+      physician: t.process.steps.step4.physician,
+      details: t.process.steps.step4.details
     },
     {
-      number: "5",
-      title: "Report & Follow-Up",
+      number: t.process.steps.step5.number,
+      title: t.process.steps.step5.title,
       icon: <FileText className="h-8 w-8 text-primary" />,
-      patient: "Your doctor receives a comprehensive report and will discuss the results with you. If urgent issues are found, we expedite notification.",
-      physician: "Receive detailed report via secure portal. Review findings and follow up with patient. Full disclosure ECG available if needed.",
-      details: "Reports include overview of findings, any detected arrhythmias with timestamps, heart rate trends, and clinical interpretations."
+      patient: t.process.steps.step5.patient,
+      physician: t.process.steps.step5.physician,
+      details: t.process.steps.step5.details
     }
   ];
 
   const insurancePathways = [
     {
-      model: "Standard Insurance",
+      model: t.process.insuranceModels.standard.model,
       icon: <CreditCard className="h-6 w-6 text-primary" />,
-      description: "Free choice of doctor",
-      process: "Patient → Cardiologist or Telemed → SKIIN → Results to Doctor",
-      note: "No gatekeeper required - direct access to specialists"
+      description: t.process.insuranceModels.standard.description,
+      process: t.process.insuranceModels.standard.process,
+      note: t.process.insuranceModels.standard.note
     },
     {
-      model: "GP Model", 
+      model: t.process.insuranceModels.gp.model, 
       icon: <Stethoscope className="h-6 w-6 text-primary" />,
-      description: "GP gatekeeper required",
-      process: "Patient → GP Approval → SKIIN → Results to GP + Cardiologist", 
-      note: "Must involve your GP first for insurance coverage"
+      description: t.process.insuranceModels.gp.description,
+      process: t.process.insuranceModels.gp.process, 
+      note: t.process.insuranceModels.gp.note
     },
     {
-      model: "HMO",
+      model: t.process.insuranceModels.hmo.model,
       icon: <Building className="h-6 w-6 text-primary" />,
-      description: "HMO clinic coordination",
-      process: "Patient → HMO Clinic → SKIIN → Results to HMO + Cardiologist",
-      note: "Coordinate through your HMO physician"
+      description: t.process.insuranceModels.hmo.description,
+      process: t.process.insuranceModels.hmo.process,
+      note: t.process.insuranceModels.hmo.note
     },
     {
-      model: "Telmed",
+      model: t.process.insuranceModels.telmed.model,
       icon: <Phone className="h-6 w-6 text-primary" />,
-      description: "Telemedicine first",
-      process: "Patient → Call Telemed Hotline → SKIIN → Results to Telemed + Cardiologist",
-      note: "Call your telemedicine center first as required"
+      description: t.process.insuranceModels.telmed.description,
+      process: t.process.insuranceModels.telmed.process,
+      note: t.process.insuranceModels.telmed.note
     }
   ];
 
@@ -108,14 +112,13 @@ const Process = () => {
                 Process Guide
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                The SKIIN Process
+                {t.process.hero.title}
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Six simple steps to better cardiac care. Our streamlined process ensures patients get 
-                the monitoring they need with minimal hassle, while keeping physicians informed throughout.
+                {t.process.hero.subtitle}. {t.process.hero.description}
               </p>
-              <Button size="lg" className="text-lg">
-                Get Started Today
+              <Button size="lg" className="text-lg" onClick={() => navigate('/about/contact')}>
+                {t.process.hero.cta}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -136,8 +139,8 @@ const Process = () => {
 
             <Tabs defaultValue="patient" className="max-w-6xl mx-auto">
               <TabsList className="grid w-full grid-cols-2 mb-8">
-                <TabsTrigger value="patient" className="text-lg">Patient Journey</TabsTrigger>
-                <TabsTrigger value="physician" className="text-lg">Physician Workflow</TabsTrigger>
+                <TabsTrigger value="patient" className="text-lg">{t.process.patientView}</TabsTrigger>
+                <TabsTrigger value="physician" className="text-lg">{t.process.physicianView}</TabsTrigger>
               </TabsList>
 
               <TabsContent value="patient" className="space-y-8">
@@ -204,10 +207,10 @@ const Process = () => {
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Coverage Pathways
+                {t.process.insuranceModels.title}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Different insurance models have different requirements. Here's what you need to know for each pathway.
+                {t.process.insuranceModels.subtitle}
               </p>
             </div>
 
