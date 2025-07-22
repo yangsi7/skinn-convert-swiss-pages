@@ -144,7 +144,22 @@ npm run lint      # ESLint (React 18 + TypeScript 5)
 
 ## 9  Copy Document Synchronization
 
-### Core Copy Documents
+### Core Copy Documents (Current - v2.0)
+**These are the authoritative source for all website copy:**
+- **English**: `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_ENGLISH_v2.md`
+- **German**: `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_GERMAN_v2.md`
+- **French**: `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_FRENCH_v2.md`
+- **Changes**: `/docs/content/iterations/2025-01-22-copy-update-v2/CHANGES.md`
+
+### Key Updates in v2.0
+- Product naming: 14-Day Holter → 10-Day Heart Screening, TriTest → SKIIN 3X Screening™
+- Pricing: New 3-tier structure (CHF 149/249/349)
+- Enhanced emotional messaging with urgency and empowerment
+- Medical advisor profiles added
+- 3 hero headline variants for A/B testing
+- Audience-specific value propositions for 5 segments
+
+### Legacy Documents (v1.x)
 - **English**: `/docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md`
 - **German**: `/docs/content/SKIIN_WEBSITE_COPY_GERMAN.md`
 - **French**: `/docs/content/SKIIN_WEBSITE_COPY_FRENCH.md`

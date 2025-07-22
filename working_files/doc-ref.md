@@ -22,13 +22,31 @@
 - `/working_files/event-stream.md` - Chronological activity log
 - `/working_files/CLAUDE_PROCESS.md` - Universal development methodology
 
-### Content Documentation
+### Content Documentation (Current v2.0 - USE THESE)
+- `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_ENGLISH_v2.md` - Complete English website copy v2.0 ⭐
+- `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_GERMAN_v2.md` - Complete German website copy v2.0 ⭐
+- `/docs/content/iterations/2025-01-22-copy-update-v2/SKIIN_WEBSITE_COPY_FRENCH_v2.md` - Complete French website copy v2.0 ⭐
+- `/docs/content/iterations/2025-01-22-copy-update-v2/CHANGES.md` - v1.2 to v2.0 change documentation
+
+### Content Documentation (Legacy v1.x)
 - `/docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md` - Complete English website copy v1.2
 - `/docs/content/SKIIN_WEBSITE_COPY_GERMAN.md` - Complete German website copy v1.2
 - `/docs/content/SKIIN_WEBSITE_COPY_FRENCH.md` - Complete French website copy v1.2
 - `/docs/content/COPY_DOCUMENTS_REVIEW.md` - Copy completeness review and gaps
 - `/docs/content-templates/` - Content structure templates
+
+### Content Iterations
 - `/docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC.md` - Copy update specification v2.0
+- `/docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC_V2.1.md` - Enhanced specification v2.1
+- `/docs/content/iterations/2025-01-22-comprehensive-update/` - Final comprehensive update v3.0
+  - `SKIIN_COPY_UPDATE_SPEC_FINAL.md` - Complete implementation specification
+  - `REFLECTION_AND_REVIEW.md` - Expert review and gap analysis
+  - `CHANGES.md` - Version 3.0 change log
+
+### External Analysis
+- `/docs/copy-guidebook-and-style-guide.md` - Comprehensive copywriting guidebook
+- `/docs/UPDATE-WEBSITE-COPY-v3-Jul-22-2025.md` - Detailed copy update specification
+- `/docs/agent-analysis/` - Agent review documents (PDFs)
 
 ### Compliance Documentation
 - `/docs/compliance/` - Swiss medical law compliance docs
@@ -37,6 +55,8 @@
 - `/docs/reports/` - Various implementation and testing reports
 - `/docs/reports/meetings/` - Meeting notes and decisions
 - `/docs/reports/visual-tests/` - Visual regression test reports
+- `/docs/SKIIN_PROJECT_AUDIT_REPORT.md` - Comprehensive project audit
+- `/docs/multilingual-audit-report.md` - Multilingual system audit
 - `/test-results/` - Automated test results and screenshots
 
 ### Assets
@@ -44,6 +64,9 @@
 - `/src/assets/images/` - Application images
 - `/src/assets/images/german/` - German-specific visual assets
 - `/public/lovable-uploads/` - Uploaded content assets
+- `/public/assets/images/team/` - Team member photos including medical advisors
+- `/public/assets/images/product/` - Product images (device, textiles)
+- `/public/assets/images/logos/` - Brand and partner logos
 
 ### Archive
 - `/docs/archive/2025-01-13/` - Previously archived documentation
