@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-07-25T03:47:40.990Z",
+  "v72Verification": {
+    "heroVariants": {
+      "variantA": null,
+      "variantB": null,
+      "variantC": null
+    },
+    "statistics": null,
+    "silentTriad": null,
+    "productSection": null,
+    "mvcp": {
+      "hasMVCPSection": false,
+      "mentionsMVCP": false,
+      "features": [],
+      "ctas": []
+    },
+    "tenDayReferences": {
+      "fourteenDayCount": 0,
+      "tenDayCount": 0,
+      "needsUpdate": false
+    },
+    "missingComponents": [
+      "numbersSection",
+      "clinicallyProven",
+      "care360",
+      "techCarousel",
+      "processFlow"
+    ],
+    "componentChecks": {
+      "numbersSection": false,
+      "clinicallyProven": false,
+      "care360": false,
+      "techCarousel": false,
+      "processFlow": false
+    }
+  }
+}
