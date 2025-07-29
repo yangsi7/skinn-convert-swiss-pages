@@ -111,7 +111,7 @@ const FAQ = () => {
           answer: "You can order SKIIN through our physician portal, by calling our medical liaison team, or using our standard prescription form. Simply provide patient details, indication, and monitoring duration. We handle device logistics and patient coordination."
         },
         {
-          question: "What are the medical indications for 14-day monitoring?",
+          question: "What are the medical indications for 10-day monitoring?",
           answer: "Extended monitoring is indicated for intermittent symptoms (palpitations, syncope, presyncope), arrhythmia screening in high-risk patients, post-ablation monitoring, cryptogenic stroke workup, and evaluation of antiarrhythmic therapy effectiveness."
         },
         {

@@ -19,7 +19,7 @@ export const partnersTranslations = {
     hero: {
       title: "Für Kardiologen",
       subtitle: "Verbessern Sie Ihre Diagnosefähigkeiten",
-      description: "Erweiterte 14-Tage-Überwachung mit überlegener Patientencompliance und Datenqualität in klinischer Qualität.",
+      description: "Erweiterte 10-Tage-Überwachung mit überlegener Patientencompliance und Datenqualität in klinischer Qualität.",
       cta: "Kardiologie-Lösungen erkunden"
     }
   },

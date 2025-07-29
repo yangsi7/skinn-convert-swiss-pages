@@ -1,6 +1,73 @@
 
 export const homeTranslations = {
   hero: {
+    badge: "Certifié MDR Classe IIa • Enregistré Swissmedic",
+    // Copy Variants for Testing
+    variants: {
+      // Default - New user-specified copy
+      default: {
+        badge: "Votre santé compte — pour plus que vous seul",
+        headline: "La plupart des problèmes cardiaques sont silencieux",
+        subheadline: "Dépistez plus intelligemment, vivez plus jeune, plus longtemps",
+        aboveCta: "Prenez 5 minutes pour vérifier votre éligibilité à notre expérience de dépistage cardiaque réinventée, depuis chez vous.",
+        ctaPrimary: "Commencez votre bilan cardiaque gratuit",
+        ctaSecondary: "Des questions ? Consultez notre FAQ →"
+      },
+      // Original - Legacy dual-split copy
+      original: {
+        badge: "Dispositif Médical Certifié • Qualité Suisse",
+        headline: "Vivez plus jeune, plus longtemps.",
+        subheadline: "Dépistez plus intelligemment, depuis chez vous",
+        aboveCta: "Détectez les problèmes cardiaques silencieux avant qu'ils ne volent des moments précieux. Protégez-vous et ceux qui vous aiment.",
+        ctaPrimary: "Commencez votre bilan cardiaque gratuit",
+        ctaSecondary: "Des questions ? Consultez notre FAQ →"
+      },
+      // Legacy variants for backward compatibility
+      variantA: {
+        headline: "Les Maladies Cardiaques Sont la Cause de Décès #1 — Quand Avez-Vous Fait Votre Dernier Contrôle Cardiaque ?",
+        subheadline: "70% des arythmies ne montrent aucun symptôme. Non détectées, elles peuvent causer des AVC ou une insuffisance cardiaque. Maintenant vous pouvez examiner votre cœur — en toute sécurité, facilement, depuis chez vous.",
+        emotionalSubheadline: "La longévité signifie plus d'anniversaires — pour vous, et pour ceux qui vous aiment le plus. Commencez à protéger votre cœur dès aujourd'hui."
+      },
+      variantB: {
+        headline: "Vivez Plus Longtemps. Dépistez Plus Intelligemment. Depuis Chez Vous.",
+        subheadline: "Les moniteurs cardiaques traditionnels sont inconfortables et ratent jusqu'à 91% des rythmes irréguliers. Le vêtement souple de SKIIN surveille en continu pendant 10 jours — capturant ce que les autres ratent.",
+        emotionalSubheadline: "Ajoutez des années à votre vie, et de la vie à vos années. Le dépistage cardiaque confortable est enfin là."
+      },
+      variantC: {
+        headline: "Votre Cœur. Votre Famille. Votre Contrôle.",
+        subheadline: "Chaque arythmie non détectée est un risque pour vous — et une inquiétude pour ceux qui vous aiment. Prenez le contrôle avec un dépistage cardiaque confortable et complet depuis chez vous.",
+        emotionalSubheadline: "Parce que votre cœur bat pour plus que vous seul. Protégez-le pour vous-même et pour ceux qui ont besoin de vous."
+      }
+    },
+    // Variantes de test A/B for backward compatibility
+    variantA: {
+      headline: "Les Maladies Cardiaques Sont la Cause de Décès #1 — Quand Avez-Vous Fait Votre Dernier Contrôle Cardiaque ?",
+      subheadline: "70% des arythmies ne montrent aucun symptôme. Non détectées, elles peuvent causer des AVC ou une insuffisance cardiaque. Maintenant vous pouvez examiner votre cœur — en toute sécurité, facilement, depuis chez vous.",
+      emotionalSubheadline: "La longévité signifie plus d'anniversaires — pour vous, et pour ceux qui vous aiment le plus. Commencez à protéger votre cœur dès aujourd'hui."
+    },
+    variantB: {
+      headline: "Vivez Plus Longtemps. Dépistez Plus Intelligemment. Depuis Chez Vous.",
+      subheadline: "Les moniteurs cardiaques traditionnels sont inconfortables et ratent jusqu'à 91% des rythmes irréguliers. Le vêtement souple de SKIIN surveille en continu pendant 10 jours — capturant ce que les autres ratent.",
+      emotionalSubheadline: "Ajoutez des années à votre vie, et de la vie à vos années. Le dépistage cardiaque confortable est enfin là."
+    },
+    variantC: {
+      headline: "Votre Cœur. Votre Famille. Votre Contrôle.",
+      subheadline: "Chaque arythmie non détectée est un risque pour vous — et une inquiétude pour ceux qui vous aiment. Prenez le contrôle avec un dépistage cardiaque confortable et complet depuis chez vous.",
+      emotionalSubheadline: "Parce que votre cœur bat pour plus que vous seul. Protégez-le pour vous-même et pour ceux qui ont besoin de vous."
+    },
+    // CTAs communs pour toutes les variantes
+    cta: {
+      primary: "Commencez votre évaluation gratuite",
+      secondary: "Vérifiez votre couverture d'assurance",
+      tertiary: "Des questions ? Consultez notre FAQ →"
+    },
+    // Propositions de valeur mises à jour à 10 jours
+    valueProps: {
+      comfort: "Pas de fils, pas de patchs – 10 jours de port confortable",
+      insurance: "Couvert par l'assurance de base",
+      lifestyle: "Compatible avec le style de vie – travaillez, douchez-vous, dormez"
+    },
+    // Clés héritées pour la compatibilité
     title: "Surveillance Cardiaque Continue",
     titleHighlight: "Sans Compromettre le Confort",
     description: "Les vêtements intelligents SKIIN révolutionnent la façon dont nous surveillons et gérons la santé cardiaque, en fournissant un ECG de qualité clinique sans fils, adhésifs ou inconfort.",
@@ -14,12 +81,175 @@ export const homeTranslations = {
       author: "Dr. Sarah Klein, Cardiologue"
     }
   },
+  // v7.2 Evidence-based Statistics
+  statistics: {
+    title: "Les preuves cliniques montrent que la surveillance prolongée fonctionne",
+    subtitle: "Les affections cardiaques silencieuses sont plus courantes que vous ne le pensez - et la surveillance prolongée détecte ce que les tests plus courts manquent.",
+    cards: [
+      {
+        value: "70%",
+        label: "des épisodes de fibrillation auriculaire surviennent sans symptômes",
+        footnote: "La FA silencieuse peut entraîner des AVC si elle n'est pas détectée"
+      },
+      {
+        value: "20-30%",
+        label: "des AVC ischémiques sont attribués à la fibrillation auriculaire",
+        footnote: "La détection précoce peut prévenir des événements mortels"
+      },
+      {
+        value: "66% vs 9%",
+        label: "Taux de détection avec surveillance prolongée vs Holter 24 heures",
+        footnote: "La surveillance de 10 jours détecte 7x plus d'arythmies"
+      }
+    ],
+    footnote: "Les preuves cliniques montrent que la surveillance prolongée détecte significativement plus d'arythmies que les tests traditionnels de 24 heures",
+    evidenceLink: "Voir les preuves cliniques"
+  },
+  // v7.2 Product Section - 8 Benefits
+  productSection: {
+    title: "Pourquoi SKIIN est leader en surveillance cardiaque",
+    subtitle: "Huit façons dont SKIIN transforme la surveillance de la santé cardiaque pour de meilleurs résultats",
+    benefits: [
+      {
+        title: "Dépistage cardiaque prolongé pour une vision approfondie",
+        description: "Remplacez les tests courts de 24-48 heures par une surveillance prolongée (généralement 10 jours) pour détecter les arythmies insaisissables."
+      },
+      {
+        title: "Temps d'attente réduits et détection précoce",
+        description: "Expédition rapide et configuration le jour même signifient que vous commencez rapidement la surveillance."
+      },
+      {
+        title: "Références rapides et fluides",
+        description: "Notre flux de travail numérique vous connecte, vous, votre médecin généraliste et les spécialistes sans logistique compliquée."
+      },
+      {
+        title: "Bande textile SKIIN confortable",
+        description: "Une bande douce et sans adhésif est livrée directement à votre domicile."
+      },
+      {
+        title: "Précision alimentée par l'IA",
+        description: "Les données sont traitées par un logiciel avancé formé sur des millions d'ECG."
+      },
+      {
+        title: "Délai de traitement rapide",
+        description: "La plupart des résultats sont retournés dans les 24-48 heures après la fin de l'étude."
+      },
+      {
+        title: "Technologie éprouvée",
+        description: "Des milliers d'études ont été réalisées en utilisant la plateforme SKIIN."
+      },
+      {
+        title: "Licencié par Santé Canada",
+        description: "En plus de la certification MDR Classe IIa et de l'enregistrement Swissmedic."
+      }
+    ],
+    closing: "Les données circulent en toute sécurité de l'application SKIIN vers notre cloud certifié ISO/IEC 27001."
+  },
+  // v7.2 Numbers Section - Key Metrics
+  numbersSection: {
+    title: "SKIIN en chiffres",
+    subtitle: "Technologie éprouvée offrant des résultats réels pour les soins cardiaques",
+    metrics: [
+      {
+        value: "95%",
+        label: "Précision de détection",
+        description: "Nos algorithmes IA détectent les arythmies avec une précision clinique"
+      },
+      {
+        value: "10 jours",
+        label: "Surveillance continue",
+        description: "La surveillance prolongée détecte les rythmes irréguliers que les tests de 24 heures manquent"
+      },
+      {
+        value: "100%",
+        label: "Couverture d'assurance",
+        description: "Entièrement couvert par l'assurance de base suisse sur prescription médicale"
+      },
+      {
+        value: "24/7",
+        label: "Analyse en temps réel",
+        description: "La transmission continue des données permet une intervention rapide si nécessaire"
+      }
+    ]
+  },
+  // v7.2 Clinically Proven Technology Section
+  clinicallyProvenTech: {
+    title: "Technologie cliniquement prouvée",
+    subtitle: "Soutenue par des études cliniques rigoureuses et approuvée par les principaux cardiologues",
+    trustMarkers: [
+      {
+        title: "Taux de précision de 98,6%",
+        description: "La validation clinique montre que SKIIN égale la précision du moniteur Holter traditionnel"
+      },
+      {
+        title: "Recherche publiée",
+        description: "Notre technologie a été validée dans plusieurs études évaluées par des pairs"
+      },
+      {
+        title: "Certifié MDR Classe IIa et CE",
+        description: "SKIIN répond aux normes européennes les plus élevées pour les dispositifs médicaux"
+      },
+      {
+        title: "Approuvé par les cardiologues",
+        description: "Recommandé par les principaux cardiologues et électrophysiologistes suisses"
+      }
+    ],
+    cta: "Voir les preuves cliniques"
+  },
+  // v7.2 Care360 Section - Technology Overview
+  care360Section: {
+    title: "Technologie révolutionnaire Myant Care360",
+    subtitle: "Découvrez l'avenir de la surveillance de la santé cardiaque",
+    description: "Notre système de surveillance 360° révolutionnaire combine la capture continue de données avec l'analyse alimentée par l'IA.",
+    features: [
+      "Surveillance continue de 10 jours avec ECG de qualité clinique",
+      "Analyse IA en temps réel des modèles de rythme cardiaque",
+      "Validation par des cardiologues suisses de toutes les découvertes",
+      "Précision de qualité médicale dans un vêtement confortable",
+      "Transmission transparente des données à votre équipe de soins",
+      "Rapports complets avec des informations exploitables",
+      "Intégration avec les flux de travail de santé existants"
+    ],
+    cta: "En savoir plus sur notre technologie"
+  },
+  // v7.2 Tech Carousel - Data Flow
+  techCarousel: {
+    title: "Du capteur à la solution",
+    subtitle: "Découvrez comment SKIIN transforme vos données cardiaques en informations exploitables",
+    steps: [
+      {
+        title: "Détection continue",
+        description: "Les capteurs ECG de qualité médicale intégrés dans un textile doux surveillent continuellement votre rythme cardiaque",
+        icon: "sensor"
+      },
+      {
+        title: "Application SKIIN",
+        description: "Les données sont transmises en toute sécurité via Bluetooth vers votre smartphone pour une surveillance en temps réel",
+        icon: "app"
+      },
+      {
+        title: "Cloud sécurisé",
+        description: "L'infrastructure certifiée ISO/IEC 27001 garantit que vos données sont protégées et conformes",
+        icon: "cloud"
+      },
+      {
+        title: "Analyse IA",
+        description: "Des algorithmes avancés formés sur des millions d'ECG détectent les irrégularités avec 95% de précision",
+        icon: "ai"
+      },
+      {
+        title: "Revue par cardiologue",
+        description: "Les cardiologues suisses valident les résultats et créent des recommandations personnalisées",
+        icon: "report"
+      }
+    ]
+  },
   // Contenu spécifique à Home-2
   home2: {
     hero: {
       badge: "Certifié par l'Office fédéral de la santé publique (OFSP)",
       title: "Vivre plus longtemps, plus jeune.",
-      subtitle: "Santé cardiaque révolutionnaire grâce à la surveillance IA de 14 jours",
+      subtitle: "Santé cardiaque révolutionnaire grâce à la surveillance IA de 10 jours",
       cta: "Commencer maintenant",
       bookAssessment: "Réserver une consultation"
     },
@@ -29,7 +259,7 @@ export const homeTranslations = {
       items: [
         { number: "70%", text: "des troubles du rythme cardiaque passent inaperçus" },
         { number: "30%", text: "des personnes avec fibrillation auriculaire subissent un AVC" },
-        { number: "50%", text: "plus de troubles détectés avec surveillance 14 jours" }
+        { number: "50%", text: "plus de troubles détectés avec surveillance 10 jours" }
       ]
     },
     clinicalEvidence: {
@@ -81,7 +311,7 @@ export const homeTranslations = {
       subtitle: "Découvrez l'avenir de la surveillance de la santé cardiaque",
       description: "Notre système de surveillance 360° révolutionnaire combine la capture de données continue avec l'analyse alimentée par l'IA pour des soins cardiaques sans précédent.",
       features: [
-        "Surveillance continue de 14 jours",
+        "Surveillance continue de 10 jours",
         "Analyse IA en temps réel",
         "Validation par cardiologues suisses",
         "Précision de niveau médical",
@@ -287,7 +517,38 @@ export const homeTranslations = {
     statistic: "97% de taux de satisfaction des patients"
   },
   problemSolution: {
-    title: "Enfin, un moniteur cardiaque que vous voudrez vraiment porter",
+    title: "La Triade Silencieuse : Trois Menaces Cachées pour Votre Cœur",
+    problem: {
+      title: "Le Problème",
+      description: "De nombreuses affections cardiaques se cachent silencieusement. Jusqu'à 70% des arythmies ne présentent aucun symptôme. Un test unique de 24 heures n'offre qu'un bref aperçu, vous laissant attendre et vous inquiéter. Les moniteurs traditionnels sont inconfortables et perturbent la vie quotidienne."
+    },
+    solution: {
+      title: "La Solution",
+      description: "SKIIN offre une surveillance continue de la santé cardiaque depuis votre domicile. Notre Dépistage Cardiaque de 10 Jours capture les rythmes irréguliers que les tests de 24 heures manquent. Le vêtement doux et sans fil est comme une seconde peau - résistant à l'eau, lavable et amovible pour les douches. En combinant ECG, pression artérielle et analyse du sommeil, nous surveillons la Triade Silencieuse (arythmie, hypertension et apnée du sommeil) qui passe souvent inaperçue."
+    },
+    silentTriad: {
+      title: "La Triade Silencieuse",
+      items: [
+        {
+          title: "Détection d'Arythmie",
+          icon: "ecg",
+          description: "La surveillance ECG continue capture les rythmes cardiaques irréguliers qui apparaissent sporadiquement"
+        },
+        {
+          title: "Surveillance de la Pression Artérielle",
+          icon: "blood-pressure",
+          description: "La MAPA révèle l'hypertension masquée et les schémas nocturnes dangereux"
+        },
+        {
+          title: "Analyse du Sommeil",
+          icon: "sleep",
+          description: "Identifie l'apnée du sommeil qui augmente le risque d'arythmie de 53% à 92%"
+        }
+      ]
+    },
+    cta: "Commencez Votre Évaluation Gratuite",
+    linkText: "En savoir plus sur le Dépistage SKIIN 3X™",
+    comingSoon: "(Bientôt Disponible)",
     problems: {
       title: "Problèmes du Holter traditionnel",
       items: [

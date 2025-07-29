@@ -48,7 +48,7 @@ const HomePageTabs = () => {
   const labels = getTabLabels();
 
   return (
-    <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border">
+    <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-40 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border">
       <Tabs value={getTabValue()} onValueChange={handleTabChange}>
         <TabsList className="grid grid-cols-2 w-auto">
           <TabsTrigger value="home" className="px-6 py-2">

@@ -133,6 +133,46 @@ export function ProcessFlow() {
           </div>
         </div>
 
+        {/* Manufacturing Excellence Section */}
+        <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold">Swiss Precision Manufacturing</h3>
+            <p className="text-muted-foreground">
+              Our smart textiles are manufactured using state-of-the-art knitting technology that seamlessly 
+              integrates medical-grade sensors into comfortable fabric. Each SKIIN garment undergoes rigorous 
+              quality control to ensure consistent performance and durability.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-semibold mb-2">Precision Knitting</h4>
+                <p className="text-sm text-muted-foreground">
+                  Advanced circular knitting machines create seamless integration of conductive yarns
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Quality Tested</h4>
+                <p className="text-sm text-muted-foreground">
+                  Each garment is individually tested for signal quality and comfort
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/assets/images/smart-textile-knitting-electrodes.jpg"
+              alt="Smart textile knitting electrodes"
+              className="w-full h-auto rounded-lg shadow-md"
+              data-testid="manufacturing-electrodes"
+            />
+            <img
+              src="/assets/images/smart-textile-knitting-machine.jpg"
+              alt="Smart textile knitting machine"
+              className="w-full h-auto rounded-lg shadow-md"
+              data-testid="manufacturing-machine"
+            />
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center mt-16">
           <button className="btn-primary text-lg px-8 py-4">

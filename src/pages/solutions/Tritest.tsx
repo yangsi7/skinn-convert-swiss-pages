@@ -34,7 +34,7 @@ const SolutionsTritest = () => {
           {
             icon: Heart,
             title: "Arrhythmia Detection",
-            description: "14-day continuous ECG monitoring for heart rhythm irregularities",
+            description: "10-day continuous ECG monitoring for heart rhythm irregularities",
             current: "Available now"
           },
           {
@@ -97,7 +97,7 @@ const SolutionsTritest = () => {
           {
             icon: Heart,
             title: "Arrhythmie-Erkennung",
-            description: "14-tägige kontinuierliche EKG-Überwachung für Herzrhythmusstörungen",
+            description: "10-tägige kontinuierliche EKG-Überwachung für Herzrhythmusstörungen",
             current: "Jetzt verfügbar"
           },
           {
@@ -160,7 +160,7 @@ const SolutionsTritest = () => {
           {
             icon: Heart,
             title: "Détection d'arythmie",
-            description: "Surveillance ECG continue de 14 jours pour les irrégularités du rythme cardiaque",
+            description: "Surveillance ECG continue de 10 jours pour les irrégularités du rythme cardiaque",
             current: "Disponible maintenant"
           },
           {
@@ -202,6 +202,69 @@ const SolutionsTritest = () => {
         current: "Actuel: Surveillance du rythme cardiaque disponible",
         q1: "T1 2026: Lancement complet du dépistage 3X (en attente d'approbation réglementaire)",
         beta: "Fin 2025: Programme de test bêta limité"
+      }
+    },
+    it: {
+      badge: "Disponibile T1 2026",
+      title: "SKIIN 3X Screening™",
+      subtitle: "Un sistema, tre screening",
+      description: "L'unico dispositivo indossabile domestico che esegue lo screening dei 3 principali rischi per la salute silenziosi in un test completo: aritmia, ipertensione e apnea notturna.",
+      
+      hero: {
+        statTitle: "Primo nel suo genere",
+        statValue: "3-in-1",
+        statDesc: "Cardiaco + PA + Sonno"
+      },
+      
+      triad: {
+        title: "La Triade Silenziosa",
+        subtitle: "Tre rischi per la salute interconnessi, una soluzione completa",
+        items: [
+          {
+            icon: Heart,
+            title: "Rilevamento Aritmie",
+            description: "Monitoraggio ECG continuo di 10 giorni per irregolarità del ritmo cardiaco",
+            current: "Disponibile ora"
+          },
+          {
+            icon: Activity,
+            title: "Monitoraggio Pressione Arteriosa",
+            description: "Monitoraggio ambulatoriale della pressione arteriosa 24 ore su più giorni",
+            current: "Disponibile 2026"
+          },
+          {
+            icon: Moon,
+            title: "Screening Apnea Notturna",
+            description: "Monitoraggio respiratorio notturno per rilevare episodi di apnea notturna",
+            current: "Disponibile 2026"
+          }
+        ]
+      },
+      
+      whyMatters: {
+        title: "Perché lo Screening 3X è Importante",
+        points: [
+          "Malattie cardiache, ipertensione e apnea notturna sono interconnesse",
+          "Solitamente testate separatamente, causando ritardi nella diagnosi",
+          "SKIIN 3X fornisce una visione olistica della salute cardiovascolare",
+          "La diagnosi precoce di tutte e tre salva vite e riduce i costi"
+        ]
+      },
+      
+      waitlist: {
+        title: "Sia il Primo in Lista",
+        description: "Registri il Suo interesse per SKIIN 3X Screening. La avviseremo quando sarà disponibile e offriremo accesso anticipato.",
+        placeholder: "Inserisca il suo indirizzo email",
+        button: "Unisciti alla Lista",
+        success: "Grazie! È nella lista d'attesa per SKIIN 3X Screening.",
+        privacy: "Rispettiamo la Sua privacy e La contatteremo solo per aggiornamenti SKIIN 3X."
+      },
+      
+      timeline: {
+        title: "Cronologia di Sviluppo",
+        current: "Attuale: Monitoraggio del ritmo cardiaco disponibile",
+        q1: "T1 2026: Lancio completo dello screening 3X (in attesa di approvazione normativa)",
+        beta: "Fine 2025: Programma di test beta limitato"
       }
     }
   };

@@ -56,7 +56,7 @@ const Home2Enhanced = () => {
                   <span className="text-primary-charcoal">die sich Ihrem Leben anpasst</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  14 Tage kontinuierliche EKG-Überwachung zu Hause. 
+                  10 Tage kontinuierliche EKG-Überwachung zu Hause. 
                   Klinisch präzise, außergewöhnlich komfortabel – von Schweizer Kardiologen empfohlen.
                 </p>
               </div>
@@ -152,7 +152,7 @@ const Home2Enhanced = () => {
 
               <Card className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2">
                 <CardContent className="space-y-4">
-                  <div className="text-5xl font-bold text-primary">14 Tage</div>
+                  <div className="text-5xl font-bold text-primary">10 Tage</div>
                   <p className="text-lg text-muted-foreground">
                     SKIIN erkennt 50% mehr Arrhythmien als 24h-Holter
                   </p>
@@ -202,7 +202,7 @@ const Home2Enhanced = () => {
                     ))}
                   </div>
                   <p className="text-muted-foreground italic">
-                    "Le Holter traditionnel était inconfortable. Je porte SKIIN 14 jours sans 
+                    "Le Holter traditionnel était inconfortable. Je porte SKIIN 10 jours sans 
                     problème - j'oublie même que je le porte!"
                   </p>
                   <div>
@@ -320,7 +320,7 @@ const Home2Enhanced = () => {
                   </div>
                   <p className="text-muted-foreground italic">
                     "SKIIN hat die Art und Weise revolutioniert, wie wir Herzrhythmusstörungen 
-                    diagnostizieren. Die 14-tägige kontinuierliche Überwachung erfasst intermittierende 
+                    diagnostizieren. Die 10-tägige kontinuierliche Überwachung erfasst intermittierende 
                     Arrhythmien, die bei herkömmlichen 24-Stunden-Holtern oft übersehen werden."
                   </p>
                 </CardContent>
@@ -339,7 +339,7 @@ const Home2Enhanced = () => {
                   </div>
                   <p className="text-muted-foreground italic">
                     "Die Compliance meiner Patienten mit SKIIN ist ausgezeichnet. Sie tragen das Gerät 
-                    tatsächlich für die vollen 14 Tage, was uns viel bessere diagnostische Daten 
+                    tatsächlich für die vollen 10 Tage, was uns viel bessere diagnostische Daten 
                     liefert als traditionelle Methoden."
                   </p>
                 </CardContent>

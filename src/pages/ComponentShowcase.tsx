@@ -36,7 +36,7 @@ const ComponentShowcase = () => {
 
   const stats = [
     { value: "98.6%", label: "Detection Accuracy", icon: Activity },
-    { value: "14", label: "Days Monitoring", icon: Clock },
+    { value: "10", label: "Days Monitoring", icon: Clock },
     { value: "100%", label: "Insurance Coverage", icon: Shield },
     { value: "24/7", label: "Real-Time Analysis", icon: Monitor }
   ];
@@ -57,7 +57,7 @@ const ComponentShowcase = () => {
   ];
 
   const comparisonItems = [
-    { feature: "14-Day Continuous Monitoring", competitors: false, skiin: true },
+    { feature: "10-Day Continuous Monitoring", competitors: false, skiin: true },
     { feature: "Real-Time Symptom Logging", competitors: "Limited", skiin: true },
     { feature: "AI-Powered Analysis", competitors: false, skiin: true },
     { feature: "Full Insurance Coverage", competitors: "Partial", skiin: true }
@@ -150,7 +150,7 @@ const ComponentShowcase = () => {
                 <div className="grid md:grid-cols-4 gap-12">
                   <ScrollRevealStatistic value="95%" label="Success Rate" description="Industry-leading outcomes" delay={0} />
                   <ScrollRevealStatistic value="50K" label="Patients Served" description="Across Europe" delay={150} />
-                  <ScrollRevealStatistic value="14" label="Days Monitoring" description="Continuous tracking" delay={300} />
+                  <ScrollRevealStatistic value="10" label="Days Monitoring" description="Continuous tracking" delay={300} />
                   <ScrollRevealStatistic value="24/7" label="Support" description="Always available" delay={450} />
                 </div>
               </div>

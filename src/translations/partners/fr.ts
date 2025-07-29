@@ -19,7 +19,7 @@ export const partnersTranslations = {
     hero: {
       title: "Pour les cardiologues",
       subtitle: "Élevez vos capacités diagnostiques",
-      description: "Surveillance avancée de 14 jours avec une conformité patient supérieure et une qualité de données de niveau clinique.",
+      description: "Surveillance avancée de 10 jours avec une conformité patient supérieure et une qualité de données de niveau clinique.",
       cta: "Explorer les solutions de cardiologie"
     }
   },

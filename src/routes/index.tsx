@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Home2 from '@/pages/Home2';
+import HomeV7 from '@/pages/HomeV7';
 import NotFound from '@/pages/NotFound';
 import ComponentShowcase from '@/pages/ComponentShowcase';
 
 // Solutions pages
-import Solutions14DayHolter from '@/pages/solutions/14DayHolter';
+import Solutions10DayHeartScreening from '@/pages/solutions/10DayHeartScreening';
 import SolutionsTritest from '@/pages/solutions/Tritest';
 
 // Partners pages
@@ -60,7 +61,9 @@ const AppRoutes = () => {
       setLanguage('de');
     } else if (path.startsWith('/fr')) {
       setLanguage('fr');
-    } else if (path !== '/' && !path.includes('/de/') && !path.includes('/fr/')) {
+    } else if (path.startsWith('/it')) {
+      setLanguage('it');
+    } else if (path !== '/' && !path.includes('/de/') && !path.includes('/fr/') && !path.includes('/it/')) {
       // For non-root English paths that don't contain language prefixes
       setLanguage('en');
     }
@@ -71,10 +74,11 @@ const AppRoutes = () => {
       {/* English Routes */}
       <Route path="/" element={<Home2 />} />
       <Route path="/home-old" element={<Index />} />
+      <Route path="/home-v7-archive" element={<HomeV7 />} />
       <Route path="/component-showcase" element={<ComponentShowcase />} />
       
       {/* Solutions Routes */}
-      <Route path="/solutions/14-day-holter" element={<Solutions14DayHolter />} />
+      <Route path="/solutions/10-day-heart-screening" element={<Solutions10DayHeartScreening />} />
       <Route path="/solutions/tritest" element={<SolutionsTritest />} />
       
       {/* Partners Routes */}
@@ -112,9 +116,10 @@ const AppRoutes = () => {
       {/* German Routes */}
       <Route path="/de" element={<Home2 />} />
       <Route path="/de/home-old" element={<Index />} />
+      <Route path="/de/home-v7-archive" element={<HomeV7 />} />
       
       {/* German Solutions Routes */}
-      <Route path="/de/loesungen/14-tage-holter" element={<Solutions14DayHolter />} />
+      <Route path="/de/loesungen/10-tage-herzscreening" element={<Solutions10DayHeartScreening />} />
       <Route path="/de/loesungen/tritest" element={<SolutionsTritest />} />
       
       {/* German Partners Routes */}
@@ -149,9 +154,10 @@ const AppRoutes = () => {
       {/* French Routes */}
       <Route path="/fr" element={<Home2 />} />
       <Route path="/fr/home-old" element={<Index />} />
+      <Route path="/fr/home-v7-archive" element={<HomeV7 />} />
       
       {/* French Solutions Routes */}
-      <Route path="/fr/solutions/holter-14-jours" element={<Solutions14DayHolter />} />
+      <Route path="/fr/solutions/bilan-cardiaque-10-jours" element={<Solutions10DayHeartScreening />} />
       <Route path="/fr/solutions/tritest" element={<SolutionsTritest />} />
       
       {/* French Partners Routes */}
@@ -182,6 +188,44 @@ const AppRoutes = () => {
       <Route path="/fr/confidentialite" element={<Privacy />} />
       <Route path="/fr/conditions" element={<Terms />} />
       <Route path="/fr/cookies" element={<Cookies />} />
+      
+      {/* Italian Routes */}
+      <Route path="/it" element={<Home2 />} />
+      <Route path="/it/home-old" element={<Index />} />
+      <Route path="/it/home-v7-archive" element={<HomeV7 />} />
+      
+      {/* Italian Solutions Routes */}
+      <Route path="/it/soluzioni/screening-cardiaco-10-giorni" element={<Solutions10DayHeartScreening />} />
+      <Route path="/it/soluzioni/tritest" element={<SolutionsTritest />} />
+      
+      {/* Italian Partners Routes */}
+      <Route path="/it/partner" element={<PartnersOverview />} />
+      <Route path="/it/partner/medici-famiglia" element={<PartnersGPs />} />
+      <Route path="/it/partner/cardiologi" element={<PartnersCardiologists />} />
+      <Route path="/it/partner/telemedicina" element={<PartnersTelemedicine />} />
+      <Route path="/it/partner/aziende" element={<PartnersCorporate />} />
+      
+      {/* Italian How It Works Routes */}
+      <Route path="/it/come-funziona" element={<HowItWorksOverview />} />
+      <Route path="/it/come-funziona/processo" element={<HowItWorksProcess />} />
+      <Route path="/it/come-funziona/rimborso" element={<HowItWorksReimbursement />} />
+      <Route path="/it/come-funziona/tecnologia" element={<HowItWorksTechnology />} />
+      <Route path="/it/come-funziona/evidenze" element={<HowItWorksEvidence />} />
+      <Route path="/it/come-funziona/faq" element={<HowItWorksFAQ />} />
+      
+      {/* Italian About Us Routes */}
+      <Route path="/it/chi-siamo" element={<AboutOverview />} />
+      <Route path="/it/chi-siamo/azienda" element={<AboutCompany />} />
+      <Route path="/it/chi-siamo/consiglio-medico" element={<AboutBoard />} />
+      <Route path="/it/chi-siamo/blog" element={<AboutBlog />} />
+      <Route path="/it/chi-siamo/testimonianze" element={<AboutTestimonials />} />
+      <Route path="/it/chi-siamo/conformita" element={<AboutCompliance />} />
+      <Route path="/it/chi-siamo/contatti" element={<AboutContact />} />
+      
+      {/* Italian Legal Routes */}
+      <Route path="/it/privacy" element={<Privacy />} />
+      <Route path="/it/termini" element={<Terms />} />
+      <Route path="/it/cookies" element={<Cookies />} />
       
       {/* Catch-all for 404 */}
       <Route path="*" element={<NotFound />} />

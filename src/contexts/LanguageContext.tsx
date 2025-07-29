@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define supported languages
-type LanguageType = 'en' | 'de' | 'fr';
+type LanguageType = 'en' | 'de' | 'fr' | 'it';
 
 interface LanguageContextType {
   language: LanguageType;
@@ -30,7 +30,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   useEffect(() => {
     // Get language from localStorage, default to English
     const savedLanguage = localStorage.getItem('myant-language');
-    if (savedLanguage && ['en', 'de', 'fr'].includes(savedLanguage)) {
+    if (savedLanguage && ['en', 'de', 'fr', 'it'].includes(savedLanguage)) {
       setLanguage(savedLanguage as LanguageType);
     }
     // Always default to English unless explicitly saved

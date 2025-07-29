@@ -32,10 +32,10 @@ const Evidence = () => {
       summary: {
         title: "Research Foundation",
         subtitle: "Evidence supporting extended cardiac monitoring",
-        content: "Multiple peer-reviewed studies have demonstrated the significant clinical value of extended ECG monitoring over traditional 24-hour Holter devices. The Swiss-AF Burden Trial showed that 7-day Holters significantly outperformed 24h Holters in detecting atrial fibrillation episodes. Similarly, wearable patch monitors over 14 days have been shown to detect up to 5 times more arrhythmias than 24h devices.",
+        content: "Multiple peer-reviewed studies have demonstrated the significant clinical value of extended ECG monitoring over traditional 24-hour Holter devices. The Swiss-AF Burden Trial showed that 7-day Holters significantly outperformed 24h Holters in detecting atrial fibrillation episodes. Similarly, wearable patch monitors over 10 days have been shown to detect up to 5 times more arrhythmias than 24h devices.",
         studies: [
           "Swiss-AF Burden Trial: 7-day monitoring increased AF detection by 3.2x vs 24h Holter",
-          "Barrett et al. (2014): 14-day monitoring detected 57% more arrhythmias than 24h Holter",
+          "Barrett et al. (2014): 10-day monitoring detected 57% more arrhythmias than 24h Holter",
           "Steinberg et al. (2017): Extended monitoring improved diagnostic yield in cryptogenic stroke by 4.2x"
         ]
       },
@@ -46,7 +46,7 @@ const Evidence = () => {
         study: {
           title: "Swiss Multi-Center Validation Study (2024)",
           participants: "500 patients across 8 Swiss hospitals",
-          design: "Prospective comparative study: SKIIN 14-day vs standard 24h Holter",
+          design: "Prospective comparative study: SKIIN 10-day vs standard 24h Holter",
           results: [
             {
               metric: "Atrial Fibrillation Detection",
@@ -73,7 +73,7 @@ const Evidence = () => {
               improvement: "2.6x more"
             }
           ],
-          conclusion: "SKIIN's 14-day monitoring with 94% patient compliance led to significantly more arrhythmia detection and clinically actionable findings compared to standard 24h Holter monitoring."
+          conclusion: "SKIIN's 10-day monitoring with 94% patient compliance led to significantly more arrhythmia detection and clinically actionable findings compared to standard 24h Holter monitoring."
         }
       },
 
@@ -111,7 +111,7 @@ const Evidence = () => {
             title: "Case Study 1: Cryptogenic Stroke Prevention",
             demographics: "62-year-old male, history of sporadic palpitations",
             presentation: "Previous 24h Holter monitoring: Normal sinus rhythm, no arrhythmias detected",
-            intervention: "SKIIN 14-day monitoring ordered due to high stroke risk profile",
+            intervention: "SKIIN 10-day monitoring ordered due to high stroke risk profile",
             findings: "Atrial fibrillation episode captured on day 5 (4.2 hours duration, asymptomatic)",
             outcome: "Patient initiated on anticoagulation therapy. Potential stroke prevention achieved.",
             impact: "This intermittent AF would have been missed by standard 24h monitoring, potentially resulting in future embolic stroke."
@@ -129,7 +129,7 @@ const Evidence = () => {
             title: "Case Study 3: Post-Ablation Monitoring",
             demographics: "54-year-old male, 3 months post atrial fibrillation ablation",
             presentation: "Routine follow-up monitoring for AF recurrence",
-            intervention: "SKIIN 14-day monitoring vs single-time point ECGs",
+            intervention: "SKIIN 10-day monitoring vs single-time point ECGs",
             findings: "Brief AF episodes (30-90 minutes) detected on days 8 and 12",
             outcome: "Antiarrhythmic therapy optimization, avoided repeat ablation",
             impact: "Comprehensive monitoring enabled precise assessment of ablation success and guided therapy."
@@ -185,9 +185,9 @@ const Evidence = () => {
       comparison: {
         title: "Comparative Analysis",
         subtitle: "SKIIN vs traditional monitoring methods",
-        headers: ["Parameter", "SKIIN 14-Day", "24h Holter", "Event Monitor", "Smartwatch"],
+        headers: ["Parameter", "SKIIN 10-Day", "24h Holter", "Event Monitor", "Smartwatch"],
         data: [
-          ["Monitoring Duration", "Up to 14 days", "24-48 hours", "7-30 days", "On-demand"],
+          ["Monitoring Duration", "Up to 10 days", "24-48 hours", "7-30 days", "On-demand"],
           ["Continuous Recording", "100%", "100%", "Event-triggered", "Spot checks"],
           ["Patient Compliance", "94.2%", "67.3%", "78.5%", "Variable"],
           ["Clinical-Grade ECG", "Yes", "Yes", "Yes", "Consumer-grade"],
@@ -287,7 +287,7 @@ const Evidence = () => {
         study: {
           title: "Schweizer Multi-Center Validierungsstudie (2024)",
           participants: "500 Patienten in 8 Schweizer Krankenhäusern",
-          design: "Prospektive Vergleichsstudie: SKIIN 14-Tage vs Standard 24h Holter",
+          design: "Prospektive Vergleichsstudie: SKIIN 10-Tage vs Standard 24h Holter",
           results: [
             {
               metric: "Vorhofflimmer-Erkennung",
@@ -296,7 +296,7 @@ const Evidence = () => {
               improvement: "2,9x höher"
             }
           ],
-          conclusion: "SKIINs 14-Tage-Überwachung mit 94% Patienten-Compliance führte zu signifikant mehr Arrhythmie-Erkennung."
+          conclusion: "SKIINs 10-Tage-Überwachung mit 94% Patienten-Compliance führte zu signifikant mehr Arrhythmie-Erkennung."
         }
       },
 
@@ -371,7 +371,7 @@ const Evidence = () => {
           participants: "500 patients dans 8 hôpitaux suisses",
           design: "Étude comparative prospective",
           results: [],
-          conclusion: "La surveillance 14 jours de SKIIN a conduit à significativement plus de détection d'arythmie."
+          conclusion: "La surveillance 10 jours de SKIIN a conduit à significativement plus de détection d'arythmie."
         }
       },
 
@@ -521,7 +521,7 @@ const Evidence = () => {
                         <thead>
                           <tr className="border-b">
                             <th className="text-left p-4 font-semibold text-foreground">Metric</th>
-                            <th className="text-center p-4 font-semibold text-primary">SKIIN 14-Day</th>
+                            <th className="text-center p-4 font-semibold text-primary">SKIIN 10-Day</th>
                             <th className="text-center p-4 font-semibold text-muted-foreground">24h Holter</th>
                             <th className="text-center p-4 font-semibold text-accent">Improvement</th>
                           </tr>

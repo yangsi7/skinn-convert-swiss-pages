@@ -1,365 +1,607 @@
-# working_files/planning.md
+# Planning Document – SKIIN Switzerland Marketing Website
+VERSION: 5.2
+LAST UPDATED: 2025-07-28
+PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
+PURPOSE: Phase C cleanup + Phase D Landing Page v7.2 Implementation + Phase E Visual Testing & Language Integration + Phase 6 Landing Page Improvement
 
-## Project: Multilingual Medical Marketing Site
+This planning document now covers Phase C (working files cleanup), Phase D (Landing Page v7.2 implementation), Phase E (Visual Testing & Language Integration), and the newly added Phase 6 (Landing Page Improvement) based on comprehensive competitor analysis and best practices research.
 
-### Overall Progress: 35% Complete
+## Executive Summary
 
-## 🎯 Multilingual System Completion Plan (2025-07-18)
+Following successful completion of Phase A (Documentation Cleanup) and Phase B (v7.2 Copy Integration), we are executing:
 
-### Current State Assessment
-**System Foundation**: ✅ Solid (70% complete)
-- Language Context: Working ✅
-- URL Routing: Working ✅  
-- Translation Hook: Working ✅
-- Navigation: Working ✅
-- About Us Page: Working ✅
+**Phase C**: Working Files Organization (50% complete)
+- Working file format corrections (event-stream.md one-line format) ✓
+- Documentation inventory and categorization ✓
+- Navigation structure documentation ✓
+- Component and asset inventory updates (pending)
+- Clear separation of specifications vs implementation docs ✓
 
-**Critical Gaps Identified**:
-1. **Translation Coverage**: 4 major files incomplete (howItWorks, about, ui, home)
-2. **Hardcoded Components**: 4 components need translation integration
-3. **Consistency**: Mixed translation patterns across components
+**Phase D**: Landing Page v7.2 Implementation (85% complete)
+- Research & Gap Analysis ✓
+- Core Component Development ✓
+- Component Integration ✓
+- Visual Asset Integration (80% complete)
+- Critical v7.2 Requirements ✓
+- Performance & Polish (pending)
 
-### Completion Strategy (Phase-by-Phase)
+**Phase E**: Visual Testing & Language Integration (0% complete) 🆕
+- Alternative visual testing strategies (without puppeteer)
+- Navigation testing approach
+- German translation integration (v7.2 spec)
+- French translation integration (v7.2 spec)
+- Italian translation integration (v7.2 spec)
+- Multi-language routing verification
 
-#### Phase 1: Foundation Fixes (Priority 1) - 1 day
-1. **Create UI Translation Section**
-   - Add `/src/translations/ui/` folder with en/de/fr files
-   - Update `useTranslation` hook to support 'ui' section
-   - Include common UI elements: buttons, forms, modals, tooltips
+**Phase 6**: Landing Page Improvement (35% complete) 🆕
+- Critical P0 blockers fixed ✅
+- Hero redesign with dual-split layout COMPLETED ✅
+  - Father-daughter.png image implemented
+  - New copy: "Live Younger, Longer. Screen Smarter, from Home"
+  - Trust bar with certifications
+  - Product badge overlay
+- Hero copy refinements COMPLETED ✅
+  - Separated FAQ link from primary CTA
+  - Implemented copy variant system (default/original)
+  - Multi-language support for copy variants ✅
+- Statistics consolidation (3 key metrics) - NEXT
+- Product section enhancement (8 benefits)
+- Trust signals (testimonials, advisors, CEO quote)
+- Performance optimization
+- A/B testing framework
 
-2. **Complete Missing Translation Files**
-   - `howItWorks/de.ts` & `howItWorks/fr.ts` (missing 63% of content)
-   - `about/de.ts` & `about/fr.ts` (missing 25% of content)
+## Current State Analysis
 
-#### Phase 2: Component Fixes (Priority 2) - 1 day  
-1. **Fix Critical Hardcoded Components**
-   - `CookieConsent.tsx`: Add translation support for cookie consent
-   - `SwissHeritage.tsx`: Migrate to translation system
-   - `ProgressiveCard.tsx`: Add translation prop for "Learn more"
-   - `TriTestReport.tsx`: Add medical report translations
+### Phase C Status
+1. **event-stream.md**: Fixed to one-line format ✓
+2. **planning.md**: Updated with current plans ✓
+3. **conventions.md**: Added navigation structure ✓
+4. **doc-ref.md**: Categorized and updated to v3.2 ✓
+5. **todo.md**: Active tasks properly tracked ✓
 
-#### Phase 3: Testing & Polish (Priority 3) - 0.5 days
-1. **End-to-End Testing**
-   - Test all language switching scenarios
-   - Verify URL routing across all pages
-   - Test mobile language switching
-   - Validate translation fallbacks
+### Phase D Status
+1. **Components Created**: 8 new components (100%)
+2. **Visual Assets**: 20+ images integrated (80%)
+3. **v7.2 Requirements**: All critical requirements met
+4. **P2 Bug**: data-testid attributes added (80%)
+5. **Remaining**: Performance optimization, final polish
 
-2. **Quality Assurance**
-   - Review translation consistency
-   - Check for missing translations
-   - Verify proper text formatting
+## Phase C – Working Files Cleanup & Documentation Organization
 
-### Success Metrics
-- **100% Translation Coverage**: All user-facing text translatable
-- **0 Hardcoded Components**: All components use translation system
-- **Consistent Patterns**: Unified translation approach across codebase
-- **Full Functionality**: Language switching works on all pages
+### C.1 Working File Format Corrections ✅ COMPLETE
 
-### Risk Assessment
-**Low Risk**: System foundation is solid
-**Medium Risk**: Large amount of content to translate
-**Mitigation**: Prioritize most visible components first
+**Completed**:
+1. Fixed event-stream.md format ✓
+   - Converted multi-line entries to single-line format
+   - Standardized timestamp format: [YYYY-MM-DD HH:MM]
+   - Used consistent event types per v5.0
+   - Archived verbose historical entries
+2. Cleaned planning.md ✓
+   - Moved completed phases to archive section
+   - Kept only active Phase C & D content
+   - Removed emergency fix references
+3. Updated todo.md ✓
+   - Archived completed Phase A & B tasks
+   - Created new Phase C & D task structure
+   - Added proper task IDs and priorities
 
-### Estimated Timeline: 2.5 days total
-- Phase 1: 1 day
-- Phase 2: 1 day  
-- Phase 3: 0.5 days
+### C.2 Documentation Inventory & Categorization ✅ COMPLETE
 
-## 🚨 Critical Issues Identified (2025-01-17)
+**Completed**:
+1. Documentation audit ✓
+   - Listed all files in /docs/ with categories
+   - Separated specifications from implementations
+   - Identified outdated or duplicate docs
+2. Updated doc-ref.md structure ✓
+   - Created clear sections: Specs / Implementation / Reports / Archive
+   - Added status for each doc: Active / Review / Archived
+   - Included last-modified dates
+3. Created documentation inventory ✓
+   - Comprehensive inventory in docs/inventory/
+   - Final audit report consolidating all inventories
 
-### Multi-Language System Audit Results
-- **Core system works** but only 2/25 pages use it
-- **22 pages have hardcoded English text**
-- **Missing translation files** for about/howItWorks sections
-- **useTranslation hook** doesn't support all sections
+### C.3 Documentation Cleanup & Lifecycle Management 🚧 IN PROGRESS
 
-### Multi-Theme System Audit Results  
-- **Theme system properly implemented** with 4 themes
-- **Only ~6% of components are theme-aware**
-- **TriTestReport worst offender** with 50+ hardcoded colors
-- **Theme switcher works** but components don't use it
+**Comprehensive Audit Results (2025-07-28)**:
+- Total documentation files: 153 (138 markdown, 5 PDF)
+- Files in correct locations: 73 active docs in /docs/
+- Misplaced files in root: 14 markdown files
+- Missing master copy documents: English, German, French
+- Documentation gaps: compliance, asset inventory, Italian copy
 
-### Navigation Audit Results
-- **12 broken Footer links** (routes not defined)
-- **6 placeholder social media links**
-- **4 non-functional CTA buttons** on homepage
-- **Missing critical pages**: demo request, legal pages, patient/physician portals
+**Cleanup Actions Planned**:
+1. Archive v6.1 files from root (7 files) → /docs/archive/2025-07-28/root-cleanup/
+2. Move v7.2 files to proper locations (7 files) → /docs/research/ or /docs/specs/
+3. Create master copy documents in /docs/content/
+4. Update doc-ref.md to v4.0 with new locations
+5. Add component inventory to CLAUDE.md
+6. Create asset inventory document
 
-## Technical Architecture
+**Documentation Lifecycle Process**:
+- Creation: ISO-date prefix, proper categorization
+- Indexing: Immediate update to doc-ref.md
+- Updating: In-commit documentation updates
+- Archival: 7-day rule to /docs/archive/YYYY-MM-DD/
+- Memory: Store summaries via memory.store
+- Graph: Create entities and relations in context7
 
-### Tech Stack
-- **Frontend**: React 18 + TypeScript 5 + Vite
-- **Styling**: Tailwind CSS 3 + shadcn/ui components
-- **Routing**: React Router DOM 6 (multilingual support)
-- **State Management**: TanStack Query 5 + Context API
-- **Forms**: React Hook Form 7 + Zod validation
-- **Analytics**: Google Analytics + Google Ads + HubSpot
-- **Deployment**: Vercel (preview) → Netlify (production)
+## Phase D – Landing Page v7.2 Implementation
 
-### Design System (Modern Progressive)
-- **Primary Colors**: 
-  - Deep Navy (#1E3A5F)
-  - Medical Teal (#00796B)
-  - Swiss Red (#FF0000) - Heritage accents
-- **Typography**: IBM Plex Sans (400/600/700) - Primary font
-- **Spacing**: 
-  - Sections: py-20 (mobile) / py-30 (desktop)
-  - Cards: p-6 to p-8
-  - Gaps: gap-8 to gap-12
-- **Animations**:
-  - Base duration: 1000ms with ease-out
-  - Stagger delay: 150ms between elements
-  - Scroll-triggered with intersection observer
-- **Breakpoints**: sm:640px, md:768px, lg:1024px, xl:1280px, 2xl:1536px
+### D.1-D.3 Core Implementation ✅ COMPLETE
 
-## Implementation Phases (Revised 2025-01-17)
+**Completed Components**:
+1. ProductSection with visual assets
+2. NumbersSection with 4 metrics
+3. TechCarousel with 5-step flow
+4. MedicalAdvisors showcase
+5. EnhancedTestimonials with Maria feature
+6. EnhancedFAQ with categories
+7. ComfortShowcase section
+8. MVCPPreview for professionals
 
-### Phase A: Critical UX Restoration ✅
-**Goal**: Restore basic navigation and user experience functionality
-**Status**: 100% Complete
-**Dependencies**: None
+### D.4-D.5 Advanced Requirements ✅ NEARLY COMPLETE
 
-#### Tasks:
-1. Implement CTA button handlers on Home2
-   - Hero CTAs → proper navigation routes
-   - Technology section → link to content
-   - Bottom CTAs → contact form modal/page
-2. Fix Footer navigation issues
-   - Remove broken links or create placeholder routes
-   - Update social media links or remove them
-   - Ensure all footer links have valid destinations
-3. Create missing critical routes
-   - /request-demo (form page)
-   - /privacy, /terms, /cookies (legal pages)
-   - Placeholder pages for non-critical routes
+**Visual Assets Integration** (80%):
+- Hero image variants implemented ✓
+- Doctor consultation images added ✓
+- Manufacturing images integrated ✓
+- Product showcase enhanced ✓
+- Care360 product collage pending
 
-### Phase B: Theme System Compliance 🎨 ✅
-**Goal**: Ensure all components use the theme system
-**Status**: 95% Complete (core components done, minor ones remain)
-**Dependencies**: None (can run parallel to Phase A)
+**Critical v7.2 Requirements** (100%):
+- RiskCardsSection created ✓
+- Insurance/Pricing split ✓
+- Testimonials updated ✓
+- CTA title changed ✓
+- Process copy updated ✓
 
-#### Tasks:
-1. Fix TriTestReport component (50+ hardcoded colors)
-   - Map all hardcoded colors to theme variables
-   - Test across all 4 themes
-2. Update remaining non-compliant components
-   - ContactForm, MvcpSection, CtaSection
-   - Any other components with hardcoded colors
-3. Create theme compliance verification script
+**P2 Bug Fix** (80%):
+- Added data-testid to Hero, Statistics, Product, Numbers, Clinical, TechCarousel ✓
+- Remaining: ProblemSolution and Care360 sections
 
-### Phase C: Multi-Language Implementation 🌍
-**Goal**: Enable language switching across entire site
-**Status**: 30% Complete (infrastructure ready, pages need conversion)
-**Dependencies**: Phase A (for navigation consistency)
+### D.6 Performance & Polish 🚧 PENDING
 
-#### Tasks:
-1. Create missing translation infrastructure
-   - Add 'about' and 'howItWorks' to useTranslation hook
-   - Create de.ts and fr.ts files for these sections
-2. Convert all pages to use translations (22 pages)
-   - Extract all hardcoded text to translation files
-   - Implement useTranslation hook in each page
-   - Verify language switching works
+**Remaining Tasks**:
+1. **Image Optimization**:
+   - Implement lazy loading
+   - Convert to WebP format
+   - Add responsive srcset
+   
+2. **Performance Testing**:
+   - Measure LCP < 2.5s
+   - Check CLS < 0.1
+   - Optimize bundle size
+   
+3. **Theme Compliance**:
+   - Test all 4 themes
+   - Fix any hardcoded colors
+   - Verify contrast ratios
+   
+4. **Accessibility**:
+   - WCAG 2.1 AA compliance
+   - Keyboard navigation
+   - Screen reader testing
 
-### Phase D: Protected Components
-**Goal**: Implement the 4 protected medical components
-**Status**: 0% Complete
-**Dependencies**: Phase B (theme compliance)
+## Implementation Timeline
 
-#### Tasks:
-1. HeartBalanceRing component (clinical accuracy)
-2. ContributingFactorCards (regulatory approved content)
-3. TabNavigation (marketing ops requirement)
-4. TodayTab (licensed algorithm)
+### Phase C Schedule (50% Complete)
+- C.1 Working File Corrections: ✓ DONE (1 hour)
+- C.2 Documentation Inventory: ✓ DONE (2 hours)  
+- C.3 Navigation & Components: 2-3 hours remaining
+- Total Phase C: ~0.5 day remaining
 
-### Phase E: Interactive Calculators
-**Goal**: Build eligibility checker and coverage calculator
-**Status**: 0% Complete
-**Dependencies**: Phase D (may use protected components)
+### Phase D Schedule (85% Complete)
+- D.1 Research: ✓ DONE (1 hour)
+- D.2 Core Components: ✓ DONE (2 hours)
+- D.3 Integration: ✓ DONE (2 hours)
+- D.4 Visual Assets: 80% DONE (0.5 hours)
+- D.5 Critical Requirements: ✓ DONE (2 hours)
+- D.6 Performance & Polish: 0% (2 hours remaining)
+- Total Phase D: ~2.5 hours remaining
 
-#### Tasks:
-1. Eligibility Checker
-   - Complete form flow and validation
-   - Insurance mapping logic
-   - Results page design
-2. Coverage Calculator
-   - Design calculation interface
-   - Implement calculation logic
-   - Results visualization
+### Priority Order (Updated 2025-07-28)
+1. **Immediate**: Complete C.3 Documentation Cleanup (~3 hours)
+   - Archive misplaced files from root
+   - Create missing master copy documents
+   - Update doc-ref.md and CLAUDE.md
+   - Establish documentation lifecycle process
+2. **High**: Continue Phase 6 Landing Page tasks (6.2-6.7)
+3. **Medium**: Complete Care360 product collage
+4. **Medium**: D.6 Performance optimization
+5. **Low**: Complete remaining data-testid attributes
 
-### Phase F: Content & Polish
-**Goal**: Complete remaining pages and optimize
-**Status**: 0% Complete
-**Dependencies**: Phases A-C
+## Success Metrics
 
-#### Tasks:
-1. Complete all Partner pages with modern design
-2. Finish How It Works section
-3. Complete About section pages
-4. Performance optimization
-5. Analytics integration
+### Phase C Metrics
+- ✅ Working files compliant with v5.0
+- ✅ Documentation properly categorized
+- ✅ Navigation documented
+- ⏳ Component inventory complete
 
-## Phase Status
+### Phase D Metrics
+- ✅ All v7.2 required sections present
+- ✅ 20+ visual assets strategically placed
+- ✅ Professional medical credibility established
+- ✅ Improved conversion through visual proof
+- ✅ Comfort and ease of use visually demonstrated
+- ⏳ Performance budgets maintained
+- ⏳ Mobile-first responsive design verified
+- ⏳ Accessibility audit passed
 
-### Phase 1: Foundation (English MVP) - 85% Complete
-- [x] Project setup and configuration
-- [x] Base routing structure
-- [x] Multi-language context setup
-- [x] Theme system implementation
-- [x] Progressive design system created
-- [x] Homepage implementation (Home2 as default)
-- [x] Core progressive components library
-- [x] Navigation system fixed and working
-- [x] High-priority pages modernized (Physicians, 14DayHolter, Company)
-- [x] Component showcase created
-- [ ] Analytics integration (structure ready, needs IDs)
-- [ ] Contact form with validation
+## Key Accomplishments
 
-### Phase 2: Localization - 10% Complete
-- [x] Translation file structure
-- [ ] German content translation
-- [ ] French content translation
-- [ ] Language switcher UI
-- [ ] Route localization testing
+### Components Created/Enhanced
+1. **ProductSection**: 8 benefits with visual assets
+2. **NumbersSection**: 4 key metrics
+3. **TechCarousel**: 5-step data flow
+4. **MedicalAdvisors**: 4 doctor showcase
+5. **EnhancedTestimonials**: Maria feature + Swiss patients
+6. **EnhancedFAQ**: Categorized medical questions
+7. **ComfortShowcase**: Sensitive skin focus
+8. **MVCPPreview**: Healthcare professional tools
+9. **RiskCardsSection**: 3 cardiac risk education cards
+10. **InsuranceCoverageSection**: 4 pathway explanations
+11. **PricingSection**: 3-tier self-pay with gold standard
 
-### Phase 3: Interactive Tools - 0% Complete
-- [ ] Eligibility checker design
-- [ ] Coverage calculator design
-- [ ] API integration
-- [ ] Form validations
-- [ ] Testing suite
+### Visual Assets Integrated
+- Product images: 4 integrated
+- Doctor images: 6 integrated
+- MVCP screenshots: 4 integrated
+- Manufacturing images: 2 integrated
+- Comparison graphic: 1 integrated
+- Hero variants: 2 implemented
+- Total: ~20 images strategically placed
 
-### Phase 4: Launch Preparation - 0% Complete
-- [ ] Swiss medical law compliance
-- [ ] Performance optimization
-- [ ] Security hardening
-- [ ] Production deployment
+## Risk Mitigation
 
-## Key Components Status
+### Identified Risks
+1. **Performance Impact**: Large number of images
+2. **Theme Compatibility**: Multiple custom components
+3. **Mobile Experience**: Complex layouts
 
-### Protected Components (Read-Only)
-- HeartBalanceRing - Not implemented
-- ContributingFactorCards - Not implemented
-- TabNavigation - Not implemented
-- TodayTab - Not implemented
+### Mitigation Strategies
+1. Implement progressive loading and WebP conversion
+2. Test each component in all 4 themes
+3. Mobile-first development approach
 
-### Core Components
-- Navbar - Basic implementation exists
-- Footer - Basic implementation exists
-- Hero Section - Needs implementation
-- Contact Form - Basic implementation exists
+## Completed Phases Archive
 
-## Recent Achievements
+### Phase A (Documentation Cleanup) ✅ COMPLETED 2025-07-25
+- Successfully aligned all working files to v5.0
+- Archived 19 obsolete files
+- Created knowledge graph entities
+- Total time: ~1 day
 
-### Design System Rollout (Day 2 Complete)
-1. **Progressive Components Created**:
-   - ProgressiveCard - Reusable card with hover effects
-   - ImageSection - Optimized image display component
-   - TeamMember - Three variants for team displays
-   - FeatureGrid - Responsive grid layouts
-   - StatCard - Animated statistics display
-   - ContentSection - Flexible content component
+### Phase B (v7.2 Copy Integration) ✅ COMPLETED 2025-07-25
+- Implemented all v7.2 components
+- Fixed critical homepage routing issue
+- Updated all copy to evidence-based messaging
+- Total time: ~1 day
 
-2. **Pages Modernized**:
-   - Physicians page with MVCP integration
-   - 14-Day Holter with product showcases
-   - Company page with Swiss heritage section
+### Phase C (Working Files Organization) 🛠️ IN PROGRESS
+- Fixed event-stream.md format ✓
+- Updated doc-ref.md categorization ✓
+- Added navigation documentation to conventions.md ✓
+- Component inventory pending
+- Progress: 50% complete
 
-3. **Process Enhancements**:
-   - CLAUDE_PROCESS.md v2.0 with 5 new modules
-   - conventions.md v2.0 with concrete examples
-   - Comprehensive documentation updates
+### Phase D (Landing Page v7.2 Implementation) 🛠️ IN PROGRESS
+- Gap analysis complete ✓
+- 8 new components created ✓
+- All components integrated ✓
+- Visual assets 80% integrated
+- Critical v7.2 requirements met ✓
+- Progress: 85% complete
 
-## Current Architecture
+## Phase E – Visual Testing & Language Integration (NEW)
 
-### Page Structure
-```
-/                           # Homepage (multilingual)
-├── /solutions
-│   ├── /14-day-holter     # Core product
-│   └── /tritest           # Coming soon (3X screening)
-├── /partners
-│   ├── /gp                # General practitioners
-│   ├── /cardiologists     # Specialists
-│   ├── /telemedicine      # Remote providers
-│   └── /corporate         # B2B partners
-├── /how-it-works
-│   ├── /process           # 5-step journey
-│   ├── /reimbursement     # Insurance pathways
-│   ├── /technology        # Product details
-│   ├── /evidence          # Clinical validation
-│   └── /faq               # Common questions
-└── /about
-    ├── /company           # About SKIIN
-    ├── /medical-board     # Expert advisors
-    ├── /blog              # Health articles
-    ├── /testimonials      # Patient stories
-    ├── /compliance        # Regulatory info
-    └── /contact           # Contact form
-```
+### E.1 Alternative Visual Testing Strategies
+Since puppeteer MCP tool is not available, we'll implement:
 
-### Component Organization
-```
-src/components/
-├── ui/                    # shadcn/ui primitives (50+ components)
-├── layout/               # Structural components
-│   ├── Navbar.tsx        # Multi-language navigation
-│   └── Footer.tsx        # Site footer
-├── home/                 # Homepage sections
-│   └── (to be implemented)
-├── analytics/            # Tracking components
-│   └── AnalyticsProvider.tsx
-└── physicians/           # Professional components
-    └── (to be implemented)
-```
+1. **Manual Visual Testing Script**:
+   - Create Node.js script using local puppeteer installation
+   - Capture screenshots of all pages in all languages
+   - Test navigation flow between pages
+   - Verify responsive breakpoints (375px, 768px, 1024px, 1536px)
 
-### Translation Structure
-```
-src/translations/
-├── en/                   # English (default)
-├── de/                   # German (primary)
-└── fr/                   # French
-    └── [feature].json    # Feature-based translations
-```
+2. **React Testing Library**:
+   - Write integration tests for navigation components
+   - Test language switching functionality
+   - Verify route parameters work correctly
+   - Test protected page navigation
 
-## Implementation Gaps
+3. **Browser DevTools Testing**:
+   - Document manual testing checklist
+   - Use Chrome DevTools device emulation
+   - Test network conditions
+   - Verify console errors
 
-### High Priority
-1. **Protected Components**: None implemented yet
-   - HeartBalanceRing (clinical accuracy critical)
-   - ContributingFactorCards (regulatory approved)
-   - TabNavigation (marketing ops dependency)
-   - TodayTab (licensed algorithm)
+### E.2 Navigation Testing Approach
 
-2. **Homepage Sections**: All need implementation
-   - Hero with emotional hook
-   - Problem/Solution grid
-   - How-it-works preview
-   - Insurance clarity
+1. **Route Verification**:
+   - Test all 98 configured routes
+   - Verify language prefixes work correctly
+   - Test fallback routes
+   - Check 404 handling
+
+2. **Language Switching**:
+   - Verify current page preserved when switching languages
+   - Test all 4 language variants
+   - Check URL structure consistency
+   - Verify hreflang tags
+
+3. **Mobile Navigation**:
+   - Test hamburger menu functionality
+   - Verify touch targets (min 44x44px)
+   - Test scroll behavior
+   - Check z-index issues
+
+### E.3 German Translation Integration
+
+Based on `/docs/implementation/025-07-24-ui-component-mapping-v7-DE.md`:
+
+1. **Translation Files**:
+   - Update `/src/translations/home/de.ts`
+   - Implement formal "Sie" addressing
+   - Use Swiss German conventions
+   - Maintain medical terminology accuracy
+
+2. **Key CTAs**:
+   - "Starten Sie Ihre kostenlose Einschätzung"
+   - "Versicherungsdeckung prüfen"
+   - "Fragen? Lesen Sie unsere FAQ →"
+
+3. **Content Sections**:
+   - Hero variants A, B, C
+   - Statistics section
+   - Product benefits
+   - Process steps
    - Testimonials
-   - CTAs
 
-3. **Analytics Integration**: Structure exists but not connected
-   - Google Analytics setup
-   - Conversion tracking
-   - HubSpot forms
-   - Cookie consent
+### E.4 French Translation Integration
 
-### Medium Priority
-1. **Content Management**: No CMS or content loading
-2. **Form Handling**: Basic structure, needs validation
-3. **SEO Optimization**: Meta tags, structured data
-4. **Performance**: Image optimization, lazy loading
+Based on `/docs/implementation/025-07-24-ui-component-mapping-v7-FR.md`:
 
-### Low Priority
-1. **Interactive Calculators**: Phase 3
-2. **Blog System**: Content structure
-3. **Advanced Analytics**: User journey tracking
+1. **Translation Files**:
+   - Update `/src/translations/home/fr.ts`
+   - Use formal "vous" throughout
+   - Maintain Swiss French conventions
+   - Medical precision required
 
-## Next Steps
-1. Document existing component inventory
-2. Map spec requirements to implementation
-3. Create architecture diagrams
-4. Update CLAUDE.md with full context
-5. Begin systematic implementation per phases
+2. **Key CTAs**:
+   - "Commencez votre évaluation gratuite"
+   - "Vérifiez votre couverture d'assurance"
+   - "Des questions ? Consultez notre FAQ →"
+
+3. **Content Sections**:
+   - All hero variants
+   - Statistical evidence
+   - Solution narrative
+   - Insurance coverage
+   - Medical advisors
+
+### E.5 Italian Translation Integration
+
+Based on `/docs/implementation/025-07-24-ui-component-mapping-v7-IT.md`:
+
+1. **Translation Files**:
+   - Create `/src/translations/home/it.ts`
+   - Use formal "Lei" addressing
+   - Swiss Italian conventions
+   - Medical terminology precision
+
+2. **Key CTAs**:
+   - "Inizi la Sua valutazione gratuita"
+   - "Verifichi la copertura assicurativa"
+   - "Domande? Legga le nostre FAQ →"
+
+3. **Content Sections**:
+   - Complete homepage content
+   - All components
+   - Professional pages
+   - Support sections
+
+### E.6 Multi-language Verification
+
+1. **Routing Tests**:
+   ```
+   /en/solutions/10-day-heart-screening
+   /de/loesungen/10-tage-herzscreening
+   /fr/solutions/bilan-cardiaque-10-jours
+   /it/soluzioni/screening-cardiaco-10-giorni
+   ```
+
+2. **Content Consistency**:
+   - Verify all statistics match
+   - Check medical claims accuracy
+   - Ensure CTAs align
+   - Test form validations
+
+3. **SEO Requirements**:
+   - Hreflang tags implementation
+   - Meta descriptions per language
+   - Canonical URLs
+   - Sitemap generation
+
+## Phase E Implementation Timeline
+
+### E.1 Visual Testing Setup (4 hours)
+- Create testing scripts
+- Document manual procedures
+- Set up screenshot comparison
+- Configure test environments
+
+### E.2 Navigation Testing (3 hours)
+- Test all routes
+- Verify language switching
+- Mobile navigation testing
+- Document findings
+
+### E.3-E.5 Language Integration (6 hours)
+- German: 2 hours
+- French: 2 hours
+- Italian: 2 hours
+
+### E.6 Multi-language Verification (3 hours)
+- Cross-language testing
+- SEO verification
+- Final validation
+
+**Total Phase E: ~2 days (16 hours)**
+
+## Updated Priority Order
+
+1. **Immediate**: P1 Theme default bug fix (Phase D)
+2. **High**: Visual testing script creation (Phase E)
+3. **High**: German translation integration (Phase E)
+4. **High**: French translation integration (Phase E)
+5. **High**: Italian translation integration (Phase E)
+6. **Medium**: Navigation testing (Phase E)
+7. **Medium**: Complete Care360 product collage (Phase D)
+8. **Medium**: Finish C.3 navigation documentation (Phase C)
+9. **Low**: D.6 Performance optimization (Phase D)
+10. **Low**: Complete remaining data-testid attributes (Phase D)
+
+## Phase 6 – Landing Page Improvement (NEW)
+
+### 6.1 Critical Issue Resolution ✅ COMPLETED 2025-07-28
+**Fixed critical blockers:**
+1. Homepage blank page rendering bug (P0) ✅ FIXED
+   - Added missing problemSolution sections to all translation files
+   - Fixed CSS positioning conflicts (HomePageTabs top-24, main pt-32)
+   - All 4 language homepages now render correctly
+2. Route terminology discrepancies ✅ FIXED
+   - Updated all routes to match v7.2 spec
+   - Implemented 301 redirects from old URLs
+3. Italian translation completion ✅ FIXED
+   - Homepage works correctly
+   - Solutions pages now have full Italian translations
+
+### 6.2 Hero Redesign Implementation 🚧 IN PROGRESS 2025-07-28
+**Selected Approach: Dual-Split Layout with Father-daughter.png**
+
+**Current Status:**
+- Dual-split layout implemented ✅
+- Father-daughter.png integrated ✅
+- Trust bar and product overlay added ✅
+- **Remaining Tasks:**
+  - Separate FAQ link from primary CTA line
+  - Implement copy variant switching system
+  - Set new default copy per user specifications
+
+**Copy Variants to Implement:**
+1. **Default (NEW):**
+   - Badge: "Your health matters — to more than just you"
+   - Headline: "Most Heart Issues are silent"
+   - Subheadline: "Screen Smarter, Live Younger, Longer"
+   - Above CTA: "Take 5 minutes to check your eligibility for our reinvented heart screening experience, from home."
+   - CTA: "Start your free heart check"
+
+2. **Variant A (Original):**
+   - Badge: "Certified Medical Device • Swiss Quality"
+   - Headline: "Live Younger, Longer."
+   - Subheadline: "Screen Smarter, from Home"
+   - Emotional: "Detect silent heart issues before they steal precious moments..."
+   - CTA: "Start Your Free Heart Check"
+
+### 6.3 Content Improvements
+1. **Statistics Section**: Consolidate to 3 key metrics with citations
+2. **Product Section**: Transform to 8-benefit grid (replacing Silent Triad)
+3. **Trust Signals**: Add testimonials slider + medical advisors
+4. **Insurance/Pricing**: Split into separate sections
+5. **Process Flow**: Update copy for clarity
+6. **Remove**: MVCP banner, redundant videos
+
+### 6.4 Performance Optimization
+- Image compression and WebP conversion
+- Lazy loading implementation
+- Bundle size optimization
+- LCP < 2.5s target
+
+### 6.5 Success Metrics
+- Hero engagement > 60%
+- CTA click-through > 5%
+- Page load time < 3s
+- WCAG AA compliance
+
+## Implementation Timeline (Updated)
+
+### Immediate (Week 1)
+1. **Critical Fixes** (8h)
+   - Fix homepage rendering bug
+   - Resolve route discrepancies
+   - Complete Italian translations
+
+2. **Hero Implementation** (12h)
+   - Image optimization
+   - Component updates
+   - A/B test setup
+
+### Week 2
+3. **Content Updates** (20h)
+   - Statistics cards
+   - Product benefits
+   - Trust signals
+   - Insurance/pricing split
+
+### Week 3
+4. **Polish & Launch** (15h)
+   - Performance optimization
+   - Accessibility audit
+   - Cross-browser testing
+   - Final QA
+
+**Total Phase 6: ~55 hours (7-8 days)**
+
+## Updated Priority Order
+
+### Immediate (P0) - Hero Copy Refinements 🆕
+1. Separate FAQ link from primary CTA line
+2. Implement copy variant switching mechanism
+3. Set new default copy with silent heart issues messaging
+4. Test variant switching functionality
+
+### High (P1) - Core improvements
+5. Create statistics cards (3 metrics)
+6. Build 8-benefit product section
+7. Add testimonials & advisors
+
+### Medium (P2) - Enhancement
+8. Split insurance/pricing sections
+9. Update process flow copy
+10. Performance optimization
+11. Remove MVCP/consolidate videos
+
+### Low (P3) - Polish
+12. Complete Phase C documentation
+13. Finish data-testid attributes
+14. Create component inventory
+
+---
+
+This plan is a living document covering current Phase C, D, E, and 6 work. Phase 6 was added based on comprehensive competitor analysis and landing page improvement recommendations. Always log changes in event-stream.md using the one-line format.
+
+## Documentation Lifecycle Process (NEW - v5.0)
+
+### Creation
+- Use ISO date prefix: YYYY-MM-DD-descriptive-name.md
+- Place in appropriate category folder under /docs/
+- Update doc-ref.md immediately with path, description, and status
+
+### Updating
+- Document changes in same commit as code changes
+- Update version numbers in document headers
+- Log significant updates in event-stream.md
+- Store summaries via memory.store
+
+### Archival
+- Move superseded docs after 7 days of non-use
+- Create /docs/archive/YYYY-MM-DD/ folder
+- Include README.md explaining archive contents
+- Update doc-ref.md with new location and Archived status
+
+### Memory & Graph Integration
+- Store document summaries: memory.store('doc-[name]-v[n]', summary)
+- Create graph entities: context7.create_entities with type 'document'
+- Link relationships: document → supersedes → old-document
+- Add observations for significant changes

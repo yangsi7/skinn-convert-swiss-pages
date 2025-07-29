@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { VitestReporter } from 'tdd-guard'
+import pkg from 'tdd-guard-vitest';
+const { VitestReporter } = pkg;
 
 
 // https://vitejs.dev/config/
