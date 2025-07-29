@@ -1,20 +1,41 @@
 # Planning Document – SKIIN Switzerland Marketing Website
-VERSION: 5.2
-LAST UPDATED: 2025-07-28
+VERSION: 6.0
+LAST UPDATED: 2025-07-29
 PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
-PURPOSE: Phase C cleanup + Phase D Landing Page v7.2 Implementation + Phase E Visual Testing & Language Integration + Phase 6 Landing Page Improvement
+PURPOSE: Landing Page Redesign (LPR) based on user feedback + Memory Implementation + Previous phases
 
-This planning document now covers Phase C (working files cleanup), Phase D (Landing Page v7.2 implementation), Phase E (Visual Testing & Language Integration), and the newly added Phase 6 (Landing Page Improvement) based on comprehensive competitor analysis and best practices research.
+This planning document covers the current Landing Page Redesign (LPR) initiative based on user feedback, along with memory implementation and previous phases.
+
+## Current Priority: Memory & Knowledge Graph Implementation 
+
+**Hero Section Redesign (HR) - COMPLETED ✅ (2025-07-29)**
+- Changed subheadline text across all languages
+- Added eligibility text above CTA button
+- Implemented equal visual hierarchy for headline/subheadline
+- Added subtle box containers and gradient backgrounds
+- Created smooth animations with accessibility support
+- Total time: 4.5 hours (as estimated)
+
+**Previous Landing Page Redesign (LPR) - COMPLETED ✅**
 
 ## Executive Summary
 
-Following successful completion of Phase A (Documentation Cleanup) and Phase B (v7.2 Copy Integration), we are executing:
+Current active initiatives:
 
-**Phase C**: Working Files Organization (50% complete)
+**Phase LPR**: Landing Page Redesign (100% complete) ✅ COMPLETED
+- Phase 1: Critical Removals (Silent Triad, MVCP, stat cards, Swiss claims)
+- Phase 2: Hero Redesign (product image, layout simplification, copy update)
+- Phase 3: Video Transformation (full-screen separators, lazy loading)
+- Phase 4: Product Enhancement (shortened copy, interactive states)
+- Phase 5: Layout Improvements (dividers, full-screen comfort, setup image)
+- Phase 6: Content Migration (MVCP to GP page, add missing sections)
+- Phase 7: Polish & Testing (performance, accessibility, responsive)
+
+**Phase C**: Working Files Organization (✅ COMPLETE)
 - Working file format corrections (event-stream.md one-line format) ✓
 - Documentation inventory and categorization ✓
 - Navigation structure documentation ✓
-- Component and asset inventory updates (pending)
+- Documentation cleanup and lifecycle process ✓
 - Clear separation of specifications vs implementation docs ✓
 
 **Phase D**: Landing Page v7.2 Implementation (85% complete)
@@ -25,7 +46,7 @@ Following successful completion of Phase A (Documentation Cleanup) and Phase B (
 - Critical v7.2 Requirements ✓
 - Performance & Polish (pending)
 
-**Phase E**: Visual Testing & Language Integration (0% complete) 🆕
+**Phase E**: Visual Testing & Language Integration (0% complete)
 - Alternative visual testing strategies (without puppeteer)
 - Navigation testing approach
 - German translation integration (v7.2 spec)
@@ -33,22 +54,40 @@ Following successful completion of Phase A (Documentation Cleanup) and Phase B (
 - Italian translation integration (v7.2 spec)
 - Multi-language routing verification
 
-**Phase 6**: Landing Page Improvement (35% complete) 🆕
+**Phase 6**: Landing Page Improvement (80% complete) 🆕
 - Critical P0 blockers fixed ✅
-- Hero redesign with dual-split layout COMPLETED ✅
-  - Father-daughter.png image implemented
-  - New copy: "Live Younger, Longer. Screen Smarter, from Home"
-  - Trust bar with certifications
-  - Product badge overlay
-- Hero copy refinements COMPLETED ✅
-  - Separated FAQ link from primary CTA
-  - Implemented copy variant system (default/original)
-  - Multi-language support for copy variants ✅
-- Statistics consolidation (3 key metrics) - NEXT
-- Product section enhancement (8 benefits)
-- Trust signals (testimonials, advisors, CEO quote)
-- Performance optimization
-- A/B testing framework
+- Hero redesign with dual-split layout ✅
+- Hero copy refinements ✅
+- Statistics consolidation ✅
+- Product section enhancement ✅
+- Trust signals implementation ✅
+- Content cleanup - PENDING
+- Performance optimization - PENDING
+- Testing & QA - PENDING
+
+**Phase M**: Memory & Knowledge Graph (40% complete) 🆕 IMMEDIATE PRIORITY
+- Codebase tree of thought analysis ✅
+- Memory implementation plan created ✅
+- CLAUDE.md memory integration sections added ✅
+- CLAUDE_PROCESS.md memory module enhanced ✅
+- Memory implementation documentation ready ✅
+- Core memory entries creation - BLOCKED (MCP unavailable)
+- Knowledge graph structure building - BLOCKED (MCP unavailable)
+- Integration with development workflow - DOCUMENTED
+- Automated memory patterns - DOCUMENTED
+
+## URGENT: Landing Page Copy Alignment Required 🚨
+
+A comprehensive review of the landing page against the official copy specification (`/docs/implementation/skiin-ch-copy 29072025.md`) has revealed significant gaps that must be addressed immediately:
+
+### Critical Issues Found:
+1. **Silent Triad on Homepage** - Must be removed (only for Solutions pages)
+2. **Missing Sections** - Care360 Vision, Know Your Heart Risk
+3. **Non-Spec Content** - Video section, MVCP Preview, generic features
+4. **Copy Misalignment** - Hero variants don't match specification
+
+### Implementation Priority:
+This takes precedence over all other Phase 6 work. The copy specification document is the authoritative source and must be followed exactly.
 
 ## Current State Analysis
 
@@ -555,27 +594,30 @@ Based on `/docs/implementation/025-07-24-ui-component-mapping-v7-IT.md`:
 
 ## Updated Priority Order
 
-### Immediate (P0) - Hero Copy Refinements 🆕
-1. Separate FAQ link from primary CTA line
-2. Implement copy variant switching mechanism
-3. Set new default copy with silent heart issues messaging
-4. Test variant switching functionality
+### Immediate (P0) - Memory & Knowledge Graph Implementation 🆕
+1. Create core project memory entries (project overview, architecture, conventions)
+2. Build knowledge graph entities for Project, Phases, Components, Features
+3. Implement memory recall patterns for development workflow
+4. Document memory usage procedures
 
-### High (P1) - Core improvements
-5. Create statistics cards (3 metrics)
-6. Build 8-benefit product section
-7. Add testimonials & advisors
+### High (P1) - Complete Phase 6 Remaining Tasks
+5. Content cleanup (remove MVCP banner, consolidate videos)
+6. Performance optimization (image compression, lazy loading, bundle optimization)
+7. Cross-browser and mobile testing
+8. Accessibility audit and fixes
 
-### Medium (P2) - Enhancement
-8. Split insurance/pricing sections
-9. Update process flow copy
-10. Performance optimization
-11. Remove MVCP/consolidate videos
+### Medium (P2) - Phase E Visual Testing & Languages
+9. Create visual testing scripts (alternative to puppeteer MCP)
+10. Complete German translation integration
+11. Complete French translation integration
+12. Complete Italian translation integration
+13. Multi-language routing verification
 
-### Low (P3) - Polish
-12. Complete Phase C documentation
-13. Finish data-testid attributes
-14. Create component inventory
+### Low (P3) - Polish & Documentation
+14. Complete remaining data-testid attributes
+15. Finish component inventory documentation
+16. Update CLAUDE.md with latest changes
+17. Archive completed phase documentation
 
 ---
 

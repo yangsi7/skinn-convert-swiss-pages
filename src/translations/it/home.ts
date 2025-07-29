@@ -7,17 +7,19 @@ export const homeTranslations = {
       default: {
         badge: "La Sua salute è importante — per più di Lei solo",
         headline: "La maggior parte dei problemi cardiaci è silenziosa",
-        subheadline: "Screening più intelligente, viva più giovane, più a lungo",
-        aboveCta: "Si prenda 5 minuti per verificare la Sua idoneità per la nostra esperienza di screening cardiaco reinventata, da casa.",
+        subheadline: "Screening più intelligente, viva più a lungo",
+        aboveCta: "Rilevi i problemi cardiaci silenziosi prima che rubino momenti preziosi. Protegga Se stesso e coloro che La amano.",
+        eligibilityText: "Si prenda 5 minuti per verificare la Sua idoneità",
         ctaPrimary: "Inizi il Suo controllo cardiaco gratuito",
         ctaSecondary: "Domande? Legga le nostre FAQ →"
       },
       // Original - Legacy dual-split copy
       original: {
-        badge: "Dispositivo Medico Certificato • Qualità Svizzera",
+        badge: "Dispositivo Medico Certificato • Tecnologia Myant",
         headline: "Viva più giovane, più a lungo.",
         subheadline: "Screening più intelligente, da casa",
         aboveCta: "Rilevi i problemi cardiaci silenziosi prima che rubino momenti preziosi. Protegga Se stesso e coloro che La amano.",
+        eligibilityText: "Si prenda 5 minuti per verificare la Sua idoneità",
         ctaPrimary: "Inizi il Suo controllo cardiaco gratuito",
         ctaSecondary: "Domande? Legga le nostre FAQ →"
       },

@@ -37,7 +37,7 @@ export const useThemeContent = () => {
           },
           heroSubtitle: 'Precision-engineered health monitoring with traditional Swiss quality. Excellence in every detail.',
           ctaText: 'Discover Excellence',
-          trustMessage: 'Swiss Quality',
+          trustMessage: 'Myant Technology',
           personality: 'premium'
         };
       

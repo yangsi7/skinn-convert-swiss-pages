@@ -54,7 +54,11 @@
 
 **Mnemonic**: *LOAD → UNDERSTAND → PLAN → ACT → LOG → TEST → OPTIMISE → REVIEW → PERF → CODE‑REVIEW → BUG → REFLECT → MEMORISE → DOC → DELIVER → CI/CD → IDLE*
 
-1. **Load Context**: Read `CLAUDE.md`, then load persistent memory via `memory.recall` (if configured), read the knowledge graph using `context7.read_graph` and read the five working files in canonical order.
+1. **Load Context**: Read `CLAUDE.md`, then load persistent memory via `memory.recall` (if configured), read the knowledge graph using `context7.read_graph` and read the five working files in canonical order. Specifically:
+   - Use `memory.recall('project-skiin-*')` for project overview
+   - Use `memory.recall('recent-changes-*')` for latest updates
+   - Use `memory.recall('phase-*-summary')` for current phase status
+   - Use `context7.search_nodes` to find relevant entities
 
 2. **Understand**: Parse the latest user request & `event‑stream.md`. If the task involves architecture, multi‑module coordination or significant ambiguity, invoke the **`<system_understanding_module>`**.
 
@@ -76,7 +80,11 @@
 
 11. **Reflect (Expert Reflection)**: Invoke the **`<expert_reflection_module>`** to evaluate the solution across requirements, architecture, design, UX, performance, security and quality. Revise the plan if necessary and create additional tasks in `todo.md`.
 
-12. **Memorise**: Use `memory.store` to persist updated plans, research summaries, performance reports and bug information. Use `context7.add_observations` to update the knowledge graph with new entities, relationships or observations.
+12. **Memorise**: Use `memory.store` to persist updated plans, research summaries, performance reports and bug information. Use `context7.add_observations` to update the knowledge graph with new entities, relationships or observations. Follow these specific patterns:
+    - Task completion: `memory.store('task-[id]-outcome', {completed, duration, lessons, nextSteps})`
+    - Bug discovery: `memory.store('bug-[severity]-[id]-details', {discovered, component, symptoms, reproduction})`
+    - Design decisions: `memory.store('decision-[date]-[topic]', {decision, rationale, alternatives, impact})`
+    - Daily snapshot: `memory.store('recent-changes-[date]', {tasksCompleted, decisionsMode, bugsFound})`
 
 13. **Document Auto‑Update**: Trigger the rules in the **`<documentation_module>`**. Update `planning.md`, `todo.md`, `doc‑ref.md` and relevant docs in `docs/`, as well as Obsidian vaults via `mcp‑obsidian` tools.
 
@@ -198,7 +206,29 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 
 * **Querying** – Use `search_nodes` to find entities matching a pattern and `open_nodes` to retrieve full details. Use `read_graph` to dump the entire graph when necessary.
 
-* **Persistence** – After updating the graph, store the new state via `memory.store` with a key like `graph‑snapshot‑[timestamp]`.  
+* **Persistence** – After updating the graph, store the new state via `memory.store` with a key like `graph‑snapshot‑[timestamp]`.
+
+* **Memory Creation Lifecycle**:
+  1. **Session Start**: Always recall relevant memories before beginning work
+  2. **During Work**: Create memories at key decision points and task completions
+  3. **Task Completion**: Store outcomes, lessons learned, and next steps
+  4. **Bug Discovery**: Store details, affected components, and reproduction steps
+  5. **Design Decisions**: Store rationale, alternatives considered, and impact
+  6. **Daily Snapshots**: Store progress summary at end of significant work sessions
+  
+* **Automated Memory Triggers**:
+  - When completing a task: `memory.store('task-[id]-outcome', details)`
+  - When finding a bug: `memory.store('bug-[severity]-[id]-details', info)`
+  - When making decisions: `memory.store('decision-[date]-[topic]', rationale)`
+  - When updating components: `memory.store('component-[name]-spec', spec)`
+  - Daily work summary: `memory.store('recent-changes-[date]', summary)`
+
+* **Memory Naming Conventions** – Follow the patterns documented in `/docs/process/2025-07-29-memory-implementation-guide.md`:
+  - Project level: `project-[name]-overview`, `project-[name]-architecture`
+  - Development: `phase-[letter]-summary`, `component-[name]-spec`
+  - Decisions: `decision-[date]-[topic]`, `research-[topic]-findings`
+  - Temporal: `recent-changes-[date]`, `graph-snapshot-[date]`
+  
    \</memory\_management\_module\>
 
 ---
@@ -655,4 +685,6 @@ See the Sandbox Environment Spec in Infrastructure & Deployment for operating sy
 * If stuck, ask—but batch questions.
 
 * Keep responses professional, paragraph‑style unless a list is requested.
+
+* **Memory Management is Mandatory**: At session start, always recall relevant memories. During work, create memories at decision points, task completions, and bug discoveries. Follow the naming conventions in `/docs/process/2025-07-29-memory-implementation-guide.md`.
 

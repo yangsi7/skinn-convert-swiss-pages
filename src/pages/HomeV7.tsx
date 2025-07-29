@@ -8,13 +8,15 @@ import ProblemSolutionSection from '@/components/home/ProblemSolutionSection';
 import { ProductSection } from '@/components/home/ProductSection';
 import { NumbersSection } from '@/components/home/NumbersSection';
 import { ClinicallyProvenTechSection } from '@/components/home/ClinicallyProvenTechSection';
-import { Care360Section } from '@/components/home/Care360Section';
-import { TechCarousel } from '@/components/home/TechCarousel';
+import { Care360Technology } from '@/components/home/Care360Technology';
+import { SKIINAdvantage } from '@/components/home/SKIINAdvantage';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
+import { ComfortShowcase } from '@/components/home/ComfortShowcase';
 import InsuranceSection from '@/components/home/InsuranceSection';
 import CtaSection from '@/components/home/CtaSection';
 import FaqSection from '@/components/home/FaqSection';
 import ContactSection from '@/components/home/ContactSection';
+import { SectionDivider, SectionDividerPresets } from '@/components/ui/section-divider';
 
 /**
  * Version 7.2 homepage with all the new components
@@ -29,39 +31,49 @@ const HomeV7 = () => {
         {/* Hero with A/B variants and emotional messaging */}
         <HeroSection />
         
+        <SectionDivider variant="wave" color="var(--secondary)" />
         {/* Statistics: 70%, 20-30%, 66% vs 9% */}
         <StatisticsShowcase />
         
+        <SectionDivider variant="gradient" />
         {/* Silent Triad: ECG + ABPM + Sleep */}
         <ProblemSolutionSection />
         
+        <SectionDivider variant="angle" color="var(--muted)" />
         {/* 8 benefit cards in 2x4 grid */}
         <ProductSection />
         
+        <SectionDivider variant="wave" color="var(--secondary)" flipY />
+        {/* Consolidated SKIIN Advantage section */}
+        <SKIINAdvantage />
+        
+        <SectionDivider variant="dots" />
         {/* 4 key metrics */}
         <NumbersSection />
         
+        <SectionDivider variant="geometric" color="var(--muted)" />
         {/* Clinical evidence and trust markers */}
         <ClinicallyProvenTechSection />
         
-        {/* 360° Care overview */}
-        <Care360Section />
+        <SectionDivider variant="gradient" />
+        {/* Enhanced Care360 Technology - Home-based Holter */}
+        <Care360Technology />
         
-        {/* Technology data flow visualization */}
-        <TechCarousel />
-        
+        <SectionDivider variant="angle" color="var(--primary)" />
         {/* 5-step process with AI & cardiologist mention */}
         <ProcessFlow />
         
+        <SectionDivider variant="curve" color="var(--muted)" flipY />
         {/* Insurance coverage information */}
         <InsuranceSection />
         
+        <SectionDivider variant="wave" color="var(--primary)" flipY />
         {/* Call-to-action section */}
         <CtaSection />
         
-        {/* FAQ section */}
         <FaqSection />
         
+        <SectionDivider variant="gradient" />
         {/* Contact form */}
         <ContactSection />
       </main>

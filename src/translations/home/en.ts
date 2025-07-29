@@ -8,17 +8,19 @@ export const homeTranslations = {
       default: {
         badge: "Your health matters — to more than just you",
         headline: "Most Heart Issues are silent",
-        subheadline: "Screen Smarter, Live Younger, Longer",
-        aboveCta: "Take 5 minutes to check your eligibility for our reinvented heart screening experience, from home.",
+        subheadline: "Screen Smarter, Live Longer",
+        aboveCta: "Detect silent heart issues before they steal precious moments. Protect yourself and those who love you.",
+        eligibilityText: "Take 5 minutes to check your eligibility",
         ctaPrimary: "Start your free heart check",
         ctaSecondary: "Questions? Read our FAQ →"
       },
       // Variant A - Original dual-split copy
       original: {
-        badge: "Certified Medical Device • Swiss Quality",
+        badge: "Certified Medical Device • Myant Technology",
         headline: "Live Younger, Longer.",
         subheadline: "Screen Smarter, from Home",
         aboveCta: "Detect silent heart issues before they steal precious moments. Protect yourself and those who love you.",
+        eligibilityText: "Take 5 minutes to check your eligibility",
         ctaPrimary: "Start Your Free Heart Check",
         ctaSecondary: "Questions? Read our FAQ →"
       },

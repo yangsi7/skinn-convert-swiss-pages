@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlayCircle, Heart, AlertCircle } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const VideoSection = () => {
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useIntersectionObserver(sectionRef, { threshold: 0.1 });
   const videos = [
     {
       title: "Cardiac Health Assessment at Home",
@@ -21,7 +25,7 @@ const VideoSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-background-secondary">
+    <section className="section-padding bg-background-secondary" ref={sectionRef}>
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-primary font-medium">Educational Videos</span>
@@ -34,18 +38,36 @@ const VideoSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {videos.map((video, index) => (
-            <Card key={index} className="overflow-hidden group cursor-pointer hover:shadow-theme transition-all duration-300">
+          {videos.map((video, index) => {
+            const shouldLoad = isInView || loadedVideos.has(index);
+            
+            return (
+            <Card 
+              key={index} 
+              className="overflow-hidden group cursor-pointer hover:shadow-theme transition-all duration-300 will-change-transform"
+              onClick={() => {
+                if (!loadedVideos.has(index)) {
+                  setLoadedVideos(prev => new Set(prev).add(index));
+                }
+              }}
+            >
               <div className="relative aspect-video bg-background">
-                <video 
-                  className="w-full h-full object-cover"
-                  poster={video.poster}
-                  controls
-                  preload="metadata"
-                >
-                  <source src={video.videoSrc} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {shouldLoad ? (
+                  <video 
+                    className="w-full h-full object-cover"
+                    poster={video.poster}
+                    controls
+                    preload="metadata"
+                    aria-label={video.title}
+                  >
+                    <source src={video.videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <div className="w-full h-full bg-muted flex items-center justify-center">
+                    <PlayCircle className="w-16 h-16 text-muted-foreground" />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-4 left-4 text-white">
                     <PlayCircle className="w-12 h-12 mb-2" />
@@ -63,7 +85,8 @@ const VideoSection = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

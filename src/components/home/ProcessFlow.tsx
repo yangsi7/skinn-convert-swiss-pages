@@ -30,7 +30,7 @@ export function ProcessFlow() {
       number: translations.howItWorks.steps[1].number,
       title: translations.howItWorks.steps[1].title,
       description: translations.howItWorks.steps[1].description,
-      image: "/assets/images/a94ae42b-2b12-49d8-a6af-965c9691535f.png"
+      image: "/assets/images/product/wear-skiin-man-band-insert-pod.png"
     },
     {
       number: translations.howItWorks.steps[2].number,
@@ -136,7 +136,7 @@ export function ProcessFlow() {
         {/* Manufacturing Excellence Section */}
         <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold">Swiss Precision Manufacturing</h3>
+            <h3 className="text-2xl font-bold">Advanced Myant Technology</h3>
             <p className="text-muted-foreground">
               Our smart textiles are manufactured using state-of-the-art knitting technology that seamlessly 
               integrates medical-grade sensors into comfortable fabric. Each SKIIN garment undergoes rigorous 

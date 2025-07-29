@@ -43,6 +43,10 @@ import { InsuranceCoverageSection } from '@/components/home/InsuranceCoverageSec
 import { PricingSection } from '@/components/home/PricingSection';
 import { TestimonialsSlider } from '@/components/home/TestimonialsSlider';
 import { CEOQuote } from '@/components/home/CEOQuote';
+import { Care360Vision } from '@/components/home/Care360Vision';
+import FullScreenVideo from '@/components/ui/FullScreenVideo';
+import { SKIINAdvantage } from '@/components/home/SKIINAdvantage';
+import { Care360Technology } from '@/components/home/Care360Technology';
 
 /**
  * Enhanced Home-2 page utilizing marketing assets and comprehensive content
@@ -141,8 +145,8 @@ const Home2 = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section - Dual Split Layout */}
-        <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden" data-testid="hero-section">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-b from-background to-muted/5" data-testid="hero-section">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full py-8 lg:py-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-12 h-full">
               
               {/* Mobile: Image First (stacked) */}
@@ -161,39 +165,53 @@ const Home2 = () => {
                   <Card className="p-2 backdrop-blur-md bg-background/90 shadow-xl border-0">
                     <CardContent className="p-0">
                       <img
-                        src="/assets/images/product/wear-skiin-man-band-insert-pod.png"
-                        alt="SKIIN device"
+                        src="/assets/images/woman-wear-skiin.png"
+                        alt="SKIIN heart monitoring device - comfortable wearable technology"
                         className="w-full"
+                        loading="lazy"
                       />
                     </CardContent>
                   </Card>
                 </div>
+                
+                {/* Mobile Real-time ECG Badge - Top Left */}
+                <div className="absolute top-4 left-4">
+                  <Badge 
+                    className="bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] text-white px-3 py-1 text-xs font-semibold shadow-lg backdrop-blur-md animate-pulse-subtle"
+                    variant="default"
+                  >
+                    <Activity className="w-3 h-3 mr-1" />
+                    Real-time ECG
+                  </Badge>
+                </div>
               </div>
 
               {/* Left Column: Content */}
-              <div className="flex flex-col justify-center py-8 lg:py-12 space-y-6 lg:space-y-8 text-center lg:text-left">
-                {/* Trust Badge */}
-                <div>
+              <div className="flex flex-col justify-center">
+                <div className="rounded-2xl border border-border/50 shadow-sm bg-background/50 backdrop-blur-sm p-6 lg:p-8 space-y-6 lg:space-y-8 text-center lg:text-left animate-fadeIn">
+                  {/* Trust Badge */}
+                  <div className="animate-fadeInUp animation-delay-100">
                   <Badge 
                     variant="outline" 
-                    className="text-xs sm:text-sm font-medium px-3 py-1 border-medical-blue/20 text-medical-blue bg-medical-blue/5"
+                    className="text-xs sm:text-sm font-medium px-3 py-1 border-[hsl(270,85%,55%)]/30 text-[hsl(270,85%,55%)] bg-[hsl(270,85%,55%)]/5 backdrop-blur-sm"
                     data-testid="hero-badge"
                   >
-                    {heroVariant?.badge || "Certified Medical Device • Swiss Quality"}
+                    {heroVariant?.badge || "Certified Medical Device • Myant Technology"}
                   </Badge>
                 </div>
 
-                {/* Headlines */}
+                {/* Headlines with Enhanced Hierarchy */}
                 <div className="space-y-4">
                   <h1 
-                    className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-foreground leading-tight"
+                    className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground leading-tight animate-fadeInUp animation-delay-200"
                     data-testid="hero-headline"
+                    style={{ lineHeight: '1.1' }}
                   >
                     {heroVariant?.headline || "Live Younger, Longer."}
                   </h1>
                   
                   <p 
-                    className="text-xl sm:text-2xl lg:text-3xl text-medical-blue font-semibold"
+                    className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold animate-fadeInUp animation-delay-300 bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] bg-clip-text text-transparent"
                     data-testid="hero-subheadline"
                   >
                     {heroVariant?.subheadline || "Screen Smarter, from Home"}
@@ -201,7 +219,7 @@ const Home2 = () => {
                   
                   {heroVariant?.aboveCta && (
                     <p 
-                      className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed"
+                      className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed mt-8 animate-fadeInUp animation-delay-400"
                       data-testid="hero-emotional-subheadline"
                     >
                       {heroVariant.aboveCta}
@@ -210,15 +228,23 @@ const Home2 = () => {
                 </div>
 
                 {/* CTAs */}
-                <div className="space-y-4 pt-4">
+                <div className="space-y-4 pt-4 animate-fadeInUp animation-delay-500">
+                  {/* Eligibility Text */}
+                  {heroVariant?.eligibilityText && (
+                    <p className="text-sm lg:text-base text-muted-foreground text-center lg:text-left">
+                      {heroVariant.eligibilityText}
+                    </p>
+                  )}
+                  
                   {/* Primary CTA */}
                   <div className="flex justify-center lg:justify-start">
                     <Button 
                       size="lg" 
                       variant="default"
                       onClick={() => navigate(`/${lang}/eligibility`)}
-                      className="w-full sm:w-auto text-base lg:text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5"
+                      className="w-full sm:w-auto text-base lg:text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 active:scale-100 bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] hover:from-[hsl(270,85%,60%)] hover:to-[hsl(270,90%,50%)] text-white border-0"
                       data-testid="hero-cta-primary"
+                      aria-label="Start your free heart health eligibility check"
                     >
                       {heroVariant?.ctaPrimary || "Start Your Free Heart Check"}
                     </Button>
@@ -228,12 +254,14 @@ const Home2 = () => {
                   <div className="flex justify-center lg:justify-start">
                     <Link 
                       to={`/${lang}/how-it-works/faq`}
-                      className="text-sm lg:text-base text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 font-medium"
+                      className="text-sm lg:text-base text-muted-foreground hover:text-[hsl(270,85%,55%)] transition-all duration-300 inline-flex items-center gap-2 font-medium group"
                       data-testid="hero-cta-secondary"
                     >
-                      {heroVariant?.ctaSecondary || "Questions? Read our FAQ →"}
+                      <span>{heroVariant?.ctaSecondary || "Questions? Read our FAQ"}</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[hsl(270,85%,55%)]">→</span>
                     </Link>
                   </div>
+                </div>
                 </div>
               </div>
 
@@ -249,36 +277,34 @@ const Home2 = () => {
                   />
                   
                   {/* Product Badge Overlay - Bottom Right */}
-                  <div className="absolute bottom-8 right-8 w-40 transform hover:scale-105 transition-transform duration-300">
-                    <Card className="p-4 backdrop-blur-md bg-background/95 shadow-2xl border-0 hover:shadow-3xl transition-shadow duration-300">
+                  <div className="absolute bottom-8 right-8 w-40 transform hover:scale-105 transition-all duration-300 animate-fadeIn animation-delay-600">
+                    <Card className="p-4 backdrop-blur-md bg-background/95 shadow-2xl border-0 hover:shadow-3xl transition-all duration-300 hover:-translate-y-1">
                       <CardContent className="p-0 space-y-2">
                         <img
-                          src="/assets/images/product/wear-skiin-man-band-insert-pod.png"
-                          alt="SKIIN heart monitoring device"
+                          src="/assets/images/woman-wear-skiin.png"
+                          alt="Woman wearing SKIIN - comfortable heart monitoring device"
                           className="w-full"
+                          loading="lazy"
                         />
                         <div className="text-center">
                           <p className="text-xs font-medium text-muted-foreground">10-Day Monitoring</p>
-                          <p className="text-sm font-bold text-medical-blue">Gold Standard</p>
+                          <p className="text-sm font-bold bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] bg-clip-text text-transparent">Gold Standard</p>
                         </div>
                       </CardContent>
                     </Card>
+                  </div>
+                  
+                  {/* Real-time ECG Badge - Top Left */}
+                  <div className="absolute top-8 left-8 animate-fadeIn animation-delay-700">
+                    <Badge 
+                      className="bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] text-white px-4 py-2 text-sm font-semibold shadow-lg backdrop-blur-md animate-pulse-subtle"
+                      variant="default"
+                    >
+                      <Activity className="w-4 h-4 mr-2" />
+                      Real-time ECG Monitoring
+                    </Badge>
                   </div>
 
-                  {/* Floating Stat Cards - Top Left */}
-                  <div className="absolute top-8 left-8 space-y-3">
-                    <Card className="p-3 backdrop-blur-md bg-background/95 shadow-xl border-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                      <CardContent className="p-0 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-medical-blue/10 flex items-center justify-center">
-                          <span className="text-medical-blue font-bold">70%</span>
-                        </div>
-                        <div>
-                          <p className="text-xs text-muted-foreground">Silent Arrhythmias</p>
-                          <p className="text-sm font-semibold">Undetected</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
                 </div>
               </div>
             </div>
@@ -286,7 +312,7 @@ const Home2 = () => {
 
           {/* Trust Bar - Below Hero */}
           <div className="border-t bg-muted/30 backdrop-blur-sm">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
               <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8 text-xs sm:text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
                   <Badge variant="outline" className="h-5">MDR</Badge>
@@ -304,7 +330,7 @@ const Home2 = () => {
         </section>
 
         {/* Statistics Section */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -325,13 +351,14 @@ const Home2 = () => {
                 ];
                 
                 return (
-                  <Card key={index} className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2">
+                  <Card key={index} className="text-center p-8 hover:shadow-lg transition-all hover:-translate-y-2 will-change-transform">
                     <CardContent className="space-y-4">
                       <div className="relative mb-4">
                         <img
                           src={images[index]}
                           alt={stat.label}
                           className="w-full h-auto rounded-xl"
+                          loading="lazy"
                         />
                       </div>
                       <div className="space-y-2">
@@ -353,85 +380,37 @@ const Home2 = () => {
           </div>
         </section>
 
-        {/* Video Education Section */}
-        <VideoSection />
-
-        {/* Silent Triad Section - v7.2 */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                {tHome.problemSolution.title}
-              </h2>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-12 mb-16">
-              <Card className="p-8">
-                <CardContent>
-                  <h3 className="text-2xl font-bold text-destructive mb-4">{tHome.problemSolution.problem.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {tHome.problemSolution.problem.description}
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="p-8">
-                <CardContent>
-                  <h3 className="text-2xl font-bold text-primary mb-4">{tHome.problemSolution.solution.title}</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {tHome.problemSolution.solution.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div className="space-y-8">
-              <h3 className="text-2xl font-bold text-center text-foreground">
-                {tHome.problemSolution.silentTriad.title}
-              </h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                {tHome.problemSolution.silentTriad.items.map((item, index) => {
-                  const icons = {
-                    ecg: Heart,
-                    'blood-pressure': Activity,
-                    sleep: Clock
-                  };
-                  const IconComponent = icons[item.icon as keyof typeof icons] || Heart;
-                  
-                  return (
-                    <Card key={index} className="p-6 hover:shadow-lg transition-all hover:-translate-y-2">
-                      <CardContent className="space-y-4">
-                        <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                          <IconComponent className="w-8 h-8 text-primary" />
-                        </div>
-                        <h4 className="text-xl font-semibold text-foreground text-center">{item.title}</h4>
-                        <p className="text-muted-foreground text-center">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-              <div className="text-center mt-8">
-                <Button onClick={() => navigate('/about/contact')}>
-                  {tHome.problemSolution.cta}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Video Education Section with Full Screen Experience */}
+        <FullScreenVideo
+          src="/assets/videos/Myant-EU-video-70-percent-of-arrythmia-are-silent.mp4"
+          thumbnail="/assets/images/25b8354d-c321-4439-8a41-5dcafe49836e.png"
+          title="70% of Arrhythmias are Silent"
+        />
+        
+        {/* Removed side-by-side VideoSection per requirements */}
 
         {/* Statistics Showcase */}
-        <StatisticsShowcase />
+        <div className="bg-background border-y border-border/20">
+          <StatisticsShowcase />
+        </div>
 
-        {/* Product Section - 8 Benefits */}
-        <ProductSection />
+        {/* Medical Advisors Showcase - Moved Higher */}
+        <div className="bg-gradient-to-b from-muted/30 to-muted/10">
+          <MedicalAdvisors />
+        </div>
+
+        {/* SKIIN Advantage Section - Replacing redundant product sections */}
+        <div className="bg-background">
+          <SKIINAdvantage />
+        </div>
 
         {/* Numbers Section - Key Metrics */}
-        <NumbersSection />
+        <div className="bg-gradient-to-b from-background to-muted/20 border-y border-border/10">
+          <NumbersSection />
+        </div>
 
         {/* Clinical Evidence Section */}
-        <section className="py-20 bg-muted/50">
+        <section className="py-20 bg-muted/40">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -444,7 +423,7 @@ const Home2 = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {tHome.clinicallyProvenTech.trustMarkers.map((item, index) => (
-                <Card key={index} className="text-center p-6 hover:shadow-lg transition-all hover:-translate-y-2">
+                <Card key={index} className="text-center p-6 hover:shadow-lg transition-all hover:-translate-y-2 will-change-transform">
                   <CardContent className="space-y-4">
                     <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                       <CheckCircle className="w-8 h-8 text-primary" />
@@ -464,131 +443,81 @@ const Home2 = () => {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                {t.features.title}
-              </h2>
-              <p className="text-xl text-primary font-semibold">
-                {t.features.subtitle}
-              </p>
-            </div>
+        {/* Comfort Showcase - Commented out as it's now part of SKIINAdvantage */}
+        {/* <div className="bg-background">
+          <ComfortShowcase />
+        </div> */}
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {t.features.items.map((feature, index) => {
-                const IconComponent = [Monitor, Heart, Shield, Award][index];
-                return (
-                  <Card key={index} className="text-center p-6 hover:shadow-lg transition-all hover:-translate-y-2">
-                    <CardContent className="space-y-4">
-                      <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                        <IconComponent className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
-                      <p className="text-muted-foreground">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
 
-        {/* Technology Section with Doctor Consultation Images */}
-        <section className="py-20 bg-muted/50" data-testid="technology-section">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                {/* Primary technology image */}
-                <img
-                  src="/assets/images/6e47298b-0a4d-4e21-92ed-0b25c0e34c4c.png"
-                  alt="Holter-EKG Technology"
-                  className="w-full h-auto rounded-2xl shadow-xl"
-                  data-testid="technology-primary-image"
-                />
-                {/* Doctor consultation images */}
-                <div className="grid grid-cols-2 gap-4">
-                  <img
-                    src="/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png"
-                    alt="Doctor reviewing patient data"
-                    className="w-full h-auto rounded-lg shadow-md"
-                    data-testid="doctor-consultation-1"
-                  />
-                  <img
-                    src="/assets/images/doctor-patient.jpeg"
-                    alt="Doctor discussing results with patient"
-                    className="w-full h-auto rounded-lg shadow-md"
-                    data-testid="doctor-consultation-2"
-                  />
-                </div>
-              </div>
-              <div className="space-y-6">
-                <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                  {tHome.care360Section.title}
-                </h2>
-                <p className="text-xl text-muted-foreground">
-                  {tHome.care360Section.subtitle}
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {tHome.care360Section.description}
-                </p>
-                <div className="space-y-4">
-                  {tHome.care360Section.features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button 
-                  className="mt-6"
-                  onClick={() => navigate('/how-it-works/technology')}
-                  data-testid="learn-more-technology"
-                >
-                  {tHome.care360Section.cta}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Care360 Technology Section - Enhanced */}
+        <div className="bg-muted/50">
+          <Care360Technology />
+        </div>
 
-        {/* Comfort Showcase with Maria Testimonial */}
-        <ComfortShowcase />
-
+        {/* Full Screen How It Works Video */}
+        <FullScreenVideo
+          src="/assets/videos/Myant-EU-cardiac-health-assesement-at-home.mp4"
+          thumbnail="/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png"
+          title="Cardiac Health Assessment at Home"
+        />
+        
         {/* Enhanced 5-Step Process Flow */}
-        <ProcessFlow />
+        <div className="bg-muted/30">
+          <ProcessFlow />
+        </div>
 
-        {/* Tech Carousel - Data Flow Visualization */}
-        <TechCarousel />
+        {/* Tech Carousel - Commented out as technology is covered in Care360Technology */}
+        {/* <div className="bg-background">
+          <TechCarousel />
+        </div> */}
 
         {/* Enhanced Comparison */}
-        <EnhancedComparison />
+        <div className="bg-muted/20">
+          <EnhancedComparison />
+        </div>
 
         {/* Risk Cards Section - v7.2 Requirement */}
-        <RiskCardsSection />
+        <div className="bg-background">
+          <RiskCardsSection />
+        </div>
 
         {/* Insurance Coverage Section - v7.2 Split */}
-        <InsuranceCoverageSection />
+        <div className="bg-muted/30">
+          <InsuranceCoverageSection />
+        </div>
 
         {/* Pricing Section - v7.2 Split */}
-        <PricingSection />
+        <div className="bg-background">
+          <PricingSection />
+        </div>
 
-        {/* MVCP Preview for Healthcare Professionals */}
-        <MVCPPreview />
+        {/* MVCP Preview Section - Removed per compliance requirements */}
+        {/* <MVCPPreview /> */}
 
         {/* Enhanced Testimonials Slider */}
-        <TestimonialsSlider />
+        <div className="bg-muted/20">
+          <TestimonialsSlider />
+        </div>
 
         {/* Enhanced FAQ Section */}
-        <EnhancedFAQ />
+        <div className="bg-background">
+          <EnhancedFAQ />
+        </div>
 
-        {/* Medical Advisors Showcase */}
-        <MedicalAdvisors />
+        {/* Full Screen Future Vision Video */}
+        <FullScreenVideo
+          src="/assets/videos/Myant-EU-cardiac-health-assesement-at-home.mp4"
+          thumbnail="/assets/images/6e47298b-0a4d-4e21-92ed-0b25c0e34c4c.png"
+          title="The Future of Heart Health"
+        />
+
+        {/* Care360 Vision - Coming Soon Features */}
+        <div className="bg-background">
+          <Care360Vision />
+        </div>
 
         {/* CEO Quote */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-muted/20">
           <div className="container-custom">
             <CEOQuote />
           </div>
@@ -613,15 +542,17 @@ const Home2 = () => {
                   variant="secondary" 
                   className="px-8 py-4 text-lg"
                   onClick={() => navigate('/about/contact')}
+                  aria-label="Contact us for more information"
                 >
                   {tHome.hero.cta.primary}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-4 text-lg"
                   onClick={() => navigate('/how-it-works/faq')}
+                  aria-label="View frequently asked questions"
                 >
                   {tHome.hero.cta.tertiary}
                 </Button>

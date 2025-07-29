@@ -8,17 +8,19 @@ export const homeTranslations = {
       default: {
         badge: "Votre santé compte — pour plus que vous seul",
         headline: "La plupart des problèmes cardiaques sont silencieux",
-        subheadline: "Dépistez plus intelligemment, vivez plus jeune, plus longtemps",
-        aboveCta: "Prenez 5 minutes pour vérifier votre éligibilité à notre expérience de dépistage cardiaque réinventée, depuis chez vous.",
+        subheadline: "Dépistez plus intelligemment, vivez plus longtemps",
+        aboveCta: "Détectez les problèmes cardiaques silencieux avant qu'ils ne volent des moments précieux. Protégez-vous et ceux qui vous aiment.",
+        eligibilityText: "Prenez 5 minutes pour vérifier votre éligibilité",
         ctaPrimary: "Commencez votre bilan cardiaque gratuit",
         ctaSecondary: "Des questions ? Consultez notre FAQ →"
       },
       // Original - Legacy dual-split copy
       original: {
-        badge: "Dispositif Médical Certifié • Qualité Suisse",
+        badge: "Dispositif Médical Certifié • Technologie Myant",
         headline: "Vivez plus jeune, plus longtemps.",
         subheadline: "Dépistez plus intelligemment, depuis chez vous",
         aboveCta: "Détectez les problèmes cardiaques silencieux avant qu'ils ne volent des moments précieux. Protégez-vous et ceux qui vous aiment.",
+        eligibilityText: "Prenez 5 minutes pour vérifier votre éligibilité",
         ctaPrimary: "Commencez votre bilan cardiaque gratuit",
         ctaSecondary: "Des questions ? Consultez notre FAQ →"
       },
