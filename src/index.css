@@ -109,6 +109,54 @@
     --trust-blue: 192 60% 40%;
     --medical-grade: 190 85% 35%;
   }
+
+  /* Myant Violet Theme */
+  [data-theme="myant-violet"] {
+    /* Core colors based on Myant branding */
+    --background: 0 0% 100%;
+    --foreground: 210 100% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 15%;
+    --primary: 280 70% 40%; /* Deep Purple/Violet from image */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 210 100% 15%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 20% 40%;
+    --accent: 210 100% 15%; /* Deep Myant Blue */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 280 70% 40%;
+    
+    /* Extended palette */
+    --primary-navy: 210 100% 15%;
+    --primary-charcoal: 210 20% 30%;
+    --medical-teal: 185 60% 45%;
+    --bridge-teal: 195 55% 40%;
+    --action-red: 0 70% 58%;
+    --success-green: 142 71% 45%;
+    --swiss-red: 348 84% 48%;
+    --trust-blue: 210 90% 35%;
+    --medical-grade: 168 70% 35%;
+    --clinical-white: 210 20% 98%;
+    --swiss-silver: 210 8% 75%;
+    --precision-gray: 210 10% 85%;
+    
+    /* Gradient system with violet as primary */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(280 75% 35%));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.02));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--primary)), hsl(280 75% 35%));
+    --gradient-button: linear-gradient(135deg, hsl(var(--primary)), hsl(280 75% 35%));
+    --gradient-trust: linear-gradient(135deg, hsl(var(--accent)), hsl(210 85% 25%));
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+  }
     
   
   /* Shadow System */

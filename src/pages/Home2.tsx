@@ -176,7 +176,7 @@ const Home2 = () => {
                 <div>
                   <Badge 
                     variant="outline" 
-                    className="text-xs sm:text-sm font-medium px-3 py-1 border-medical-blue/20 text-medical-blue bg-medical-blue/5"
+                    className="text-xs sm:text-sm font-medium px-3 py-1"
                     data-testid="hero-badge"
                   >
                     {heroVariant?.badge || "Certified Medical Device • Swiss Quality"}
@@ -193,7 +193,7 @@ const Home2 = () => {
                   </h1>
                   
                   <p 
-                    className="text-xl sm:text-2xl lg:text-3xl text-medical-blue font-semibold"
+                    className="text-xl sm:text-2xl lg:text-3xl text-primary font-semibold"
                     data-testid="hero-subheadline"
                   >
                     {heroVariant?.subheadline || "Screen Smarter, from Home"}
@@ -259,7 +259,7 @@ const Home2 = () => {
                         />
                         <div className="text-center">
                           <p className="text-xs font-medium text-muted-foreground">10-Day Monitoring</p>
-                          <p className="text-sm font-bold text-medical-blue">Gold Standard</p>
+                          <p className="text-sm font-bold text-primary">Gold Standard</p>
                         </div>
                       </CardContent>
                     </Card>
@@ -269,8 +269,8 @@ const Home2 = () => {
                   <div className="absolute top-8 left-8 space-y-3">
                     <Card className="p-3 backdrop-blur-md bg-background/95 shadow-xl border-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                       <CardContent className="p-0 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-medical-blue/10 flex items-center justify-center">
-                          <span className="text-medical-blue font-bold">70%</span>
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                          <span className="text-primary font-bold">70%</span>
                         </div>
                         <div>
                           <p className="text-xs text-muted-foreground">Silent Arrhythmias</p>
