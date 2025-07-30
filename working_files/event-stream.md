@@ -424,3 +424,20 @@ PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
 [2025-07-30 12:00] Action - Added care360HomeHolter translations to Italian translations file
 [2025-07-30 12:05] Observation - Linting and type checking passed for updated Care360Technology component
 [2025-07-30 12:10] Observation - Design system compliance verified - no hardcoded colors or spacing values
+[2025-07-30 12:15] Bug - Discovered default theme set to myant-violet instead of medical-blue in ThemeContext.tsx
+[2025-07-30 12:16] Action - Fixed default theme in ThemeContext.tsx from myant-violet to medical-blue
+[2025-07-30 12:17] Bug - Found hardcoded purple-600 color in ClinicianResourcesHub component
+[2025-07-30 12:18] Action - Fixed ClinicianResourcesHub component to use text-accent instead of text-purple-600
+[2025-07-30 12:19] Action - Updated ClinicianResourcesHub to use proper bgClass properties for dynamic backgrounds
+[2025-07-30 12:20] Action - Removed Real-time ECG Monitoring badge from hero section (desktop) per user request
+[2025-07-30 12:21] Action - Removed Real-time ECG Monitoring badge from mobile hero section
+[2025-07-30 12:22] Action - Fixed all hardcoded violet/purple gradients in Home2.tsx hero section
+[2025-07-30 12:23] Action - Updated hero subheadline gradient to use accent colors from theme
+[2025-07-30 12:24] Action - Fixed CTA button to use default Button styling without hardcoded gradients
+[2025-07-30 12:25] Action - Updated FAQ link hover color to use text-accent instead of hardcoded violet
+[2025-07-30 12:26] Action - Fixed Gold Standard text to use text-accent instead of violet gradient
+[2025-07-30 12:27] Action - Updated trust badge to use accent colors instead of hardcoded violet
+[2025-07-30 12:28] Bug - Fixed duplicate cta key in 10DayHeartScreening.tsx Italian section
+[2025-07-30 12:29] Bug - Fixed duplicate home2 key in en.ts translation file by removing home2Additional
+[2025-07-30 12:30] PerformanceTest - Verified all violet/purple colors removed, Medical Blue theme properly applied
+[2025-07-30 12:31] Observation - Landing page design system audit complete - all components using proper CSS variables
