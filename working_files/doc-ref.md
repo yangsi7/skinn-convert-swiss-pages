@@ -7,6 +7,12 @@ Implementation-Status: Phase C.3 Documentation Cleanup COMPLETED ✅
 Process-Compliance: CLAUDE_PROCESS.md v5.0
 Archive-Update: Root cleanup completed - v6.1 files archived to /docs/archive/2025-07-28/
 
+## COPY SPECIFICATIONS (AUTHORITATIVE) 🚨
+
+| Document | Path | Description | Status | Last Review |
+|----------|------|-------------|---------|-------------|
+| **SKIIN CH Copy Spec v7.2** | `/docs/implementation/skiin-ch-copy 29072025.md` | **AUTHORITATIVE** copy specification for all pages | **Active** | 2025-07-29 |
+
 ## SPECIFICATIONS (What to Build)
 
 ### v7.2 Specifications (Current Target) ⭐
@@ -39,6 +45,10 @@ Archive-Update: Root cleanup completed - v6.1 files archived to /docs/archive/20
 - `/docs/implementation/2025-07-28-hero-redesign-plan-dual-split.md` - **Hero redesign plan with dual-split layout evaluation** ✅
 - `/docs/implementation/2025-07-28-hero-dual-split-completed.md` - **Hero dual-split implementation completion report** ✅
 - `/docs/implementation/2025-07-28-hero-copy-refinements.md` - **Hero copy variant system and CTA separation** ✅
+- `/docs/analysis/2025-07-29-landing-page-copy-gap-analysis.md` - **Gap analysis vs copy spec** 🚨
+- `/docs/implementation/2025-07-29-landing-page-copy-alignment-plan.md` - **Implementation plan for copy alignment** (superseded)
+- `/docs/research/2025-07-29-landing-page-redesign-research.md` - **Comprehensive redesign research** 🚨
+- `/docs/implementation/2025-07-29-landing-page-redesign-plan.md` - **Updated implementation plan with user feedback** 🚨
 
 ## v3.0 Implementation Documents (Archived)
 

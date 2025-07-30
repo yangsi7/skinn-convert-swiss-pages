@@ -80,6 +80,25 @@ This playbook is organised into the following sections:
 
 These files represent the **living state** of the project. Always read them before starting work and update them immediately after making changes. Persist important updates via the memory MCP and record structure in the context7 knowledge graph.
 
+### Memory Integration at Session Start
+
+At the beginning of every session, after reading CLAUDE.md and CLAUDE_PROCESS.md:
+
+1. **Recall Project Context**: Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
+2. **Recall Recent Work**: Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
+3. **Query Knowledge Graph**: Use `context7.search_nodes` to find relevant entities and their relationships
+4. **Recall Phase Status**: Use `memory.recall('phase-*-summary')` for current phase progress
+
+### Memory Creation During Work
+
+When working on the project, create memories at these key points:
+
+1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
+2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
+3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
+4. **Component Updates**: Store specs with `memory.store('component-[name]-spec', specification)`
+5. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
+
 | File | Role | When to read |
 | :---- | :---- | :---- |
 | @working\_files/todo.md | **Task checklist / sprint board** | First—“What next?” |
@@ -111,7 +130,7 @@ These principles ensure that development proceeds smoothly and safely. Always re
 
 * **Guardrails & prompt design** – All tool calls must respect guardrails. Design prompts by clearly stating the persona, problem and expected outcome. Use the prompt design module to clarify ambiguous requests and route tasks appropriately.
 
-* **Memory & knowledge‑graph management** – Persist research notes, plans, decisions and performance reports via memory.store with descriptive keys. Represent tasks, modules, components and copy documents as entities in the context graph. Recall relevant entries at the start of each session using memory.recall and context7.search\_nodes.
+* **Memory & knowledge‑graph management** – Persist research notes, plans, decisions and performance reports via memory.store with descriptive keys. Represent tasks, modules, components and copy documents as entities in the context graph. Recall relevant entries at the start of each session using memory.recall and context7.search\_nodes. Follow the memory naming conventions documented in `/docs/process/2025-07-29-memory-implementation-guide.md` for consistent key structure.
 
 * **Performance & security audits** – Use the Performance module to set budgets (LCP, CLS, API latency). Use package‑version and npm audit to check dependencies. Monitor Supabase logs via supabase.get\_logs. Treat user data as medical data: enforce encryption, row‑level security and GDPR compliance. Document audit findings in docs/bugs/bugs.md, outline remediation tasks in docs/bugs/bug\_fix\_planning.md and ensure new tasks are reflected in todo.md and the graph.
 
@@ -394,6 +413,18 @@ Week 6: Run compliance review, final optimisation and launch. Prepare post‑mor
 ## 13 New modules & workflow summary (v5.0)
 
 The universal process v5.0 introduces several new modules and updates existing ones. Below is a summary of **how they apply** to the SKIIN website:
+
+### Memory Management Module Integration
+
+The memory management module is now a core part of the agent lifecycle:
+
+* **Session Start**: Always recall project context, recent changes, and phase status before beginning work
+* **During Development**: Create memories for task outcomes, bug discoveries, design decisions, and component specs
+* **Graph Maintenance**: Create entities for new components/features, establish relationships, add observations
+* **Memory Lifecycle**: Follow creation → recall → update → archive pattern with proper naming conventions
+* **Automated Triggers**: Memory creation happens automatically on task completion, bug discovery, and daily snapshots
+
+See `/docs/process/2025-07-29-memory-implementation-guide.md` for detailed patterns and examples.
 
 * **Planning & Memory Management** – Use the planner module to create a detailed plan in planning.md and generate tasks in todo.md. Store plans and tasks in memory (memory.store) and represent them in the knowledge graph (context7.create\_entities). Recall past research, design decisions and plans at the start of each session (memory.recall).
 

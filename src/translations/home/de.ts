@@ -8,17 +8,19 @@ export const homeTranslations = {
       default: {
         badge: "Ihre Gesundheit ist wichtig — für mehr als nur Sie",
         headline: "Die meisten Herzprobleme sind still",
-        subheadline: "Screenen Sie intelligenter, leben Sie jünger, länger",
-        aboveCta: "Nehmen Sie sich 5 Minuten Zeit, um Ihre Eignung für unsere neu erfundene Herz-Screening-Erfahrung von zu Hause aus zu prüfen.",
+        subheadline: "Screenen Sie intelligenter, leben Sie länger",
+        aboveCta: "Erkennen Sie stille Herzprobleme, bevor sie kostbare Momente stehlen. Schützen Sie sich und die Menschen, die Sie lieben.",
+        eligibilityText: "Nehmen Sie sich 5 Minuten Zeit, um Ihre Eignung zu prüfen",
         ctaPrimary: "Starten Sie Ihren kostenlosen Herzcheck",
         ctaSecondary: "Fragen? Lesen Sie unsere FAQ →"
       },
       // Original - Legacy dual-split copy
       original: {
-        badge: "Zertifiziertes Medizinprodukt • Schweizer Qualität",
+        badge: "Zertifiziertes Medizinprodukt • Myant-Technologie",
         headline: "Länger leben, jünger bleiben.",
         subheadline: "Intelligenter screenen, von zu Hause",
         aboveCta: "Erkennen Sie stille Herzprobleme, bevor sie kostbare Momente stehlen. Schützen Sie sich und die Menschen, die Sie lieben.",
+        eligibilityText: "Nehmen Sie sich 5 Minuten Zeit, um Ihre Eignung zu prüfen",
         ctaPrimary: "Starten Sie Ihren kostenlosen Herzcheck",
         ctaSecondary: "Fragen? Lesen Sie unsere FAQ →"
       },

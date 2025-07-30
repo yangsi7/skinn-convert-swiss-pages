@@ -15,9 +15,9 @@ export const aboutTranslations = {
     swissHeritage: {
       badge: "Swiss Innovation",
       title: "Swiss Excellence, Global Impact",
-      description: "Myant Europe, headquartered in Zurich, combines Swiss precision with cutting-edge cardiac monitoring technology",
+      description: "Myant Europe, headquartered in Zurich, combines Swiss medical excellence with cutting-edge cardiac monitoring technology",
       ethTitle: "From ETH Zurich to Global Innovation",
-      ethDescription1: "Nanoleq, a spin-off from the prestigious ETH Zurich, was founded with a vision to revolutionize cardiac monitoring. Our Swiss roots run deep, bringing together the nation's tradition of precision engineering with breakthrough medical technology.",
+      ethDescription1: "Nanoleq, a spin-off from the prestigious ETH Zurich, was founded with a vision to revolutionize cardiac monitoring. Our Swiss roots run deep, bringing together the nation's tradition of medical excellence with breakthrough cardiac monitoring technology.",
       ethDescription2: "In 2023, Myant Corporation recognized our potential and acquired Nanoleq, establishing Myant Europe as the center of excellence for cardiac monitoring innovation in the DACH region.",
       highlights: [
         {
@@ -25,8 +25,8 @@ export const aboutTranslations = {
           description: "Born from prestigious Swiss Federal Institute of Technology"
         },
         {
-          title: "Swiss Precision",
-          description: "Engineered with legendary Swiss quality standards"
+          title: "Myant Technology",
+          description: "Engineered with advanced textile sensor technology"
         },
         {
           title: "European Leadership",
@@ -51,7 +51,7 @@ export const aboutTranslations = {
         {
           name: "Vincent Martinez",
           title: "CEO Nanoleq / Head of Europe Business Unit",
-          description: "Spearheading SKIIN's expansion across Switzerland, Germany, and Austria. Former ETH Zurich researcher bringing Swiss precision to cardiac care.",
+          description: "Spearheading SKIIN's expansion across Switzerland, Germany, and Austria. Former ETH Zurich researcher bringing Swiss innovation to cardiac care.",
           image: "/assets/images/team/vincent-martinez-official-headshot.jpg"
         },
         {
@@ -75,7 +75,7 @@ export const aboutTranslations = {
         {
           name: "Flurin Stauffer",
           title: "Co-Founder & CTO",
-          description: "Co-founder of Nanoleq and former ETH Zurich researcher, leading the technical development of innovative cardiac monitoring solutions with Swiss engineering excellence.",
+          description: "Co-founder of Nanoleq and former ETH Zurich researcher, leading the technical development of innovative cardiac monitoring solutions with textile sensor innovation.",
           image: "/assets/images/team/flurin-stauffer.jpeg"
         }
       ]
@@ -186,7 +186,7 @@ export const aboutTranslations = {
     vision: {
       title: "Our Vision",
       description: "We envision a future where long waits and uncomfortable medical tests are replaced by seamless, patient-friendly solutions that empower individuals and support healthcare providers. By enabling early detection of silent cardiac conditions (like intermittent arrhythmias) and making monitoring accessible from home, we aim to reduce preventable cardiac events.",
-      paragraph1: "This vision is informed by Switzerland's reputation for precision and reliability – traits we embed in our product – and by the need to ease patient anxiety with an approachable, empathetic experience.",
+      paragraph1: "This vision is informed by Switzerland's reputation for medical excellence and reliability – traits we embed in our product – and by the need to ease patient anxiety with an approachable, empathetic experience.",
       paragraph2: "We also aim to support physicians with trustworthy data and easy workflows, strengthening the doctor-patient relationship through better insights."
     },
     qualityCompliance: {

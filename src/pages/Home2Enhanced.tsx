@@ -22,12 +22,14 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useThemeContent } from '@/hooks/useThemeContent';
-import VideoSection from '@/components/home/VideoSection';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
 import MvcpSection from '@/components/home/MvcpSection';
 import { EnhancedComparison } from '@/components/home/EnhancedComparison';
 import { StatisticsShowcase } from '@/components/home/StatisticsShowcase';
 import { ProgressiveSection } from '@/components/ui/progressive-section';
+import FullScreenVideo from '@/components/ui/FullScreenVideo';
+import { SectionDivider, SectionDividerPresets } from '@/components/ui/section-divider';
+import { ComfortShowcase } from '@/components/home/ComfortShowcase';
 
 /**
  * Enhanced Home2 page with Swiss-specific content and real testimonials
@@ -163,6 +165,13 @@ const Home2Enhanced = () => {
           </div>
         </section>
 
+        {/* Full Screen Video Separator - Silent Arrhythmias */}
+        <FullScreenVideo
+          src="/assets/videos/Myant-EU-video-70-percent-of-arrythmia-are-silent.mp4"
+          title="70% der Herzrhythmusstörungen bleiben unbemerkt"
+          thumbnail="/assets/images/app-live-ecg.png"
+        />
+
         {/* Swiss Patient Testimonials */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-6">
@@ -233,9 +242,7 @@ const Home2Enhanced = () => {
           </div>
         </section>
 
-        {/* Video Education Section */}
-        <VideoSection />
-
+        <SectionDivider variant="wave" color="var(--secondary)" />
         {/* Swiss Insurance Coverage Section */}
         <section className="py-20 bg-gradient-to-br from-primary/5 to-medical-teal/5">
           <div className="container mx-auto px-6">
@@ -292,6 +299,7 @@ const Home2Enhanced = () => {
           </div>
         </section>
 
+        <SectionDivider variant="gradient" />
         {/* Swiss Doctor Testimonials */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
@@ -348,18 +356,27 @@ const Home2Enhanced = () => {
           </div>
         </section>
 
+        <SectionDivider variant="angle" color="var(--muted)" />
+        {/* Full-screen Comfort Showcase */}
+        <ComfortShowcase />
+        
+        <SectionDivider variant="curve" color="var(--secondary)" />
         {/* Enhanced 5-Step Process Flow */}
         <ProcessFlow />
 
+        <SectionDivider variant="dots" />
         {/* MVCP Portal Section */}
         <MvcpSection />
 
+        <SectionDivider variant="geometric" color="var(--muted)" />
         {/* Enhanced Comparison */}
         <EnhancedComparison />
 
+        <SectionDivider variant="wave" color="var(--secondary)" flipY />
         {/* Statistics Showcase */}
         <StatisticsShowcase />
 
+        <SectionDivider variant="gradient" />
         {/* Clinical Evidence Section */}
         <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-6">
@@ -423,6 +440,13 @@ const Home2Enhanced = () => {
             </div>
           </div>
         </section>
+
+        {/* Full Screen Video Separator - Cardiac Assessment */}
+        <FullScreenVideo
+          src="/assets/videos/Myant-EU-cardiac-health-assesement-at-home.mp4"
+          title="Herzüberwachung zu Hause"
+          thumbnail="/assets/images/woman-wearing-skiin-vertical-cropped.jpeg"
+        />
 
         {/* Bottom CTA Section */}
         <section className="py-20 bg-gradient-to-br from-primary/95 to-medical-teal/95 text-white">
