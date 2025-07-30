@@ -1,4 +1,4 @@
-# SKIIN Switzerland Website Copy Update Specification
+ # SKIIN Switzerland Website Copy Update Specification
 Version 2.1 - January 22, 2025
 
 ## Executive Summary

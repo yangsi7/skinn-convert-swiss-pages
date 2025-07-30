@@ -15,7 +15,7 @@ export const solutionsTranslations = {
           description: "Get the full picture of your cardiovascular health with our integrated monitoring approach"
         },
         {
-          title: "14-Day Continuous Monitoring",
+          title: "10-Day Continuous Monitoring",
           description: "Extended monitoring period captures intermittent events that shorter tests miss"
         },
         {
@@ -25,15 +25,15 @@ export const solutionsTranslations = {
       ]
     }
   },
-  holter14Day: {
+  holter10Day: {
     hero: {
-      title: "14-Day Holter Monitoring",
+      title: "10-Day Heart Screening",
       subtitle: "Extended Cardiac Monitoring That Patients Actually Wear",
-      description: "Revolutionary garment-based ECG monitoring for up to 14 days - comfortable, accurate, and compliance-focused.",
-      cta: "Discover 14-Day Holter"
+      description: "Revolutionary garment-based ECG monitoring for up to 10 days - comfortable, accurate, and compliance-focused.",
+      cta: "Discover 10-Day Heart Screening"
     },
     overview: {
-      title: "Why 14 Days Changes Everything",
+      title: "Why 10 Days Changes Everything",
       subtitle: "Catch arrhythmias that shorter monitoring periods miss",
       stats: [
         {

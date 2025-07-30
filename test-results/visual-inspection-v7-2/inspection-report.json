@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-07-25T03:48:46.091Z",
+  "screenshotsCaptured": 16,
+  "consoleErrors": [],
+  "missingImages": [],
+  "v72Requirements": {
+    "heroVariants": {
+      "status": "TO_VERIFY",
+      "notes": "Check screenshots 01-03 for A/B/C variants with emotional subtitles"
+    },
+    "statistics": {
+      "required": [
+        "70%",
+        "20-30%",
+        "66% vs 9%"
+      ],
+      "status": "TO_VERIFY",
+      "notes": "Check screenshot 05 for correct statistics"
+    },
+    "silentTriad": {
+      "status": "TO_VERIFY",
+      "notes": "Check screenshot 06 for ECG + ABPM + Sleep narrative"
+    },
+    "productSection": {
+      "required": "8 benefit cards",
+      "status": "TO_VERIFY",
+      "notes": "Check screenshot 07 for 2x4 grid layout"
+    },
+    "mvcp": {
+      "required": "Should be on GP page, not homepage",
+      "status": "TO_VERIFY",
+      "notes": "Check screenshots 13-14 for MVCP section on GP page"
+    }
+  }
+}

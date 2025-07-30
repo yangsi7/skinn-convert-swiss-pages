@@ -65,7 +65,7 @@ const Telemedicine = () => {
     {
       step: "3",
       title: "Monitoring",
-      description: "Patient receives device at home, wears for 14 days"
+      description: "Patient receives device at home, wears for 10 days"
     },
     {
       step: "4",

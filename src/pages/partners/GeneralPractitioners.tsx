@@ -4,8 +4,13 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Clock, Heart, Shield, Users, FileText } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
+import { GPMvcpSection } from '@/components/partners/GPMvcpSection';
 
 const GeneralPractitioners = () => {
+  const t = useTranslation('partners');
+  const gp = t.gp;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -15,17 +20,16 @@ const GeneralPractitioners = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl font-bold mb-6">
-                Für <span className="text-primary">Hausärzte</span>
+                {gp.hero.title}
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Als Hausarzt wollen Sie Ihren Patienten die beste Versorgung und Früherkennung bieten. 
-                SKIIN hilft Ihnen dabei, Herzprobleme früher zu erkennen, ohne Ihren Praxisablauf zu belasten.
+                {gp.hero.description}
               </p>
               <Button size="lg" className="mr-4">
-                Demo anfordern
+                Request Demo
               </Button>
               <Button variant="outline" size="lg">
-                Mehr erfahren
+                Join GP Network
               </Button>
             </div>
           </div>
@@ -35,19 +39,18 @@ const GeneralPractitioners = () => {
         <section className="py-16">
           <div className="container-custom">
             <h2 className="text-3xl font-bold text-center mb-12">
-              Klinische Vorteile für Ihre Praxis
+              Clinical Benefits for Your Practice
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card>
                 <CardHeader>
                   <Heart className="h-10 w-10 text-primary mb-4" />
-                  <CardTitle>Höhere Diagnostikausbeute</CardTitle>
+                  <CardTitle>Higher Diagnostic Yield</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    14-Tage-EKG kann Herzrhythmusstörungen erfassen, die ein Standard-24h-Holter 
-                    übersehen würde. In einer Schweizer Studie mit 500 Patienten führte die 
-                    verlängerte Überwachung zu präziseren Diagnosen.
+                    10-day ECG captures arrhythmias that standard 24-hour Holter monitoring would miss. 
+                    Extended monitoring leads to more accurate diagnoses and better patient outcomes.
                   </p>
                 </CardContent>
               </Card>
@@ -55,13 +58,12 @@ const GeneralPractitioners = () => {
               <Card>
                 <CardHeader>
                   <Users className="h-10 w-10 text-primary mb-4" />
-                  <CardTitle>94% Patientencompliance</CardTitle>
+                  <CardTitle>94% Patient Compliance</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Patienten tragen das Gerät deutlich öfter und länger, weil es bequem und 
-                    problemlos ist. Sie erhalten vollständige 14-Tage-Daten statt fragmentierter 
-                    Aufzeichnungen.
+                    Patients wear the device more consistently because it's comfortable and unobtrusive. 
+                    You receive complete 10-day data instead of fragmented recordings.
                   </p>
                 </CardContent>
               </Card>
@@ -69,13 +71,12 @@ const GeneralPractitioners = () => {
               <Card>
                 <CardHeader>
                   <FileText className="h-10 w-10 text-primary mb-4" />
-                  <CardTitle>Optimierter Workflow</CardTitle>
+                  <CardTitle>Streamlined Workflow</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Einfache Integration: Sie identifizieren den Patienten, wir kümmern uns um 
-                    Lieferung, Schulung und Datensammlung. Sie erhalten einen umfassenden 
-                    kardiologischen Bericht.
+                    Simple integration: You identify the patient, we handle delivery, training, and data collection. 
+                    You receive a comprehensive cardiology-reviewed report.
                   </p>
                 </CardContent>
               </Card>
@@ -83,11 +84,14 @@ const GeneralPractitioners = () => {
           </div>
         </section>
 
+        {/* MVCP Section - New Addition per v7.2 */}
+        <GPMvcpSection />
+
         {/* How It Works for GPs */}
         <section className="py-16 bg-muted/30">
           <div className="container-custom">
             <h2 className="text-3xl font-bold text-center mb-12">
-              So funktioniert es für Ihre Praxis
+              How It Works for Your Practice
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="space-y-8">
@@ -96,9 +100,9 @@ const GeneralPractitioners = () => {
                     1
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Patient identifizieren</h3>
+                    <h3 className="text-xl font-semibold mb-2">Identify Patient</h3>
                     <p className="text-muted-foreground">
-                      Sie identifizieren einen Patienten mit Verdacht auf Arrhythmie, Palpitationen oder andere Herzprobleme.
+                      You identify a patient with suspected arrhythmia, palpitations, or other cardiac concerns.
                     </p>
                   </div>
                 </div>
@@ -108,9 +112,9 @@ const GeneralPractitioners = () => {
                     2
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">SKIIN-Überweisung</h3>
+                    <h3 className="text-xl font-semibold mb-2">SKIIN Referral</h3>
                     <p className="text-muted-foreground">
-                      Überweisung über unser Online-Portal oder Papierformular - so einfach wie eine normale Holter-Verschreibung.
+                      Refer via our online portal (MVCP) or paper form - as simple as a standard Holter prescription.
                     </p>
                   </div>
                 </div>
@@ -120,9 +124,9 @@ const GeneralPractitioners = () => {
                     3
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">SKIIN übernimmt alles</h3>
+                    <h3 className="text-xl font-semibold mb-2">We Handle Everything</h3>
                     <p className="text-muted-foreground">
-                      Wir liefern das Gerät zum Patienten, schulen ihn und sammeln die Daten. Kein Aufwand für Ihre Praxis.
+                      We deliver the device to the patient, provide training, and collect the data. No burden on your practice.
                     </p>
                   </div>
                 </div>
@@ -132,9 +136,9 @@ const GeneralPractitioners = () => {
                     4
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Umfassender Bericht</h3>
+                    <h3 className="text-xl font-semibold mb-2">Comprehensive Report</h3>
                     <p className="text-muted-foreground">
-                      Sie erhalten einen detaillierten, von Kardiologen unterzeichneten Bericht als PDF für Ihre Patientenakte.
+                      You receive a detailed, cardiologist-reviewed report via MVCP for your patient records.
                     </p>
                   </div>
                 </div>
@@ -148,33 +152,33 @@ const GeneralPractitioners = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-12">
-                Abrechnung & TARMED-Codes
+                Billing & Reimbursement
               </h2>
               
               <Card>
                 <CardHeader>
                   <Shield className="h-10 w-10 text-primary mb-4" />
-                  <CardTitle>Einfache Abrechnung</CardTitle>
+                  <CardTitle>Simple Billing Process</CardTitle>
                   <CardDescription>
-                    Verwenden Sie die üblichen TARMED-Codes für Holter-EKG
+                    Use standard TARMED codes for Holter ECG prescriptions
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="bg-muted/50 p-4 rounded-lg">
                     <p className="font-semibold mb-2">TARMED 70.0010</p>
                     <p className="text-sm text-muted-foreground">
-                      Für die Verschreibung eines Langzeit-EKGs
+                      For prescribing extended ECG monitoring
                     </p>
                   </div>
                   <div className="bg-muted/50 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">Nachbesprechung</p>
+                    <p className="font-semibold mb-2">Follow-up Consultation</p>
                     <p className="text-sm text-muted-foreground">
-                      Normale Konsultationsabrechnung für Besprechung der Ergebnisse
+                      Standard consultation billing for discussing results
                     </p>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Die SKIIN-Dienstleistung selbst wird über die Krankenversicherung des Patienten abgerechnet. 
-                    Keine zusätzliche Belastung für Ihre Praxis.
+                    The SKIIN service itself is billed through the patient's health insurance. 
+                    No additional administrative burden for your practice.
                   </p>
                 </CardContent>
               </Card>
@@ -187,13 +191,13 @@ const GeneralPractitioners = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center">
               <blockquote className="text-xl italic mb-6">
-                "SKIIN ist fantastisch - ich kann meinen Patienten einen Holter anbieten, 
-                ohne sie sofort zum Kardiologen zu schicken. Der Prozess ist reibungslos und 
-                die Ergebnisse sehr detailliert. Ein Patient entdeckte Vorhofflimmern, das wir 
-                bei einem Standard-24h-Test sicher übersehen hätten."
+                "SKIIN has transformed our cardiac care capabilities. We can now offer comprehensive monitoring 
+                without referring every patient to a cardiologist. The MVCP portal makes management seamless, 
+                and the reports are exceptionally detailed. We detected atrial fibrillation in a patient 
+                that a standard 24-hour test would have certainly missed."
               </blockquote>
               <cite className="text-muted-foreground">
-                Dr. Meier, Hausärztin in Zürich
+                Dr. Sarah Meyer, GP in Zurich
               </cite>
             </div>
           </div>
@@ -203,17 +207,17 @@ const GeneralPractitioners = () => {
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container-custom text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Bereit, SKIIN Ihren Patienten anzubieten?
+              Ready to Offer SKIIN to Your Patients?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Vereinbaren Sie einen 15-minütigen Anruf mit unserem medizinischen Direktor
+              Schedule a 15-minute call with our medical director to learn more
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary">
-                Demo vereinbaren
+                Schedule Demo
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Partner werden
+                Join GP Network
               </Button>
             </div>
           </div>

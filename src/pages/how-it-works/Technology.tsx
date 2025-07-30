@@ -15,7 +15,7 @@ const Technology = () => {
         { label: "Lead Configuration", value: "Single-lead ECG with 3 textile electrodes" },
         { label: "Sampling Rate", value: "500 Hz medical-grade resolution" },
         { label: "Signal Quality", value: "Equivalent to traditional Holter monitors" },
-        { label: "Recording Duration", value: "Up to 14 days continuous monitoring" },
+        { label: "Recording Duration", value: "Up to 10 days continuous monitoring" },
         { label: "Data Storage", value: "Over 1.5 million heartbeats captured" }
       ]
     },

@@ -14,14 +14,14 @@ import { ComparisonTable } from '@/components/ui/comparison-table';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
 import { StatCard } from '@/components/ui/stat-card';
 
-const Solutions14DayHolter = () => {
+const Solutions10DayHeartScreening = () => {
   const { language } = useLanguage();
 
   const content = {
     en: {
-      title: "14-Day Holter ECG",
+      title: "10-Day Heart Screening",
       subtitle: "Clinical-grade heart rhythm monitoring from the comfort of home",
-      description: "SKIIN's 14-day Holter service combines breakthrough textile technology with clinical expertise to deliver the most comprehensive cardiac monitoring solution available.",
+      description: "SKIIN's 10-day heart screening service combines breakthrough textile technology with clinical expertise to deliver the most comprehensive cardiac monitoring solution available.",
       
       hero: {
         statTitle: "Detection Rate",
@@ -30,12 +30,12 @@ const Solutions14DayHolter = () => {
       },
       
       features: {
-        title: "Why Choose SKIIN's 14-Day Holter?",
+        title: "Why Choose SKIIN's 10-Day Heart Screening?",
         items: [
           {
             icon: Clock,
             title: "Extended Monitoring",
-            description: "14 continuous days of ECG data capture intermittent arrhythmias that shorter monitoring periods miss"
+            description: "10 continuous days of ECG data capture intermittent arrhythmias that shorter monitoring periods miss"
           },
           {
             icon: Heart,
@@ -57,10 +57,10 @@ const Solutions14DayHolter = () => {
       
       comparison: {
         title: "SKIIN vs Traditional Holter",
-        skiin: "SKIIN 14-Day",
+        skiin: "SKIIN 10-Day",
         traditional: "24h Holter",
         features: [
-          { feature: "Monitoring Duration", skiin: "Up to 14 days", traditional: "24-48 hours" },
+          { feature: "Monitoring Duration", skiin: "Up to 10 days", traditional: "24-48 hours" },
           { feature: "Comfort", skiin: "Textile, wire-free", traditional: "Wires & adhesives" },
           { feature: "Daily Activities", skiin: "Normal life", traditional: "Restricted" },
           { feature: "Detection Rate", skiin: "Higher", traditional: "Limited" },
@@ -73,7 +73,7 @@ const Solutions14DayHolter = () => {
         steps: [
           "Doctor prescribes SKIIN",
           "Device delivered to home",
-          "Wear for up to 14 days",
+          "Wear for up to 10 days",
           "Automatic data upload",
           "Cardiologist review",
           "Report to your doctor"
@@ -82,14 +82,14 @@ const Solutions14DayHolter = () => {
       
       cta: {
         title: "Ready for Advanced Heart Monitoring?",
-        description: "Experience the next generation of cardiac monitoring with SKIIN's 14-day Holter service.",
+        description: "Experience the next generation of cardiac monitoring with SKIIN's 10-day heart screening service.",
         button: "Check Eligibility"
       }
     },
     de: {
-      title: "14-Tage Holter EKG",
+      title: "10-Tage Herzüberwachung",
       subtitle: "Klinisch-präzise Herzrhythmus-Überwachung bequem von zu Hause",
-      description: "SKIINs 14-Tage Holter-Service kombiniert innovative Textiltechnologie mit klinischer Expertise für die umfassendste verfügbare Herzüberwachungslösung.",
+      description: "SKIINs 10-Tage Herzüberwachungsservice kombiniert innovative Textiltechnologie mit klinischer Expertise für die umfassendste verfügbare Herzüberwachungslösung.",
       
       hero: {
         statTitle: "Entdeckungsrate",
@@ -98,12 +98,12 @@ const Solutions14DayHolter = () => {
       },
       
       features: {
-        title: "Warum SKIINs 14-Tage Holter wählen?",
+        title: "Warum SKIINs 10-Tage Herzüberwachung wählen?",
         items: [
           {
             icon: Clock,
             title: "Erweiterte Überwachung",
-            description: "14 kontinuierliche Tage EKG-Daten erfassen intermittierende Arrhythmien, die kürzere Überwachungszeiten verpassen"
+            description: "10 kontinuierliche Tage EKG-Daten erfassen intermittierende Arrhythmien, die kürzere Überwachungszeiten verpassen"
           },
           {
             icon: Heart,
@@ -125,10 +125,10 @@ const Solutions14DayHolter = () => {
       
       comparison: {
         title: "SKIIN vs Traditioneller Holter",
-        skiin: "SKIIN 14-Tage",
+        skiin: "SKIIN 10-Tage",
         traditional: "24h Holter",
         features: [
-          { feature: "Überwachungsdauer", skiin: "Bis zu 14 Tage", traditional: "24-48 Stunden" },
+          { feature: "Überwachungsdauer", skiin: "Bis zu 10 Tage", traditional: "24-48 Stunden" },
           { feature: "Komfort", skiin: "Textil, kabelfrei", traditional: "Kabel & Pflaster" },
           { feature: "Tägliche Aktivitäten", skiin: "Normales Leben", traditional: "Eingeschränkt" },
           { feature: "Entdeckungsrate", skiin: "Höher", traditional: "Begrenzt" },
@@ -141,7 +141,7 @@ const Solutions14DayHolter = () => {
         steps: [
           "Arzt verschreibt SKIIN",
           "Gerät nach Hause geliefert",
-          "Bis zu 14 Tage tragen",
+          "Bis zu 10 Tage tragen",
           "Automatischer Datenupload",
           "Kardiologen-Überprüfung",
           "Bericht an Ihren Arzt"
@@ -150,14 +150,14 @@ const Solutions14DayHolter = () => {
       
       cta: {
         title: "Bereit für fortschrittliche Herzüberwachung?",
-        description: "Erleben Sie die nächste Generation der Herzüberwachung mit SKIINs 14-Tage Holter-Service.",
+        description: "Erleben Sie die nächste Generation der Herzüberwachung mit SKIINs 10-Tage Herzüberwachungsservice.",
         button: "Berechtigung prüfen"
       }
     },
     fr: {
-      title: "Holter ECG 14 Jours",
+      title: "Dépistage Cardiaque 10 Jours",
       subtitle: "Surveillance du rythme cardiaque de qualité clinique depuis chez vous",
-      description: "Le service Holter 14 jours de SKIIN combine une technologie textile révolutionnaire avec une expertise clinique pour offrir la solution de surveillance cardiaque la plus complète disponible.",
+      description: "Le service de dépistage cardiaque 10 jours de SKIIN combine une technologie textile révolutionnaire avec une expertise clinique pour offrir la solution de surveillance cardiaque la plus complète disponible.",
       
       hero: {
         statTitle: "Taux de détection",
@@ -166,12 +166,12 @@ const Solutions14DayHolter = () => {
       },
       
       features: {
-        title: "Pourquoi choisir le Holter 14 jours de SKIIN?",
+        title: "Pourquoi choisir le dépistage cardiaque 10 jours de SKIIN?",
         items: [
           {
             icon: Clock,
             title: "Surveillance prolongée",
-            description: "14 jours continus de données ECG capturent les arythmies intermittentes que les courtes périodes manquent"
+            description: "10 jours continus de données ECG capturent les arythmies intermittentes que les courtes périodes manquent"
           },
           {
             icon: Heart,
@@ -193,10 +193,10 @@ const Solutions14DayHolter = () => {
       
       comparison: {
         title: "SKIIN vs Holter traditionnel",
-        skiin: "SKIIN 14 jours",
+        skiin: "SKIIN 10 jours",
         traditional: "Holter 24h",
         features: [
-          { feature: "Durée de surveillance", skiin: "Jusqu'à 14 jours", traditional: "24-48 heures" },
+          { feature: "Durée de surveillance", skiin: "Jusqu'à 10 jours", traditional: "24-48 heures" },
           { feature: "Confort", skiin: "Textile, sans fil", traditional: "Fils et adhésifs" },
           { feature: "Activités quotidiennes", skiin: "Vie normale", traditional: "Restreinte" },
           { feature: "Taux de détection", skiin: "Plus élevé", traditional: "Limité" },
@@ -209,7 +209,7 @@ const Solutions14DayHolter = () => {
         steps: [
           "Le médecin prescrit SKIIN",
           "Appareil livré à domicile",
-          "Porter jusqu'à 14 jours",
+          "Porter jusqu'à 10 jours",
           "Upload automatique des données",
           "Examen par cardiologue",
           "Rapport à votre médecin"
@@ -218,8 +218,81 @@ const Solutions14DayHolter = () => {
       
       cta: {
         title: "Prêt pour une surveillance cardiaque avancée?",
-        description: "Découvrez la nouvelle génération de surveillance cardiaque avec le service Holter 14 jours de SKIIN.",
+        description: "Découvrez la nouvelle génération de surveillance cardiaque avec le service de dépistage cardiaque 10 jours de SKIIN.",
         button: "Vérifier l'éligibilité"
+      }
+    },
+    
+    it: {
+      title: "Screening Cardiaco 10 Giorni",
+      subtitle: "Monitoraggio del ritmo cardiaco di qualità clinica da casa",
+      description: "Il servizio di screening cardiaco di 10 giorni di SKIIN combina la tecnologia tessile rivoluzionaria con l'esperienza clinica per offrire la soluzione di monitoraggio cardiaco più completa disponibile.",
+      
+      cta: {
+        button: "Verifica l'idoneità"
+      },
+      
+      hero: {
+        statValue: "3x",
+        statTitle: "Tasso di Rilevazione Maggiore", 
+        statDesc: "Rispetto al monitoraggio Holter di 24-48 ore"
+      },
+      
+      features: {
+        title: "Perché scegliere lo screening SKIIN di 10 giorni?",
+        items: [
+          {
+            icon: Clock,
+            title: "Monitoraggio esteso",
+            description: "Fino a 10 giorni di monitoraggio continuo del ritmo cardiaco per catturare eventi rari che test più brevi perdono"
+          },
+          {
+            icon: Shirt,
+            title: "Tecnologia indossabile",
+            description: "Tessuto senza fili, morbido che è come una seconda pelle - rimovibile per le docce"
+          },
+          {
+            icon: Activity,
+            title: "Analisi IA",
+            description: "Algoritmi avanzati rilevano aritmie in tempo reale, esaminati da cardiologi certificati"
+          },
+          {
+            icon: Shield,
+            title: "Validazione clinica",
+            description: "Dispositivo medico marcato CE con precisione convalidata rispetto ai monitor Holter tradizionali"
+          }
+        ]
+      },
+      
+      comparison: {
+        title: "SKIIN vs Holter tradizionale",
+        skiin: "SKIIN 10 giorni",
+        traditional: "Holter 24h",
+        features: [
+          { feature: "Durata del monitoraggio", skiin: "Fino a 10 giorni", traditional: "24-48 ore" },
+          { feature: "Comfort", skiin: "Tessile, senza fili", traditional: "Fili e adesivi" },
+          { feature: "Attività quotidiane", skiin: "Vita normale", traditional: "Limitata" },
+          { feature: "Tasso di rilevamento", skiin: "Più alto", traditional: "Limitato" },
+          { feature: "Compliance del paziente", skiin: "97%", traditional: "65%" }
+        ]
+      },
+      
+      process: {
+        title: "Come funziona",
+        steps: [
+          "Il medico prescrive SKIIN",
+          "Dispositivo consegnato a casa",
+          "Indossare fino a 10 giorni",
+          "Caricamento automatico dei dati",
+          "Revisione del cardiologo",
+          "Rapporto al medico"
+        ]
+      },
+      
+      cta: {
+        title: "Pronto per il monitoraggio cardiaco avanzato?",
+        description: "Sperimenta la prossima generazione di monitoraggio cardiaco con il servizio di screening cardiaco di 10 giorni di SKIIN.",
+        button: "Verifica l'idoneità"
       }
     }
   };
@@ -229,6 +302,7 @@ const Solutions14DayHolter = () => {
   const getEligibilityPath = () => {
     if (language === 'de') return '/de/wie-es-funktioniert';
     if (language === 'fr') return '/fr/comment-ca-marche';
+    if (language === 'it') return '/it/come-funziona';
     return '/how-it-works';
   };
 
@@ -251,7 +325,7 @@ const Solutions14DayHolter = () => {
               }}
               image={{
                 src: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png",
-                alt: "Person wearing SKIIN 14-Day Holter monitor",
+                alt: "Person wearing SKIIN 10-Day Heart Screening monitor",
                 position: "right"
               }}
             />
@@ -329,4 +403,4 @@ const Solutions14DayHolter = () => {
   );
 };
 
-export default Solutions14DayHolter;
+export default Solutions10DayHeartScreening;

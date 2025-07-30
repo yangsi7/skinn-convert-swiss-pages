@@ -7,177 +7,165 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useRouteTranslations } from "@/utils/routeTranslations";
-import { Heart, Shield, CheckCircle, ArrowRight, Play } from "lucide-react";
+import { Heart, Shield, CheckCircle, ArrowRight } from "lucide-react";
 
 /**
- * Enhanced HeroSection component for patient-focused landing page
- * Implements the comprehensive strategy with emotional hook, credibility, and clear CTAs
+ * HeroSection component - Phase 2 Landing Page Redesign
+ * Implements v7.2 copy with cleaner, modern design inspired by health tech leaders
  */
 const HeroSection = () => {
   const { language } = useLanguage();
   const translations = useTranslation('home');
   const { getRoutePath } = useRouteTranslations();
   
+  // Use v7.2 default variant copy
+  const heroContent = translations.hero.variants?.default || {
+    badge: "Your health matters — to more than just you",
+    headline: "Most Heart Issues are silent",
+    subheadline: "Screen Smarter, Live Younger, Longer",
+    aboveCta: "Take 5 minutes to check your eligibility for our reinvented heart screening experience, from home.",
+    ctaPrimary: "Start your free heart check",
+    ctaSecondary: "Questions? Read our FAQ →"
+  };
+
   return (
-    <div className="pt-28 pb-16 md:pt-32 md:pb-24 bg-gradient-subtle">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Main Message */}
-          <div className="space-y-8 animate-fade-in">
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="bg-white/80 backdrop-blur-sm">
-                <Shield className="w-4 h-4 mr-2 text-medical-teal" />
-                {language === 'en' ? 'CE Medical Device' : language === 'fr' ? 'Dispositif Médical CE' : 'CE Medizinprodukt'}
+    <div className="relative min-h-[85vh] md:min-h-[90vh] bg-background overflow-hidden">
+      {/* Dual-split hero layout inspired by modern health tech */}
+      <div className="container-custom relative z-10 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full min-h-[85vh] md:min-h-[90vh]">
+          
+          {/* Left Column - Content */}
+          <div className="flex flex-col justify-center py-16 md:py-24 lg:pr-16">
+            <div className="space-y-6 max-w-xl">
+              {/* Emotional Badge */}
+              <Badge variant="outline" className="bg-white/90 backdrop-blur-sm border-medical-teal/20 text-medical-teal px-5 py-2.5 text-sm font-medium">
+                {heroContent.badge}
               </Badge>
-              <Badge variant="outline" className="bg-white/80 backdrop-blur-sm">
-                <Heart className="w-4 h-4 mr-2 text-trust-blue" />
-                {language === 'en' ? 'Swiss Quality' : language === 'fr' ? 'Qualité Suisse' : 'Schweizer Qualität'}
-              </Badge>
-            </div>
 
-            {/* Main Headline - Emotional Hook */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
-                {translations.hero.title}{" "}
-                <span className="text-medical-teal">{translations.hero.titleHighlight}</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                {translations.hero.description}
+              {/* Headlines with improved typography */}
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground">
+                  {heroContent.headline}
+                </h1>
+                <p className="text-xl md:text-2xl font-medium text-medical-teal">
+                  {heroContent.subheadline}
+                </p>
+              </div>
+
+              {/* Above CTA text */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                {heroContent.aboveCta}
               </p>
-            </div>
 
-            {/* Value Propositions */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
-                <span className="text-foreground">
-                  {language === 'en' ? 'No wires, no patches – 14 days of comfortable wear' : 
-                   language === 'fr' ? 'Pas de fils, pas de patchs – 14 jours de port confortable' : 
-                   'Keine Kabel, keine Pflaster – 14 Tage bequem tragen'}
-                </span>
+              {/* Simplified CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link to={getRoutePath('/assessment', language)}>
+                  <Button 
+                    size="lg" 
+                    variant="medical" 
+                    className="group px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto"
+                  >
+                    <Heart className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    {heroContent.ctaPrimary}
+                  </Button>
+                </Link>
+                
+                <Link 
+                  to={getRoutePath('/how-it-works/faq', language)}
+                  className="text-trust-blue hover:text-trust-blue-dark font-medium underline-offset-4 hover:underline inline-flex items-center gap-1.5 self-center transition-colors"
+                >
+                  {heroContent.ctaSecondary}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
-                <span className="text-foreground">
-                  {language === 'en' ? 'Covered by basic insurance' : 
-                   language === 'fr' ? 'Couvert par l\'assurance de base' : 
-                   'Von der Grundversicherung übernommen'}
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0" />
-                <span className="text-foreground">
-                  {language === 'en' ? 'Wear at home, live your life' : 
-                   language === 'fr' ? 'Porter à la maison, vivre sa vie' : 
-                   'Zuhause tragen, beim Leben dabei sein'}
-                </span>
-              </div>
-            </div>
 
-            {/* Primary CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="medical" className="px-8">
-                <Heart className="w-5 h-5 mr-2" />
-                {language === 'en' ? 'Get Started' : language === 'fr' ? 'Commencer' : 'Jetzt starten'}
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-trust-blue text-trust-blue hover:bg-trust-blue/10"
-              >
-                <Play className="w-5 h-5 mr-2" />
-                {language === 'en' ? 'How it works' : language === 'fr' ? 'Comment ça marche' : 'Wie es funktioniert'}
-              </Button>
-            </div>
-
-            {/* Social Proof Line */}
-            <div className="pt-4 border-t border-muted">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-medical-teal">
-                  {language === 'en' ? '500+ Patients' : language === 'fr' ? '500+ Patients' : '500+ Patienten'}
-                </strong>
-                {language === 'en' ? ' have already benefited from SKIIN • ' : 
-                 language === 'fr' ? ' ont déjà bénéficié de SKIIN • ' : 
-                 ' haben bereits von SKIIN profitiert • '}
-                <strong className="text-trust-blue">
-                  {language === 'en' ? '94% Compliance' : language === 'fr' ? '94% Compliance' : '94% Compliance'}
-                </strong>
-                {language === 'en' ? ' Rate' : language === 'fr' ? ' Taux' : ' Rate'}
-              </p>
+              {/* Value Propositions - Refined */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-muted/20">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-medical-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-muted-foreground">
+                    {translations.hero.valueProps.comfort}
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Shield className="w-5 h-5 text-medical-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-muted-foreground">
+                    {translations.hero.valueProps.insurance}
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Heart className="w-5 h-5 text-medical-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-muted-foreground">
+                    {translations.hero.valueProps.lifestyle}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column - Visual Impact */}
-          <div className="relative animate-slide-in">
-            {/* Main Hero Image */}
-            <div className="relative z-10">
-              <Card className="overflow-hidden border-0 shadow-2xl">
-                <CardContent className="p-0">
-                  <img
-                    src="/assets/images/1f227914-01f4-49cb-9a48-3f39976b4898.png"
-                    alt="Patient wearing SKIIN heart monitor comfortably at home"
-                    className="w-full h-auto"
-                  />
-                  {/* Overlay Text */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4">
-                      <p className="text-sm font-medium text-foreground">
-                        {language === 'en' ? '"I almost forgot I was wearing it – so comfortable!"' : 
-                         language === 'fr' ? '"J\'ai presque oublié que je le portais – si confortable !"' : 
-                         '"Ich habe fast vergessen, dass ich es trage – so bequem!"'}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {language === 'en' ? 'Maria, 58, Zurich' : language === 'fr' ? 'Maria, 58, Zurich' : 'Maria, 58, Zürich'}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          {/* Right Column - Visual with Product Overlay */}
+          <div className="relative flex items-center justify-center lg:justify-end">
+            {/* Background Image */}
+            <div className="absolute inset-0 lg:right-[-50%] lg:left-[-20%]">
+              <img
+                src="/assets/images/Father-daughter.png"
+                alt="Father and daughter embracing - protect what matters most"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Subtle gradient overlay for better text contrast on mobile */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent lg:bg-gradient-to-l lg:from-background/60 lg:via-transparent lg:to-transparent"></div>
             </div>
 
-            {/* Floating Stats Cards */}
-            <Card className="absolute -top-4 -left-4 bg-white shadow-medical border-medical-teal/20">
-              <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-medical-teal">14</div>
-                <div className="text-xs text-muted-foreground">
-                  {language === 'en' ? 'Days Monitoring' : language === 'fr' ? 'Jours Surveillance' : 'Tage Überwachung'}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="absolute -bottom-4 -right-4 bg-white shadow-trust border-trust-blue/20">
-              <CardContent className="p-4 text-center">
-                <div className="text-2xl font-bold text-trust-blue">7x</div>
-                <div className="text-xs text-muted-foreground">
-                  {language === 'en' ? 'Better Detection' : language === 'fr' ? 'Meilleure Détection' : 'Bessere Erkennung'}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent rounded-2xl -z-10"></div>
+            {/* Product Overlay - Positioned elegantly */}
+            <div className="relative z-10 mt-8 lg:mt-0 lg:mr-16">
+              <div className="relative animate-float">
+                <img
+                  src="/assets/images/woman-wear-skiin.png"
+                  alt="Woman wearing SKIIN heart monitoring device"
+                  className="w-full max-w-[320px] lg:max-w-[400px] h-auto drop-shadow-2xl"
+                />
+                
+                {/* Single elegant stats card */}
+                <Card className="absolute -bottom-4 -right-4 lg:-right-8 bg-white/95 backdrop-blur-md shadow-xl border-0">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <div className="text-3xl font-bold text-medical-teal">{translations.hero.statsCards.monitoring.value}</div>
+                        <div className="text-sm text-muted-foreground">Days of Continuous</div>
+                        <div className="text-sm text-muted-foreground">Heart Monitoring</div>
+                      </div>
+                      <div className="w-px h-12 bg-muted/30"></div>
+                      <div>
+                        <div className="text-3xl font-bold text-trust-blue">{translations.hero.statsCards.detection.value}</div>
+                        <div className="text-sm text-muted-foreground">Better Detection</div>
+                        <div className="text-sm text-muted-foreground">Than 24hr Tests</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Trust Bar */}
-        <div className="mt-16 pt-8 border-t border-muted">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Simplified Trust Bar */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white/5 backdrop-blur-sm border-t border-white/10">
+        <div className="container-custom py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              {language === 'en' ? 'Trusted by leading Swiss healthcare institutions' : 
-               language === 'fr' ? 'Approuvé par les principales institutions de santé suisses' : 
-               'Vertraut von führenden Schweizer Gesundheitseinrichtungen'}
+              <strong className="text-medical-teal">{translations.hero.socialProof.patients}</strong>
+              {' '}{translations.hero.socialProof.patientsText}
             </p>
-            <div className="flex items-center space-x-6 opacity-60">
-              <div className="text-xs font-medium px-3 py-1 bg-muted rounded">
-                {language === 'en' ? 'University Hospital' : language === 'fr' ? 'Hôpital Universitaire' : 'Universitätsspital'}
-              </div>
-              <div className="text-xs font-medium px-3 py-1 bg-muted rounded">
-                {language === 'en' ? 'Family Doctors' : language === 'fr' ? 'Médecins de Famille' : 'Hausärzte'}
-              </div>
-              <div className="text-xs font-medium px-3 py-1 bg-muted rounded">
-                {language === 'en' ? 'Cardiologists' : language === 'fr' ? 'Cardiologues' : 'Kardiologen'}
-              </div>
+            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-trust-blue" />
+                MDR Class IIa Certified
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-medical-teal" />
+                {translations.hero.socialProof.compliance} {translations.hero.socialProof.complianceText}
+              </span>
             </div>
           </div>
         </div>

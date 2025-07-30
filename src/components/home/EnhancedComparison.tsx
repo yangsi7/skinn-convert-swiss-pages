@@ -47,6 +47,17 @@ export function EnhancedComparison() {
   return (
     <ProgressiveSection className="py-20 md:py-30">
       <div className="container-custom">
+        {/* Visual Comparison Graphic */}
+        <div className="mb-12">
+          <img
+            src="/assets/images/product/visual-compar-skiin-medical-wearable.png"
+            alt="SKIIN vs Traditional Medical Wearables Comparison"
+            className="w-full max-w-5xl mx-auto h-auto rounded-xl shadow-lg"
+            data-testid="comparison-visual"
+          />
+        </div>
+        
+        {/* Comparison Table */}
         <ComparisonTable
           title={translations.comparison.title}
           subtitle={translations.comparison.subtitle}

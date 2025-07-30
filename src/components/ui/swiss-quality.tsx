@@ -12,13 +12,13 @@ interface SwissQualityProps {
 const qualityConfig = {
   precision: {
     icon: Crown,
-    label: 'Swiss Precision',
+    label: 'Myant Technology',
     color: 'text-swiss-red',
     bg: 'bg-swiss-red/10'
   },
   quality: {
     icon: Star,
-    label: 'Swiss Quality',
+    label: 'Myant Technology',
     color: 'text-swiss-red',
     bg: 'bg-swiss-red/10'
   },

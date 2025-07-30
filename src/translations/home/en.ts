@@ -1,25 +1,263 @@
 
 export const homeTranslations = {
   hero: {
-    title: "Continuous Cardiac Monitoring",
-    titleHighlight: "Without Compromising Comfort",
-    description: "SKIIN Smart Garments are revolutionizing how we monitor and manage heart health, providing clinical-grade ECG without wires, adhesives, or discomfort.",
-    buttons: {
-      forPatients: "For Patients",
-      forPhysicians: "For Physicians"
+    badge: "MDR Class IIa Certified • Swissmedic Registered",
+    // Copy Variants for Testing
+    variants: {
+      // Default - New user-specified copy
+      default: {
+        badge: "Your health matters — to more than just you",
+        headline: "Most Heart Issues are silent",
+        subheadline: "Screen Smarter, Live Longer",
+        aboveCta: "Detect silent heart issues before they steal precious moments. Protect yourself and those who love you.",
+        eligibilityText: "Take 5 minutes to check your eligibility",
+        ctaPrimary: "Start your free heart check",
+        ctaSecondary: "Questions? Read our FAQ →"
+      },
+      // Variant A - Original dual-split copy
+      original: {
+        badge: "Certified Medical Device • Myant Technology",
+        headline: "Live Younger, Longer.",
+        subheadline: "Screen Smarter, from Home",
+        aboveCta: "Detect silent heart issues before they steal precious moments. Protect yourself and those who love you.",
+        eligibilityText: "Take 5 minutes to check your eligibility",
+        ctaPrimary: "Start Your Free Heart Check",
+        ctaSecondary: "Questions? Read our FAQ →"
+      },
+      // Legacy variants for backward compatibility
+      variantA: {
+        headline: "Heart Disease Is the #1 Killer — When Was Your Last Heart Check?",
+        subheadline: "70% of arrhythmias show no symptoms. Left undetected, they can cause strokes or heart failure. Now you can screen your heart — safely, easily, from home.",
+        emotionalSubheadline: "Longevity means more birthdays — for you, and for those who love you most. Start protecting your heart today."
+      },
+      variantB: {
+        headline: "Live Longer. Screen Smarter. From Home.",
+        subheadline: "Traditional heart monitors are uncomfortable and miss up to 91% of irregular rhythms. SKIIN's soft garment monitors continuously for 10 days — catching what others miss.",
+        emotionalSubheadline: "Add years to your life, and life to your years. Comfortable cardiac screening is finally here."
+      },
+      variantC: {
+        headline: "Your Heart. Your Family. Your Control.",
+        subheadline: "Every undetected arrhythmia is a risk to you — and a worry for those who love you. Take control with comfortable, comprehensive cardiac screening from home.",
+        emotionalSubheadline: "Because your heart beats for more than just you. Protect it for yourself and those who need you most."
+      }
     },
-    certification: "Certified medical device, clinically tested and validated",
-    testimonial: {
-      quote: "Finally, cardiac monitoring that my patients actually want to wear!",
-      author: "Dr. Sarah Klein, Cardiologist"
+    // Legacy A/B Testing Variants for backward compatibility
+    variantA: {
+      headline: "Heart Disease Is the #1 Killer — When Was Your Last Heart Check?",
+      subheadline: "70% of arrhythmias show no symptoms. Left undetected, they can cause strokes or heart failure. Now you can screen your heart — safely, easily, from home.",
+      emotionalSubheadline: "Longevity means more birthdays — for you, and for those who love you most. Start protecting your heart today."
+    },
+    variantB: {
+      headline: "Live Longer. Screen Smarter. From Home.",
+      subheadline: "Traditional heart monitors are uncomfortable and miss up to 91% of irregular rhythms. SKIIN's soft garment monitors continuously for 10 days — catching what others miss.",
+      emotionalSubheadline: "Add years to your life, and life to your years. Comfortable cardiac screening is finally here."
+    },
+    variantC: {
+      headline: "Your Heart. Your Family. Your Control.",
+      subheadline: "Every undetected arrhythmia is a risk to you — and a worry for those who love you. Take control with comfortable, comprehensive cardiac screening from home.",
+      emotionalSubheadline: "Because your heart beats for more than just you. Protect it for yourself and those who need you most."
+    },
+    // Common CTAs for all variants
+    cta: {
+      primary: "Start Your Free Assessment",
+      secondary: "Check Insurance Coverage",
+      tertiary: "Questions? Read our FAQ →"
+    },
+    // Value props updated to 10-day
+    valueProps: {
+      comfort: "No wires, no patches – 10 days of comfortable wear",
+      insurance: "Covered by basic insurance",
+      lifestyle: "Wear at home, live your life"
+    },
+    // Social proof updated
+    socialProof: {
+      patients: "500+ Patients",
+      patientsText: "have already benefited from SKIIN",
+      compliance: "94% Compliance",
+      complianceText: "Rate"
+    },
+    // Stats cards updated
+    statsCards: {
+      monitoring: {
+        value: "10",
+        label: "Days Monitoring"
+      },
+      detection: {
+        value: "66%",
+        label: "Better Detection"
+      }
     }
+  },
+  // v7.2 Evidence-based Statistics
+  statistics: {
+    title: "Clinical Evidence Shows Extended Monitoring Works",
+    subtitle: "Silent heart conditions are more common than you think — and extended monitoring catches what shorter tests miss.",
+    cards: [
+      {
+        value: "70%",
+        label: "of atrial fibrillation episodes occur without symptoms",
+        footnote: "Silent AF can lead to strokes if undetected"
+      },
+      {
+        value: "20-30%",
+        label: "of ischaemic strokes are attributed to atrial fibrillation",
+        footnote: "Early detection can prevent life-threatening events"
+      },
+      {
+        value: "66% vs 9%",
+        label: "Detection rate with extended monitoring vs a 24-hour Holter",
+        footnote: "10-day monitoring catches 7x more arrhythmias"
+      }
+    ],
+    footnote: "Clinical evidence shows that extended monitoring detects significantly more arrhythmias than traditional 24-hour tests",
+    evidenceLink: "View Clinical Evidence"
+  },
+  // v7.2 Product Section - 8 Benefits
+  productSection: {
+    title: "Why SKIIN Leads in Cardiac Monitoring",
+    subtitle: "Eight ways SKIIN transforms heart health monitoring for better outcomes",
+    benefits: [
+      {
+        title: "Extended Heart Screening for Deeper Insight",
+        description: "Replace short, 24–48-hour tests with extended monitoring (typically 10 days) to catch elusive arrhythmias. Continuous ECG recording provides a richer dataset, enabling cardiologists to detect intermittent events that would otherwise be missed."
+      },
+      {
+        title: "Shortened Wait Times & Earlier Detection",
+        description: "Rapid shipping and same-day setup mean you begin monitoring quickly. Early detection of arrhythmias and hypertension allows for timely intervention and reduces the risk of stroke or heart failure."
+      },
+      {
+        title: "Swift, Seamless Referrals",
+        description: "Our digital workflow connects you, your GP and specialists without complicated logistics. Referral forms and report sharing are integrated into the MVCP, enabling cardiologists to receive data promptly and act on critical findings."
+      },
+      {
+        title: "Comfortable Textile-Based SKIIN Band",
+        description: "A soft, adhesive-free band is shipped directly to your home. It feels like everyday clothing, is water-resistant and hypoallergenic, and can be removed briefly for showers or exercise. This improves compliance and user experience."
+      },
+      {
+        title: "AI-Powered Precision",
+        description: "Data are processed by advanced software trained on millions of ECGs. MediCalgorithmics' DeepRhythm Platform combines convolutional neural networks and transformer models to flag irregular events with high accuracy and generates clear, concise reports that include arrhythmia classification, heart-rate variability and event timelines."
+      },
+      {
+        title: "Fast Turnaround",
+        description: "Most results are returned within 24–48 hours after study completion. Cardiologists review AI-flagged events and provide personalised recommendations, ensuring you receive actionable insights quickly."
+      },
+      {
+        title: "Proven Technology",
+        description: "Thousands of studies have been completed using SKIIN's platform, trusted by leading clinics and dozens of respected cardiologists. The system delivers medical-grade accuracy while maintaining comfort and convenience."
+      },
+      {
+        title: "Health Canada Licensed",
+        description: "In addition to MDR Class IIa certification and Swissmedic registration, SKIIN technology is licensed by Health Canada, meeting rigorous North American medical standards."
+      }
+    ],
+    closing: "Data flows securely from the SKIIN app to our ISO/IEC 27001-certified cloud, where AI and Swiss cardiologists work together to deliver clear, actionable reports."
+  },
+  // v7.2 Numbers Section - Key Metrics
+  numbersSection: {
+    title: "SKIIN by the Numbers",
+    subtitle: "Proven technology delivering real results for cardiac care",
+    metrics: [
+      {
+        value: "95%",
+        label: "Detection Accuracy",
+        description: "Our AI algorithms detect arrhythmias with clinical-grade precision"
+      },
+      {
+        value: "10 Days",
+        label: "Continuous Monitoring",
+        description: "Extended monitoring catches irregular rhythms that 24-hour tests miss"
+      },
+      {
+        value: "100%",
+        label: "Insurance Coverage",
+        description: "Fully covered by Swiss basic insurance when medically prescribed"
+      },
+      {
+        value: "24/7",
+        label: "Real-Time Analysis",
+        description: "Continuous data transmission enables timely intervention when needed"
+      }
+    ]
+  },
+  // v7.2 Clinically Proven Technology Section
+  clinicallyProvenTech: {
+    title: "Clinically Proven Technology",
+    subtitle: "Backed by rigorous clinical studies and trusted by leading cardiologists",
+    trustMarkers: [
+      {
+        title: "98.6% Accuracy Rate",
+        description: "Clinical validation shows SKIIN matches traditional Holter monitor accuracy while providing superior comfort and extended monitoring"
+      },
+      {
+        title: "Published Research",
+        description: "Our technology has been validated in multiple peer-reviewed studies published in leading cardiovascular journals"
+      },
+      {
+        title: "MDR Class IIa & CE Certified",
+        description: "SKIIN meets the highest European medical device standards for safety, efficacy, and quality management"
+      },
+      {
+        title: "Cardiologist Endorsed",
+        description: "Recommended by leading Swiss cardiologists and electrophysiologists for comprehensive cardiac assessment"
+      }
+    ],
+    cta: "View Clinical Evidence"
+  },
+  // v7.2 Care360 Section - Technology Overview
+  care360Section: {
+    title: "Revolutionary Myant Care360 Technology",
+    subtitle: "Experience the future of heart health monitoring",
+    description: "Our breakthrough 360° monitoring system combines continuous data capture with AI-powered analysis for unprecedented cardiac care. The SKIIN platform delivers medical-grade accuracy while maintaining the comfort of everyday clothing.",
+    features: [
+      "10-day continuous monitoring with clinical-grade ECG",
+      "Real-time AI analysis of heart rhythm patterns",
+      "Swiss cardiologist validation of all findings",
+      "Medical-grade accuracy in a comfortable garment",
+      "Seamless data transmission to your healthcare team",
+      "Comprehensive reports with actionable insights",
+      "Integration with existing healthcare workflows"
+    ],
+    cta: "Learn More About Our Technology",
+    imagePlaceholder: "[SKIIN Product Collage - Device, App, Portal]"
+  },
+  // v7.2 Tech Carousel - Data Flow
+  techCarousel: {
+    title: "From Sensor to Solution",
+    subtitle: "See how SKIIN transforms your heart data into actionable insights",
+    steps: [
+      {
+        title: "Continuous Sensing",
+        description: "Medical-grade ECG sensors embedded in soft textile continuously monitor your heart rhythm",
+        icon: "sensor"
+      },
+      {
+        title: "SKIIN App",
+        description: "Data transmits securely via Bluetooth to your smartphone for real-time monitoring",
+        icon: "app"
+      },
+      {
+        title: "Secure Cloud",
+        description: "ISO/IEC 27001-certified infrastructure ensures your data is protected and compliant",
+        icon: "cloud"
+      },
+      {
+        title: "AI Analysis",
+        description: "Advanced algorithms trained on millions of ECGs detect irregularities with 95% accuracy",
+        icon: "ai"
+      },
+      {
+        title: "Cardiologist Review",
+        description: "Swiss cardiologists validate findings and create personalized recommendations",
+        icon: "report"
+      }
+    ]
   },
   // Home-2 Specific Content
   home2: {
     hero: {
       badge: "Certified by the Federal Office of Public Health (BAG)",
       title: "Live longer, younger.",
-      subtitle: "Revolutionary heart health through AI-powered 14-day monitoring",
+      subtitle: "Revolutionary heart health through AI-powered 10-day monitoring",
       cta: "Get Started Now",
       bookAssessment: "Book Assessment"
     },
@@ -29,7 +267,7 @@ export const homeTranslations = {
       items: [
         { number: "70%", text: "of heart rhythm disorders go unnoticed" },
         { number: "30%", text: "of people with atrial fibrillation suffer a stroke" },
-        { number: "50%", text: "more heart rhythm disorders detected with 14-day monitoring" }
+        { number: "50%", text: "more heart rhythm disorders detected with 10-day monitoring" }
       ]
     },
     clinicalEvidence: {
@@ -81,7 +319,7 @@ export const homeTranslations = {
       subtitle: "Experience the future of heart health monitoring",
       description: "Our breakthrough 360° monitoring system combines continuous data capture with AI-powered analysis for unprecedented cardiac care.",
       features: [
-        "14-day continuous monitoring",
+        "10-day continuous monitoring",
         "Real-time AI analysis",
         "Swiss cardiologist validation",
         "Medical-grade accuracy",
@@ -107,8 +345,8 @@ export const homeTranslations = {
         { 
           number: "3", 
           title: "Start Monitoring", 
-          description: "Wear the comfortable SKIIN device for 14 days while living your normal life",
-          duration: "14 days"
+          description: "Wear the comfortable SKIIN device for 10 days while living your normal life",
+          duration: "10 days"
         },
         { 
           number: "4", 
@@ -157,7 +395,7 @@ export const homeTranslations = {
       ]
     },
     cta: {
-      title: "Start Your Heart Health Journey Today",
+      title: "Take Control of Your Heart Health Today",
       subtitle: "Join thousands of Swiss patients already benefiting from advanced cardiac monitoring",
       description: "Take control of your heart health with the most comfortable and comprehensive monitoring solution available.",
       primaryButton: "Get Started Now",
@@ -170,7 +408,7 @@ export const homeTranslations = {
     items: [
       {
         title: "Continuous ECG",
-        description: "Clinical-grade ECG monitoring for up to 14 days without interruption"
+        description: "Clinical-grade ECG monitoring for up to 10 days without interruption"
       },
       {
         title: "Comfortable Design",
@@ -212,17 +450,17 @@ export const homeTranslations = {
       {
         number: "03",
         title: "Wear",
-        description: "Wear the comfortable SKIIN device for up to 14 days"
+        description: "Wear the comfortable SKIIN device for up to 10 days - easily removable for showers"
       },
       {
         number: "04",
-        title: "Monitor",
-        description: "Data is continuously recorded and analyzed by AI and cardiologists"
+        title: "AI Analysis & Cardiologist Review",
+        description: "Advanced AI algorithms detect irregularities, validated by Swiss cardiologists for accuracy"
       },
       {
         number: "05",
         title: "Results",
-        description: "Receive your detailed report and discuss with your doctor"
+        description: "Receive your detailed report within 48 hours and discuss with your doctor"
       }
     ],
     cta: "Learn More About the Process"
@@ -233,19 +471,19 @@ export const homeTranslations = {
     subtitle: "Hear from healthcare providers and patients who have experienced the benefits of SKIIN",
     items: [
       {
-        quote: "SKIIN has transformed how I monitor my patients with arrhythmias. The continuous data gives me confidence in my diagnoses, and patients actually keep wearing it.",
-        name: "Dr. Michael Rodriguez",
-        title: "Cardiologist, Swiss Heart Center"
+        quote: "After years of awkward Holter monitors, I forgot I was wearing SKIIN. Ten days went by, and my cardiologist finally found the arrhythmia that caused my dizziness.",
+        name: "The Holter Veteran",
+        title: "Patient, Basel"
       },
       {
-        quote: "As someone who needs regular cardiac monitoring, SKIIN has been life-changing. I forget I'm wearing a medical device - it's just like regular underwear but keeps me connected to my doctor.",
-        name: "Maria Schmidt",
-        title: "Patient with Atrial Fibrillation"
+        quote: "My father never complains, so I ordered SKIIN for him. The assessment was free, and the report uncovered high blood pressure at night. We changed his medication before anything serious happened.",
+        name: "A Daughter's Gift",
+        title: "Caregiver, Zurich"
       },
       {
-        quote: "The quality of data we receive from SKIIN garments is exceptional. The continuous monitoring has helped us detect patterns that would have been missed with traditional Holter monitoring.",
-        name: "Dr. Sophia Levine",
-        title: "Electrophysiologist"
+        quote: "Adhesive patches always irritated my skin. SKIIN's soft band was a relief. I wore it through daily life—even during yoga—and the report reassured me.",
+        name: "Sensitive Skin & Peace of Mind",
+        title: "Patient, Geneva"
       }
     ]
   },
@@ -264,7 +502,7 @@ export const homeTranslations = {
     },
     features: [
       "Continuous Monitoring",
-      "14-Day Wear Period",
+      "10-Day Wear Period",
       "No Adhesives or Wires",
       "Washable & Reusable",
       "Real-time Data Transmission",
@@ -281,42 +519,68 @@ export const homeTranslations = {
     },
     statistic: "97% patient satisfaction rate"
   },
-  problemSolution: {
-    title: "Finally, a heart monitor you'll actually want to wear",
-    problems: {
-      title: "Traditional Holter Problems",
-      items: [
-        {
-          title: "Uncomfortable wires and patches",
-          description: "Bulky wires and irritating adhesive pads disrupt daily life"
-        },
-        {
-          title: "Short monitoring duration", 
-          description: "24-48 hours often miss intermittent arrhythmias"
-        },
-        {
-          title: "Lifestyle interruptions",
-          description: "No showering, sports, or normal activities possible"
-        }
-      ]
+  home2: {
+    cta: {
+      title: "Take Control of Your Heart Health Today",
+      subtitle: "Join thousands of Swiss families who trust SKIIN for peace of mind",
+      description: "Whether you're monitoring for symptoms or proactive screening, our comfortable and discreet solution fits seamlessly into your life",
     },
-    solutions: {
-      title: "SKIIN Solutions",
+    features: {
+      title: "Why Choose SKIIN?",
+      subtitle: "The Gold Standard in Home Heart Monitoring",
       items: [
         {
-          title: "Textile comfort without wires",
-          description: "Soft fabric band with invisible sensors - discreet and comfortable"
+          title: "Extended Monitoring",
+          description: "10 days of continuous data capture to catch intermittent arrhythmias"
         },
         {
-          title: "14-day continuous monitoring",
-          description: "Higher detection rate for rare heart rhythm disorders"
+          title: "Comfortable Design",
+          description: "Soft, wire-free garment that feels like a second skin"
         },
         {
-          title: "Continue living normally",
-          description: "Work, sleep, shower - SKIIN adapts to your life"
+          title: "Clinical Accuracy",
+          description: "Medical-grade sensors with AI-powered analysis"
+        },
+        {
+          title: "Fast Results",
+          description: "Receive your detailed report within 48 hours"
         }
       ]
     }
+  },
+  problemSolution: {
+    title: "The Silent Triad: Three Hidden Threats to Your Heart",
+    problem: {
+      title: "The Problem",
+      description: "Many heart conditions hide quietly. Up to 70% of arrhythmias have no symptoms. A single 24-hour test offers only a brief snapshot, leaving you waiting and wondering. Traditional monitors are uncomfortable and disrupt daily life."
+    },
+    solution: {
+      title: "The Solution",
+      description: "SKIIN offers continuous heart-health monitoring from home. Our 10-Day Heart Screening catches irregular rhythms that 24-hour tests miss. The soft, wire-free garment feels like a second skin—water-resistant, washable and removable for showers. By combining ECG, blood pressure and sleep analysis, we monitor the Silent Triad (arrhythmia, hypertension and sleep apnoea) that often goes unnoticed."
+    },
+    silentTriad: {
+      title: "The Silent Triad",
+      items: [
+        {
+          title: "Arrhythmia Detection",
+          icon: "ecg",
+          description: "Continuous ECG monitoring catches irregular heart rhythms that appear sporadically"
+        },
+        {
+          title: "Blood Pressure Monitoring", 
+          icon: "blood-pressure",
+          description: "ABPM reveals masked hypertension and dangerous nocturnal patterns"
+        },
+        {
+          title: "Sleep Analysis",
+          icon: "sleep",
+          description: "Identifies sleep apnoea which increases arrhythmia risk from 53% to 92%"
+        }
+      ]
+    },
+    cta: "Start Your Free Assessment",
+    linkText: "Learn about SKIIN 3X Screening™",
+    comingSoon: "(Coming Soon)"
   },
   insurance: {
     title: "Coverage by Your Health Insurance",
@@ -356,7 +620,7 @@ export const homeTranslations = {
       },
       {
         question: "How long can patients wear SKIIN garments?",
-        answer: "SKIIN Smart Garments can be worn for up to 14 consecutive days, providing extended cardiac monitoring. The garments are designed to be comfortable enough for day and night wear, allowing for truly continuous monitoring."
+        answer: "SKIIN Smart Garments can be worn for up to 10 consecutive days, providing extended cardiac monitoring. The garments are designed to be comfortable enough for day and night wear, allowing for truly continuous monitoring."
       },
       {
         question: "Are SKIIN garments covered by insurance?",

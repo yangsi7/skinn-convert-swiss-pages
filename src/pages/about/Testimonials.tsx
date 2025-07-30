@@ -37,7 +37,7 @@ const Testimonials = () => {
       image: "/assets/images/32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png"
     },
     {
-      quote: "Initially, I was skeptical of any new wearable ECG. But SKIIN has truly proven itself. The ECG data quality is on par with traditional Holters, and the extended duration means we catch arrhythmias that a 24h monitor misses. I had a patient with cryptogenic stroke – the 14-day SKIIN finally caught an AFib episode on day 7, confirming the need for anticoagulation. The device's patient acceptance is high; they find it comfortable, which means compliance is excellent (over 90% wear time). As a cardiologist, I also value that I can log into the portal to examine any raw ECG strip if I want. SKIIN has enhanced our diagnostic process and I foresee extended monitoring becoming a new standard of care for certain patients.",
+      quote: "Initially, I was skeptical of any new wearable ECG. But SKIIN has truly proven itself. The ECG data quality is on par with traditional Holters, and the extended duration means we catch arrhythmias that a 24h monitor misses. I had a patient with cryptogenic stroke – the 10-day SKIIN finally caught an AFib episode on day 7, confirming the need for anticoagulation. The device's patient acceptance is high; they find it comfortable, which means compliance is excellent (over 90% wear time). As a cardiologist, I also value that I can log into the portal to examine any raw ECG strip if I want. SKIIN has enhanced our diagnostic process and I foresee extended monitoring becoming a new standard of care for certain patients.",
       name: "Dr. Simone Dubois",
       title: "Cardiologist, CHUV Lausanne",
       image: "/assets/images/40ba1015-dfac-4b19-9548-8f3319ffe098.png"

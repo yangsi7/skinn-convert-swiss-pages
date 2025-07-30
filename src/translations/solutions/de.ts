@@ -15,7 +15,7 @@ export const solutionsTranslations = {
           description: "Erhalten Sie das vollständige Bild Ihrer Herz-Kreislauf-Gesundheit mit unserem integrierten Überwachungsansatz"
         },
         {
-          title: "14-tägige kontinuierliche Überwachung",
+          title: "10-tägige kontinuierliche Überwachung",
           description: "Verlängerte Überwachungsperiode erfasst intermittierende Ereignisse, die kürzere Tests verpassen"
         },
         {
@@ -25,15 +25,15 @@ export const solutionsTranslations = {
       ]
     }
   },
-  holter14Day: {
+  holter10Day: {
     hero: {
-      title: "14-Tage Holter-Überwachung",
+      title: "10-Tage Herzüberwachung",
       subtitle: "Erweiterte Herzüberwachung, die Patienten tatsächlich tragen",
-      description: "Revolutionäre kleidungsbasierte EKG-Überwachung für bis zu 14 Tage - komfortabel, genau und compliance-fokussiert.",
-      cta: "14-Tage Holter entdecken"
+      description: "Revolutionäre kleidungsbasierte EKG-Überwachung für bis zu 10 Tage - komfortabel, genau und compliance-fokussiert.",
+      cta: "10-Tage Herzüberwachung entdecken"
     },
     overview: {
-      title: "Warum 14 Tage alles verändert",
+      title: "Warum 10 Tage alles verändert",
       subtitle: "Arrhythmien erkennen, die kürzere Überwachungsperioden verpassen",
       stats: [
         {

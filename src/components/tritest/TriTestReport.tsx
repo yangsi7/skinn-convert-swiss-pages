@@ -155,7 +155,7 @@ const TriTestReport: React.FC = () => {
                     Your Health Summary
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    Findings from your 14-day Tricorder study (295 hrs ECG, 48 hrs BP, 3 nights sleep).
+                    Findings from your 10-day Tricorder study (240 hrs ECG, 48 hrs BP, 3 nights sleep).
                   </p>
 
                   <div className="mb-6">
@@ -260,7 +260,7 @@ const TriTestReport: React.FC = () => {
                       
                       <div>
                         <p className="text-sm text-muted-foreground mb-4">
-                          Continuous heart rhythm monitoring for 14 days.
+                          Continuous heart rhythm monitoring for 10 days.
                         </p>
                         
                         <div className="bg-white border rounded overflow-hidden">
@@ -488,7 +488,7 @@ const TriTestReport: React.FC = () => {
                     Clinical Summary
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    14-day RPM study via Myant Tricorder: Extended Holter, ABPM, HST.
+                    10-day RPM study via Myant Tricorder: Extended Holter, ABPM, HST.
                   </p>
 
                   <div className="mb-6">
@@ -573,7 +573,7 @@ const TriTestReport: React.FC = () => {
                 <Card className="mb-8">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-foreground mb-4 pb-2 border-b">
-                      Extended Holter Analysis (14-day)
+                      Extended Holter Analysis (10-day)
                     </h3>
                     
                     <div className="grid lg:grid-cols-2 gap-6">

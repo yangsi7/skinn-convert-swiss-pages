@@ -15,7 +15,7 @@ export const solutionsTranslations = {
           description: "Obtenez l'image complète de votre santé cardiovasculaire avec notre approche de surveillance intégrée"
         },
         {
-          title: "Surveillance continue de 14 jours",
+          title: "Surveillance continue de 10 jours",
           description: "La période de surveillance prolongée capture les événements intermittents que les tests plus courts manquent"
         },
         {
@@ -25,15 +25,15 @@ export const solutionsTranslations = {
       ]
     }
   },
-  holter14Day: {
+  holter10Day: {
     hero: {
-      title: "Surveillance Holter 14 jours",
+      title: "Dépistage Cardiaque 10 jours",
       subtitle: "Surveillance cardiaque étendue que les patients portent réellement",
-      description: "Surveillance ECG révolutionnaire basée sur les vêtements jusqu'à 14 jours - confortable, précise et axée sur la conformité.",
-      cta: "Découvrir Holter 14 jours"
+      description: "Surveillance ECG révolutionnaire basée sur les vêtements jusqu'à 10 jours - confortable, précise et axée sur la conformité.",
+      cta: "Découvrir le dépistage cardiaque 10 jours"
     },
     overview: {
-      title: "Pourquoi 14 jours change tout",
+      title: "Pourquoi 10 jours change tout",
       subtitle: "Capturez les arythmies que les périodes de surveillance plus courtes manquent",
       stats: [
         {

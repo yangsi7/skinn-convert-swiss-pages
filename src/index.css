@@ -109,6 +109,63 @@
     --trust-blue: 192 60% 40%;
     --medical-grade: 190 85% 35%;
   }
+
+  /* Myant Blue & Violet Theme */
+  [data-theme="myant-violet"] {
+    /* Core colors based on Myant branding */
+    --primary: 210 100% 15%; /* Deep Myant Blue #002B5C */
+    --primary-foreground: 0 0% 100%;
+    --accent: 270 85% 55%; /* Vibrant Violet #7C3AED */
+    --accent-foreground: 0 0% 100%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 210 100% 15%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 20% 40%;
+    --foreground: 210 100% 15%; /* Dark blue for text */
+    --background: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 15%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 270 85% 55%; /* Violet focus ring */
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Extended palette */
+    --myant-blue: 210 100% 15%; /* #002B5C */
+    --myant-blue-light: 210 85% 25%;
+    --myant-blue-dark: 210 100% 10%;
+    --violet-primary: 270 85% 55%; /* #7C3AED */
+    --violet-light: 270 70% 65%;
+    --violet-dark: 270 90% 45%;
+    --violet-muted: 270 50% 90%;
+    
+    /* Theme-specific colors */
+    --primary-navy: 210 100% 15%;
+    --primary-charcoal: 210 20% 30%;
+    --medical-teal: 185 60% 45%;
+    --bridge-teal: 195 55% 40%;
+    --action-red: 0 70% 58%;
+    --success-green: 142 71% 45%;
+    --swiss-red: 348 84% 48%;
+    --trust-blue: 210 90% 35%;
+    --medical-grade: 168 70% 35%;
+    --clinical-white: 210 20% 98%;
+    --swiss-silver: 210 8% 75%;
+    --precision-gray: 210 10% 85%;
+    
+    /* Gradient system with violet accents */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.02));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--accent)), hsl(var(--violet-dark)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--violet-dark)));
+    --gradient-trust: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--myant-blue-light)));
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+  }
     
   
   /* Shadow System */
@@ -234,6 +291,37 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Subtle Container Styles for Section Separation */
+  .content-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .content-container-light {
+    @apply bg-muted/20;
+  }
+  
+  .content-container-medium {
+    @apply bg-muted/30;
+  }
+  
+  .content-container-dark {
+    @apply bg-muted/40;
+  }
+  
+  /* Subtle borders for additional separation */
+  .container-border-top {
+    @apply border-t border-muted/50;
+  }
+  
+  .container-border-bottom {
+    @apply border-b border-muted/50;
+  }
+  
+  /* Smooth transitions between sections */
+  .section-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
 }
 
 @keyframes gradient {
@@ -247,4 +335,113 @@
 
 .animate-gradient {
   animation: gradient 8s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Animation delays */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-gradient,
+  .animate-float,
+  .animate-fadeIn,
+  .animate-fadeInUp,
+  .animate-pulse-subtle,
+  .hover\\:scale-105:hover,
+  .hover\\:-translate-y-2:hover,
+  .hover\\:-translate-y-0\\.5:hover,
+  .hover\\:-translate-y-1:hover {
+    animation: none !important;
+    transform: none !important;
+  }
 }

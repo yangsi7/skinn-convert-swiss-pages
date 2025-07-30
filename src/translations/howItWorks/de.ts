@@ -18,7 +18,7 @@ export const howItWorksTranslations = {
       step1: {
         title: "Schritt 1: Überweisung erhalten",
         patient: "Ihr Arzt verschreibt SKIIN zur Überwachung Ihrer Herzsymptome. Überweisungen können von Hausärzten, Kardiologen oder Telemedizin-Diensten ausgestellt werden.",
-        physician: "Identifizieren Sie Patienten mit Palpitationen, Synkopen, Vorhofflimmern-Risiko oder anderen Arrhythmie-Symptomen. Verschreiben Sie SKIIN für 1-14 Tage Überwachung.",
+        physician: "Identifizieren Sie Patienten mit Palpitationen, Synkopen, Vorhofflimmern-Risiko oder anderen Arrhythmie-Symptomen. Verschreiben Sie SKIIN für 1-10 Tage Überwachung.",
         details: "Die Überweisung kann elektronisch, per Fax oder über unser Arztportal übermittelt werden. Vergewissern Sie sich, dass alle Patienteninformationen und klinischen Indikationen enthalten sind."
       },
       step2: {

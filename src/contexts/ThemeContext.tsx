@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type ThemePalette = 'medical-blue' | 'professional-teal' | 'swiss-innovation' | 'soft-blue-teal';
+export type ThemePalette = 'medical-blue' | 'professional-teal' | 'swiss-innovation' | 'soft-blue-teal' | 'myant-violet';
 
 interface ThemeContextType {
   currentTheme: ThemePalette;
@@ -36,6 +36,11 @@ const themeDefinitions = {
     name: 'Soft Blue-Teal',
     description: 'Gentle wellness approach',
     personality: 'Calm, approachable, wellness-focused care'
+  },
+  'myant-violet': {
+    name: 'Myant Violet',
+    description: 'Bold innovation with violet accents',
+    personality: 'Cutting-edge, sophisticated, luxurious technology'
   }
 };
 

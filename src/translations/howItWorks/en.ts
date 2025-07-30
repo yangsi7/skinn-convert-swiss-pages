@@ -32,7 +32,7 @@ export const howItWorksTranslations = {
       step3: {
         number: "3",
         title: "Wearing & Monitoring",
-        patient: "Wear the SKIIN band day and night for up to 14 days. Continue your normal activities - work, sleep, exercise. The device is water-resistant and comfortable.",
+        patient: "Wear the SKIIN band day and night for up to 10 days. Continue your normal activities - work, sleep, exercise. The device is water-resistant and comfortable.",
         physician: "No action required during monitoring. Patient continues normal activities while data is collected continuously.",
         details: "The sensor records every heartbeat silently. If you feel symptoms, mark them in the app to help correlate events in the analysis."
       },

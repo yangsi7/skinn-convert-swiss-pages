@@ -48,39 +48,39 @@ const Navbar = () => {
     const currentPath = location.pathname;
     
     // Root path is special case
-    if (currentPath === '/' || currentPath === '/de' || currentPath === '/fr') {
+    if (currentPath === '/' || currentPath === '/de' || currentPath === '/fr' || currentPath === '/it') {
       return targetLang === 'en' ? '/' : `/${targetLang}`;
     }
     
     // Handle the new route structure
     const pathMappings = {
       // Solutions
-      '/solutions/14-day-holter': { de: '/de/loesungen/14-tage-holter', fr: '/fr/solutions/holter-14-jours' },
-      '/solutions/tritest': { de: '/de/loesungen/tritest', fr: '/fr/solutions/tritest' },
+      '/solutions/10-day-heart-screening': { de: '/de/loesungen/10-tage-herzueberwachung', fr: '/fr/solutions/depistage-cardiaque-10-jours', it: '/it/soluzioni/monitoraggio-cardiaco-10-giorni' },
+      '/solutions/tritest': { de: '/de/loesungen/tritest', fr: '/fr/solutions/tritest', it: '/it/soluzioni/tritest' },
       
       // Partners
-      '/partners': { de: '/de/partner', fr: '/fr/partenaires' },
-      '/partners/general-practitioners': { de: '/de/partner/hausaerzte', fr: '/fr/partenaires/medecins-generalistes' },
-      '/partners/cardiologists': { de: '/de/partner/kardiologen', fr: '/fr/partenaires/cardiologues' },
-      '/partners/telemedicine': { de: '/de/partner/telemedizin', fr: '/fr/partenaires/telemedecine' },
-      '/partners/corporate': { de: '/de/partner/unternehmen', fr: '/fr/partenaires/entreprises' },
+      '/partners': { de: '/de/partner', fr: '/fr/partenaires', it: '/it/partner' },
+      '/partners/general-practitioners': { de: '/de/partner/hausaerzte', fr: '/fr/partenaires/medecins-generalistes', it: '/it/partner/medici-di-base' },
+      '/partners/cardiologists': { de: '/de/partner/kardiologen', fr: '/fr/partenaires/cardiologues', it: '/it/partner/cardiologi' },
+      '/partners/telemedicine': { de: '/de/partner/telemedizin', fr: '/fr/partenaires/telemedecine', it: '/it/partner/telemedicina' },
+      '/partners/corporate': { de: '/de/partner/unternehmen', fr: '/fr/partenaires/entreprises', it: '/it/partner/aziende-assicurazioni' },
       
       // How It Works
-      '/how-it-works': { de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche' },
-      '/how-it-works/process': { de: '/de/wie-es-funktioniert/prozess', fr: '/fr/comment-ca-marche/processus' },
-      '/how-it-works/reimbursement': { de: '/de/wie-es-funktioniert/kostenerstattung', fr: '/fr/comment-ca-marche/remboursement' },
-      '/how-it-works/technology': { de: '/de/wie-es-funktioniert/technologie', fr: '/fr/comment-ca-marche/technologie' },
-      '/how-it-works/evidence': { de: '/de/wie-es-funktioniert/evidenz', fr: '/fr/comment-ca-marche/evidence' },
-      '/how-it-works/faq': { de: '/de/wie-es-funktioniert/faq', fr: '/fr/comment-ca-marche/faq' },
+      '/how-it-works': { de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche', it: '/it/come-funziona' },
+      '/how-it-works/process': { de: '/de/wie-es-funktioniert/prozess', fr: '/fr/comment-ca-marche/processus', it: '/it/come-funziona/processo' },
+      '/how-it-works/reimbursement': { de: '/de/wie-es-funktioniert/kostenerstattung', fr: '/fr/comment-ca-marche/remboursement', it: '/it/come-funziona/rimborso' },
+      '/how-it-works/technology': { de: '/de/wie-es-funktioniert/technologie', fr: '/fr/comment-ca-marche/technologie', it: '/it/come-funziona/tecnologia' },
+      '/how-it-works/evidence': { de: '/de/wie-es-funktioniert/evidenz', fr: '/fr/comment-ca-marche/evidence', it: '/it/come-funziona/evidenza' },
+      '/how-it-works/faq': { de: '/de/wie-es-funktioniert/faq', fr: '/fr/comment-ca-marche/faq', it: '/it/come-funziona/faq' },
       
       // About
-      '/about': { de: '/de/ueber-uns', fr: '/fr/a-propos' },
-      '/about/company': { de: '/de/ueber-uns/unternehmen', fr: '/fr/a-propos/entreprise' },
-      '/about/medical-board': { de: '/de/ueber-uns/beirat', fr: '/fr/a-propos/conseil-medical' },
-      '/about/blog': { de: '/de/ueber-uns/blog', fr: '/fr/a-propos/blog' },
-      '/about/testimonials': { de: '/de/ueber-uns/erfahrungsberichte', fr: '/fr/a-propos/temoignages' },
-      '/about/compliance': { de: '/de/ueber-uns/compliance', fr: '/fr/a-propos/conformite' },
-      '/about/contact': { de: '/de/ueber-uns/kontakt', fr: '/fr/a-propos/contact' }
+      '/about': { de: '/de/ueber-uns', fr: '/fr/a-propos', it: '/it/chi-siamo' },
+      '/about/company': { de: '/de/ueber-uns/unternehmen', fr: '/fr/a-propos/entreprise', it: '/it/chi-siamo/azienda' },
+      '/about/medical-board': { de: '/de/ueber-uns/beirat', fr: '/fr/a-propos/conseil-medical', it: '/it/chi-siamo/comitato-medico' },
+      '/about/blog': { de: '/de/ueber-uns/blog', fr: '/fr/a-propos/blog', it: '/it/chi-siamo/blog' },
+      '/about/testimonials': { de: '/de/ueber-uns/erfahrungsberichte', fr: '/fr/a-propos/temoignages', it: '/it/chi-siamo/testimonianze' },
+      '/about/compliance': { de: '/de/ueber-uns/compliance', fr: '/fr/a-propos/conformite', it: '/it/chi-siamo/conformita' },
+      '/about/contact': { de: '/de/ueber-uns/kontakt', fr: '/fr/a-propos/contact', it: '/it/chi-siamo/contatto' }
     };
     
     // Find the mapping for current path
@@ -90,7 +90,7 @@ const Navbar = () => {
     }
     
     // Default fallback
-    return targetLang === 'en' ? currentPath.replace(/^\/de\/|^\/fr\//, '/') : `/${targetLang}${currentPath}`;
+    return targetLang === 'en' ? currentPath.replace(/^\/de\/|^\/fr\/|^\/it\//, '/') : `/${targetLang}${currentPath}`;
   };
 
   const handleLanguageChange = (lang) => {
@@ -124,21 +124,32 @@ const Navbar = () => {
         partners: "Partenaires",
         howItWorks: "Comment ça marche",
         about: "À propos"
+      },
+      it: {
+        home: "Home",
+        solutions: "Soluzioni",
+        partners: "Partner",
+        howItWorks: "Come funziona",
+        about: "Chi siamo"
       }
     };
 
     const solutionsItems = {
       en: [
-        { label: "14-Day Holter ECG", path: "/solutions/14-day-holter" },
+        { label: "10-Day Heart Screening", path: "/solutions/10-day-heart-screening" },
         { label: "SKIIN 3X Tritest", path: "/solutions/tritest" }
       ],
       de: [
-        { label: "14-Tage Holter EKG", path: "/de/loesungen/14-tage-holter" },
+        { label: "10-Tage Herzscreening", path: "/de/loesungen/10-tage-herzscreening" },
         { label: "SKIIN 3X Tritest", path: "/de/loesungen/tritest" }
       ],
       fr: [
-        { label: "Holter ECG 14 Jours", path: "/fr/solutions/holter-14-jours" },
+        { label: "Bilan Cardiaque 10 Jours", path: "/fr/solutions/bilan-cardiaque-10-jours" },
         { label: "SKIIN 3X Tritest", path: "/fr/solutions/tritest" }
+      ],
+      it: [
+        { label: "Screening Cardiaco 10 Giorni", path: "/it/soluzioni/screening-cardiaco-10-giorni" },
+        { label: "SKIIN 3X Screening™", path: "/it/soluzioni/tritest" }
       ]
     };
 
@@ -160,6 +171,12 @@ const Navbar = () => {
         { label: "Cardiologues", path: "/fr/partenaires/cardiologues" },
         { label: "Télémédecine", path: "/fr/partenaires/telemedecine" },
         { label: "Entreprises", path: "/fr/partenaires/entreprises" }
+      ],
+      it: [
+        { label: "Medici di Base", path: "/it/partner/medici-di-base" },
+        { label: "Cardiologi", path: "/it/partner/cardiologi" },
+        { label: "Telemedicina", path: "/it/partner/telemedicina" },
+        { label: "Aziende/Assicurazioni", path: "/it/partner/aziende-assicurazioni" }
       ]
     };
 
@@ -168,8 +185,8 @@ const Navbar = () => {
       home: language === 'en' ? '/' : `/${language}`,
       solutions: solutionsItems[language],
       partners: partnersItems[language],
-      howItWorks: language === 'en' ? '/how-it-works' : language === 'de' ? '/de/wie-es-funktioniert' : '/fr/comment-ca-marche',
-      about: language === 'en' ? '/about' : language === 'de' ? '/de/ueber-uns' : '/fr/a-propos'
+      howItWorks: language === 'en' ? '/how-it-works' : language === 'de' ? '/de/wie-es-funktioniert' : language === 'fr' ? '/fr/comment-ca-marche' : '/it/come-funziona',
+      about: language === 'en' ? '/about' : language === 'de' ? '/de/ueber-uns' : language === 'fr' ? '/fr/a-propos' : '/it/chi-siamo'
     };
   };
 
@@ -179,6 +196,7 @@ const Navbar = () => {
     { code: "en", label: "EN" },
     { code: "de", label: "DE" },
     { code: "fr", label: "FR" },
+    { code: "it", label: "IT" },
   ];
 
   return (
@@ -269,8 +287,8 @@ const Navbar = () => {
               ))}
             </div>
             <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
-              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : '/fr/a-propos/contact'}>
-                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatto'}>
+                {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
               </Link>
             </Button>
           </div>
@@ -367,8 +385,8 @@ const Navbar = () => {
                 ))}
               </div>
               <Button className="w-full" size="lg" asChild onClick={closeMobileMenu}>
-                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : '/fr/a-propos/contact'}>
-                  {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : 'Contactez-nous'}
+                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatto'}>
+                  {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
                 </Link>
               </Button>
             </div>

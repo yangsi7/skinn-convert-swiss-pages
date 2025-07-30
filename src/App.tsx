@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AnalyticsProvider } from "./components/analytics/AnalyticsProvider";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { RouteRedirects } from "./components/RouteRedirects";
 import AppRoutes from "./routes";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
                 googleAdsId={GOOGLE_ADS_ID}
                 hubspotId={HUBSPOT_ID}
               >
+                <RouteRedirects />
                 <AppRoutes />
               </AnalyticsProvider>
             </BrowserRouter>

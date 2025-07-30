@@ -18,7 +18,7 @@ export const howItWorksTranslations = {
       step1: {
         title: "Étape 1 : Recevoir une prescription",
         patient: "Votre médecin prescrit SKIIN pour surveiller vos symptômes cardiaques. Les prescriptions peuvent être émises par des médecins généralistes, des cardiologues ou des services de télémédecine.",
-        physician: "Identifiez les patients présentant des palpitations, des syncopes, un risque de fibrillation auriculaire ou d'autres symptômes d'arythmie. Prescrivez SKIIN pour 1 à 14 jours de surveillance.",
+        physician: "Identifiez les patients présentant des palpitations, des syncopes, un risque de fibrillation auriculaire ou d'autres symptômes d'arythmie. Prescrivez SKIIN pour 1 à 10 jours de surveillance.",
         details: "La prescription peut être soumise électroniquement, par fax ou via notre portail médecin. Assurez-vous que toutes les informations du patient et les indications cliniques sont incluses."
       },
       step2: {

@@ -94,7 +94,7 @@ const Reimbursement = () => {
       icon: <AlertCircle className="h-6 w-6 text-amber-500" />,
       status: "Usually Not Covered",
       description: "No symptoms and no risk factors - purely preventive wellness check",
-      note: "Available as self-pay option (approximately CHF 400 for 14-day monitoring)"
+      note: "Available as self-pay option (approximately CHF 400 for 10-day monitoring)"
     }
   ];
 
@@ -136,7 +136,7 @@ const Reimbursement = () => {
                 When Is SKIIN Covered?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                SKIIN's 14-day Holter monitoring is generally covered by basic health insurance in Switzerland 
+                SKIIN's 10-day Holter monitoring is generally covered by basic health insurance in Switzerland 
                 when medically indicated and properly prescribed.
               </p>
             </div>
@@ -250,7 +250,7 @@ const Reimbursement = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Calculator className="h-5 w-5 text-primary" />
-                    <span>Approximate cost: CHF 400 for 14-day monitoring</span>
+                    <span>Approximate cost: CHF 400 for 10-day monitoring</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FileText className="h-5 w-5 text-primary" />
@@ -268,7 +268,7 @@ const Reimbursement = () => {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-2">
                       <CheckCircle className="h-4 w-4 text-primary" />
-                      <span className="text-sm">14-day continuous ECG monitoring</span>
+                      <span className="text-sm">10-day continuous ECG monitoring</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle className="h-4 w-4 text-primary" />

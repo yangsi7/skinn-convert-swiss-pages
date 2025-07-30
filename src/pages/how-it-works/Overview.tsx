@@ -50,7 +50,7 @@ const HowItWorksOverview = () => {
     {
       icon: Heart,
       title: "Comfortable Monitoring",
-      description: "Wear for up to 14 days without interrupting your daily life"
+      description: "Wear for up to 10 days without interrupting your daily life"
     },
     {
       icon: Smartphone,
@@ -126,7 +126,7 @@ const HowItWorksOverview = () => {
               {[
                 { step: 1, title: "Prescription", desc: "Doctor orders SKIIN or use our eligibility check" },
                 { step: 2, title: "Delivery", desc: "Device shipped directly to your home" },
-                { step: 3, title: "Monitoring", desc: "Wear comfortably for up to 14 days" },
+                { step: 3, title: "Monitoring", desc: "Wear comfortably for up to 10 days" },
                 { step: 4, title: "Analysis", desc: "AI + cardiologist review your data" },
                 { step: 5, title: "Results", desc: "Comprehensive report to your doctor" }
               ].map((item) => (

@@ -38,6 +38,13 @@ export const useRouteTranslations = () => {
         patients: '/fr/patients',
         about: '/fr/a-propos',
         contact: '/fr/contact'
+      },
+      it: {
+        home: '/it',
+        physicians: '/it/medici',
+        patients: '/it/pazienti',
+        about: '/it/chi-siamo',
+        contact: '/it/contatto'
       }
     };
     

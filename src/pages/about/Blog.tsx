@@ -23,7 +23,7 @@ const Blog = () => {
       title: "Industry Trends & Research",
       description: "Latest developments in digital health and cardiology research findings",
       posts: [
-        "Why 14 Days? The Science of Long-term ECG",
+        "Why 10 Days? The Science of Long-term ECG",
         "AI in Cardiac Monitoring: Present and Future",
         "Extended Monitoring vs Traditional Holter"
       ]
@@ -157,9 +157,9 @@ const Blog = () => {
                     <span className="text-sm text-muted-foreground">This Week</span>
                     <Badge variant="secondary">Research</Badge>
                   </div>
-                  <h3 className="font-semibold mb-3">Why 14 Days? The Science of Long-term ECG</h3>
+                  <h3 className="font-semibold mb-3">Why 10 Days? The Science of Long-term ECG</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Research showing that 14-day patches find significantly more arrhythmias 
+                    Research showing that 10-day patches find significantly more arrhythmias 
                     than 24-hour Holter monitoring.
                   </p>
                   <Button variant="outline" size="sm">Read Article</Button>
