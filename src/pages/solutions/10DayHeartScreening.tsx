@@ -228,9 +228,6 @@ const Solutions10DayHeartScreening = () => {
       subtitle: "Monitoraggio del ritmo cardiaco di qualità clinica da casa",
       description: "Il servizio di screening cardiaco di 10 giorni di SKIIN combina la tecnologia tessile rivoluzionaria con l'esperienza clinica per offrire la soluzione di monitoraggio cardiaco più completa disponibile.",
       
-      cta: {
-        button: "Verifica l'idoneità"
-      },
       
       hero: {
         statValue: "3x",

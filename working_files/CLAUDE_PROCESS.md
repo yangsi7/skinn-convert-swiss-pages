@@ -60,9 +60,9 @@
    - Use `memory.recall('phase-*-summary')` for current phase status
    - Use `context7.search_nodes` to find relevant entities
 
-2. **Understand**: Parse the latest user request & `event‑stream.md`. If the task involves architecture, multi‑module coordination or significant ambiguity, invoke the **`<system_understanding_module>`**.
+2. **Understand**: Parse the latest user request & `event‑stream.md`. Check `git status` for uncommitted work. Review directory structure with `ls -R src/ | head -50` or `tree -L 2`. If the task involves architecture, multi‑module coordination or significant ambiguity, invoke the **`<system_understanding_module>`**.
 
-3. **Plan**: Produce/refresh a numbered plan using the **`<planner_module>`**, mapping each step to a module and selecting appropriate MCP tools. Sync tasks to `todo.md` and persist the plan using `memory.store`.
+3. **Plan**: Produce/refresh a numbered plan using the **`<planner_module>`**, mapping each step to a module and selecting appropriate MCP tools. Check for existing related tasks before adding new ones. Sync tasks to `todo.md` with commit/PR boundaries and persist the plan using `memory.store`.
 
 4. **Select Action**: Choose **exactly one** tool, code edit, or research action from the plan; call `brave_web_search` for external research, `puppeteer_navigate`/`puppeteer_screenshot` for UI validation, `supabase` functions for database tasks, `context7` for graph updates, or shell commands for quick context discovery (e.g. `ls -R`, `tree -L 2`, `git ls‑files`).
 
@@ -90,7 +90,13 @@
 
 14. **Deliver**: Message the user with results & file paths, summarising what was accomplished and what tasks remain. Provide attachments or sync files as needed.
 
-15. **CI/CD Pipeline**: For projects using continuous integration, push changes, run GitHub Actions (lint, test, build, deploy) and monitor results. Document pipeline status and note any required interventions.
+15. **GitHub & CI/CD Pipeline**: 
+    - Check `git status` for uncommitted changes
+    - If commit group in todo.md is complete: commit with planned message
+    - If at PR boundary: create feature branch (if needed), push, and create PR
+    - Run GitHub Actions (lint, test, build, deploy) and monitor results
+    - Document pipeline status and note any required interventions
+    - Update event-stream.md with commit/PR information
 
 16. **Enter Standby**: After delivery and pipeline completion, enter an idle state awaiting further instructions. Persist final context via `memory.store` and ensure the knowledge graph reflects the current state.
 
@@ -125,16 +131,43 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 ### **Planner Module**
 
 \<planner\_module\>  
- – **Purpose**: Create and maintain a clear, actionable implementation plan. Persist plans in memory and map tasks in the knowledge graph.  
+ – **Purpose**: Create and maintain a clear, actionable implementation plan with integrated testing and GitHub workflow. Persist plans in memory and map tasks in the knowledge graph.  
  – **Rules**:
 
 * The canonical plan lives in `planning.md`. The actionable checklist lives in `todo.md`. Persist both via `memory.store` using keys like `plan-[timestamp]`.
+
+* **Context Review Requirements**:
+  - ALWAYS start by reviewing `event-stream.md` to understand what was done previously
+  - Review current directory tree structure using `ls -R` or `tree -L 2` and compare against documented structure
+  - Check for discrepancies between actual files and what's documented in `doc-ref.md`
+  - Update directory tree documentation in relevant places when changes are detected
 
 * Plans must follow the **ITERATION‑FIRST** principle: always check if an existing component or pattern can be extended before creating something new.
 
 * Break down work into logical phases: 1\. Research & Foundation (data, types), 2\. Backend (logic, APIs), 3\. Frontend (UI, state), 4\. Testing & Quality Assurance, 5\. Deployment & CI/CD.
 
+* **Testing Task Integration**: Every phase MUST include explicit test tasks:
+  - Design system compliance checks (no hardcoded values, proper CSS variables)
+  - Multilanguage feature verification (all 4 languages working)
+  - Visual asset inventory updates when images/videos are added/modified
+  - Performance testing against defined budgets
+  - Accessibility testing (WCAG 2.1 AA compliance)
+  - Cross-browser testing checklist
+
+* **GitHub Integration**: Plans must specify commit groupings and PR boundaries:
+  - Group related tasks under planned commits (e.g., "Commit 1: Hero section redesign")
+  - Group commits under planned PRs (e.g., "PR: Phase 6 Landing Page Improvements")
+  - Include commit message conventions in task descriptions
+  - Specify when to create feature branches
+
 * Represent each task as an entity in the knowledge graph (using `context7.create_entities`) and link tasks to modules, files and dependencies via `context7.create_relations`. Use `add_observations` to store notes or status updates.
+
+* **Plan Coherence & Reprioritization**:
+  - When new items require planning changes, FIRST review current plan and tasks
+  - Identify conflicts or overlaps with existing items
+  - Reprioritize by moving items, not duplicating them
+  - Maintain a single coherent plan - avoid parallel conflicting plans
+  - Document reprioritization rationale in event-stream.md
 
 * Persist updated plans and task status with `memory.store` after every major change.
 
@@ -159,12 +192,39 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 ### **Todo Management**
 
 \<todo\_module\>  
- – **Purpose**: Manage fine‑grained tasks associated with the plan.  
+ – **Purpose**: Manage fine‑grained tasks with integrated testing checkpoints and GitHub workflow milestones.  
  – **Rules**:
 
 * Maintain `todo.md` as a checklist of tasks derived from the plan. Each entry corresponds to a specific deliverable or subtask and may have sub‑items.
 
+* **Task Structure with GitHub Integration**:
+  - Group tasks under commit boundaries (e.g., "### Commit: Hero Section Updates")
+  - Within commits, organize tasks by testing requirements
+  - Mark PR boundaries clearly (e.g., "## PR: Phase 6 Landing Page")
+  - Include commit message draft with each commit group
+
+* **Mandatory Test Tasks**: Every feature task MUST be followed by:
+  - [ ] Run design system compliance check (conventions.md reference)
+  - [ ] Test all 4 language versions
+  - [ ] Update visual asset inventory if images/videos changed
+  - [ ] Run performance tests against budgets
+  - [ ] Verify accessibility (keyboard nav, screen reader, contrast)
+  - [ ] Update relevant documentation
+
+* **Context Review Tasks**: At start of each work session:
+  - [ ] Review event-stream.md for recent changes
+  - [ ] Check current directory structure vs documented
+  - [ ] Verify all working files are up to date
+  - [ ] Check for uncommitted changes
+
 * After completing each item, update `todo.md` and check it off. Persist the updated checklist via `memory.store`.
+
+* **Reprioritization Protocol**:
+  - When adding urgent tasks, review existing list first
+  - Move conflicting tasks to "Deferred" section, don't delete
+  - Update task priorities (P0-P3) based on new requirements
+  - Group related new tasks with existing commit plans
+  - Document reason for reprioritization in task notes
 
 * If the plan changes or new tasks emerge, update `todo.md` accordingly and regenerate the knowledge‑graph entities and relations to reflect the new tasks.
 
@@ -564,7 +624,7 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 ### **CI/CD Guidance**
 
 \<ci\_cd\_module\>  
- – **Purpose**: Define continuous integration and deployment workflows.  
+ – **Purpose**: Define continuous integration, deployment workflows, and GitHub development process.  
  – **Guidelines**:
 
 * Configure GitHub Actions (or similar) to run linting, type checks, unit tests, integration tests and deployment scripts on each push.
@@ -577,6 +637,62 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 
 * Monitor pipeline results and log status in `event‑stream.md`. Use `bug_tracking_module` to track CI/CD failures.  
    \</ci\_cd\_module\>
+
+### **GitHub Integration & Development Workflow**
+
+\<github\_integration\_module\>  
+ – **Purpose**: Define commit strategy, PR workflow, and integration with planning/todo systems.  
+ – **Strategy**:
+
+* **Commit Strategy**:
+  - Atomic commits: One logical change per commit
+  - Follow conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`
+  - Group related changes based on todo.md commit boundaries
+  - Commit frequency: After completing each commit group in todo.md (typically 2-5 tasks)
+  - Always run tests before committing
+
+* **Branch Strategy**:
+  - Main branch: `main` (protected, requires PR)
+  - Feature branches: `feature/[phase]-[description]` (e.g., `feature/phase6-landing-page`)
+  - Fix branches: `fix/[issue]-[description]`
+  - Create feature branch at start of phase or major feature
+
+* **PR Guidelines**:
+  - Create PR when phase or major feature is complete
+  - PR title: Clear description following commit conventions
+  - PR body must include:
+    - Summary of changes (reference todo.md tasks)
+    - Testing performed (reference test results)
+    - Screenshots for UI changes
+    - Breaking changes or migration notes
+  - Require all CI checks to pass
+  - Request review from appropriate team members
+
+* **Integration with Planning/Todo**:
+  - In planning.md: Define PR boundaries for each phase
+  - In todo.md: Group tasks under commit and PR headers
+  - In event-stream.md: Log commits and PRs as events
+  - Before PR: Ensure all related tasks in todo.md are complete
+  - After PR merge: Update planning.md with completion status
+
+* **Agent Loop Integration**:
+  - Step 15 (CI/CD Pipeline): Check if current commit group is complete
+  - If complete: Run tests, commit with planned message
+  - If PR boundary reached: Create PR, update documentation
+  - Always check uncommitted changes at session start
+  - Use `git status` to inform planning decisions
+
+* **Do's and Don'ts**:
+  - DO: Commit completed work at natural boundaries
+  - DO: Keep commits focused and well-described
+  - DO: Update docs in same commit as code changes
+  - DO: Run full test suite before PR
+  - DON'T: Commit broken code
+  - DON'T: Mix unrelated changes in one commit
+  - DON'T: Create PRs without updating documentation
+  - DON'T: Merge without passing CI checks
+
+   \</github\_integration\_module\>
 
 ### **Sandbox Environment Spec**
 

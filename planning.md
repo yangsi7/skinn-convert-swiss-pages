@@ -1,14 +1,24 @@
 # Planning Document - SKIIN Landing Page Component Consolidation
 
+## PR Structure
+**PR: Landing Page Component Consolidation**
+- Branch: `feature/landing-page-consolidation`
+- Target: 3 commits total
+- Estimated completion: 3 hours
+
 ## Implementation Plan
 
 ### Phase 1: Analysis & Preparation (30 min)
+**Commit 1: Fix visibility issues and analyze components**
 1. Investigate why "Why SKIIN Leads" section is not visible
 2. Audit all redundant sections for content to preserve
 3. Map visual assets to new component structure
 4. Document Real-time ECG badge implementation
+5. Run directory structure audit
+6. Update documentation tree if needed
 
 ### Phase 2: Component Design (45 min)
+**Commit 2: Implement consolidated components**
 1. Design "SKIIN Advantage" consolidated component
    - Merge technology, comfort, and quality benefits
    - Create interactive layout with visual focus
@@ -20,6 +30,7 @@
    - Write new copy emphasizing home-based care
 
 ### Phase 3: Implementation (60 min)
+**Commit 2 continued:**
 1. Create new SKIINAdvantage component
 2. Update Care360Technology component
 3. Remove/comment out redundant sections
@@ -27,11 +38,16 @@
 5. Preserve Real-time ECG badge
 
 ### Phase 4: Testing & Polish (30 min)
-1. Test all interactive elements
-2. Verify responsive behavior
-3. Ensure smooth transitions
-4. Validate content visibility
-5. Screenshot documentation
+**Commit 3: Test, document, and polish**
+1. Run all standard tests:
+   - Design system compliance check
+   - Test all 4 language versions
+   - Update visual asset inventory
+   - Performance testing
+   - Accessibility verification
+2. Screenshot documentation
+3. Update event-stream.md
+4. Update component documentation
 
 ## Technical Approach
 

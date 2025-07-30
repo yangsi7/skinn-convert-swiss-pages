@@ -220,6 +220,41 @@ export const homeTranslations = {
     cta: "Learn More About Our Technology",
     imagePlaceholder: "[SKIIN Product Collage - Device, App, Portal]"
   },
+  // Home Holter Study - Care360 Technology
+  care360HomeHolter: {
+    badge: "Home-Based Holter Study",
+    title: "Revolutionary Care360° Technology",
+    subtitle: "Experience the future of cardiac monitoring - comprehensive, comfortable, and completely from home",
+    processTitle: "Your Complete Home Holter Study Process",
+    processSteps: [
+      {
+        title: "Order Your Kit from Home",
+        description: "Simple online eligibility check and ordering. Your cardiac monitoring kit arrives at your door within 2-3 business days."
+      },
+      {
+        title: "Wear the Comfortable SKIIN Garment",
+        description: "Put on the soft textile band - no adhesives, no wires. Wear it continuously for up to 10 days, even in the shower."
+      },
+      {
+        title: "Automatic Data Upload",
+        description: "The SKIIN device automatically syncs your heart data to our secure Swiss cloud. No manual intervention needed."
+      },
+      {
+        title: "AI Analysis + Cardiologist Review",
+        description: "Advanced algorithms analyze millions of heartbeats, then Swiss cardiologists validate every finding for accuracy."
+      },
+      {
+        title: "Receive Your Medical Report",
+        description: "Get your comprehensive cardiac report within 48 hours. Clear results with actionable recommendations from specialists."
+      },
+      {
+        title: "Follow-up Care Coordination",
+        description: "If needed, we connect you with cardiologists for follow-up care. Your data is securely shared with your healthcare team."
+      }
+    ],
+    bottomText: "Join the thousands who have already experienced the convenience and accuracy of home-based cardiac monitoring",
+    cta: "Start Your Home-Based Holter Study"
+  },
   // v7.2 Tech Carousel - Data Flow
   techCarousel: {
     title: "From Sensor to Solution",
@@ -518,35 +553,6 @@ export const homeTranslations = {
       scheduleDemo: "Schedule a Demo"
     },
     statistic: "97% patient satisfaction rate"
-  },
-  home2: {
-    cta: {
-      title: "Take Control of Your Heart Health Today",
-      subtitle: "Join thousands of Swiss families who trust SKIIN for peace of mind",
-      description: "Whether you're monitoring for symptoms or proactive screening, our comfortable and discreet solution fits seamlessly into your life",
-    },
-    features: {
-      title: "Why Choose SKIIN?",
-      subtitle: "The Gold Standard in Home Heart Monitoring",
-      items: [
-        {
-          title: "Extended Monitoring",
-          description: "10 days of continuous data capture to catch intermittent arrhythmias"
-        },
-        {
-          title: "Comfortable Design",
-          description: "Soft, wire-free garment that feels like a second skin"
-        },
-        {
-          title: "Clinical Accuracy",
-          description: "Medical-grade sensors with AI-powered analysis"
-        },
-        {
-          title: "Fast Results",
-          description: "Receive your detailed report within 48 hours"
-        }
-      ]
-    }
   },
   problemSolution: {
     title: "The Silent Triad: Three Hidden Threats to Your Heart",

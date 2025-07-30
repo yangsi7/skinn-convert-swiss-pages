@@ -769,13 +769,29 @@ Event handler on form doesn't prevent default on Enter key
 
 ## CI/CD & GitHub Conventions
 
+### Development Workflow
+
+**Commit Frequency & Strategy**
+- Commit after completing a logical group of tasks (2-5 related items from todo.md)
+- Each commit should be atomic: one logical change that can be understood in isolation
+- Run all tests before committing: `npm run lint && npm run typecheck && npm run test`
+- Never commit broken code or failing tests
+
+**PR Creation Guidelines**
+- Create PR when a phase or major feature is complete (defined in planning.md)
+- PRs should represent a cohesive set of changes that can be reviewed as a unit
+- Include all related documentation updates in the same PR
+- Ensure all todo.md tasks for the PR scope are complete
+
 ### Branch Naming
 
 \# Feature branches  
-feature/hero-section-v7-copy  
+feature/phase6-landing-page  # Phase-based features
+feature/hero-section-v7-copy  # Specific component features
 feature/eligibility-calculator
 
 \# Bug fixes  
+fix/p0-homepage-blank  # Priority-based fixes
 fix/form-validation-enter-key  
 fix/mobile-navigation-overlap
 
@@ -797,6 +813,81 @@ refactor: extract card component from home page
 \# With scope  
 feat(eligibility): add age validation  
 fix(navigation): correct mobile menu z-index
+
+\# Multi-line commits for complex changes
+feat: implement dual-split hero section design
+
+- Add Father-daughter.png background image
+- Create responsive layout for mobile/desktop
+- Implement copy variant system
+- Add Real-time ECG badge overlay
+- Update all 4 language translations
+
+### Pre-Commit Testing Checklist
+
+Before EVERY commit, verify:
+- [ ] **Design System Compliance**
+  - No hardcoded colors (use CSS variables)
+  - No hardcoded spacing values (use Tailwind classes)
+  - Components follow atomic design (≤50 LOC)
+  - Proper theme support implemented
+  
+- [ ] **Multilanguage Support**
+  - All 4 languages tested (EN, DE, FR, IT)
+  - New text added to translation files
+  - Route translations working correctly
+  - No hardcoded text in components
+  
+- [ ] **Visual Assets**
+  - New images added to correct folders
+  - Alt text provided for all images
+  - Visual asset inventory updated
+  - Lazy loading implemented
+  
+- [ ] **Performance**
+  - LCP < 2.5s
+  - CLS < 0.1
+  - Bundle size checked
+  - No performance regressions
+  
+- [ ] **Accessibility**
+  - Keyboard navigation working
+  - ARIA labels present
+  - Color contrast passing
+  - Screen reader tested
+
+### PR Template
+
+```markdown
+## Summary
+Brief description of changes (reference planning.md phase)
+
+## Tasks Completed
+- [ ] List all todo.md tasks included in this PR
+- [ ] Task IDs: [#1, #2, #3]
+
+## Testing Performed
+- [ ] Design system compliance verified
+- [ ] All 4 languages tested
+- [ ] Performance budgets met
+- [ ] Accessibility checks passed
+- [ ] Cross-browser testing completed
+
+## Screenshots
+[Add screenshots for UI changes]
+
+## Documentation Updates
+- [ ] CLAUDE.md updated (if needed)
+- [ ] conventions.md updated (if patterns changed)
+- [ ] Component docs updated
+- [ ] event-stream.md logged
+
+## Breaking Changes
+None / List any breaking changes
+
+## Migration Notes
+None / Provide migration instructions if needed
+```
 
 ### GitHub Actions Pipeline
 

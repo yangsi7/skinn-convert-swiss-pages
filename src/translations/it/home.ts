@@ -245,6 +245,41 @@ export const homeTranslations = {
       }
     ]
   },
+  // Studio Holter domiciliare - Tecnologia Care360
+  care360HomeHolter: {
+    badge: "Studio Holter domiciliare",
+    title: "Tecnologia Care360° rivoluzionaria",
+    subtitle: "Scopri il futuro del monitoraggio cardiaco - completo, confortevole e completamente da casa",
+    processTitle: "Il tuo processo completo di studio Holter domiciliare",
+    processSteps: [
+      {
+        title: "Ordina il tuo kit da casa",
+        description: "Semplice controllo di idoneità e ordinazione online. Il tuo kit di monitoraggio cardiaco arriva a casa tua entro 2-3 giorni lavorativi."
+      },
+      {
+        title: "Indossa il comodo indumento SKIIN",
+        description: "Indossa la fascia tessile morbida - niente adesivi, niente fili. Indossala continuamente fino a 10 giorni, anche sotto la doccia."
+      },
+      {
+        title: "Caricamento automatico dei dati",
+        description: "Il dispositivo SKIIN sincronizza automaticamente i tuoi dati cardiaci sul nostro cloud svizzero sicuro. Nessun intervento manuale necessario."
+      },
+      {
+        title: "Analisi IA + Revisione del cardiologo",
+        description: "Algoritmi avanzati analizzano milioni di battiti cardiaci, poi i cardiologi svizzeri convalidano ogni risultato per accuratezza."
+      },
+      {
+        title: "Ricevi il tuo rapporto medico",
+        description: "Ottieni il tuo rapporto cardiaco completo entro 48 ore. Risultati chiari con raccomandazioni concrete da specialisti."
+      },
+      {
+        title: "Coordinamento delle cure di follow-up",
+        description: "Se necessario, ti mettiamo in contatto con cardiologi per le cure di follow-up. I tuoi dati sono condivisi in modo sicuro con il tuo team sanitario."
+      }
+    ],
+    bottomText: "Unisciti alle migliaia di persone che hanno già sperimentato la comodità e l'accuratezza del monitoraggio cardiaco domiciliare",
+    cta: "Inizia il tuo studio Holter domiciliare"
+  },
   // Home-2 Specific Content
   home2: {
     hero: {

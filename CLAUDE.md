@@ -444,4 +444,11 @@ See `/docs/process/2025-07-29-memory-implementation-guide.md` for detailed patte
 
 * **Process Reprioritisation** – The planning & todo modules now include a mechanism for reprioritising tasks. When new research or requirements emerge, review planning.md and todo.md, reorder tasks, add or remove entries and update the knowledge graph accordingly. Document these changes as Plan events in event-stream.md.
 
+* **GitHub Process & Development Workflow** – Follow a structured commit and PR strategy integrated with planning/todo systems:
+  - **Commit Strategy**: Group tasks in todo.md under commit boundaries. Commit after completing each group (typically 2-5 related tasks). Use conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`. Always run tests before committing.
+  - **PR Strategy**: Create PRs at phase or major feature boundaries defined in planning.md. Feature branches follow pattern: `feature/[phase]-[description]`. PRs must include summary, testing performed, and screenshots for UI changes.
+  - **Integration**: Tasks in todo.md are organized under commit/PR headers. Event-stream.md logs all commits and PRs. Agent checks `git status` at session start and after task completion.
+  - **Testing Before Commits**: Every commit must pass: design system compliance (no hardcoded values), multilanguage verification (all 4 languages), performance budgets, accessibility checks.
+  - **Documentation**: Update docs in same commit as code changes. Never create PR without updating relevant documentation.
+
 By following this playbook and the universal process (@working\_files/CLAUDE\_PROCESS.md), Claude Code can autonomously plan, execute, validate and document the SKIIN marketing site with minimal user intervention. Always adhere to the principles above, update the working files promptly and use the MCP tools wisely.
