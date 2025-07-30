@@ -246,6 +246,41 @@ export const homeTranslations = {
       }
     ]
   },
+  // Home Holter Study - Care360 Technology
+  care360HomeHolter: {
+    badge: "Holter-Untersuchung zu Hause",
+    title: "Revolutionäre Care360° Technologie",
+    subtitle: "Erleben Sie die Zukunft der Herzüberwachung - umfassend, komfortabel und vollständig von zu Hause aus",
+    processTitle: "Ihr vollständiger Holter-Untersuchungsprozess zu Hause",
+    processSteps: [
+      {
+        title: "Bestellen Sie Ihr Kit von zu Hause",
+        description: "Einfache Online-Eignungsprüfung und Bestellung. Ihr Herzüberwachungskit kommt innerhalb von 2-3 Werktagen an Ihre Tür."
+      },
+      {
+        title: "Tragen Sie das komfortable SKIIN-Kleidungsstück",
+        description: "Legen Sie das weiche Textilband an - keine Klebstoffe, keine Kabel. Tragen Sie es kontinuierlich bis zu 10 Tage, sogar unter der Dusche."
+      },
+      {
+        title: "Automatischer Daten-Upload",
+        description: "Das SKIIN-Gerät synchronisiert Ihre Herzdaten automatisch mit unserer sicheren Schweizer Cloud. Kein manueller Eingriff erforderlich."
+      },
+      {
+        title: "KI-Analyse + Kardiologen-Überprüfung",
+        description: "Fortschrittliche Algorithmen analysieren Millionen von Herzschlägen, dann validieren Schweizer Kardiologen jeden Befund auf Genauigkeit."
+      },
+      {
+        title: "Erhalten Sie Ihren medizinischen Bericht",
+        description: "Erhalten Sie Ihren umfassenden Herzbericht innerhalb von 48 Stunden. Klare Ergebnisse mit umsetzbaren Empfehlungen von Spezialisten."
+      },
+      {
+        title: "Nachsorge-Koordination",
+        description: "Bei Bedarf verbinden wir Sie mit Kardiologen zur Nachsorge. Ihre Daten werden sicher mit Ihrem Gesundheitsteam geteilt."
+      }
+    ],
+    bottomText: "Schließen Sie sich den Tausenden an, die bereits die Bequemlichkeit und Genauigkeit der häuslichen Herzüberwachung erlebt haben",
+    cta: "Starten Sie Ihre Holter-Untersuchung zu Hause"
+  },
   // Home-2 Spezifischer Inhalt
   home2: {
     hero: {

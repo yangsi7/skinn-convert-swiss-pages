@@ -246,6 +246,41 @@ export const homeTranslations = {
       }
     ]
   },
+  // Étude Holter à domicile - Technologie Care360
+  care360HomeHolter: {
+    badge: "Étude Holter à domicile",
+    title: "Technologie Care360° révolutionnaire",
+    subtitle: "Découvrez l'avenir de la surveillance cardiaque - complète, confortable et entièrement à domicile",
+    processTitle: "Votre processus complet d'étude Holter à domicile",
+    processSteps: [
+      {
+        title: "Commandez votre kit depuis chez vous",
+        description: "Vérification d'éligibilité et commande en ligne simples. Votre kit de surveillance cardiaque arrive à votre porte sous 2-3 jours ouvrables."
+      },
+      {
+        title: "Portez le vêtement SKIIN confortable",
+        description: "Enfilez la bande textile douce - pas d'adhésifs, pas de fils. Portez-la en continu jusqu'à 10 jours, même sous la douche."
+      },
+      {
+        title: "Téléchargement automatique des données",
+        description: "L'appareil SKIIN synchronise automatiquement vos données cardiaques avec notre cloud suisse sécurisé. Aucune intervention manuelle nécessaire."
+      },
+      {
+        title: "Analyse IA + Révision par cardiologue",
+        description: "Des algorithmes avancés analysent des millions de battements cardiaques, puis des cardiologues suisses valident chaque résultat pour garantir la précision."
+      },
+      {
+        title: "Recevez votre rapport médical",
+        description: "Obtenez votre rapport cardiaque complet dans les 48 heures. Des résultats clairs avec des recommandations concrètes de spécialistes."
+      },
+      {
+        title: "Coordination des soins de suivi",
+        description: "Si nécessaire, nous vous mettons en contact avec des cardiologues pour le suivi. Vos données sont partagées en toute sécurité avec votre équipe de soins."
+      }
+    ],
+    bottomText: "Rejoignez les milliers de personnes qui ont déjà expérimenté la commodité et la précision de la surveillance cardiaque à domicile",
+    cta: "Commencez votre étude Holter à domicile"
+  },
   // Contenu spécifique à Home-2
   home2: {
     hero: {
