@@ -45,7 +45,7 @@ const themeDefinitions = {
 };
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<ThemePalette>('myant-violet');
+  const [currentTheme, setCurrentTheme] = useState<ThemePalette>('medical-blue');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('myant-theme') as ThemePalette;

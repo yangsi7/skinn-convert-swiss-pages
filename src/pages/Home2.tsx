@@ -174,16 +174,6 @@ const Home2 = () => {
                   </Card>
                 </div>
                 
-                {/* Mobile Real-time ECG Badge - Top Left */}
-                <div className="absolute top-4 left-4">
-                  <Badge 
-                    className="bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] text-white px-3 py-1 text-xs font-semibold shadow-lg backdrop-blur-md animate-pulse-subtle"
-                    variant="default"
-                  >
-                    <Activity className="w-3 h-3 mr-1" />
-                    Real-time ECG
-                  </Badge>
-                </div>
               </div>
 
               {/* Left Column: Content */}
@@ -193,7 +183,7 @@ const Home2 = () => {
                   <div className="animate-fadeInUp animation-delay-100">
                   <Badge 
                     variant="outline" 
-                    className="text-xs sm:text-sm font-medium px-3 py-1 border-[hsl(270,85%,55%)]/30 text-[hsl(270,85%,55%)] bg-[hsl(270,85%,55%)]/5 backdrop-blur-sm"
+                    className="text-xs sm:text-sm font-medium px-3 py-1 border-accent/30 text-accent bg-accent/5 backdrop-blur-sm"
                     data-testid="hero-badge"
                   >
                     {heroVariant?.badge || "Certified Medical Device • Myant Technology"}
@@ -211,7 +201,7 @@ const Home2 = () => {
                   </h1>
                   
                   <p 
-                    className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold animate-fadeInUp animation-delay-300 bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] bg-clip-text text-transparent"
+                    className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold animate-fadeInUp animation-delay-300 bg-gradient-to-r from-accent to-accent-foreground bg-clip-text text-transparent"
                     data-testid="hero-subheadline"
                   >
                     {heroVariant?.subheadline || "Screen Smarter, from Home"}
@@ -242,7 +232,7 @@ const Home2 = () => {
                       size="lg" 
                       variant="default"
                       onClick={() => navigate(`/${lang}/eligibility`)}
-                      className="w-full sm:w-auto text-base lg:text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 active:scale-100 bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] hover:from-[hsl(270,85%,60%)] hover:to-[hsl(270,90%,50%)] text-white border-0"
+                      className="w-full sm:w-auto text-base lg:text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 active:scale-100"
                       data-testid="hero-cta-primary"
                       aria-label="Start your free heart health eligibility check"
                     >
@@ -254,11 +244,11 @@ const Home2 = () => {
                   <div className="flex justify-center lg:justify-start">
                     <Link 
                       to={`/${lang}/how-it-works/faq`}
-                      className="text-sm lg:text-base text-muted-foreground hover:text-[hsl(270,85%,55%)] transition-all duration-300 inline-flex items-center gap-2 font-medium group"
+                      className="text-sm lg:text-base text-muted-foreground hover:text-accent transition-all duration-300 inline-flex items-center gap-2 font-medium group"
                       data-testid="hero-cta-secondary"
                     >
                       <span>{heroVariant?.ctaSecondary || "Questions? Read our FAQ"}</span>
-                      <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[hsl(270,85%,55%)]">→</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </Link>
                   </div>
                 </div>
@@ -288,22 +278,12 @@ const Home2 = () => {
                         />
                         <div className="text-center">
                           <p className="text-xs font-medium text-muted-foreground">10-Day Monitoring</p>
-                          <p className="text-sm font-bold bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] bg-clip-text text-transparent">Gold Standard</p>
+                          <p className="text-sm font-bold text-accent">Gold Standard</p>
                         </div>
                       </CardContent>
                     </Card>
                   </div>
                   
-                  {/* Real-time ECG Badge - Top Left */}
-                  <div className="absolute top-8 left-8 animate-fadeIn animation-delay-700">
-                    <Badge 
-                      className="bg-gradient-to-r from-[hsl(270,85%,55%)] to-[hsl(270,90%,45%)] text-white px-4 py-2 text-sm font-semibold shadow-lg backdrop-blur-md animate-pulse-subtle"
-                      variant="default"
-                    >
-                      <Activity className="w-4 h-4 mr-2" />
-                      Real-time ECG Monitoring
-                    </Badge>
-                  </div>
 
                 </div>
               </div>

@@ -27,28 +27,32 @@ export function ClinicianResourcesHub() {
       description: resources.categories.clinicalProtocols.description,
       icon: Stethoscope,
       items: resources.categories.clinicalProtocols.items,
-      color: "text-medical-teal"
+      colorClass: "text-medical-teal",
+      bgClass: "bg-medical-teal/10"
     },
     {
       title: resources.categories.billingGuides.title,
       description: resources.categories.billingGuides.description,
       icon: Calculator,
       items: resources.categories.billingGuides.items,
-      color: "text-primary"
+      colorClass: "text-primary",
+      bgClass: "bg-primary/10"
     },
     {
       title: resources.categories.patientMaterials.title,
       description: resources.categories.patientMaterials.description,
       icon: BookOpen,
       items: resources.categories.patientMaterials.items,
-      color: "text-blue-600"
+      colorClass: "text-accent",
+      bgClass: "bg-accent/10"
     },
     {
       title: resources.categories.training.title,
       description: resources.categories.training.description,
       icon: Video,
       items: resources.categories.training.items,
-      color: "text-purple-600"
+      colorClass: "text-accent",
+      bgClass: "bg-accent/10"
     }
   ];
 
@@ -73,8 +77,8 @@ export function ClinicianResourcesHub() {
               <Card key={index} className="h-full">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-lg bg-${category.color}/10 flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 ${category.color}`} />
+                    <div className={`w-12 h-12 rounded-lg ${category.bgClass} flex items-center justify-center`}>
+                      <Icon className={`w-6 h-6 ${category.colorClass}`} />
                     </div>
                     <div className="flex-1">
                       <CardTitle className="text-xl">{category.title}</CardTitle>
