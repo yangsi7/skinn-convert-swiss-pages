@@ -7,17 +7,17 @@
   :root {
     /* Base Variables - S&W Design Theme (Default) */
     --background: 0 0% 100%;
-    --foreground: 213 11% 33%; /* #475259 - Charcoal for body text */
+    --foreground: 0 0% 5%; /* #0D0D0D - Near Black for headlines */
     --card: 0 0% 100%;
-    --card-foreground: 213 11% 33%;
+    --card-foreground: 0 0% 5%;
     --popover: 0 0% 100%;
-    --popover-foreground: 213 11% 33%;
+    --popover-foreground: 0 0% 5%;
     --primary: 208 87% 63%; /* #5298F2 - Primary Blue */
     --primary-foreground: 0 0% 100%;
     --secondary: 30 29% 91%; /* #EEE8E1 - Cream */
     --secondary-foreground: 209 100% 29%; /* #004C96 - Dark Blue */
     --muted: 0 0% 95%; /* #F2F2F2 - Off White */
-    --muted-foreground: 213 11% 33%; /* #475259 - Charcoal */
+    --muted-foreground: 213 11% 33%; /* #475259 - Charcoal for body text */
     --accent: 245 48% 47%; /* #5549A6 - Purple */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 60% 50%;
@@ -41,15 +41,15 @@
     --swiss-silver: 210 8% 75%;
     --precision-gray: 210 10% 85%;
     
-    /* New Landing Page Design Palette (2025) */
-    --lp-primary-blue: 208 87% 63%; /* #5298F2 */
-    --lp-dark-blue: 209 100% 29%; /* #004C96 */
-    --lp-charcoal: 213 11% 33%; /* #475259 */
-    --lp-black: 0 0% 5%; /* #0D0D0D */
-    --lp-purple: 245 48% 47%; /* #5549A6 */
-    --lp-purple-light: 255 65% 82%; /* #BCA2F2 */
-    --lp-white: 0 0% 95%; /* #F2F2F2 */
-    --lp-cream: 30 29% 91%; /* #EEE8E1 */
+    /* S&W Design Landing Page Palette (2025) */
+    --lp-primary-blue: 208 87% 63%; /* #5298F2 - CTAs and primary actions */
+    --lp-dark-blue: 209 100% 29%; /* #004C96 - Headers and strong emphasis */
+    --lp-charcoal: 213 11% 33%; /* #475259 - Body text and secondary content */
+    --lp-black: 0 0% 5%; /* #0D0D0D - Main headlines and high contrast text */
+    --lp-purple: 245 48% 47%; /* #5549A6 - Accent color for highlights and comparison */
+    --lp-purple-light: 255 65% 82%; /* #BCA2F2 - Light purple for gradients */
+    --lp-white: 0 0% 95%; /* #F2F2F2 - Off-white backgrounds */
+    --lp-cream: 30 29% 91%; /* #EEE8E1 - Cream section backgrounds */
     
     /* Advanced Gradient System */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-teal)));
@@ -183,6 +183,11 @@
     --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
   }
 
+  /* S&W Design Theme - Uses root defaults */
+  [data-theme="sw-design"] {
+    /* Theme uses root defaults - no overrides needed */
+  }
+
   /* Original Theme (Medical Blue) */
   [data-theme="original"] {
     --background: 0 0% 100%;
@@ -210,33 +215,6 @@
     --bridge-teal: 195 50% 45%;
     --trust-blue: 210 70% 40%;
     --medical-grade: 168 80% 38%;
-    
-    /* Map theme colors to landing page palette */
-    --primary-navy: 209 100% 29%; /* Dark Blue */
-    --primary-charcoal: 213 11% 33%;
-    --medical-teal: 208 87% 63%; /* Primary Blue */
-    --bridge-teal: 208 70% 55%;
-    --trust-blue: 209 100% 29%;
-    --medical-grade: 208 87% 63%;
-    --clinical-white: 0 0% 95%;
-    --swiss-silver: 0 0% 80%;
-    --precision-gray: 0 0% 85%;
-    
-    /* Landing Page Gradient Definitions */
-    --gradient-lp-hero: linear-gradient(to right, hsl(209 100% 29% / 0.9), hsl(209 100% 29% / 0.7), transparent);
-    --gradient-lp-timeline: linear-gradient(90deg, hsl(208 87% 63%) 0%, hsl(209 100% 29%) 100%);
-    --gradient-lp-purple: linear-gradient(135deg, hsl(245 48% 47%) 0%, hsl(255 65% 82%) 100%);
-    --gradient-lp-cream: linear-gradient(180deg, hsl(30 29% 91%) 0%, hsl(0 0% 95%) 100%);
-    
-    /* Use landing page gradients */
-    --gradient-primary: var(--gradient-lp-timeline);
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--lp-cream)), hsl(var(--lp-white)));
-    --gradient-hero: var(--gradient-lp-hero);
-    --gradient-cta: linear-gradient(120deg, hsl(var(--lp-primary-blue)), hsl(var(--lp-dark-blue)));
-    --gradient-button: var(--gradient-lp-timeline);
-    --gradient-trust: linear-gradient(135deg, hsl(var(--lp-dark-blue)), hsl(var(--lp-primary-blue)));
-    --gradient-swiss: var(--gradient-lp-cream);
-    --gradient-medical: var(--gradient-lp-timeline);
   }
     
   

@@ -55,15 +55,15 @@ const Navbar = () => {
     // Handle the new route structure
     const pathMappings = {
       // Solutions
-      '/solutions/10-day-heart-screening': { de: '/de/loesungen/10-tage-herzueberwachung', fr: '/fr/solutions/depistage-cardiaque-10-jours', it: '/it/soluzioni/monitoraggio-cardiaco-10-giorni' },
+      '/solutions/10-day-heart-screening': { de: '/de/loesungen/10-tage-herzscreening', fr: '/fr/solutions/bilan-cardiaque-10-jours', it: '/it/soluzioni/screening-cardiaco-10-giorni' },
       '/solutions/tritest': { de: '/de/loesungen/tritest', fr: '/fr/solutions/tritest', it: '/it/soluzioni/tritest' },
       
       // Partners
       '/partners': { de: '/de/partner', fr: '/fr/partenaires', it: '/it/partner' },
-      '/partners/general-practitioners': { de: '/de/partner/hausaerzte', fr: '/fr/partenaires/medecins-generalistes', it: '/it/partner/medici-di-base' },
+      '/partners/general-practitioners': { de: '/de/partner/hausaerzte', fr: '/fr/partenaires/medecins-generalistes', it: '/it/partner/medici-famiglia' },
       '/partners/cardiologists': { de: '/de/partner/kardiologen', fr: '/fr/partenaires/cardiologues', it: '/it/partner/cardiologi' },
       '/partners/telemedicine': { de: '/de/partner/telemedizin', fr: '/fr/partenaires/telemedecine', it: '/it/partner/telemedicina' },
-      '/partners/corporate': { de: '/de/partner/unternehmen', fr: '/fr/partenaires/entreprises', it: '/it/partner/aziende-assicurazioni' },
+      '/partners/corporate': { de: '/de/partner/unternehmen', fr: '/fr/partenaires/entreprises', it: '/it/partner/aziende' },
       
       // How It Works
       '/how-it-works': { de: '/de/wie-es-funktioniert', fr: '/fr/comment-ca-marche', it: '/it/come-funziona' },
@@ -80,7 +80,7 @@ const Navbar = () => {
       '/about/blog': { de: '/de/ueber-uns/blog', fr: '/fr/a-propos/blog', it: '/it/chi-siamo/blog' },
       '/about/testimonials': { de: '/de/ueber-uns/erfahrungsberichte', fr: '/fr/a-propos/temoignages', it: '/it/chi-siamo/testimonianze' },
       '/about/compliance': { de: '/de/ueber-uns/compliance', fr: '/fr/a-propos/conformite', it: '/it/chi-siamo/conformita' },
-      '/about/contact': { de: '/de/ueber-uns/kontakt', fr: '/fr/a-propos/contact', it: '/it/chi-siamo/contatto' }
+      '/about/contact': { de: '/de/ueber-uns/kontakt', fr: '/fr/a-propos/contact', it: '/it/chi-siamo/contatti' }
     };
     
     // Find the mapping for current path
@@ -173,10 +173,10 @@ const Navbar = () => {
         { label: "Entreprises", path: "/fr/partenaires/entreprises" }
       ],
       it: [
-        { label: "Medici di Base", path: "/it/partner/medici-di-base" },
+        { label: "Medici di Base", path: "/it/partner/medici-famiglia" },
         { label: "Cardiologi", path: "/it/partner/cardiologi" },
         { label: "Telemedicina", path: "/it/partner/telemedicina" },
-        { label: "Aziende/Assicurazioni", path: "/it/partner/aziende-assicurazioni" }
+        { label: "Aziende", path: "/it/partner/aziende" }
       ]
     };
 
@@ -271,14 +271,14 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-2">
             <ThemeSwitcher />
-            <div className="flex border rounded-full px-1 py-1">
+            <div className="flex border border-lp-primary-blue rounded-full px-1 py-1">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  className={`px-2 py-1 rounded-full text-sm ${
+                  className={`px-2 py-1 rounded-full text-sm transition-all ${
                     language === lang.code
-                      ? "bg-primary text-white"
-                      : "text-foreground hover:bg-muted"
+                      ? "bg-lp-primary-blue text-white"
+                      : "text-lp-primary-blue hover:bg-lp-primary-blue/10"
                   }`}
                   onClick={() => handleLanguageChange(lang.code)}
                 >
@@ -286,8 +286,8 @@ const Navbar = () => {
                 </button>
               ))}
             </div>
-            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
-              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatto'}>
+            <Button size="sm" className="bg-lp-primary-blue hover:bg-lp-primary-blue/90 text-white" asChild>
+              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'}>
                 {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
               </Link>
             </Button>
@@ -369,14 +369,14 @@ const Navbar = () => {
             </Link>
 
             <div className="pt-4">
-              <div className="flex border rounded-full px-1 py-1 self-start mb-4">
+              <div className="flex border border-lp-primary-blue rounded-full px-1 py-1 self-start mb-4">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
-                    className={`px-3 py-1 rounded-full text-sm ${
+                    className={`px-3 py-1 rounded-full text-sm transition-all ${
                       language === lang.code
-                        ? "bg-primary text-white"
-                        : "text-foreground hover:bg-muted"
+                        ? "bg-lp-primary-blue text-white"
+                        : "text-lp-primary-blue hover:bg-lp-primary-blue/10"
                     }`}
                     onClick={() => handleLanguageChange(lang.code)}
                   >
@@ -384,8 +384,8 @@ const Navbar = () => {
                   </button>
                 ))}
               </div>
-              <Button className="w-full" size="lg" asChild onClick={closeMobileMenu}>
-                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatto'}>
+              <Button className="w-full bg-lp-primary-blue hover:bg-lp-primary-blue/90 text-white" size="lg" asChild onClick={closeMobileMenu}>
+                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'}>
                   {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
                 </Link>
               </Button>

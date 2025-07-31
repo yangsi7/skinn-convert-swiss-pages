@@ -9,16 +9,13 @@ This file is the **project‑specific entrypoint** for Claude Code when working 
 * At the **start** of every agentic loop, **load and review** the following working files in order, and **update them at the end of the loop**:
 
 * @working_files/todo.md – task checklist / sprint board (for “What next?”)
-
 * @working_files/planning.md – technical blueprint & phase status (understand “Why?” and “How?”)
-
 * @working_files/conventions.md – coding, naming, design & content rules (to stay consistent)
-
 * @working_files/event-stream.md – time‑stamped log of every action & reflection (to avoid duplicated effort)
-
 * @working_files/doc-ref.md – index into deeper docs (docs/…) (for any deep dive)
 
-* Never store any other files in this folder. Any additional documentation whould be created in @docs/ and referenced in @working_files/doc-ref.md
+**One in/one out** – If additional scratch space is required, create a document in the docs/ directory and link to it from doc-ref.md. **Never proliferate ad‑hoc files inside working_files/.** Bug logs and related planning have moved to docs/bugs/ to keep this directory lean.
+
 
 * Bug documentation is **no longer stored** in @working_files/. All bug discovery, tracking and fix planning live in docs/bugs/. Use the bug management module to access bug logs when required.
 
@@ -26,7 +23,7 @@ This file is the **project‑specific entrypoint** for Claude Code when working 
 
 1. **Read this file first** – it provides project context, rules and critical constraints.
 
-2. **Next**, load the universal process file @working_files/CLAUDE_PROCESS.md. This file defines the agent life‑cycle and all modules—including planning & memory management, safety & guidance, quality assurance, design & simulation, security & compliance, infrastructure & deployment, context & knowledge graph and CI/CD guidance.
+2. **Next**, load the universal process file @working_files/CLAUDE_PROCESS.md. This file defines the agent life‑cycle and all modules—including planning & memory management, safety & guidance, quality assurance, design & simulation, security & compliance, infrastructure & deployment, context management and CI/CD guidance.
 
 3. **Then** read the working files (see § 2 **Working‑File Canon**) in the specified order. These files represent the current plan, task list, conventions and documentation index. Always update them as you work.
 
@@ -37,29 +34,17 @@ This file is the **project‑specific entrypoint** for Claude Code when working 
 This playbook is organised into the following sections:
 
 * **1 Project snapshot & context** – High‑level overview of the project’s goals, state and architecture.
-
 * **2 Working‑File Canon** – Description of the mandatory working files and how to use them.
-
 * **3 Critical principles & guard‑rails** – Core guidelines for iteration, design fidelity, documentation, performance, and more.
-
 * **4 Development commands & tech stack** – Common scripts and libraries.
-
 * **5 Road‑map & success metrics** – Phased plan for cleaning and implementing the V7.2 copy & design.
-
 * **6 Design system in depth** – Key points from the SKIIN design system.
-
 * **7 Protected artefacts & DON’Ts** – Components and practices that must not be altered.
-
 * **8 File‑naming & archival conventions** – Guidelines for organising and archiving documentation.
-
 * **9 Copy document synchronisation** – Rules for managing multi‑language copy documents.
-
 * **10 Visual asset inventory** – Overview of images, videos and design references.
-
 * **11 Glossary** – Definitions of key terms and acronyms.
-
 * **12 Current implementation status** – Progress update on phases and tasks.
-
 * **13 New modules & workflow summary** – How the universal process modules apply to this project.
 
 ---
@@ -78,27 +63,6 @@ This playbook is organised into the following sections:
 
 ## 2 Working‑File Canon (never bypass)
 
-These files represent the **living state** of the project. Always read them before starting work and update them immediately after making changes. Persist important updates via the memory MCP and record structure in the context7 knowledge graph.
-
-### Memory Integration at Session Start
-
-At the beginning of every session, after reading CLAUDE.md and CLAUDE_PROCESS.md:
-
-1. **Recall Project Context**: Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
-2. **Recall Recent Work**: Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
-3. **Query Knowledge Graph**: Use `context7.search_nodes` to find relevant entities and their relationships
-4. **Recall Phase Status**: Use `memory.recall('phase-*-summary')` for current phase progress
-
-### Memory Creation During Work
-
-When working on the project, create memories at these key points:
-
-1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
-2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
-3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
-4. **Component Updates**: Store specs with `memory.store('component-[name]-spec', specification)`
-5. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
-
 | File | Role | When to read |
 | :---- | :---- | :---- |
 | @working_files/todo.md | **Task checklist / sprint board** | First—“What next?” |
@@ -106,17 +70,61 @@ When working on the project, create memories at these key points:
 | @working_files/conventions.md | **Coding, naming, design & content rules** | To stay consistent |
 | @working_files/event-stream.md | **Chronological log of every action & reflection** | To avoid duplicated effort |
 | @working_files/doc-ref.md | **Index into deeper docs (docs/…)** | For any deep dive |
-| @working_files/bugs.md | **Deprecated pointer** | Bug logs now live in docs/bugs/bugs.md; do not store new entries here |
-| @working_files/bugs_todo.md | **Deprecated pointer** | Active bug checklist is now docs/bugs/bugs_todo.md |
-| @working_files/bug_fix_planning.md | **Deprecated pointer** | Bug fix plans live in docs/bugs/bug_fix_planning.md |
 
 **One in/one out** – If additional scratch space is required, create a document in the docs/ directory and link to it from doc-ref.md. **Never proliferate ad‑hoc files inside working_files/.** Bug logs and related planning have moved to docs/bugs/ to keep this directory lean.
+
+
+These files represent the **living state** of the project. Always read them before starting work and update them immediately after making changes. When the memory MCP is available, persist important updates using the patterns below.
+
+### Memory MCP Integration
+
+The memory MCP provides two complementary systems:
+1. **Vector Storage**: For storing and recalling contextual information
+2. **Knowledge Graph**: For creating structured relationships between entities
+
+#### At Session Start
+
+When the memory MCP is available, at the beginning of every session after reading CLAUDE.md and CLAUDE_PROCESS.md:
+
+1. **Recall Project Context**: 
+   - Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
+   - Use `memory.search_nodes('project')` to find project entities in the graph
+2. **Recall Recent Work**: 
+   - Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
+   - Use `memory.open_nodes(['component:HeroSection', 'page:Home'])` to get specific entities
+3. **Query Knowledge Graph**: 
+   - Use `memory.read_graph()` to get the full graph structure
+   - Use `memory.search_nodes('query')` to find relevant entities
+
+#### During Development
+
+When the memory MCP is available, use both storage and graph capabilities:
+
+**Vector Storage (memory.store/recall)**:
+1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
+2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
+3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
+4. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
+
+**Knowledge Graph (entities, relations, observations)**:
+1. **Create Entities**: `memory.create_entities([{name: 'HeroSection', entityType: 'component', observations: ['Uses new design system']}])`
+2. **Link Entities**: `memory.create_relations([{from: 'HomePage', to: 'HeroSection', relationType: 'uses'}])`
+3. **Add Observations**: `memory.add_observations([{entityName: 'HeroSection', contents: ['Performance optimized', 'WCAG AA compliant']}])`
+4. **Update Graph**: When components change, update their observations and relationships
+
+### Context7 MCP Usage
+
+The context7 MCP is specifically for retrieving library documentation only:
+- Use `context7.resolve-library-id` to find library IDs
+- Use `context7.get-library-docs` to retrieve documentation for React, TypeScript, Tailwind, etc.
+- Context7 does NOT provide knowledge graph capabilities - those are in memory MCP
+
 
 ## 3 Critical Principles & Guard‑rails
 
 These principles ensure that development proceeds smoothly and safely. Always refer to them when making decisions.
 
-* **Iteration \> Creation** – Search for existing components, hooks or patterns before creating new ones. Extend, parameterise or wrap existing solutions where possible. Use the knowledge graph (context7.search_nodes) to find related entities before coding.
+* **Iteration \> Creation** – Search for existing components, hooks or patterns before creating new ones. Extend, parameterise or wrap existing solutions where possible. Use context7 to retrieve library documentation when needed.
 
 * **Design‑system fidelity** – The SKIIN design system uses deep navy (\#1E3A5F) and medical teal (\#00796B) with neutrals. Light‑blue “heavenly” hues are forbidden. Use CSS variables only for colours. Follow atomic design: components should be ≤ 50 lines of code and live in their own files.
 
@@ -124,17 +132,17 @@ These principles ensure that development proceeds smoothly and safely. Always re
 
 * **Protected artefacts** – The TabNavigation component is clinically validated and legally protected. You may read it and adjust styling via wrappers, but do **not** modify its structure or behaviour without explicit CEO approval.
 
-* **Documentation integrity** – Code isn’t “done” until you have updated event-stream.md, planning.md, todo.md and relevant docs. Use memory.store to persist summaries and context7.add_observations to record decisions in the graph.
+* **Documentation integrity** – Code isn't "done" until you have updated event-stream.md, planning.md, todo.md and relevant docs. When memory MCP is available, use memory.store to persist summaries. For front-end components, visually inspect and interact with them using puppeteer MCP tools when available.
 
-* **Research‑first methodology** – For every feature, perform context gathering and competitive analysis (e.g. with brave_web_search and puppeteer_screenshot). Document findings in docs/research/…, summarise in event-stream.md and link via the knowledge graph.
+* **Research‑first methodology** – For every feature, perform context gathering and competitive analysis (e.g. with brave_web_search and puppeteer_screenshot). Document findings in docs/research/…, summarise in event-stream.md.
 
 * **Guardrails & prompt design** – All tool calls must respect guardrails. Design prompts by clearly stating the persona, problem and expected outcome. Use the prompt design module to clarify ambiguous requests and route tasks appropriately.
 
-* **Memory & knowledge‑graph management** – Persist research notes, plans, decisions and performance reports via memory.store with descriptive keys. Represent tasks, modules, components and copy documents as entities in the context graph. Recall relevant entries at the start of each session using memory.recall and context7.search_nodes. Follow the memory naming conventions documented in `/docs/process/2025-07-29-memory-implementation-guide.md` for consistent key structure.
+* **Memory management** – When the memory MCP is available, persist research notes, plans, decisions and performance reports via memory.store with descriptive keys. Recall relevant entries at the start of each session using memory.recall. Follow the memory naming conventions documented in `/docs/process/2025-07-29-memory-implementation-guide.md` for consistent key structure. Use context7 only for retrieving library documentation.
 
-* **Performance & security audits** – Use the Performance module to set budgets (LCP, CLS, API latency). Use package‑version and npm audit to check dependencies. Monitor Supabase logs via supabase.get_logs. Treat user data as medical data: enforce encryption, row‑level security and GDPR compliance. Document audit findings in docs/bugs/bugs.md, outline remediation tasks in docs/bugs/bug_fix_planning.md and ensure new tasks are reflected in todo.md and the graph.
+* **Performance & security audits** – Use the Performance module to set budgets (LCP, CLS, API latency). Use package‑version and npm audit to check dependencies. Monitor Supabase logs via supabase.get_logs. Treat user data as medical data: enforce encryption, row‑level security and GDPR compliance. Document audit findings in docs/bugs/bugs.md, outline remediation tasks in docs/bugs/bug_fix_planning.md and ensure new tasks are reflected in todo.md.
 
-* **Documentation & context engineering** – Always gather context before acting. At the start of each loop, read event-stream.md (chronology), todo.md (tasks), planning.md (strategy) and conventions.md (standards). Consult doc-ref.md to find relevant documentation; open only the docs that apply to your task. Use shell commands (e.g. ls \-R, tree \-L 2, git ls-files) to explore the repository and update event-stream.md with findings. Summarise context in memory and add entities/relations to the graph. Follow naming conventions (ISO‑date prefixes) when creating/updating docs and archive superseded versions.
+* **Documentation & context engineering** – Always gather context before acting. At the start of each loop, read event-stream.md (chronology), todo.md (tasks), planning.md (strategy) and conventions.md (standards). Consult doc-ref.md to find relevant documentation; open only the docs that apply to your task. Use shell commands (e.g. ls \-R, tree \-L 2, git ls-files) to explore the repository and update the tree file structure in CLAUDE.md and/or @conventions.md and indicate it in event-stream if there was a change. When memory MCP is available, summarise context in memory. Follow naming conventions (ISO‑date prefixes) when creating/updating docs and archive superseded versions.
 
 * **Code review & peer review** – Before merging, run static analysis (ESLint, Prettier, strict TypeScript), unit tests and visual snapshots. Request a peer review via GitHub (Claude Code can help). Document review outcomes in event-stream.md.
 
@@ -142,7 +150,7 @@ These principles ensure that development proceeds smoothly and safely. Always re
 
 * **CI/CD & GitHub integration** – Configure GitHub Actions to run linting, tests, accessibility audits and performance checks on each push. Use supabase.list_edge_functions to ensure database functions are deployed. Document the CI pipeline in docs/deployment/ and update as needed. Use slash commands (/install-github-app, /create-pr) to interact with the Claude Code GitHub app.
 
-* **Multi‑agent & workflow guidance** – For complex tasks (e.g. combining research, copywriting and coding), delegate to specialist agents. Use the mediator–worker pattern defined in the universal process. Always synchronise context via memory.store and the knowledge graph.
+* **Multi‑agent & workflow guidance** – For complex tasks (e.g. combining research, copywriting and coding), delegate to specialist agents. Use the mediator–worker pattern defined in the universal process. When memory MCP is available, synchronise context via memory.store.
 
 * **Bug tracking & fix planning** – All bug documentation lives in docs/bugs/. Record defects in docs/bugs/bugs.md with severity and context. Track active issues in docs/bugs/bugs_todo.md and outline fix plans in docs/bugs/bug_fix_planning.md. Link each bug to tasks in todo.md. Resolve P0/P1 bugs before progressing. When a bug arises, log the event in event-stream.md, create a bug entry, update the graph and add a task. Conduct post‑mortems for significant bugs and capture lessons learned.
 
@@ -193,7 +201,7 @@ npm run test:e2e
 
 * **Puppeteer** – visual and accessibility testing. Use puppeteer_navigate and puppeteer_screenshot for snapshots, and puppeteer_evaluate for custom checks.
 
-* **Memory & context graph MCPs** – memory and context7 provide persistent context across sessions.
+* **Memory & context7 MCPs** – memory provides persistent storage and knowledge graph capabilities; context7 provides library documentation retrieval.
 
 ## 5 Road‑map & success metrics
 
@@ -220,9 +228,14 @@ The documentation cleanup and preparation phase precedes any feature or copy imp
 
 ## 6 Design system in depth
 
-The SKIIN design system defines the visual language and interaction patterns for the site. Always adhere to these guidelines and **document any extensions or deviations**.
+The SKIIN design system is documented in conventions.md and the /docs/design/ directory. Key references:
 
-* **Multi‑Theme System:** Four themes – Medical Blue, Professional Teal, Swiss Innovation and Soft Blue Teal. Each theme uses CSS custom properties for colours, spacing and typographic scales. See /docs/implementation/theme-system-guide.md for implementation details and docs/design/version_history.md for changelogs. Use context7.add_observations to link design tokens to components in the knowledge graph.
+* **Design System Documentation:**
+  - `/working_files/conventions.md` - Section 4: Design System (themes, colors, tokens)
+  - `/docs/design-system/modern-design-system-spec.md` - Complete modern design specification
+  - `/docs/design/2025-07-30-design-token-usage-guide.md` - Design token usage guidelines
+
+* **Multi‑Theme System:** Four themes – Medical Blue, Professional Teal, Swiss Innovation and Soft Blue Teal. Each theme uses CSS custom properties for colours, spacing and typographic scales. See /docs/implementation/theme-system-guide.md for implementation details and docs/design/version_history.md for changelogs. When memory MCP is available, use memory.add_observations to link design tokens to components in the knowledge graph.
 
 * **Spacing:** Base unit 4 px. Major sections use 8× base (32 px). Use Tailwind spacing classes; **do not hardcode pixel values**.
 
@@ -234,7 +247,7 @@ The SKIIN design system defines the visual language and interaction patterns for
 
 * **Accessibility:** Maintain contrast ratio ≥ 4.5:1, ensure keyboard navigability, use ARIA labels and test with screen readers. Use puppeteer_evaluate with axe‑core to detect issues.
 
-* **Design versioning (NEW):** Keep design tokens and components versioned. When updating tokens, increment the version number, document changes and propagate updates to components. Record these events in event-stream.md and via context7.add_observations.
+* **Design versioning (NEW):** Keep design tokens and components versioned. When updating tokens, increment the version number, document changes and propagate updates to components. Record these events in event-stream.md and when memory MCP is available, via memory.add_observations.
 
 ## 7 Protected artefacts & absolute DON’Ts
 
@@ -242,13 +255,15 @@ The SKIIN design system defines the visual language and interaction patterns for
 | :---- | :---- | :---- |
 | **TabNavigation** | Used by marketing operations and clinically validated. | Only style overrides via wrapper components. Do not modify its structure or behaviour without explicit CEO approval. |
 
-Never rename or relocate these components without CEO sign‑off. When referencing them, document the relationship in the knowledge graph.
+Never rename or relocate these components without CEO sign‑off. When memory MCP is available and referencing them, document the relationship in the knowledge graph.
 
 **Absolute DON’Ts**
 
 * **Do not modify medical claims** without regulatory approval.
 
 * **Do not bypass the four‑language translation system.**
+
+* **Do not hardcode translation text. Always create the translation objects.
 
 * **Do not hardcode colours** – always use CSS variables or design tokens.
 
@@ -260,13 +275,10 @@ Do not skip visual, accessibility or performance validation for UI changes.
 
 ## 8 File‑naming & archival conventions
 
-Documentation naming – New docs in docs/ must start with an ISO date: YYYY‑MM‑DD-feature-name.md. Place them in appropriate subdirectories (docs/implementation/, docs/design/, docs/architecture/ etc.).
-
-Archiving superseded files – Once a file is superseded and unused for 7 days, move it to docs/archive/YYYY‑MM‑DD/ with a README pointer. Update doc-ref.md and the knowledge graph to reflect the new location.
-
-Root directory cleanliness – Keep the root directory lean: source code, config files, README.md and this CLAUDE.md. All other content belongs in docs/, scripts/ or working_files/.
-
-Versioning – Use semantic versioning (e.g. v1.2.0) for modules, components and design tokens. Document version changes in docs/design/version_history.md and link them via the knowledge graph.
+- Documentation naming – New docs in docs/ must start with an ISO date: YYYY‑MM‑DD-feature-name.md. Place them inappropriate subdirectories (docs/implementation/, docs/design/, docs/architecture/ etc.).
+- Archiving superseded files – Once a file is superseded and unused for 7 days, move it to docs/archive/YYYY‑MM‑DD/ with a README pointer. Update doc-ref.md to reflect the new location.
+- Root directory cleanliness – Keep the root directory lean: source code, config files, README.md and this CLAUDE.md. All other content belongs in docs/, scripts/ or working_files/.
+- Versioning – Use semantic versioning (e.g. v1.2.0) for modules, components and design tokens. Document version changes in docs/design/version_history.md.
 
 ## 9 Copy document synchronisation
 
@@ -293,50 +305,33 @@ The marketing website relies on **synchronised copy** across multiple languages.
 ### Update triggers
 
 * New page creation
-
 * Component text changes
-
 * Translation file updates
-
 * Legal/medical disclaimer changes
-
 * CTA modifications
-
 * Error message updates
 
 ### Enforcement
 
 Before marking any text‑related task as complete, ensure that:
-
 * The copy document is updated.
-
 * All languages are synchronised.
-
 * The version number is incremented.
-
 * Review notes are added.
 
 ### Iteration process
 
 When iterating on copy:
-
 1. **Create an iteration folder** under /docs/content/iterations/YYYY‑MM‑DD‑iteration‑name/.
-
 2. **Copy** current copy documents into this folder before making changes.
-
 3. **Make changes** in the main copy documents.
-
 4. **Document changes** in /docs/content/iterations/YYYY‑MM‑DD‑iteration‑name/CHANGES.md.
-
 5. **Update version numbers** in the main documents (e.g., v1.0 → v1.1).
-
-6. **Synchronise all languages** within **48 hours**.
-
-7. **Record relationships** between copy sections and components in the knowledge graph (e.g. entity:copy:hero-headline relates to entity:component:HeroSection). Persist iteration notes via memory.store using keys like copy-iteration-2025-07-24.
-
+6. **Synchronise all languages** within **48 hours**
+7. **Record relationships** between copy sections and components in the knowledge graph (e.g. entity:copy:hero-headline relates to entity:component:HeroSection) when memory MCP is available. Persist iteration notes via memory.store using keys like copy-iteration-2025-07-24.
 ## 10 Visual asset inventory
 
-Maintain an inventory of images, videos and design references to ensure consistent use across the site. Store assets under /assets/images/ and /assets/videos/. Document each asset in docs/assets/asset-inventory.md and link them via the knowledge graph.
+Maintain an inventory of images, videos and design references to ensure consistent use across the site. Store assets under /assets/images/ and /assets/videos/. Document each asset in docs/assets/asset-inventory.md.
 
 | Category | Examples |
 | :---- | :---- |
@@ -346,7 +341,7 @@ Maintain an inventory of images, videos and design references to ensure consiste
 | **Medical advisors & team** | Photos of Prof. Dr. Frank Ruschitzka, PD Dr. Mehdi Namdar, Dr. Mathias Wilhelm, Dr. Michiel Winter and the SKIIN team. |
 | **MVCP & related apps** | Screenshots of the Myant Virtual Clinic Portal (MVCP) for physician pages. These may inspire layout patterns but should not be directly copied. |
 
-Document asset descriptions, file paths and usage guidelines in docs/assets/asset-inventory.md. Use the knowledge graph to map assets to pages and components (for example, entity:image:heart-monitor used in entity:page:benefits).
+Document asset descriptions, file paths and usage guidelines in docs/assets/asset-inventory.md.
 
 ## 11 Glossary (quick reference)
 
@@ -357,8 +352,8 @@ Document asset descriptions, file paths and usage guidelines in docs/assets/asse
 | **Atomic component** | React component ≤ 50 LOC with a single responsibility, following atomic design principles. |
 | **LOE** | Level‑Of‑Effort estimate. |
 | **P0** | Highest urgency/severity level in bug tracking. |
-| **Knowledge graph** | Persistent representation of project entities and their relationships in the context7 server. |
-| **Memory MCP** | Server providing persistent storage and retrieval of vectorised information (store, recall, forget). |
+| **Knowledge graph** | Persistent representation of project entities and their relationships in the memory MCP server. |
+| **Memory MCP** | Server providing persistent storage, retrieval of vectorised information, and knowledge graph capabilities (entities, relations, observations). |
 | **CI/CD** | Continuous integration and deployment pipeline running automated tests, audits and releases. |
 | **ADR** | Architecture Decision Record – documents design choices and their trade‑offs. |
 
@@ -367,49 +362,30 @@ Document asset descriptions, file paths and usage guidelines in docs/assets/asse
 ### Completed ✅
 
 * **Foundation:** Italian language infrastructure implemented; product names updated to v2.0; skeleton components built; translation directories scaffolded.
-
 * **Component architecture:** 80+ React components following atomic design; multi‑theme support implemented via CSS variables; responsive layout scaffolded.
-
 * **Routing system:** 69 routes configured across English, German, French and Italian; all pages include locale prefixes and fallback routing.
-
 * **State management:** Context API and TanStack Query configured; basic Zod schemas defined; forms integrated with React‑Hook‑Form.
-
 * **Analytics framework:** GA4, Google Ads and HubSpot scripts added; awaiting production IDs.
 
 ### In progress 🚧
 
 * **Homepage content:** Components exist; English copy ready; translations pending; asset selection underway.
-
 * **Translations:** File structure ready; German and French copy partially integrated; Italian translation to follow.
-
 * **Interactive calculators:** Eligibility checker UI built; awaiting backend design and integration; coverage calculator not started.
-
 * **Design versioning:** Initial version (v1.0) defined; changelog file created; version updates pending.
-
 * **Accessibility audit:** Basic checks performed; full audit scheduled for Phase 3\.
 
 ### Not started ❌
-
 * **Protected components:** HeartBalanceRing, ContributingFactorCards, TabNavigation and TodayTab are not yet implemented.
-
 * **Medical content:** Clinical evidence, compliance documents and testimonials not integrated; requires regulatory review.
-
 * **Content management:** No CMS or dynamic content loading system implemented. Consider using Supabase or a static site generator in Phase 4\.
-
 * **IBM Plex Sans:** Font files not loaded; to be added in Phase 2\.
-
 * **Performance budget definition:** Budgets for LCP, CLS and API latency not defined; to be set in Phase 3\.
-
 ### Critical paths
-
 * **Week 1:** Finish protected components, homepage content and analytics configuration.
-
 * **Weeks 2–3:** Complete German/French translations and integrate medical content.
-
 * **Weeks 4–5:** Implement calculators and integrate insurance mappings. Conduct performance and accessibility audits.
-
 Week 6: Run compliance review, final optimisation and launch. Prepare post‑mortems and next iteration plan.
-
 ## 13 New modules & workflow summary (v5.0)
 
 The universal process v5.0 introduces several new modules and updates existing ones. Below is a summary of **how they apply** to the SKIIN website:
@@ -426,7 +402,7 @@ The memory management module is now a core part of the agent lifecycle:
 
 See `/docs/process/2025-07-29-memory-implementation-guide.md` for detailed patterns and examples.
 
-* **Planning & Memory Management** – Use the planner module to create a detailed plan in planning.md and generate tasks in todo.md. Store plans and tasks in memory (memory.store) and represent them in the knowledge graph (context7.create_entities). Recall past research, design decisions and plans at the start of each session (memory.recall).
+* **Planning & Memory Management** – Use the planner module to create a detailed plan in planning.md and generate tasks in todo.md. When memory MCP is available, store plans and tasks in memory (memory.store). Recall past research, design decisions and plans at the start of each session (memory.recall).
 
 * **Safety & Guidance** – Invoke guardrails when uncertain and design prompts clearly. Use multi‑agent guidance for complex tasks (e.g. a research agent for copywriting, a coding agent for front‑end, a testing agent for accessibility/performance).
 
@@ -438,11 +414,11 @@ See `/docs/process/2025-07-29-memory-implementation-guide.md` for detailed patte
 
 * **Infrastructure & Deployment** – Use architecture templates for Vite/React \+ Supabase. Manage dependencies and security with weekly audits. Keep the repository organised and archive superseded files. Configure CI/CD pipelines for automated testing and deployment. Use the sandbox environment spec for local development.
 
-* **Context & Knowledge Graph** – Use the memory and graph modules to persist and query context. Create entities for pages, components, copy sections, assets and tasks. Define relations like page → uses → component, component → linked_to → copy and copy → translated_to → copy (fr). Record observations such as performance metrics, bug reports and decisions. Persist snapshots via memory.store for time‑travel debugging. Represent documents, tasks and bugs as graph entities and establish relations (e.g. bug123 → affects → component:HeroSection).
+* **Context & Knowledge Graph** – When memory MCP is available, use the memory module to persist and query context. Create entities for pages, components, copy sections, assets and tasks. Define relations like page → uses → component, component → linked_to → copy and copy → translated_to → copy (fr). Record observations such as performance metrics, bug reports and decisions. Persist snapshots via memory.store for time‑travel debugging. Use memory.create_entities, memory.create_relations, and memory.add_observations to build the graph.
 
-* **Documentation & Context Engineering** – Before acting, gather context: read event-stream.md, todo.md, planning.md, conventions.md and doc-ref.md. Use shell commands to explore the repository and recall past information using memory.recall and context7.search_nodes. Summarise context in RESEARCH.md or planning.md and persist via memory and the graph. When creating or updating documents, follow naming and placement conventions (ISO‑date prefixes under docs/) and update doc-ref.md. Archive superseded documents appropriately. Log each event in event-stream.md on a single line with timestamp, event type and concise description.
+* **Documentation & Context Engineering** – Before acting, gather context: read event-stream.md, todo.md, planning.md, conventions.md and doc-ref.md. Use shell commands to explore the repository and when memory MCP is available, recall past information using memory.recall. Summarise context in RESEARCH.md or planning.md and when memory MCP is available, persist via memory. When creating or updating documents, follow naming and placement conventions (ISO‑date prefixes under docs/) and update doc-ref.md. Archive superseded documents appropriately. Log each event in event-stream.md on a single line with timestamp, event type and concise description.
 
-* **Process Reprioritisation** – The planning & todo modules now include a mechanism for reprioritising tasks. When new research or requirements emerge, review planning.md and todo.md, reorder tasks, add or remove entries and update the knowledge graph accordingly. Document these changes as Plan events in event-stream.md.
+* **Process Reprioritisation** – The planning & todo modules now include a mechanism for reprioritising tasks. When new research or requirements emerge, review planning.md and todo.md, reorder tasks, add or remove entries. Document these changes as Plan events in event-stream.md.
 
 * **GitHub Process & Development Workflow** – Follow a structured commit and PR strategy integrated with planning/todo systems:
   - **Commit Strategy**: Group tasks in todo.md under commit boundaries. Commit after completing each group (typically 2-5 related tasks). Use conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`. Always run tests before committing.

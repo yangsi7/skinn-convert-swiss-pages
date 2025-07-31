@@ -108,13 +108,15 @@ context7.create_entities([{
 - **Soft Blue-Teal:** Gentle wellness approach
 - **Myant Violet:** Bold innovation with violet accents
 
-### Landing Page 2025 Colors
+### S&W Design Landing Page Colors
 - **Primary Blue (#5298F2):** `bg-lp-primary-blue` - CTAs
+- **Purple (#5549A6):** `bg-lp-purple` - Accents and comparison sections
 - **Dark Blue (#004C96):** `bg-lp-dark-blue` - Headlines
 - **Charcoal (#475259):** `bg-lp-charcoal` - Body text
+- **Light Purple (#BCA2F2):** `bg-lp-purple-light` - Light accents
+- **Off White (#F2F2F2):** `bg-lp-white` - Backgrounds
 - **Black (#0D0D0D):** `bg-lp-black` - Contrast
-- **Purple (#5549A6):** `bg-lp-purple` - Comparison ONLY
-- **Cream (#EEE8E1):** `bg-lp-cream` - Backgrounds
+- **Cream (#EEE8E1):** `bg-lp-cream` - Soft backgrounds
 
 ### Core Design Tokens
 ```css

@@ -444,7 +444,7 @@ const Home2 = () => {
         {/* Full Screen How It Works Video */}
         <FullScreenVideo
           src="/assets/videos/Myant-EU-cardiac-health-assesement-at-home.mp4"
-          thumbnail="/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png"
+          thumbnail="/assets/images/40ba1015-dfac-4b19-9548-8f3319ffe098.png"
           title="Cardiac Health Assessment at Home"
         />
         

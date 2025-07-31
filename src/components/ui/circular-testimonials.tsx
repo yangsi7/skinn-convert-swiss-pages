@@ -38,8 +38,8 @@ interface CircularTestimonialsProps {
 function calculateGap(width: number) {
   const minWidth = 1024;
   const maxWidth = 1456;
-  const minGap = 60;
-  const maxGap = 86;
+  const minGap = 150;
+  const maxGap = 200;
   if (width <= minWidth) return minGap;
   if (width >= maxWidth)
     return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
@@ -287,14 +287,18 @@ export const CircularTestimonials = ({
           width: 100%;
           height: 24rem;
           perspective: 1000px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .testimonial-image {
           position: absolute;
-          width: 100%;
-          height: 100%;
+          width: 16rem;
+          height: 16rem;
           object-fit: cover;
           border-radius: 1.5rem;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          transition: all 0.8s cubic-bezier(.4,2,.3,1);
         }
         .testimonial-content {
           display: flex;

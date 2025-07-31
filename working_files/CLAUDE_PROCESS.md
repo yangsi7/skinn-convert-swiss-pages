@@ -181,6 +181,11 @@ To simplify navigation, all modules are grouped under six **categories**, each c
     * **Visual Snapshot Tests**: All UI changes must be verified using `puppeteer_screenshot` or similar, with a pixel-diff threshold ≤0.1%.
     * **Performance Tests**: When the performance module triggers, measure metrics (LCP, CLS, TTI) and set budgets.
     * **Accessibility Tests**: Use `puppeteer_evaluate` with axe-core or Lighthouse to detect accessibility issues and fix them.
+    * **Multilanguage Routing Tests**: Before commits, verify routing consistency:
+      - Check that all navigation dropdown paths in Navbar.tsx match actual routes in index.tsx
+      - Verify that all 4 languages (en, de, fr, it) have corresponding route mappings
+      - Test language switching preserves current page across all supported languages
+      - Confirm contact links and CTA buttons use correct localized paths
     * **CI Gate**: All tests must pass before code can be considered complete.
 </testing_module>
 

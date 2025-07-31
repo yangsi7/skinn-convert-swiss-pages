@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HowSKIINWorksV2Props {
   className?: string;
@@ -59,31 +60,53 @@ export const HowSKIINWorksV2: React.FC<HowSKIINWorksV2Props> = ({ className }) =
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {steps.map((step, index) => (
-              <div key={step.number} className="relative text-center">
+              <motion.div 
+                key={step.number} 
+                className="relative text-center cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              >
                 {/* Number circle */}
-                <div className="relative z-10 mx-auto w-20 h-20 mb-6">
-                  <div className="absolute inset-0 bg-secondary-foreground rounded-full flex items-center justify-center">
+                <motion.div className="relative z-10 mx-auto w-20 h-20 mb-6">
+                  <motion.div 
+                    className="absolute inset-0 bg-secondary-foreground rounded-full flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <span className="text-2xl font-bold text-white">{step.number}</span>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Image */}
-                <div className="mb-4 bg-muted rounded-lg p-4 h-32 flex items-center justify-center">
-                  <img 
+                <motion.div 
+                  className="mb-4 bg-muted rounded-lg p-4 h-32 flex items-center justify-center overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.img 
                     src={step.image} 
                     alt={step.title}
                     className="h-full w-auto object-contain"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   />
-                </div>
+                </motion.div>
 
                 {/* Content */}
                 <h3 className="font-semibold text-foreground mb-2 uppercase text-sm tracking-wide">
                   {step.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <motion.p 
+                  className="text-sm text-muted-foreground leading-relaxed"
+                  initial={{ opacity: 0.7 }}
+                  whileHover={{ opacity: 1 }}
+                >
                   {step.description}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             ))}
           </div>
         </div>
