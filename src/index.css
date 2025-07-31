@@ -5,26 +5,26 @@
 
 @layer base {
   :root {
-    /* Base Variables - Medical Blue Theme (Default) */
+    /* Base Variables - S&W Design Theme (Default) */
     --background: 0 0% 100%;
-    --foreground: 210 15% 35%;
+    --foreground: 213 11% 33%; /* #475259 - Charcoal for body text */
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 35%;
+    --card-foreground: 213 11% 33%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 35%;
-    --primary: 210 85% 25%;
+    --popover-foreground: 213 11% 33%;
+    --primary: 208 87% 63%; /* #5298F2 - Primary Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 94%;
-    --secondary-foreground: 210 60% 20%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 210 15% 50%;
-    --accent: 195 60% 45%;
+    --secondary: 30 29% 91%; /* #EEE8E1 - Cream */
+    --secondary-foreground: 209 100% 29%; /* #004C96 - Dark Blue */
+    --muted: 0 0% 95%; /* #F2F2F2 - Off White */
+    --muted-foreground: 213 11% 33%; /* #475259 - Charcoal */
+    --accent: 245 48% 47%; /* #5549A6 - Purple */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 60% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 210 85% 25%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 208 87% 63%; /* Primary Blue focus ring */
     --radius: 0.5rem;
 
     /* Medical Blue Palette - Clinical Trust & Precision */
@@ -41,6 +41,16 @@
     --swiss-silver: 210 8% 75%;
     --precision-gray: 210 10% 85%;
     
+    /* New Landing Page Design Palette (2025) */
+    --lp-primary-blue: 208 87% 63%; /* #5298F2 */
+    --lp-dark-blue: 209 100% 29%; /* #004C96 */
+    --lp-charcoal: 213 11% 33%; /* #475259 */
+    --lp-black: 0 0% 5%; /* #0D0D0D */
+    --lp-purple: 245 48% 47%; /* #5549A6 */
+    --lp-purple-light: 255 65% 82%; /* #BCA2F2 */
+    --lp-white: 0 0% 95%; /* #F2F2F2 */
+    --lp-cream: 30 29% 91%; /* #EEE8E1 */
+    
     /* Advanced Gradient System */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-teal)));
     --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--medical-teal) / 0.02));
@@ -50,6 +60,12 @@
     --gradient-trust: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--medical-grade)));
     --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
     --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+    
+    /* Landing Page Design Gradients (2025) */
+    --gradient-lp-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    --gradient-lp-timeline: linear-gradient(135deg, hsl(var(--lp-primary-blue)), hsl(var(--lp-dark-blue)));
+    --gradient-lp-purple: linear-gradient(135deg, hsl(var(--lp-purple)), hsl(var(--lp-purple-light) / 0.7));
+    --gradient-lp-cream: linear-gradient(180deg, hsl(var(--lp-cream)), hsl(var(--lp-white)));
   }
 
   /* Professional Teal Theme */
@@ -166,6 +182,62 @@
     --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
     --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
   }
+
+  /* Original Theme (Medical Blue) */
+  [data-theme="original"] {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 35%;
+    --primary: 210 85% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 210 60% 20%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 195 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 210 85% 25%;
+
+    --primary-navy: 210 85% 25%;
+    --medical-teal: 185 55% 50%;
+    --bridge-teal: 195 50% 45%;
+    --trust-blue: 210 70% 40%;
+    --medical-grade: 168 80% 38%;
+    
+    /* Map theme colors to landing page palette */
+    --primary-navy: 209 100% 29%; /* Dark Blue */
+    --primary-charcoal: 213 11% 33%;
+    --medical-teal: 208 87% 63%; /* Primary Blue */
+    --bridge-teal: 208 70% 55%;
+    --trust-blue: 209 100% 29%;
+    --medical-grade: 208 87% 63%;
+    --clinical-white: 0 0% 95%;
+    --swiss-silver: 0 0% 80%;
+    --precision-gray: 0 0% 85%;
+    
+    /* Landing Page Gradient Definitions */
+    --gradient-lp-hero: linear-gradient(to right, hsl(209 100% 29% / 0.9), hsl(209 100% 29% / 0.7), transparent);
+    --gradient-lp-timeline: linear-gradient(90deg, hsl(208 87% 63%) 0%, hsl(209 100% 29%) 100%);
+    --gradient-lp-purple: linear-gradient(135deg, hsl(245 48% 47%) 0%, hsl(255 65% 82%) 100%);
+    --gradient-lp-cream: linear-gradient(180deg, hsl(30 29% 91%) 0%, hsl(0 0% 95%) 100%);
+    
+    /* Use landing page gradients */
+    --gradient-primary: var(--gradient-lp-timeline);
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--lp-cream)), hsl(var(--lp-white)));
+    --gradient-hero: var(--gradient-lp-hero);
+    --gradient-cta: linear-gradient(120deg, hsl(var(--lp-primary-blue)), hsl(var(--lp-dark-blue)));
+    --gradient-button: var(--gradient-lp-timeline);
+    --gradient-trust: linear-gradient(135deg, hsl(var(--lp-dark-blue)), hsl(var(--lp-primary-blue)));
+    --gradient-swiss: var(--gradient-lp-cream);
+    --gradient-medical: var(--gradient-lp-timeline);
+  }
     
   
   /* Shadow System */
@@ -262,6 +334,23 @@
   
   .bg-gradient-medical {
     background: var(--gradient-medical);
+  }
+  
+  /* Landing Page Design Gradients */
+  .bg-gradient-lp-hero {
+    background: var(--gradient-lp-hero);
+  }
+  
+  .bg-gradient-lp-timeline {
+    background: var(--gradient-lp-timeline);
+  }
+  
+  .bg-gradient-lp-purple {
+    background: var(--gradient-lp-purple);
+  }
+  
+  .bg-gradient-lp-cream {
+    background: var(--gradient-lp-cream);
   }
   
   .shadow-medical {

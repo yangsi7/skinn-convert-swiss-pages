@@ -6,21 +6,42 @@ PURPOSE: Landing Page Redesign (LPR) based on user feedback + Memory Implementat
 
 This planning document covers the current Landing Page Redesign (LPR) initiative based on user feedback, along with memory implementation and previous phases.
 
-## Current Priority: Memory & Knowledge Graph Implementation 
+## Current Priority: New Landing Page Design Implementation 🚨 NEW (2025-07-30)
 
-**Hero Section Redesign (HR) - COMPLETED ✅ (2025-07-29)**
-- Changed subheadline text across all languages
-- Added eligibility text above CTA button
-- Implemented equal visual hierarchy for headline/subheadline
-- Added subtle box containers and gradient backgrounds
-- Created smooth animations with accessibility support
-- Total time: 4.5 hours (as estimated)
+**Phase LPD**: New Landing Page Design (17% complete - Phase 1 completed)
+- Phase 1: Design System Setup (new color palette, theme variant)
+- Phase 2: Component Creation (6 new components)
+- Phase 3: Hero & Layout Updates (full-screen background, streamlined messaging)
+- Phase 4: Section Integration (replace existing sections)
+- Phase 5: Visual Polish (micro-interactions, hover states)
+- Phase 6: Testing & QA (cross-browser, responsive, performance)
 
-**Previous Landing Page Redesign (LPR) - COMPLETED ✅**
+**User Provided Requirements:**
+- 15 design mockups with new visual direction
+- New color palette: #5298F2 #004C96 #475259 #0D0D0D #5549A6 #BCA2F2 #F2F2F2 #EEE8E1
+- Focus on "one clear message, one action, zero friction"
+- Consistent component layouts (icon → headline → text)
+- Mother-daughter-HQ.jpg as full-screen background
+- Purple accent (#5549A6) reserved for comparison section
+- Blue gradient for timeline/process visualization
+- DO NOT add back Silent Triad (already removed)
+
+**Previous Priorities:**
+- Memory & Knowledge Graph Implementation (Phase M) - BLOCKED (MCP unavailable)
+- Hero Section Redesign (HR) - COMPLETED ✅ (2025-07-29)
+- Landing Page Redesign (LPR) - COMPLETED ✅
 
 ## Executive Summary
 
 Current active initiatives:
+
+**Phase LPD**: Landing Page Design Implementation (0% complete) 🆕
+- Phase 1: Design System Setup (new theme, colors, gradients)
+- Phase 2: Component Creation (6 new components)
+- Phase 3: Hero & Layout Updates (new messaging, full-screen bg)
+- Phase 4: Section Integration (replace existing sections)
+- Phase 5: Visual Polish (spacing, animations, hover states)
+- Phase 6: Testing & QA (cross-browser, mobile, performance)
 
 **Phase LPR**: Landing Page Redesign (100% complete) ✅ COMPLETED
 - Phase 1: Critical Removals (Silent Triad, MVCP, stat cards, Swiss claims)

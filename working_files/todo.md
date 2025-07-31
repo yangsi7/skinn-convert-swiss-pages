@@ -1,11 +1,263 @@
 # TODO – SKIIN Switzerland Marketing Website
-VERSION: 9.0
-LAST UPDATED: 2025-07-29
+VERSION: 10.0
+LAST UPDATED: 2025-07-30
 PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
 
-This is the active task list for the SKIIN Switzerland marketing website. Current focus: Landing Page Redesign based on user feedback (COMPLETED ✅). All LPR phases 1-7 COMPLETED. Previous Phase 6 tasks 6.1-6.7 COMPLETED ✅.
+This is the active task list for the SKIIN Switzerland marketing website. Current focus: New Landing Page Design Implementation based on mockups (Phase LPD). Previous Landing Page Redesign (LPR) phases 1-7 COMPLETED ✅.
 
-## IMMEDIATE PRIORITY - Landing Page Redesign 🚨
+## IMMEDIATE PRIORITY - New Landing Page Design Implementation 🚨 NEW
+
+### Phase 1: Design System Setup [LPD-001] - 2 hours ✅ COMPLETED
+- [x] Create new theme variant "landing-page-2025"
+  - [x] Add to ThemeContext.tsx theme options
+  - [x] Define color mappings for new palette
+  - [x] Test theme switching functionality
+- [x] Map new color palette to CSS variables
+  - [x] --lp-primary-blue: #5298F2 (Light Blue - CTAs)
+  - [x] --lp-dark-blue: #004C96 (Dark Blue - Headlines)
+  - [x] --lp-charcoal: #475259 (Charcoal - Body text)
+  - [x] --lp-black: #0D0D0D (Near Black)
+  - [x] --lp-purple: #5549A6 (Purple - Comparison)
+  - [x] --lp-purple-light: #BCA2F2 (Light Purple)
+  - [x] --lp-white: #F2F2F2 (Off White)
+  - [x] --lp-cream: #EEE8E1 (Cream - Backgrounds)
+- [x] Update Tailwind configuration
+  - [x] Add custom color utilities
+  - [x] Create gradient utilities for timeline
+  - [x] Add backdrop utilities for overlays
+- [x] Create design token documentation
+  - [x] Document color usage guidelines
+  - [x] Create visual reference sheet
+  - [x] Update conventions.md
+
+### Phase 2: Component Creation [LPD-002] - 4 hours ✅ COMPLETED
+- [x] Create InsuranceCoverageFlow component
+  - [x] Step-by-step flow with icons
+  - [x] Info panel on hover/click
+  - [x] Mobile-friendly accordion variant
+  - [x] Add translations for all steps
+- [x] Create ComfortSection component
+  - [x] "Comfort meets clinical grade" messaging
+  - [x] Split-screen layout design
+  - [x] Image showcase integration
+  - [x] Responsive behavior
+- [x] Create TestimonialsV2 component
+  - [x] Full-width divider variant
+  - [x] Carousel option for mobile
+  - [x] Quote styling with attribution
+  - [x] Animation on scroll
+- [x] Create ClinicalEvidenceViz component
+  - [x] Data visualization for statistics
+  - [x] Interactive hover states
+  - [x] Source citations
+  - [x] Mobile-optimized layout
+- [x] Create ComparisonSection component
+  - [x] Purple background (#5549A6)
+  - [x] "How SKIIN Compares" table
+  - [x] Feature comparison grid
+  - [x] Check/cross icons
+- [x] Create TimelineProcess component
+  - [x] Blue gradient visualization
+  - [x] Step-by-step process flow
+  - [x] Progress indicators
+  - [x] Mobile horizontal scroll
+
+### Phase 3: Hero & Layout Updates [LPD-003] - 3 hours ✅ COMPLETED
+- [x] Implement full-screen background effect
+  - [x] Use Mother-daughter-HQ.jpg
+  - [x] Parallax scrolling effect (gradient overlay)
+  - [x] Gradient overlay for text readability
+  - [x] Lazy loading optimization (eager for hero)
+- [x] Streamline hero messaging
+  - [x] "One clear message" principle
+  - [x] Benefit-led headline
+  - [x] Simplified subheadline
+  - [x] Single primary CTA
+- [x] Update CTA design system
+  - [x] Primary state: #5298F2 background
+  - [x] Hover state with scale effect
+  - [x] Active state feedback
+  - [x] Loading state animation
+- [x] Add section transitions
+  - [x] Smooth scroll behavior
+  - [x] Fade-in animations
+  - [x] Section dividers
+  - [x] Consistent spacing
+
+### Phase 4: Section Integration [LPD-004] - 3 hours
+- [ ] Replace existing Home2.tsx sections
+  - [ ] Remove old components
+  - [ ] Add new component imports
+  - [ ] Update section ordering
+  - [ ] Maintain existing functionality
+- [ ] Update section flow
+  - [ ] Hero → Benefits → Insurance
+  - [ ] Comfort → Evidence → Comparison
+  - [ ] Process → Testimonials → CTA
+  - [ ] Ensure logical progression
+- [ ] Add translations for new content
+  - [ ] English copy implementation
+  - [ ] German translations
+  - [ ] French translations
+  - [ ] Italian translations
+- [ ] Ensure data flow
+  - [ ] Props passing correctly
+  - [ ] State management intact
+  - [ ] Analytics tracking maintained
+  - [ ] Form submissions working
+
+### Phase 5: Visual Polish [LPD-005] - 2 hours
+- [ ] Fine-tune spacing and typography
+  - [ ] Consistent icon → headline → text pattern
+  - [ ] Section padding adjustments
+  - [ ] Typography scale validation
+  - [ ] Line height optimization
+- [ ] Add micro-interactions
+  - [ ] Button hover effects
+  - [ ] Card lift animations
+  - [ ] Icon transitions
+  - [ ] Smooth state changes
+- [ ] Implement hover states
+  - [ ] Insurance info panels
+  - [ ] Evidence data points
+  - [ ] Comparison features
+  - [ ] Timeline steps
+- [ ] Optimize images
+  - [ ] Convert to WebP format
+  - [ ] Create responsive variants
+  - [ ] Add loading placeholders
+  - [ ] Implement lazy loading
+
+### Phase 6: Testing & QA [LPD-006] - 2 hours
+- [ ] Cross-browser testing
+  - [ ] Chrome/Edge compatibility
+  - [ ] Firefox rendering
+  - [ ] Safari backdrop filters
+  - [ ] Mobile browsers
+- [ ] Responsive testing
+  - [ ] 375px mobile baseline
+  - [ ] 768px tablet breakpoint
+  - [ ] 1024px desktop
+  - [ ] 1440px+ large screens
+- [ ] Performance optimization
+  - [ ] Lighthouse audit
+  - [ ] Bundle size check
+  - [ ] Image optimization
+  - [ ] Code splitting
+- [ ] Accessibility audit
+  - [ ] WCAG AA compliance
+  - [ ] Keyboard navigation
+  - [ ] Screen reader testing
+  - [ ] Color contrast validation
+- [ ] Create new theme variant "landing-page-2025" in index.css
+  - [ ] Map new color palette to CSS variables
+  - [ ] Define gradient variations
+  - [ ] Test theme switching functionality
+- [ ] Update Tailwind configuration
+  - [ ] Add new color definitions
+  - [ ] Create utility classes for new gradients
+  - [ ] Ensure proper dark mode support
+- [ ] Create design token documentation
+  - [ ] Document color usage guidelines
+  - [ ] Define spacing and typography scales
+  - [ ] Create visual reference guide
+
+### Phase 2: Component Creation [LPD-002] - 4 hours
+- [ ] Create InsuranceCoverageFlow component
+  - [ ] Design step-by-step flow layout
+  - [ ] Implement info panel design
+  - [ ] Add icon support
+  - [ ] Make responsive
+- [ ] Create ComfortSection component
+  - [ ] Full-width image layout
+  - [ ] "Comfort meets clinical grade" messaging
+  - [ ] Minimal text overlay design
+  - [ ] Feature icons grid
+- [ ] Create TestimonialsV2 component
+  - [ ] Support divider and carousel variants
+  - [ ] Real patient story format
+  - [ ] Author and condition display
+  - [ ] Auto-play functionality
+- [ ] Create ClinicalEvidenceViz component
+  - [ ] Data visualization design
+  - [ ] Statistical presentation
+  - [ ] Interactive elements
+  - [ ] Responsive charts
+- [ ] Create ComparisonSection component
+  - [ ] Purple background implementation
+  - [ ] Comparison table/grid
+  - [ ] Competitive advantages
+  - [ ] Icon-based features
+- [ ] Create TimelineProcess component
+  - [ ] Blue gradient timeline
+  - [ ] Step-by-step visualization
+  - [ ] Progress indicators
+  - [ ] Mobile-friendly design
+
+### Phase 3: Hero & Layout Updates [LPD-003] - 3 hours
+- [ ] Update hero section with new design
+  - [ ] Implement full-screen background effect
+  - [ ] Streamline messaging structure
+  - [ ] Update CTA design system
+  - [ ] Remove unnecessary elements
+- [ ] Implement section transitions
+  - [ ] Smooth scroll between sections
+  - [ ] Parallax effects for images
+  - [ ] Fade-in animations
+  - [ ] Performance optimization
+
+### Phase 4: Section Integration [LPD-004] - 3 hours
+- [ ] Replace existing sections with new components
+  - [ ] Update Home2.tsx structure
+  - [ ] Implement proper section ordering
+  - [ ] Add section dividers
+  - [ ] Ensure data flow
+- [ ] Update translations for new sections
+  - [ ] English copy updates
+  - [ ] German translations
+  - [ ] French translations
+  - [ ] Italian translations
+
+### Phase 5: Visual Polish [LPD-005] - 2 hours
+- [ ] Fine-tune spacing and typography
+  - [ ] Implement consistent padding
+  - [ ] Adjust line heights
+  - [ ] Optimize font sizes
+  - [ ] Create visual rhythm
+- [ ] Add micro-interactions
+  - [ ] Button hover states
+  - [ ] Card animations
+  - [ ] Icon transitions
+  - [ ] Loading states
+- [ ] Optimize images
+  - [ ] Create WebP versions
+  - [ ] Implement lazy loading
+  - [ ] Add responsive images
+  - [ ] Optimize file sizes
+
+### Phase 6: Testing & QA [LPD-006] - 2 hours
+- [ ] Cross-browser testing
+  - [ ] Chrome/Edge
+  - [ ] Firefox
+  - [ ] Safari
+  - [ ] Mobile browsers
+- [ ] Responsive testing
+  - [ ] 375px mobile
+  - [ ] 768px tablet
+  - [ ] 1024px desktop
+  - [ ] 1440px+ large screens
+- [ ] Performance testing
+  - [ ] Lighthouse audit
+  - [ ] Core Web Vitals
+  - [ ] Bundle size check
+  - [ ] Image optimization
+- [ ] Accessibility audit
+  - [ ] Color contrast
+  - [ ] Keyboard navigation
+  - [ ] Screen reader testing
+  - [ ] ARIA labels
+
+## Previously Completed - Landing Page Redesign 🚨
 
 ### Phase 1: Critical Removals [LPR-001] - 2 hours ✅ COMPLETED
 - [x] Remove Silent Triad Section

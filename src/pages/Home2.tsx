@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useThemeContent } from '@/hooks/useThemeContent';
+import { useTheme } from '@/contexts/ThemeContext';
 import VideoSection from '@/components/home/VideoSection';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
 // import MvcpSection from '@/components/home/MvcpSection'; // Removed from homepage per v7.2 requirements
@@ -54,6 +55,7 @@ import { Care360Technology } from '@/components/home/Care360Technology';
 const Home2 = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { setTheme } = useTheme();
   const tHome = useTranslation('home');
   const t = useTranslation('home2');
   const themeContent = useThemeContent();
@@ -63,6 +65,11 @@ const Home2 = () => {
   const [copyVariant, setCopyVariant] = useState<'default' | 'original'>('default');
   const [variant, setVariant] = useState<'A' | 'B' | 'C'>('A'); // Legacy A/B testing support
   const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Use the Original theme for classic medical-blue styling
+    setTheme('original');
+  }, [setTheme]);
   
   useEffect(() => {
     // Ensure content is loaded

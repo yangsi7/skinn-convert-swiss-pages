@@ -1,11 +1,12 @@
 # Doc-Ref - Documentation Index
 Status: CURRENT
-Last-Review: 2025-07-28 17:30
-Next-Review: 2025-08-04
-Version: 4.0
-Implementation-Status: Phase C.3 Documentation Cleanup COMPLETED ✅
+Last-Review: 2025-11-20
+Next-Review: 2025-11-27
+Version: 4.1
+Implementation-Status: Landing Page Update COMPLETED ✅
 Process-Compliance: CLAUDE_PROCESS.md v5.0
-Archive-Update: Root cleanup completed - v6.1 files archived to /docs/archive/2025-07-28/
+Archive-Update: Old home pages archived with -archive suffix
+Default-Theme: S&W Design | Default-Page: LandingPageV2025
 
 ## COPY SPECIFICATIONS (AUTHORITATIVE) 🚨
 
@@ -48,7 +49,10 @@ Archive-Update: Root cleanup completed - v6.1 files archived to /docs/archive/20
 - `/docs/analysis/2025-07-29-landing-page-copy-gap-analysis.md` - **Gap analysis vs copy spec** 🚨
 - `/docs/implementation/2025-07-29-landing-page-copy-alignment-plan.md` - **Implementation plan for copy alignment** (superseded)
 - `/docs/research/2025-07-29-landing-page-redesign-research.md` - **Comprehensive redesign research** 🚨
+- `/docs/implementation/2025-07-30-landing-page-design-implementation-plan.md` - **New landing page design plan (Phase LPD)** 🆕
+- `/docs/implementation/2025-07-30-component-mapping-analysis.md` - **Mockup to component mapping analysis** 🆕
 - `/docs/implementation/2025-07-29-landing-page-redesign-plan.md` - **Updated implementation plan with user feedback** 🚨
+- `/docs/implementation/2025-07-30-landing-page-design-implementation-plan.md` - **New design implementation based on mockups** 🆕
 
 ## v3.0 Implementation Documents (Archived)
 

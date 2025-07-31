@@ -4,6 +4,7 @@ import Index from '@/pages/Index';
 import Home2 from '@/pages/Home2';
 import Home2Enhanced from '@/pages/Home2Enhanced';
 import HomeV7 from '@/pages/HomeV7';
+import LandingPageV2025 from '@/pages/LandingPageV2025';
 import NotFound from '@/pages/NotFound';
 import ComponentShowcase from '@/pages/ComponentShowcase';
 
@@ -73,10 +74,11 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* English Routes */}
-      <Route path="/" element={<Home2 />} />
-      <Route path="/home-old" element={<Index />} />
+      <Route path="/" element={<LandingPageV2025 />} />
+      <Route path="/original" element={<Home2 />} />
+      <Route path="/home-old-archive" element={<Index />} />
       <Route path="/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/home2-enhanced" element={<Home2Enhanced />} />
+      <Route path="/home2-enhanced-archive" element={<Home2Enhanced />} />
       <Route path="/component-showcase" element={<ComponentShowcase />} />
       
       {/* Solutions Routes */}
@@ -116,10 +118,11 @@ const AppRoutes = () => {
       <Route path="/request-demo" element={<RequestDemo />} />
       
       {/* German Routes */}
-      <Route path="/de" element={<Home2 />} />
-      <Route path="/de/home-old" element={<Index />} />
+      <Route path="/de" element={<LandingPageV2025 />} />
+      <Route path="/de/original" element={<Home2 />} />
+      <Route path="/de/home-old-archive" element={<Index />} />
       <Route path="/de/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/de/home2-enhanced" element={<Home2Enhanced />} />
+      <Route path="/de/home2-enhanced-archive" element={<Home2Enhanced />} />
       
       {/* German Solutions Routes */}
       <Route path="/de/loesungen/10-tage-herzscreening" element={<Solutions10DayHeartScreening />} />
@@ -155,10 +158,11 @@ const AppRoutes = () => {
       <Route path="/de/cookies" element={<Cookies />} />
       
       {/* French Routes */}
-      <Route path="/fr" element={<Home2 />} />
-      <Route path="/fr/home-old" element={<Index />} />
+      <Route path="/fr" element={<LandingPageV2025 />} />
+      <Route path="/fr/original" element={<Home2 />} />
+      <Route path="/fr/home-old-archive" element={<Index />} />
       <Route path="/fr/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/fr/home2-enhanced" element={<Home2Enhanced />} />
+      <Route path="/fr/home2-enhanced-archive" element={<Home2Enhanced />} />
       
       {/* French Solutions Routes */}
       <Route path="/fr/solutions/bilan-cardiaque-10-jours" element={<Solutions10DayHeartScreening />} />
@@ -194,10 +198,11 @@ const AppRoutes = () => {
       <Route path="/fr/cookies" element={<Cookies />} />
       
       {/* Italian Routes */}
-      <Route path="/it" element={<Home2 />} />
-      <Route path="/it/home-old" element={<Index />} />
+      <Route path="/it" element={<LandingPageV2025 />} />
+      <Route path="/it/original" element={<Home2 />} />
+      <Route path="/it/home-old-archive" element={<Index />} />
       <Route path="/it/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/it/home2-enhanced" element={<Home2Enhanced />} />
+      <Route path="/it/home2-enhanced-archive" element={<Home2Enhanced />} />
       
       {/* Italian Solutions Routes */}
       <Route path="/it/soluzioni/screening-cardiaco-10-giorni" element={<Solutions10DayHeartScreening />} />
