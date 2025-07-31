@@ -60,11 +60,22 @@ export const SwissHealthInsurance: React.FC<SwissHealthInsuranceProps> = ({ clas
 
         {/* Insurance Logos */}
         <div className="mt-16 py-8">
-          <div className="flex justify-center items-center space-x-16">
-            <div className="text-[#475259] font-medium text-lg">INSURANCE LOGO</div>
-            <div className="text-[#475259] font-medium text-lg">INSURANCE LOGO</div>
-            <div className="text-[#475259] font-medium text-lg">INSURANCE LOGO</div>
-            <div className="text-[#475259] font-medium text-lg">INSURANCE LOGO</div>
+          <div className="text-center mb-6">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider">Trusted by major Swiss insurers</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+              <span className="text-foreground font-semibold text-xl">SWICA</span>
+            </div>
+            <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+              <span className="text-foreground font-semibold text-xl">CSS</span>
+            </div>
+            <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+              <span className="text-foreground font-semibold text-xl">Helsana</span>
+            </div>
+            <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+              <span className="text-foreground font-semibold text-xl">Concordia</span>
+            </div>
           </div>
         </div>
       </div>

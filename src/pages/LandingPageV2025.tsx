@@ -7,6 +7,7 @@ import { SwissHealthInsurance } from '@/components/landing/SwissHealthInsurance'
 import { InsuranceCoverageFlow } from '@/components/landing/InsuranceCoverageFlow';
 import { ComfortSection } from '@/components/landing/ComfortSection';
 import { TestimonialsV2 } from '@/components/landing/TestimonialsV2';
+import { CircularTestimonialsSection } from '@/components/landing/CircularTestimonialsSection';
 import { ClinicalEvidenceViz } from '@/components/landing/ClinicalEvidenceViz';
 import { ClinicalEvidenceStats } from '@/components/landing/ClinicalEvidenceStats';
 import { ComparisonSection } from '@/components/landing/ComparisonSection';
@@ -113,8 +114,8 @@ const LandingPageV2025: React.FC = () => {
           <MedicalAdvisors />
         </section>
 
-        {/* Testimonials - Divider Variant */}
-        <TestimonialsV2 variant="divider" />
+        {/* Testimonials - Circular Carousel */}
+        <CircularTestimonialsSection />
 
         {/* Full Screen Video - Before Testimonials */}
         <FullScreenVideo
