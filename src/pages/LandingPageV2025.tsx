@@ -17,6 +17,7 @@ import FullScreenVideo from '@/components/ui/FullScreenVideo';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
 import { HowSKIINWorks } from '@/components/landing/HowSKIINWorks';
 import { HowSKIINWorksV2 } from '@/components/landing/HowSKIINWorksV2';
+import { JourneyTimeline } from '@/components/landing/JourneyTimeline';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const LandingPageV2025: React.FC = () => {
@@ -130,6 +131,9 @@ const LandingPageV2025: React.FC = () => {
 
         {/* Timeline Process */}
         <TimelineProcess />
+
+        {/* Journey Timeline - Clear Path from Start to Finish */}
+        <JourneyTimeline />
 
         {/* Final CTA Section */}
         <section className="py-20 bg-background">

@@ -11,31 +11,31 @@ export const HowSKIINWorksV2: React.FC<HowSKIINWorksV2Props> = ({ className }) =
       number: 1,
       title: 'REFERRAL',
       description: 'Get a referral from your doctor or start with our eligibility check',
-      image: '/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png'
+      image: '/assets/images/doctor-patient.jpeg'
     },
     {
       number: 2,
-      title: 'REFERRAL',
-      description: 'Get a referral from your doctor or start with our eligibility check',
-      image: '/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png'
+      title: 'DELIVERY',
+      description: 'Receive your SKIIN kit at home within 48 hours',
+      image: '/assets/images/product/skiin-holter-kit.png'
     },
     {
       number: 3,
-      title: 'REFERRAL',
-      description: 'Get a referral from your doctor or start with our eligibility check',
-      image: '/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png'
+      title: 'WEAR',
+      description: 'Simply wear the comfortable band for 10 days',
+      image: '/assets/images/product/wear-skiin-man-band-insert-pod.png'
     },
     {
       number: 4,
-      title: 'REFERRAL',
-      description: 'Get a referral from your doctor or start with our eligibility check',
-      image: '/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png'
+      title: 'MONITOR',
+      description: 'Your heart data is transmitted in real-time',
+      image: '/assets/images/app-live-ecg.png'
     },
     {
       number: 5,
-      title: 'REFERRAL',
-      description: 'Get a referral from your doctor or start with our eligibility check',
-      image: '/assets/images/40ba1015-d4f2-4e38-a22e-d479e1c983f6.png'
+      title: 'RESULTS',
+      description: 'Receive your comprehensive report within 48 hours',
+      image: '/assets/images/optimized/reports/medicalgorythmic-example-report-screenshot-1-full.png'
     }
   ];
 

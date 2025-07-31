@@ -92,8 +92,8 @@ export const ComfortSection: React.FC = () => {
             {/* Main Image Container */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/assets/images/product/skiin-comfort-wear.jpg"
-                alt="SKIIN comfortable wear demonstration"
+                src="/assets/images/woman-wear-skiin.png"
+                alt="Woman wearing SKIIN device comfortably"
                 className="w-full h-auto"
                 loading="lazy"
               />
