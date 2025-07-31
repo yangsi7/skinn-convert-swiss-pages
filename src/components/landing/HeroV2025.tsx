@@ -15,15 +15,14 @@ export const HeroV2025: React.FC<HeroV2025Props> = ({ className }) => {
             LIVE WELL. START WITH YOUR HEART.
           </p>
 
-          {/* Main Headline - Two lines for better layout */}
+          {/* Main Headline - Single line when expanded */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight animate-fadeInUp animation-delay-100">
-            <span className="block text-foreground">Most heart issues</span>
-            <span className="block text-foreground">show no signs.</span>
+            <span className="text-foreground">Most heart issues are silent.</span>
           </h1>
 
-          {/* Subheadline - Purple accent */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-accent mb-12 leading-snug animate-fadeInUp animation-delay-200">
-            A simple check can make all the difference.
+          {/* Subheadline - Purple accent - SAME SIZE as headline */}
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-accent mb-12 leading-tight animate-fadeInUp animation-delay-200">
+            Today is a good time to check.
           </h2>
 
           {/* CTA Button */}
