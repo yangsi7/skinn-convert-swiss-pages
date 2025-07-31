@@ -28,7 +28,7 @@ export const TestimonialScrollCarousel: React.FC<TestimonialScrollCarouselProps>
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-75%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-50%"]); // Slower scroll
 
   return (
     <section ref={targetRef} className={cn("relative h-[200vh] bg-background", className)}>
@@ -47,7 +47,7 @@ export const TestimonialScrollCarousel: React.FC<TestimonialScrollCarouselProps>
         </div>
 
         {/* Carousel */}
-        <motion.div style={{ x }} className="flex gap-6">
+        <motion.div style={{ x }} className="flex gap-8">
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
@@ -60,12 +60,12 @@ export const TestimonialScrollCarousel: React.FC<TestimonialScrollCarouselProps>
 const TestimonialCard: React.FC<{ testimonial: TestimonialCard }> = ({ testimonial }) => {
   return (
     <motion.div
-      className="group relative flex-shrink-0 w-[400px] bg-white rounded-2xl shadow-lg overflow-hidden"
+      className="group relative flex-shrink-0 w-[500px] bg-white rounded-2xl shadow-lg overflow-hidden"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
       {/* Image Section */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-80 overflow-hidden">
         <div
           style={{
             backgroundImage: `url(${testimonial.image})`,

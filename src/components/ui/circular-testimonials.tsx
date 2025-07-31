@@ -95,7 +95,7 @@ export const CircularTestimonials = ({
     if (autoplay) {
       autoplayIntervalRef.current = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-      }, 5000);
+      }, 8000); // Slower scroll - increased from 5000ms to 8000ms
     }
     return () => {
       if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
@@ -285,7 +285,7 @@ export const CircularTestimonials = ({
         .image-container {
           position: relative;
           width: 100%;
-          height: 24rem;
+          height: 28rem;
           perspective: 1000px;
           display: flex;
           align-items: center;
@@ -293,8 +293,8 @@ export const CircularTestimonials = ({
         }
         .testimonial-image {
           position: absolute;
-          width: 16rem;
-          height: 16rem;
+          width: 20rem;
+          height: 20rem;
           object-fit: cover;
           border-radius: 1.5rem;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);

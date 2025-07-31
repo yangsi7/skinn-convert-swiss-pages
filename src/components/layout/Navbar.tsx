@@ -228,10 +228,12 @@ const Navbar = () => {
                 {nav.labels.solutions}
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="start" className="bg-background shadow-lg border-border min-w-[240px]">
                 {nav.solutions.map((item) => (
                   <DropdownMenuItem key={item.path} asChild>
-                    <Link to={item.path}>{item.label}</Link>
+                    <Link to={item.path} className="w-full px-4 py-2 hover:bg-muted cursor-pointer">
+                      {item.label}
+                    </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -243,10 +245,12 @@ const Navbar = () => {
                 {nav.labels.partners}
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="start" className="bg-background shadow-lg border-border min-w-[240px]">
                 {nav.partners.map((item) => (
                   <DropdownMenuItem key={item.path} asChild>
-                    <Link to={item.path}>{item.label}</Link>
+                    <Link to={item.path} className="w-full px-4 py-2 hover:bg-muted cursor-pointer">
+                      {item.label}
+                    </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
