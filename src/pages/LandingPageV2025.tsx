@@ -8,12 +8,15 @@ import { InsuranceCoverageFlow } from '@/components/landing/InsuranceCoverageFlo
 import { ComfortSection } from '@/components/landing/ComfortSection';
 import { TestimonialsV2 } from '@/components/landing/TestimonialsV2';
 import { ClinicalEvidenceViz } from '@/components/landing/ClinicalEvidenceViz';
+import { ClinicalEvidenceStats } from '@/components/landing/ClinicalEvidenceStats';
 import { ComparisonSection } from '@/components/landing/ComparisonSection';
+import { HowSKIINCompares } from '@/components/landing/HowSKIINCompares';
 import { TimelineProcess } from '@/components/landing/TimelineProcess';
 import { MedicalAdvisors } from '@/components/home/MedicalAdvisors';
 import FullScreenVideo from '@/components/ui/FullScreenVideo';
 import { ProcessFlow } from '@/components/home/ProcessFlow';
 import { HowSKIINWorks } from '@/components/landing/HowSKIINWorks';
+import { HowSKIINWorksV2 } from '@/components/landing/HowSKIINWorksV2';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const LandingPageV2025: React.FC = () => {
@@ -101,8 +104,8 @@ const LandingPageV2025: React.FC = () => {
         {/* Comfort Section */}
         <ComfortSection />
 
-        {/* Clinical Evidence */}
-        <ClinicalEvidenceViz />
+        {/* Clinical Evidence - New Stats Design */}
+        <ClinicalEvidenceStats />
 
         {/* Medical Advisors - Trusted by Leading Cardiologists */}
         <section className="py-20 bg-muted/30">
@@ -119,11 +122,11 @@ const LandingPageV2025: React.FC = () => {
           title="Heart Assessment at Home"
         />
 
-        {/* How SKIIN Works - New Visual Style */}
-        <HowSKIINWorks />
+        {/* How SKIIN Works - New 5-Step Visual Style */}
+        <HowSKIINWorksV2 />
 
         {/* Comparison Section with Purple Background */}
-        <ComparisonSection />
+        <HowSKIINCompares />
 
         {/* Timeline Process */}
         <TimelineProcess />

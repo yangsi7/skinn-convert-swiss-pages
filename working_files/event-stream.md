@@ -247,3 +247,9 @@ PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
 [2025-11-20 10:27] Action - Renamed themes: landing-page-2025 → sw-design, medical-blue → original for clarity
 [2025-11-20 10:28] Action - Renamed routes: archived old pages with -archive suffix, set /original for Home2  
 [2025-11-20 10:29] Plan - Next: run tests to ensure no regressions, then commit and push all changes
+[2025-11-20 10:30] Action - Created ClinicalEvidenceStats component with horizontal stats layout and blue background
+[2025-11-20 10:31] Action - Created HowSKIINWorksV2 component with 5-step numbered process flow  
+[2025-11-20 10:32] Action - Created HowSKIINCompares component with purple background and comparison table
+[2025-11-20 10:33] Action - Updated LandingPageV2025 to integrate new redesigned components
+[2025-11-20 10:34] Action - Copied white Myant logo to public directory for comparison section
+[2025-11-20 10:35] Plan - Next: test build and commit all component updates
