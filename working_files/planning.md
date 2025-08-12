@@ -6,25 +6,31 @@ PURPOSE: Landing Page Redesign (LPR) based on user feedback + Memory Implementat
 
 This planning document covers the current Landing Page Redesign (LPR) initiative based on user feedback, along with memory implementation and previous phases.
 
-## Current Priority: New Landing Page Design Implementation 🚨 NEW (2025-07-30)
+## Current Priority: S&W Design System Standardization 🚨 NEW (2025-08-12)
 
-**Phase LPD**: New Landing Page Design (17% complete - Phase 1 completed)
-- Phase 1: Design System Setup (new color palette, theme variant)
-- Phase 2: Component Creation (6 new components)
-- Phase 3: Hero & Layout Updates (full-screen background, streamlined messaging)
-- Phase 4: Section Integration (replace existing sections)
-- Phase 5: Visual Polish (micro-interactions, hover states)
-- Phase 6: Testing & QA (cross-browser, responsive, performance)
+**Phase SWD**: S&W Design System Implementation & Website Alignment (5% complete)
+- Establish S&W Design as the default design system across entire website
+- Replace theme switcher with copy variant selector
+- Align all pages (Solutions, Partners, How It Works, About) with S&W Design
+- Ensure consistent animations, spacing, and color usage
+- Document and enforce S&W Design principles
 
-**User Provided Requirements:**
-- 15 design mockups with new visual direction
-- New color palette: #5298F2 #004C96 #475259 #0D0D0D #5549A6 #BCA2F2 #F2F2F2 #EEE8E1
-- Focus on "one clear message, one action, zero friction"
-- Consistent component layouts (icon → headline → text)
-- Mother-daughter-HQ.jpg as full-screen background
-- Purple accent (#5549A6) reserved for comparison section
-- Blue gradient for timeline/process visualization
-- DO NOT add back Silent Triad (already removed)
+**Key Requirements:**
+- S&W Design is the default and only design system for the website
+- Remove palette theme switcher, replace with messaging/copy variant selector
+- All pages must follow S&W Design principles:
+  - Colors: #5298F2 (primary blue), #5549A6 (purple), #004C96 (dark blue), #475259 (charcoal)
+  - Spacing: py-20 mobile, md:py-30 desktop
+  - Animations: scroll-triggered with staggered delays
+  - Typography: IBM Plex Sans with defined scale
+  - Card patterns with hover effects
+  - Consistent section layouts
+
+**Current Issues Found:**
+- Solutions page (/solutions/10-day-heart-screening) appears blank
+- Partners, How It Works, and About pages use inconsistent styling
+- Theme switcher allows changing to non-S&W designs
+- No copy variant system implemented
 
 **Previous Priorities:**
 - Memory & Knowledge Graph Implementation (Phase M) - BLOCKED (MCP unavailable)

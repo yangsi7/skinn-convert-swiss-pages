@@ -1,11 +1,111 @@
 # TODO – SKIIN Switzerland Marketing Website
-VERSION: 10.0
-LAST UPDATED: 2025-07-30
+VERSION: 11.0
+LAST UPDATED: 2025-08-12
 PROCESS-COMPLIANCE: CLAUDE_PROCESS.md v5.0
 
-This is the active task list for the SKIIN Switzerland marketing website. Current focus: New Landing Page Design Implementation based on mockups (Phase LPD). Previous Landing Page Redesign (LPR) phases 1-7 COMPLETED ✅.
+This is the active task list for the SKIIN Switzerland marketing website. Current focus: S&W Design System Standardization across entire website (Phase SWD).
 
-## IMMEDIATE PRIORITY - New Landing Page Design Implementation 🚨 NEW
+## IMMEDIATE PRIORITY - S&W Design System Standardization 🚨 NEW
+
+### Phase 1: Theme Switcher Replacement [SWD-001] - 2 hours
+- [ ] Create CopyVariantSelector component
+  - [ ] Design dropdown with messaging options (benefit-led, clinical, urgency)
+  - [ ] Implement variant switching logic
+  - [ ] Store selection in localStorage
+- [ ] Remove ThemeSwitcher from Navbar
+  - [ ] Delete palette icon button
+  - [ ] Replace with copy variant selector
+- [ ] Update ThemeContext to always use 'sw-design'
+  - [ ] Remove theme switching logic
+  - [ ] Keep only copy variant logic
+- [ ] Test copy variant switching
+
+### Phase 2: Fix Critical Issues [SWD-002] - 3 hours
+- [ ] Debug Solutions page blank rendering
+  - [ ] Check route configuration
+  - [ ] Verify component imports
+  - [ ] Fix rendering issues
+- [ ] Ensure all pages load correctly
+  - [ ] Test all Solutions sub-pages
+  - [ ] Test all Partners sub-pages
+  - [ ] Test How It Works pages
+  - [ ] Test About pages
+
+### Phase 3: Design System Alignment - Solutions Pages [SWD-003] - 4 hours
+- [ ] Update /solutions/10-day-heart-screening
+  - [ ] Apply S&W Design hero pattern
+  - [ ] Fix color scheme (remove hardcoded colors)
+  - [ ] Add scroll animations
+  - [ ] Update button styles
+  - [ ] Fix spacing (py-20/md:py-30)
+- [ ] Update /solutions/3x-screening
+  - [ ] Apply consistent design
+  - [ ] Add hover effects
+  - [ ] Update typography
+
+### Phase 4: Design System Alignment - Partners Pages [SWD-004] - 4 hours
+- [ ] Update /partners/general-practitioners
+  - [ ] Apply S&W Design principles
+  - [ ] Add animated sections
+  - [ ] Fix color consistency
+- [ ] Update /partners/cardiologists
+  - [ ] Same design updates
+- [ ] Update /partners/telemedicine
+  - [ ] Same design updates
+- [ ] Update /partners/corporate
+  - [ ] Same design updates
+
+### Phase 5: Design System Alignment - How It Works [SWD-005] - 3 hours
+- [ ] Update main How It Works page
+  - [ ] Apply S&W Design hero
+  - [ ] Add process visualization
+  - [ ] Implement animations
+- [ ] Update sub-pages
+  - [ ] Process details
+  - [ ] FAQ section
+  - [ ] Technology explanation
+
+### Phase 6: Design System Alignment - About Pages [SWD-006] - 3 hours
+- [ ] Update About Myant Health page
+  - [ ] Apply S&W Design
+  - [ ] Add team section animations
+  - [ ] Fix typography and spacing
+- [ ] Update company info pages
+  - [ ] Mission/vision styling
+  - [ ] Team member cards
+  - [ ] Contact information
+
+### Phase 7: Component Library Creation [SWD-007] - 4 hours
+- [ ] Create ProgressiveSection component
+  - [ ] Scroll-triggered animations
+  - [ ] Configurable animation types
+  - [ ] Dark mode support
+- [ ] Create ProgressiveCard component
+  - [ ] Hover effects
+  - [ ] Icon support
+  - [ ] Consistent padding
+- [ ] Create StatCard component
+  - [ ] Animated counters
+  - [ ] Gradient backgrounds
+- [ ] Create FeatureGrid component
+  - [ ] Responsive grid
+  - [ ] Staggered animations
+- [ ] Document component usage
+
+### Phase 8: Documentation & Enforcement [SWD-008] - 2 hours
+- [ ] Update conventions.md
+  - [ ] Set S&W Design as default
+  - [ ] Remove theme switching references
+  - [ ] Add copy variant documentation
+- [ ] Update CLAUDE.md
+  - [ ] Document S&W Design requirement
+  - [ ] Add component patterns
+- [ ] Create migration guide
+  - [ ] Step-by-step conversion
+  - [ ] Common pitfalls
+  - [ ] Testing checklist
+
+## Previously Completed - Landing Page Design Implementation 🚨
 
 ### Phase 1: Design System Setup [LPD-001] - 2 hours ✅ COMPLETED
 - [x] Create new theme variant "landing-page-2025"
