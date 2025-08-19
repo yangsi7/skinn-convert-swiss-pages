@@ -1,0 +1,148 @@
+{
+  "timestamp": "2025-08-19T07:47:31.432Z",
+  "totalTests": 17,
+  "passCount": 14,
+  "failCount": 3,
+  "passRate": 82.4,
+  "criticalIssues": true,
+  "results": [
+    {
+      "name": "Body text on white background",
+      "ratio": "7.79",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(75, 83, 93)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Headlines on white background",
+      "ratio": "19.44",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(13, 13, 13)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Dark blue headers on white",
+      "ratio": "8.53",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(0, 76, 148)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Charcoal text on white",
+      "ratio": "7.79",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(75, 83, 93)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Black headlines on white",
+      "ratio": "19.44",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(13, 13, 13)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "White text on primary blue button",
+      "ratio": "2.60",
+      "passes": false,
+      "passesLarge": false,
+      "textColor": "rgb(255, 255, 255)",
+      "bgColor": "rgb(79, 166, 243)"
+    },
+    {
+      "name": "White text on purple button",
+      "ratio": "8.08",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(255, 255, 255)",
+      "bgColor": "rgb(72, 62, 177)"
+    },
+    {
+      "name": "White text on dark blue button",
+      "ratio": "8.53",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(255, 255, 255)",
+      "bgColor": "rgb(0, 76, 148)"
+    },
+    {
+      "name": "Charcoal text on cream background",
+      "ratio": "6.42",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(75, 83, 93)",
+      "bgColor": "rgb(239, 232, 225)"
+    },
+    {
+      "name": "Dark blue on cream background",
+      "ratio": "7.03",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(0, 76, 148)",
+      "bgColor": "rgb(239, 232, 225)"
+    },
+    {
+      "name": "Black text on cream background",
+      "ratio": "16.01",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(13, 13, 13)",
+      "bgColor": "rgb(239, 232, 225)"
+    },
+    {
+      "name": "Charcoal text on muted background",
+      "ratio": "6.96",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(75, 83, 93)",
+      "bgColor": "rgb(242, 242, 242)"
+    },
+    {
+      "name": "Primary blue text on white",
+      "ratio": "2.60",
+      "passes": false,
+      "passesLarge": false,
+      "textColor": "rgb(79, 166, 243)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Purple accent text on white",
+      "ratio": "8.08",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(72, 62, 177)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Primary blue on cream",
+      "ratio": "2.14",
+      "passes": false,
+      "passesLarge": false,
+      "textColor": "rgb(79, 166, 243)",
+      "bgColor": "rgb(239, 232, 225)"
+    },
+    {
+      "name": "Muted foreground on white (secondary text)",
+      "ratio": "7.79",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(75, 83, 93)",
+      "bgColor": "rgb(255, 255, 255)"
+    },
+    {
+      "name": "Secondary foreground on secondary bg",
+      "ratio": "7.03",
+      "passes": true,
+      "passesLarge": true,
+      "textColor": "rgb(0, 76, 148)",
+      "bgColor": "rgb(239, 232, 225)"
+    }
+  ],
+  "wcagCompliant": false,
+  "medicalDeviceCompliant": false
+}

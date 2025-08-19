@@ -6,14 +6,114 @@ PURPOSE: Landing Page Redesign (LPR) based on user feedback + Memory Implementat
 
 This planning document covers the current Landing Page Redesign (LPR) initiative based on user feedback, along with memory implementation and previous phases.
 
-## Current Priority: S&W Design System Standardization 🚨 NEW (2025-08-12)
+## Current Priority: Eligibility Questionnaire Implementation 🚨 NEW (2025-08-19)
 
-**Phase SWD**: S&W Design System Implementation & Website Alignment (5% complete)
+**Phase EQ**: Production-Ready Eligibility Questionnaire System
+- **Duration**: 6 months (24 weeks)
+- **Budget**: CHF 299,000 (including 15% contingency)
+- **Team**: 17.5 FTE across security, regulatory, medical, and development
+- **Critical Blockers**: Swissmedic registration, OTP security, PCI DSS compliance
+
+### Expert Panel Assessment Results:
+- Swiss Healthcare Regulatory: 75/100 (Missing Swissmedic registration - BLOCKER)
+- Database Architecture: 82/100 (Good foundation, optimization needed)
+- UX/Accessibility: 87/100 (Excellent, minor improvements)
+- Security & Compliance: 68/100 (Critical security gaps - BLOCKER)
+- Frontend Architecture: 79/100 (Solid, needs state management)
+- Product Management: 76/100 (Good business fit, needs analytics)
+- **Overall Confidence**: 77% (after remediation plan implementation)
+
+### Phase 0: Emergency Security Fixes (Week 1) - P0 CRITICAL
+- Fix OTP vulnerabilities (rate limiting, expiry, brute force protection)
+- Implement secure session management with JWT rotation
+- Add CSRF protection and IP-based blocking
+- Pass penetration testing before any beta deployment
+- **Budget**: CHF 15,000 | **Team**: 2 Senior Security Engineers
+
+### Phase 1: Regulatory Compliance (Weeks 2-13) - P0 CRITICAL  
+- Achieve Swissmedic Class IIa medical device registration
+- Establish medical professional oversight framework
+- Implement ISO 13485 quality management system
+- Complete clinical evaluation with 500+ patients
+- **Budget**: CHF 85,000 | **Lead**: Regulatory Consultant + Medical Advisor
+
+### Phase 2: Payment Infrastructure (Weeks 6-10, parallel) - P0 CRITICAL
+- Achieve PCI DSS Level 1 compliance
+- Implement tokenization (zero card storage)
+- Integrate Swiss payment provider (Datatrans)
+- Enable insurance billing for SWICA, CSS, Helsana, etc.
+- **Budget**: CHF 45,000 | **Lead**: Payment Specialist
+
+### Phase 3: Technical Architecture (Weeks 11-16) - P1 HIGH
+- Implement Zustand state management for complex forms
+- Build comprehensive audit trail for medical compliance
+- Optimize database with indexes and Redis caching
+- Enhance session security and performance
+- **Budget**: CHF 55,000 | **Lead**: Frontend/Backend Architects
+
+### Phase 4: Beta Testing & Validation (Weeks 17-20) - P1 HIGH
+- Medical accuracy validation by 3+ cardiologists
+- User testing with 50+ medical professionals
+- Achieve >60% form completion rate
+- Zero critical bugs before production
+- **Budget**: CHF 25,000 | **Lead**: Product Manager + Medical Advisor
+
+### Phase 5: Production Deployment (Weeks 21-24) - P1 HIGH
+- Gradual rollout: 10% → 25% → 50% → 100%
+- 99.9% uptime with monitoring and alerting
+- Medical oversight reviewing flagged cases
+- Analytics and A/B testing framework
+- **Budget**: CHF 35,000 | **Lead**: DevOps + Full Team
+
+## Previous Priority: Repository Conformance Chain 🚨 UPDATED (2025-08-19)
+
+**Phase RC**: Repository Conformance Implementation with Comprehensive Testing Integration
+- **Phase 1a**: Current State Analysis ✅ COMPLETED (75% conformance, 5 critical issues identified)
+- **Phase 1b**: Research & Best Practices ✅ COMPLETED (Modern standards analysis)
+- **Phase 2a**: Master Implementation Planning ✅ COMPLETED (3-phase plan, 86 hours, 12 weeks)
+- **Phase 2b**: Documentation Update & Governance ✅ COMPLETED (Standards established)
+- **Phase 3a**: Critical Infrastructure Implementation ✅ COMPLETED (TypeScript strict, Solutions page fixed, theme switcher replaced, CI/CD enhanced)
+- **Phase 3b**: Documentation Maintenance ✅ COMPLETED (Implementation docs, standards, validation procedures)
+- **Phase 3.5**: Comprehensive Testing Validation 🆕 NEXT (24-32 hours, testing-qa-agent execution)
+- **Phase 4**: Architecture Enhancement (Deferred - pending testing validation)
+- **Phase 5**: S&W Design System Standardization (Deferred - pending architecture)
+
+**Phase 3a Implementation Results (✅ COMPLETED):**
+- TypeScript strict mode enabled across entire codebase with ES2022 target
+- Solutions page critical bug fixed (missing Shirt icon import resolved)
+- Theme switcher replaced with copy variant selector (benefit-led, clinical, urgency)
+- S&W Design established as default and only theme
+- CI/CD pipeline enhanced with Core Web Vitals monitoring and automated testing
+- ESLint v9 flat config implemented with enterprise standards
+- Code quality enforcement established with comprehensive validation
+
+**Phase 3b Documentation Maintenance (✅ COMPLETED):**
+- Updated context files with Phase 3a implementation results
+- Created comprehensive implementation documentation
+- Updated technical standards documentation  
+- Maintained architecture documentation
+- Created validation documentation
+- Prepared Phase 2 documentation foundation
+
+**Phase 3.5 Comprehensive Testing Validation (🆕 NEXT - CRITICAL):**
+- **Duration**: 3-4 days (24-32 hours)
+- **Resource**: testing-qa-agent (primary), planning-task-agent (coordination)
+- **Scope**: Complete validation of all Phase 3a implementations
+- **Testing Areas**:
+  - Functional Testing: 98 routes × 4 languages, copy variants, TypeScript strict
+  - Visual Testing: 5 breakpoints × 4 browsers, S&W Design validation
+  - Performance Testing: Core Web Vitals, bundle analysis, runtime metrics
+  - Accessibility Testing: WCAG 2.1 AA, screen readers, keyboard navigation
+  - Integration Testing: CI/CD pipeline, E2E workflows, API validation
+  - Security Testing: Vulnerability scanning, medical compliance
+- **Success Criteria**: 95%+ test pass rate, all critical issues resolved
+- **Deliverables**: Test report, issue register, validation certificates
+
+**Previous Priority**: S&W Design System Standardization (Phase SWD) - DEFERRED
 - Establish S&W Design as the default design system across entire website
-- Replace theme switcher with copy variant selector
+- Replace theme switcher with copy variant selector  
 - Align all pages (Solutions, Partners, How It Works, About) with S&W Design
-- Ensure consistent animations, spacing, and color usage
-- Document and enforce S&W Design principles
+- Progress: 5% complete - will resume after Repository Conformance
 
 **Key Requirements:**
 - S&W Design is the default and only design system for the website
@@ -590,34 +690,55 @@ Based on `/docs/implementation/025-07-24-ui-component-mapping-v7-IT.md`:
 - Page load time < 3s
 - WCAG AA compliance
 
-## Implementation Timeline (Updated)
+## Implementation Timeline (Updated - Repository Conformance Chain)
 
-### Immediate (Week 1)
-1. **Critical Fixes** (8h)
-   - Fix homepage rendering bug
-   - Resolve route discrepancies
-   - Complete Italian translations
+### Week 1 (Current - Testing Phase)
+1. **Days 1-2**: Phase 3a Infrastructure ✅ COMPLETED
+   - TypeScript strict mode migration
+   - Solutions page bug fix
+   - Copy variant selector implementation
+   - CI/CD pipeline enhancement
 
-2. **Hero Implementation** (12h)
-   - Image optimization
-   - Component updates
-   - A/B test setup
+2. **Days 3-4**: Phase 3.5 Testing Validation 🆕 CURRENT
+   - Day 3: Functional & Visual testing (18h)
+   - Day 4: Performance & Accessibility testing (14h)
+   
+3. **Day 5**: Issue Remediation
+   - Critical bug fixes
+   - Performance optimizations
+   - Documentation updates
 
-### Week 2
-3. **Content Updates** (20h)
-   - Statistics cards
-   - Product benefits
-   - Trust signals
-   - Insurance/pricing split
+### Week 2 (Architecture Enhancement)
+1. **Days 1-3**: Phase 4 Architecture (24h)
+   - Component standardization
+   - State management optimization
+   - Build system enhancement
+   
+2. **Days 4-5**: Component Migration (16h)
+   - Atomic design implementation
+   - Shared component library
+   - Documentation generation
 
-### Week 3
-4. **Polish & Launch** (15h)
-   - Performance optimization
-   - Accessibility audit
-   - Cross-browser testing
-   - Final QA
+### Week 3 (S&W Design Standardization)
+1. **Days 1-5**: Phase 5 S&W Design (40h)
+   - All pages alignment
+   - Animation implementation
+   - Visual polish
+   - Final testing
 
-**Total Phase 6: ~55 hours (7-8 days)**
+### Week 4 (Finalization)
+1. **Days 1-2**: Final Validation (16h)
+   - Comprehensive testing
+   - Performance verification
+   - Security audit
+   
+2. **Days 3-5**: Documentation & Handoff (24h)
+   - Complete documentation
+   - Training materials
+   - Deployment guide
+   - Knowledge transfer
+
+**Total Repository Conformance: ~150 hours (4 weeks)**
 
 ## Updated Priority Order
 

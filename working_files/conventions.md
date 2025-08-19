@@ -1,6 +1,7 @@
-# Conventions.md v5.4
-**Last updated:** 2025-11-20 | **Purpose:** Coding, documentation, testing, CI/CD guidelines for SKIIN Switzerland
+# Conventions.md v5.6
+**Last updated:** 2025-08-19 | **Purpose:** Enterprise-grade coding, documentation, testing, CI/CD guidelines for SKIIN Switzerland
 **Default Theme:** S&W Design | **Default Homepage:** LandingPageV2025
+**Repository Conformance:** Phase 3b - Documentation Maintenance (Phase 3a Infrastructure COMPLETED ✅)
 
 ## 1. Project Structure
 
@@ -47,12 +48,13 @@ src/
 
 ## 2. Coding Standards
 
-### TypeScript
-- Explicit types (no `any`)
-- Meaningful names
-- Return types for exports
+### TypeScript (Enterprise Standards)
+- **Strict Configuration Required**: strict: true, noImplicitAny: true, strictNullChecks: true
+- Explicit types (no `any`) - 0 tolerance policy
+- Meaningful names following domain conventions
+- Return types for all exports
 - Union types for fixed values
-- Strict mode enabled
+- Advanced type safety: strictFunctionTypes, noImplicitReturns, noFallthroughCasesInSwitch
 
 ### React Components
 - Pure functional components
@@ -62,12 +64,14 @@ src/
 - TanStack Query for server state
 - Try/catch async with toast feedback
 
-### Testing Requirements
-- TDD: Write tests first
-- >80% coverage for logic
-- Visual regression: 0.1% threshold
-- WCAG 2.1 AA compliance
-- Bug regression tests
+### Testing Requirements (Enterprise Standards)
+- **TDD Mandatory**: Write tests first - no exceptions
+- **Coverage Standards**: >80% for logic, >95% for critical paths
+- **Visual Regression**: 0.1% threshold with automated CI validation
+- **Accessibility**: WCAG 2.1 AA compliance with automated axe-core testing
+- **Performance**: Core Web Vitals monitoring (LCP < 2.5s, CLS < 0.1, FID < 100ms)
+- **Security**: Automated vulnerability scanning and dependency audits
+- **Bug Regression**: All bugs require regression tests before closure
 
 ## 3. Documentation Lifecycle
 
@@ -130,12 +134,14 @@ context7.create_entities([{
 
 ## 5. Performance & Security
 
-### Performance Budgets
-- LCP < 2.5s
-- CLS < 0.1
-- FID < 100ms
-- TTI < 2s
-- Bundle: main < 200KB, vendor < 500KB
+### Performance Budgets (Enterprise Standards)
+- **LCP (Largest Contentful Paint)**: < 2.5s (target: < 2.0s)
+- **CLS (Cumulative Layout Shift)**: < 0.1 (target: < 0.05)
+- **FID (First Input Delay)**: < 100ms (target: < 50ms)
+- **TTI (Time to Interactive)**: < 2s (target: < 1.5s)
+- **Bundle Sizes**: main < 200KB, vendor < 500KB, total < 1MB
+- **Memory**: Heap size monitoring, no memory leaks
+- **Network**: API response times < 500ms, retry logic implemented
 
 ### Security
 - Treat data as medical/sensitive
@@ -175,12 +181,15 @@ test: add unit tests
 perf: lazy loading
 ```
 
-### Pre-Commit Checklist
-- [ ] Design compliance (no hardcoded)
-- [ ] 4 languages tested
-- [ ] Images optimized
-- [ ] Performance budgets
-- [ ] Accessibility passed
+### Pre-Commit Checklist (Enterprise Standards)
+- [ ] **Code Quality**: ESLint, Prettier, TypeScript strict mode passed
+- [ ] **Design Compliance**: No hardcoded values, design system adherence
+- [ ] **Internationalization**: All 4 languages tested (EN/DE/FR/IT)
+- [ ] **Performance**: All budgets met, Lighthouse score > 90
+- [ ] **Accessibility**: WCAG 2.1 AA compliance verified
+- [ ] **Security**: No vulnerabilities, secrets properly managed
+- [ ] **Testing**: All tests pass, coverage requirements met
+- [ ] **Documentation**: Updated in same commit as code changes
 
 ### CI Pipeline
 ```yaml

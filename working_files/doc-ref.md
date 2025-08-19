@@ -2,11 +2,12 @@
 Status: CURRENT
 Last-Review: 2025-11-20
 Next-Review: 2025-11-27
-Version: 4.1
-Implementation-Status: Landing Page Update COMPLETED ✅
-Process-Compliance: CLAUDE_PROCESS.md v5.0
-Archive-Update: Old home pages archived with -archive suffix
-Default-Theme: S&W Design | Default-Page: LandingPageV2025
+Version: 4.3
+Implementation-Status: Repository Conformance Chain Phase 3b IN PROGRESS 🚧
+Process-Compliance: CLAUDE_PROCESS.md v5.1 (Enhanced for Repository Conformance)
+Archive-Update: Phase 3a infrastructure implementation COMPLETED ✅
+Default-Theme: S&W Design | Default-Page: LandingPageV2025  
+Repository-Conformance: Phase 3b - Documentation Maintenance (Phase 3a Infrastructure COMPLETED ✅)
 
 ## COPY SPECIFICATIONS (AUTHORITATIVE) 🚨
 
@@ -31,6 +32,12 @@ Default-Theme: S&W Design | Default-Page: LandingPageV2025
 - `/docs/protected-components-usage.md` - Usage guidelines
 
 ## IMPLEMENTATION GUIDES (How to Build)
+
+### Phase 3a Infrastructure Implementation Documentation 🆕
+- `/docs/implementation/2025-08-19-phase-3a-infrastructure-implementation-report.md` - **Phase 3a completion report** ✅
+- `/docs/implementation/2025-08-19-typescript-strict-mode-migration-guide.md` - **TypeScript strict mode procedures** ✅
+- `/docs/implementation/2025-08-19-copy-variant-selector-usage-guide.md` - **Copy variant system usage** ✅
+- `/docs/implementation/2025-08-19-cicd-pipeline-enhancement-guide.md` - **CI/CD enterprise automation** ✅
 
 ### v7.2 Implementation Documentation
 - `/docs/implementation/2025-07-24-technical-implementation-guide-v7.md` - **Technical implementation guide**
@@ -95,6 +102,9 @@ Default-Theme: S&W Design | Default-Page: LandingPageV2025
 - `/docs/archive/2025-07-25/v2-docs/content/iterations/2025-01-22-copy-update-v2/CTA_PSYCHOLOGICAL_REVIEW.md` - CTA effectiveness - Archived
 
 ## SYSTEM ARCHITECTURE & STRUCTURE
+
+### Phase 3a Architecture Documentation 🆕
+- `/docs/architecture/2025-08-19-copy-variant-system-architecture.md` - **Copy variant system architecture** ✅
 
 ### Architecture Documentation
 - `/docs/architecture/component-inventory.md` - Component inventory (95+ components, needs v7.2 update)
@@ -222,6 +232,29 @@ Default-Theme: S&W Design | Default-Page: LandingPageV2025
 - Implementation Plan: `/docs/IMPLEMENTATION-PLAN-V2.md`
 - Current Tasks: `/working_files/todo.md`
 - Process Guide: `/working_files/CLAUDE_PROCESS.md`
+
+## Invocation Chains (NEW)
+- `/docs/invocation-chains/historical-insights-extraction.md` - Extract patterns from archived project data (v1.0)
+- `/docs/invocation-chains/repository-conformance-chain.md` - 6-phase repository conformance implementation
+
+## Repository Conformance Implementation (NEW - 2025-08-19)
+- `/docs/analysis/2025-08-19-repository-conformance-current-state-assessment.md` - **Comprehensive baseline assessment** ✅ COMPLETED
+  - 75% repository conformance achieved
+  - 5 critical issues identified (P0/P1)
+  - S&W Design System 5% complete
+  - Phase 1a analysis completed
+- `/docs/planning/2025-08-19-repository-conformance-master-implementation-plan.md` - **Master implementation plan** ✅ COMPLETED
+  - 3-phase structure: Critical Infrastructure (32h), Architecture Enhancement (36h), Documentation & Governance (18h)
+  - Comprehensive risk register and mitigation strategies
+  - Resource allocation matrix with skill mapping
+  - Phase 2a planning completed
+- `/docs/conformance/` - **Repository conformance documentation** ✅ COMPLETED
+  - `2025-08-19-repository-conformance-master-guide.md` - Comprehensive implementation roadmap
+  - `2025-08-19-enterprise-coding-standards.md` - TypeScript strict configuration and coding standards
+  - `2025-08-19-documentation-governance-procedures.md` - Documentation lifecycle and governance
+  - `2025-08-19-team-handoff-package.md` - Phase 3 implementation guidance
+  - `2025-08-19-quality-assurance-framework.md` - Comprehensive QA procedures and validation
+  - `2025-08-19-implementation-validation-framework.md` - Automated and manual validation procedures
 
 ## External References
 - shadcn/ui: https://ui.shadcn.com/

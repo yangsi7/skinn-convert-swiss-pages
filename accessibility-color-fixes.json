@@ -1,0 +1,86 @@
+{
+  "timestamp": "2025-08-19T07:46:03.372Z",
+  "currentPrimary": {
+    "hsl": "208° 87% 63%",
+    "hex": "#4fa6f3",
+    "ratioWhite": "2.60",
+    "ratioCream": "2.14",
+    "compliant": false
+  },
+  "recommendations": [
+    {
+      "name": "Darkened Primary Blue",
+      "hsl": "208° 87% 39%",
+      "hex": "#0d69ba",
+      "rgb": {
+        "r": 13,
+        "g": 105,
+        "b": 186
+      },
+      "ratioWhite": "5.60",
+      "ratioCream": "4.62"
+    },
+    {
+      "name": "Desaturated Primary Blue",
+      "hsl": "208° 86% 39%",
+      "hex": "#0e69b9",
+      "rgb": {
+        "r": 14,
+        "g": 105,
+        "b": 185
+      },
+      "ratioWhite": "5.62",
+      "ratioCream": "4.63"
+    },
+    {
+      "name": "Medical Trust Blue",
+      "hsl": "210° 90% 35%",
+      "hex": "#0959aa",
+      "rgb": {
+        "r": 9,
+        "g": 89,
+        "b": 170
+      },
+      "ratioWhite": "6.95",
+      "ratioCream": "5.73"
+    },
+    {
+      "name": "Professional Blue",
+      "hsl": "215° 80% 42%",
+      "hex": "#155dc1",
+      "rgb": {
+        "r": 21,
+        "g": 93,
+        "b": 193
+      },
+      "ratioWhite": "6.24",
+      "ratioCream": "5.14"
+    }
+  ],
+  "cssFixes": [
+    {
+      "name": "Darkened Primary Blue",
+      "css": "--primary: 208 87% 39%;",
+      "hsl": "208° 87% 39%",
+      "hex": "#0d69ba"
+    },
+    {
+      "name": "Desaturated Primary Blue",
+      "css": "--primary: 208 86% 39%;",
+      "hsl": "208° 86% 39%",
+      "hex": "#0e69b9"
+    },
+    {
+      "name": "Medical Trust Blue",
+      "css": "--primary: 210 90% 35%;",
+      "hsl": "210° 90% 35%",
+      "hex": "#0959aa"
+    },
+    {
+      "name": "Professional Blue",
+      "css": "--primary: 215 80% 42%;",
+      "hsl": "215° 80% 42%",
+      "hex": "#155dc1"
+    }
+  ]
+}

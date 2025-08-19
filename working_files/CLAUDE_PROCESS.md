@@ -1,8 +1,8 @@
 # **working_files/CLAUDE_PROCESS.md**
 
-**VERSION**: 5.0 – Comprehensive Claude Code Optimisation (v5.0)
-**LAST UPDATED**: 2025-07-24
-**PURPOSE**: Universal development methodology tuned for Claude Code across all projects, with grouped modules, memory & knowledge-graph integration, performance optimisation, code review, design versioning, accessibility testing, security audits and CI/CD guidance.
+**VERSION**: 5.1 – Comprehensive Claude Code Optimisation with Repository Conformance (v5.1)
+**LAST UPDATED**: 2025-08-19
+**PURPOSE**: Universal development methodology tuned for Claude Code across all projects, with grouped modules, memory & knowledge-graph integration, performance optimisation, code review, design versioning, accessibility testing, security audits, CI/CD guidance, and enterprise repository conformance.
 
 ---
 
@@ -16,7 +16,8 @@
 6.  Design & Simulation
 7.  Security & Compliance
 8.  Infrastructure & Deployment
-9.  Context & Knowledge Graph
+9.  Repository Conformance & Enterprise Standards
+10. Context & Knowledge Graph
 10. Architecture Templates Module
 11. Research-First Methodology
 12. Toolbox (MCP) Reference
@@ -69,7 +70,8 @@ To simplify navigation, all modules are grouped under six **categories**, each c
 4.  **Design & Simulation** – lovable design, design system guidelines, design versioning & synchronisation, visual excellence, mock data & simulation, accessibility testing, UI component generation.
 5.  **Security & Compliance** – security & compliance module, security audit checklist and secrets management.
 6.  **Infrastructure & Deployment** – architecture templates, dependency & security management, repository hygiene & archival, CI/CD guidance, sandbox specs.
-7.  **Context & Knowledge Graph** – persistent memory, knowledge graph management, conventions for keys and entities, graph-update triggers and query patterns.
+7.  **Repository Conformance & Enterprise Standards** – enterprise-grade repository standards, TypeScript strict configuration, performance monitoring, accessibility compliance, documentation governance.
+8.  **Context & Knowledge Graph** – persistent memory, knowledge graph management, conventions for keys and entities, graph-update triggers and query patterns.
 
 </module_categories_overview>
 
@@ -405,6 +407,59 @@ To simplify navigation, all modules are grouped under six **categories**, each c
   – **Global tools**: brew, git, jq, awk, sed, bc
   – **VS Code Remote CLI** available for remote editing
 </sandbox_environment_spec>
+
+---
+
+## **<repository_conformance_and_enterprise_standards>**
+
+### **Repository Conformance Module**
+
+<repository_conformance_module>
+  – **Purpose**: Ensure enterprise-grade repository standards and maintainability across all projects.
+  – **Rules**:
+    * All repositories must achieve >95% conformance with modern development standards (baseline assessment via repository analysis tools).
+    * TypeScript projects must use strict configuration: strict: true, noImplicitAny: true, strictNullChecks: true, with 0% tolerance for `any` types in production code.
+    * Performance monitoring is mandatory: Core Web Vitals tracking (LCP < 2.5s, CLS < 0.1, FID < 100ms) with automated CI integration.
+    * Accessibility compliance: WCAG 2.1 AA standards with automated axe-core testing and manual validation procedures.
+    * Documentation governance: ISO-date naming conventions, version control, and comprehensive lifecycle management following established governance procedures.
+    * All changes must be validated through automated quality gates and compliance checks before deployment.
+</repository_conformance_module>
+
+### **Enterprise TypeScript Standards**
+
+<enterprise_typescript_module>
+  – **Purpose**: Enforce enterprise-grade TypeScript configuration and coding standards.
+  – **Rules**:
+    * Mandatory strict configuration with all strict flags enabled (strictFunctionTypes, noImplicitReturns, noFallthroughCasesInSwitch).
+    * Zero tolerance for `any` types – all code must be explicitly typed with proper type guards for runtime safety.
+    * All exported functions must have explicit return types and proper error handling.
+    * Type coverage must be tracked and maintained at >95% with automated reporting.
+    * Regular audits to ensure type safety standards are maintained across the codebase.
+</enterprise_typescript_module>
+
+### **Performance Monitoring & Optimization**
+
+<performance_monitoring_module>
+  – **Purpose**: Ensure optimal performance through continuous monitoring and automated optimization.
+  – **Rules**:
+    * Core Web Vitals monitoring: LCP < 2.5s, CLS < 0.1, FID < 100ms with real-time tracking and alerting.
+    * Bundle size monitoring: main < 200KB, vendor < 500KB, total < 1MB with automated alerts for budget violations.
+    * Performance regression testing: automated performance testing in CI with baseline comparisons and failure gates.
+    * Regular performance audits with Lighthouse CI integration and comprehensive reporting.
+    * Performance budgets must be defined for all features and enforced through automated testing.
+</performance_monitoring_module>
+
+### **Enterprise Documentation Standards**
+
+<enterprise_documentation_module>
+  – **Purpose**: Maintain enterprise-grade documentation with comprehensive governance and lifecycle management.
+  – **Rules**:
+    * All documentation must follow ISO-date naming conventions (YYYY-MM-DD-descriptive-name.md) and be properly categorized.
+    * Documentation versioning with semantic versioning for critical documentation and proper change management.
+    * Comprehensive documentation review process with designated reviewers and approval workflows.
+    * Regular documentation audits with quality metrics tracking and continuous improvement procedures.
+    * Integration with development workflow: documentation updates required for all code changes and feature implementations.
+</enterprise_documentation_module>
 
 ---
 

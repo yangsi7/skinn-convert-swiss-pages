@@ -1,0 +1,111 @@
+{
+  "summary": {
+    "timestamp": "2025-08-19T07:37:10.145Z",
+    "totalTests": 5,
+    "passedTests": 4,
+    "failedTests": 1,
+    "overallScore": 80
+  },
+  "tests": {
+    "copyVariant": {
+      "hasCopyVariantSelector": false,
+      "variants": [],
+      "localStorageWorks": true,
+      "themeConsistency": {
+        "hasSwDesignColors": true,
+        "bodyClasses": "",
+        "htmlClasses": ""
+      },
+      "success": true
+    },
+    "typeScript": {
+      "compilationPassed": true,
+      "strictModeEnabled": true,
+      "output": "\n> vite_react_shadcn_ts@0.0.0 typecheck\n> tsc --noEmit\n\n",
+      "success": true
+    },
+    "multiLanguage": {
+      "results": [
+        {
+          "language": "en",
+          "path": "/",
+          "title": "SKIIN Switzerland - Advanced Cardiac Monitoring",
+          "hasContent": true,
+          "htmlLang": "en",
+          "isCorrectRoute": true,
+          "success": true
+        },
+        {
+          "language": "de",
+          "path": "/de",
+          "title": "SKIIN Switzerland - Advanced Cardiac Monitoring",
+          "hasContent": true,
+          "htmlLang": "en",
+          "isCorrectRoute": true,
+          "success": true
+        },
+        {
+          "language": "fr",
+          "path": "/fr",
+          "title": "SKIIN Switzerland - Advanced Cardiac Monitoring",
+          "hasContent": true,
+          "htmlLang": "en",
+          "isCorrectRoute": true,
+          "success": true
+        },
+        {
+          "language": "it",
+          "path": "/it",
+          "title": "SKIIN Switzerland - Advanced Cardiac Monitoring",
+          "hasContent": true,
+          "htmlLang": "en",
+          "isCorrectRoute": true,
+          "success": true
+        }
+      ],
+      "totalLanguages": 4,
+      "successfulLanguages": 4,
+      "passRate": 100,
+      "success": true
+    },
+    "e2eWorkflows": {
+      "workflows": [
+        {
+          "name": "Heart Screening Eligibility Flow",
+          "success": false,
+          "details": "CTA not found or navigation failed"
+        },
+        {
+          "name": "Multi-language Navigation",
+          "success": false,
+          "details": "Language switcher not found or switching failed"
+        },
+        {
+          "name": "Navigation Consistency",
+          "success": true,
+          "details": "Navigation back to home successful"
+        }
+      ],
+      "totalWorkflows": 3,
+      "successfulWorkflows": 1,
+      "passRate": 33,
+      "success": false
+    },
+    "performance": {
+      "coreWebVitals": {
+        "CLS": 0.009807942708333333,
+        "LCP": 1148
+      },
+      "memory": {
+        "usedJSHeapSize": 33.47,
+        "totalJSHeapSize": 37.77
+      },
+      "navigation": {
+        "loadTime": 60,
+        "domContentLoaded": 58,
+        "firstByte": 2
+      },
+      "success": true
+    }
+  }
+}
