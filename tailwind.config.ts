@@ -99,6 +99,17 @@ export default {
 				},
 				certification: {
 					gold: 'hsl(var(--certification-gold))'
+				},
+				// Landing Page Design 2025 Colors
+				lp: {
+					'primary-blue': 'hsl(var(--lp-primary-blue))',
+					'dark-blue': 'hsl(var(--lp-dark-blue))',
+					'charcoal': 'hsl(var(--lp-charcoal))',
+					'black': 'hsl(var(--lp-black))',
+					'purple': 'hsl(var(--lp-purple))',
+					'purple-light': 'hsl(var(--lp-purple-light))',
+					'white': 'hsl(var(--lp-white))',
+					'cream': 'hsl(var(--lp-cream))'
 				}
 			},
 			borderRadius: {

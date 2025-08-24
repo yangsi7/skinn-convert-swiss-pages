@@ -14,6 +14,7 @@ import {
   Heart, Shield, Monitor, Award, Users, Activity, 
   BarChart3, Zap, Globe, Lock, CheckCircle, Clock 
 } from 'lucide-react';
+import { ThemeTest } from '@/components/test/ThemeTest';
 
 const ComponentShowcase = () => {
   const features = [
@@ -272,6 +273,14 @@ const ComponentShowcase = () => {
               competitorLabel="Traditional Methods"
               skiinLabel="SKIIN Technology"
             />
+          </div>
+        </ProgressiveSection>
+
+        {/* Theme Test Section */}
+        <ProgressiveSection className="py-20 md:py-30 bg-gradient-lp-cream">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Theme & Color System Test</h2>
+            <ThemeTest />
           </div>
         </ProgressiveSection>
 

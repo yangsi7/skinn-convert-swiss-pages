@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type ThemePalette = 'medical-blue' | 'professional-teal' | 'swiss-innovation' | 'soft-blue-teal' | 'myant-violet';
+export type ThemePalette = 'sw-design' | 'original' | 'professional-teal' | 'swiss-innovation' | 'soft-blue-teal' | 'myant-violet';
 
 interface ThemeContextType {
   currentTheme: ThemePalette;
@@ -17,8 +17,13 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const themeDefinitions = {
-  'medical-blue': {
-    name: 'Medical Blue',
+  'sw-design': {
+    name: 'S&W Design',
+    description: 'Modern benefit-led design with streamlined colors',
+    personality: 'Clear, focused, action-oriented with zero friction'
+  },
+  'original': {
+    name: 'Original',
     description: 'Clinical credibility and trust',
     personality: 'Professional, trustworthy, medical-grade precision'
   },
@@ -45,7 +50,7 @@ const themeDefinitions = {
 };
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<ThemePalette>('medical-blue');
+  const [currentTheme, setCurrentTheme] = useState<ThemePalette>('sw-design');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('myant-theme') as ThemePalette;

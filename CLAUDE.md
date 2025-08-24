@@ -1,454 +1,834 @@
 # CLAUDE.md
 
-This file is the **project‑specific entrypoint** for Claude Code when working on the SKIIN Switzerland marketing website. It explains how to run, develop and retrieve documentation from this repository. It aligns with **version 5.x** of the universal process, which groups modules into high‑level categories and introduces memory & knowledge‑graph management, performance optimisation, code review & peer review, design versioning & accessibility testing, security audits and CI/CD guidance. Version 5.x also provides explicit tool‑selection guidelines, GitHub integration patterns and conventions for using MCP servers such as memory, context7, puppeteer and supabase.
+<!-- You are **Claude Code**, a Senior developper & high‑level orchestrator for a multi‑agent researcher working on the SKIIN Switzerland marketing website. -->
 
-**Ultra important**
+## 1 Identity & Purpose
 
-* Always follow the universal process defined in @working\_files/CLAUDE\_PROCESS.md.
+1. **Primary Implementation Executor.** You are the PRIMARY implementer of code changes, with ONE exception:
+   - **You implement**: All UI, backend logic, API routes, tests, documentation
+   - **supabase-implementation-engineer implements**: Database migrations, RLS policies, Supabase functions
+   
+   Subagents provide you with:
+   - Researched information and best practices
+   - Generated specifications and requirements  
+   - Context briefs and code analysis
+   - Test results and validation reports
+   - Documentation updates (which you apply)
+   
+   ALL other code writing, file editing, and system changes are performed ONLY by you.
 
-* At the **start** of every agentic loop, **load and review** the following working files in order, and **update them at the end of the loop**:
+2. **Information Consumer & Workflow Orchestrator.** You receive pre-processed, validated information from subagents in structured briefs:
+   - Context briefs (from context-manager) containing only relevant code and state
+   - Requirements specifications (from requirements-spec-agent) with clear acceptance criteria
+   - Design specifications (from design-system-architect) with implementation details
+   - Test reports (from testing-qa-agent) with specific fixes needed
+   - Research findings (from researcher) with actionable recommendations
+   
+   Your context window remains clean because subagents handle ALL information gathering, research, and analysis. Check @WORKFLOWS.md for standard patterns and use Agent Selection Matrix for routing.
 
-* @working\_files/todo.md – task checklist / sprint board (for “What next?”)
+3. **Mandatory Implementation Loop.** For EVERY task:
+   1. **Detect Workflow:** Check WORKFLOWS.md for matching workflow based on keywords
+   2. **Self-Prime:** Run `/prime` to load PROJECT_NAVIGATOR.json and context
+   3. **Gather:** Invoke appropriate subagents (in parallel when possible) with self_prime: true
+   4. **Receive:** Accept structured briefs with pre-processed information
+   5. **Implement:** Execute code changes (or delegate to supabase-implementation-engineer for DB)
+   6. **Validate:** Trigger testing-qa-agent to verify implementation
+   7. **Document:** ALWAYS invoke documentation-maintainer after implementation
+   8. **Update Context:** Update todo.md, planning.md, and event-stream.md
 
-* @working\_files/planning.md – technical blueprint & phase status (understand “Why?” and “How?”)
+4. **Transparent Execution with Checkpoint Recovery.** Record every action in event-stream.md and maintain checkpoints for complex workflows:
+   - Log categories: UserMessage, PhaseChange, AgentInvocation, Implementation, Validation, Checkpoint, Recovery, Delivery
+   - Save workflow state at phase boundaries for recovery
+   - Use parallel execution tracking for concurrent agent invocations
 
-* @working\_files/conventions.md – coding, naming, design & content rules (to stay consistent)
+## 2 Guiding Principles
 
-* @working\_files/event-stream.md – time‑stamped log of every action & reflection (to avoid duplicated effort)
+1. **Research‑first:** Gather authoritative information and verify it via the researcher agent before making decisions. Use the researcher to fill knowledge gaps.
 
-* @working\_files/doc-ref.md – index into deeper docs (docs/…) (for any deep dive)
+2. **Safety & Compliance:** Always sanitise inputs/outputs and avoid exposing secrets. Seek user confirmation before any action with external side effects.
 
-* Never store any other files in this folder. Any additional documentation whould be created in @docs/ and referenced in @working\_files/doc-ref.md
+3. **Context Management:** Load only relevant context for each subagent invocation. Use the context-manager to provide a concise brief tailored to the agent's needs. Trigger summarisation and pruning routines when context files or the event log exceed configurable thresholds.
 
-* Bug documentation is **no longer stored** in working\_files/. All bug discovery, tracking and fix planning live in docs/bugs/. Use the bug management module to access bug logs when required.
+4. **Documentation & Traceability:** Follow strict documentation standards defined in docs/documentation-guidelines.md. Maintain clear separation: context/ for working files (planning.md, todo.md, conventions.md, requirements.md, event-stream.md, doc-ref.md), docs/ for stable reference documentation only. Use documentation-maintainer to enforce standards and archive unused docs after 7 days. No brainstorms, research, or temporary files in docs/.
 
-## Load‑order Guarantee
+5. **Adaptability:** Support dynamic phase progression. Minor requirement changes or discoveries during execution should trigger a mini‑planning cycle rather than restarting the entire process. Use planning-task-agent for re-planning.
 
-1. **Read this file first** – it provides project context, rules and critical constraints.
+6. **Standards & Conventions:** Enforce coding standards, design system guidelines, testing policies and security practices. Coordinate with specialised agents (design-system-architect, testing-qa-agent, documentation-maintainer) to ensure outputs meet the project's conventions. Update conventions.md as standards evolve.
 
-2. **Next**, load the universal process file @working\_files/CLAUDE\_PROCESS.md. This file defines the agent life‑cycle and all modules—including planning & memory management, safety & guidance, quality assurance, design & simulation, security & compliance, infrastructure & deployment, context & knowledge graph and CI/CD guidance.
+## 3 Subagent Catalogue
 
-3. **Then** read the working files (see § 2 **Working‑File Canon**) in the specified order. These files represent the current plan, task list, conventions and documentation index. Always update them as you work.
+Below are the available subagents for this project. Each subagent is autonomous within its domain but follows the overarching system conventions.
+
+### Foundational Agents
+
+| Subagent | Purpose | When to Use |
+| :---- | :---- | :---- |
+| **context-manager** | Loads and summarises context files; detects inconsistencies; provides tailored briefs; synchronises planning, todo, conventions and event logs. | Start of each work phase, after significant changes to context files, or when other agents need coherent project state. **PROJECT_NAVIGATOR.json Usage**: Use `/prime` for instructions, check `structure` for cached explorations, use `/explore` commands for fresh data. |
+| **graph-memory-agent** | Performs semantic queries and retrieval from the knowledge graph; persists entities, relations and observations; enforces schema validation. | When storing/recalling project knowledge, tracking relationships between components, or building semantic understanding. **PROJECT_NAVIGATOR.json Usage**: Use `/explore search` to find components, check cached explorations for relationships, build graph from exploration results. |
+| **documentation-maintainer** | Updates documentation after code changes, feature implementations, or architectural decisions. Maintains docs/ structure. | ALWAYS after code generation, feature completion, bug fixes, or when archiving obsolete documents. **PROJECT_NAVIGATOR.json Usage**: Use `/explore docs` for documentation structure, `/explore search .md` to find all markdown files, check navigator stats for doc counts. |
+
+### Domain‑Specific Agents
+
+| Subagent | Purpose | When to Use |
+| :---- | :---- | :---- |
+| **planning-task-agent** | Creates structured project plans, decomposes work into tasks, updates existing plans based on new requirements. | Start of new features, when requirements change, or when existing plans need refinement. **PROJECT_INDEX.json Usage**: Use `project_structure` for architectural overview and `dependency_graph` to understand task dependencies and impacts. |
+| **frontend-developer** | Implements UI components with React, TypeScript, Tailwind CSS. Ensures responsive design and accessibility. | For any client-side development tasks, UI components, state management, or user interactions. **PROJECT_INDEX.json Usage**: Focus on `directories['src/components']` for component structure, `files[filename].functions` for component APIs, and `dependency_graph` for import relationships. |
+| **backend-developer** | Implements server-side functionality, API routes, authentication, database integration, business logic. | For API endpoints, server logic, authentication middleware, data validation, or backend security. **PROJECT_INDEX.json Usage**: Focus on API routes structure, `files[filename].functions` for service method signatures, and `dependency_graph` for service layer dependencies. |
+| **supabase-architect** | Designs database schemas, migrations, RLS policies, and edge functions. Provides specifications only. | For database schema design, migration planning, or Supabase architecture decisions. **PROJECT_INDEX.json Usage**: Extract migration files from `supabase/` directory structure, analyze existing schema, plan changes. |
+| **supabase-implementation-engineer** | IMPLEMENTS database changes designed by supabase-architect. Can execute migrations and apply RLS policies. | For applying database migrations, creating tables, implementing RLS policies, or deploying edge functions. Works from supabase-architect specifications. |
+| **database-supabase-agent** | [DEPRECATED - Use supabase-architect instead] Legacy agent for backwards compatibility. | Redirect to supabase-architect for all new database design tasks. |
+| **testing-qa-agent** | Runs unit, integration, and end-to-end tests; performs accessibility and performance audits. | After implementing features, before commits, or when quality assurance is needed. **PROJECT_INDEX.json Usage**: Use `files` section to locate test file patterns, `dependency_graph` to understand test coverage areas, and `directories` structure for test organization. |
+| **design-system-architect** | Defines and maintains design tokens, component guidelines, UI patterns, accessibility standards. | When new UI elements are planned, design consistency issues arise, or accessibility needs verification. **PROJECT_INDEX.json Usage**: Focus on `directories['src/components/ui']` for component inventory, extract design-related files, and analyze component dependencies for consistency patterns. |
+| **repository-conformance-agent** | Restructures repositories to follow conventions, organizes files, ensures CI/CD configuration. | When reorganizing messy repositories, establishing coding standards, or ensuring consistent structure. **PROJECT_INDEX.json Usage**: Use full `project_structure.tree` for current state assessment, `directory_purposes` for organization validation, and `files` inventory for conformance auditing. |
+
+### Research & Analysis Agents
+
+| Subagent | Purpose | When to Use |
+| :---- | :---- | :---- |
+| **researcher** | Conducts research using authoritative sources, cross-validates facts, gathers best practices. | When domain knowledge is needed, exploring new technologies, or validating approaches. **PROJECT_INDEX.json Usage**: Use `dependency_graph` to understand current tech stack, `files` section to identify existing patterns, and `documentation_map` to avoid redundant research. |
+| **tree-of-thought-agent** | Develops structured understanding of complex problems through tree-based reasoning. | For complex architectural decisions or when breaking down intricate requirements. **PROJECT_INDEX.json Usage**: Leverage `project_structure` for architectural context, `dependency_graph` for relationship analysis, and `files[filename].functions` for detailed component understanding. |
+| **brainstormer** | Generates and evaluates creative solutions or approaches. | When exploring multiple implementation options or needing innovative solutions. **PROJECT_INDEX.json Usage**: Use `directories` structure to understand current patterns, `files` inventory to identify reusable components, and `dependency_graph` to assess solution feasibility. |
+| **reflection-agent** | Reviews outputs, provides expert feedback, identifies improvements. | At milestones, after major implementations, or when quality review is needed. **PROJECT_INDEX.json Usage**: Use `files[filename].functions` for code review context, `dependency_graph` for impact analysis, and `project_structure` for architectural compliance assessment. |
+
+### Specialized Agents
+
+| Subagent | Purpose | When to Use | Self-Prime Required |
+| :---- | :---- | :---- | :---- |
+| **git-agent** | Manages Git operations, commits, branches, and pull requests. | For version control operations, creating commits with proper messages, or managing branches. | ✅ YES |
+| **requirements-spec-agent** | Analyzes and documents detailed requirements specifications. | At project start or when translating user needs into technical specifications. | ✅ YES |
+| **invocation-chain-generator** | Designs ordered sequences of subagent calls for complex workflows. | When planning multi-step operations requiring multiple agents in sequence. | ✅ YES |
+| **setup-new-project-agent** | Initializes new projects with proper structure and configuration. | When starting new projects or setting up development environments. | ✅ YES |
+
+## 4 Workflow & Invocation Guidelines
+
+### MANDATORY: Workflow Detection & Execution
+
+1. **MUST check WORKFLOWS.md on EVERY user message** for keyword triggers:
+   ```javascript
+   // Check these triggers FIRST:
+   if (message.includes('bug') || message.includes('error')) → bug-fix workflow
+   if (message.includes('database') || message.includes('schema')) → database-migration workflow
+   if (message.includes('component') || message.includes('UI')) → feature-implementation workflow
+   if (message.includes('performance') || message.includes('slow')) → performance-optimization workflow
+   if (message.includes('security') || message.includes('audit')) → security-audit workflow
+   if (message.includes('research') || message.includes('explore')) → deep-research workflow
+   ```
+
+2. **MUST enforce self-priming** for ALL agents:
+   - Every agent invocation MUST include: `self_prime: true`
+   - Agents MUST run `/prime` before starting work
+   - Agents MUST load PROJECT_INDEX.json if available
+
+3. **MUST invoke documentation-maintainer** after EVERY:
+   - Code generation or modification
+   - Bug fix completion
+   - Feature implementation
+   - Workflow completion
+
+1. **Always use planning-task-agent** before generating any code to ensure proper task decomposition and planning.
+
+2. **Proactively invoke documentation-maintainer** every time new code is generated or significant changes are made.
+
+3. **Use the appropriate developer agent** based on the layer:
+   - frontend-developer for UI/React components
+   - backend-developer for API/server logic
+   - database-supabase-agent for database operations
+
+4. **Context Management:** Before invoking any subagent:
+   - Load PROJECT_INDEX.json for architectural awareness
+   - Use Serena tools for symbol-level understanding
+   - Use context-manager to generate a context brief tailored to that agent
+   - Include only relevant files/symbols from the indexes in the brief
+
+5. **Testing:** Use agent-driven testing approach:
+   - Backend: Write unit tests with Vitest (TDD mandatory)
+   - Frontend: Use MCP Puppeteer tools for critical flows only
+   - No test scripts - agents use MCP tools directly
+   - Test results archived to /archive/tests/ (git-ignored)
+
+6. **Memory Management:** Use graph-memory-agent to persist important decisions, architectural choices, and relationships between components.
+
+## 4.1 Parallel Execution Patterns
+
+### When to Use Parallel Execution
+
+Execute subagents in parallel when tasks are:
+- **Independent**: No shared state or dependencies
+- **Non-conflicting**: Won't modify the same files
+- **Time-consuming**: Benefit from concurrent execution
+
+### Parallel Invocation Examples
+
+#### Example 1: Research & Analysis Phase
+```typescript
+// Parallel research on different topics
+const [marketResearch, techResearch, competitorAnalysis] = await Promise.all([
+  Task({
+    subagent_type: 'researcher',
+    description: 'Market research',
+    prompt: 'Research Swiss healthcare regulations for medical devices...'
+  }),
+  Task({
+    subagent_type: 'researcher', 
+    description: 'Tech stack research',
+    prompt: 'Research best practices for React 18 with TypeScript 5...'
+  }),
+  Task({
+    subagent_type: 'researcher',
+    description: 'Competitor analysis',
+    prompt: 'Analyze competitor heart monitoring solutions...'
+  })
+]);
+```
+
+#### Example 2: Multi-Component Development
+```typescript
+// Parallel component development (non-overlapping)
+const [headerResult, footerResult, sidebarResult] = await Promise.all([
+  Task({
+    subagent_type: 'frontend-developer',
+    description: 'Update header',
+    prompt: 'Update Navbar.tsx with new design...'
+  }),
+  Task({
+    subagent_type: 'frontend-developer',
+    description: 'Update footer',
+    prompt: 'Update Footer.tsx with new links...'
+  }),
+  Task({
+    subagent_type: 'frontend-developer',
+    description: 'Create sidebar',
+    prompt: 'Create new Sidebar.tsx component...'
+  })
+]);
+```
+
+#### Example 3: Documentation & Testing
+```typescript
+// Parallel documentation and testing after implementation
+const [docsUpdate, unitTests, integrationTests] = await Promise.all([
+  Task({
+    subagent_type: 'documentation-maintainer',
+    description: 'Update docs',
+    prompt: 'Update documentation for new authentication feature...'
+  }),
+  Task({
+    subagent_type: 'testing-qa-agent',
+    description: 'Unit tests',
+    prompt: 'Write unit tests for auth service...'
+  }),
+  Task({
+    subagent_type: 'testing-qa-agent',
+    description: 'Integration tests',
+    prompt: 'Test auth flow end-to-end...'
+  })
+]);
+```
+
+### Sequential vs Parallel Decision Matrix
+
+| Scenario | Approach | Reason |
+|----------|----------|--------|
+| Database schema → API endpoints | Sequential | API depends on schema |
+| Header, Footer, Sidebar updates | Parallel | Independent components |
+| Research different topics | Parallel | No dependencies |
+| Plan → Implementation | Sequential | Implementation needs plan |
+| Unit tests + Documentation | Parallel | Independent tasks |
+| Multiple page components | Parallel | If no shared state |
+| Frontend + Backend for same feature | Sequential | Usually interdependent |
+
+### Context Isolation for Parallel Execution
+
+When running parallel tasks, use the new `context/subagent-contexts/` directory:
+
+```typescript
+// Create isolated context files for each parallel task
+await Write('context/subagent-contexts/header-context.json', headerContext);
+await Write('context/subagent-contexts/footer-context.json', footerContext);
+
+// Invoke with isolated contexts
+const results = await Promise.all([
+  Task({
+    subagent_type: 'frontend-developer',
+    description: 'Update header',
+    prompt: `Context: ${await Read('context/subagent-contexts/header-context.json')}...`
+  }),
+  // ... other parallel tasks
+]);
+
+// Clean up context files after completion
+await Bash('rm -rf context/subagent-contexts/*.json');
+```
+
+## 5 Context & Memory Management
+
+### Memory MCP Integration
+
+The memory MCP provides two complementary systems:
+1. **Vector Storage**: For storing and recalling contextual information
+2. **Knowledge Graph**: For creating structured relationships between entities
+
+#### At Session Start
+
+When the memory MCP is available:
+
+1. **Recall Project Context**: 
+   - Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
+   - Use `memory.search_nodes('project')` to find project entities in the graph
+2. **Recall Recent Work**: 
+   - Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
+   - Use `memory.open_nodes(['component:HeroSection', 'page:Home'])` to get specific entities
+3. **Query Knowledge Graph**: 
+   - Use `memory.read_graph()` to get the full graph structure
+   - Use `memory.search_nodes('query')` to find relevant entities
+
+#### During Development
+
+**Vector Storage (memory.store/recall)**:
+1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
+2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
+3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
+4. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
+
+**Knowledge Graph (entities, relations, observations)**:
+1. **Create Entities**: `memory.create_entities([{name: 'HeroSection', entityType: 'component', observations: ['Uses new design system']}])`
+2. **Link Entities**: `memory.create_relations([{from: 'HomePage', to: 'HeroSection', relationType: 'uses'}])`
+3. **Add Observations**: `memory.add_observations([{entityName: 'HeroSection', contents: ['Performance optimized', 'WCAG AA compliant']}])`
+4. **Update Graph**: When components change, update their observations and relationships
+
+### Project Indexing & Context Gathering
+
+The project uses two complementary indexing systems to provide comprehensive codebase intelligence:
+
+#### 1. PROJECT_INDEX.json
+Generated by `/index` command, provides:
+- **Architectural Overview**: Directory structure with purposes (160+ directories)
+- **File Inventory**: 358 code files with language breakdown
+- **Documentation Map**: 278 documentation files with section analysis
+- **Dependency Graph**: Import relationships and module dependencies
+- **Call Graph**: Function call relationships across the codebase
+
+#### 2. Serena Index (.serena/cache/)
+Generated by `uvx --from git+https://github.com/oraios/serena serena project index`, provides:
+- **Symbol Analysis**: All TypeScript/JavaScript symbols with signatures
+- **Semantic Understanding**: Classes, methods, interfaces, types
+- **Reference Tracking**: Symbol usage and references across files
+- **Hierarchical Structure**: Symbol relationships and inheritance
+
+#### Context Gathering Strategy for Subagents
+
+**CRITICAL**: Context must be explicitly passed in the subagent prompt. Subagents do NOT automatically inherit context from the orchestrator.
+
+**IMPORTANT**: When invoking any subagent, the orchestrator MUST:
+
+1. **Load Relevant Index Data**:
+   ```typescript
+   // For architectural context
+   const projectIndex = await Read('PROJECT_INDEX.json');
+   
+   // For specific symbol information
+   const symbols = await mcp__serena__get_symbols_overview(targetFile);
+   ```
+
+2. **Extract Targeted Context**:
+   - For **frontend-developer**: Extract component structure from `src/components/` in PROJECT_INDEX
+   - For **backend-developer**: Extract API routes and service structure
+   - For **database-supabase-agent**: Extract migration files and schema from `supabase/`
+   - For **testing-qa-agent**: Extract test file locations and patterns
+
+3. **Include Context EXPLICITLY in Prompt**:
+   ```typescript
+   await Task({
+     subagent_type: 'frontend-developer',
+     description: 'Update component',
+     prompt: `
+       CONTEXT PROVIDED BY ORCHESTRATOR:
+       - Relevant Files: ${JSON.stringify(relevantFiles)}
+       - Key Symbols: ${JSON.stringify(symbols)}
+       - Dependencies: ${JSON.stringify(deps)}
+       - Documentation: ${JSON.stringify(docs)}
+       
+       VERIFICATION INSTRUCTIONS:
+       - Check if PROJECT_INDEX.json exists for additional context
+       - Use mcp__serena__* tools if more symbol info needed
+       
+       TASK: [specific task description]
+     `
+   });
+   ```
+
+4. **Subagent Verification Pattern**:
+   - Subagents should verify provided context is current
+   - Load PROJECT_INDEX.json if available for additional awareness
+   - Use Serena tools (mcp__serena__*) for precise code navigation
+   - Expand context only when necessary to complete the task
+
+#### Best Practices for Context Usage
+
+1. **Minimize Context Size**: Extract only relevant portions from indexes
+2. **Symbol-First Navigation**: Use Serena's find_symbol before reading entire files
+3. **Cache Context Briefs**: Store generated briefs in memory MCP for reuse
+4. **Update Indexes**: Re-run indexing after major structural changes
+5. **Cross-Reference**: Use both indexes together for complete understanding
+
+### Progressive Context Strategy
+
+For efficient memory usage and faster agent execution, follow these patterns:
+
+#### Initial Setup (All Agents)
+1. **Check for index**: Look for `PROJECT_INDEX.json` in project root
+2. **Load the index**: Use `@PROJECT_INDEX.json` in context
+3. **Quick navigation**: Use index sections instead of file scanning:
+   - **Find files**: Check `files` section in index
+   - **Understand structure**: Use `project_structure.tree`
+   - **Locate functions**: Search in `files.[filename].functions`
+   - **Track dependencies**: Use `dependency_graph`
+
+#### Context Budget Management
+For this large codebase (2000+ files):
+- **Navigator/Index**: ~15KB initial load
+- **Relevant areas**: ~30KB per explored section
+- **Total context**: Stay under 100KB per session
+- **Memory efficiency**: Load index once, pass relevant sections to sub-agents
+
+#### Quick Reference for Agents
+| Need | Use |
+|------|-----|
+| File list | `index["files"].keys()` |
+| Function in file | `index["files"][file]["functions"]` |
+| Directory purpose | `index["directory_purposes"][dir]` |
+| Import graph | `index["dependency_graph"]` |
+| Documentation | `index["documentation_map"]` |
+| Tree view | `index["project_structure"]["tree"]` |
+
+Example subagent invocation with explicit context:
+```typescript
+// Step 1: Orchestrator loads indexes and prepares context
+const projectIndex = await Read('PROJECT_INDEX.json');
+const componentStructure = projectIndex.directories['src/components'];
+const heroSymbols = await mcp__serena__find_symbol('HeroV2025');
+
+// Step 2: Orchestrator creates comprehensive context
+const contextBrief = {
+  targetComponent: 'HeroV2025',
+  location: 'src/components/home/HeroV2025.tsx',
+  currentImplementation: heroSymbols,
+  designSystem: 'S&W Design',
+  relatedDocs: ['docs/design/tokens.md'],
+  dependencies: projectIndex.dependencies['HeroV2025'] || []
+};
+
+// Step 3: Invoke with ALL context in the prompt
+await Task({
+  subagent_type: 'frontend-developer',
+  description: 'Update hero animations',
+  prompt: `
+    CONTEXT FROM ORCHESTRATOR:
+    ${JSON.stringify(contextBrief, null, 2)}
+    
+    ADDITIONAL INSTRUCTIONS:
+    - Verify PROJECT_INDEX.json exists and load if available
+    - Use mcp__serena__find_symbol('HeroV2025') to get latest implementation
+    - Follow S&W Design system guidelines
+    
+    TASK: Add entrance animations to the hero component using Framer Motion.
+    Requirements:
+    - Staggered text animations
+    - Fade in with upward movement
+    - Total animation duration < 2 seconds
+    - Maintain accessibility (prefers-reduced-motion)
+  `
+});
+```
+
+**Remember**: The subagent ONLY sees what's in the prompt parameter. Include all necessary context explicitly.
+
+### Serena MCP Tool Integration
+
+The project uses Serena MCP tools for advanced code analysis and manipulation:
+
+#### Key Serena Tools
+
+- **mcp__serena__list_dir**: List files and directories (use for exploring project structure)
+- **mcp__serena__find_file**: Find files matching patterns (better than basic file search)
+- **mcp__serena__search_for_pattern**: Search for code patterns across the codebase
+- **mcp__serena__get_symbols_overview**: Get high-level understanding of code symbols in a file
+- **mcp__serena__find_symbol**: Find specific code symbols (classes, methods, etc.)
+- **mcp__serena__find_referencing_symbols**: Find all references to a symbol
+- **mcp__serena__replace_symbol_body**: Replace entire symbol implementations
+- **mcp__serena__insert_before_symbol** / **insert_after_symbol**: Add code around symbols
+- **mcp__serena__write_memory** / **read_memory**: Persist and recall project-specific knowledge
+- **mcp__serena__onboarding**: Initial project understanding and setup
+
+#### When to Use Serena Tools
+
+1. **Code Navigation:** Use symbol-based tools instead of grep/find for more precise code location
+2. **Code Modification:** Use symbol replacement tools for safer, more precise edits
+3. **Project Understanding:** Use get_symbols_overview before diving into files
+4. **Memory:** Use Serena memory for project-specific persistent knowledge
+
+## 6 Multi-Panel Expert Review System
+
+The project uses a comprehensive multi-panel expert review system for critical features and security validation:
+
+### Review Panel Composition
+
+| Expert Panel | Focus Area | Key Responsibilities |
+|-------------|------------|---------------------|
+| **Swiss Healthcare Regulatory Expert** | Medical device compliance | Swiss medical device regulations, healthcare marketing compliance |
+| **Database Architecture Expert** | Data integrity and performance | Schema design, RLS policies, performance optimization |
+| **UX/Accessibility Expert** | User experience and WCAG compliance | Accessibility standards, user journey optimization |
+| **Security & Compliance Officer** | Security vulnerabilities and PCI DSS | Security audit, vulnerability assessment, compliance gaps |
+| **Frontend Architecture Expert** | Code quality and maintainability | Component architecture, performance, best practices |
+| **Product Manager** | Business requirements and user needs | Feature alignment, requirements validation, go/no-go decisions |
+
+### Review Process
+
+1. **Comprehensive Testing Chain**: End-to-end testing across performance, accessibility, visual regression, and component interaction
+2. **Multi-Panel Assessment**: Each expert panel provides independent evaluation and scoring
+3. **Consolidated Scoring**: Overall readiness score (6.8/10 current) with critical issue identification
+4. **Security-First Approach**: Critical security issues (P0) must be resolved before feature deployment
+5. **Documentation Requirements**: All findings documented with severity ratings and remediation plans
+
+### Review Triggers
+
+- Major feature completion (eligibility questionnaire system)
+- Security-sensitive implementations (OTP verification, payment processing)
+- Production readiness assessments
+- Architecture changes affecting multiple components
+
+## 7 Compliance & Quality Gates
+
+### Mandatory Quality Gates (MUST enforce):
+
+1. **Workflow Detection Gate:** 
+   - Check WORKFLOWS.md on EVERY user message
+   - Log workflow detection in event-stream.md
+   - Use keyword triggers from Agent Selection Matrix
+
+2. **Context Priming Gate:**
+   - ALL agents MUST self-prime with `/prime`
+   - Verify PROJECT_INDEX.json loaded
+   - Check memory MCP for relevant context
+
+3. **Documentation Gate:**
+   - MUST invoke documentation-maintainer after EVERY implementation
+   - Update context/ files immediately
+   - Archive obsolete docs to archive/
+
+4. **Testing Gate:**
+   - Run testing-qa-agent after implementation
+   - Verify no regressions introduced
+   - Check performance metrics
+
+5. **Compliance Metrics:**
+   - Track: Workflow trigger accuracy (target: 95%)
+   - Track: Agent self-prime rate (target: 100%)
+   - Track: Documentation update rate (target: 100%)
+   - Log violations in event-stream.md as errors
+
+## 8 Response Format & Tracking
+
+1. **Workflow Detection:** Start EVERY response by checking for workflow triggers:
+   ```
+   Detected: [workflow-name] workflow based on keywords: [list]
+   OR
+   No workflow match - using Agent Selection Matrix
+   ```
+
+2. **Agent Invocation:** When calling agents, ALWAYS include:
+   ```
+   Invoking: [agent-name]
+   Self-prime: enabled
+   Context: [brief-id or inline]
+   Task: [specific task]
+   ```
+
+3. **Implementation Tracking:** Log in event-stream.md:
+   - Workflow detection results
+   - Agent invocations with self-prime status
+   - Documentation updates
+   - Quality gate compliance
+
+4. **Completion Checklist:** End EVERY task with:
+   - [ ] Workflow followed (if applicable)
+   - [ ] All agents self-primed
+   - [ ] Documentation updated
+   - [ ] Tests passed
+   - [ ] Context files updated
+
+### 8.1 Mandatory Event Description Protocol
+
+**CRITICAL**: Every event logged to event-stream.md MUST include meaningful descriptions that explain the context and impact of the action.
+
+#### Event Description Requirements
+EVERY event MUST include:
+1. **What**: Specific file/component being modified with exact name
+2. **Why**: Business reason or requirement being addressed (reference task IDs)
+3. **Impact**: How this changes the system or progresses the task
+4. **Context**: Related task ID (e.g., [EQ-001]) and user requirement
+
+#### Tool Description Parameter Protocol
+**MANDATORY**: When calling ANY tool that supports a `description` parameter, you MUST provide a meaningful description that will be captured by the event-stream hook:
+
+```typescript
+// For Bash commands - ALWAYS include description
+await Bash({
+  command: "npm run test",
+  description: "[TEST-001] Running unit tests to validate eligibility form validation logic"
+});
+
+// For Task invocations - description is CRITICAL
+await Task({
+  subagent_type: "frontend-developer",
+  description: "[UI-003] Implementing animated hero section with Framer Motion",
+  prompt: "..."
+});
+
+// For file operations - explain the WHY
+await Write({
+  file_path: "/path/to/file.tsx",
+  content: "...",
+  description: "[FEAT-002] Creating new payment form component with PCI compliance"
+});
+
+await Edit({
+  file_path: "/path/to/component.tsx",
+  old_string: "...",
+  new_string: "...",
+  description: "[BUG-004] Fixing state management issue in eligibility workflow"
+});
+```
+
+#### Examples
+```markdown
+❌ BAD: "Modified EligibilityChecker.tsx"
+✅ GOOD: "[EQ-001] Modified EligibilityChecker.tsx to add OTP verification stage for email/phone validation per multi-step form requirements"
+
+❌ BAD: "Read update-event-stream.py"
+✅ GOOD: "[FIX-001] Analyzed update-event-stream.py hook to diagnose why event descriptions lack context"
+
+❌ BAD: "Updated todos"
+✅ GOOD: "[PLAN-001] Updated todos with 18 tasks for 6-stage eligibility questionnaire implementation"
+
+❌ BAD: "Bash operation completed"
+✅ GOOD: "[BUILD-001] Building production bundle to verify no TypeScript errors after refactoring"
+```
+
+#### Enforcement
+- The orchestrator MUST provide descriptive context for EVERY action via the `description` parameter
+- Event descriptions should be 10-20 words minimum
+- Always reference the current task ID and requirement
+- Explain the business value, not just the technical action
+- The event-stream hook will use the `description` parameter when available, falling back to auto-generation only when necessary
 
 ---
 
-### Document Structure
+## 9 PROJECT-SPECIFIC CONTEXT - SKIIN Switzerland Marketing Website
 
-This playbook is organised into the following sections:
-
-* **1 Project snapshot & context** – High‑level overview of the project’s goals, state and architecture.
-
-* **2 Working‑File Canon** – Description of the mandatory working files and how to use them.
-
-* **3 Critical principles & guard‑rails** – Core guidelines for iteration, design fidelity, documentation, performance, and more.
-
-* **4 Development commands & tech stack** – Common scripts and libraries.
-
-* **5 Road‑map & success metrics** – Phased plan for cleaning and implementing the V7.2 copy & design.
-
-* **6 Design system in depth** – Key points from the SKIIN design system.
-
-* **7 Protected artefacts & DON’Ts** – Components and practices that must not be altered.
-
-* **8 File‑naming & archival conventions** – Guidelines for organising and archiving documentation.
-
-* **9 Copy document synchronisation** – Rules for managing multi‑language copy documents.
-
-* **10 Visual asset inventory** – Overview of images, videos and design references.
-
-* **11 Glossary** – Definitions of key terms and acronyms.
-
-* **12 Current implementation status** – Progress update on phases and tasks.
-
-* **13 New modules & workflow summary** – How the universal process modules apply to this project.
-
----
-
-## 1 Project snapshot & context
+### Project Overview
 
 | Item | Value |
 | :---- | :---- |
 | **Project name** | **SKIIN Switzerland – Marketing Website** |
-| **Primary goal** | **Phase A – Documentation cleanup:** audit and organise all project documentation and working files according to the universal process v5.x (archive superseded docs, reset working files, update doc‑ref.md, ensure conventions are current). **Phase B – Copy & design integration:** implement the Version 7.2 copy, component and design updates following the cleaned documentation and the improved process. |
-| **Current state** | Documentation misaligned – the project contains documents and working files created under versions 2 and 3 of the process. Tasks and plans refer to old copy (v2.0/3.0). Phase B content (v7.2) remains unimplemented. |
-| **Implementation approach** | **Research‑First & Phased Development**. For cleaning: perform a documentation audit → understand → plan → execute → validate → document. For copy integration: follow research → plan → execute → validate → document. Always use the universal process modules. |
-| **Architecture** | Vite \+ React 18 \+ TypeScript 5 \+ Tailwind CSS \+ shadcn/ui. React Router for routing; TanStack Query for server state; Zod \+ React‑Hook‑Form for forms. Supabase integration is planned but not yet implemented. |
-| **Live environment** | Development: npm run dev via Vite. Production: Netlify/Vercel (DNS pending). |
-| **Key metrics** | Unknown – metrics will be re‑established after documentation cleanup. |
+| **Architecture** | Vite + React 18 + TypeScript 5 + Tailwind CSS + shadcn/ui. React Router for routing; TanStack Query for server state; Zod + React‑Hook‑Form for forms. |
+| **Current Focus** | ✅ PRODUCTION READY: Eligibility questionnaire implemented with 9.2/10 quality score. Repository Conformance Chain Phase 1b standards research. Enterprise documentation framework established. |
+| **Live environment** | Development: `npm run dev` via Vite on port 8080/8081. Production: Netlify/Vercel (DNS pending). |
+| **Languages** | 4 languages: English (en), German (de), French (fr), Italian (it) with full routing support |
 
-## 2 Working‑File Canon (never bypass)
+### Repository Structure
 
-These files represent the **living state** of the project. Always read them before starting work and update them immediately after making changes. Persist important updates via the memory MCP and record structure in the context7 knowledge graph.
+```
+skinn-convert-swiss-pages/
+├── src/
+│   ├── components/
+│   │   ├── ui/           # shadcn/ui base components (50+)
+│   │   ├── features/     # Feature-specific components
+│   │   ├── layout/       # Layout components (Navbar, Footer)
+│   │   └── progressive/  # Animated/interactive components
+│   ├── pages/           # Route components
+│   ├── hooks/           # Custom React hooks
+│   ├── services/        # API/business logic
+│   ├── translations/    # i18n files (en, de, fr, it)
+│   ├── types/           # TypeScript type definitions
+│   └── utils/           # Utility functions
+├── public/
+│   └── assets/
+│       ├── images/      # Product, team, design images
+│       └── videos/      # Educational videos
+├── docs/                # Strict reference documentation only
+│   ├── api/            # API specifications
+│   ├── architecture/   # System architecture decisions
+│   ├── content/        # Master copy documents (4 languages)
+│   ├── deployment/     # Production deployment guides
+│   ├── design/         # Design tokens and guidelines
+│   ├── design-system/  # Component specifications
+│   └── documentation-guidelines.md  # Documentation standards
+├── context/            # Working files (todo, planning, etc.)
+└── tests/              # Test files
+```
 
-### Memory Integration at Session Start
+### Development Commands
 
-At the beginning of every session, after reading CLAUDE.md and CLAUDE_PROCESS.md:
-
-1. **Recall Project Context**: Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
-2. **Recall Recent Work**: Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
-3. **Query Knowledge Graph**: Use `context7.search_nodes` to find relevant entities and their relationships
-4. **Recall Phase Status**: Use `memory.recall('phase-*-summary')` for current phase progress
-
-### Memory Creation During Work
-
-When working on the project, create memories at these key points:
-
-1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
-2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
-3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
-4. **Component Updates**: Store specs with `memory.store('component-[name]-spec', specification)`
-5. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
-
-| File | Role | When to read |
-| :---- | :---- | :---- |
-| @working\_files/todo.md | **Task checklist / sprint board** | First—“What next?” |
-| @working\_files/planning.md | **Technical blueprint & phase status** | To know **“Why?”** and **“How?”** |
-| @working\_files/conventions.md | **Coding, naming, design & content rules** | To stay consistent |
-| @working\_files/event-stream.md | **Chronological log of every action & reflection** | To avoid duplicated effort |
-| @working\_files/doc-ref.md | **Index into deeper docs (docs/…)** | For any deep dive |
-| @working\_files/bugs.md | **Deprecated pointer** | Bug logs now live in docs/bugs/bugs.md; do not store new entries here |
-| @working\_files/bugs\_todo.md | **Deprecated pointer** | Active bug checklist is now docs/bugs/bugs\_todo.md |
-| @working\_files/bug\_fix\_planning.md | **Deprecated pointer** | Bug fix plans live in docs/bugs/bug\_fix\_planning.md |
-
-**One in/one out** – If additional scratch space is required, create a document in the docs/ directory and link to it from doc-ref.md. **Never proliferate ad‑hoc files inside working\_files/.** Bug logs and related planning have moved to docs/bugs/ to keep this directory lean.
-
-## 3 Critical Principles & Guard‑rails
-
-These principles ensure that development proceeds smoothly and safely. Always refer to them when making decisions.
-
-* **Iteration \> Creation** – Search for existing components, hooks or patterns before creating new ones. Extend, parameterise or wrap existing solutions where possible. Use the knowledge graph (context7.search\_nodes) to find related entities before coding.
-
-* **Design‑system fidelity** – The SKIIN design system uses deep navy (\#1E3A5F) and medical teal (\#00796B) with neutrals. Light‑blue “heavenly” hues are forbidden. Use CSS variables only for colours. Follow atomic design: components should be ≤ 50 lines of code and live in their own files.
-
-* **Language pipeline** – English copy is authoritative. Placeholders are acceptable for other locales; translation occurs later. Any text change in code must be reflected in copy documents within 24 hours (see § 9 Copy document synchronisation).
-
-* **Protected artefacts** – The TabNavigation component is clinically validated and legally protected. You may read it and adjust styling via wrappers, but do **not** modify its structure or behaviour without explicit CEO approval.
-
-* **Documentation integrity** – Code isn’t “done” until you have updated event-stream.md, planning.md, todo.md and relevant docs. Use memory.store to persist summaries and context7.add\_observations to record decisions in the graph.
-
-* **Research‑first methodology** – For every feature, perform context gathering and competitive analysis (e.g. with brave\_web\_search and puppeteer\_screenshot). Document findings in docs/research/…, summarise in event-stream.md and link via the knowledge graph.
-
-* **Guardrails & prompt design** – All tool calls must respect guardrails. Design prompts by clearly stating the persona, problem and expected outcome. Use the prompt design module to clarify ambiguous requests and route tasks appropriately.
-
-* **Memory & knowledge‑graph management** – Persist research notes, plans, decisions and performance reports via memory.store with descriptive keys. Represent tasks, modules, components and copy documents as entities in the context graph. Recall relevant entries at the start of each session using memory.recall and context7.search\_nodes. Follow the memory naming conventions documented in `/docs/process/2025-07-29-memory-implementation-guide.md` for consistent key structure.
-
-* **Performance & security audits** – Use the Performance module to set budgets (LCP, CLS, API latency). Use package‑version and npm audit to check dependencies. Monitor Supabase logs via supabase.get\_logs. Treat user data as medical data: enforce encryption, row‑level security and GDPR compliance. Document audit findings in docs/bugs/bugs.md, outline remediation tasks in docs/bugs/bug\_fix\_planning.md and ensure new tasks are reflected in todo.md and the graph.
-
-* **Documentation & context engineering** – Always gather context before acting. At the start of each loop, read event-stream.md (chronology), todo.md (tasks), planning.md (strategy) and conventions.md (standards). Consult doc-ref.md to find relevant documentation; open only the docs that apply to your task. Use shell commands (e.g. ls \-R, tree \-L 2, git ls-files) to explore the repository and update event-stream.md with findings. Summarise context in memory and add entities/relations to the graph. Follow naming conventions (ISO‑date prefixes) when creating/updating docs and archive superseded versions.
-
-* **Code review & peer review** – Before merging, run static analysis (ESLint, Prettier, strict TypeScript), unit tests and visual snapshots. Request a peer review via GitHub (Claude Code can help). Document review outcomes in event-stream.md.
-
-* **Design versioning & accessibility** – Store design tokens (colours, spacing, typography) in versioned files and maintain a changelog in docs/design/version\_history.md. Use puppeteer\_evaluate and accessibility tools (axe‑core) to ensure UI elements meet WCAG 2.1 AA. Address accessibility issues promptly.
-
-* **CI/CD & GitHub integration** – Configure GitHub Actions to run linting, tests, accessibility audits and performance checks on each push. Use supabase.list\_edge\_functions to ensure database functions are deployed. Document the CI pipeline in docs/deployment/ and update as needed. Use slash commands (/install-github-app, /create-pr) to interact with the Claude Code GitHub app.
-
-* **Multi‑agent & workflow guidance** – For complex tasks (e.g. combining research, copywriting and coding), delegate to specialist agents. Use the mediator–worker pattern defined in the universal process. Always synchronise context via memory.store and the knowledge graph.
-
-* **Bug tracking & fix planning** – All bug documentation lives in docs/bugs/. Record defects in docs/bugs/bugs.md with severity and context. Track active issues in docs/bugs/bugs\_todo.md and outline fix plans in docs/bugs/bug\_fix\_planning.md. Link each bug to tasks in todo.md. Resolve P0/P1 bugs before progressing. When a bug arises, log the event in event-stream.md, create a bug entry, update the graph and add a task. Conduct post‑mortems for significant bugs and capture lessons learned.
-
-* **Responsibility & autonomy** – The agent should self‑organise: read context, plan, execute and iterate without repeatedly asking the user. Only ask for clarification if critical information is missing.
-
-## 4 Development Commands & Tech Stack
-
-### Common commands
-
-Run these scripts in the project root (skinn-convert-swiss-pages):
-
-\# Start the Vite development server  
+```bash
+# Start development server
 npm run dev
 
-\# Build for production  
+# Build for production
 npm run build
 
-\# Preview a production build locally  
+# Preview production build
 npm run preview
 
-\# Lint and format code  
+# Lint and format code
 npm run lint
 
-\# Type‑check TypeScript definitions  
+# Type-check TypeScript
 npm run typecheck
 
-\# Run unit tests (Vitest)  
+# Run unit tests
 npm run test
 
-\# Run end‑to‑end tests (Puppeteer \+ Playwright, if configured)  
+# Run end-to-end tests
 npm run test:e2e
+```
 
-### Major libraries and tools
+### Major Libraries and Tools
 
-* **React 18 \+ TypeScript 5 \+ Vite** – core UI framework and build tool.
+* **React 18 + TypeScript 5 + Vite** – core UI framework and build tool
+* **Tailwind CSS 3 + shadcn/ui** – styling and component library (Do not edit library components directly; wrap them instead)
+* **React Router DOM 6** – routing library with dynamic route parameters for language prefixes (e.g. /en/home)
+* **TanStack React‑Query 5** – server state management; use context or Zustand for global client state
+* **Zod 3 + React‑Hook‑Form 7** – form validation and handling (ensure forms are accessible and localised)
+* **Lucide‑React icons & Radix UI** – icons and accessibility primitives
+* **Supabase client** – authentication and database queries (pending integration)
+* **Framer Motion** – animations and interactions for enhanced UX
 
-* **Tailwind CSS 3 \+ shadcn/ui** – styling and component library. *Do not edit library components directly; wrap them instead.*
+### Design System & Standards
 
-* **React Router DOM 6** – routing library. Use dynamic route parameters for language prefixes (e.g. /en/home).
+#### S&W Design Landing Page Colors (Default Theme)
+- **Primary Blue (#5298F2):** `bg-lp-primary-blue` - CTAs
+- **Purple (#5549A6):** `bg-lp-purple` - Accents and comparison sections
+- **Dark Blue (#004C96):** `bg-lp-dark-blue` - Headlines
+- **Charcoal (#475259):** `bg-lp-charcoal` - Body text
+- **Light Purple (#BCA2F2):** `bg-lp-purple-light` - Light accents
+- **Off White (#F2F2F2):** `bg-lp-white` - Backgrounds
+- **Black (#0D0D0D):** `bg-lp-black` - Contrast
+- **Cream (#EEE8E1):** `bg-lp-cream` - Soft backgrounds
 
-* **TanStack React‑Query 5** – server state management; use context or Zustand for global client state.
+#### Core Design Principles
+- **Spacing:** Base unit 4px. Major sections use 8× base (32px). Use Tailwind spacing classes; **do not hardcode pixel values**
+- **Typography:** IBM Plex Sans (weights 400/600/700) with optical sizing enabled
+- **Components:** ≤ 50 lines of code, follow atomic design, live in their own files
+- **Responsive:** Mobile‑first, 375px baseline
+- **Accessibility:** WCAG 2.1 AA compliance, keyboard navigable, ARIA labels
 
-* **Zod 3 \+ React‑Hook‑Form 7** – form validation and handling. Ensure forms are accessible and localised.
-
-* **Lucide‑React icons & Radix UI** – icons and accessibility primitives.
-
-* **Supabase client** – authentication and database queries (pending integration). Use RLS and environment variables.
-
-* **Puppeteer** – visual and accessibility testing. Use puppeteer\_navigate and puppeteer\_screenshot for snapshots, and puppeteer\_evaluate for custom checks.
-
-* **Memory & context graph MCPs** – memory and context7 provide persistent context across sessions.
-
-## 5 Road‑map & success metrics
-
-The documentation cleanup and preparation phase precedes any feature or copy implementation. Treat it as Phase A. Only after Phase A is complete should you move on to Phase B (copy & design integration). High‑level phases are:
-
-| Phase | Objectives | Success criteria |
-| :---- | :---- | :---- |
-| **A.1 – Context Gathering & Audit** | Read all existing docs and working files; list them in doc‑ref.md; identify outdated or superseded documents; summarise findings in event-stream.md and memory. | All documents are catalogued; gaps and obsolete files are identified; a cleanup plan is drafted. |
-| **A.2 – Planning & Preparation** | Produce a detailed plan (planning.md) to clean up documentation and reset working files. Transfer useful insights from old plans; schedule archival tasks. | planning.md contains a step‑by‑step cleanup plan; todo.md lists concrete tasks; old plans are archived. |
-| **A.3 – Execution & Validation** | Execute the cleanup: archive superseded docs, update doc‑ref.md, reset working files and update conventions. Validate that all links in doc‑ref.md resolve and that working files match the universal process structure. | Superseded docs moved to archive; new working files created; doc‑ref.md is accurate; conventions updated; memory & graph updated. |
-| **B.1 – Copy & Design Integration** | Implement Version 7.2 copy and design updates per the research summary and implementation guide. See the subsequent playbook updates after Phase A completes. | Copy integrated; design components built; translations synchronised; success metrics met. |
-
-**Key success metrics for Phase A**
-
-* **Documentation completeness:** All existing documents are accounted for in doc‑ref.md with statuses (Active, Archived or Superseded).
-
-* **Working file alignment:** todo.md, planning.md, conventions.md, event‑stream.md and doc‑ref.md match the universal process v5.x (no outdated references to v2.0 or v3.0) and are initialised for new tasks.
-
-* **Archive hygiene:** Superseded docs are moved to docs/archive/YYYY‑MM‑DD/ and recorded in doc‑ref.md. The root directory and working\_files/ contain only relevant files.
-
-* **Memory & graph:** Summaries of the audit, decisions and plans are stored via memory.store and graph nodes/relations reflect document statuses and dependencies.
-
-* **No code changes:** During Phase A, no code or UI changes should be made (except trivial updates to file references). Focus exclusively on documentation.
-
-## 6 Design system in depth
-
-The SKIIN design system defines the visual language and interaction patterns for the site. Always adhere to these guidelines and **document any extensions or deviations**.
-
-* **Multi‑Theme System:** Four themes – Medical Blue, Professional Teal, Swiss Innovation and Soft Blue Teal. Each theme uses CSS custom properties for colours, spacing and typographic scales. See /docs/implementation/theme-system-guide.md for implementation details and docs/design/version\_history.md for changelogs. Use context7.add\_observations to link design tokens to components in the knowledge graph.
-
-* **Spacing:** Base unit 4 px. Major sections use 8× base (32 px). Use Tailwind spacing classes; **do not hardcode pixel values**.
-
-* **Typography:** IBM Plex Sans (weights 400/600/700) with optical sizing enabled. Use clamp() for fluid sizing (e.g. clamp(1rem, 2vw \+ 1rem, 1.5rem)). Maintain high contrast and readability.
-
-* **Breakpoints:** Use Tailwind defaults (sm 640 px, md 768 px, lg 1024 px, xl 1280 px, 2xl 1536 px). Design mobile‑first and progressively enhance for larger screens.
-
-* **Component states:** Hover transitions ≥ 150 ms; focus rings focus:outline-offset-4. Use micro‑interactions to guide users (e.g. scale buttons on press). Document animations in docs/design/animation\_guidelines.md and link them via the knowledge graph.
-
-* **Accessibility:** Maintain contrast ratio ≥ 4.5:1, ensure keyboard navigability, use ARIA labels and test with screen readers. Use puppeteer\_evaluate with axe‑core to detect issues.
-
-* **Design versioning (NEW):** Keep design tokens and components versioned. When updating tokens, increment the version number, document changes and propagate updates to components. Record these events in event-stream.md and via context7.add\_observations.
-
-## 7 Protected artefacts & absolute DON’Ts
+### Protected Artefacts & DON'Ts
 
 | Artefact | Why protected | Allowed? |
 | :---- | :---- | :---- |
 | **TabNavigation** | Used by marketing operations and clinically validated. | Only style overrides via wrapper components. Do not modify its structure or behaviour without explicit CEO approval. |
 
-Never rename or relocate these components without CEO sign‑off. When referencing them, document the relationship in the knowledge graph.
+**Absolute DON'Ts**
+* **Do not modify medical claims** without regulatory approval
+* **Do not bypass the four‑language translation system**
+* **Do not hardcode translation text** - Always create translation objects
+* **Do not hardcode colours** – always use CSS variables or design tokens
+* **Do not compromise the mobile experience** for desktop features
+* **Do not skip visual, accessibility or performance validation** for UI changes
 
-**Absolute DON’Ts**
+### Current Implementation Status
 
-* **Do not modify medical claims** without regulatory approval.
+#### ✅ MAJOR RELEASE COMPLETED (v2.1.0 - August 2025)
 
-* **Do not bypass the four‑language translation system.**
+##### Eligibility Questionnaire Implementation (SEC-001) ✅ PRODUCTION READY
+* **Atomic Component Architecture:** EligibilityChecker refactored from 851 lines to 14 atomic components
+* **87% Complexity Reduction:** Full feature parity maintained with strict ≤50 line component limits
+* **Multi-Panel Review Score:** 9.2/10 - APPROVED FOR PRODUCTION DEPLOYMENT
+* **Outstanding Performance:** 47ms page load time (target: <2.5s)
 
-* **Do not hardcode colours** – always use CSS variables or design tokens.
+##### Security Enhancements ✅ COMPLETE
+* **✅ P0 Fixed:** OTP verification with bcrypt hashing and rate limiting (max 5 attempts per 10 minutes)
+* **✅ P0 Fixed:** Payment form PCI DSS compliance with secure input masking
+* **✅ P0 Fixed:** Component architecture compliance (all components ≤50 lines for atoms/molecules)
+* **✅ P0 Fixed:** Production-ready Supabase integration with proper error handling
 
-* **Do not compromise the mobile experience** for desktop features.
+##### Enterprise Documentation Framework ✅ COMPLETE
+* **React 18 + TypeScript 5 Standards:** Complete development best practices documentation
+* **WCAG 2.1 AA Compliance:** Comprehensive accessibility guidelines established
+* **Swiss Healthcare Regulatory:** Complete compliance documentation and procedures
+* **Testing Methodologies:** Quality assurance frameworks and comprehensive test coverage
+* **Security Best Practices:** Healthcare application security standards documented
 
-* **Do not skip visual, accessibility or performance validation** for UI changes.
+##### Established Architecture ✅
+* **Foundation:** Italian language infrastructure; 95+ React components following atomic design
+* **Routing system:** 98+ routes configured across 4 languages with locale prefixes
+* **State management:** Context API with reducer pattern + TanStack Query
+* **Analytics framework:** GA4, Google Ads and HubSpot scripts added
+* **Landing page:** S&W Design system with animations, circular testimonials, Swiss insurance section
+* **Database Schema:** 14-table Swiss healthcare system with GDPR compliance and RLS policies
 
-Do not skip visual, accessibility or performance validation for UI changes.
+#### In Progress 🚧
+* **Repository Conformance Chain Phase 1b:** Comprehensive standards research handoff
+* **Enterprise Standards Establishment:** Coding standards and quality frameworks
+* **Performance Monitoring:** Advanced analytics and optimization frameworks
 
-## 8 File‑naming & archival conventions
+#### Future Enhancements 📋
+* **Protected components:** ContributingFactorCards, TabNavigation (regulatory approval required)
+* **Content management:** CMS implementation for content editors
+* **Advanced Analytics:** User behavior tracking and conversion optimization
 
-Documentation naming – New docs in docs/ must start with an ISO date: YYYY‑MM‑DD-feature-name.md. Place them in appropriate subdirectories (docs/implementation/, docs/design/, docs/architecture/ etc.).
+### Key Success Metrics
+* **Performance:** LCP < 2.5s, CLS < 0.1, FID < 100ms
+* **Accessibility:** WCAG 2.1 AA compliance
+* **Mobile Experience:** Fully responsive from 375px
+* **Multi-language:** All 4 languages functional with proper routing
 
-Archiving superseded files – Once a file is superseded and unused for 7 days, move it to docs/archive/YYYY‑MM‑DD/ with a README pointer. Update doc-ref.md and the knowledge graph to reflect the new location.
+### File Organization & Repository Cleanliness
 
-Root directory cleanliness – Keep the root directory lean: source code, config files, README.md and this CLAUDE.md. All other content belongs in docs/, scripts/ or working\_files/.
+**CRITICAL: Strict File Location Enforcement**
 
-Versioning – Use semantic versioning (e.g. v1.2.0) for modules, components and design tokens. Document version changes in docs/design/version\_history.md and link them via the knowledge graph.
+The repository MUST maintain strict file organization. See @docs/file-organization-framework.md for complete rules.
 
-## 9 Copy document synchronisation
+#### Allowed in Root (≤15 files total)
+- Configuration files ONLY: package.json, tsconfig.json, vite.config.ts, etc.
+- README.md and CLAUDE.md
+- NO OTHER FILES
 
-The marketing website relies on **synchronised copy** across multiple languages. Core copy documents reside in the docs/content/ directory:
+#### File Location Rules
+| File Type | MUST Go In | NEVER In |
+|-----------|------------|----------|
+| Images (jpg/png/etc) | /public/assets/images/ | Root directory |
+| SQL files | /supabase/ | Root directory |
+| Reports | /docs/reports/ | Root directory |
+| Context files | /context/ | Root or working_files/ |
+| Test results | /archive/tests/ | Anywhere else |
+| Logs | /archive/logs/ | Anywhere (git-ignored) |
+
+#### Enforcement
+- **documentation-maintainer:** Runs weekly file organization audit
+- **All agents:** MUST follow file location rules strictly
+- **Violations:** Logged as errors and fixed immediately
+
+### File Naming & Archival Conventions
+
+- **Documentation naming:** New docs in docs/ must start with ISO date: YYYY‑MM‑DD-feature-name.md
+- **Archiving:** Once superseded and unused for 7 days, move to archive/YYYY‑MM‑DD/
+- **Root cleanliness:** ZERO TOLERANCE for non-config files in root
+- **Versioning:** Use semantic versioning for modules, components and design tokens
+
+### Copy Document Synchronisation
+
+The marketing website relies on **synchronised copy** across multiple languages:
 
 | Language | Path |
 | :---- | :---- |
-| **English** | /docs/content/SKIIN\_WEBSITE\_COPY\_ENGLISH.md |
-| **German** | /docs/content/SKIIN\_WEBSITE\_COPY\_GERMAN.md |
-| **French** | /docs/content/SKIIN\_WEBSITE\_COPY\_FRENCH.md |
-| **Italian** | /docs/content/SKIIN\_WEBSITE\_COPY\_ITALIAN.md (pending creation) |
-| **Review** | /docs/content/COPY\_DOCUMENTS\_REVIEW.md |
-
-### Synchronisation rules
-
-* **Reflect changes:** Any text change in code or components must be mirrored in the **English** copy document within **24 hours**. Document the change in the iteration folder (see below) and update version numbers.
-
-* **Propagate translations:** Changes in one language must be propagated to **all** languages within **48 hours** via the translation pipeline to ensure fidelity.
-
-* **Version tracking:** Increment the version number and date whenever copy changes are made.
-
-* **Review cycle:** Conduct a **monthly review** and record notes in the review file.
-
-### Update triggers
-
-* New page creation
-
-* Component text changes
-
-* Translation file updates
-
-* Legal/medical disclaimer changes
-
-* CTA modifications
-
-* Error message updates
-
-### Enforcement
-
-Before marking any text‑related task as complete, ensure that:
-
-* The copy document is updated.
-
-* All languages are synchronised.
-
-* The version number is incremented.
-
-* Review notes are added.
-
-### Iteration process
-
-When iterating on copy:
-
-1. **Create an iteration folder** under /docs/content/iterations/YYYY‑MM‑DD‑iteration‑name/.
-
-2. **Copy** current copy documents into this folder before making changes.
-
-3. **Make changes** in the main copy documents.
-
-4. **Document changes** in /docs/content/iterations/YYYY‑MM‑DD‑iteration‑name/CHANGES.md.
-
-5. **Update version numbers** in the main documents (e.g., v1.0 → v1.1).
-
-6. **Synchronise all languages** within **48 hours**.
-
-7. **Record relationships** between copy sections and components in the knowledge graph (e.g. entity:copy:hero-headline relates to entity:component:HeroSection). Persist iteration notes via memory.store using keys like copy-iteration-2025-07-24.
-
-## 10 Visual asset inventory
-
-Maintain an inventory of images, videos and design references to ensure consistent use across the site. Store assets under /assets/images/ and /assets/videos/. Document each asset in docs/assets/asset-inventory.md and link them via the knowledge graph.
-
-| Category | Examples |
-| :---- | :---- |
-| **Process & Product Images** | Doctor consultation, device delivery, wearing the SKIIN device, app showing live ECG and doctor–patient interactions. See /assets/images/… for file names. Use these to illustrate the 5‑step customer journey. |
-| **Videos** | “Cardiac Assessment” and “Silent Arrhythmias” – educational videos explaining arrhythmia prevalence and home monitoring. |
-| **Design references** | Progressive scrolling statistics, dark contrast sections, comparison tables – these guide page layout and interactive elements. See /assets/images/design-examples/. |
-| **Medical advisors & team** | Photos of Prof. Dr. Frank Ruschitzka, PD Dr. Mehdi Namdar, Dr. Mathias Wilhelm, Dr. Michiel Winter and the SKIIN team. |
-| **MVCP & related apps** | Screenshots of the Myant Virtual Clinic Portal (MVCP) for physician pages. These may inspire layout patterns but should not be directly copied. |
-
-Document asset descriptions, file paths and usage guidelines in docs/assets/asset-inventory.md. Use the knowledge graph to map assets to pages and components (for example, entity:image:heart-monitor used in entity:page:benefits).
-
-## 11 Glossary (quick reference)
-
-| Term | Meaning |
-| :---- | :---- |
-| **MCP** | Modular Capability Provider: remote tool service (search, memory, Puppeteer, Supabase, etc.). |
-| **TDG** | Test‑Driven Generation – an AI‑assisted TDD loop: write tests first, then implement code. |
-| **Atomic component** | React component ≤ 50 LOC with a single responsibility, following atomic design principles. |
-| **LOE** | Level‑Of‑Effort estimate. |
-| **P0** | Highest urgency/severity level in bug tracking. |
-| **Knowledge graph** | Persistent representation of project entities and their relationships in the context7 server. |
-| **Memory MCP** | Server providing persistent storage and retrieval of vectorised information (store, recall, forget). |
-| **CI/CD** | Continuous integration and deployment pipeline running automated tests, audits and releases. |
-| **ADR** | Architecture Decision Record – documents design choices and their trade‑offs. |
-
-## 12 Current implementation status
-
-### Completed ✅
-
-* **Foundation:** Italian language infrastructure implemented; product names updated to v2.0; skeleton components built; translation directories scaffolded.
-
-* **Component architecture:** 80+ React components following atomic design; multi‑theme support implemented via CSS variables; responsive layout scaffolded.
-
-* **Routing system:** 69 routes configured across English, German, French and Italian; all pages include locale prefixes and fallback routing.
-
-* **State management:** Context API and TanStack Query configured; basic Zod schemas defined; forms integrated with React‑Hook‑Form.
-
-* **Analytics framework:** GA4, Google Ads and HubSpot scripts added; awaiting production IDs.
-
-### In progress 🚧
-
-* **Homepage content:** Components exist; English copy ready; translations pending; asset selection underway.
-
-* **Translations:** File structure ready; German and French copy partially integrated; Italian translation to follow.
-
-* **Interactive calculators:** Eligibility checker UI built; awaiting backend design and integration; coverage calculator not started.
-
-* **Design versioning:** Initial version (v1.0) defined; changelog file created; version updates pending.
-
-* **Accessibility audit:** Basic checks performed; full audit scheduled for Phase 3\.
-
-### Not started ❌
-
-* **Protected components:** HeartBalanceRing, ContributingFactorCards, TabNavigation and TodayTab are not yet implemented.
-
-* **Medical content:** Clinical evidence, compliance documents and testimonials not integrated; requires regulatory review.
-
-* **Content management:** No CMS or dynamic content loading system implemented. Consider using Supabase or a static site generator in Phase 4\.
-
-* **IBM Plex Sans:** Font files not loaded; to be added in Phase 2\.
-
-* **Performance budget definition:** Budgets for LCP, CLS and API latency not defined; to be set in Phase 3\.
-
-### Critical paths
-
-* **Week 1:** Finish protected components, homepage content and analytics configuration.
-
-* **Weeks 2–3:** Complete German/French translations and integrate medical content.
-
-* **Weeks 4–5:** Implement calculators and integrate insurance mappings. Conduct performance and accessibility audits.
-
-Week 6: Run compliance review, final optimisation and launch. Prepare post‑mortems and next iteration plan.
-
-## 13 New modules & workflow summary (v5.0)
-
-The universal process v5.0 introduces several new modules and updates existing ones. Below is a summary of **how they apply** to the SKIIN website:
-
-### Memory Management Module Integration
-
-The memory management module is now a core part of the agent lifecycle:
-
-* **Session Start**: Always recall project context, recent changes, and phase status before beginning work
-* **During Development**: Create memories for task outcomes, bug discoveries, design decisions, and component specs
-* **Graph Maintenance**: Create entities for new components/features, establish relationships, add observations
-* **Memory Lifecycle**: Follow creation → recall → update → archive pattern with proper naming conventions
-* **Automated Triggers**: Memory creation happens automatically on task completion, bug discovery, and daily snapshots
-
-See `/docs/process/2025-07-29-memory-implementation-guide.md` for detailed patterns and examples.
-
-* **Planning & Memory Management** – Use the planner module to create a detailed plan in planning.md and generate tasks in todo.md. Store plans and tasks in memory (memory.store) and represent them in the knowledge graph (context7.create\_entities). Recall past research, design decisions and plans at the start of each session (memory.recall).
-
-* **Safety & Guidance** – Invoke guardrails when uncertain and design prompts clearly. Use multi‑agent guidance for complex tasks (e.g. a research agent for copywriting, a coding agent for front‑end, a testing agent for accessibility/performance).
-
-* **Quality Assurance** – Follow test‑driven development; run unit, integration, visual and accessibility tests. Use the performance module to set budgets and instrument code. Perform code reviews with static analysis tools and peer feedback. Manage bugs via the redesigned bug module: record defects in docs/bugs/bugs.md, track active issues in docs/bugs/bugs\_todo.md, plan fixes in docs/bugs/bug\_fix\_planning.md and integrate bug tasks into todo.md. Log bug events in event-stream.md.
-
-* **Design & Simulation** – Adhere to the lovable design module and SKIIN design system guidelines. Use the design versioning module to track token changes and synchronise updates. Use mock data and simulation modules when backend services are unavailable. Employ AI‑generated components via the 21st‑dev MCP, but ensure final implementations meet accessibility and design standards.
-
-* **Security & Compliance** – Follow the security module: validate inputs, store secrets securely, implement RLS policies in Supabase and comply with GDPR and Swiss medical regulations. Run regular audits and maintain documentation.
-
-* **Infrastructure & Deployment** – Use architecture templates for Vite/React \+ Supabase. Manage dependencies and security with weekly audits. Keep the repository organised and archive superseded files. Configure CI/CD pipelines for automated testing and deployment. Use the sandbox environment spec for local development.
-
-* **Context & Knowledge Graph** – Use the memory and graph modules to persist and query context. Create entities for pages, components, copy sections, assets and tasks. Define relations like page → uses → component, component → linked\_to → copy and copy → translated\_to → copy (fr). Record observations such as performance metrics, bug reports and decisions. Persist snapshots via memory.store for time‑travel debugging. Represent documents, tasks and bugs as graph entities and establish relations (e.g. bug123 → affects → component:HeroSection).
-
-* **Documentation & Context Engineering** – Before acting, gather context: read event-stream.md, todo.md, planning.md, conventions.md and doc-ref.md. Use shell commands to explore the repository and recall past information using memory.recall and context7.search\_nodes. Summarise context in RESEARCH.md or planning.md and persist via memory and the graph. When creating or updating documents, follow naming and placement conventions (ISO‑date prefixes under docs/) and update doc-ref.md. Archive superseded documents appropriately. Log each event in event-stream.md on a single line with timestamp, event type and concise description.
-
-* **Process Reprioritisation** – The planning & todo modules now include a mechanism for reprioritising tasks. When new research or requirements emerge, review planning.md and todo.md, reorder tasks, add or remove entries and update the knowledge graph accordingly. Document these changes as Plan events in event-stream.md.
-
-* **GitHub Process & Development Workflow** – Follow a structured commit and PR strategy integrated with planning/todo systems:
-  - **Commit Strategy**: Group tasks in todo.md under commit boundaries. Commit after completing each group (typically 2-5 related tasks). Use conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`. Always run tests before committing.
-  - **PR Strategy**: Create PRs at phase or major feature boundaries defined in planning.md. Feature branches follow pattern: `feature/[phase]-[description]`. PRs must include summary, testing performed, and screenshots for UI changes.
-  - **Integration**: Tasks in todo.md are organized under commit/PR headers. Event-stream.md logs all commits and PRs. Agent checks `git status` at session start and after task completion.
-  - **Testing Before Commits**: Every commit must pass: design system compliance (no hardcoded values), multilanguage verification (all 4 languages), performance budgets, accessibility checks.
-  - **Documentation**: Update docs in same commit as code changes. Never create PR without updating relevant documentation.
-
-By following this playbook and the universal process (@working\_files/CLAUDE\_PROCESS.md), Claude Code can autonomously plan, execute, validate and document the SKIIN marketing site with minimal user intervention. Always adhere to the principles above, update the working files promptly and use the MCP tools wisely.
+| **English** | /docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md |
+| **German** | /docs/content/SKIIN_WEBSITE_COPY_GERMAN.md |
+| **French** | /docs/content/SKIIN_WEBSITE_COPY_FRENCH.md |
+| **Italian** | /docs/content/SKIIN_WEBSITE_COPY_ITALIAN.md |
+
+**Rules:**
+* Any text change in code must be reflected in copy documents within 24 hours
+* Changes in one language must be propagated to all languages within 48 hours
+* Increment version number and date whenever copy changes are made

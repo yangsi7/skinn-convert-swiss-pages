@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Home2 from '@/pages/Home2';
 import Home2Enhanced from '@/pages/Home2Enhanced';
 import HomeV7 from '@/pages/HomeV7';
+import LandingPageV2025 from '@/pages/LandingPageV2025';
 import NotFound from '@/pages/NotFound';
 import ComponentShowcase from '@/pages/ComponentShowcase';
+import EligibilityTest from '@/pages/EligibilityTest';
+import EligibilityFlow from '@/pages/EligibilityFlow';
+import TestSupabase from '@/pages/TestSupabase';
 
 // Solutions pages
 import Solutions10DayHeartScreening from '@/pages/solutions/10DayHeartScreening';
@@ -26,34 +30,20 @@ import HowItWorksTechnology from '@/pages/how-it-works/Technology';
 import HowItWorksEvidence from '@/pages/how-it-works/Evidence';
 import HowItWorksFAQ from '@/pages/how-it-works/FAQ';
 
-// About Us pages
+// About Us pages - Fix: use Overview instead of missing AboutMyant
 import AboutOverview from '@/pages/about/Overview';
-import AboutCompany from '@/pages/about/Company';
-import AboutBoard from '@/pages/about/MedicalBoard';
-import AboutBlog from '@/pages/about/Blog';
-import AboutTestimonials from '@/pages/about/Testimonials';
-import AboutCompliance from '@/pages/about/Compliance';
-import AboutContact from '@/pages/about/Contact';
 
-// Legal pages
-import Privacy from '@/pages/legal/Privacy';
-import Terms from '@/pages/legal/Terms';
-import Cookies from '@/pages/legal/Cookies';
+// Partners Detail pages - Fix: Contact is in about directory
+import Physicians from '@/pages/Physicians';
+import Contact from '@/pages/about/Contact';
 
-// Other pages
-import RequestDemo from '@/pages/RequestDemo';
-
+// Import the language context
 import { useLanguage } from '@/contexts/LanguageContext';
 
-/**
- * Main routing component that handles multilingual routes
- * Detects language from URL path and updates language context accordingly
- */
-const AppRoutes = () => {
-  const { language, setLanguage } = useLanguage();
+const AppRouter: React.FC = () => {
   const location = useLocation();
+  const { setLanguage } = useLanguage();
 
-  // Update language context based on URL path
   useEffect(() => {
     const path = location.pathname;
     
@@ -73,11 +63,15 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* English Routes */}
-      <Route path="/" element={<Home2 />} />
-      <Route path="/home-old" element={<Index />} />
+      <Route path="/" element={<LandingPageV2025 />} />
+      <Route path="/original" element={<Home2 />} />
+      <Route path="/home-old-archive" element={<Index />} />
       <Route path="/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/home2-enhanced" element={<Home2Enhanced />} />
+      <Route path="/home2-enhanced-archive" element={<Home2Enhanced />} />
       <Route path="/component-showcase" element={<ComponentShowcase />} />
+      <Route path="/eligibility-test" element={<EligibilityTest />} />
+      <Route path="/eligibility" element={<EligibilityFlow />} />
+      <Route path="/test-supabase" element={<TestSupabase />} />
       
       {/* Solutions Routes */}
       <Route path="/solutions/10-day-heart-screening" element={<Solutions10DayHeartScreening />} />
@@ -100,142 +94,72 @@ const AppRoutes = () => {
       
       {/* About Us Routes */}
       <Route path="/about" element={<AboutOverview />} />
-      <Route path="/about/company" element={<AboutCompany />} />
-      <Route path="/about/medical-board" element={<AboutBoard />} />
-      <Route path="/about/blog" element={<AboutBlog />} />
-      <Route path="/about/testimonials" element={<AboutTestimonials />} />
-      <Route path="/about/compliance" element={<AboutCompliance />} />
-      <Route path="/about/contact" element={<AboutContact />} />
       
-      {/* Legal Routes */}
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/cookies" element={<Cookies />} />
-      
-      {/* Other Routes */}
-      <Route path="/request-demo" element={<RequestDemo />} />
-      
+      {/* Contact & Physicians */}
+      <Route path="/physicians" element={<Physicians />} />
+      <Route path="/contact" element={<Contact />} />
+
       {/* German Routes */}
-      <Route path="/de" element={<Home2 />} />
-      <Route path="/de/home-old" element={<Index />} />
-      <Route path="/de/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/de/home2-enhanced" element={<Home2Enhanced />} />
-      
-      {/* German Solutions Routes */}
+      <Route path="/de" element={<LandingPageV2025 />} />
       <Route path="/de/loesungen/10-tage-herzscreening" element={<Solutions10DayHeartScreening />} />
       <Route path="/de/loesungen/tritest" element={<SolutionsTritest />} />
-      
-      {/* German Partners Routes */}
       <Route path="/de/partner" element={<PartnersOverview />} />
       <Route path="/de/partner/hausaerzte" element={<PartnersGPs />} />
       <Route path="/de/partner/kardiologen" element={<PartnersCardiologists />} />
       <Route path="/de/partner/telemedizin" element={<PartnersTelemedicine />} />
       <Route path="/de/partner/unternehmen" element={<PartnersCorporate />} />
-      
-      {/* German How It Works Routes */}
-      <Route path="/de/wie-es-funktioniert" element={<HowItWorksOverview />} />
-      <Route path="/de/wie-es-funktioniert/prozess" element={<HowItWorksProcess />} />
-      <Route path="/de/wie-es-funktioniert/kostenerstattung" element={<HowItWorksReimbursement />} />
-      <Route path="/de/wie-es-funktioniert/technologie" element={<HowItWorksTechnology />} />
-      <Route path="/de/wie-es-funktioniert/evidenz" element={<HowItWorksEvidence />} />
-      <Route path="/de/wie-es-funktioniert/faq" element={<HowItWorksFAQ />} />
-      
-      {/* German About Us Routes */}
+      <Route path="/de/funktionsweise" element={<HowItWorksOverview />} />
+      <Route path="/de/funktionsweise/prozess" element={<HowItWorksProcess />} />
+      <Route path="/de/funktionsweise/erstattung" element={<HowItWorksReimbursement />} />
+      <Route path="/de/funktionsweise/technologie" element={<HowItWorksTechnology />} />
+      <Route path="/de/funktionsweise/evidenz" element={<HowItWorksEvidence />} />
+      <Route path="/de/funktionsweise/faq" element={<HowItWorksFAQ />} />
       <Route path="/de/ueber-uns" element={<AboutOverview />} />
-      <Route path="/de/ueber-uns/unternehmen" element={<AboutCompany />} />
-      <Route path="/de/ueber-uns/beirat" element={<AboutBoard />} />
-      <Route path="/de/ueber-uns/blog" element={<AboutBlog />} />
-      <Route path="/de/ueber-uns/erfahrungsberichte" element={<AboutTestimonials />} />
-      <Route path="/de/ueber-uns/compliance" element={<AboutCompliance />} />
-      <Route path="/de/ueber-uns/kontakt" element={<AboutContact />} />
-      
-      {/* German Legal Routes */}
-      <Route path="/de/datenschutz" element={<Privacy />} />
-      <Route path="/de/agb" element={<Terms />} />
-      <Route path="/de/cookies" element={<Cookies />} />
-      
+      <Route path="/de/aerzte" element={<Physicians />} />
+      <Route path="/de/kontakt" element={<Contact />} />
+
       {/* French Routes */}
-      <Route path="/fr" element={<Home2 />} />
-      <Route path="/fr/home-old" element={<Index />} />
-      <Route path="/fr/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/fr/home2-enhanced" element={<Home2Enhanced />} />
-      
-      {/* French Solutions Routes */}
+      <Route path="/fr" element={<LandingPageV2025 />} />
       <Route path="/fr/solutions/bilan-cardiaque-10-jours" element={<Solutions10DayHeartScreening />} />
       <Route path="/fr/solutions/tritest" element={<SolutionsTritest />} />
-      
-      {/* French Partners Routes */}
       <Route path="/fr/partenaires" element={<PartnersOverview />} />
       <Route path="/fr/partenaires/medecins-generalistes" element={<PartnersGPs />} />
       <Route path="/fr/partenaires/cardiologues" element={<PartnersCardiologists />} />
       <Route path="/fr/partenaires/telemedecine" element={<PartnersTelemedicine />} />
       <Route path="/fr/partenaires/entreprises" element={<PartnersCorporate />} />
-      
-      {/* French How It Works Routes */}
-      <Route path="/fr/comment-ca-marche" element={<HowItWorksOverview />} />
-      <Route path="/fr/comment-ca-marche/processus" element={<HowItWorksProcess />} />
-      <Route path="/fr/comment-ca-marche/remboursement" element={<HowItWorksReimbursement />} />
-      <Route path="/fr/comment-ca-marche/technologie" element={<HowItWorksTechnology />} />
-      <Route path="/fr/comment-ca-marche/evidence" element={<HowItWorksEvidence />} />
-      <Route path="/fr/comment-ca-marche/faq" element={<HowItWorksFAQ />} />
-      
-      {/* French About Us Routes */}
+      <Route path="/fr/fonctionnement" element={<HowItWorksOverview />} />
+      <Route path="/fr/fonctionnement/processus" element={<HowItWorksProcess />} />
+      <Route path="/fr/fonctionnement/remboursement" element={<HowItWorksReimbursement />} />
+      <Route path="/fr/fonctionnement/technologie" element={<HowItWorksTechnology />} />
+      <Route path="/fr/fonctionnement/evidence" element={<HowItWorksEvidence />} />
+      <Route path="/fr/fonctionnement/faq" element={<HowItWorksFAQ />} />
       <Route path="/fr/a-propos" element={<AboutOverview />} />
-      <Route path="/fr/a-propos/entreprise" element={<AboutCompany />} />
-      <Route path="/fr/a-propos/conseil-medical" element={<AboutBoard />} />
-      <Route path="/fr/a-propos/blog" element={<AboutBlog />} />
-      <Route path="/fr/a-propos/temoignages" element={<AboutTestimonials />} />
-      <Route path="/fr/a-propos/conformite" element={<AboutCompliance />} />
-      <Route path="/fr/a-propos/contact" element={<AboutContact />} />
-      
-      {/* French Legal Routes */}
-      <Route path="/fr/confidentialite" element={<Privacy />} />
-      <Route path="/fr/conditions" element={<Terms />} />
-      <Route path="/fr/cookies" element={<Cookies />} />
-      
+      <Route path="/fr/medecins" element={<Physicians />} />
+      <Route path="/fr/contact" element={<Contact />} />
+
       {/* Italian Routes */}
-      <Route path="/it" element={<Home2 />} />
-      <Route path="/it/home-old" element={<Index />} />
-      <Route path="/it/home-v7-archive" element={<HomeV7 />} />
-      <Route path="/it/home2-enhanced" element={<Home2Enhanced />} />
-      
-      {/* Italian Solutions Routes */}
+      <Route path="/it" element={<LandingPageV2025 />} />
       <Route path="/it/soluzioni/screening-cardiaco-10-giorni" element={<Solutions10DayHeartScreening />} />
       <Route path="/it/soluzioni/tritest" element={<SolutionsTritest />} />
-      
-      {/* Italian Partners Routes */}
       <Route path="/it/partner" element={<PartnersOverview />} />
       <Route path="/it/partner/medici-famiglia" element={<PartnersGPs />} />
       <Route path="/it/partner/cardiologi" element={<PartnersCardiologists />} />
       <Route path="/it/partner/telemedicina" element={<PartnersTelemedicine />} />
       <Route path="/it/partner/aziende" element={<PartnersCorporate />} />
-      
-      {/* Italian How It Works Routes */}
       <Route path="/it/come-funziona" element={<HowItWorksOverview />} />
       <Route path="/it/come-funziona/processo" element={<HowItWorksProcess />} />
       <Route path="/it/come-funziona/rimborso" element={<HowItWorksReimbursement />} />
       <Route path="/it/come-funziona/tecnologia" element={<HowItWorksTechnology />} />
-      <Route path="/it/come-funziona/evidenze" element={<HowItWorksEvidence />} />
+      <Route path="/it/come-funziona/evidenza" element={<HowItWorksEvidence />} />
       <Route path="/it/come-funziona/faq" element={<HowItWorksFAQ />} />
-      
-      {/* Italian About Us Routes */}
       <Route path="/it/chi-siamo" element={<AboutOverview />} />
-      <Route path="/it/chi-siamo/azienda" element={<AboutCompany />} />
-      <Route path="/it/chi-siamo/consiglio-medico" element={<AboutBoard />} />
-      <Route path="/it/chi-siamo/blog" element={<AboutBlog />} />
-      <Route path="/it/chi-siamo/testimonianze" element={<AboutTestimonials />} />
-      <Route path="/it/chi-siamo/conformita" element={<AboutCompliance />} />
-      <Route path="/it/chi-siamo/contatti" element={<AboutContact />} />
-      
-      {/* Italian Legal Routes */}
-      <Route path="/it/privacy" element={<Privacy />} />
-      <Route path="/it/termini" element={<Terms />} />
-      <Route path="/it/cookies" element={<Cookies />} />
-      
-      {/* Catch-all for 404 */}
+      <Route path="/it/medici" element={<Physicians />} />
+      <Route path="/it/contatti" element={<Contact />} />
+
+      {/* Catch all and 404 - keep at the bottom */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
 
-export default AppRoutes;
+export default AppRouter;

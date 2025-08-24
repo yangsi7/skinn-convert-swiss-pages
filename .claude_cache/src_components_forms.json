@@ -1,0 +1,97 @@
+{
+  "type": "directory",
+  "path": "src/components/forms",
+  "depth": 2,
+  "contents": {
+    "src/components/forms/IntegratedEligibilityFlow.tsx": {
+      "type": "file",
+      "path": "src/components/forms/IntegratedEligibilityFlow.tsx",
+      "language": "typescript",
+      "size": 27873,
+      "functions": [
+        "IntegratedEligibilityFlow",
+        "initSession",
+        "goToStep",
+        "goBack",
+        "handleEligibilitySubmit",
+        "handleContactSubmit",
+        "handleOTPVerify",
+        "handleOTPResend",
+        "handleInsuranceSubmit",
+        "handlePaymentSubmit"
+      ],
+      "classes": []
+    },
+    "src/components/forms/MinimalInsuranceSelector.tsx": {
+      "type": "file",
+      "path": "src/components/forms/MinimalInsuranceSelector.tsx",
+      "language": "typescript",
+      "size": 10219,
+      "functions": [
+        "MinimalInsuranceSelector"
+      ],
+      "classes": []
+    },
+    "src/components/forms/MinimalPaymentForm.tsx": {
+      "type": "file",
+      "path": "src/components/forms/MinimalPaymentForm.tsx",
+      "language": "typescript",
+      "size": 13179,
+      "functions": [
+        "MinimalPaymentForm",
+        "formatCardNumber",
+        "detectCardType",
+        "handleCardNumberChange",
+        "handleExpiryChange",
+        "handleCVVChange",
+        "validateForm",
+        "handleSubmit"
+      ],
+      "classes": []
+    },
+    "src/components/forms/eligibility": {
+      "type": "directory",
+      "path": "src/components/forms/eligibility",
+      "depth": 1,
+      "contents": {
+        "src/components/forms/eligibility/EligibilityFormV2.tsx": {
+          "type": "file",
+          "path": "src/components/forms/eligibility/EligibilityFormV2.tsx",
+          "language": "typescript",
+          "size": 5250
+        },
+        "src/components/forms/eligibility/components": {
+          "type": "directory",
+          "file_count": 2
+        },
+        "src/components/forms/eligibility/context": {
+          "type": "directory",
+          "file_count": 3
+        },
+        "src/components/forms/eligibility/services": {
+          "type": "directory",
+          "file_count": 1
+        },
+        "src/components/forms/eligibility/steps": {
+          "type": "directory",
+          "file_count": 6
+        },
+        "src/components/forms/eligibility/utils": {
+          "type": "directory",
+          "file_count": 2
+        }
+      },
+      "stats": {
+        "files": 1,
+        "dirs": 5
+      }
+    }
+  },
+  "stats": {
+    "files": 3,
+    "dirs": 1
+  },
+  "explored_at": "2025-08-22T16:00:35.919134",
+  "cached_at": "2025-08-22T16:00:35.919326",
+  "cache_file": ".claude_cache/src_components_forms.json"
+}

@@ -1,4 +1,4 @@
-
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AnalyticsProvider } from "./components/analytics/AnalyticsProvider";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { CopyVariantProvider } from "./contexts/CopyVariantContext";
 import { RouteRedirects } from "./components/RouteRedirects";
 import AppRoutes from "./routes";
 
@@ -23,10 +24,11 @@ const App = () => (
     <TooltipProvider>
       <HelmetProvider>
         <ThemeProvider>
-          <LanguageProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
+          <CopyVariantProvider>
+            <LanguageProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
               <AnalyticsProvider
                 googleAnalyticsId={GOOGLE_ANALYTICS_ID}
                 googleAdsId={GOOGLE_ADS_ID}
@@ -36,7 +38,8 @@ const App = () => (
                 <AppRoutes />
               </AnalyticsProvider>
             </BrowserRouter>
-          </LanguageProvider>
+            </LanguageProvider>
+          </CopyVariantProvider>
         </ThemeProvider>
       </HelmetProvider>
     </TooltipProvider>
