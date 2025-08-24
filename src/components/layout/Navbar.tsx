@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { MinimalButton } from "@/components/ui/minimal-button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
@@ -295,11 +295,11 @@ const Navbar = () => {
                 </button>
               ))}
             </div>
-            <Button size="sm" className="bg-lp-primary-blue hover:bg-lp-primary-blue/90 text-white" asChild>
-              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'}>
+            <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'}>
+              <MinimalButton size="md" variant="primary">
                 {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
-              </Link>
-            </Button>
+              </MinimalButton>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -393,11 +393,11 @@ const Navbar = () => {
                   </button>
                 ))}
               </div>
-              <Button className="w-full bg-lp-primary-blue hover:bg-lp-primary-blue/90 text-white" size="lg" asChild onClick={closeMobileMenu}>
-                <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'}>
+              <Link to={language === 'en' ? '/about/contact' : language === 'de' ? '/de/ueber-uns/kontakt' : language === 'fr' ? '/fr/a-propos/contact' : '/it/chi-siamo/contatti'} onClick={closeMobileMenu}>
+                <MinimalButton className="w-full" size="lg" variant="primary">
                   {language === 'en' ? 'Contact Us' : language === 'de' ? 'Kontakt' : language === 'fr' ? 'Contactez-nous' : 'Contattaci'}
-                </Link>
-              </Button>
+                </MinimalButton>
+              </Link>
             </div>
           </nav>
         </div>

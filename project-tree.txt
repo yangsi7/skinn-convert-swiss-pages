@@ -1,0 +1,891 @@
+.
+├── .claude
+│   ├── agents
+│   │   ├── backend-developer.md
+│   │   ├── brainstormer.md
+│   │   ├── context-manager.md
+│   │   ├── database-supabase-agent.md
+│   │   ├── design-system-architect.md
+│   │   ├── documentation-maintainer.md
+│   │   ├── frontend-developer.md
+│   │   ├── git-agent.md
+│   │   ├── graph-memory-agent.md
+│   │   ├── guardrails-agent.md
+│   │   ├── invocation-chain-generator.md
+│   │   ├── microcompact-manager.md
+│   │   ├── multi-panel-review-agent.md
+│   │   ├── planning-task-agent.md
+│   │   ├── reflection-agent.md
+│   │   ├── repository-conformance-agent.md
+│   │   ├── requirements-spec-agent.md
+│   │   ├── researcher.md
+│   │   ├── setup-new-project-agent.md
+│   │   ├── testing-qa-agent.md
+│   │   └── tree-of-thought-agent.md
+│   └── hooks
+│       ├── .claude
+│       │   └── hooks
+│       │       └── update-event-stream.py
+│       └── update-event-stream.py
+├── .serena
+│   └── memories
+│       ├── coding_conventions_and_standards.md
+│       ├── completion_and_quality_procedures.md
+│       ├── project_overview.md
+│       ├── project_structure_and_codebase.md
+│       ├── suggested_commands.md
+│       └── tech_stack_and_dependencies.md
+├── archive
+│   ├── 2025-11-20
+│   │   ├── analysis
+│   │   │   ├── 2025-08-20
+│   │   │   │   ├── PHASE_4_READINESS_ASSESSMENT.md
+│   │   │   │   └── SKIIN_PROJECT_AUDIT_REPORT.md
+│   │   │   ├── 2025-07-25-gap-analysis-v5.md
+│   │   │   ├── 2025-07-26-p0-blockers-root-cause-analysis.md
+│   │   │   ├── 2025-07-29-landing-page-copy-gap-analysis.md
+│   │   │   ├── 2025-08-19-phase-1a-completion-report.md
+│   │   │   ├── 2025-08-19-repository-conformance-current-state-assessment.md
+│   │   │   ├── 2025-08-20-tree-of-thought.md
+│   │   │   └── I18N-ANALYSIS-REPORT.md
+│   │   ├── assets
+│   │   │   └── 2025-07-30-visual-asset-updates.md
+│   │   ├── conformance
+│   │   │   ├── 2025-08-19-documentation-governance-procedures.md
+│   │   │   ├── 2025-08-19-enterprise-coding-standards.md
+│   │   │   ├── 2025-08-19-implementation-validation-framework.md
+│   │   │   ├── 2025-08-19-phase-2b-completion-summary.md
+│   │   │   ├── 2025-08-19-quality-assurance-framework.md
+│   │   │   ├── 2025-08-19-repository-conformance-master-guide.md
+│   │   │   └── 2025-08-19-team-handoff-package.md
+│   │   ├── handoffs
+│   │   │   └── 2025-08-19-researcher-agent-handoff-brief.md
+│   │   ├── implementation
+│   │   │   ├── 2025-08-20
+│   │   │   │   ├── INTEGRATION_SUMMARY.md
+│   │   │   │   └── SUPABASE_INTEGRATION.md
+│   │   │   ├── 025-07-24-ui-component-mapping-v7-DE.md
+│   │   │   ├── 025-07-24-ui-component-mapping-v7-FR.md
+│   │   │   ├── 025-07-24-ui-component-mapping-v7-IT.md
+│   │   │   ├── 2025-07-24-section-inventory-v7.md
+│   │   │   ├── 2025-07-24-technical-implementation-guide-v7.md
+│   │   │   ├── 2025-07-24-ui-component-mapping-v7.md
+│   │   │   ├── 2025-07-26-p0-critical-fixes-completed.md
+│   │   │   ├── 2025-07-26-p0-critical-fixes-plan.md
+│   │   │   ├── 2025-07-26-phase-6-landing-page-improvement-plan.md
+│   │   │   ├── 2025-07-26-phase-d-implementation-summary.md
+│   │   │   ├── 2025-07-26-reprioritization-summary.md
+│   │   │   ├── 2025-07-28-hero-copy-refinements.md
+│   │   │   ├── 2025-07-28-hero-dual-split-completed.md
+│   │   │   ├── 2025-07-28-hero-redesign-improvements.md
+│   │   │   ├── 2025-07-28-hero-redesign-plan-dual-split.md
+│   │   │   ├── 2025-07-28-multi-language-copy-variants.md
+│   │   │   ├── 2025-07-28-phase-6-1-hero-redesign-completed.md
+│   │   │   ├── 2025-07-29-design-system-improvement-plan.md
+│   │   │   ├── 2025-07-29-hero-redesign-summary.md
+│   │   │   ├── 2025-07-29-landing-page-copy-alignment-plan.md
+│   │   │   ├── 2025-07-29-landing-page-redesign-plan.md
+│   │   │   ├── 2025-07-29-phase-7-polish-testing-completion.md
+│   │   │   ├── 2025-07-29-theme-color-mapping.md
+│   │   │   ├── 2025-07-29-theme-consistency-improvements-report.md
+│   │   │   ├── 2025-07-30-component-consolidation-analysis.md
+│   │   │   ├── 2025-07-30-component-mapping-analysis.md
+│   │   │   ├── 2025-07-30-design-system-fixes-report.md
+│   │   │   ├── 2025-07-30-design-token-implementation-report.md
+│   │   │   ├── 2025-07-30-image-optimization-guidelines.md
+│   │   │   ├── 2025-07-30-landing-page-design-implementation-plan.md
+│   │   │   ├── 2025-07-30-performance-optimization-report.md
+│   │   │   ├── 2025-07-30-performance-optimization-summary.md
+│   │   │   ├── 2025-08-12-sw-design-standardization-plan.md
+│   │   │   ├── 2025-08-19-cicd-pipeline-enhancement-guide.md
+│   │   │   ├── 2025-08-19-copy-variant-selector-usage-guide.md
+│   │   │   ├── 2025-08-19-eligibility-questionnaire-implementation-plan.md
+│   │   │   ├── 2025-08-19-eligibility-questionnaire-quick-reference.md
+│   │   │   ├── 2025-08-19-eligibility-questionnaire-task-breakdown.md
+│   │   │   ├── 2025-08-19-phase-0-security-fixes-report.md
+│   │   │   ├── 2025-08-19-phase-1-1-database-schema-completion.md
+│   │   │   ├── 2025-08-19-phase-3a-infrastructure-implementation-report.md
+│   │   │   ├── 2025-08-19-repository-conformance-handoff-documentation.md
+│   │   │   ├── 2025-08-19-repository-conformance-master-implementation-plan.md
+│   │   │   ├── 2025-08-19-repository-conformance-resource-allocation-matrix.md
+│   │   │   ├── 2025-08-19-repository-conformance-risk-register.md
+│   │   │   ├── 2025-08-19-repository-conformance-validation-framework.md
+│   │   │   ├── 2025-08-19-supabase-database-schema-design.md
+│   │   │   ├── 2025-08-19-typescript-strict-mode-migration-guide.md
+│   │   │   ├── 2025-08-20-documentation-maintenance-report.md
+│   │   │   ├── 2025-11-20-hero-animation-implementation.md
+│   │   │   ├── 2025-11-20-hero-copy-update.md
+│   │   │   ├── 2025-11-20-landing-page-fixes-summary.md
+│   │   │   ├── 2025-11-20-landing-page-redesign-summary.md
+│   │   │   ├── SKIIN-Switzerland-Website-Copy-Guide-English-Copy-Focused-Jul28.md
+│   │   │   ├── design-system-i18n-update-summary.md
+│   │   │   ├── design-system-rollout-plan.md
+│   │   │   ├── design-system-rollout-status.md
+│   │   │   ├── gap-analysis.md
+│   │   │   ├── home-component-import-analysis.md
+│   │   │   ├── homepage-revamp-summary.md
+│   │   │   ├── phase-0-findings.md
+│   │   │   ├── phase-d-summary.md
+│   │   │   ├── progressive-design-system.md
+│   │   │   ├── skiin-ch-copy 29072025.md
+│   │   │   ├── theme-aware-components-inventory.md
+│   │   │   ├── theme-system-guide.md
+│   │   │   ├── v7-2-implementation-summary.md
+│   │   │   ├── week-1-summary.md
+│   │   │   └── week-2-3-summary.md
+│   │   ├── inventory
+│   │   │   ├── 2025-07-26-documentation-inventory.md
+│   │   │   ├── 2025-07-26-final-documentation-audit.md
+│   │   │   ├── 2025-07-28-comprehensive-documentation-audit.md
+│   │   │   ├── 2025-07-28-doc-reference-index.md
+│   │   │   ├── 2025-07-28-documentation-cleanup-action-plan.md
+│   │   │   └── 2025-07-28-documentation-cleanup-plan.md
+│   │   ├── new-requirements
+│   │   │   └── eligibility-questionnaire
+│   │   │       ├── BRAINSTORM.md
+│   │   │       ├── implementation_guide.md
+│   │   │       ├── planning.md
+│   │   │       └── updated_questionnaire_spec.md
+│   │   ├── process
+│   │   │   ├── 2025-07-28-documentation-lifecycle-process.md
+│   │   │   ├── 2025-07-29-codebase-tree-of-thought.md
+│   │   │   ├── 2025-07-29-memory-entries-landing-page-alignment.md
+│   │   │   ├── 2025-07-29-memory-graph-implementation-plan.md
+│   │   │   ├── 2025-07-29-memory-implementation-guide.md
+│   │   │   ├── 2025-07-29-memory-implementation-ready.md
+│   │   │   ├── 2025-07-30-process-enhancement-summary.md
+│   │   │   ├── 2025-08-19-design-system-revamp-plan.md
+│   │   │   ├── 2025-08-19-eligibility-questionnaire-master-implementation-plan.md
+│   │   │   ├── 2025-08-19-repository-conformance-testing-phase-plan.md
+│   │   │   ├── 2025-08-20-brainstorm.md
+│   │   │   ├── design-system-revamp-chain.md
+│   │   │   ├── eligibility-questionnaire-e2e-testing-chain.md
+│   │   │   ├── eligibility-questionnaire-implementation.md
+│   │   │   ├── historical-insights-extraction.md
+│   │   │   ├── repository-analysis-summary.md
+│   │   │   └── repository-conformance-chain.md
+│   │   ├── process-review
+│   │   │   ├── PROCESS_IMPROVEMENT_ANALYSIS.md
+│   │   │   ├── PROCESS_TREE_OF_THOUGHT.md
+│   │   │   └── REVIEW_AGENT_INTEGRATION_PLAN.md
+│   │   ├── requirements
+│   │   │   └── 2025-08-19-eligibility-questionnaire-requirements-specification.md
+│   │   ├── research
+│   │   │   ├── 2025-07-24-skiin-copy-research-summary-v7-part2.md
+│   │   │   ├── 2025-07-26-landing-page-v7-2-gap-analysis.md
+│   │   │   ├── 2025-07-28-brainstorm-evaluation-v7p2.md
+│   │   │   ├── 2025-07-28-change-log-v7p2.md
+│   │   │   ├── 2025-07-28-tree-of-thought-v7p2.md
+│   │   │   ├── 2025-07-28-website-copy-guide-v7p2.md
+│   │   │   ├── 2025-07-29-hero-section-redesign-plan.md
+│   │   │   ├── 2025-07-29-landing-page-redesign-research.md
+│   │   │   └── 2025-08-20-research.md
+│   │   ├── standards
+│   │   │   ├── 2025-08-19-enterprise-coding-standards.md
+│   │   │   └── 2025-08-19-performance-monitoring-standards.md
+│   │   ├── templates
+│   │   │   ├── 2025-08-19-phase-2-documentation-templates.md
+│   │   │   ├── Claude-template.md
+│   │   │   ├── Claude_process-template.md
+│   │   │   ├── conventions-template.md
+│   │   │   ├── design-system-template.md
+│   │   │   ├── documentation-guidelines.md
+│   │   │   ├── event-stream-template.md
+│   │   │   ├── generate-new-project-claude-context.md
+│   │   │   ├── nextjs-supabase-template.md
+│   │   │   └── todo-template.md
+│   │   ├── test-cleanup
+│   │   │   ├── root-test-files
+│   │   │   │   └── multilingual-audit-report.md
+│   │   │   ├── scripts
+│   │   │   │   ├── check-console-errors.js
+│   │   │   │   ├── debug-homepage.js
+│   │   │   │   ├── debug-v7-page.js
+│   │   │   │   ├── lighthouse-test.js
+│   │   │   │   ├── measure-performance.js
+│   │   │   │   ├── quick-visual-test.js
+│   │   │   │   ├── test-homepage-revamp.js
+│   │   │   │   ├── test-homepage-visual.js
+│   │   │   │   ├── test-mvcp-section.js
+│   │   │   │   ├── test-navigation-fix.js
+│   │   │   │   ├── test-theme-language.js
+│   │   │   │   ├── v7-2-text-verification.js
+│   │   │   │   ├── validate-translations.js
+│   │   │   │   ├── visual-inspection-v7-2.js
+│   │   │   │   ├── visual-test.js
+│   │   │   │   └── visual-testing-alternative.js
+│   │   │   ├── test-results
+│   │   │   │   ├── accessibility
+│   │   │   │   │   ├── accessibility-summary-report.md
+│   │   │   │   │   └── accessibility-violations-report.md
+│   │   │   │   ├── integration
+│   │   │   │   │   └── integration-test-summary.md
+│   │   │   │   ├── responsive-quick-Responsiv-20f59-sponsive-at-mobile-375x667--chromium
+│   │   │   │   │   └── error-context.md
+│   │   │   │   ├── responsive-quick-Responsiv-98ba3-nsive-at-desktop-1920x1080--chromium
+│   │   │   │   │   └── error-context.md
+│   │   │   │   ├── responsive-quick-Responsiv-b4bbd-ponsive-at-tablet-768x1024--chromium
+│   │   │   │   │   └── error-context.md
+│   │   │   │   ├── responsive-quick-Responsiv-d35d9--navigation-works-correctly-chromium
+│   │   │   │   │   └── error-context.md
+│   │   │   │   ├── day2-visual-performance-report.md
+│   │   │   │   └── day3-accessibility-integration-report.md
+│   │   │   ├── test-scripts
+│   │   │   │   └── accessibility-audit.js
+│   │   │   ├── visual-tests
+│   │   │   │   ├── responsive-quick.spec.ts
+│   │   │   │   └── visual-regression.spec.ts
+│   │   │   └── CLEANUP_REPORT.md
+│   │   ├── testing
+│   │   │   ├── 2025-08-20
+│   │   │   │   ├── ACCESSIBILITY_COMPLIANCE_REPORT.md
+│   │   │   │   ├── ACCESSIBILITY_REMEDIATION_SUMMARY.md
+│   │   │   │   ├── ELIGIBILITY_TESTING_COMPLETED_REPORT.md
+│   │   │   │   ├── ELIGIBILITY_TESTING_FINAL_REPORT.md
+│   │   │   │   ├── ELIGIBILITY_TESTING_REPORT.md
+│   │   │   │   ├── PHASE_3_5_FINAL_TESTING_REPORT.md
+│   │   │   │   ├── SECURITY_ASSESSMENT_REPORT.md
+│   │   │   │   └── TESTING_SUMMARY.md
+│   │   │   ├── 2025-07-26-manual-testing-checklist.md
+│   │   │   ├── 2025-07-26-navigation-test-results-puppeteer.md
+│   │   │   ├── 2025-07-26-navigation-test-results.md
+│   │   │   ├── 2025-07-26-navigation-testing-strategy.md
+│   │   │   ├── 2025-07-26-navigation-testing-summary.md
+│   │   │   ├── 2025-07-26-route-discrepancy-report.md
+│   │   │   ├── 2025-07-29-browser-compatibility-check.md
+│   │   │   ├── 2025-07-29-hero-responsive-test.md
+│   │   │   ├── 2025-08-19-comprehensive-testing-task-breakdown.md
+│   │   │   ├── 2025-08-19-phase3a-validation-report.md
+│   │   │   └── 2025-08-19-validation-framework.md
+│   │   ├── validation
+│   │   │   └── 2025-08-19-infrastructure-validation-procedures.md
+│   │   ├── SPEC_REGISTRY.md
+│   │   ├── migration-manifest.md
+│   │   └── theme-compliance-audit.md
+│   ├── 2025-11-21
+│   │   └── context-integration
+│   │       ├── AGENT_INSTRUCTIONS.md
+│   │       ├── CLAUDE_CONTEXT_INSTRUCTIONS.md
+│   │       ├── README.md
+│   │       └── enhanced-event-logging-summary.md
+│   ├── events
+│   │   ├── event-stream-archive-2025-08-21.md
+│   │   └── event-stream-archive-2025-08-22.md
+│   └── tests
+│       ├── 2025-08-22
+│       │   ├── OTP_BUGS_AND_RECOMMENDATIONS.md
+│       │   └── OTP_COMPREHENSIVE_TEST_REPORT.md
+│       └── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_ACCESSIBILITY_AUDIT.md
+├── context
+│   ├── checkpoints
+│   │   └── README.md
+│   ├── subagent-contexts
+│   │   ├── README.md
+│   │   └── TEMPLATE.md
+│   ├── CLAUDE_PROCESS.md
+│   ├── conventions.md
+│   ├── doc-ref.md
+│   ├── event-stream-api.py
+│   ├── event-stream.md
+│   ├── planning.md
+│   ├── project-index.md
+│   └── todo.md
+├── docs
+│   ├── analysis
+│   │   ├── GP-REFERRAL-TOT.md
+│   │   └── gp-referral-tot-summary.md
+│   ├── api
+│   │   ├── 2025-08-22-gp-referral-implementation-roadmap.md
+│   │   ├── 2025-08-22-gp-referral-security-compliance.md
+│   │   ├── 2025-08-22-gp-referral-technical-architecture.md
+│   │   ├── ROUTE_MAP.md
+│   │   └── gp-referral-best-practices.md
+│   ├── architecture
+│   │   ├── 2025-08-19-copy-variant-system-architecture.md
+│   │   ├── 2025-08-22-atomic-component-architecture.md
+│   │   ├── component-inventory.md
+│   │   ├── system-architecture.md
+│   │   └── visual-architecture.md
+│   ├── archive
+│   │   ├── 2025-01-22
+│   │   │   ├── 2025-01-22-comprehensive-update
+│   │   │   │   ├── CHANGES.md
+│   │   │   │   ├── REFLECTION_AND_REVIEW.md
+│   │   │   │   └── SKIIN_COPY_UPDATE_SPEC_FINAL.md
+│   │   │   ├── legacy
+│   │   │   │   ├── COPY_DOCUMENTS_REVIEW.md
+│   │   │   │   ├── IMPLEMENTATION_PLAN_v2.0.md
+│   │   │   │   ├── NEW-WEBSITE-UPDATE-SPECS.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── SKIIN_PROJECT_AUDIT_REPORT.md
+│   │   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md
+│   │   │   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md
+│   │   │   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md
+│   │   │   │   └── TECHNICAL_REQUIREMENTS_v2.0.md
+│   │   │   ├── v2-iterations
+│   │   │   │   └── 2025-01-21-initial-completion
+│   │   │   │       ├── SKIIN_WEBSITE_COPY_ENGLISH.md
+│   │   │   │       ├── SKIIN_WEBSITE_COPY_FRENCH.md
+│   │   │   │       └── SKIIN_WEBSITE_COPY_GERMAN.md
+│   │   │   ├── README.md
+│   │   │   └── V2-IMPLEMENTATION-COPY-TASK-CHECKLIST.md
+│   │   ├── 2025-07-25
+│   │   │   ├── old-status-reports
+│   │   │   │   ├── CURRENT_STATUS_2025-01-22.md
+│   │   │   │   ├── PROJECT_AUDIT_2025-01-18.md
+│   │   │   │   └── README.md
+│   │   │   ├── v2-documents
+│   │   │   │   ├── IMPLEMENTATION-PLAN-V2.md
+│   │   │   │   ├── PROJECT-OVERVIEW-V2.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── V2-POLISH-READINESS-REPORT.md
+│   │   │   │   ├── V2-RESEARCH-SUMMARY.md
+│   │   │   │   ├── V2_COPY_CLEANUP_AND_INTEGRATION_PLAN.md
+│   │   │   │   ├── V2_COPY_INTEGRATION_PLAN.md
+│   │   │   │   └── V2_COPY_TO_COMPONENT_MAPPING.md
+│   │   │   ├── v3-documents
+│   │   │   │   ├── README.md
+│   │   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH_v3.md
+│   │   │   │   └── UPDATE-WEBSITE-COPY-v3-Jul-22-2025.md
+│   │   │   ├── working_files
+│   │   │   │   ├── planning.md
+│   │   │   │   └── todo.md
+│   │   │   ├── README.md
+│   │   │   ├── archival-plan.md
+│   │   │   └── files-to-archive.md
+│   │   ├── 2025-07-26
+│   │   │   ├── working-files-cleanup
+│   │   │   │   ├── critical-homepage-fix-plan.md
+│   │   │   │   ├── home2-analysis.md
+│   │   │   │   ├── home2-v7-2-implementation-plan.md
+│   │   │   │   └── visual-inspection-plan.md
+│   │   │   ├── README.md
+│   │   │   └── event-stream-archive.md
+│   │   ├── 2025-07-28
+│   │   │   └── root-cleanup
+│   │   │       ├── 14-to-10-day-replacement-report.md
+│   │   │       ├── Change Log  v6p1.md
+│   │   │       ├── README.md
+│   │   │       ├── Research Summary v6p1.md
+│   │   │       ├── Website Copy Guide v6p1.md
+│   │   │       ├── brainstorm-evaluation-v6p1.md
+│   │   │       ├── planning-skiin-website-copy-v6p1.md
+│   │   │       └── tot-v6p1.md
+│   │   ├── 2025-08-19
+│   │   │   └── event-stream-archive.md
+│   │   ├── 2025-11-20
+│   │   │   └── event-stream-archive.md
+│   │   └── 2025-08-19-event-stream-archive.md
+│   ├── content
+│   │   ├── iterations
+│   │   │   ├── 2025-01-22-copy-update-v2
+│   │   │   │   ├── COPY_REVIEW_REPORT.md
+│   │   │   │   ├── CTA_PSYCHOLOGICAL_REVIEW.md
+│   │   │   │   ├── CULTURAL_SENSITIVITY_REPORT.md
+│   │   │   │   ├── MEDICAL_CLAIMS_REVIEW.md
+│   │   │   │   ├── PRICING_CONSISTENCY_REPORT.md
+│   │   │   │   └── V2_POLISH_AND_READINESS_REPORT.md
+│   │   │   ├── 2025-01-22-COPY_UPDATE_SPEC.md
+│   │   │   └── 2025-01-22-COPY_UPDATE_SPEC_V2.1.md
+│   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md
+│   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md
+│   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md
+│   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md
+│   ├── database-requirements-and-specs
+│   │   ├── migration-guide-v2.md
+│   │   ├── overview.md
+│   │   ├── schema-diagram.md
+│   │   ├── schema-specification-v2.md
+│   │   ├── specification-v2.md
+│   │   ├── technical-specifications.md
+│   │   └── updated_questionnaire_spec.md
+│   ├── deployment
+│   │   └── PRODUCTION_READINESS_REPORT.md
+│   ├── design
+│   │   ├── 2025-07-29-design-system-implementation-review.md
+│   │   ├── 2025-07-29-myant-violet-palette-implementation.md
+│   │   ├── 2025-07-30-design-token-usage-guide.md
+│   │   ├── 2025-08-19-eligibility-form-design-system.md
+│   │   ├── 2025-08-19-form-component-specifications.md
+│   │   ├── minimalist-component-library.md
+│   │   └── tokens.md
+│   ├── design-system
+│   │   ├── 2025-08-22-eligibility-workflow-atomic-components.md
+│   │   ├── PROTECTED_COMPONENTS_SPEC_v1.md
+│   │   ├── modern-design-system-spec.md
+│   │   ├── protected-components-usage.md
+│   │   └── shadcn-integration-guidelines.md
+│   ├── implementation
+│   │   └── 2025-08-22-6-stage-eligibility-workflow-implementation.md
+│   ├── invocation-chains
+│   │   └── gp-referral-implementation-summary.md
+│   ├── reports
+│   │   ├── 2025-08-22-GP-REFERRAL-BUSINESS-CASE.md
+│   │   ├── 2025-08-22-GP-REFERRAL-CEO-PRESENTATION-DECK.md
+│   │   ├── 2025-08-22-GP-REFERRAL-EXECUTIVE-SUMMARY.md
+│   │   ├── 2025-08-22-GP-REFERRAL-TECHNICAL-ARCHITECTURE-OVERVIEW.md
+│   │   ├── 2025-08-22-GP-REFERRAL-VISUAL-FLOWCHART.md
+│   │   ├── 2025-08-22-eligibility-questionnaire-quality-assessment-report.md
+│   │   ├── 2025-08-22-instruction-system-audit-report.md
+│   │   ├── 2025-08-22-instruction-system-optimization-summary.md
+│   │   ├── SUPABASE_INTEGRATION_COMPLETE.md
+│   │   ├── supabase-critical-issues-report.md
+│   │   └── supabase-database-validation-report.md
+│   ├── standards
+│   │   ├── 2025-08-22-accessibility-healthcare-compliance-research.md
+│   │   ├── 2025-08-22-architecture-i18n-database-standards-research.md
+│   │   ├── 2025-08-22-code-quality-security-standards.md
+│   │   ├── 2025-08-22-component-architecture-i18n-database-standards.md
+│   │   ├── 2025-08-22-performance-optimization-standards.md
+│   │   ├── 2025-08-22-react-18-best-practices-documentation.md
+│   │   ├── 2025-08-22-react-typescript-performance-standards-research.md
+│   │   ├── 2025-08-22-swiss-healthcare-regulatory-compliance.md
+│   │   ├── 2025-08-22-testing-frameworks-methodologies.md
+│   │   ├── 2025-08-22-testing-quality-security-standards-research.md
+│   │   ├── 2025-08-22-typescript-5-strict-mode-standards.md
+│   │   └── 2025-08-22-wcag-accessibility-compliance-standards.md
+│   ├── supabase_doc
+│   │   ├── bootstrap_nextjs_app_with_supabase_auth.md
+│   │   ├── database_supabase_declarative_database_schema.md
+│   │   ├── supabase_creating_rls_policies.md
+│   │   ├── supabase_database_create_function.md
+│   │   ├── supabase_database_create_migration.md
+│   │   ├── supabase_postgres_sql_style.md
+│   │   └── writing_supabase_edge_functions.md
+│   ├── AGENT_COMPLIANCE_CHECKLIST.md
+│   ├── documentation-guidelines.md
+│   ├── file-organization-framework.md
+│   ├── test-migration-plan.md
+│   └── testing-framework.md
+├── html
+│   ├── assets
+│   │   ├── index-D_ryMEPs.js
+│   │   └── index-X8b7Z_4p.css
+│   └── index.html
+├── presentation
+│   ├── minimal-process.html
+│   └── technical-process.html
+├── scripts
+│   ├── comprehensive-accessibility-audit.js
+│   ├── optimize-images.js
+│   ├── simplified-accessibility-audit.js
+│   ├── test-eligibility-visual.js
+│   ├── test-full-eligibility-flow.js
+│   └── test-supabase-auth.js
+├── src
+│   ├── api
+│   │   ├── eligibilityRoutes.ts
+│   │   ├── otpRoutes.ts
+│   │   ├── paymentRoutes.ts
+│   │   └── server.ts
+│   ├── components
+│   │   ├── about
+│   │   │   ├── LeadershipShowcase.tsx
+│   │   │   └── SwissHeritage.tsx
+│   │   ├── analytics
+│   │   │   ├── AnalyticsProvider.tsx
+│   │   │   ├── AnalyticsScripts.tsx
+│   │   │   ├── ConversionButton.tsx
+│   │   │   ├── CookieConsent.tsx
+│   │   │   └── HubSpotForm.tsx
+│   │   ├── auth
+│   │   │   └── MinimalOTPVerification.tsx
+│   │   ├── eligibility
+│   │   │   ├── atoms
+│   │   │   │   ├── EligibilityNextStepItem.tsx
+│   │   │   │   ├── EligibilityProgressBar.tsx
+│   │   │   │   └── EligibilityResultBadge.tsx
+│   │   │   ├── context
+│   │   │   │   └── EligibilityContext.tsx
+│   │   │   ├── data
+│   │   │   │   ├── swissHealthcareData.ts
+│   │   │   │   └── types.ts
+│   │   │   ├── molecules
+│   │   │   │   ├── EligibilityInsuranceInfo.tsx
+│   │   │   │   ├── EligibilityInsurerSelector.tsx
+│   │   │   │   ├── EligibilityNextStepsList.tsx
+│   │   │   │   ├── EligibilityResultIcon.tsx
+│   │   │   │   ├── EligibilityRiskFactorSelector.tsx
+│   │   │   │   └── EligibilitySymptomSelector.tsx
+│   │   │   ├── organisms
+│   │   │   │   ├── EligibilityFormContainer.tsx
+│   │   │   │   ├── EligibilityFormStep.tsx
+│   │   │   │   └── EligibilityResultCard.tsx
+│   │   │   ├── utils
+│   │   │   │   └── eligibilityCalculator.ts
+│   │   │   ├── EligibilityChecker.tsx
+│   │   │   ├── eligibility-questionnaire-comprehensive.test.ts
+│   │   │   └── index.ts
+│   │   ├── forms
+│   │   │   ├── eligibility
+│   │   │   │   ├── components
+│   │   │   │   │   ├── ContraindicationScreening.tsx
+│   │   │   │   │   ├── InsuranceModelSelector.tsx
+│   │   │   │   │   └── OTPVerification.tsx
+│   │   │   │   └── stages
+│   │   │   │       ├── CompletionStage.tsx
+│   │   │   │       ├── ContactAccountStage.tsx
+│   │   │   │       ├── DetailedInfoStage.tsx
+│   │   │   │       ├── EligibilityGateStage.tsx
+│   │   │   │       ├── InsuredReviewStage.tsx
+│   │   │   │       └── SelfPayStage.tsx
+│   │   │   ├── MinimalInsuranceSelector.tsx
+│   │   │   ├── MinimalPaymentForm.tsx
+│   │   │   └── SimpleInsuranceInput.tsx
+│   │   ├── home
+│   │   │   ├── CEOQuote.tsx
+│   │   │   ├── Care360Section.tsx
+│   │   │   ├── Care360Technology.tsx
+│   │   │   ├── Care360Vision.tsx
+│   │   │   ├── ClinicallyProvenTechSection.tsx
+│   │   │   ├── ComfortShowcase.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   ├── ContactForm.tsx
+│   │   │   ├── ContactSection.tsx
+│   │   │   ├── CtaSection.tsx
+│   │   │   ├── EligibilityChecker.tsx
+│   │   │   ├── EnhancedComparison.tsx
+│   │   │   ├── EnhancedFAQ.tsx
+│   │   │   ├── EnhancedTestimonials.tsx
+│   │   │   ├── FaqSection.tsx
+│   │   │   ├── FeaturesSection.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── HomePageTabs.tsx
+│   │   │   ├── HowItWorksSection.tsx
+│   │   │   ├── InsuranceCoverageSection.tsx
+│   │   │   ├── InsuranceSection.tsx
+│   │   │   ├── MVCPPreview.tsx
+│   │   │   ├── MedicalAdvisors.tsx
+│   │   │   ├── MvcpSection.tsx
+│   │   │   ├── NumbersSection.tsx
+│   │   │   ├── PricingSection.tsx
+│   │   │   ├── ProblemSolutionSection.tsx
+│   │   │   ├── ProcessFlow.tsx
+│   │   │   ├── ProductBenefit.tsx
+│   │   │   ├── ProductBenefitAccordion.tsx
+│   │   │   ├── ProductSection.tsx
+│   │   │   ├── RiskCardsSection.tsx
+│   │   │   ├── SKIINAdvantage.tsx
+│   │   │   ├── StatisticsCard.tsx
+│   │   │   ├── StatisticsShowcase.tsx
+│   │   │   ├── TechCarousel.tsx
+│   │   │   ├── TestimonialsSection.tsx
+│   │   │   ├── TestimonialsSlider.tsx
+│   │   │   └── VideoSection.tsx
+│   │   ├── landing
+│   │   │   ├── CircularTestimonialsSection.tsx
+│   │   │   ├── ClinicalEvidenceStats.tsx
+│   │   │   ├── ClinicalEvidenceViz.tsx
+│   │   │   ├── ComfortSection.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   ├── FullScreenQuote.tsx
+│   │   │   ├── HeroFullScreen.tsx
+│   │   │   ├── HeroMinimal.tsx
+│   │   │   ├── HeroV2025.tsx
+│   │   │   ├── HowSKIINCompares.tsx
+│   │   │   ├── HowSKIINWorks.tsx
+│   │   │   ├── HowSKIINWorksV2.tsx
+│   │   │   ├── InsuranceCoverageFlow.tsx
+│   │   │   ├── JourneyTimeline.tsx
+│   │   │   ├── MinimalBenefits.tsx
+│   │   │   ├── MinimalCTA.tsx
+│   │   │   ├── MinimalComparison.tsx
+│   │   │   ├── MinimalFeatures.tsx
+│   │   │   ├── MinimalHero.tsx
+│   │   │   ├── MinimalInsurance.tsx
+│   │   │   ├── MinimalPricing.tsx
+│   │   │   ├── MinimalProcess.tsx
+│   │   │   ├── MinimalStatistics.tsx
+│   │   │   ├── MinimalTechStack.tsx
+│   │   │   ├── MinimalTestimonials.tsx
+│   │   │   ├── SwissHealthInsurance.tsx
+│   │   │   ├── TestimonialsV2.tsx
+│   │   │   └── TimelineProcess.tsx
+│   │   ├── layout
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Navbar.test.tsx
+│   │   │   └── Navbar.tsx
+│   │   ├── partners
+│   │   │   ├── ClinicianResourcesHub.tsx
+│   │   │   ├── GPMvcpSection.tsx
+│   │   │   ├── PartnerCorporateSection.tsx
+│   │   │   └── PartnerTelemedSection.tsx
+│   │   ├── physicians
+│   │   │   ├── BenefitItem.tsx
+│   │   │   ├── Citation.tsx
+│   │   │   ├── DoctorQuote.tsx
+│   │   │   ├── TestimonialCard.tsx
+│   │   │   └── TrustBadges.tsx
+│   │   ├── protected
+│   │   │   ├── ContributingFactorCards.tsx
+│   │   │   ├── TabNavigation.tsx
+│   │   │   ├── TodayTab.tsx
+│   │   │   └── index.ts
+│   │   ├── test
+│   │   │   └── ThemeTest.tsx
+│   │   ├── tritest
+│   │   │   └── TriTestReport.tsx
+│   │   ├── ui
+│   │   │   ├── AnimatedCounter.tsx
+│   │   │   ├── AnimatedSection.tsx
+│   │   │   ├── FullScreenVideo.tsx
+│   │   │   ├── InteractiveBenefitCard.tsx
+│   │   │   ├── MyantLogo.tsx
+│   │   │   ├── ParallaxSection.tsx
+│   │   │   ├── ScrollProgress.tsx
+│   │   │   ├── ScrollToTop.tsx
+│   │   │   ├── SmartButton.tsx
+│   │   │   ├── accordion.tsx
+│   │   │   ├── alert-dialog.tsx
+│   │   │   ├── alert.tsx
+│   │   │   ├── aspect-ratio.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── breadcrumb.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── calendar.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── carousel.tsx
+│   │   │   ├── chart.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── circular-testimonials.tsx
+│   │   │   ├── collapsible.tsx
+│   │   │   ├── command.tsx
+│   │   │   ├── comparison-table.tsx
+│   │   │   ├── content-section.tsx
+│   │   │   ├── context-menu.tsx
+│   │   │   ├── copy-variant-selector.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── drawer.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── feature-grid.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── horizontal-scroll-carousel.tsx
+│   │   │   ├── hover-card.tsx
+│   │   │   ├── image-section.tsx
+│   │   │   ├── input-otp.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── medical-card.tsx
+│   │   │   ├── menubar.tsx
+│   │   │   ├── minimal-button.tsx
+│   │   │   ├── minimal-card.tsx
+│   │   │   ├── minimal-input.tsx
+│   │   │   ├── minimal-select.tsx
+│   │   │   ├── minimal-textarea.tsx
+│   │   │   ├── navigation-menu.tsx
+│   │   │   ├── pagination.tsx
+│   │   │   ├── popover.tsx
+│   │   │   ├── progress.tsx
+│   │   │   ├── progressive-card.tsx
+│   │   │   ├── progressive-section.tsx
+│   │   │   ├── radio-group.tsx
+│   │   │   ├── resizable.tsx
+│   │   │   ├── responsive-image.tsx
+│   │   │   ├── scroll-area.tsx
+│   │   │   ├── scroll-reveal-statistic.tsx
+│   │   │   ├── section-divider.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── sidebar.tsx
+│   │   │   ├── skeleton.tsx
+│   │   │   ├── slider.tsx
+│   │   │   ├── sonner.tsx
+│   │   │   ├── stat-card.tsx
+│   │   │   ├── swiss-quality.tsx
+│   │   │   ├── switch.tsx
+│   │   │   ├── table.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   ├── team-member.tsx
+│   │   │   ├── testimonial-scroll-carousel.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── theme-switcher.tsx
+│   │   │   ├── toast.tsx
+│   │   │   ├── toaster.tsx
+│   │   │   ├── toggle-group.tsx
+│   │   │   ├── toggle.tsx
+│   │   │   ├── tooltip.tsx
+│   │   │   ├── trust-badge.tsx
+│   │   │   └── use-toast.ts
+│   │   └── RouteRedirects.tsx
+│   ├── contexts
+│   │   ├── CopyVariantContext.tsx
+│   │   ├── LanguageContext.tsx
+│   │   └── ThemeContext.tsx
+│   ├── docs
+│   │   ├── ArchitectureOverview.md
+│   │   └── MultiLanguageSystem.md
+│   ├── hooks
+│   │   ├── use-mobile.tsx
+│   │   ├── use-toast.ts
+│   │   ├── useIntersectionObserver.ts
+│   │   ├── useScrollAnimation.ts
+│   │   ├── useThemeContent.ts
+│   │   └── useTranslation.ts
+│   ├── lib
+│   │   ├── analytics.ts
+│   │   ├── consentManager.ts
+│   │   ├── supabase.ts
+│   │   └── utils.ts
+│   ├── middleware
+│   │   └── securityMiddleware.ts
+│   ├── pages
+│   │   ├── about
+│   │   │   ├── Blog.tsx
+│   │   │   ├── Company.tsx
+│   │   │   ├── Compliance.tsx
+│   │   │   ├── Contact.tsx
+│   │   │   ├── MedicalBoard.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   └── Testimonials.tsx
+│   │   ├── how-it-works
+│   │   │   ├── Evidence.tsx
+│   │   │   ├── FAQ.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   ├── Process.tsx
+│   │   │   ├── Reimbursement.tsx
+│   │   │   └── Technology.tsx
+│   │   ├── legal
+│   │   │   ├── Cookies.tsx
+│   │   │   ├── Privacy.tsx
+│   │   │   └── Terms.tsx
+│   │   ├── partners
+│   │   │   ├── Cardiologists.tsx
+│   │   │   ├── Corporate.tsx
+│   │   │   ├── GeneralPractitioners.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   └── Telemedicine.tsx
+│   │   ├── solutions
+│   │   │   ├── 10DayHeartScreening.tsx
+│   │   │   └── Tritest.tsx
+│   │   ├── ComponentShowcase.tsx
+│   │   ├── EligibilityFlow.tsx
+│   │   ├── EligibilityTest.tsx
+│   │   ├── Home2.tsx
+│   │   ├── Home2Enhanced.tsx
+│   │   ├── HomeV7.tsx
+│   │   ├── Index.tsx
+│   │   ├── LandingPageV2025.tsx
+│   │   ├── MinimalistShowcase.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Physicians.tsx
+│   │   ├── RequestDemo.tsx
+│   │   └── TestSupabase.tsx
+│   ├── routes
+│   │   └── index.tsx
+│   ├── services
+│   │   ├── authService.test.ts
+│   │   ├── authService.ts
+│   │   ├── otpSecurityService.ts
+│   │   ├── paymentSecurityService.ts
+│   │   └── swissHealthcareService.ts
+│   ├── test
+│   │   └── setup.ts
+│   ├── translations
+│   │   ├── about
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── demo
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── eligibility
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── home
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── home2
+│   │   │   ├── en.ts
+│   │   │   └── index.ts
+│   │   ├── howItWorks
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── it
+│   │   │   ├── about.ts
+│   │   │   ├── demo.ts
+│   │   │   ├── eligibility.ts
+│   │   │   ├── home.ts
+│   │   │   ├── howItWorks.ts
+│   │   │   ├── legal.ts
+│   │   │   ├── notFound.ts
+│   │   │   ├── partners.ts
+│   │   │   ├── physicians.ts
+│   │   │   ├── solutions.ts
+│   │   │   └── ui.ts
+│   │   ├── legal
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── notFound
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── partners
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── physicians
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── solutions
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   └── ui
+│   │       ├── de.ts
+│   │       ├── en.ts
+│   │       └── fr.ts
+│   ├── types
+│   │   ├── analytics.d.ts
+│   │   └── backend.ts
+│   ├── utils
+│   │   ├── performance.ts
+│   │   └── routeTranslations.ts
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── supabase
+│   ├── edge-functions
+│   │   └── send-otp-email
+│   │       └── index.ts
+│   ├── functions
+│   │   └── otp-security-handler
+│   │       └── index.ts
+│   └── scripts
+│       └── supabase-setup-guide.md
+├── tests
+│   ├── config
+│   │   └── setup.ts
+│   ├── integration
+│   │   ├── accessibility.test.ts
+│   │   ├── otp-verification.test.ts
+│   │   └── performance.test.ts
+│   ├── unit
+│   │   ├── components
+│   │   │   └── ContactForm.test.tsx
+│   │   ├── hooks
+│   │   │   └── useTranslation.test.ts
+│   │   └── authService.test.ts
+│   └── README.md
+├── CLAUDE.md
+├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_REPORT.md
+├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_SPECIFICATION.md
+├── README.md
+├── RELEASE_NOTES.md
+├── WORKFLOWS.md
+├── eslint.config.js
+├── index.html
+├── postcss.config.js
+├── tailwind.config.ts
+├── test-eligibility-flow-frontend.js
+├── vite.config.ts
+└── vitest.config.ts

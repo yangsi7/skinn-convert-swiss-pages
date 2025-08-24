@@ -22,3 +22,52 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Documentation archives
+archive/
+docs/archive/
+# Test artifacts (never commit these)
+/archive/tests/
+/test-results/
+/test-scripts/
+*.test-results.json
+coverage/
+.nyc_output/
+playwright-report/
+playwright/.cache/
+test-screenshots/
+*.png.tmp
+*.spec.ts-snapshots/
+lighthouse-report/
+.lighthouseci/
+
+# Old test files (archived)
+accessibility-*.cjs
+accessibility-*.json
+*-audit-*.png
+*-test-report.md
+
+# Repository Organization Rules
+# ==============================
+
+# Logs (never commit)
+*.log
+dev.log
+dev_test.log
+/archive/logs/
+
+# Temporary files
+working_files/
+*.tmp
+*.bak
+*.swp
+
+# Forbidden root patterns (should be in proper directories)
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
+/*.webp
+/*.sql
+/planning.md
+/todo.md

@@ -1,6 +1,6 @@
-# Conventions.md v5.4
-**Last updated:** 2025-11-20 | **Purpose:** Coding, documentation, testing, CI/CD guidelines for SKIIN Switzerland
-**Default Theme:** S&W Design | **Default Homepage:** LandingPageV2025
+# Conventions.md v5.5
+**Last updated:** 2025-08-23 | **Purpose:** Coding, documentation, testing, CI/CD guidelines for SKIIN Switzerland
+**Default Theme:** Swiss Healthcare Design v2.0.0 | **Default Homepage:** LandingPageV2025
 
 ## 1. Project Structure
 
@@ -8,19 +8,32 @@
 ```
 repository/
 ├── src/                    # Source code
-├── working_files/          # Live artefacts (todo.md, planning.md, etc.)
+├── context/                # Working context files ONLY
 ├── docs/                   # All documentation
-│   ├── research/          # Research summaries
-│   ├── implementation/    # Technical guides
+│   ├── api/               # API specifications
+│   ├── architecture/      # System design
 │   ├── design/           # Design system
-│   ├── patterns/         # Reusable patterns
-│   ├── compliance/       # Legal/regulatory
+│   ├── reports/          # Analysis reports
 │   ├── archive/          # Superseded docs (YYYY-MM-DD)
 │   └── bugs/             # Bug tracking
+├── public/
+│   └── assets/
+│       ├── images/       # ALL images go here
+│       ├── videos/       # Video files
+│       └── icons/        # SVG icons
+├── supabase/              # Database files
+│   ├── migrations/       # SQL migrations
+│   ├── schemas/         # Schema definitions
+│   └── scripts/         # Database scripts
 └── tests/                # Test files
 ```
 
-**Rules:** Root clean (essential files only) | Docs in docs/ | Working files in working_files/ | Archive superseded to docs/archive/YYYY-MM-DD/
+**STRICT RULES:** 
+- Root: ≤15 config files ONLY (package.json, tsconfig.json, etc.)
+- NO images/SQL/logs in root - EVER
+- NO working_files/ directory - use context/
+- NO duplicate files across directories
+- Archive superseded to archive/YYYY-MM-DD/
 
 ### Naming Conventions
 - **Docs:** YYYY-MM-DD-name.md (kebab-case)
@@ -56,18 +69,34 @@ src/
 
 ### React Components
 - Pure functional components
-- ≤50 lines per component
+- ≤50 lines per component (STRICTLY ENFORCED for atomic components)
 - Typed props with defaults
-- Tailwind + shadcn/ui only
+- Tailwind + shadcn/ui + Swiss Healthcare Design System v2.0.0
 - TanStack Query for server state
 - Try/catch async with toast feedback
 
+### Atomic Component Architecture ✅ IMPLEMENTED
+**Component Hierarchy (Brad Frost Atomic Design)**
+- **Atoms (≤50 lines):** Single-purpose UI elements (buttons, inputs, labels)
+- **Molecules (≤75 lines):** Simple combinations of atoms (form fields, cards)
+- **Organisms (≤100 lines):** Complex UI sections (forms, navigation, headers)
+- **Templates:** Page layouts and structure
+- **Pages:** Specific instances of templates with real content
+
+**Swiss Healthcare Atomic Components:**
+- `StageHeader.tsx` (27 lines) - Stage navigation and progress indication
+- `StageFooter.tsx` (31 lines) - Form progression controls (Next/Back buttons)
+- `SymptomSelector.tsx` (43 lines) - Medical symptom selection interface
+- `FamilyHistoryQuestion.tsx` (39 lines) - Family history data collection
+- `EligibilityStatusAlert.tsx` (29 lines) - Status notifications and alerts
+- `NextStepsCard.tsx` (41 lines) - Post-completion guidance display
+
 ### Testing Requirements
-- TDD: Write tests first
-- >80% coverage for logic
-- Visual regression: 0.1% threshold
-- WCAG 2.1 AA compliance
-- Bug regression tests
+- **Backend**: TDD mandatory, unit tests with Vitest
+- **Frontend**: MCP Puppeteer for critical flows only
+- **Coverage**: 80% for services, 70% for utils
+- **No Scripts**: Agents use MCP tools, not test scripts
+- **Results**: Archived to /archive/tests/ (ephemeral)
 
 ## 3. Documentation Lifecycle
 
@@ -108,7 +137,16 @@ context7.create_entities([{
 - **Soft Blue-Teal:** Gentle wellness approach
 - **Myant Violet:** Bold innovation with violet accents
 
-### S&W Design Landing Page Colors
+### Swiss Healthcare Design System Colors (v2.0.0) ✅ ACTIVE
+**Primary Implementation for Eligibility Questionnaire & Medical Components**
+- **Deep Navy (#004C96):** `bg-[#004C96]` - Primary buttons, headers, focus states (7.5:1 contrast ratio)
+- **Light Blue (#5298F2):** `hover:bg-[#5298F2]` - Hover states, interactive elements (6.8:1 contrast)
+- **Violet Accent (#5549A6):** `bg-[#5549A6]` - Accent highlights, special badges (5.8:1 contrast)
+- **Beige Background (#EEE8E1):** `bg-[#EEE8E1]` - Soft backgrounds, card containers
+- **Charcoal Text (#6B7280):** `text-[#6B7280]` - Secondary text, descriptions
+- **Pure Black (#0D0D0D):** `text-[#0D0D0D]` - Primary text, high contrast elements
+
+### S&W Design Landing Page Colors (Legacy)
 - **Primary Blue (#5298F2):** `bg-lp-primary-blue` - CTAs
 - **Purple (#5549A6):** `bg-lp-purple` - Accents and comparison sections
 - **Dark Blue (#004C96):** `bg-lp-dark-blue` - Headlines
@@ -242,16 +280,27 @@ expect(screenshot).toMatchImageSnapshot({
 **Rules:** Never rename without approval | Maintain redirects | Test all languages
 
 ## 9. Forbidden Patterns
+
+### Code Patterns
 ❌ Never commit secrets
 ❌ Never use `any`
 ❌ Never ignore errors
 ❌ Never modify shadcn/ui
 ❌ Never skip tests
 ❌ Never hardcode colors
-❌ Never create root files
 ❌ Never leave TODOs
 ❌ Never merge without docs
 ❌ Never skip accessibility
+
+### File Organization Violations
+❌ NEVER place images in root (→ public/assets/images/)
+❌ NEVER place SQL files in root (→ supabase/)
+❌ NEVER commit log files (→ archive/logs/)
+❌ NEVER create working_files/ (→ context/)
+❌ NEVER duplicate context files
+❌ NEVER leave test results unarchived
+❌ NEVER scatter assets randomly
+❌ NEVER ignore file location rules
 
 
 ## 10. Memory Graph Schema

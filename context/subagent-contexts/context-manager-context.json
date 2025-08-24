@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-08-22T23:28:57.845645",
+  "last_event": "[2025-08-22 23:28] Action - [RCC-002] Invoked context-manager for Load form context (delegating to context-manager) | Phase: Context Gathering",
+  "agent_type": "context-manager",
+  "recent_events": [
+    "[2025-08-22 11:35] Action - [SEC-001] Invoked context-manager for Load bug context (delegating to context-manager) | Phase: Context Gathering",
+    "[2025-08-22 14:48] Action - [SEC-001] Invoked context-manager for Prime context for multistep fo (delegating to context-manager) | Phase: Context Gathering",
+    "[2025-08-22 16:33] Action - [SEC-001] Invoked context-manager for Gather eligibility form contex (delegating to context-manager) | Phase: Context Gathering",
+    "[2025-08-22 23:28] Action - [RCC-002] Invoked context-manager for Load form context (delegating to context-manager) | Phase: Context Gathering"
+  ]
+}

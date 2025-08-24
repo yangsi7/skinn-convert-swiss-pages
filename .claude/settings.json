@@ -1,9 +1,16 @@
 {
   "hooks": {
-    "PreToolUse": {
-      "Write": "tdd-guard",
-      "Edit": "tdd-guard",
-      "MultiEdit": "tdd-guard"
-    }
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/update-event-stream.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }

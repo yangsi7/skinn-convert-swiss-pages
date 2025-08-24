@@ -1,0 +1,426 @@
+{
+  "chain_specification": {
+    "spec_id": "CHAIN-ELIG-VERIFY-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-22",
+    "name": "Eligibility Questionnaire Verification & Completion Chain",
+    "scope": "End-to-end verification of eligibility form implementation with Supabase integration",
+    "estimated_duration": "3 hours",
+    "complexity": "High",
+    "critical_path": "Database deployment → Connection verification → Requirements compliance → Design validation"
+  },
+  
+  "current_state_analysis": {
+    "completed_components": [
+      "Database schema v2.0 (migrations 009, 010)",
+      "EligibilityFormV2 with 12 atomic components",
+      "Service layer with mock implementation",
+      "Branching logic and validation rules",
+      "OTP verification component integration"
+    ],
+    "pending_critical_tasks": [
+      "Deploy Supabase migrations to actual database",
+      "Replace mock service with real Supabase connection",
+      "Verify requirements compliance",
+      "Validate S&W Design system implementation",
+      "End-to-end integration testing"
+    ],
+    "risk_factors": [
+      "Database connection not established",
+      "Mock data masking potential issues",
+      "Design system compliance untested",
+      "Security vulnerabilities in production"
+    ]
+  },
+  
+  "execution_phases": [
+    {
+      "phase_id": "P1",
+      "name": "Database Setup & Verification",
+      "execution_type": "sequential",
+      "estimated_time": "45 minutes",
+      "critical": true,
+      "agents": [
+        {
+          "agent": "supabase-architect",
+          "self_prime": true,
+          "description": "Analyze current database state and migration readiness",
+          "context_brief": "Migrations 009/010 created but not deployed, mock Supabase in use",
+          "expected_output": "Database deployment strategy with rollback plan",
+          "estimated_time": "15 minutes",
+          "validation_criteria": [
+            "All migration files valid SQL",
+            "RLS policies properly defined",
+            "Functions and triggers verified"
+          ]
+        },
+        {
+          "agent": "supabase-implementation-engineer",
+          "self_prime": true,
+          "description": "Deploy database migrations and verify connection",
+          "context_brief": "Execute migrations 009_schema_v2_consolidation.sql and 010_business_logic_functions.sql",
+          "expected_output": "Deployed database with confirmed connection",
+          "estimated_time": "20 minutes",
+          "dependencies": ["supabase-architect"],
+          "side_effects": [
+            "Creates production database tables",
+            "Establishes RLS policies",
+            "Deploys edge functions"
+          ],
+          "rollback_procedure": "DROP SCHEMA IF EXISTS CASCADE; restore from backup"
+        },
+        {
+          "agent": "testing-qa-agent",
+          "self_prime": true,
+          "description": "Verify database connectivity and basic operations",
+          "context_brief": "Test CRUD operations, RLS policies, and function execution",
+          "expected_output": "Database verification report",
+          "estimated_time": "10 minutes",
+          "dependencies": ["supabase-implementation-engineer"]
+        }
+      ]
+    },
+    
+    {
+      "phase_id": "P2",
+      "name": "Requirements & Design Compliance Verification",
+      "execution_type": "parallel",
+      "estimated_time": "30 minutes",
+      "agents": [
+        {
+          "agent": "requirements-spec-agent",
+          "self_prime": true,
+          "parallel_group": "compliance",
+          "description": "Verify form against updated_questionnaire_spec.md",
+          "context_brief": "Check all questions, branching logic, and data collection requirements",
+          "expected_output": "Requirements compliance matrix with gap analysis",
+          "estimated_time": "20 minutes",
+          "validation_scope": [
+            "All 20+ questions implemented",
+            "Branching logic matches specification",
+            "Data fields align with database schema",
+            "Swiss insurance integration points"
+          ]
+        },
+        {
+          "agent": "design-system-architect",
+          "self_prime": true,
+          "parallel_group": "compliance",
+          "description": "Validate S&W Design system implementation",
+          "context_brief": "Verify colors, spacing, typography, and component patterns",
+          "expected_output": "Design compliance report with visual screenshots",
+          "estimated_time": "20 minutes",
+          "validation_scope": [
+            "S&W Design color palette usage",
+            "Component spacing and typography",
+            "Mobile responsiveness (375px+)",
+            "Accessibility standards (WCAG AA)"
+          ]
+        },
+        {
+          "agent": "repository-conformance-agent",
+          "self_prime": true,
+          "parallel_group": "compliance",
+          "description": "Verify code conventions and atomic component structure",
+          "context_brief": "Check ≤50 line rule, file organization, and coding standards",
+          "expected_output": "Code conformance report",
+          "estimated_time": "15 minutes",
+          "validation_scope": [
+            "All components ≤50 lines",
+            "Proper file organization",
+            "TypeScript strict mode compliance",
+            "No hardcoded values"
+          ]
+        }
+      ],
+      "synchronization_points": [
+        {
+          "name": "Compliance Check Complete",
+          "condition": "All three compliance checks finished",
+          "timeout": "35 minutes"
+        }
+      ]
+    },
+    
+    {
+      "phase_id": "P3",
+      "name": "Service Layer Integration",
+      "execution_type": "sequential",
+      "estimated_time": "45 minutes",
+      "agents": [
+        {
+          "agent": "backend-developer",
+          "self_prime": true,
+          "description": "Replace mock service with real Supabase integration",
+          "context_brief": "Update eligibilityService.ts to use actual Supabase client",
+          "expected_output": "Fully integrated service layer specification",
+          "estimated_time": "25 minutes",
+          "implementation_tasks": [
+            "Remove mock data and delays",
+            "Implement real Supabase queries",
+            "Add proper error handling",
+            "Implement retry logic",
+            "Add connection pooling"
+          ]
+        },
+        {
+          "agent": "frontend-developer",
+          "self_prime": true,
+          "description": "Update form components for real data flow",
+          "context_brief": "Ensure FormContext properly handles async operations and errors",
+          "expected_output": "Updated component integration specification",
+          "estimated_time": "20 minutes",
+          "dependencies": ["backend-developer"],
+          "implementation_tasks": [
+            "Add loading states for API calls",
+            "Implement error boundaries",
+            "Add success/failure notifications",
+            "Update form submission flow"
+          ]
+        }
+      ]
+    },
+    
+    {
+      "phase_id": "P4",
+      "name": "Security & Performance Validation",
+      "execution_type": "parallel",
+      "estimated_time": "30 minutes",
+      "agents": [
+        {
+          "agent": "testing-qa-agent",
+          "self_prime": true,
+          "parallel_group": "validation",
+          "description": "Run security vulnerability scans",
+          "context_brief": "Focus on OTP verification, data validation, and injection attacks",
+          "expected_output": "Security audit report",
+          "estimated_time": "25 minutes",
+          "test_scope": [
+            "SQL injection prevention",
+            "XSS protection",
+            "CSRF token validation",
+            "Rate limiting on OTP",
+            "Input sanitization"
+          ]
+        },
+        {
+          "agent": "testing-qa-agent",
+          "self_prime": true,
+          "parallel_group": "validation",
+          "description": "Performance benchmarking and optimization",
+          "context_brief": "Measure load times, API response times, and bundle size",
+          "expected_output": "Performance metrics report",
+          "estimated_time": "20 minutes",
+          "metrics_to_measure": [
+            "Initial page load time",
+            "Form step transition speed",
+            "API response times",
+            "Bundle size analysis",
+            "Memory usage patterns"
+          ]
+        }
+      ]
+    },
+    
+    {
+      "phase_id": "P5",
+      "name": "End-to-End Integration Testing",
+      "execution_type": "sequential",
+      "estimated_time": "30 minutes",
+      "critical": true,
+      "agents": [
+        {
+          "agent": "testing-qa-agent",
+          "self_prime": true,
+          "description": "Complete user journey testing",
+          "context_brief": "Test all paths: insured, self-pay, edge cases",
+          "expected_output": "E2E test results with screenshots",
+          "estimated_time": "30 minutes",
+          "test_scenarios": [
+            {
+              "name": "Insured user path",
+              "steps": ["Contact info", "Insurance selection", "Eligibility gate", "Detailed info", "Review", "OTP", "Completion"]
+            },
+            {
+              "name": "Self-pay user path",
+              "steps": ["Contact info", "No insurance", "Eligibility gate", "Payment info", "Review", "Completion"]
+            },
+            {
+              "name": "Edge cases",
+              "steps": ["Validation errors", "Network failures", "Session timeout", "Back navigation"]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "phase_id": "P6",
+      "name": "Documentation & Knowledge Capture",
+      "execution_type": "parallel",
+      "estimated_time": "20 minutes",
+      "agents": [
+        {
+          "agent": "documentation-maintainer",
+          "self_prime": true,
+          "parallel_group": "documentation",
+          "description": "Update all implementation documentation",
+          "context_brief": "Document final architecture, API endpoints, and deployment",
+          "expected_output": "Complete documentation package",
+          "estimated_time": "20 minutes"
+        },
+        {
+          "agent": "graph-memory-agent",
+          "self_prime": true,
+          "parallel_group": "documentation",
+          "description": "Capture implementation knowledge in graph",
+          "context_brief": "Store component relationships, API structure, and decisions",
+          "expected_output": "Knowledge graph updates",
+          "estimated_time": "15 minutes"
+        }
+      ]
+    }
+  ],
+  
+  "conditional_logic": [
+    {
+      "condition": "Database deployment fails",
+      "if_true": {
+        "action": "Halt chain execution",
+        "invoke_agents": ["supabase-architect"],
+        "tasks": ["Debug migration issues", "Create hotfix"],
+        "estimated_additional_time": "30 minutes"
+      }
+    },
+    {
+      "condition": "Critical security vulnerability found",
+      "if_true": {
+        "action": "Priority fix before continuing",
+        "invoke_agents": ["backend-developer", "frontend-developer"],
+        "tasks": ["Patch vulnerability", "Re-test security"],
+        "estimated_additional_time": "45 minutes"
+      }
+    },
+    {
+      "condition": "Design compliance < 80%",
+      "if_true": {
+        "action": "Design remediation",
+        "invoke_agents": ["design-system-architect", "frontend-developer"],
+        "tasks": ["Update components", "Fix styling issues"],
+        "estimated_additional_time": "30 minutes"
+      }
+    }
+  ],
+  
+  "validation_gates": [
+    {
+      "gate_id": "G1",
+      "after_phase": "P1",
+      "validation_criteria": [
+        "Database migrations successfully deployed",
+        "All tables and functions created",
+        "Supabase connection verified",
+        "RLS policies active"
+      ],
+      "failure_action": "Abort chain - fix database issues first"
+    },
+    {
+      "gate_id": "G2",
+      "after_phase": "P2",
+      "validation_criteria": [
+        "Requirements compliance >= 95%",
+        "Design compliance >= 90%",
+        "Code conventions 100% met"
+      ],
+      "failure_action": "Continue with remediation tasks"
+    },
+    {
+      "gate_id": "G3",
+      "after_phase": "P4",
+      "validation_criteria": [
+        "No critical security vulnerabilities",
+        "Performance metrics within targets",
+        "Load time < 2.5s",
+        "API response < 500ms"
+      ],
+      "failure_action": "Block production deployment"
+    }
+  ],
+  
+  "resource_optimization": {
+    "token_budget": {
+      "total_estimated": "25000 tokens",
+      "per_phase_breakdown": {
+        "P1_database": "4000 tokens",
+        "P2_compliance": "6000 tokens",
+        "P3_integration": "5000 tokens",
+        "P4_validation": "4000 tokens",
+        "P5_testing": "4000 tokens",
+        "P6_documentation": "2000 tokens"
+      }
+    },
+    "parallel_execution_opportunities": {
+      "P2": "3 agents run concurrently - saves 30 minutes",
+      "P4": "2 validation tracks - saves 20 minutes",
+      "P6": "Documentation parallel with other non-blocking tasks"
+    },
+    "checkpoint_strategy": {
+      "checkpoints": ["P1-database-ready", "P3-integration-complete", "P5-testing-done"],
+      "recovery_time": "5 minutes per checkpoint"
+    }
+  },
+  
+  "deliverables": {
+    "primary": [
+      "Fully deployed Supabase database with v2.0 schema",
+      "Integrated eligibility form with real backend",
+      "Complete test coverage report",
+      "Security audit certification"
+    ],
+    "documentation": [
+      "API endpoint documentation",
+      "Database schema documentation",
+      "Component architecture guide",
+      "Deployment runbook"
+    ],
+    "metrics": [
+      "Requirements compliance score",
+      "Design system compliance score",
+      "Performance benchmarks",
+      "Security assessment score"
+    ]
+  },
+  
+  "success_criteria": [
+    "Database fully operational with zero migration errors",
+    "All form paths working with real data",
+    "Zero critical security vulnerabilities",
+    "Performance targets met (LCP < 2.5s)",
+    "Requirements compliance >= 95%",
+    "Design compliance >= 90%",
+    "All components <= 50 lines",
+    "Documentation complete and accurate"
+  ],
+  
+  "risk_mitigation": {
+    "high_risk_areas": [
+      {
+        "area": "Database deployment",
+        "mitigation": "Test migrations in staging first, maintain rollback scripts"
+      },
+      {
+        "area": "Service integration",
+        "mitigation": "Implement circuit breakers and fallback mechanisms"
+      },
+      {
+        "area": "Security vulnerabilities",
+        "mitigation": "Run security scans before each deployment"
+      }
+    ],
+    "contingency_plans": [
+      "Rollback database if critical issues found",
+      "Revert to mock service if integration fails",
+      "Hotfix deployment process ready"
+    ]
+  }
+}

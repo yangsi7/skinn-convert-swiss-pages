@@ -10,32 +10,68 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 3. **Think–Act–Observe Loop:** Within each phase and task, the orchestrator follows a ReAct‑style loop: think (analyse current state), act (invoke subagent/tool), observe (interpret results) and reflexion (self‑critique or review invocation) before iterating.
 
-4. **Context & Memory Management:** Context is loaded via the context-manager at each phase start and summarised/pruned by the graph-memory-agent after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it.
+4. **Context & Memory Management:** Context follows a structured approach with PROJECT_INDEX.json as the primary navigation system. Context is loaded via the context-manager at each phase start and summarised/pruned by the graph-memory-agent after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it. **Progressive Context Strategy**: Load PROJECT_INDEX.json (~15KB) first for architectural awareness, then explore specific areas via targeted context extraction (~30KB per area), maintaining <100KB total context per session. Use Serena MCP tools for symbol-level understanding when needed.
 
 5. **Safety & Compliance:** External data processing, code execution or operations with side effects require validation. User confirmation is required for side‑effect actions.
 
 6. **Iteration Caps & Timeouts:** Each phase has default iteration limits (e.g. three research iterations per topic, five brainstorming revisions). The orchestrator monitors loops and defers or summarises tasks when limits are reached. Timeouts prevent indefinite waiting on tool calls.
 
-7. **Documentation Lifecycle:** Documents progress through draft → review → approved → delivered → archived states. The documentation-maintainer manages updates, versioning and indexing in doc-ref.md. Superseded documents are archived in docs/archive/YYYY-MM-DD/.
+7. **Documentation Lifecycle:** Documents follow strict guidelines per docs/documentation-guidelines.md. Working documents live in context/, reference docs in docs/. Documents progress through creation → active → archive → deletion phases. The documentation-maintainer enforces standards, manages updates, and archives unused docs after 7 days to archive/YYYY-MM-DD/.
 
-## Phase 1 – Context Gathering
+## Phase 1 – Context Gathering (MANDATORY FIRST PHASE)
 
-**Goal:** Capture the user's intent and gather all relevant information within the context window.
+**Goal:** Capture the user's intent, detect workflows, and gather all relevant information.
 
-**Triggers:** Session start; new user request; start of a new project or task; outdated context; after major plan updates.
+**Automatic Triggers:** 
+- ⚡ ANY new user message
+- ⚡ Session start
+- ⚡ Context older than 1 hour
+- ⚡ After workflow completion
 
-**Steps:** 
-1. **Parse the user's message** to identify explicit and implicit goals. If critical details are missing, ask targeted clarification questions. 
-2. **Call the context-manager** to load the latest versions of planning.md, todo.md, conventions.md, event-stream.md, doc-ref.md and any relevant project artefacts. Use the graph-memory-agent to fetch related entities (tasks, phases, files, requirements) from the knowledge graph. 
-3. **Summarise the context** into a concise brief tailored to the next subagent. Apply context engineering: select only relevant history, compress long logs and isolate unrelated scratchpads. Persist the brief via the graph-memory-agent and log a KnowledgeCapture event. 
-4. **Identify missing information** and prepare follow‑up questions or research requests. If user clarification is needed, pause and ask. 
-5. **Log events:** record a UserMessage for the new request, a PhaseChange to Context Gathering, and a KnowledgeCapture for the context summary.
+**Mandatory Actions:**
+1. Check WORKFLOWS.md for keyword matches
+2. Run `/prime` to ensure PROJECT_NAVIGATOR.json exists
+3. Load PROJECT_INDEX.json if available
+4. Check memory MCP for relevant context
+
+**Mandatory Steps:** 
+1. **Detect workflow triggers** by checking message against WORKFLOWS.md keyword matrix:
+   ```javascript
+   const triggers = {
+     'bug-fix': ['bug', 'error', 'broken', 'fix', 'issue'],
+     'database-migration': ['database', 'schema', 'migration', 'table'],
+     'feature-implementation': ['implement', 'create', 'feature', 'component'],
+     'performance-optimization': ['slow', 'performance', 'optimize'],
+     'security-audit': ['security', 'vulnerability', 'audit'],
+     'deep-research': ['research', 'investigate', 'explore']
+   };
+   ```
+2. **Self-prime the orchestrator**:
+   - Run `/prime` command
+   - Load PROJECT_INDEX.json
+   - Check memory MCP: `mcp__memory__search_nodes('project')`
+3. **Call context-manager with self_prime: true** to load context files. **Progressive Context Loading Strategy**: Choose the appropriate indexing approach based on project size and needs:
+   - For smaller projects or full analysis: Use `/index` command to create PROJECT_INDEX.json with complete function signatures, classes, imports, and call graphs
+   - For large projects (2000+ files): Use `/explore` command to create PROJECT_NAVIGATOR.json with progressive loading system and .claude_cache/ for selective exploration
+   - Run `/prime` to get navigation instructions and ensure navigator exists
+   Extract only relevant sections for the current task (e.g., frontend-developer needs `directories['src/components']`, database-supabase-agent needs `supabase/` structure). Use the graph-memory-agent to fetch related entities (tasks, phases, files, requirements) from the knowledge graph. Apply context budget management: target <100KB total per session. 
+3. **Update indexing** if any structural changes have occurred since last update. The hooks automatically update both PROJECT_INDEX.json and PROJECT_NAVIGATOR.json when files are edited. For major structural changes, re-run the appropriate indexing command.
+4. **Summarise the context** into a concise brief tailored to the next subagent. Apply context engineering: select only relevant history, compress long logs and isolate unrelated scratchpads. **Structured Brief Format**: Include relevant PROJECT_INDEX.json sections, current task context, related files/symbols, and dependencies. For parallel execution, create isolated context files in `context/subagent-contexts/` to prevent context pollution. Persist the brief via the graph-memory-agent and log a KnowledgeCapture event. 
+5. **Identify missing information** and prepare follow‑up questions or research requests. If user clarification is needed, pause and ask. 
+6. **Log events:** record a UserMessage for the new request, a PhaseChange to Context Gathering, and a KnowledgeCapture for the context summary.
 
 **Outputs:** Problem statement; context summary; updated context files; new entities/relations in the knowledge graph.
 
 **Loop condition:** If goals or context remain unclear, repeat Steps 1–4. Otherwise, transition to Analysis.
 
-**Subagents Invoked:** context-manager, graph-memory-agent.
+**Subagents Invoked:** 
+- context-manager (self_prime: true)
+- graph-memory-agent (self_prime: true)
+
+**Quality Gate:** 
+- ✅ Workflow detection logged
+- ✅ Context loaded < 100KB
+- ✅ Self-priming completed
 
 ## Phase 2 – Analysis
 
@@ -120,28 +156,51 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 ## Phase 6 – Execution
 
-**Goal:** Implement the tasks according to the plan while maintaining quality, security and context fidelity.
+**Goal:** Implement tasks with mandatory quality gates and automatic documentation.
 
-**Triggers:** Approved plan with pending tasks; resumption after a pause; arrival of new tasks during execution.
+**Automatic Triggers:** 
+- ⚡ Approved plan exists with pending tasks
+- ⚡ Workflow execution phase reached
+- ⚡ User explicitly requests implementation
 
-**Steps:** 
-1. **Iterate through tasks** in context/todo.md from highest priority or first in sequence. For each task: 
-   a. **Determine the workflow:** check WORKFLOWS.md to see if the task matches a known workflow. If yes, invoke that workflow. If no, use the invocation-chain-generator to suggest an optimal subagent sequence. For simple tasks, invoke the appropriate subagent directly. 
-   b. **Invoke the appropriate subagent(s)** for the task. For example: 
-      - Call frontend-developer for UI implementation
-      - Call backend-developer for API logic
-      - Call database-supabase-agent for schema changes
-      - Call testing-qa-agent for running tests
-      - Call design-system-architect for UI compliance
-      - Call documentation-maintainer for docs updates
+**Mandatory Steps:** 
+1. **For EVERY task in todo.md:**
+   a. **MUST check workflow:** Match task against WORKFLOWS.md triggers
+   b. **MUST self-prime agents:** Include `self_prime: true` in ALL invocations
+   c. **MUST track progress:** Update todo.md status immediately 
+   d. **Invoke agents with mandatory self-priming:**
+      ```yaml
+      - frontend-developer: 
+          self_prime: true
+          context: PROJECT_INDEX.json#components
+      - backend-developer:
+          self_prime: true  
+          context: PROJECT_INDEX.json#api
+      - supabase-architect: # For design
+          self_prime: true
+          context: PROJECT_INDEX.json#database
+      - supabase-implementation-engineer: # For implementation
+          self_prime: true
+          implements: supabase-architect output
+      - testing-qa-agent:
+          self_prime: true
+          validate: implementation
+      ```
    c. **Follow cross‑cutting best practices** within each subagent invocation: 
       - Enforce the S&W Design system and conventions
       - Adhere to coding standards (TypeScript strict, atomic components)
       - Validate inputs and outputs for security
-      - Write tests first (TDD) and run all relevant tests
+      - Write unit tests first (TDD) for backend logic
+      - Use MCP Puppeteer tools for frontend testing
       - Use Serena MCP tools for precise code manipulation
    d. **If failures occur** (e.g. tests fail, accessibility issues), log an Error event, attempt a fix and re‑run tests. Only proceed when the task's acceptance criteria are satisfied. 
-   e. **Update context:** mark the task as complete in todo.md, update the plan as needed, link the implemented component or document to the task in the knowledge graph. Log a PlanUpdate event. 
+   e. **MANDATORY post-implementation:**
+      - ⚡ Invoke documentation-maintainer (self_prime: true)
+      - ⚡ Update todo.md (mark complete)
+      - ⚡ Update planning.md (reflect changes)
+      - ⚡ Update event-stream.md (log all actions)
+      - ⚡ Run `mcp__memory__create_entities()` for new components
+      - ⚡ Archive obsolete docs to archive/ 
 2. **Synchronise context**: after each task, update planning and knowledge graph. Add any new tasks discovered during execution to todo.md and plan mini‑cycles if needed. 
 3. **Log events** continuously: Action (tool usage), Observation (outcomes), PlanUpdate (status changes), KnowledgeCapture (new insights).
 
@@ -149,7 +208,21 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 **Loop condition:** Continue until all tasks in todo.md for the current project or milestone are completed. If a contradiction or missing piece of information blocks execution, pause and return to Research or Planning as needed.
 
-**Subagents Invoked:** frontend-developer, backend-developer, database-supabase-agent, testing-qa-agent, design-system-architect, documentation-maintainer, graph-memory-agent.
+**Subagents Invoked (ALL with self_prime: true):** 
+- frontend-developer
+- backend-developer  
+- supabase-architect (design)
+- supabase-implementation-engineer (implementation)
+- testing-qa-agent
+- design-system-architect
+- documentation-maintainer (MANDATORY after implementation)
+- graph-memory-agent
+
+**Quality Gates:**
+- ✅ All agents self-primed
+- ✅ Documentation updated
+- ✅ Tests passing
+- ✅ Context files current
 
 ## Phase 7 – Review & Reflection
 
@@ -193,9 +266,9 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 **Subagents Invoked:** documentation-maintainer, graph-memory-agent.
 
-## Continuous & Cross‑Cutting Activities
+## Mandatory Continuous Enforcement
 
-Throughout all phases, several continuous activities occur:
+**THESE MUST OCCUR AUTOMATICALLY:**
 
 * **Safety & Compliance:** Sanitise all external inputs, verify information, secure secrets and enforce user confirmation for side‑effect operations.
 
@@ -203,11 +276,91 @@ Throughout all phases, several continuous activities occur:
 
 * **Memory & Knowledge Graph Management:** The graph-memory-agent persists new entities/relations and ensures schema compliance. Summarisation and archival occur when context or memory thresholds are exceeded.
 
-* **Documentation & Conventions:** The documentation-maintainer updates relevant docs whenever code, plans or standards change. Conventions are enforced through the design-system-architect, testing-qa-agent and by referencing conventions.md.
+* **Automatic Documentation Protocol:** 
+  - Trigger: AFTER EVERY code change, bug fix, or feature
+  - Action: Invoke documentation-maintainer with self_prime: true
+  - Verify: Check doc-ref.md updated, obsolete docs archived
+  - Frequency: 100% of implementations
 
-* **Context Engineering:** The context-manager applies write/select/compress/isolate techniques for each agent call. Summaries and context briefs are stored in memory and attached to entities.
+* **Workflow Detection Protocol:**
+  - Trigger: EVERY user message
+  - Action: Check against WORKFLOWS.md triggers
+  - Log: Record detection result in event-stream.md
+  - Fallback: Use Agent Selection Matrix if no match
+
+* **Self-Priming Protocol:**
+  - Trigger: EVERY agent invocation
+  - Action: Include self_prime: true parameter
+  - Verify: Agent runs /prime and loads context
+  - Track: Log violations as errors
+
+* **Project Index Maintenance:** The project-index.md file MUST be updated after any structural changes to the repository. This includes new directories, major components, service changes, or dependency updates. Use tree command to capture structure and document component relationships.
+
+* **Context Management Protocol:**
+  - Limit: Keep under 100KB per session
+  - Method: Load PROJECT_INDEX.json first (~15KB)
+  - Isolate: Use context/subagent-contexts/ for parallel tasks
+  - Clean: Delete isolated contexts after completion
+  - Archive: Move obsolete context to archive/ after 7 days **Progressive Context Loading**: Load PROJECT_INDEX.json first (~15KB), extract relevant sections per agent domain (e.g., `src/components/` for frontend-developer, `supabase/` for database-supabase-agent), use Serena MCP tools for symbol-level details when needed. Context budget: <100KB total per session. Summaries and context briefs are stored in memory and attached to entities.
 
 * **Workflow Maintenance:** Workflows and invocation chains are updated or added when new patterns emerge. The workflow gateway uses these to streamline common tasks.
+
+## Context Navigation Quick Reference
+
+For efficient context management across the large codebase (2000+ files), follow these structured patterns:
+
+### Indexing Commands
+
+| Command | Creates | Purpose | Best For |
+|---------|---------|---------|----------|
+| `/index` | PROJECT_INDEX.json | Full codebase analysis with function signatures, classes, imports, call graphs | Complete analysis, smaller projects |
+| `/explore` | PROJECT_NAVIGATOR.json + .claude_cache/ | Progressive exploration with smart caching | Large projects (2000+ files), selective loading |
+| `/prime` | Instructions + ensures navigator | Shows navigation instructions, creates navigator if missing | Getting started with exploration |
+
+### Initial Setup (All Agents)
+1. **Choose indexing approach**: 
+   - For full analysis: Check for PROJECT_INDEX.json, run `/index` if missing
+   - For progressive loading: Check for PROJECT_NAVIGATOR.json, run `/prime` or `/explore` if missing
+2. **Load appropriate index**: 
+   - `@PROJECT_INDEX.json` for monolithic index (~MB for large projects)
+   - `@PROJECT_NAVIGATOR.json` for lightweight navigator (~15-20KB)
+3. **Extract relevant sections**: Use domain-specific patterns below
+
+### Domain-Specific Context Patterns
+- **frontend-developer**: Focus on `directories['src/components']`, `files[filename].functions` for component APIs, `dependency_graph` for imports
+- **backend-developer**: Focus on API routes structure, service method signatures, service layer dependencies  
+- **database-supabase-agent**: Extract `supabase/` directory, migration files, schema definitions
+- **testing-qa-agent**: Use `files` section for test patterns, `dependency_graph` for coverage areas
+- **documentation-maintainer**: Focus on `documentation_map`, `directory_purposes`, all `.md` files
+
+### Context Budget Management
+
+#### PROJECT_INDEX.json (Monolithic)
+- **Full index load**: Can be large (MB+ for big projects)
+- **Contains**: All functions, classes, imports, call graphs upfront
+- **Strategy**: Load once, query specific sections as needed
+
+#### PROJECT_NAVIGATOR.json (Progressive)
+- **Navigator load**: ~15-20KB lightweight index
+- **Cache exploration**: ~30KB per domain via .claude_cache/
+- **Total target**: <100KB per session
+- **Progressive loading**: Expand context only when needed using `/explore [path] [depth]`
+
+### Automatic Index Updates
+
+Both indexing systems are automatically maintained via hooks:
+- **PostToolUse hooks** (on Write/Edit/MultiEdit):
+  - `update_index.py` - Updates PROJECT_INDEX.json with changes
+  - `update_navigator.py` - Updates PROJECT_NAVIGATOR.json and refreshes affected cache directories
+- **Stop hook**:
+  - `reindex_if_needed.py` - Checks if full reindex is needed (staleness, missing features)
+
+### Best Practices
+- **Choose the right tool**: Use `/index` for complete analysis, `/explore` for progressive loading
+- **Symbol-first navigation**: Use Serena MCP tools for precise code location
+- **Cache context briefs**: Store in memory MCP for reuse
+- **Isolated contexts**: Use `context/subagent-contexts/` for parallel execution
+- **Update triggers**: Hooks handle most updates; re-index manually after major structural changes
 
 ## Project-Specific Workflows
 

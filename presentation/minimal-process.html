@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GP Referral Process</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .slide { display: none; }
+        .slide.active { display: block; }
+        .flow { animation: flow 3s ease-in-out infinite; }
+        @keyframes flow { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <div class="h-screen flex flex-col">
+        
+        <!-- Slide 1: Core Flow -->
+        <div class="slide active flex-1 flex flex-col justify-center px-16">
+            <h1 class="text-8xl font-thin mb-20 text-center">GP Referral</h1>
+            
+            <div class="flex items-center justify-center space-x-16">
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-blue-500 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="user" class="w-16 h-16"></i>
+                    </div>
+                    <div class="text-2xl">Patient</div>
+                    <div class="text-slate-400">Fills form</div>
+                </div>
+                
+                <i data-lucide="arrow-right" class="w-12 h-12 text-slate-500 flow"></i>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="qr-code" class="w-16 h-16"></i>
+                    </div>
+                    <div class="text-2xl">Codes</div>
+                    <div class="text-slate-400">QR + 6-digit</div>
+                </div>
+                
+                <i data-lucide="arrow-right" class="w-12 h-12 text-slate-500 flow"></i>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="stethoscope" class="w-16 h-16"></i>
+                    </div>
+                    <div class="text-2xl">Doctor</div>
+                    <div class="text-slate-400">Accesses data</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Funnel -->
+        <div class="slide flex-1 flex flex-col justify-center px-16">
+            <h2 class="text-6xl font-thin mb-16 text-center">Patient Funnel</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-8">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-2xl">1</div>
+                        <div class="text-3xl">Eligibility check</div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-2xl">2</div>
+                        <div class="text-3xl">Medical symptoms</div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8">
+                        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-2xl">3</div>
+                        <div class="text-3xl">GP referral needed?</div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-8 h-8"></i>
+                        </div>
+                        <div class="text-3xl">Generate codes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Code Linking -->
+        <div class="slide flex-1 flex flex-col justify-center px-16">
+            <h2 class="text-6xl font-thin mb-16 text-center">Code Linking</h2>
+            
+            <div class="grid grid-cols-2 gap-16 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-48 h-48 bg-slate-800 rounded-lg flex items-center justify-center mb-8">
+                        <i data-lucide="qr-code" class="w-32 h-32 text-green-400"></i>
+                    </div>
+                    <div class="text-2xl mb-2">QR Code</div>
+                    <div class="text-slate-400">Camera scan</div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-48 h-48 bg-slate-800 rounded-lg flex items-center justify-center mb-8">
+                        <div class="text-5xl font-mono text-blue-400">A4B7X9</div>
+                    </div>
+                    <div class="text-2xl mb-2">6-Digit Code</div>
+                    <div class="text-slate-400">Manual entry</div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-slate-400">
+                Both link to same patient data
+            </div>
+        </div>
+
+        <!-- Slide 4: API -->
+        <div class="slide flex-1 flex flex-col justify-center px-16">
+            <h2 class="text-6xl font-thin mb-16 text-center">8 Endpoints</h2>
+            
+            <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                    <h3 class="text-3xl mb-8 text-blue-400">Patient</h3>
+                    <div class="space-y-4 text-xl font-mono">
+                        <div>POST /referral</div>
+                        <div>GET /referral/:id/status</div>
+                        <div>GET /referral/:id/pdf</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl mb-8 text-purple-400">Doctor</h3>
+                    <div class="space-y-4 text-xl font-mono">
+                        <div>POST /doctor/login</div>
+                        <div>POST /doctor/access/:code</div>
+                        <div>POST /doctor/upload/:id</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-slate-400">
+                + /health, /audit
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center p-8">
+            <button id="prev" class="flex items-center space-x-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                <span>Prev</span>
+            </button>
+            
+            <div class="flex space-x-3">
+                <div class="slide-dot w-3 h-3 bg-blue-500 rounded-full"></div>
+                <div class="slide-dot w-3 h-3 bg-slate-600 rounded-full"></div>
+                <div class="slide-dot w-3 h-3 bg-slate-600 rounded-full"></div>
+                <div class="slide-dot w-3 h-3 bg-slate-600 rounded-full"></div>
+            </div>
+            
+            <button id="next" class="flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded">
+                <span>Next</span>
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slide-dot');
+        const total = slides.length;
+        
+        function show(n) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('bg-blue-500');
+            dots[current].classList.add('bg-slate-600');
+            
+            current = n;
+            if (current >= total) current = 0;
+            if (current < 0) current = total - 1;
+            
+            slides[current].classList.add('active');
+            dots[current].classList.remove('bg-slate-600');
+            dots[current].classList.add('bg-blue-500');
+        }
+        
+        document.getElementById('next').onclick = () => show(current + 1);
+        document.getElementById('prev').onclick = () => show(current - 1);
+        
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') show(current + 1);
+            if (e.key === 'ArrowLeft') show(current - 1);
+        });
+    </script>
+</body>
+</html>

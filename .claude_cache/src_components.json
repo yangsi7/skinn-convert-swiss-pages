@@ -1,0 +1,1235 @@
+{
+  "type": "directory",
+  "path": "src/components",
+  "depth": 2,
+  "contents": {
+    "src/components/RouteRedirects.tsx": {
+      "type": "file",
+      "path": "src/components/RouteRedirects.tsx",
+      "language": "typescript",
+      "size": 1076,
+      "functions": [
+        "RouteRedirects"
+      ],
+      "classes": []
+    },
+    "src/components/about": {
+      "type": "directory",
+      "path": "src/components/about",
+      "depth": 1,
+      "contents": {
+        "src/components/about/LeadershipShowcase.tsx": {
+          "type": "file",
+          "path": "src/components/about/LeadershipShowcase.tsx",
+          "language": "typescript",
+          "size": 4828
+        },
+        "src/components/about/SwissHeritage.tsx": {
+          "type": "file",
+          "path": "src/components/about/SwissHeritage.tsx",
+          "language": "typescript",
+          "size": 5406
+        }
+      },
+      "stats": {
+        "files": 2,
+        "dirs": 0
+      }
+    },
+    "src/components/analytics": {
+      "type": "directory",
+      "path": "src/components/analytics",
+      "depth": 1,
+      "contents": {
+        "src/components/analytics/AnalyticsProvider.tsx": {
+          "type": "file",
+          "path": "src/components/analytics/AnalyticsProvider.tsx",
+          "language": "typescript",
+          "size": 2784
+        },
+        "src/components/analytics/AnalyticsScripts.tsx": {
+          "type": "file",
+          "path": "src/components/analytics/AnalyticsScripts.tsx",
+          "language": "typescript",
+          "size": 4969
+        },
+        "src/components/analytics/ConversionButton.tsx": {
+          "type": "file",
+          "path": "src/components/analytics/ConversionButton.tsx",
+          "language": "typescript",
+          "size": 2216
+        },
+        "src/components/analytics/CookieConsent.tsx": {
+          "type": "file",
+          "path": "src/components/analytics/CookieConsent.tsx",
+          "language": "typescript",
+          "size": 7329
+        },
+        "src/components/analytics/HubSpotForm.tsx": {
+          "type": "file",
+          "path": "src/components/analytics/HubSpotForm.tsx",
+          "language": "typescript",
+          "size": 3389
+        }
+      },
+      "stats": {
+        "files": 5,
+        "dirs": 0
+      }
+    },
+    "src/components/auth": {
+      "type": "directory",
+      "path": "src/components/auth",
+      "depth": 1,
+      "contents": {
+        "src/components/auth/MinimalOTPVerification.tsx": {
+          "type": "file",
+          "path": "src/components/auth/MinimalOTPVerification.tsx",
+          "language": "typescript",
+          "size": 7649
+        }
+      },
+      "stats": {
+        "files": 1,
+        "dirs": 0
+      }
+    },
+    "src/components/forms": {
+      "type": "directory",
+      "path": "src/components/forms",
+      "depth": 1,
+      "contents": {
+        "src/components/forms/IntegratedEligibilityFlow.tsx": {
+          "type": "file",
+          "path": "src/components/forms/IntegratedEligibilityFlow.tsx",
+          "language": "typescript",
+          "size": 27873
+        },
+        "src/components/forms/MinimalInsuranceSelector.tsx": {
+          "type": "file",
+          "path": "src/components/forms/MinimalInsuranceSelector.tsx",
+          "language": "typescript",
+          "size": 10219
+        },
+        "src/components/forms/MinimalPaymentForm.tsx": {
+          "type": "file",
+          "path": "src/components/forms/MinimalPaymentForm.tsx",
+          "language": "typescript",
+          "size": 13179
+        }
+      },
+      "stats": {
+        "files": 3,
+        "dirs": 0
+      }
+    },
+    "src/components/home": {
+      "type": "directory",
+      "path": "src/components/home",
+      "depth": 1,
+      "contents": {
+        "src/components/home/CEOQuote.tsx": {
+          "type": "file",
+          "path": "src/components/home/CEOQuote.tsx",
+          "language": "typescript",
+          "size": 2041
+        },
+        "src/components/home/Care360Section.tsx": {
+          "type": "file",
+          "path": "src/components/home/Care360Section.tsx",
+          "language": "typescript",
+          "size": 2491
+        },
+        "src/components/home/Care360Technology.tsx": {
+          "type": "file",
+          "path": "src/components/home/Care360Technology.tsx",
+          "language": "typescript",
+          "size": 8128
+        },
+        "src/components/home/Care360Vision.tsx": {
+          "type": "file",
+          "path": "src/components/home/Care360Vision.tsx",
+          "language": "typescript",
+          "size": 4734
+        },
+        "src/components/home/ClinicallyProvenTechSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/ClinicallyProvenTechSection.tsx",
+          "language": "typescript",
+          "size": 2421
+        },
+        "src/components/home/ComfortShowcase.tsx": {
+          "type": "file",
+          "path": "src/components/home/ComfortShowcase.tsx",
+          "language": "typescript",
+          "size": 9628
+        },
+        "src/components/home/ComparisonSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/ComparisonSection.tsx",
+          "language": "typescript",
+          "size": 4356
+        },
+        "src/components/home/ContactForm.tsx": {
+          "type": "file",
+          "path": "src/components/home/ContactForm.tsx",
+          "language": "typescript",
+          "size": 5119
+        },
+        "src/components/home/ContactSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/ContactSection.tsx",
+          "language": "typescript",
+          "size": 5641
+        },
+        "src/components/home/CtaSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/CtaSection.tsx",
+          "language": "typescript",
+          "size": 2443
+        },
+        "src/components/home/EligibilityChecker.tsx": {
+          "type": "file",
+          "path": "src/components/home/EligibilityChecker.tsx",
+          "language": "typescript",
+          "size": 13208
+        },
+        "src/components/home/EnhancedComparison.tsx": {
+          "type": "file",
+          "path": "src/components/home/EnhancedComparison.tsx",
+          "language": "typescript",
+          "size": 1962
+        },
+        "src/components/home/EnhancedFAQ.tsx": {
+          "type": "file",
+          "path": "src/components/home/EnhancedFAQ.tsx",
+          "language": "typescript",
+          "size": 7726
+        },
+        "src/components/home/EnhancedTestimonials.tsx": {
+          "type": "file",
+          "path": "src/components/home/EnhancedTestimonials.tsx",
+          "language": "typescript",
+          "size": 6357
+        },
+        "src/components/home/FaqSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/FaqSection.tsx",
+          "language": "typescript",
+          "size": 1353
+        },
+        "src/components/home/FeaturesSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/FeaturesSection.tsx",
+          "language": "typescript",
+          "size": 1883
+        },
+        "src/components/home/HeroSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/HeroSection.tsx",
+          "language": "typescript",
+          "size": 8619
+        },
+        "src/components/home/HomePageTabs.tsx": {
+          "type": "file",
+          "path": "src/components/home/HomePageTabs.tsx",
+          "language": "typescript",
+          "size": 1760
+        },
+        "src/components/home/HowItWorksSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/HowItWorksSection.tsx",
+          "language": "typescript",
+          "size": 3637
+        },
+        "src/components/home/InsuranceCoverageSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/InsuranceCoverageSection.tsx",
+          "language": "typescript",
+          "size": 5441
+        },
+        "src/components/home/InsuranceSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/InsuranceSection.tsx",
+          "language": "typescript",
+          "size": 2097
+        },
+        "src/components/home/MVCPPreview.tsx": {
+          "type": "file",
+          "path": "src/components/home/MVCPPreview.tsx",
+          "language": "typescript",
+          "size": 5684
+        },
+        "src/components/home/MedicalAdvisors.tsx": {
+          "type": "file",
+          "path": "src/components/home/MedicalAdvisors.tsx",
+          "language": "typescript",
+          "size": 4611
+        },
+        "src/components/home/MvcpSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/MvcpSection.tsx",
+          "language": "typescript",
+          "size": 7126
+        },
+        "src/components/home/NumbersSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/NumbersSection.tsx",
+          "language": "typescript",
+          "size": 1568
+        },
+        "src/components/home/PricingSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/PricingSection.tsx",
+          "language": "typescript",
+          "size": 5483
+        },
+        "src/components/home/ProblemSolutionSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/ProblemSolutionSection.tsx",
+          "language": "typescript",
+          "size": 4592
+        },
+        "src/components/home/ProcessFlow.tsx": {
+          "type": "file",
+          "path": "src/components/home/ProcessFlow.tsx",
+          "language": "typescript",
+          "size": 7531
+        },
+        "src/components/home/ProductBenefit.tsx": {
+          "type": "file",
+          "path": "src/components/home/ProductBenefit.tsx",
+          "language": "typescript",
+          "size": 4238
+        },
+        "src/components/home/ProductBenefitAccordion.tsx": {
+          "type": "file",
+          "path": "src/components/home/ProductBenefitAccordion.tsx",
+          "language": "typescript",
+          "size": 2317
+        },
+        "src/components/home/ProductSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/ProductSection.tsx",
+          "language": "typescript",
+          "size": 7699
+        },
+        "src/components/home/RiskCardsSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/RiskCardsSection.tsx",
+          "language": "typescript",
+          "size": 4556
+        },
+        "src/components/home/SKIINAdvantage.tsx": {
+          "type": "file",
+          "path": "src/components/home/SKIINAdvantage.tsx",
+          "language": "typescript",
+          "size": 7152
+        },
+        "src/components/home/StatisticsCard.tsx": {
+          "type": "file",
+          "path": "src/components/home/StatisticsCard.tsx",
+          "language": "typescript",
+          "size": 1716
+        },
+        "src/components/home/StatisticsShowcase.tsx": {
+          "type": "file",
+          "path": "src/components/home/StatisticsShowcase.tsx",
+          "language": "typescript",
+          "size": 2516
+        },
+        "src/components/home/TechCarousel.tsx": {
+          "type": "file",
+          "path": "src/components/home/TechCarousel.tsx",
+          "language": "typescript",
+          "size": 3630
+        },
+        "src/components/home/TestimonialsSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/TestimonialsSection.tsx",
+          "language": "typescript",
+          "size": 3316
+        },
+        "src/components/home/TestimonialsSlider.tsx": {
+          "type": "file",
+          "path": "src/components/home/TestimonialsSlider.tsx",
+          "language": "typescript",
+          "size": 6060
+        },
+        "src/components/home/VideoSection.tsx": {
+          "type": "file",
+          "path": "src/components/home/VideoSection.tsx",
+          "language": "typescript",
+          "size": 4072
+        }
+      },
+      "stats": {
+        "files": 39,
+        "dirs": 0
+      }
+    },
+    "src/components/landing": {
+      "type": "directory",
+      "path": "src/components/landing",
+      "depth": 1,
+      "contents": {
+        "src/components/landing/CircularTestimonialsSection.tsx": {
+          "type": "file",
+          "path": "src/components/landing/CircularTestimonialsSection.tsx",
+          "language": "typescript",
+          "size": 2773
+        },
+        "src/components/landing/ClinicalEvidenceStats.tsx": {
+          "type": "file",
+          "path": "src/components/landing/ClinicalEvidenceStats.tsx",
+          "language": "typescript",
+          "size": 2172
+        },
+        "src/components/landing/ClinicalEvidenceViz.tsx": {
+          "type": "file",
+          "path": "src/components/landing/ClinicalEvidenceViz.tsx",
+          "language": "typescript",
+          "size": 6987
+        },
+        "src/components/landing/ComfortSection.tsx": {
+          "type": "file",
+          "path": "src/components/landing/ComfortSection.tsx",
+          "language": "typescript",
+          "size": 3160
+        },
+        "src/components/landing/ComparisonSection.tsx": {
+          "type": "file",
+          "path": "src/components/landing/ComparisonSection.tsx",
+          "language": "typescript",
+          "size": 7445
+        },
+        "src/components/landing/FullScreenQuote.tsx": {
+          "type": "file",
+          "path": "src/components/landing/FullScreenQuote.tsx",
+          "language": "typescript",
+          "size": 1082
+        },
+        "src/components/landing/HeroFullScreen.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HeroFullScreen.tsx",
+          "language": "typescript",
+          "size": 4244
+        },
+        "src/components/landing/HeroMinimal.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HeroMinimal.tsx",
+          "language": "typescript",
+          "size": 1577
+        },
+        "src/components/landing/HeroV2025.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HeroV2025.tsx",
+          "language": "typescript",
+          "size": 4813
+        },
+        "src/components/landing/HowSKIINCompares.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HowSKIINCompares.tsx",
+          "language": "typescript",
+          "size": 3996
+        },
+        "src/components/landing/HowSKIINWorks.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HowSKIINWorks.tsx",
+          "language": "typescript",
+          "size": 3340
+        },
+        "src/components/landing/HowSKIINWorksV2.tsx": {
+          "type": "file",
+          "path": "src/components/landing/HowSKIINWorksV2.tsx",
+          "language": "typescript",
+          "size": 6132
+        },
+        "src/components/landing/InsuranceCoverageFlow.tsx": {
+          "type": "file",
+          "path": "src/components/landing/InsuranceCoverageFlow.tsx",
+          "language": "typescript",
+          "size": 7352
+        },
+        "src/components/landing/JourneyTimeline.tsx": {
+          "type": "file",
+          "path": "src/components/landing/JourneyTimeline.tsx",
+          "language": "typescript",
+          "size": 10766
+        },
+        "src/components/landing/MinimalBenefits.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalBenefits.tsx",
+          "language": "typescript",
+          "size": 6380
+        },
+        "src/components/landing/MinimalCTA.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalCTA.tsx",
+          "language": "typescript",
+          "size": 1641
+        },
+        "src/components/landing/MinimalComparison.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalComparison.tsx",
+          "language": "typescript",
+          "size": 3605
+        },
+        "src/components/landing/MinimalFeatures.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalFeatures.tsx",
+          "language": "typescript",
+          "size": 2295
+        },
+        "src/components/landing/MinimalHero.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalHero.tsx",
+          "language": "typescript",
+          "size": 2243
+        },
+        "src/components/landing/MinimalInsurance.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalInsurance.tsx",
+          "language": "typescript",
+          "size": 3904
+        },
+        "src/components/landing/MinimalPricing.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalPricing.tsx",
+          "language": "typescript",
+          "size": 8589
+        },
+        "src/components/landing/MinimalProcess.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalProcess.tsx",
+          "language": "typescript",
+          "size": 2223
+        },
+        "src/components/landing/MinimalStatistics.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalStatistics.tsx",
+          "language": "typescript",
+          "size": 1732
+        },
+        "src/components/landing/MinimalTechStack.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalTechStack.tsx",
+          "language": "typescript",
+          "size": 6475
+        },
+        "src/components/landing/MinimalTestimonials.tsx": {
+          "type": "file",
+          "path": "src/components/landing/MinimalTestimonials.tsx",
+          "language": "typescript",
+          "size": 2271
+        },
+        "src/components/landing/SwissHealthInsurance.tsx": {
+          "type": "file",
+          "path": "src/components/landing/SwissHealthInsurance.tsx",
+          "language": "typescript",
+          "size": 4666
+        },
+        "src/components/landing/TestimonialsV2.tsx": {
+          "type": "file",
+          "path": "src/components/landing/TestimonialsV2.tsx",
+          "language": "typescript",
+          "size": 7454
+        },
+        "src/components/landing/TimelineProcess.tsx": {
+          "type": "file",
+          "path": "src/components/landing/TimelineProcess.tsx",
+          "language": "typescript",
+          "size": 8805
+        }
+      },
+      "stats": {
+        "files": 28,
+        "dirs": 0
+      }
+    },
+    "src/components/layout": {
+      "type": "directory",
+      "path": "src/components/layout",
+      "depth": 1,
+      "contents": {
+        "src/components/layout/Footer.tsx": {
+          "type": "file",
+          "path": "src/components/layout/Footer.tsx",
+          "language": "typescript",
+          "size": 10226
+        },
+        "src/components/layout/Navbar.test.tsx": {
+          "type": "file",
+          "path": "src/components/layout/Navbar.test.tsx",
+          "language": "typescript",
+          "size": 2578
+        },
+        "src/components/layout/Navbar.tsx": {
+          "type": "file",
+          "path": "src/components/layout/Navbar.tsx",
+          "language": "typescript",
+          "size": 16834
+        }
+      },
+      "stats": {
+        "files": 3,
+        "dirs": 0
+      }
+    },
+    "src/components/partners": {
+      "type": "directory",
+      "path": "src/components/partners",
+      "depth": 1,
+      "contents": {
+        "src/components/partners/ClinicianResourcesHub.tsx": {
+          "type": "file",
+          "path": "src/components/partners/ClinicianResourcesHub.tsx",
+          "language": "typescript",
+          "size": 5869
+        },
+        "src/components/partners/GPMvcpSection.tsx": {
+          "type": "file",
+          "path": "src/components/partners/GPMvcpSection.tsx",
+          "language": "typescript",
+          "size": 5738
+        },
+        "src/components/partners/PartnerCorporateSection.tsx": {
+          "type": "file",
+          "path": "src/components/partners/PartnerCorporateSection.tsx",
+          "language": "typescript",
+          "size": 6341
+        },
+        "src/components/partners/PartnerTelemedSection.tsx": {
+          "type": "file",
+          "path": "src/components/partners/PartnerTelemedSection.tsx",
+          "language": "typescript",
+          "size": 5220
+        }
+      },
+      "stats": {
+        "files": 4,
+        "dirs": 0
+      }
+    },
+    "src/components/physicians": {
+      "type": "directory",
+      "path": "src/components/physicians",
+      "depth": 1,
+      "contents": {
+        "src/components/physicians/BenefitItem.tsx": {
+          "type": "file",
+          "path": "src/components/physicians/BenefitItem.tsx",
+          "language": "typescript",
+          "size": 846
+        },
+        "src/components/physicians/Citation.tsx": {
+          "type": "file",
+          "path": "src/components/physicians/Citation.tsx",
+          "language": "typescript",
+          "size": 843
+        },
+        "src/components/physicians/DoctorQuote.tsx": {
+          "type": "file",
+          "path": "src/components/physicians/DoctorQuote.tsx",
+          "language": "typescript",
+          "size": 1408
+        },
+        "src/components/physicians/TestimonialCard.tsx": {
+          "type": "file",
+          "path": "src/components/physicians/TestimonialCard.tsx",
+          "language": "typescript",
+          "size": 1559
+        },
+        "src/components/physicians/TrustBadges.tsx": {
+          "type": "file",
+          "path": "src/components/physicians/TrustBadges.tsx",
+          "language": "typescript",
+          "size": 1766
+        }
+      },
+      "stats": {
+        "files": 5,
+        "dirs": 0
+      }
+    },
+    "src/components/protected": {
+      "type": "directory",
+      "path": "src/components/protected",
+      "depth": 1,
+      "contents": {
+        "src/components/protected/ContributingFactorCards.tsx": {
+          "type": "file",
+          "path": "src/components/protected/ContributingFactorCards.tsx",
+          "language": "typescript",
+          "size": 5011
+        },
+        "src/components/protected/TabNavigation.tsx": {
+          "type": "file",
+          "path": "src/components/protected/TabNavigation.tsx",
+          "language": "typescript",
+          "size": 10317
+        },
+        "src/components/protected/TodayTab.tsx": {
+          "type": "file",
+          "path": "src/components/protected/TodayTab.tsx",
+          "language": "typescript",
+          "size": 7717
+        },
+        "src/components/protected/index.ts": {
+          "type": "file",
+          "path": "src/components/protected/index.ts",
+          "language": "typescript",
+          "size": 644
+        }
+      },
+      "stats": {
+        "files": 4,
+        "dirs": 0
+      }
+    },
+    "src/components/test": {
+      "type": "directory",
+      "path": "src/components/test",
+      "depth": 1,
+      "contents": {
+        "src/components/test/ThemeTest.tsx": {
+          "type": "file",
+          "path": "src/components/test/ThemeTest.tsx",
+          "language": "typescript",
+          "size": 4237
+        }
+      },
+      "stats": {
+        "files": 1,
+        "dirs": 0
+      }
+    },
+    "src/components/tritest": {
+      "type": "directory",
+      "path": "src/components/tritest",
+      "depth": 1,
+      "contents": {
+        "src/components/tritest/TriTestReport.tsx": {
+          "type": "file",
+          "path": "src/components/tritest/TriTestReport.tsx",
+          "language": "typescript",
+          "size": 47854
+        }
+      },
+      "stats": {
+        "files": 1,
+        "dirs": 0
+      }
+    },
+    "src/components/ui": {
+      "type": "directory",
+      "path": "src/components/ui",
+      "depth": 1,
+      "contents": {
+        "src/components/ui/AnimatedCounter.tsx": {
+          "type": "file",
+          "path": "src/components/ui/AnimatedCounter.tsx",
+          "language": "typescript",
+          "size": 1139
+        },
+        "src/components/ui/AnimatedSection.tsx": {
+          "type": "file",
+          "path": "src/components/ui/AnimatedSection.tsx",
+          "language": "typescript",
+          "size": 1646
+        },
+        "src/components/ui/FullScreenVideo.tsx": {
+          "type": "file",
+          "path": "src/components/ui/FullScreenVideo.tsx",
+          "language": "typescript",
+          "size": 9893
+        },
+        "src/components/ui/InteractiveBenefitCard.tsx": {
+          "type": "file",
+          "path": "src/components/ui/InteractiveBenefitCard.tsx",
+          "language": "typescript",
+          "size": 1773
+        },
+        "src/components/ui/MyantLogo.tsx": {
+          "type": "file",
+          "path": "src/components/ui/MyantLogo.tsx",
+          "language": "typescript",
+          "size": 349
+        },
+        "src/components/ui/ParallaxSection.tsx": {
+          "type": "file",
+          "path": "src/components/ui/ParallaxSection.tsx",
+          "language": "typescript",
+          "size": 1188
+        },
+        "src/components/ui/ScrollProgress.tsx": {
+          "type": "file",
+          "path": "src/components/ui/ScrollProgress.tsx",
+          "language": "typescript",
+          "size": 2450
+        },
+        "src/components/ui/ScrollToTop.tsx": {
+          "type": "file",
+          "path": "src/components/ui/ScrollToTop.tsx",
+          "language": "typescript",
+          "size": 1550
+        },
+        "src/components/ui/SmartButton.tsx": {
+          "type": "file",
+          "path": "src/components/ui/SmartButton.tsx",
+          "language": "typescript",
+          "size": 4293
+        },
+        "src/components/ui/accordion.tsx": {
+          "type": "file",
+          "path": "src/components/ui/accordion.tsx",
+          "language": "typescript",
+          "size": 1977
+        },
+        "src/components/ui/alert-dialog.tsx": {
+          "type": "file",
+          "path": "src/components/ui/alert-dialog.tsx",
+          "language": "typescript",
+          "size": 4420
+        },
+        "src/components/ui/alert.tsx": {
+          "type": "file",
+          "path": "src/components/ui/alert.tsx",
+          "language": "typescript",
+          "size": 1584
+        },
+        "src/components/ui/aspect-ratio.tsx": {
+          "type": "file",
+          "path": "src/components/ui/aspect-ratio.tsx",
+          "language": "typescript",
+          "size": 140
+        },
+        "src/components/ui/avatar.tsx": {
+          "type": "file",
+          "path": "src/components/ui/avatar.tsx",
+          "language": "typescript",
+          "size": 1405
+        },
+        "src/components/ui/badge.tsx": {
+          "type": "file",
+          "path": "src/components/ui/badge.tsx",
+          "language": "typescript",
+          "size": 1128
+        },
+        "src/components/ui/breadcrumb.tsx": {
+          "type": "file",
+          "path": "src/components/ui/breadcrumb.tsx",
+          "language": "typescript",
+          "size": 2701
+        },
+        "src/components/ui/button.tsx": {
+          "type": "file",
+          "path": "src/components/ui/button.tsx",
+          "language": "typescript",
+          "size": 2675
+        },
+        "src/components/ui/calendar.tsx": {
+          "type": "file",
+          "path": "src/components/ui/calendar.tsx",
+          "language": "typescript",
+          "size": 2620
+        },
+        "src/components/ui/card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/card.tsx",
+          "language": "typescript",
+          "size": 1929
+        },
+        "src/components/ui/carousel.tsx": {
+          "type": "file",
+          "path": "src/components/ui/carousel.tsx",
+          "language": "typescript",
+          "size": 6210
+        },
+        "src/components/ui/chart.tsx": {
+          "type": "file",
+          "path": "src/components/ui/chart.tsx",
+          "language": "typescript",
+          "size": 10466
+        },
+        "src/components/ui/checkbox.tsx": {
+          "type": "file",
+          "path": "src/components/ui/checkbox.tsx",
+          "language": "typescript",
+          "size": 1056
+        },
+        "src/components/ui/circular-testimonials.tsx": {
+          "type": "file",
+          "path": "src/components/ui/circular-testimonials.tsx",
+          "language": "typescript",
+          "size": 10863
+        },
+        "src/components/ui/collapsible.tsx": {
+          "type": "file",
+          "path": "src/components/ui/collapsible.tsx",
+          "language": "typescript",
+          "size": 315
+        },
+        "src/components/ui/command.tsx": {
+          "type": "file",
+          "path": "src/components/ui/command.tsx",
+          "language": "typescript",
+          "size": 4879
+        },
+        "src/components/ui/comparison-table.tsx": {
+          "type": "file",
+          "path": "src/components/ui/comparison-table.tsx",
+          "language": "typescript",
+          "size": 3306
+        },
+        "src/components/ui/content-section.tsx": {
+          "type": "file",
+          "path": "src/components/ui/content-section.tsx",
+          "language": "typescript",
+          "size": 5327
+        },
+        "src/components/ui/context-menu.tsx": {
+          "type": "file",
+          "path": "src/components/ui/context-menu.tsx",
+          "language": "typescript",
+          "size": 7246
+        },
+        "src/components/ui/copy-variant-selector.tsx": {
+          "type": "file",
+          "path": "src/components/ui/copy-variant-selector.tsx",
+          "language": "typescript",
+          "size": 2685
+        },
+        "src/components/ui/dialog.tsx": {
+          "type": "file",
+          "path": "src/components/ui/dialog.tsx",
+          "language": "typescript",
+          "size": 3835
+        },
+        "src/components/ui/drawer.tsx": {
+          "type": "file",
+          "path": "src/components/ui/drawer.tsx",
+          "language": "typescript",
+          "size": 3007
+        },
+        "src/components/ui/dropdown-menu.tsx": {
+          "type": "file",
+          "path": "src/components/ui/dropdown-menu.tsx",
+          "language": "typescript",
+          "size": 7295
+        },
+        "src/components/ui/feature-grid.tsx": {
+          "type": "file",
+          "path": "src/components/ui/feature-grid.tsx",
+          "language": "typescript",
+          "size": 3420
+        },
+        "src/components/ui/form.tsx": {
+          "type": "file",
+          "path": "src/components/ui/form.tsx",
+          "language": "typescript",
+          "size": 4085
+        },
+        "src/components/ui/horizontal-scroll-carousel.tsx": {
+          "type": "file",
+          "path": "src/components/ui/horizontal-scroll-carousel.tsx",
+          "language": "typescript",
+          "size": 3020
+        },
+        "src/components/ui/hover-card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/hover-card.tsx",
+          "language": "typescript",
+          "size": 1184
+        },
+        "src/components/ui/image-section.tsx": {
+          "type": "file",
+          "path": "src/components/ui/image-section.tsx",
+          "language": "typescript",
+          "size": 2225
+        },
+        "src/components/ui/input-otp.tsx": {
+          "type": "file",
+          "path": "src/components/ui/input-otp.tsx",
+          "language": "typescript",
+          "size": 2154
+        },
+        "src/components/ui/input.tsx": {
+          "type": "file",
+          "path": "src/components/ui/input.tsx",
+          "language": "typescript",
+          "size": 791
+        },
+        "src/components/ui/label.tsx": {
+          "type": "file",
+          "path": "src/components/ui/label.tsx",
+          "language": "typescript",
+          "size": 710
+        },
+        "src/components/ui/medical-card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/medical-card.tsx",
+          "language": "typescript",
+          "size": 1485
+        },
+        "src/components/ui/menubar.tsx": {
+          "type": "file",
+          "path": "src/components/ui/menubar.tsx",
+          "language": "typescript",
+          "size": 7974
+        },
+        "src/components/ui/minimal-button.tsx": {
+          "type": "file",
+          "path": "src/components/ui/minimal-button.tsx",
+          "language": "typescript",
+          "size": 2043
+        },
+        "src/components/ui/minimal-card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/minimal-card.tsx",
+          "language": "typescript",
+          "size": 3263
+        },
+        "src/components/ui/minimal-input.tsx": {
+          "type": "file",
+          "path": "src/components/ui/minimal-input.tsx",
+          "language": "typescript",
+          "size": 2620
+        },
+        "src/components/ui/minimal-select.tsx": {
+          "type": "file",
+          "path": "src/components/ui/minimal-select.tsx",
+          "language": "typescript",
+          "size": 4415
+        },
+        "src/components/ui/minimal-textarea.tsx": {
+          "type": "file",
+          "path": "src/components/ui/minimal-textarea.tsx",
+          "language": "typescript",
+          "size": 2619
+        },
+        "src/components/ui/navigation-menu.tsx": {
+          "type": "file",
+          "path": "src/components/ui/navigation-menu.tsx",
+          "language": "typescript",
+          "size": 5046
+        },
+        "src/components/ui/pagination.tsx": {
+          "type": "file",
+          "path": "src/components/ui/pagination.tsx",
+          "language": "typescript",
+          "size": 2751
+        },
+        "src/components/ui/popover.tsx": {
+          "type": "file",
+          "path": "src/components/ui/popover.tsx",
+          "language": "typescript",
+          "size": 1230
+        },
+        "src/components/ui/progress.tsx": {
+          "type": "file",
+          "path": "src/components/ui/progress.tsx",
+          "language": "typescript",
+          "size": 777
+        },
+        "src/components/ui/progressive-card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/progressive-card.tsx",
+          "language": "typescript",
+          "size": 2607
+        },
+        "src/components/ui/progressive-section.tsx": {
+          "type": "file",
+          "path": "src/components/ui/progressive-section.tsx",
+          "language": "typescript",
+          "size": 1154
+        },
+        "src/components/ui/radio-group.tsx": {
+          "type": "file",
+          "path": "src/components/ui/radio-group.tsx",
+          "language": "typescript",
+          "size": 1467
+        },
+        "src/components/ui/resizable.tsx": {
+          "type": "file",
+          "path": "src/components/ui/resizable.tsx",
+          "language": "typescript",
+          "size": 1709
+        },
+        "src/components/ui/responsive-image.tsx": {
+          "type": "file",
+          "path": "src/components/ui/responsive-image.tsx",
+          "language": "typescript",
+          "size": 5383
+        },
+        "src/components/ui/scroll-area.tsx": {
+          "type": "file",
+          "path": "src/components/ui/scroll-area.tsx",
+          "language": "typescript",
+          "size": 1642
+        },
+        "src/components/ui/scroll-reveal-statistic.tsx": {
+          "type": "file",
+          "path": "src/components/ui/scroll-reveal-statistic.tsx",
+          "language": "typescript",
+          "size": 1140
+        },
+        "src/components/ui/section-divider.tsx": {
+          "type": "file",
+          "path": "src/components/ui/section-divider.tsx",
+          "language": "typescript",
+          "size": 4890
+        },
+        "src/components/ui/select.tsx": {
+          "type": "file",
+          "path": "src/components/ui/select.tsx",
+          "language": "typescript",
+          "size": 5615
+        },
+        "src/components/ui/separator.tsx": {
+          "type": "file",
+          "path": "src/components/ui/separator.tsx",
+          "language": "typescript",
+          "size": 756
+        },
+        "src/components/ui/sheet.tsx": {
+          "type": "file",
+          "path": "src/components/ui/sheet.tsx",
+          "language": "typescript",
+          "size": 4250
+        },
+        "src/components/ui/sidebar.tsx": {
+          "type": "file",
+          "path": "src/components/ui/sidebar.tsx",
+          "language": "typescript",
+          "size": 23367
+        },
+        "src/components/ui/skeleton.tsx": {
+          "type": "file",
+          "path": "src/components/ui/skeleton.tsx",
+          "language": "typescript",
+          "size": 261
+        },
+        "src/components/ui/slider.tsx": {
+          "type": "file",
+          "path": "src/components/ui/slider.tsx",
+          "language": "typescript",
+          "size": 1077
+        },
+        "src/components/ui/sonner.tsx": {
+          "type": "file",
+          "path": "src/components/ui/sonner.tsx",
+          "language": "typescript",
+          "size": 894
+        },
+        "src/components/ui/stat-card.tsx": {
+          "type": "file",
+          "path": "src/components/ui/stat-card.tsx",
+          "language": "typescript",
+          "size": 3341
+        },
+        "src/components/ui/swiss-quality.tsx": {
+          "type": "file",
+          "path": "src/components/ui/swiss-quality.tsx",
+          "language": "typescript",
+          "size": 1910
+        },
+        "src/components/ui/switch.tsx": {
+          "type": "file",
+          "path": "src/components/ui/switch.tsx",
+          "language": "typescript",
+          "size": 1139
+        },
+        "src/components/ui/table.tsx": {
+          "type": "file",
+          "path": "src/components/ui/table.tsx",
+          "language": "typescript",
+          "size": 2765
+        },
+        "src/components/ui/tabs.tsx": {
+          "type": "file",
+          "path": "src/components/ui/tabs.tsx",
+          "language": "typescript",
+          "size": 1883
+        },
+        "src/components/ui/team-member.tsx": {
+          "type": "file",
+          "path": "src/components/ui/team-member.tsx",
+          "language": "typescript",
+          "size": 3884
+        },
+        "src/components/ui/testimonial-scroll-carousel.tsx": {
+          "type": "file",
+          "path": "src/components/ui/testimonial-scroll-carousel.tsx",
+          "language": "typescript",
+          "size": 5949
+        },
+        "src/components/ui/textarea.tsx": {
+          "type": "file",
+          "path": "src/components/ui/textarea.tsx",
+          "language": "typescript",
+          "size": 772
+        },
+        "src/components/ui/theme-switcher.tsx": {
+          "type": "file",
+          "path": "src/components/ui/theme-switcher.tsx",
+          "language": "typescript",
+          "size": 1724
+        },
+        "src/components/ui/toast.tsx": {
+          "type": "file",
+          "path": "src/components/ui/toast.tsx",
+          "language": "typescript",
+          "size": 4845
+        },
+        "src/components/ui/toaster.tsx": {
+          "type": "file",
+          "path": "src/components/ui/toaster.tsx",
+          "language": "typescript",
+          "size": 772
+        },
+        "src/components/ui/toggle-group.tsx": {
+          "type": "file",
+          "path": "src/components/ui/toggle-group.tsx",
+          "language": "typescript",
+          "size": 1739
+        },
+        "src/components/ui/toggle.tsx": {
+          "type": "file",
+          "path": "src/components/ui/toggle.tsx",
+          "language": "typescript",
+          "size": 1435
+        },
+        "src/components/ui/tooltip.tsx": {
+          "type": "file",
+          "path": "src/components/ui/tooltip.tsx",
+          "language": "typescript",
+          "size": 1145
+        },
+        "src/components/ui/trust-badge.tsx": {
+          "type": "file",
+          "path": "src/components/ui/trust-badge.tsx",
+          "language": "typescript",
+          "size": 1658
+        },
+        "src/components/ui/use-toast.ts": {
+          "type": "file",
+          "path": "src/components/ui/use-toast.ts",
+          "language": "typescript",
+          "size": 82
+        }
+      },
+      "stats": {
+        "files": 82,
+        "dirs": 0
+      }
+    }
+  },
+  "stats": {
+    "files": 1,
+    "dirs": 13
+  },
+  "explored_at": "2025-08-21T15:53:33.552011",
+  "cached_at": "2025-08-21T15:53:33.552027",
+  "cache_file": ".claude_cache/src_components.json"
+}

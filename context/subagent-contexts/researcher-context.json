@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-08-22T16:34:52.566935",
+  "last_event": "[2025-08-22 16:34] Action - [SEC-001] Invoked researcher for Research GP referral best prac (delegating to researcher) | Phase: Context Gathering",
+  "agent_type": "researcher",
+  "recent_events": [
+    "[2025-08-22 16:34] Action - [SEC-001] Invoked researcher for Research GP referral best prac (delegating to researcher) | Phase: Context Gathering"
+  ]
+}

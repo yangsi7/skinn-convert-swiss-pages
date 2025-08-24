@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 interface HeroV2025Props {
   className?: string;
 }
 
 export const HeroV2025: React.FC<HeroV2025Props> = ({ className }) => {
+  const navigate = useNavigate();
   const [showHeadlines, setShowHeadlines] = useState(false);
   const [showRest, setShowRest] = useState(false);
 
@@ -21,6 +23,11 @@ export const HeroV2025: React.FC<HeroV2025Props> = ({ className }) => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleCTAClick = () => {
+    // Navigate to the eligibility flow
+    navigate('/eligibility');
+  };
 
   // Headline animation - immediate fade in
   const headlineVariants = {
@@ -102,7 +109,9 @@ export const HeroV2025: React.FC<HeroV2025Props> = ({ className }) => {
               animate={showRest ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <button className="
+              <button 
+                onClick={handleCTAClick}
+                className="
                 bg-secondary-foreground 
                 hover:bg-secondary-foreground/90 
                 text-white 
