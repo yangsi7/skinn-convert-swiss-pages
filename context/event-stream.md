@@ -285,3 +285,5 @@
 [2025-08-24 20:02] Action - [RCC-002] Push after secret approval (delegating to git-agent) | Phase: Execution
 [2025-08-24 20:03] Action - [RCC-002] Retry push after secret approval | Phase: Execution
 [2025-08-24 20:04] Action - [RCC-002] Create PR with unset GITHUB_TOKEN | Phase: Context Gathering
+[2025-08-24 20:07] Action - [RCC-002] Commit current changes before switching branches | Phase: Execution
+[2025-08-24 20:08] Action - [RCC-002] Check current git status | Phase: Execution
