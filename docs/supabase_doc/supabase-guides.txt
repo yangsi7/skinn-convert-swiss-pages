@@ -23248,7 +23248,7 @@ Deploy the following code as an Edge function using the CLI:
 
 ```bash
 supabase --project-ref nacho_slacker secrets \
-set SLACK_TOKEN=<your_slack_bot_token_here>
+set SLACK_TOKEN=YOUR_SLACK_BOT_TOKEN_HERE
 ```
 
 Here's the code of the Edge Function, you can change the response to handle the text received:
