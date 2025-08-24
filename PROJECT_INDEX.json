@@ -1,5 +1,5 @@
 {
-  "indexed_at": "2025-08-24T18:05:38.912205",
+  "indexed_at": "2025-08-24T19:57:01.572889",
   "root": ".",
   "project_structure": {
     "type": "tree",
@@ -103,8 +103,7 @@
       "\u2502   \u251c\u2500\u2500 standards/ (1 files)",
       "\u2502   \u2514\u2500\u2500 supabase_doc/",
       "\u251c\u2500\u2500 html/ (3 files)",
-      "\u2502   \u251c\u2500\u2500 assets/ (2 files)",
-      "\u2502   \u2514\u2500\u2500 data/",
+      "\u2502   \u2514\u2500\u2500 assets/ (2 files)",
       "\u251c\u2500\u2500 presentation/ (2 files)",
       "\u251c\u2500\u2500 public/ (1 files)",
       "\u2502   \u2514\u2500\u2500 assets/ (1 files)",
@@ -128,7 +127,6 @@
       "\u2502       \u251c\u2500\u2500 logos/",
       "\u2502       \u2514\u2500\u2500 videos/",
       "\u251c\u2500\u2500 scripts/ (6 files)",
-      "\u2502   \u2514\u2500\u2500 utils/",
       "\u251c\u2500\u2500 src/ (329 files)",
       "\u2502   \u251c\u2500\u2500 api/ (4 files)",
       "\u2502   \u251c\u2500\u2500 assets/",
@@ -202,14 +200,9 @@
       "\u251c\u2500\u2500 tests/ (7 files)",
       "\u2502   \u251c\u2500\u2500 config/ (1 files)",
       "\u2502   \u251c\u2500\u2500 integration/ (3 files)",
-      "\u2502   \u2502   \u251c\u2500\u2500 auth/",
-      "\u2502   \u2502   \u251c\u2500\u2500 flows/",
-      "\u2502   \u2502   \u2514\u2500\u2500 forms/",
       "\u2502   \u251c\u2500\u2500 unit/ (3 files)",
       "\u2502   \u2502   \u251c\u2500\u2500 components/ (1 files)",
-      "\u2502   \u2502   \u251c\u2500\u2500 hooks/ (1 files)",
-      "\u2502   \u2502   \u251c\u2500\u2500 services/",
-      "\u2502   \u2502   \u2514\u2500\u2500 utils/",
+      "\u2502   \u2502   \u2514\u2500\u2500 hooks/ (1 files)",
       "\u2502   \u2514\u2500\u2500 README.md",
       "\u251c\u2500\u2500 package.json",
       "\u2514\u2500\u2500 README.md"
@@ -2036,9 +2029,9 @@
         "Common Issues"
       ],
       "architecture_hints": [
-        "src/utils/routeTranslations.ts",
         "src/contexts/LanguageContext.tsx",
-        "src/hooks/useTranslation.ts"
+        "src/hooks/useTranslation.ts",
+        "src/utils/routeTranslations.ts"
       ]
     },
     "src/docs/ArchitectureOverview.md": {
@@ -2105,7 +2098,7 @@
   },
   "stats": {
     "total_files": 415,
-    "total_directories": 216,
+    "total_directories": 205,
     "fully_parsed": {
       "javascript": 10,
       "typescript": 339,
@@ -17752,8 +17745,8 @@
             "calculateOverallScore": {
               "signature": "()",
               "called_by": [
-                "runComprehensiveAccessibilityAudit",
                 "determineComplianceStatus",
+                "runComprehensiveAccessibilityAudit",
                 "runSimplifiedAccessibilityAudit"
               ]
             },
@@ -24730,8 +24723,8 @@
             "verifyOTP": {
               "signature": "async (email: string, token: string): Promise<",
               "called_by": [
-                "verifyOTP",
-                "setupOTPRoutes"
+                "setupOTPRoutes",
+                "verifyOTP"
               ]
             },
             "getSession": "async ()",
@@ -26675,5 +26668,5 @@
       "zod"
     ]
   },
-  "staleness_check": 1755446743.547559
+  "staleness_check": 1755453426.55363
 }
