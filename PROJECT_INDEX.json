@@ -1,5 +1,5 @@
 {
-  "indexed_at": "2025-08-24T19:57:01.572889",
+  "indexed_at": "2025-08-24T20:04:47.098223",
   "root": ".",
   "project_structure": {
     "type": "tree",
@@ -2030,8 +2030,8 @@
       ],
       "architecture_hints": [
         "src/contexts/LanguageContext.tsx",
-        "src/hooks/useTranslation.ts",
-        "src/utils/routeTranslations.ts"
+        "src/utils/routeTranslations.ts",
+        "src/hooks/useTranslation.ts"
       ]
     },
     "src/docs/ArchitectureOverview.md": {
@@ -17745,16 +17745,16 @@
             "calculateOverallScore": {
               "signature": "()",
               "called_by": [
+                "runSimplifiedAccessibilityAudit",
                 "determineComplianceStatus",
-                "runComprehensiveAccessibilityAudit",
-                "runSimplifiedAccessibilityAudit"
+                "runComprehensiveAccessibilityAudit"
               ]
             },
             "generateRecommendations": {
               "signature": "()",
               "called_by": [
-                "runComprehensiveAccessibilityAudit",
-                "runSimplifiedAccessibilityAudit"
+                "runSimplifiedAccessibilityAudit",
+                "runComprehensiveAccessibilityAudit"
               ]
             },
             "__init__": "()"
@@ -24723,8 +24723,8 @@
             "verifyOTP": {
               "signature": "async (email: string, token: string): Promise<",
               "called_by": [
-                "setupOTPRoutes",
-                "verifyOTP"
+                "verifyOTP",
+                "setupOTPRoutes"
               ]
             },
             "getSession": "async ()",
@@ -26668,5 +26668,5 @@
       "zod"
     ]
   },
-  "staleness_check": 1755453426.55363
+  "staleness_check": 1755453891.894616
 }
