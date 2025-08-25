@@ -1,0 +1,236 @@
+{
+  "research_specification": {
+    "research_id": "RES-INDEX-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-24",
+    "priority": "High",
+    "context": "Understanding Claude Code's indexing approach for optimizing project navigation"
+  },
+  
+  "key_findings": {
+    "core_discovery": "Claude Code does NOT use traditional indexing - it explores projects dynamically",
+    "exploration_method": "Uses Glob and Grep tools for real-time file discovery instead of pre-built indexes",
+    "custom_commands": "The /index, /explore, and /prime commands are CUSTOM implementations, not built-in features",
+    "command_system": "Custom commands are created as markdown files in .claude/commands/ directory"
+  },
+
+  "indexing_approaches": {
+    "native_claude_code": {
+      "description": "Claude Code's built-in approach",
+      "method": "Dynamic exploration using tools",
+      "tools_used": ["Glob", "Grep", "Read", "LS"],
+      "advantages": [
+        "No index maintenance required",
+        "Always up-to-date with current files",
+        "No storage overhead",
+        "Works with any codebase size"
+      ],
+      "disadvantages": [
+        "Slower initial discovery",
+        "No persistent architectural awareness",
+        "Repeated explorations needed"
+      ]
+    },
+    
+    "custom_monolithic_index": {
+      "command": "/index",
+      "output": "PROJECT_INDEX.json",
+      "description": "Complete codebase snapshot with all symbols",
+      "typical_size": "600KB+ for large projects",
+      "contents": [
+        "Complete function signatures",
+        "All classes and methods",
+        "Import/export relationships",
+        "Call graphs",
+        "Dependency analysis"
+      ],
+      "when_to_use": [
+        "Need complete architectural awareness",
+        "Performing dependency analysis",
+        "Generating comprehensive documentation",
+        "One-time deep analysis tasks"
+      ],
+      "limitations": [
+        "Can exceed context window limits",
+        "Becomes stale quickly",
+        "Memory intensive to load"
+      ]
+    },
+    
+    "custom_progressive_navigator": {
+      "command": "/explore",
+      "output": "PROJECT_NAVIGATOR.json",
+      "cache_directory": ".claude_cache/",
+      "description": "Lightweight navigation with progressive loading",
+      "typical_size": "15-30KB",
+      "contents": [
+        "Directory structure overview",
+        "File listing with types",
+        "Basic statistics",
+        "Exploration instructions",
+        "Cached exploration results"
+      ],
+      "when_to_use": [
+        "Large codebases (1000+ files)",
+        "Need quick navigation",
+        "Iterative exploration tasks",
+        "Limited context window"
+      ],
+      "advantages": [
+        "Efficient memory usage",
+        "Progressive discovery",
+        "Cached explorations",
+        "Quick initial load"
+      ]
+    },
+    
+    "custom_prime_command": {
+      "command": "/prime",
+      "purpose": "Initialize project context",
+      "actions": [
+        "Check for PROJECT_NAVIGATOR.json",
+        "Load navigation instructions",
+        "Bootstrap project awareness",
+        "Set up exploration context"
+      ],
+      "best_practice": "Run at session start for consistent context"
+    }
+  },
+
+  "implementation_patterns": {
+    "custom_command_creation": {
+      "location": ".claude/commands/",
+      "format": "Markdown files with optional frontmatter",
+      "naming": "filename.md becomes /filename command",
+      "frontmatter_options": {
+        "allowed-tools": "Restrict tool access",
+        "argument-hint": "Provide usage hints",
+        "description": "Command description",
+        "model": "Specify AI model to use"
+      }
+    },
+    
+    "hook_integration": {
+      "description": "Hooks can trigger indexing updates",
+      "examples": [
+        "PostToolUse hook updates index after file changes",
+        "SessionStart hook loads PROJECT_INDEX.json",
+        "PreCompact hook saves current index state"
+      ],
+      "location": ".claude/hooks/"
+    },
+    
+    "third_party_solutions": {
+      "mcp_servers": [
+        "code-index-mcp: Semantic code indexing with vector search",
+        "claude-context: Incremental indexing with Merkle trees",
+        "zilliz-cloud: Scalable vector search integration"
+      ],
+      "advantages": "Professional indexing with search capabilities",
+      "integration": "Via MCP protocol in Claude Code"
+    }
+  },
+
+  "best_practices": {
+    "choosing_approach": {
+      "small_projects": "Use native Claude Code exploration (no indexing needed)",
+      "medium_projects": "Implement /explore with progressive loading",
+      "large_projects": "Use MCP server with vector search",
+      "complex_analysis": "Generate PROJECT_INDEX.json for one-time deep analysis"
+    },
+    
+    "index_maintenance": {
+      "update_triggers": [
+        "Major file additions/deletions",
+        "Architectural changes",
+        "New feature branches",
+        "Before complex refactoring"
+      ],
+      "automation": [
+        "Git hooks for index updates",
+        "Claude Code hooks for auto-refresh",
+        "Scheduled regeneration",
+        "On-demand via commands"
+      ]
+    },
+    
+    "optimization_strategies": {
+      "size_management": [
+        "Exclude node_modules and build directories",
+        "Filter by file extensions",
+        "Limit depth of analysis",
+        "Use .gitignore patterns"
+      ],
+      "performance": [
+        "Cache frequently accessed sections",
+        "Use progressive loading",
+        "Implement incremental updates",
+        "Store in .claude_cache/"
+      ],
+      "context_efficiency": [
+        "Load only relevant sections",
+        "Use symbol-specific queries",
+        "Implement smart truncation",
+        "Hierarchical exploration"
+      ]
+    }
+  },
+
+  "recommended_implementation": {
+    "for_this_project": {
+      "current_state": [
+        "PROJECT_INDEX.json exists but too large (617KB)",
+        "PROJECT_NAVIGATOR.json exists and is manageable (19KB)",
+        "No generation scripts found"
+      ],
+      "recommendations": [
+        "PRIMARY: Use PROJECT_NAVIGATOR.json with /prime command",
+        "Create custom /refresh command to update navigator",
+        "Implement selective loading from PROJECT_INDEX.json",
+        "Add hooks for automatic updates on file changes"
+      ],
+      "implementation_steps": [
+        {
+          "step": 1,
+          "action": "Create /prime command in .claude/commands/prime.md",
+          "content": "Load PROJECT_NAVIGATOR.json and set exploration context"
+        },
+        {
+          "step": 2,
+          "action": "Create /refresh command in .claude/commands/refresh.md",
+          "content": "Regenerate PROJECT_NAVIGATOR.json with current file structure"
+        },
+        {
+          "step": 3,
+          "action": "Add PostToolUse hook for index updates",
+          "content": "Update navigator cache after file modifications"
+        },
+        {
+          "step": 4,
+          "action": "Implement selective loading",
+          "content": "Create /deep-dive command for specific subsystem analysis"
+        }
+      ]
+    }
+  },
+
+  "example_implementations": {
+    "prime_command": {
+      "file": ".claude/commands/prime.md",
+      "content": "---\nallowed-tools: Read, Glob\ndescription: Initialize project context\n---\n\n## Load Project Context\n\nNavigator: @PROJECT_NAVIGATOR.json\n\n## Your Task\n1. Load the navigator file\n2. Understand project structure\n3. Prepare for exploration\n4. Report readiness with key statistics"
+    },
+    
+    "refresh_command": {
+      "file": ".claude/commands/refresh.md",
+      "content": "---\nallowed-tools: Bash, Write\ndescription: Refresh project navigator\n---\n\n## Regenerate Navigator\n\nCurrent structure: !`find . -type f -name '*.ts' -o -name '*.tsx' | head -20`\n\n## Your Task\n1. Analyze current file structure\n2. Generate updated PROJECT_NAVIGATOR.json\n3. Clear .claude_cache/ if exists\n4. Report changes detected"
+    }
+  },
+
+  "references": [
+    "https://github.com/disler/claude-code-hooks-mastery",
+    "https://github.com/ericbuess/claude-code-project-index",
+    "https://github.com/zilliztech/claude-context",
+    "https://docs.anthropic.com/en/docs/claude-code/overview",
+    "https://www.anthropic.com/claude-code"
+  ]
+}

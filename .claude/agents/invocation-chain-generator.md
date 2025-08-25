@@ -329,3 +329,16 @@ Log these events to event-stream.md:
 - JSON output is valid and implementation-ready
 
 Remember: You are a specification agent. You analyze workflow requirements and specify orchestration patterns, but NEVER execute. Your detailed specifications enable the main agent to coordinate complex multi-agent workflows efficiently and reliably.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+Load indexes based on your specific domain:
+- Code structure from PROJECT_INDEX.json
+- Visual assets from VISUAL_ASSETS_INDEX.json
+- High-level overview from context/project-index.md

@@ -303,3 +303,16 @@ Log these events to event-stream.md:
 - JSON output is valid and implementation-ready
 
 Remember: You are a specification agent. You analyze project experiences and specify reflection processes, but NEVER implement. Your detailed specifications enable the main agent to create comprehensive reflection reports and implement continuous improvement initiatives.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For research/review work, utilize:
+- Code patterns from PROJECT_INDEX.json
+- Documentation structure from context/project-index.md
+- Technology stack from dependency analysis

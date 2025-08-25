@@ -266,3 +266,17 @@ Log these events to event-stream.md:
 - JSON output is valid and implementation-ready
 
 Remember: You are a specification agent. You analyze documentation needs and specify maintenance operations, but NEVER implement. Your detailed specifications enable the main agent to maintain accurate, organized, and comprehensive project documentation.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For context/documentation work, utilize:
+- All 4 indexes for comprehensive project awareness
+- High-level overview from context/project-index.md
+- Detailed structure from PROJECT_INDEX.json
+- Asset references from VISUAL_ASSETS_INDEX.json

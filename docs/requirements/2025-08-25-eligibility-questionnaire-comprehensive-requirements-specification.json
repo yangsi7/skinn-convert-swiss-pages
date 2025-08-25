@@ -1,0 +1,406 @@
+{
+  "document": {
+    "title": "Swiss Healthcare Eligibility Questionnaire - Comprehensive Requirements Specification",
+    "version": "1.0.0",
+    "created": "2025-08-25",
+    "status": "ACTIVE",
+    "purpose": "Complete requirements specification for the 6-stage eligibility questionnaire system"
+  },
+  
+  "executive_summary": {
+    "overview": "The Swiss Healthcare Eligibility Questionnaire is a multi-step form system that determines patient eligibility for SKIIN heart monitoring device coverage through Swiss health insurance",
+    "key_features": [
+      "6-stage progressive disclosure workflow",
+      "OTP-based authentication for email/phone verification",
+      "Insurance provider eligibility determination",
+      "Self-pay pathway for non-covered patients",
+      "Multi-language support (EN, DE, FR, IT)",
+      "GDPR and Swiss DPA compliance"
+    ],
+    "current_issues": [
+      "OTP verification not connected to database RPC functions",
+      "Mock OTP implementation returning true for '123456'",
+      "Unit tests failing due to incorrect auth method usage",
+      "UI displaying doubled characters in some components",
+      "Test configuration not including /tests/ directory"
+    ]
+  },
+  
+  "functional_requirements": {
+    "FR-001": {
+      "id": "FR-001",
+      "title": "User Authentication via OTP",
+      "priority": "P0-CRITICAL",
+      "status": "BROKEN",
+      "description": "System must authenticate users via OTP sent to email or phone",
+      "acceptance_criteria": [
+        "OTP must be 6 digits generated randomly",
+        "OTP expires after 10 minutes",
+        "Maximum 3 verification attempts allowed",
+        "Rate limiting: max 5 OTP requests per hour",
+        "Must use database RPC function 'send_otp_v2' not auth methods"
+      ],
+      "current_implementation": {
+        "issue": "Frontend using supabase.auth.signInWithOtp() instead of supabase.rpc('send_otp_v2')",
+        "files": [
+          "/src/components/forms/eligibility/stages/ContactAccountStage.tsx",
+          "/src/services/authService.ts"
+        ]
+      }
+    },
+    
+    "FR-002": {
+      "id": "FR-002",
+      "title": "6-Stage Progressive Workflow",
+      "priority": "P0-CRITICAL",
+      "status": "IMPLEMENTED",
+      "description": "Form must guide users through 6 sequential stages",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Contact & Account",
+          "components": ["ContactAccountStage.tsx"],
+          "validation": ["Email required", "Date of birth required", "OTP verification"]
+        },
+        {
+          "stage": 1,
+          "name": "Eligibility Gate",
+          "components": ["EligibilityGateStage.tsx"],
+          "validation": ["Insurance status", "Contraindications check", "Symptoms selection"]
+        },
+        {
+          "stage": 2,
+          "name": "Detailed Information",
+          "components": ["DetailedInfoStage.tsx"],
+          "validation": ["Symptom details if symptomatic", "Risk factors assessment"]
+        },
+        {
+          "stage": 3,
+          "name": "Insured Review",
+          "components": ["InsuredReviewStage.tsx"],
+          "validation": ["GP selection", "Insurance verification", "Consent agreements"]
+        },
+        {
+          "stage": 4,
+          "name": "Self-Pay",
+          "components": ["SelfPayStage.tsx"],
+          "validation": ["Phone verification", "Shipping address", "Payment processing"]
+        },
+        {
+          "stage": 5,
+          "name": "Completion",
+          "components": ["CompletionStage.tsx"],
+          "validation": ["Final confirmation", "Reference number generation"]
+        }
+      ]
+    },
+    
+    "FR-003": {
+      "id": "FR-003",
+      "title": "Insurance Eligibility Determination",
+      "priority": "P1-HIGH",
+      "status": "IMPLEMENTED",
+      "description": "System must determine coverage based on symptoms and insurance model",
+      "logic": {
+        "covered": "Has symptoms + valid insurance model",
+        "consult_first": "GP/HMO/Telmed model requires consultation",
+        "self_pay": "No symptoms or no insurance coverage"
+      },
+      "acceptance_criteria": [
+        "Accurate pathway determination",
+        "Clear next steps for each outcome",
+        "Insurance-specific guidance"
+      ]
+    },
+    
+    "FR-004": {
+      "id": "FR-004",
+      "title": "Payment Processing",
+      "priority": "P1-HIGH",
+      "status": "PARTIAL",
+      "description": "Self-pay users must complete payment for CHF 399",
+      "acceptance_criteria": [
+        "PCI DSS compliant payment form",
+        "Stripe integration for processing",
+        "Idempotency key generation",
+        "Payment confirmation email"
+      ],
+      "current_implementation": {
+        "issue": "Payment form exists but Stripe integration not fully connected",
+        "files": ["/src/components/forms/MinimalPaymentForm.tsx"]
+      }
+    }
+  },
+  
+  "non_functional_requirements": {
+    "NFR-001": {
+      "id": "NFR-001",
+      "category": "Performance",
+      "requirement": "Page load time < 2.5 seconds",
+      "current_status": "PASSING (47ms achieved)",
+      "measurement": "Lighthouse performance score"
+    },
+    
+    "NFR-002": {
+      "id": "NFR-002",
+      "category": "Accessibility",
+      "requirement": "WCAG 2.1 AA compliance",
+      "current_status": "PARTIAL (72% compliance)",
+      "issues": [
+        "Missing ARIA labels on some form fields",
+        "Contrast ratios below 4.5:1 in some areas",
+        "Keyboard navigation gaps"
+      ]
+    },
+    
+    "NFR-003": {
+      "id": "NFR-003",
+      "category": "Security",
+      "requirement": "GDPR and Swiss DPA compliance",
+      "current_status": "PARTIAL",
+      "issues": [
+        "OTP implementation using mock verification",
+        "Missing rate limiting enforcement",
+        "Audit trail not fully implemented"
+      ]
+    },
+    
+    "NFR-004": {
+      "id": "NFR-004",
+      "category": "Internationalization",
+      "requirement": "Full support for EN, DE, FR, IT",
+      "current_status": "IMPLEMENTED",
+      "validation": "All translation keys present and verified"
+    },
+    
+    "NFR-005": {
+      "id": "NFR-005",
+      "category": "Browser Compatibility",
+      "requirement": "Support latest 2 versions of Chrome, Firefox, Safari, Edge",
+      "current_status": "NOT TESTED",
+      "testing_needed": true
+    }
+  },
+  
+  "technical_requirements": {
+    "database": {
+      "schema_version": "v2.0",
+      "tables": [
+        "user_profiles_v2",
+        "form_sessions",
+        "otp_codes",
+        "payments",
+        "documents",
+        "audit_events"
+      ],
+      "rpc_functions": [
+        "send_otp_v2",
+        "verify_otp_v2",
+        "cleanup_expired_otps",
+        "create_form_session",
+        "update_form_session"
+      ],
+      "required_extensions": ["pgcrypto", "uuid-ossp"]
+    },
+    
+    "frontend": {
+      "framework": "React 18 + TypeScript 5",
+      "state_management": "React Context + useReducer",
+      "form_library": "React Hook Form + Zod",
+      "styling": "Tailwind CSS + shadcn/ui",
+      "component_architecture": "Atomic design (atoms < 50 lines)"
+    },
+    
+    "integration_points": {
+      "supabase": {
+        "auth": "Should NOT be used for OTP",
+        "database": "Use RPC functions for OTP",
+        "storage": "For document uploads"
+      },
+      "stripe": {
+        "api_version": "2023-10-16",
+        "price": "CHF 399",
+        "payment_methods": ["card"],
+        "webhook_events": ["payment_intent.succeeded"]
+      },
+      "email": {
+        "provider": "SendGrid or Resend",
+        "templates": ["otp_code", "payment_confirmation", "referral_letter"]
+      }
+    }
+  },
+  
+  "user_journey": {
+    "personas": [
+      {
+        "name": "Symptomatic Patient",
+        "scenario": "Has heart palpitations, standard insurance",
+        "pathway": "covered",
+        "steps": [
+          "Enter contact info and verify email",
+          "Confirm symptoms and insurance",
+          "Provide symptom details",
+          "Select GP and consent",
+          "Receive confirmation and referral"
+        ]
+      },
+      {
+        "name": "Preventive Care Seeker",
+        "scenario": "No symptoms, wants screening",
+        "pathway": "self-pay",
+        "steps": [
+          "Enter contact info and verify email",
+          "Indicate no symptoms",
+          "Skip to self-pay options",
+          "Complete payment",
+          "Receive device and instructions"
+        ]
+      }
+    ]
+  },
+  
+  "content_specifications": {
+    "tone": "Professional, empathetic, clear",
+    "language_requirements": {
+      "primary": "English",
+      "translations": ["German", "French", "Italian"],
+      "medical_terms": "Must be validated by medical team"
+    },
+    "key_messages": {
+      "eligibility": "SKIIN is covered by Swiss basic insurance for symptomatic patients",
+      "prevention": "Self-pay option available for preventive screening at CHF 399",
+      "next_steps": "Clear guidance based on insurance model"
+    }
+  },
+  
+  "ui_specifications": {
+    "design_system": "S&W Design",
+    "colors": {
+      "primary": "#004C96 (Deep Navy)",
+      "secondary": "#5298F2 (Light Blue)",
+      "accent": "#5549A6 (Violet)",
+      "error": "#DC2626",
+      "success": "#10B981"
+    },
+    "components": {
+      "form_fields": "Minimal design with clear labels",
+      "buttons": "Primary CTA prominent, secondary actions subdued",
+      "progress": "Step indicator showing current position",
+      "validation": "Inline error messages with helpful text"
+    },
+    "responsive": {
+      "breakpoints": ["375px", "768px", "1024px", "1440px"],
+      "mobile_first": true
+    }
+  },
+  
+  "testing_requirements": {
+    "unit_tests": {
+      "coverage_target": "80%",
+      "framework": "Vitest",
+      "current_issues": [
+        "Tests in /tests/ not being run",
+        "vitest.config.ts only includes /src/**",
+        "authService.test.ts failing"
+      ]
+    },
+    
+    "integration_tests": {
+      "framework": "Vitest + Testing Library",
+      "scenarios": [
+        "Complete eligibility flow",
+        "OTP verification process",
+        "Payment processing",
+        "Form validation"
+      ]
+    },
+    
+    "visual_tests": {
+      "tool": "Puppeteer MCP",
+      "validation": [
+        "No doubled characters",
+        "Proper component rendering",
+        "Responsive layouts",
+        "Accessibility compliance"
+      ]
+    },
+    
+    "manual_tests": {
+      "browsers": ["Chrome", "Firefox", "Safari", "Edge"],
+      "devices": ["iPhone 12", "Samsung Galaxy S21", "iPad Pro"],
+      "scenarios": ["Happy path", "Error cases", "Edge cases"]
+    }
+  },
+  
+  "critical_fixes_required": {
+    "P0_CRITICAL": [
+      {
+        "issue": "OTP verification using mock implementation",
+        "fix": "Replace mock with database RPC calls",
+        "files": [
+          "/src/components/forms/eligibility/stages/ContactAccountStage.tsx",
+          "/src/services/authService.ts"
+        ],
+        "implementation": "Use supabase.rpc('send_otp_v2') and supabase.rpc('verify_otp_v2')"
+      },
+      {
+        "issue": "Unit tests not running from /tests/ directory",
+        "fix": "Update vitest.config.ts to include /tests/**",
+        "files": ["/vitest.config.ts"],
+        "implementation": "Add '/tests/**/*.test.ts' to include pattern"
+      },
+      {
+        "issue": "UI showing doubled characters",
+        "fix": "Investigate and fix rendering issues",
+        "files": ["Unknown - needs investigation"],
+        "implementation": "Use Puppeteer to identify affected components"
+      }
+    ],
+    
+    "P1_HIGH": [
+      {
+        "issue": "Payment integration incomplete",
+        "fix": "Complete Stripe webhook handling",
+        "files": ["/src/services/paymentService.ts"],
+        "implementation": "Add webhook endpoint and processing logic"
+      },
+      {
+        "issue": "Missing pgcrypto extension",
+        "fix": "Ensure database has required extensions",
+        "files": ["/supabase/migrations/"],
+        "implementation": "CREATE EXTENSION IF NOT EXISTS pgcrypto"
+      }
+    ]
+  },
+  
+  "documentation_cleanup": {
+    "superseded_files": [
+      "/docs/new-requirements/eligibility-questionnaire/",
+      "/docs/implementation/2025-08-19-eligibility-questionnaire-*.md",
+      "Any duplicate eligibility documentation"
+    ],
+    "consolidation": "All eligibility documentation should reference this master specification",
+    "archive_location": "/archive/2025-08-25/"
+  },
+  
+  "success_criteria": {
+    "functional": [
+      "All 6 stages working with proper validation",
+      "OTP verification using database RPC functions",
+      "Insurance eligibility correctly determined",
+      "Payment processing for self-pay users"
+    ],
+    "technical": [
+      "All unit tests passing (>80% coverage)",
+      "Visual tests confirm no UI issues",
+      "Database properly configured with extensions",
+      "Proper error handling and logging"
+    ],
+    "compliance": [
+      "GDPR consent collection",
+      "PCI DSS payment handling",
+      "WCAG 2.1 AA accessibility",
+      "Swiss healthcare regulations"
+    ]
+  }
+}

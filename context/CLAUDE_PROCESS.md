@@ -10,7 +10,7 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 3. **Think–Act–Observe Loop:** Within each phase and task, the orchestrator follows a ReAct‑style loop: think (analyse current state), act (invoke subagent/tool), observe (interpret results) and reflexion (self‑critique or review invocation) before iterating.
 
-4. **Context & Memory Management:** Context follows a structured approach with PROJECT_INDEX.json as the primary navigation system. Context is loaded via the context-manager at each phase start and summarised/pruned by the graph-memory-agent after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it. **Progressive Context Strategy**: Load PROJECT_INDEX.json (~15KB) first for architectural awareness, then explore specific areas via targeted context extraction (~30KB per area), maintaining <100KB total context per session. Use Serena MCP tools for symbol-level understanding when needed.
+4. **Context & Memory Management:** Context follows a structured 4-index system (v2.0) for efficient navigation. Context is loaded via the context-manager at each phase start and summarised/pruned by the graph-memory-agent after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it. **4-Index System**: Load PROJECT_INDEX.json (~160KB) for code structure, VISUAL_ASSETS_INDEX.json (~124KB) for images/videos, context/project-tree.txt (~36KB) for directory navigation, context/project-index.md for high-level overview. Use Serena MCP tools for symbol-level understanding when needed.
 
 5. **Safety & Compliance:** External data processing, code execution or operations with side effects require validation. User confirmation is required for side‑effect actions.
 
@@ -30,8 +30,8 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 **Mandatory Actions:**
 1. Check WORKFLOWS.md for keyword matches
-2. Run `/prime` to ensure PROJECT_NAVIGATOR.json exists
-3. Load PROJECT_INDEX.json if available
+2. Load PROJECT_INDEX.json (~160KB) for code structure
+3. Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work involved
 4. Check memory MCP for relevant context
 
 **Mandatory Steps:** 
@@ -47,15 +47,16 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
    };
    ```
 2. **Self-prime the orchestrator**:
-   - Run `/prime` command
-   - Load PROJECT_INDEX.json
+   - Load PROJECT_INDEX.json (~160KB) for code awareness
+   - Load context/project-index.md for overview
    - Check memory MCP: `mcp__memory__search_nodes('project')`
-3. **Call context-manager with self_prime: true** to load context files. **Progressive Context Loading Strategy**: Choose the appropriate indexing approach based on project size and needs:
-   - For smaller projects or full analysis: Use `/index` command to create PROJECT_INDEX.json with complete function signatures, classes, imports, and call graphs
-   - For large projects (2000+ files): Use `/explore` command to create PROJECT_NAVIGATOR.json with progressive loading system and .claude_cache/ for selective exploration
-   - Run `/prime` to get navigation instructions and ensure navigator exists
-   Extract only relevant sections for the current task (e.g., frontend-developer needs `directories['src/components']`, database-supabase-agent needs `supabase/` structure). Use the graph-memory-agent to fetch related entities (tasks, phases, files, requirements) from the knowledge graph. Apply context budget management: target <100KB total per session. 
-3. **Update indexing** if any structural changes have occurred since last update. The hooks automatically update both PROJECT_INDEX.json and PROJECT_NAVIGATOR.json when files are edited. For major structural changes, re-run the appropriate indexing command.
+3. **Call context-manager with self_prime: true** to load context files. **4-Index Loading Strategy (v2.0)**: Load the appropriate indexes based on task needs:
+   - **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+   - **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+   - **context/project-tree.txt** (~36KB): Directory tree without images
+   - **context/project-index.md**: High-level overview with depth-3 tree
+   Extract only relevant sections for the current task (e.g., frontend-developer needs `directories['src/components']`, database-supabase-agent needs `supabase/` structure). Use the graph-memory-agent to fetch related entities (tasks, phases, files, requirements) from the knowledge graph. 
+4. **Update indexing** if any structural changes have occurred since last update. Run `./scripts/generate-indexes.sh` to regenerate all 4 indexes. The script automatically separates visual assets from code structure and creates optimized views for different agent needs.
 4. **Summarise the context** into a concise brief tailored to the next subagent. Apply context engineering: select only relevant history, compress long logs and isolate unrelated scratchpads. **Structured Brief Format**: Include relevant PROJECT_INDEX.json sections, current task context, related files/symbols, and dependencies. For parallel execution, create isolated context files in `context/subagent-contexts/` to prevent context pollution. Persist the brief via the graph-memory-agent and log a KnowledgeCapture event. 
 5. **Identify missing information** and prepare follow‑up questions or research requests. If user clarification is needed, pause and ask. 
 6. **Log events:** record a UserMessage for the new request, a PhaseChange to Context Gathering, and a KnowledgeCapture for the context summary.
@@ -294,36 +295,51 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
   - Verify: Agent runs /prime and loads context
   - Track: Log violations as errors
 
-* **Project Index Maintenance:** The project-index.md file MUST be updated after any structural changes to the repository. This includes new directories, major components, service changes, or dependency updates. Use tree command to capture structure and document component relationships.
+* **Project Index Maintenance (v2.0):** All 4 indexes are AUTO-GENERATED. Run `./scripts/generate-indexes.sh` after structural changes. NEVER edit indexes manually. The script generates:
+  - `PROJECT_INDEX.json` (~160KB): Code structure, functions, dependencies (no images)
+  - `VISUAL_ASSETS_INDEX.json` (~124KB): All images, videos, icons with metadata  
+  - `context/project-tree.txt` (~36KB): Directory tree without images
+  - `context/project-index.md`: High-level overview with depth-3 tree
 
-* **Context Management Protocol:**
-  - Limit: Keep under 100KB per session
-  - Method: Load PROJECT_INDEX.json first (~15KB)
-  - Isolate: Use context/subagent-contexts/ for parallel tasks
-  - Clean: Delete isolated contexts after completion
-  - Archive: Move obsolete context to archive/ after 7 days **Progressive Context Loading**: Load PROJECT_INDEX.json first (~15KB), extract relevant sections per agent domain (e.g., `src/components/` for frontend-developer, `supabase/` for database-supabase-agent), use Serena MCP tools for symbol-level details when needed. Context budget: <100KB total per session. Summaries and context briefs are stored in memory and attached to entities.
+* **File Organization Enforcement:** Zero tolerance for misplaced files:
+  - **Prevention**: Pre-commit hook blocks commits with violations
+  - **Detection**: Run `./scripts/file-organization-scanner.sh` periodically
+  - **Correction**: Use `./scripts/auto-file-mover.sh` to fix violations
+  - **Root Limit**: Maximum 35 files in root (config only)
+  - **Violations**: Log as errors in event-stream.md
+
+* **Context Management Protocol (v2.0):**
+  - **4-Index System**: Load appropriate indexes based on task type
+  - **Code Work**: Use PROJECT_INDEX.json (~160KB) for structure
+  - **UI Work**: Add VISUAL_ASSETS_INDEX.json (~124KB) for images
+  - **Navigation**: Use context/project-tree.txt (~36KB) for directories
+  - **Overview**: Use context/project-index.md for high-level view
+  - **Isolate**: Use context/subagent-contexts/ for parallel tasks
+  - **Clean**: Delete isolated contexts after completion
+  - **Archive**: Move obsolete context to archive/ after 7 days
 
 * **Workflow Maintenance:** Workflows and invocation chains are updated or added when new patterns emerge. The workflow gateway uses these to streamline common tasks.
 
-## Context Navigation Quick Reference
+## Context Navigation Quick Reference (v2.0)
 
-For efficient context management across the large codebase (2000+ files), follow these structured patterns:
+For efficient context management across the large codebase (2000+ files), use the 4-index system:
 
-### Indexing Commands
+### Index Files (v2.0)
 
-| Command | Creates | Purpose | Best For |
-|---------|---------|---------|----------|
-| `/index` | PROJECT_INDEX.json | Full codebase analysis with function signatures, classes, imports, call graphs | Complete analysis, smaller projects |
-| `/explore` | PROJECT_NAVIGATOR.json + .claude_cache/ | Progressive exploration with smart caching | Large projects (2000+ files), selective loading |
-| `/prime` | Instructions + ensures navigator | Shows navigation instructions, creates navigator if missing | Getting started with exploration |
+| Index File | Size | Purpose | Contents |
+|------------|------|---------|----------|
+| PROJECT_INDEX.json | ~160KB | Code structure analysis | Functions, classes, dependencies (no images) |
+| VISUAL_ASSETS_INDEX.json | ~124KB | Visual asset inventory | All images, videos, icons with metadata |
+| context/project-tree.txt | ~36KB | Directory navigation | Tree view without images |
+| context/project-index.md | ~10KB | High-level overview | Depth-3 tree with statistics |
 
 ### Initial Setup (All Agents)
-1. **Choose indexing approach**: 
-   - For full analysis: Check for PROJECT_INDEX.json, run `/index` if missing
-   - For progressive loading: Check for PROJECT_NAVIGATOR.json, run `/prime` or `/explore` if missing
-2. **Load appropriate index**: 
-   - `@PROJECT_INDEX.json` for monolithic index (~MB for large projects)
-   - `@PROJECT_NAVIGATOR.json` for lightweight navigator (~15-20KB)
+1. **Generate indexes if missing**: Run `./scripts/generate-indexes.sh`
+2. **Load appropriate indexes based on task**:
+   - Code work: Load PROJECT_INDEX.json
+   - UI work: Load PROJECT_INDEX.json + VISUAL_ASSETS_INDEX.json
+   - Navigation: Use context/project-tree.txt
+   - Overview: Read context/project-index.md
 3. **Extract relevant sections**: Use domain-specific patterns below
 
 ### Domain-Specific Context Patterns
@@ -333,34 +349,34 @@ For efficient context management across the large codebase (2000+ files), follow
 - **testing-qa-agent**: Use `files` section for test patterns, `dependency_graph` for coverage areas
 - **documentation-maintainer**: Focus on `documentation_map`, `directory_purposes`, all `.md` files
 
-### Context Budget Management
+### Context Budget Management (v2.0)
 
-#### PROJECT_INDEX.json (Monolithic)
-- **Full index load**: Can be large (MB+ for big projects)
-- **Contains**: All functions, classes, imports, call graphs upfront
-- **Strategy**: Load once, query specific sections as needed
+#### 4-Index System Benefits
+- **Separation of Concerns**: Code separate from visual assets
+- **Optimized Size**: 73% reduction in PROJECT_INDEX.json (was 617KB, now 160KB)
+- **Selective Loading**: Load only needed indexes
+- **Clean Navigation**: Tree views exclude image clutter
 
-#### PROJECT_NAVIGATOR.json (Progressive)
-- **Navigator load**: ~15-20KB lightweight index
-- **Cache exploration**: ~30KB per domain via .claude_cache/
-- **Total target**: <100KB per session
-- **Progressive loading**: Expand context only when needed using `/explore [path] [depth]`
+#### Loading Strategy
+- **Base Load**: PROJECT_INDEX.json (~160KB) for code awareness
+- **UI Tasks**: Add VISUAL_ASSETS_INDEX.json (~124KB)
+- **Navigation**: Use lightweight project-tree.txt (~36KB)
+- **Overview**: Quick project-index.md (~10KB)
 
-### Automatic Index Updates
+### Index Generation (v2.0)
 
-Both indexing systems are automatically maintained via hooks:
-- **PostToolUse hooks** (on Write/Edit/MultiEdit):
-  - `update_index.py` - Updates PROJECT_INDEX.json with changes
-  - `update_navigator.py` - Updates PROJECT_NAVIGATOR.json and refreshes affected cache directories
-- **Stop hook**:
-  - `reindex_if_needed.py` - Checks if full reindex is needed (staleness, missing features)
+**Manual Regeneration**: Run `./scripts/generate-indexes.sh` to update all 4 indexes:
+- Separates visual assets from code
+- Generates tree views without images
+- Creates high-level overview with depth-3 limit
+- Maintains consistency across all indexes
 
-### Best Practices
-- **Choose the right tool**: Use `/index` for complete analysis, `/explore` for progressive loading
+### Best Practices (v2.0)
+- **Use 4-index system**: Load only indexes relevant to task
 - **Symbol-first navigation**: Use Serena MCP tools for precise code location
 - **Cache context briefs**: Store in memory MCP for reuse
 - **Isolated contexts**: Use `context/subagent-contexts/` for parallel execution
-- **Update triggers**: Hooks handle most updates; re-index manually after major structural changes
+- **Update triggers**: Run `./scripts/generate-indexes.sh` after structural changes
 
 ## Project-Specific Workflows
 

@@ -12,10 +12,13 @@ export interface MinimalInputProps
 }
 
 const MinimalInput = React.forwardRef<HTMLInputElement, MinimalInputProps>(
-  ({ className, type, label, error, floatingLabel = true, ...props }, ref) => {
+  ({ className, type, label, error, floatingLabel = true, placeholder, ...props }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false);
     const hasValue = props.value && String(props.value).length > 0;
     const isFloating = floatingLabel && (isFocused || hasValue);
+    
+    // Hide placeholder when floating label is in rest position to prevent text overlap
+    const actualPlaceholder = floatingLabel && label && !isFloating ? "" : placeholder;
 
     return (
       <div className="relative w-full">
@@ -39,6 +42,7 @@ const MinimalInput = React.forwardRef<HTMLInputElement, MinimalInputProps>(
             onBlur={() => setIsFocused(false)}
             aria-invalid={!!error}
             aria-describedby={error ? `${props.id}-error` : undefined}
+            placeholder={actualPlaceholder}
             {...props}
           />
           {floatingLabel && label && (

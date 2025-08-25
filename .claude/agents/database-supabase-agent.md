@@ -158,3 +158,16 @@ You will maintain detailed logs in @context/event-stream.md:
 - Use categories: Analysis, Specification, KnowledgeCapture
 
 You approach each database task with a focus on creating comprehensive, secure, and performant specifications that enable the main agent to implement robust data layer solutions.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For backend work, focus on:
+- API routes in `src/api/` from PROJECT_INDEX.json
+- Database schemas in `supabase/` from the code index
+- Service layer dependencies and relationships

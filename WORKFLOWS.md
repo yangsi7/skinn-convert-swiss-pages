@@ -14,21 +14,20 @@ PURPOSE: Predefined workflows for common development scenarios with parallel exe
 6. **Mandatory Self-Priming**: ALL agents MUST run `/prime` before starting work
 7. **Automatic Documentation**: documentation-maintainer invoked after EVERY implementation
 
-## Agent Selection Matrix with Explicit Triggers
+## Agent Selection Matrix with Explicit Triggers (v2.0)
 
-| Task Type | Trigger Keywords | Primary Agents | Support Agents | Parallel? | Output Type |
-|-----------|-----------------|---------------|----------------|-----------|-------------|
-| **Research new technology** | "research", "explore", "investigate", "best practices" | researcher | tree-of-thought, brainstormer | ✅ Yes | Research brief |
-| **Create UI component** | "component", "UI", "frontend", "design", "interface" | design-system-architect, requirements-spec-agent | context-manager | ✅ Yes | Design spec + requirements |
-| **Fix bug** | "bug", "error", "broken", "fix", "issue", "not working" | tree-of-thought-agent | researcher, testing-qa-agent | ⚠️ Partial | Root cause analysis + fix spec |
-| **Update documentation** | "document", "readme", "guide", "explain" | documentation-maintainer | context-manager | ❌ No | Documentation updates |
-| **Database design** | "database", "schema", "table", "migration" | supabase-architect | requirements-spec-agent | ❌ No | Schema + migration spec |
-| **Database implementation** | "implement database", "apply migration", "create tables" | supabase-implementation-engineer | supabase-architect | ❌ No | Implemented database changes |
-| **Performance optimization** | "performance", "slow", "optimize", "speed" | testing-qa-agent | researcher, reflection-agent | ✅ Yes | Performance report + optimizations |
-| **Security audit** | "security", "vulnerability", "audit", "compliance" | testing-qa-agent | researcher, requirements-spec-agent | ✅ Yes | Security report + fixes |
-| **Code refactoring** | "refactor", "cleanup", "reorganize", "improve code" | repository-conformance-agent | design-system-architect | ⚠️ Partial | Refactoring plan |
-| **API development** | "API", "endpoint", "REST", "backend" | backend-developer | supabase-architect | ✅ Yes | API spec + implementation |
-| **Testing** | "test", "verify", "validate", "QA" | testing-qa-agent | requirements-spec-agent | ✅ Yes | Test report + coverage |
+| Task Type | Trigger Keywords | Primary Agents | Support Agents | Parallel? | Output Type | Index Focus |
+| **Research new technology** | "research", "explore", "investigate", "best practices" | researcher | tree-of-thought, brainstormer | ✅ Yes | Research brief | PROJECT_INDEX + docs |
+| **Create UI component** | "component", "UI", "frontend", "design", "interface" | design-system-architect, requirements-spec-agent | context-manager | ✅ Yes | Design spec + requirements | PROJECT_INDEX + VISUAL_ASSETS |
+| **Fix bug** | "bug", "error", "broken", "fix", "issue", "not working" | tree-of-thought-agent | researcher, testing-qa-agent | ⚠️ Partial | Root cause analysis + fix spec | PROJECT_INDEX + tree |
+| **Update documentation** | "document", "readme", "guide", "explain" | documentation-maintainer | context-manager | ❌ No | Documentation updates | All 4 indexes |
+| **Database design** | "database", "schema", "table", "migration" | supabase-architect | requirements-spec-agent | ❌ No | Schema + migration spec | PROJECT_INDEX |
+| **Database implementation** | "implement database", "apply migration", "create tables" | supabase-implementation-engineer | supabase-architect | ❌ No | Implemented database changes | PROJECT_INDEX |
+| **Performance optimization** | "performance", "slow", "optimize", "speed" | testing-qa-agent | researcher, reflection-agent | ✅ Yes | Performance report + optimizations | PROJECT_INDEX |
+| **Security audit** | "security", "vulnerability", "audit", "compliance" | testing-qa-agent | researcher, requirements-spec-agent | ✅ Yes | Security report + fixes | PROJECT_INDEX |
+| **Code refactoring** | "refactor", "cleanup", "reorganize", "improve code" | repository-conformance-agent | design-system-architect | ⚠️ Partial | Refactoring plan | PROJECT_INDEX + tree |
+| **API development** | "API", "endpoint", "REST", "backend" | backend-developer | supabase-architect | ✅ Yes | API spec + implementation | PROJECT_INDEX |
+| **Testing** | "test", "verify", "validate", "QA" | testing-qa-agent | requirements-spec-agent | ✅ Yes | Test report + coverage | PROJECT_INDEX + VISUAL_ASSETS |
 
 ## Standard Workflows
 
@@ -323,7 +322,67 @@ phases:
           output: "security_validation.json"
 ```
 
-### 6. Database Migration Workflow
+### 6. File Organization Cleanup Workflow
+
+```yaml
+name: file-organization-cleanup
+description: Detect and fix file organization violations
+triggers:
+  - keywords: ["cleanup", "organize", "misplaced", "file organization", "root files"]
+  - patterns: ["clean.*repository", "fix.*files", "organize.*project"]
+phases:
+  - name: detection
+    parallel: false
+    executor: main-agent
+    tasks:
+      - "Run file organization scanner"
+      - "Identify all violations"
+      - "Generate violation report"
+    commands:
+      - "./scripts/file-organization-scanner.sh"
+  
+  - name: correction
+    parallel: false
+    executor: main-agent
+    checkpoint: true
+    tasks:
+      - "Move misplaced files to correct locations"
+      - "Update file references if needed"
+      - "Remove deprecated directories"
+    commands:
+      - "./scripts/auto-file-mover.sh"
+  
+  - name: index_update
+    parallel: false
+    executor: main-agent
+    tasks:
+      - "Regenerate 4-index system (v2.0)"
+      - "Update project-tree.txt (no images)"
+      - "Update PROJECT_INDEX.json (~160KB)"
+      - "Update VISUAL_ASSETS_INDEX.json (~124KB)"
+      - "Update context/project-index.md (depth-3 tree)"
+    commands:
+      - "./scripts/generate-indexes.sh"
+  
+  - name: validation
+    parallel: false
+    executor: main-agent
+    tasks:
+      - "Verify no violations remain"
+      - "Check root file count ≤35"
+      - "Ensure indexes are current"
+    commands:
+      - "./scripts/file-organization-scanner.sh"
+  
+  - name: documentation
+    parallel: false
+    agents:
+      - documentation-maintainer:
+          task: "Update file organization documentation"
+          output: "file_org_updates.json"
+```
+
+### 7. Database Migration Workflow
 
 ```yaml
 name: database-migration
@@ -581,6 +640,7 @@ function detectWorkflow(userMessage) {
 | deep-research | "research", "investigate", "explore" | "study", "analyze market", "best practices" |
 | performance-optimization | "slow", "performance", "optimize" | "speed up", "improve performance", "bottleneck" |
 | security-audit | "security", "vulnerability", "audit" | "penetration test", "compliance", "OWASP" |
+| file-organization-cleanup | "cleanup", "organize", "misplaced files" | "root files", "file organization", "repository cleanup" |
 | database-migration | "database", "migration", "schema change" | "add table", "modify column", "RLS policy" |
 
 ## Agent Self-Priming Protocol
@@ -588,11 +648,13 @@ function detectWorkflow(userMessage) {
 EVERY agent MUST follow this protocol:
 
 ```yaml
-protocol: agent-self-prime
+protocol: agent-self-prime-v2
 steps:
   1. check_context:
-      - Run `/prime` to check for PROJECT_NAVIGATOR.json
-      - Load PROJECT_INDEX.json if available
+      - Load PROJECT_INDEX.json (~160KB) for code structure
+      - Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work
+      - Check context/project-tree.txt (~36KB) for navigation
+      - Review context/project-index.md for overview
       - Check memory MCP for relevant context
   
   2. expand_context:

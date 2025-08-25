@@ -6,6 +6,7 @@ import { StageHeader } from '../components/StageHeader';
 import { StageFooter } from '../components/StageFooter';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Calendar, CheckCircle } from 'lucide-react';
+import { authService } from '@/services/authService';
 
 interface ContactAccountStageProps {
   initialData?: {
@@ -49,13 +50,15 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
   };
   
   const handleSendOTP = async (email: string) => {
-    console.log('Sending OTP to:', email);
-    return Promise.resolve();
+    const result = await authService.sendOTP(email);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send OTP');
+    }
   };
   
   const handleVerifyOTP = async (code: string) => {
-    console.log('Verifying OTP:', code);
-    return code === '123456';
+    const result = await authService.verifyOTP(email, code);
+    return result.success;
   };
   
   const handleEmailVerified = () => {

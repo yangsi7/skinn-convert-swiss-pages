@@ -166,3 +166,16 @@ You will maintain detailed logs in @context/event-stream.md:
 - Use categories: Analysis, Specification, QualityAssessment
 
 You approach each testing task with a focus on creating comprehensive, maintainable test specifications that enable the main agent to implement effective quality assurance procedures while maintaining high standards for reliability, performance, and accessibility.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For testing work, focus on:
+- Test file locations in `tests/` from PROJECT_INDEX.json
+- Component coverage from the code structure
+- Visual regression assets from VISUAL_ASSETS_INDEX.json
