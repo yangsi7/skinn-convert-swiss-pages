@@ -28,7 +28,7 @@
 
 3. **Mandatory Implementation Loop.** For EVERY task:
    1. **Detect Workflow:** Check WORKFLOWS.md for matching workflow based on keywords
-   2. **Self-Prime:** Run `/prime` to load PROJECT_NAVIGATOR.json and context
+   2. **Self-Prime:** Load PROJECT_INDEX.json (v2.0) and relevant context files
    3. **Gather:** Invoke appropriate subagents (in parallel when possible) with self_prime: true
    4. **Receive:** Accept structured briefs with pre-processed information
    5. **Implement:** Execute code changes (or delegate to supabase-implementation-engineer for DB)
@@ -63,32 +63,32 @@ Below are the available subagents for this project. Each subagent is autonomous 
 
 | Subagent | Purpose | When to Use |
 | :---- | :---- | :---- |
-| **context-manager** | Loads and summarises context files; detects inconsistencies; provides tailored briefs; synchronises planning, todo, conventions and event logs. | Start of each work phase, after significant changes to context files, or when other agents need coherent project state. **PROJECT_NAVIGATOR.json Usage**: Use `/prime` for instructions, check `structure` for cached explorations, use `/explore` commands for fresh data. |
-| **graph-memory-agent** | Performs semantic queries and retrieval from the knowledge graph; persists entities, relations and observations; enforces schema validation. | When storing/recalling project knowledge, tracking relationships between components, or building semantic understanding. **PROJECT_NAVIGATOR.json Usage**: Use `/explore search` to find components, check cached explorations for relationships, build graph from exploration results. |
-| **documentation-maintainer** | Updates documentation after code changes, feature implementations, or architectural decisions. Maintains docs/ structure. | ALWAYS after code generation, feature completion, bug fixes, or when archiving obsolete documents. **PROJECT_NAVIGATOR.json Usage**: Use `/explore docs` for documentation structure, `/explore search .md` to find all markdown files, check navigator stats for doc counts. |
+| **context-manager** | Loads and summarises context files; detects inconsistencies; provides tailored briefs; synchronises planning, todo, conventions and event logs. | Start of each work phase, after significant changes to context files, or when other agents need coherent project state. **Index Usage (v2.0)**: Utilizes all 4 indexes for comprehensive awareness - PROJECT_INDEX.json for code, VISUAL_ASSETS_INDEX.json for assets, project-index.md for overview. |
+| **graph-memory-agent** | Performs semantic queries and retrieval from the knowledge graph; persists entities, relations and observations; enforces schema validation. | When storing/recalling project knowledge, tracking relationships between components, or building semantic understanding. **Index Usage (v2.0)**: Extract relationships from PROJECT_INDEX.json dependencies, track visual asset usage from VISUAL_ASSETS_INDEX.json. |
+| **documentation-maintainer** | Updates documentation after code changes, feature implementations, or architectural decisions. Maintains docs/ structure and all 4 indexes. | ALWAYS after code generation, feature completion, bug fixes, or when archiving obsolete documents. **Index Usage (v2.0)**: Maintains all 4 indexes via generate-indexes.sh, tracks documentation in PROJECT_INDEX.json, manages visual asset documentation. |
 
 ### Domain‑Specific Agents
 
 | Subagent | Purpose | When to Use |
 | :---- | :---- | :---- |
-| **planning-task-agent** | Creates structured project plans, decomposes work into tasks, updates existing plans based on new requirements. | Start of new features, when requirements change, or when existing plans need refinement. **PROJECT_INDEX.json Usage**: Use `project_structure` for architectural overview and `dependency_graph` to understand task dependencies and impacts. |
-| **frontend-developer** | Implements UI components with React, TypeScript, Tailwind CSS. Ensures responsive design and accessibility. | For any client-side development tasks, UI components, state management, or user interactions. **PROJECT_INDEX.json Usage**: Focus on `directories['src/components']` for component structure, `files[filename].functions` for component APIs, and `dependency_graph` for import relationships. |
-| **backend-developer** | Implements server-side functionality, API routes, authentication, database integration, business logic. | For API endpoints, server logic, authentication middleware, data validation, or backend security. **PROJECT_INDEX.json Usage**: Focus on API routes structure, `files[filename].functions` for service method signatures, and `dependency_graph` for service layer dependencies. |
-| **supabase-architect** | Designs database schemas, migrations, RLS policies, and edge functions. Provides specifications only. | For database schema design, migration planning, or Supabase architecture decisions. **PROJECT_INDEX.json Usage**: Extract migration files from `supabase/` directory structure, analyze existing schema, plan changes. |
+| **planning-task-agent** | Creates structured project plans, decomposes work into tasks, updates existing plans based on new requirements. | Start of new features, when requirements change, or when existing plans need refinement. **Index Usage (v2.0)**: Use context/project-index.md for high-level overview, PROJECT_INDEX.json for dependency analysis (now cleaner without images). |
+| **frontend-developer** | Implements UI components with React, TypeScript, Tailwind CSS. Ensures responsive design and accessibility. | For any client-side development tasks, UI components, state management, or user interactions. **Index Usage (v2.0)**: Focus on `src/components/` in PROJECT_INDEX.json (code only), utilize VISUAL_ASSETS_INDEX.json for UI assets. |
+| **backend-developer** | Implements server-side functionality, API routes, authentication, database integration, business logic. | For API endpoints, server logic, authentication middleware, data validation, or backend security. **Index Usage (v2.0)**: Focus on `src/api/` and `supabase/` in PROJECT_INDEX.json (cleaner without images). |
+| **supabase-architect** | Designs database schemas, migrations, RLS policies, and edge functions. Provides specifications only. | For database schema design, migration planning, or Supabase architecture decisions. **Index Usage (v2.0)**: Extract migration files from `supabase/` in PROJECT_INDEX.json (no image clutter). |
 | **supabase-implementation-engineer** | IMPLEMENTS database changes designed by supabase-architect. Can execute migrations and apply RLS policies. | For applying database migrations, creating tables, implementing RLS policies, or deploying edge functions. Works from supabase-architect specifications. |
 | **database-supabase-agent** | [DEPRECATED - Use supabase-architect instead] Legacy agent for backwards compatibility. | Redirect to supabase-architect for all new database design tasks. |
-| **testing-qa-agent** | Runs unit, integration, and end-to-end tests; performs accessibility and performance audits. | After implementing features, before commits, or when quality assurance is needed. **PROJECT_INDEX.json Usage**: Use `files` section to locate test file patterns, `dependency_graph` to understand test coverage areas, and `directories` structure for test organization. |
-| **design-system-architect** | Defines and maintains design tokens, component guidelines, UI patterns, accessibility standards. | When new UI elements are planned, design consistency issues arise, or accessibility needs verification. **PROJECT_INDEX.json Usage**: Focus on `directories['src/components/ui']` for component inventory, extract design-related files, and analyze component dependencies for consistency patterns. |
-| **repository-conformance-agent** | Restructures repositories to follow conventions, organizes files, ensures CI/CD configuration. | When reorganizing messy repositories, establishing coding standards, or ensuring consistent structure. **PROJECT_INDEX.json Usage**: Use full `project_structure.tree` for current state assessment, `directory_purposes` for organization validation, and `files` inventory for conformance auditing. |
+| **testing-qa-agent** | Runs unit, integration, and end-to-end tests; performs accessibility and performance audits. | After implementing features, before commits, or when quality assurance is needed. **Index Usage (v2.0)**: Use `tests/` structure from PROJECT_INDEX.json, reference VISUAL_ASSETS_INDEX.json for visual regression tests. |
+| **design-system-architect** | Defines and maintains design tokens, component guidelines, UI patterns, accessibility standards. | When new UI elements are planned, design consistency issues arise, or accessibility needs verification. **Index Usage (v2.0)**: Focus on `src/components/ui/` in PROJECT_INDEX.json, utilize complete VISUAL_ASSETS_INDEX.json for asset inventory. |
+| **repository-conformance-agent** | Restructures repositories to follow conventions, organizes files, ensures CI/CD configuration. | When reorganizing messy repositories, establishing coding standards, or ensuring consistent structure. **Index Usage (v2.0)**: Use context/project-tree.txt for clean structure view, PROJECT_INDEX.json for code organization, VISUAL_ASSETS_INDEX.json for asset compliance. |
 
 ### Research & Analysis Agents
 
 | Subagent | Purpose | When to Use |
 | :---- | :---- | :---- |
-| **researcher** | Conducts research using authoritative sources, cross-validates facts, gathers best practices. | When domain knowledge is needed, exploring new technologies, or validating approaches. **PROJECT_INDEX.json Usage**: Use `dependency_graph` to understand current tech stack, `files` section to identify existing patterns, and `documentation_map` to avoid redundant research. |
-| **tree-of-thought-agent** | Develops structured understanding of complex problems through tree-based reasoning. | For complex architectural decisions or when breaking down intricate requirements. **PROJECT_INDEX.json Usage**: Leverage `project_structure` for architectural context, `dependency_graph` for relationship analysis, and `files[filename].functions` for detailed component understanding. |
-| **brainstormer** | Generates and evaluates creative solutions or approaches. | When exploring multiple implementation options or needing innovative solutions. **PROJECT_INDEX.json Usage**: Use `directories` structure to understand current patterns, `files` inventory to identify reusable components, and `dependency_graph` to assess solution feasibility. |
-| **reflection-agent** | Reviews outputs, provides expert feedback, identifies improvements. | At milestones, after major implementations, or when quality review is needed. **PROJECT_INDEX.json Usage**: Use `files[filename].functions` for code review context, `dependency_graph` for impact analysis, and `project_structure` for architectural compliance assessment. |
+| **researcher** | Conducts research using authoritative sources, cross-validates facts, gathers best practices. | When domain knowledge is needed, exploring new technologies, or validating approaches. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for tech stack analysis (cleaner without images), context/project-index.md for documentation overview. |
+| **tree-of-thought-agent** | Develops structured understanding of complex problems through tree-based reasoning. | For complex architectural decisions or when breaking down intricate requirements. **Index Usage (v2.0)**: Leverage context/project-index.md for high-level architecture, PROJECT_INDEX.json for detailed dependency analysis. |
+| **brainstormer** | Generates and evaluates creative solutions or approaches. | When exploring multiple implementation options or needing innovative solutions. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for code patterns, context/project-index.md for architectural overview. |
+| **reflection-agent** | Reviews outputs, provides expert feedback, identifies improvements. | At milestones, after major implementations, or when quality review is needed. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for code review, context/project-tree.txt for structure compliance. |
 
 ### Specialized Agents
 
@@ -116,8 +116,9 @@ Below are the available subagents for this project. Each subagent is autonomous 
 
 2. **MUST enforce self-priming** for ALL agents:
    - Every agent invocation MUST include: `self_prime: true`
-   - Agents MUST run `/prime` before starting work
-   - Agents MUST load PROJECT_INDEX.json if available
+   - Agents MUST load appropriate indexes before starting work
+   - Agents MUST load PROJECT_INDEX.json (v2.0, ~160KB) for code structure
+   - Agents MAY load VISUAL_ASSETS_INDEX.json (~124KB) if visual assets needed
 
 3. **MUST invoke documentation-maintainer** after EVERY:
    - Code generation or modification
@@ -135,7 +136,8 @@ Below are the available subagents for this project. Each subagent is autonomous 
    - database-supabase-agent for database operations
 
 4. **Context Management:** Before invoking any subagent:
-   - Load PROJECT_INDEX.json for architectural awareness
+   - Load PROJECT_INDEX.json (v2.0, ~160KB) for code structure awareness
+   - Load VISUAL_ASSETS_INDEX.json (~124KB) if visual assets are relevant
    - Use Serena tools for symbol-level understanding
    - Use context-manager to generate a context brief tailored to that agent
    - Include only relevant files/symbols from the indexes in the brief
@@ -296,19 +298,38 @@ When the memory MCP is available:
 3. **Add Observations**: `memory.add_observations([{entityName: 'HeroSection', contents: ['Performance optimized', 'WCAG AA compliant']}])`
 4. **Update Graph**: When components change, update their observations and relationships
 
-### Project Indexing & Context Gathering
+### Project Indexing & Context Gathering (v2.0)
 
-The project uses two complementary indexing systems to provide comprehensive codebase intelligence:
+The project uses an enhanced 4-index system with visual asset separation:
 
-#### 1. PROJECT_INDEX.json
-Generated by `/index` command, provides:
-- **Architectural Overview**: Directory structure with purposes (160+ directories)
-- **File Inventory**: 358 code files with language breakdown
-- **Documentation Map**: 278 documentation files with section analysis
+#### 1. PROJECT_INDEX.json (~160KB, reduced from 617KB)
+Generated by `./scripts/generate-indexes.sh`, provides:
+- **Code-Only Structure**: Directory and file organization without images
+- **File Inventory**: Code files with NO visual assets
+- **Documentation Map**: All markdown and doc files
 - **Dependency Graph**: Import relationships and module dependencies
-- **Call Graph**: Function call relationships across the codebase
+- **73% Size Reduction**: Cleaner, faster loading for agents
 
-#### 2. Serena Index (.serena/cache/)
+#### 2. VISUAL_ASSETS_INDEX.json (~124KB)
+Dedicated visual asset catalog:
+- **Complete Asset Inventory**: 512+ images, videos, icons
+- **Rich Metadata**: File sizes, formats, dimensions, locations
+- **Directory Organization**: Assets grouped by location
+- **231MB Tracked**: Full visual asset management
+
+#### 3. context/project-tree.txt (~36KB)
+Clean directory tree:
+- **No Image Clutter**: Excludes all visual file extensions
+- **Complete Structure**: Full directory hierarchy
+- **Generated by tree**: Standard tree command with exclusions
+
+#### 4. context/project-index.md
+High-level overview:
+- **Depth-3 Tree**: Limited depth for better navigation
+- **Key Directories**: Descriptions and purposes
+- **Human-Readable**: Clean formatted documentation
+
+#### 5. Serena Index (.serena/cache/)
 Generated by `uvx --from git+https://github.com/oraios/serena serena project index`, provides:
 - **Symbol Analysis**: All TypeScript/JavaScript symbols with signatures
 - **Semantic Understanding**: Classes, methods, interfaces, types
@@ -507,8 +528,9 @@ The project uses a comprehensive multi-panel expert review system for critical f
    - Use keyword triggers from Agent Selection Matrix
 
 2. **Context Priming Gate:**
-   - ALL agents MUST self-prime with `/prime`
-   - Verify PROJECT_INDEX.json loaded
+   - ALL agents MUST load appropriate indexes
+   - Verify PROJECT_INDEX.json (v2.0) loaded (~160KB)
+   - Load VISUAL_ASSETS_INDEX.json if needed (~124KB)
    - Check memory MCP for relevant context
 
 3. **Documentation Gate:**
@@ -621,6 +643,42 @@ await Edit({
 - Always reference the current task ID and requirement
 - Explain the business value, not just the technical action
 - The event-stream hook will use the `description` parameter when available, falling back to auto-generation only when necessary
+
+### 8.2 File Organization & Index Automation
+
+**File Organization Enforcement:**
+1. **Pre-commit Hook**: `.git/hooks/pre-commit` prevents misplaced files
+2. **Scanner**: `scripts/file-organization-scanner.sh` detects violations
+3. **Auto-Mover**: `scripts/auto-file-mover.sh` corrects violations
+4. **Enhanced Index Generator**: `scripts/generate-indexes.sh` v2.0 with visual asset separation
+
+**Automated Index Files (v2.0 - Enhanced):**
+- `context/project-tree.txt`: Detailed tree view WITHOUT images (~36KB)
+- `context/project-index.md`: High-level overview (depth 3) with clean structure
+- `PROJECT_INDEX.json`: Code-focused index for agents (~160KB, excludes visual assets)
+- `VISUAL_ASSETS_INDEX.json`: Dedicated catalog of all images/videos with metadata (~124KB)
+
+**Key Improvements (v2.0):**
+- **Visual Asset Separation**: 512+ images/videos tracked separately
+- **Cleaner Main Index**: PROJECT_INDEX.json reduced from 617KB to 160KB
+- **High-Level View**: project-index.md shows depth-limited tree for better navigation
+- **Comprehensive Asset Tracking**: Full metadata for 231MB of visual assets
+
+**Mandatory Index Updates:**
+- Run after structural changes: `./scripts/generate-indexes.sh`
+- Generates 4 separate indexes automatically
+- Indexes are auto-generated - NEVER edit manually
+- Add to post-commit hook for automatic updates
+
+**File Location Rules (Zero Tolerance):**
+| File Type | MUST Go In | NEVER In |
+|-----------|------------|----------|
+| Images | /public/assets/images/ | Root directory |
+| SQL | /supabase/ | Root directory |
+| Reports | /docs/reports/ | Root directory |
+| Specs | /docs/specs/ | Root directory |
+| Tests | /tests/ or /scripts/tests/ | Root directory |
+| Scripts | /scripts/ | Root directory |
 
 ---
 

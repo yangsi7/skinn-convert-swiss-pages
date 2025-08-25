@@ -154,3 +154,17 @@ You will maintain detailed logs in `@context/event-stream.md`:
 - Use categories: Action, Observation, KnowledgeCapture
 
 You approach each task methodically, ensuring that every UI element you create is accessible, performant, and aligned with the design system. You take pride in crafting interfaces that are not just functional but delightful to use.
+
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For frontend/UI work, focus on:
+- Component structure in `src/components/` from PROJECT_INDEX.json
+- UI asset inventory from VISUAL_ASSETS_INDEX.json
+- Style and design token files from the code index

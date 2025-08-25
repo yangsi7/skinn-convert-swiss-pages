@@ -44,9 +44,7 @@ describe('AuthService', () => {
         email: 'test@gmail.com',
         options: {
           shouldCreateUser: true,
-          data: {
-            source: 'eligibility_form'
-          }
+          emailRedirectTo: expect.stringContaining('/en/eligibility')
         }
       });
     });
@@ -60,7 +58,7 @@ describe('AuthService', () => {
       const result = await authService.sendOTP('invalid@example.com');
 
       expect(result.success).toBe(false);
-      expect(result.error).toBe(errorMessage);
+      expect(result.error).toBe('Please enter a valid email address.');
     });
 
     it('should handle unexpected errors', async () => {
@@ -69,7 +67,7 @@ describe('AuthService', () => {
       const result = await authService.sendOTP('test@gmail.com');
 
       expect(result.success).toBe(false);
-      expect(result.error).toBe('Failed to send verification code');
+      expect(result.error).toBe('Network error. Please check your connection and try again.');
     });
   });
 

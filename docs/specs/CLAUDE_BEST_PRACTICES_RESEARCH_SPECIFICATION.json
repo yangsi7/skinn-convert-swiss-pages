@@ -1,0 +1,226 @@
+{
+  "research_specification": {
+    "research_id": "RES-CLAUDE-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-24",
+    "priority": "High",
+    "context": "Optimizing SKIIN project orchestration system with latest Claude Code best practices and memory management patterns"
+  },
+  
+  "research_objectives": [
+    {
+      "objective_id": "OBJ-001",
+      "question": "What are the latest Claude Code best practices for multi-agent orchestration?",
+      "context": "Need to optimize current CLAUDE.md implementation with 2025 best practices",
+      "success_criteria": [
+        "Identify official Anthropic best practices",
+        "Document community-validated patterns",
+        "Compare with current SKIIN implementation",
+        "Extract performance optimization techniques"
+      ]
+    },
+    {
+      "objective_id": "OBJ-002",
+      "question": "How to implement effective memory bank systems for Claude Code?",
+      "context": "Current system uses context/ and memory MCP but needs optimization",
+      "success_criteria": [
+        "Document CLAUDE-*.md file patterns",
+        "Identify session persistence strategies",
+        "Define active context management patterns",
+        "Map memory hierarchy best practices"
+      ]
+    },
+    {
+      "objective_id": "OBJ-003",
+      "question": "What are the optimal token optimization strategies for large codebases?",
+      "context": "SKIIN codebase has 2000+ files, token management is critical",
+      "success_criteria": [
+        "Document Chain of Draft (CoD) pattern",
+        "Identify progressive context loading techniques",
+        "Extract caching and compression strategies",
+        "Define context budget management patterns"
+      ]
+    },
+    {
+      "objective_id": "OBJ-004",
+      "question": "How to integrate MCP servers and hooks effectively?",
+      "context": "Project uses multiple MCP servers (memory, serena, puppeteer)",
+      "success_criteria": [
+        "Document MCP integration patterns",
+        "Identify event-stream hook best practices",
+        "Extract automation workflow patterns",
+        "Define error handling strategies"
+      ]
+    },
+    {
+      "objective_id": "OBJ-005",
+      "question": "What are emerging 2025 patterns for Claude Code systems?",
+      "context": "Need to stay current with latest developments",
+      "success_criteria": [
+        "Document TodoWrite parallel execution patterns",
+        "Identify checkpoint recovery systems",
+        "Extract multi-panel review frameworks",
+        "Define subagent self-priming protocols"
+      ]
+    }
+  ],
+  
+  "research_methodology": {
+    "approach": "literature_review",
+    "timeline": "48 hours",
+    "resources_required": ["Web access", "Developer documentation", "Community forums"],
+    "deliverables": [
+      "Comprehensive best practices document",
+      "Memory bank system design patterns",
+      "Integration recommendations matrix",
+      "Performance optimization guide",
+      "Implementation priority roadmap"
+    ]
+  },
+  
+  "source_specifications": {
+    "primary_sources": [
+      {
+        "source_type": "official_documentation",
+        "location": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "authority_level": "High",
+        "content_focus": "Official Anthropic best practices"
+      },
+      {
+        "source_type": "technical_guide",
+        "location": "https://dev.to/yigit-konur/the-ultimate-guide-to-claudemd-best-practices-to-turn-claude-into-super-powered-ai-teammate-529p",
+        "authority_level": "High",
+        "content_focus": "Comprehensive implementation guide with real-world patterns"
+      },
+      {
+        "source_type": "github_repositories",
+        "location": "GitHub repositories using CLAUDE.md patterns",
+        "authority_level": "Medium-High",
+        "content_focus": "Real-world implementations and patterns"
+      }
+    ],
+    "secondary_sources": [
+      {
+        "source_type": "community_forums",
+        "criteria": "Discord, Reddit, Stack Overflow discussions about Claude Code",
+        "focus": "Common problems and solutions, emerging patterns"
+      },
+      {
+        "source_type": "technical_blogs",
+        "criteria": "Published after January 2025, focus on Claude Code optimization",
+        "focus": "Performance improvements, token management strategies"
+      },
+      {
+        "source_type": "case_studies",
+        "criteria": "Large-scale Claude Code implementations",
+        "focus": "Enterprise patterns, scalability solutions"
+      }
+    ],
+    "expert_sources": [
+      {
+        "expertise": "Anthropic engineers and developer advocates",
+        "consultation_type": "Blog posts, documentation, GitHub discussions"
+      },
+      {
+        "expertise": "Claude Code power users with 100+ star projects",
+        "consultation_type": "Open source implementations, community guides"
+      }
+    ]
+  },
+  
+  "validation_requirements": {
+    "cross_reference_minimum": 3,
+    "authority_threshold": "Primary sources from Anthropic or recognized experts",
+    "recency_requirement": "Prioritize content from 2025, accept 2024 for established patterns",
+    "bias_mitigation": [
+      "Compare multiple implementation approaches",
+      "Validate against SKIIN project requirements",
+      "Check for conflicting recommendations",
+      "Prioritize patterns with measurable benefits"
+    ]
+  },
+  
+  "information_gaps": [
+    {
+      "gap_id": "GAP-001",
+      "description": "Optimal memory file structure for 2000+ file codebases",
+      "impact": "High - affects entire orchestration efficiency",
+      "current_knowledge": "Basic CLAUDE-*.md pattern known",
+      "required_depth": "Detailed file organization, naming conventions, archival strategies"
+    },
+    {
+      "gap_id": "GAP-002",
+      "description": "Chain of Draft (CoD) implementation details",
+      "impact": "High - could reduce token usage by 50%+",
+      "current_knowledge": "Concept mentioned but not implemented",
+      "required_depth": "Step-by-step implementation guide with examples"
+    },
+    {
+      "gap_id": "GAP-003",
+      "description": "Multi-agent parallel execution optimization",
+      "impact": "High - affects development speed",
+      "current_knowledge": "Basic Promise.all patterns used",
+      "required_depth": "Advanced parallelization strategies, race conditions handling"
+    },
+    {
+      "gap_id": "GAP-004",
+      "description": "Event-stream hook automation patterns",
+      "impact": "Medium - affects logging and traceability",
+      "current_knowledge": "Basic event logging implemented",
+      "required_depth": "Advanced hook patterns, automatic context capture"
+    },
+    {
+      "gap_id": "GAP-005",
+      "description": "Checkpoint recovery system implementation",
+      "impact": "Medium - affects long-running workflows",
+      "current_knowledge": "Concept defined but not implemented",
+      "required_depth": "Production-ready implementation with state management"
+    }
+  ],
+  
+  "research_questions": [
+    "What is the optimal directory structure for Claude Code memory banks?",
+    "How to implement Chain of Draft for 50%+ token reduction?",
+    "What are the best practices for subagent self-priming?",
+    "How to manage context windows efficiently across 2000+ files?",
+    "What are proven patterns for TodoWrite parallel execution?",
+    "How to implement effective checkpoint recovery systems?",
+    "What are the latest MCP server integration patterns?",
+    "How to optimize event-stream hooks for automatic context capture?",
+    "What are enterprise-scale Claude Code patterns?",
+    "How to implement progressive context loading for large codebases?"
+  ],
+  
+  "success_metrics": {
+    "completeness": "All research questions answered with authoritative sources",
+    "authority": "Minimum 60% content from official/expert sources",
+    "actionability": "Each finding includes implementation steps",
+    "validation": "All patterns validated against SKIIN requirements",
+    "measurability": "Performance improvements quantified where possible"
+  },
+  
+  "expected_deliverables": {
+    "primary_document": {
+      "title": "Claude Code Best Practices Implementation Guide",
+      "sections": [
+        "Executive Summary",
+        "Memory Bank System Architecture",
+        "Token Optimization Strategies",
+        "MCP Integration Patterns",
+        "Parallel Execution Frameworks",
+        "Performance Metrics and Benchmarks"
+      ]
+    },
+    "comparison_matrix": {
+      "current_vs_recommended": "Side-by-side comparison of SKIIN current state vs best practices",
+      "gap_analysis": "Specific gaps with priority ratings",
+      "implementation_roadmap": "Phased approach to adopting best practices"
+    },
+    "code_templates": {
+      "memory_structures": "CLAUDE-*.md file templates",
+      "hook_patterns": "Event-stream hook implementations",
+      "parallel_patterns": "TodoWrite parallel execution examples",
+      "recovery_systems": "Checkpoint recovery code samples"
+    }
+  }
+}

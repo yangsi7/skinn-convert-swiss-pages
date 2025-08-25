@@ -1,14 +1,17 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import { Navbar } from './Navbar'
+import Navbar from './Navbar'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import { CopyVariantProvider } from '@/contexts/CopyVariantContext'
 
 const renderWithProviders = (component: React.ReactElement) => {
   return render(
     <BrowserRouter>
       <LanguageProvider>
-        {component}
+        <CopyVariantProvider>
+          {component}
+        </CopyVariantProvider>
       </LanguageProvider>
     </BrowserRouter>
   )

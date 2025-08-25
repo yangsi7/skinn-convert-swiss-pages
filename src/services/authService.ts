@@ -12,7 +12,7 @@ export class AuthService {
   }
 
   /**
-   * Send OTP to email using secure edge function with rate limiting
+   * Send OTP to email using Supabase Auth
    */
   async sendOTP(email: string): Promise<{
     success: boolean;
@@ -20,48 +20,38 @@ export class AuthService {
     retryAfter?: number;
   }> {
     try {
-      // Get client information for security tracking
-      const clientIP = await this.getClientIP();
-      const userAgent = navigator.userAgent;
-
-      // Call the secure OTP handler edge function
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/otp-security-handler`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({
-          email,
-          action: 'send',
-          clientIP,
-          userAgent
-        })
+      // Use Supabase Auth's built-in OTP functionality
+      const { data, error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          shouldCreateUser: true,
+          emailRedirectTo: `${window.location.origin}/en/eligibility`
+        }
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        // Handle specific error types with user-friendly messages
-        if (response.status === 429) {
+      if (error) {
+        console.error('Error sending OTP:', error);
+        
+        // Handle rate limiting
+        if (error.message?.includes('rate') || error.message?.includes('too many')) {
           return { 
             success: false, 
-            error: data.error || 'Too many attempts. Please try again later.',
-            retryAfter: data.retry_after
+            error: 'Too many attempts. Please try again in a few minutes.',
+            retryAfter: 60
           };
         }
         
-        if (response.status === 400) {
+        // Handle invalid email
+        if (error.message?.includes('invalid') || error.message?.includes('email')) {
           return { 
             success: false, 
-            error: data.error || 'Invalid email address'
+            error: 'Please enter a valid email address.'
           };
         }
 
-        console.error('Error sending OTP:', data);
         return { 
           success: false, 
-          error: this.getHumanReadableError(data.error || 'Failed to send verification code')
+          error: this.getHumanReadableError(error.message || 'Failed to send verification code')
         };
       }
 
@@ -191,70 +181,6 @@ export class AuthService {
     }
   }
 
-  /**
-   * Get client IP address for security tracking
-   */
-  private async getClientIP(): Promise<string> {
-    try {
-      // Try to get IP from WebRTC first (most accurate)
-      const ip = await this.getIPFromWebRTC();
-      if (ip && ip !== 'unknown') return ip;
-      
-      // Fallback to external service
-      const response = await fetch('https://api.ipify.org?format=json', {
-        method: 'GET',
-        timeout: 3000
-      } as any);
-      const data = await response.json();
-      return data.ip || 'unknown';
-    } catch (error) {
-      console.warn('Could not determine client IP:', error);
-      return 'unknown';
-    }
-  }
-
-  /**
-   * Get IP from WebRTC (most accurate method)
-   */
-  private getIPFromWebRTC(): Promise<string> {
-    return new Promise((resolve) => {
-      try {
-        const RTCPeerConnection = window.RTCPeerConnection || 
-                                  (window as any).webkitRTCPeerConnection || 
-                                  (window as any).mozRTCPeerConnection;
-        
-        if (!RTCPeerConnection) {
-          resolve('unknown');
-          return;
-        }
-
-        const pc = new RTCPeerConnection({ iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] });
-        
-        pc.createDataChannel('');
-        pc.onicecandidate = (ice) => {
-          if (ice && ice.candidate) {
-            const candidate = ice.candidate.candidate;
-            const match = candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
-            if (match) {
-              resolve(match[1]);
-              pc.close();
-              return;
-            }
-          }
-        };
-        
-        pc.createOffer().then(offer => pc.setLocalDescription(offer));
-        
-        // Timeout after 3 seconds
-        setTimeout(() => {
-          pc.close();
-          resolve('unknown');
-        }, 3000);
-      } catch (error) {
-        resolve('unknown');
-      }
-    });
-  }
 
   /**
    * Convert technical error messages to user-friendly ones

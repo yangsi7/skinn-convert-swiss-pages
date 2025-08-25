@@ -1,0 +1,715 @@
+./
+├── context/
+│   ├── checkpoints/
+│   │   └── README.md
+│   ├── subagent-contexts/
+│   │   ├── README.md
+│   │   ├── TEMPLATE.md
+│   │   ├── backend-developer-context.json
+│   │   ├── brainstormer-context.json
+│   │   ├── context-manager-context.json
+│   │   ├── design-system-architect-context.json
+│   │   ├── documentation-maintainer-context.json
+│   │   ├── eligibility-system-context-brief.json
+│   │   ├── eligibility-verification-chain-spec.json
+│   │   ├── frontend-developer-context.json
+│   │   ├── git-agent-context.json
+│   │   ├── guardrails-agent-context.json
+│   │   ├── invocation-chain-generator-context.json
+│   │   ├── multi-panel-review-agent-context.json
+│   │   ├── planning-task-agent-context.json
+│   │   ├── rcc-002-research-context.json
+│   │   ├── reflection-agent-context.json
+│   │   ├── requirements-spec-agent-context.json
+│   │   ├── researcher-context.json
+│   │   ├── supabase-architect-context.json
+│   │   ├── supabase-implementation-engineer-context.json
+│   │   ├── testing-qa-agent-context.json
+│   │   └── tree-of-thought-agent-context.json
+│   ├── CLAUDE_PROCESS.md
+│   ├── claude-best-practices-research-handoff.md
+│   ├── conventions.md
+│   ├── doc-ref.md
+│   ├── documentation-maintenance-handoff-brief.md
+│   ├── documentation-maintenance-spec.json
+│   ├── event-stream-api.py
+│   ├── event-stream.md
+│   ├── memory-bank-integration-tot-specification.json
+│   ├── planning.md
+│   ├── project-index.md
+│   ├── project-tree.txt
+│   ├── requirements.md
+│   └── todo.md
+├── docs/
+│   ├── analysis/
+│   │   ├── FILE-ORGANIZATION-TOT.md
+│   │   ├── GP-REFERRAL-TOT.md
+│   │   ├── file-organization-tot-specification.json
+│   │   ├── gp-referral-tot-summary.md
+│   │   └── gp-referral-tree-of-thought-specification.json
+│   ├── api/
+│   │   ├── 2025-08-22-gp-referral-implementation-roadmap.md
+│   │   ├── 2025-08-22-gp-referral-security-compliance.md
+│   │   ├── 2025-08-22-gp-referral-system-api-specification.json
+│   │   ├── 2025-08-22-gp-referral-technical-architecture.md
+│   │   ├── ROUTE_MAP.md
+│   │   └── gp-referral-best-practices.md
+│   ├── architecture/
+│   │   ├── 2025-08-19-copy-variant-system-architecture.md
+│   │   ├── 2025-08-22-atomic-component-architecture.md
+│   │   ├── component-inventory.md
+│   │   ├── system-architecture.md
+│   │   └── visual-architecture.md
+│   ├── content/
+│   │   ├── iterations/
+│   │   │   ├── 2025-01-22-copy-update-v2/
+│   │   │   │   ├── COPY_REVIEW_REPORT.md
+│   │   │   │   ├── CTA_PSYCHOLOGICAL_REVIEW.md
+│   │   │   │   ├── CULTURAL_SENSITIVITY_REPORT.md
+│   │   │   │   ├── MEDICAL_CLAIMS_REVIEW.md
+│   │   │   │   ├── PRICING_CONSISTENCY_REPORT.md
+│   │   │   │   └── V2_POLISH_AND_READINESS_REPORT.md
+│   │   │   ├── 2025-01-22-COPY_UPDATE_SPEC.md
+│   │   │   └── 2025-01-22-COPY_UPDATE_SPEC_V2.1.md
+│   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md
+│   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md
+│   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md
+│   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md
+│   ├── database-requirements-and-specs/
+│   │   ├── database-security-enhancement-specification.json
+│   │   ├── migration-guide-v2.md
+│   │   ├── overview.md
+│   │   ├── schema-diagram.md
+│   │   ├── schema-specification-v2.md
+│   │   ├── specification-v2.md
+│   │   ├── technical-specifications.md
+│   │   └── updated_questionnaire_spec.md
+│   ├── deployment/
+│   │   └── PRODUCTION_READINESS_REPORT.md
+│   ├── design/
+│   │   ├── 2025-07-29-design-system-implementation-review.md
+│   │   ├── 2025-07-29-myant-violet-palette-implementation.md
+│   │   ├── 2025-07-30-design-token-usage-guide.md
+│   │   ├── 2025-08-19-eligibility-form-design-system.md
+│   │   ├── 2025-08-19-form-component-specifications.md
+│   │   ├── minimalist-component-library.md
+│   │   └── tokens.md
+│   ├── design-system/
+│   │   ├── 2025-08-22-eligibility-workflow-atomic-components.md
+│   │   ├── PROTECTED_COMPONENTS_SPEC_v1.md
+│   │   ├── modern-design-system-spec.md
+│   │   ├── protected-components-usage.md
+│   │   ├── shadcn-integration-guidelines.md
+│   │   └── swiss-healthcare-eligibility-ui-specifications.json
+│   ├── implementation/
+│   │   └── 2025-08-22-6-stage-eligibility-workflow-implementation.md
+│   ├── invocation-chains/
+│   │   ├── cognee-memory-integration-chain.json
+│   │   ├── gp-referral-implementation-summary.md
+│   │   ├── gp-referral-implementation.json
+│   │   └── memory-bank-conversion-chain.json
+│   ├── reports/
+│   │   ├── 2025-08-22-GP-REFERRAL-BUSINESS-CASE.md
+│   │   ├── 2025-08-22-GP-REFERRAL-CEO-PRESENTATION-DECK.md
+│   │   ├── 2025-08-22-GP-REFERRAL-EXECUTIVE-SUMMARY.md
+│   │   ├── 2025-08-22-GP-REFERRAL-TECHNICAL-ARCHITECTURE-OVERVIEW.md
+│   │   ├── 2025-08-22-GP-REFERRAL-VISUAL-FLOWCHART.md
+│   │   ├── 2025-08-22-eligibility-questionnaire-quality-assessment-report.md
+│   │   ├── 2025-08-22-instruction-system-audit-report.md
+│   │   ├── 2025-08-22-instruction-system-optimization-summary.md
+│   │   ├── 2025-08-24-expanded-context-maintenance-research.md
+│   │   ├── 2025-08-24-hooks-automation-context-maintenance-report.md
+│   │   ├── 2025-08-25-eligibility-questionnaire-review.md
+│   │   ├── 2025-08-25-release-notes-v2.1.0.md
+│   │   ├── 2025-08-25-repository-cleanup-automation-report.md
+│   │   ├── CLAUDE_SYSTEM_ANALYSIS_REPORT.md
+│   │   ├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_REPORT.md
+│   │   ├── SUPABASE_INTEGRATION_COMPLETE.md
+│   │   ├── SWISS_HEALTHCARE_ELIGIBILITY_DESIGN_SYSTEM_TEST_REPORT.md
+│   │   ├── cognee-mcp-analysis-report.md
+│   │   ├── design-system-validation-report.md
+│   │   ├── supabase-critical-issues-report.md
+│   │   └── supabase-database-validation-report.md
+│   ├── requirements/
+│   │   └── 2025-08-25-eligibility-questionnaire-comprehensive-requirements-specification.json
+│   ├── research/
+│   │   ├── CLAUDE-CODE-INDEXING-GUIDE.md
+│   │   └── claude-code-indexing-research-specification.json
+│   ├── specs/
+│   │   ├── CLAUDE_BEST_PRACTICES_RESEARCH_SPECIFICATION.json
+│   │   ├── CONTEXT_MANAGEMENT_SPECIFICATION.json
+│   │   ├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_SPECIFICATION.md
+│   │   ├── eligibility-questionnaire-test-automation-spec.json
+│   │   └── gp-referral-brainstorming-spec.json
+│   ├── standards/
+│   │   ├── 2025-08-22-accessibility-healthcare-compliance-research.md
+│   │   ├── 2025-08-22-architecture-i18n-database-standards-research.md
+│   │   ├── 2025-08-22-code-quality-security-standards.md
+│   │   ├── 2025-08-22-component-architecture-i18n-database-standards.md
+│   │   ├── 2025-08-22-performance-optimization-standards.md
+│   │   ├── 2025-08-22-rcc-002-comprehensive-standards-testing-specification.json
+│   │   ├── 2025-08-22-react-18-best-practices-documentation.md
+│   │   ├── 2025-08-22-react-typescript-performance-standards-research.md
+│   │   ├── 2025-08-22-swiss-healthcare-regulatory-compliance.md
+│   │   ├── 2025-08-22-testing-frameworks-methodologies.md
+│   │   ├── 2025-08-22-testing-quality-security-standards-research.md
+│   │   ├── 2025-08-22-typescript-5-strict-mode-standards.md
+│   │   └── 2025-08-22-wcag-accessibility-compliance-standards.md
+│   ├── supabase_doc/
+│   │   ├── bootstrap_nextjs_app_with_supabase_auth.md
+│   │   ├── database_supabase_declarative_database_schema.md
+│   │   ├── supabase-guides.txt
+│   │   ├── supabase_creating_rls_policies.md
+│   │   ├── supabase_database_create_function.md
+│   │   ├── supabase_database_create_migration.md
+│   │   ├── supabase_postgres_sql_style.md
+│   │   └── writing_supabase_edge_functions.md
+│   ├── AGENT_COMPLIANCE_CHECKLIST.md
+│   ├── COGNEE_MEMORY_PROTOCOL.md
+│   ├── COGNEE_TESTING_SPECIFICATION.md
+│   ├── documentation-guidelines.md
+│   ├── file-organization-framework.md
+│   ├── test-migration-plan.md
+│   └── testing-framework.md
+├── html/
+│   ├── assets/
+│   │   ├── index-D_ryMEPs.js
+│   │   └── index-X8b7Z_4p.css
+│   ├── data/
+│   ├── html.meta.json.gz
+│   └── index.html
+├── memory-bank-setup/
+│   ├── memory-bank-converted/
+│   │   ├── agents/
+│   │   ├── slash-commands/
+│   │   │   └── sync-memory-bank.md
+│   │   ├── CLAUDE-activeContext.md
+│   │   ├── CLAUDE-decisions.md
+│   │   ├── CLAUDE-patterns.md
+│   │   ├── CLAUDE-subagents.md
+│   │   ├── CLAUDE-workflows.md
+│   │   ├── CLAUDE.md
+│   │   ├── INTEGRATION_REPORT.md
+│   │   └── README.md
+│   └── memory-bank-instructions/
+│       ├── agents/
+│       │   ├── code-searcher.md
+│       │   ├── get-current-datetime.md
+│       │   ├── memory-bank-synchronizer.md
+│       │   └── ux-design-expert.md
+│       ├── slash-commands/
+│       │   ├── apply-thinking-to.md
+│       │   ├── cleanup-context.md
+│       │   ├── convert-to-todowrite-tasklist-prompt.md
+│       │   ├── create-readme-section.md
+│       │   ├── explain-architecture-pattern.md
+│       │   └── update-memory-bank.md
+│       ├── CLAUDE.md
+│       └── README.md
+├── presentation/
+│   ├── minimal-process.html
+│   └── technical-process.html
+├── public/
+│   ├── assets/
+│   │   ├── documents/
+│   │   │   └── ABPM-report.pdf
+│   │   ├── images/
+│   │   │   ├── design-examples/
+│   │   │   ├── documents/
+│   │   │   ├── marketing/
+│   │   │   ├── mvcp/
+│   │   │   ├── optimized/
+│   │   │   │   ├── design-examples/
+│   │   │   │   ├── documents/
+│   │   │   │   ├── mvcp/
+│   │   │   │   ├── product/
+│   │   │   │   ├── reports/
+│   │   │   │   ├── team/
+│   │   │   │   └── optimization-report.json
+│   │   │   ├── product/
+│   │   │   ├── products/
+│   │   │   ├── reports/
+│   │   │   └── team/
+│   │   ├── logos/
+│   │   └── videos/
+│   └── robots.txt
+├── scripts/
+│   ├── tests/
+│   │   ├── test-eligibility-flow-frontend.cjs
+│   │   └── test-eligibility-flow-frontend.js
+│   ├── accessibility-audit.cjs
+│   ├── auto-file-mover.sh*
+│   ├── cleanup-old-hooks.sh*
+│   ├── comprehensive-accessibility-audit.js
+│   ├── comprehensive-design-system-test.cjs
+│   ├── design-system-validation-test.cjs
+│   ├── file-organization-scanner.sh*
+│   ├── final-accessibility-audit.cjs
+│   ├── generate-indexes.sh*
+│   ├── generate-indexes.sh.bak*
+│   ├── optimize-images.js*
+│   ├── simplified-accessibility-audit.js
+│   ├── test-eligibility-visual.js
+│   ├── test-full-eligibility-flow.js
+│   ├── test-otp-rate-limiting.cjs
+│   ├── test-supabase-auth.js
+│   └── update-agent-indexes.sh*
+├── src/
+│   ├── api/
+│   │   ├── eligibilityRoutes.ts
+│   │   ├── otpRoutes.ts
+│   │   ├── paymentRoutes.ts
+│   │   └── server.ts
+│   ├── assets/
+│   │   └── images/
+│   │       └── german/
+│   ├── components/
+│   │   ├── about/
+│   │   │   ├── LeadershipShowcase.tsx
+│   │   │   └── SwissHeritage.tsx
+│   │   ├── analytics/
+│   │   │   ├── AnalyticsProvider.tsx
+│   │   │   ├── AnalyticsScripts.tsx
+│   │   │   ├── ConversionButton.tsx
+│   │   │   ├── CookieConsent.tsx
+│   │   │   └── HubSpotForm.tsx
+│   │   ├── auth/
+│   │   │   └── MinimalOTPVerification.tsx
+│   │   ├── eligibility/
+│   │   │   ├── atoms/
+│   │   │   │   ├── EligibilityNextStepItem.tsx
+│   │   │   │   ├── EligibilityProgressBar.tsx
+│   │   │   │   └── EligibilityResultBadge.tsx
+│   │   │   ├── context/
+│   │   │   │   └── EligibilityContext.tsx
+│   │   │   ├── data/
+│   │   │   │   ├── swissHealthcareData.ts
+│   │   │   │   └── types.ts
+│   │   │   ├── molecules/
+│   │   │   │   ├── EligibilityInsuranceInfo.tsx
+│   │   │   │   ├── EligibilityInsurerSelector.tsx
+│   │   │   │   ├── EligibilityNextStepsList.tsx
+│   │   │   │   ├── EligibilityResultIcon.tsx
+│   │   │   │   ├── EligibilityRiskFactorSelector.tsx
+│   │   │   │   └── EligibilitySymptomSelector.tsx
+│   │   │   ├── organisms/
+│   │   │   │   ├── EligibilityFormContainer.tsx
+│   │   │   │   ├── EligibilityFormStep.tsx
+│   │   │   │   └── EligibilityResultCard.tsx
+│   │   │   ├── utils/
+│   │   │   │   └── eligibilityCalculator.ts
+│   │   │   ├── EligibilityChecker.tsx
+│   │   │   ├── eligibility-questionnaire-comprehensive.test.ts
+│   │   │   └── index.ts
+│   │   ├── forms/
+│   │   │   ├── eligibility/
+│   │   │   │   ├── components/
+│   │   │   │   │   ├── ContraindicationScreening.tsx
+│   │   │   │   │   ├── EligibilityStatusAlert.tsx
+│   │   │   │   │   ├── FamilyHistoryQuestion.tsx
+│   │   │   │   │   ├── InsuranceModelSelector.tsx
+│   │   │   │   │   ├── NextStepsCard.tsx
+│   │   │   │   │   ├── OTPVerification.tsx
+│   │   │   │   │   ├── StageFooter.tsx
+│   │   │   │   │   ├── StageHeader.tsx
+│   │   │   │   │   └── SymptomSelector.tsx
+│   │   │   │   └── stages/
+│   │   │   │       ├── CompletionStage.tsx
+│   │   │   │       ├── ContactAccountStage.tsx
+│   │   │   │       ├── DetailedInfoStage.tsx
+│   │   │   │       ├── EligibilityGateStage.tsx
+│   │   │   │       ├── InsuredReviewStage.tsx
+│   │   │   │       └── SelfPayStage.tsx
+│   │   │   ├── MinimalInsuranceSelector.tsx
+│   │   │   ├── MinimalPaymentForm.tsx
+│   │   │   └── SimpleInsuranceInput.tsx
+│   │   ├── home/
+│   │   │   ├── CEOQuote.tsx
+│   │   │   ├── Care360Section.tsx
+│   │   │   ├── Care360Technology.tsx
+│   │   │   ├── Care360Vision.tsx
+│   │   │   ├── ClinicallyProvenTechSection.tsx
+│   │   │   ├── ComfortShowcase.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   ├── ContactForm.tsx
+│   │   │   ├── ContactSection.tsx
+│   │   │   ├── CtaSection.tsx
+│   │   │   ├── EligibilityChecker.tsx
+│   │   │   ├── EnhancedComparison.tsx
+│   │   │   ├── EnhancedFAQ.tsx
+│   │   │   ├── EnhancedTestimonials.tsx
+│   │   │   ├── FaqSection.tsx
+│   │   │   ├── FeaturesSection.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── HomePageTabs.tsx
+│   │   │   ├── HowItWorksSection.tsx
+│   │   │   ├── InsuranceCoverageSection.tsx
+│   │   │   ├── InsuranceSection.tsx
+│   │   │   ├── MVCPPreview.tsx
+│   │   │   ├── MedicalAdvisors.tsx
+│   │   │   ├── MvcpSection.tsx
+│   │   │   ├── NumbersSection.tsx
+│   │   │   ├── PricingSection.tsx
+│   │   │   ├── ProblemSolutionSection.tsx
+│   │   │   ├── ProcessFlow.tsx
+│   │   │   ├── ProductBenefit.tsx
+│   │   │   ├── ProductBenefitAccordion.tsx
+│   │   │   ├── ProductSection.tsx
+│   │   │   ├── RiskCardsSection.tsx
+│   │   │   ├── SKIINAdvantage.tsx
+│   │   │   ├── StatisticsCard.tsx
+│   │   │   ├── StatisticsShowcase.tsx
+│   │   │   ├── TechCarousel.tsx
+│   │   │   ├── TestimonialsSection.tsx
+│   │   │   ├── TestimonialsSlider.tsx
+│   │   │   └── VideoSection.tsx
+│   │   ├── landing/
+│   │   │   ├── CircularTestimonialsSection.tsx
+│   │   │   ├── ClinicalEvidenceStats.tsx
+│   │   │   ├── ClinicalEvidenceViz.tsx
+│   │   │   ├── ComfortSection.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   ├── FullScreenQuote.tsx
+│   │   │   ├── HeroFullScreen.tsx
+│   │   │   ├── HeroMinimal.tsx
+│   │   │   ├── HeroV2025.tsx
+│   │   │   ├── HowSKIINCompares.tsx
+│   │   │   ├── HowSKIINWorks.tsx
+│   │   │   ├── HowSKIINWorksV2.tsx
+│   │   │   ├── InsuranceCoverageFlow.tsx
+│   │   │   ├── JourneyTimeline.tsx
+│   │   │   ├── MinimalBenefits.tsx
+│   │   │   ├── MinimalCTA.tsx
+│   │   │   ├── MinimalComparison.tsx
+│   │   │   ├── MinimalFeatures.tsx
+│   │   │   ├── MinimalHero.tsx
+│   │   │   ├── MinimalInsurance.tsx
+│   │   │   ├── MinimalPricing.tsx
+│   │   │   ├── MinimalProcess.tsx
+│   │   │   ├── MinimalStatistics.tsx
+│   │   │   ├── MinimalTechStack.tsx
+│   │   │   ├── MinimalTestimonials.tsx
+│   │   │   ├── SwissHealthInsurance.tsx
+│   │   │   ├── TestimonialsV2.tsx
+│   │   │   └── TimelineProcess.tsx
+│   │   ├── layout/
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Navbar.test.tsx
+│   │   │   └── Navbar.tsx
+│   │   ├── partners/
+│   │   │   ├── ClinicianResourcesHub.tsx
+│   │   │   ├── GPMvcpSection.tsx
+│   │   │   ├── PartnerCorporateSection.tsx
+│   │   │   └── PartnerTelemedSection.tsx
+│   │   ├── physicians/
+│   │   │   ├── BenefitItem.tsx
+│   │   │   ├── Citation.tsx
+│   │   │   ├── DoctorQuote.tsx
+│   │   │   ├── TestimonialCard.tsx
+│   │   │   └── TrustBadges.tsx
+│   │   ├── protected/
+│   │   │   ├── ContributingFactorCards.tsx
+│   │   │   ├── TabNavigation.tsx
+│   │   │   ├── TodayTab.tsx
+│   │   │   └── index.ts
+│   │   ├── test/
+│   │   │   └── ThemeTest.tsx
+│   │   ├── tritest/
+│   │   │   └── TriTestReport.tsx
+│   │   ├── ui/
+│   │   │   ├── AnimatedCounter.tsx
+│   │   │   ├── AnimatedSection.tsx
+│   │   │   ├── FullScreenVideo.tsx
+│   │   │   ├── InteractiveBenefitCard.tsx
+│   │   │   ├── MyantLogo.tsx
+│   │   │   ├── ParallaxSection.tsx
+│   │   │   ├── ScrollProgress.tsx
+│   │   │   ├── ScrollToTop.tsx
+│   │   │   ├── SmartButton.tsx
+│   │   │   ├── accordion.tsx
+│   │   │   ├── alert-dialog.tsx
+│   │   │   ├── alert.tsx
+│   │   │   ├── aspect-ratio.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── breadcrumb.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── calendar.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── carousel.tsx
+│   │   │   ├── chart.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── circular-testimonials.tsx
+│   │   │   ├── collapsible.tsx
+│   │   │   ├── command.tsx
+│   │   │   ├── comparison-table.tsx
+│   │   │   ├── content-section.tsx
+│   │   │   ├── context-menu.tsx
+│   │   │   ├── copy-variant-selector.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── drawer.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── feature-grid.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── horizontal-scroll-carousel.tsx
+│   │   │   ├── hover-card.tsx
+│   │   │   ├── image-section.tsx
+│   │   │   ├── input-otp.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── medical-card.tsx
+│   │   │   ├── menubar.tsx
+│   │   │   ├── minimal-button.tsx
+│   │   │   ├── minimal-card.tsx
+│   │   │   ├── minimal-input.tsx
+│   │   │   ├── minimal-select.tsx
+│   │   │   ├── minimal-textarea.tsx
+│   │   │   ├── navigation-menu.tsx
+│   │   │   ├── pagination.tsx
+│   │   │   ├── popover.tsx
+│   │   │   ├── progress.tsx
+│   │   │   ├── progressive-card.tsx
+│   │   │   ├── progressive-section.tsx
+│   │   │   ├── radio-group.tsx
+│   │   │   ├── resizable.tsx
+│   │   │   ├── responsive-image.tsx
+│   │   │   ├── scroll-area.tsx
+│   │   │   ├── scroll-reveal-statistic.tsx
+│   │   │   ├── section-divider.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── sidebar.tsx
+│   │   │   ├── skeleton.tsx
+│   │   │   ├── slider.tsx
+│   │   │   ├── sonner.tsx
+│   │   │   ├── stat-card.tsx
+│   │   │   ├── swiss-quality.tsx
+│   │   │   ├── switch.tsx
+│   │   │   ├── table.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   ├── team-member.tsx
+│   │   │   ├── testimonial-scroll-carousel.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── theme-switcher.tsx
+│   │   │   ├── toast.tsx
+│   │   │   ├── toaster.tsx
+│   │   │   ├── toggle-group.tsx
+│   │   │   ├── toggle.tsx
+│   │   │   ├── tooltip.tsx
+│   │   │   ├── trust-badge.tsx
+│   │   │   └── use-toast.ts
+│   │   └── RouteRedirects.tsx
+│   ├── contexts/
+│   │   ├── CopyVariantContext.tsx
+│   │   ├── LanguageContext.tsx
+│   │   └── ThemeContext.tsx
+│   ├── docs/
+│   │   ├── ArchitectureOverview.md
+│   │   └── MultiLanguageSystem.md
+│   ├── hooks/
+│   │   ├── use-mobile.tsx
+│   │   ├── use-toast.ts
+│   │   ├── useIntersectionObserver.ts
+│   │   ├── useScrollAnimation.ts
+│   │   ├── useThemeContent.ts
+│   │   ├── useTranslation.ts
+│   │   └── useTranslation.ts.backup
+│   ├── lib/
+│   │   ├── analytics.ts
+│   │   ├── consentManager.ts
+│   │   ├── supabase.ts
+│   │   └── utils.ts
+│   ├── middleware/
+│   │   └── securityMiddleware.ts
+│   ├── pages/
+│   │   ├── about/
+│   │   │   ├── Blog.tsx
+│   │   │   ├── Company.tsx
+│   │   │   ├── Compliance.tsx
+│   │   │   ├── Contact.tsx
+│   │   │   ├── MedicalBoard.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   └── Testimonials.tsx
+│   │   ├── how-it-works/
+│   │   │   ├── Evidence.tsx
+│   │   │   ├── FAQ.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   ├── Process.tsx
+│   │   │   ├── Reimbursement.tsx
+│   │   │   └── Technology.tsx
+│   │   ├── legal/
+│   │   │   ├── Cookies.tsx
+│   │   │   ├── Privacy.tsx
+│   │   │   └── Terms.tsx
+│   │   ├── partners/
+│   │   │   ├── Cardiologists.tsx
+│   │   │   ├── Corporate.tsx
+│   │   │   ├── GeneralPractitioners.tsx
+│   │   │   ├── Overview.tsx
+│   │   │   └── Telemedicine.tsx
+│   │   ├── solutions/
+│   │   │   ├── 10DayHeartScreening.tsx
+│   │   │   └── Tritest.tsx
+│   │   ├── ComponentShowcase.tsx
+│   │   ├── EligibilityFlow.tsx
+│   │   ├── EligibilityTest.tsx
+│   │   ├── Home2.tsx
+│   │   ├── Home2Enhanced.tsx
+│   │   ├── HomeV7.tsx
+│   │   ├── Index.tsx
+│   │   ├── LandingPageV2025.tsx
+│   │   ├── MinimalistShowcase.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Physicians.tsx
+│   │   ├── RequestDemo.tsx
+│   │   └── TestSupabase.tsx
+│   ├── routes/
+│   │   └── index.tsx
+│   ├── services/
+│   │   ├── authService.test.ts
+│   │   ├── authService.ts
+│   │   ├── otpSecurityService.ts
+│   │   ├── paymentSecurityService.ts
+│   │   └── swissHealthcareService.ts
+│   ├── test/
+│   │   └── setup.ts
+│   ├── translations/
+│   │   ├── about/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── demo/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── eligibility/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── home/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── home2/
+│   │   │   ├── en.ts
+│   │   │   └── index.ts
+│   │   ├── howItWorks/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── it/
+│   │   │   ├── about.ts
+│   │   │   ├── demo.ts
+│   │   │   ├── eligibility.ts
+│   │   │   ├── home.ts
+│   │   │   ├── howItWorks.ts
+│   │   │   ├── legal.ts
+│   │   │   ├── notFound.ts
+│   │   │   ├── partners.ts
+│   │   │   ├── physicians.ts
+│   │   │   ├── solutions.ts
+│   │   │   └── ui.ts
+│   │   ├── legal/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── notFound/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── partners/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── physicians/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   ├── solutions/
+│   │   │   ├── de.ts
+│   │   │   ├── en.ts
+│   │   │   └── fr.ts
+│   │   └── ui/
+│   │       ├── de.ts
+│   │       ├── en.ts
+│   │       └── fr.ts
+│   ├── types/
+│   │   ├── analytics.d.ts
+│   │   └── backend.ts
+│   ├── utils/
+│   │   ├── performance.ts
+│   │   └── routeTranslations.ts
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── supabase/
+│   ├── edge-functions/
+│   │   └── send-otp-email/
+│   │       └── index.ts
+│   ├── functions/
+│   │   ├── otp-security-handler/
+│   │   │   └── index.ts
+│   │   ├── otp-verification.sql
+│   │   ├── payment-processing.sql
+│   │   └── session-management.sql
+│   ├── migrations/
+│   │   ├── 001_initial_schema.sql
+│   │   ├── 002_rls_policies.sql
+│   │   ├── 003_functions_and_storage.sql
+│   │   ├── 004_secure_otp_implementation.sql
+│   │   ├── 005_secure_session_management.sql
+│   │   ├── 006_comprehensive_audit_trail.sql
+│   │   ├── 007_core_user_tables.sql
+│   │   ├── 008_swiss_insurance_tables.sql
+│   │   ├── 009_schema_v2_consolidation.sql
+│   │   ├── 010_business_logic_functions.sql
+│   │   ├── 011_otp_functions.sql
+│   │   └── 011_otp_security_hardening.sql
+│   ├── policies/
+│   │   └── row_level_security.sql
+│   ├── schemas/
+│   │   ├── database-schema.sql
+│   │   └── eligibility_questionnaire.sql
+│   ├── scripts/
+│   │   ├── supabase-performance-tests.sql
+│   │   ├── supabase-setup-guide.md
+│   │   └── supabase-test-data.sql
+│   └── storage/
+│       └── storage_buckets.sql
+├── tests/
+│   ├── config/
+│   │   └── setup.ts
+│   ├── integration/
+│   │   ├── accessibility.test.ts
+│   │   ├── otp-verification.test.ts
+│   │   └── performance.test.ts
+│   ├── unit/
+│   │   ├── components/
+│   │   │   └── ContactForm.test.tsx
+│   │   ├── hooks/
+│   │   │   └── useTranslation.test.ts
+│   │   └── authService.test.ts
+│   └── README.md
+├── CLAUDE.md
+├── PROJECT_INDEX.json
+├── README.md
+├── VISUAL_ASSETS_INDEX.json
+├── WORKFLOWS.md
+├── bun.lockb*
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── vitest.config.ts
+
+132 directories, 581 files

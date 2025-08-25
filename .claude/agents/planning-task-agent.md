@@ -207,3 +207,16 @@ Log these events to event-stream.md:
 - JSON output is valid and complete
 
 Remember: You are a specification agent. You analyze requirements and specify plans, but NEVER implement. Your detailed planning specifications enable the main agent to create and execute effective project plans.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
+- **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
+- **context/project-tree.txt** (~36KB): Detailed directory tree without images
+- **context/project-index.md**: High-level overview with depth-3 tree
+
+For planning/analysis work, utilize:
+- High-level overview from context/project-index.md
+- Architectural structure from PROJECT_INDEX.json
+- Clean tree view from context/project-tree.txt

@@ -149,12 +149,27 @@ All specifications MUST be provided in structured JSON format:
 
 When invoked by the orchestrator, expect to receive:
 - Current design system state analysis
-- Component inventory from PROJECT_INDEX.json
+- Component inventory from PROJECT_INDEX.json (v2.0 - code-focused, ~160KB)
+- Visual asset catalog from VISUAL_ASSETS_INDEX.json (~124KB with full metadata)
+- High-level structure from context/project-index.md (depth-3 overview)
 - Brand guidelines and requirements
 - Performance budgets and constraints
 - Target browser and device matrix
 
 Your specifications will be passed to the context-manager for the main agent to implement.
+
+## Project Index Awareness (v2.0)
+
+When analyzing the project design system, utilize the enhanced 4-index system:
+- **PROJECT_INDEX.json** (~160KB): Code structure without images - component files, dependencies
+- **VISUAL_ASSETS_INDEX.json** (~124KB): Complete visual asset inventory with sizes and formats
+- **context/project-tree.txt** (~36KB): Clean directory tree excluding all image files
+- **context/project-index.md**: High-level architectural overview with depth-3 tree
+
+For design system work, focus on:
+- Component structure in `src/components/ui/` from PROJECT_INDEX.json
+- Asset inventory and usage patterns from VISUAL_ASSETS_INDEX.json
+- Design token files and stylesheets from the code index
 
 ## Event Logging
 

@@ -1,0 +1,369 @@
+{
+  "context_specification": {
+    "spec_id": "CTX-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-24",
+    "scope": "Context synchronization and brief generation for SKIIN Switzerland project",
+    "criticality": "High"
+  },
+  
+  "context_validation_specifications": [
+    {
+      "validation_id": "CV-001",
+      "name": "Context File Integrity Check",
+      "files_to_validate": [
+        "context/event-stream.md",
+        "context/todo.md", 
+        "context/planning.md",
+        "context/conventions.md",
+        "context/doc-ref.md",
+        "context/CLAUDE_PROCESS.md",
+        "context/project-index.md",
+        "context/requirements.md"
+      ],
+      "validation_procedures": [
+        "Check file existence and readability",
+        "Validate file format and structure per CLAUDE_PROCESS.md v5.0",
+        "Verify required sections and headers exist",
+        "Check version numbers and timestamps for currency",
+        "Validate event-stream.md uses one-line format per system requirements",
+        "Ensure todo.md follows hierarchical task structure with proper status tracking",
+        "Verify planning.md maintains phase-based organization structure"
+      ],
+      "consistency_checks": [
+        "Cross-reference todo.md tasks with planning.md phases and milestones",
+        "Verify event-stream.md entries match actual file changes and git history",
+        "Validate doc-ref.md paths exist and are current (v5.1 compliance)",
+        "Check conventions.md references match actual codebase patterns",
+        "Ensure requirements.md aligns with active todo.md tasks",
+        "Verify project-index.md reflects current repository structure"
+      ],
+      "error_handling": [
+        "Log missing files as critical errors in event-stream.md",
+        "Flag inconsistencies for manual review with specific line references",
+        "Create restoration tasks for corrupted files in todo.md",
+        "Escalate structural problems to administrator via error events",
+        "Automatically backup corrupt files before restoration attempts"
+      ]
+    },
+    {
+      "validation_id": "CV-002", 
+      "name": "Subagent Context Isolation Check",
+      "files_to_validate": [
+        "context/subagent-contexts/"
+      ],
+      "validation_procedures": [
+        "Verify context/subagent-contexts/ directory exists and is organized",
+        "Check that context files are properly isolated per agent type",
+        "Validate JSON structure of context brief files",
+        "Ensure proper cleanup of temporary context files after task completion"
+      ],
+      "consistency_checks": [
+        "Verify subagent context briefs contain required fields (brief_id, timestamp, objective)",
+        "Check that context briefs reference current PROJECT_INDEX.json structure",
+        "Validate that parallel execution contexts don't overlap or conflict",
+        "Ensure context isolation prevents information leakage between agents"
+      ],
+      "error_handling": [
+        "Clean up orphaned context files older than 24 hours",
+        "Log context isolation violations as security events",
+        "Restore missing context templates from context/subagent-contexts/TEMPLATE.md"
+      ]
+    }
+  ],
+  
+  "implementation_brief_specifications": {
+    "brief_format": {
+      "structure": "JSON with standardized sections per WORKFLOWS.md",
+      "required_fields": [
+        "brief_id",
+        "brief_type", 
+        "objective",
+        "context",
+        "specifications",
+        "implementation_steps",
+        "validation",
+        "created_by",
+        "timestamp"
+      ],
+      "content_requirements": [
+        "Single, clear objective statement with measurable success criteria",
+        "Aggregated specifications from all relevant subagents with conflict resolution",
+        "Step-by-step implementation procedures with validation checkpoints",
+        "Rollback and recovery procedures for failure scenarios",
+        "Context brief must include relevant PROJECT_INDEX.json sections",
+        "Self-priming instructions for target agent execution"
+      ]
+    },
+    "generation_procedures": [
+      {
+        "step": 1,
+        "action": "Collect outputs from all relevant subagents",
+        "inputs": [
+          "Requirements specs from requirements-spec-agent",
+          "Design specs from design-system-architect", 
+          "Testing specs from testing-qa-agent",
+          "Implementation specs from frontend/backend developers"
+        ],
+        "processing": "Extract actionable implementation details and resolve conflicts"
+      },
+      {
+        "step": 2,
+        "action": "Synthesize into single coherent brief",
+        "requirements": [
+          "Resolve conflicts between specifications using priority matrix",
+          "Prioritize implementation steps based on dependency graph",
+          "Ensure completeness against requirements.md acceptance criteria",
+          "Validate brief against SKIIN Switzerland project conventions"
+        ]
+      },
+      {
+        "step": 3,
+        "action": "Validate brief quality and completeness",
+        "criteria": [
+          "All necessary information included for independent execution",
+          "Implementation steps are actionable with clear validation criteria",
+          "Success metrics are measurable and time-bound",
+          "Context information is current and relevant to PROJECT_INDEX.json",
+          "Brief follows Swiss healthcare compliance requirements"
+        ]
+      }
+    ],
+    "storage_specifications": {
+      "location": "context/subagent-contexts/",
+      "naming_convention": "BRIEF-{timestamp}-{agent-type}-{task-id}.json",
+      "retention": "Delete after successful implementation and validation",
+      "backup": "Store brief summary in memory graph as task entity",
+      "versioning": "Maintain brief history for complex multi-phase implementations"
+    }
+  },
+  
+  "synchronization_specifications": [
+    {
+      "sync_id": "SYNC-001",
+      "name": "Task Status Synchronization",
+      "source_file": "todo.md",
+      "target_files": ["planning.md", "event-stream.md"],
+      "sync_procedures": [
+        "When task marked complete in todo.md, update corresponding phase progress in planning.md",
+        "Add completion event to event-stream.md with proper format: [YYYY-MM-DD HH:MM] Completion - [TASK-ID] Description | Phase: Complete",
+        "Update knowledge graph task entity status using mcp__memory__add_observations",
+        "Archive completed task context files from subagent-contexts/"
+      ],
+      "conflict_resolution": [
+        {
+          "conflict_type": "Task exists in planning but not todo",
+          "resolution": "Add missing task to todo.md with proper ID and status",
+          "escalation": "If task is complex, decompose using planning-task-agent"
+        },
+        {
+          "conflict_type": "Task complete in todo but phase not updated",
+          "resolution": "Update planning.md phase progress and milestone status",
+          "validation": "Verify all phase tasks are actually complete before phase closure"
+        },
+        {
+          "conflict_type": "Event-stream entry missing for completed task",
+          "resolution": "Generate completion event with timestamp and proper format",
+          "validation": "Ensure event follows mandatory description protocol"
+        }
+      ]
+    },
+    {
+      "sync_id": "SYNC-002",
+      "name": "Documentation Reference Synchronization",
+      "source_file": "doc-ref.md",
+      "target_files": ["planning.md", "requirements.md", "conventions.md"],
+      "sync_procedures": [
+        "When new documentation is created, immediately update doc-ref.md v5.1 structure",
+        "Verify all referenced paths in planning.md exist in doc-ref.md",
+        "Update requirements.md with documentation deliverables",
+        "Archive obsolete docs per 7-day lifecycle rule to archive/YYYY-MM-DD/"
+      ],
+      "conflict_resolution": [
+        {
+          "conflict_type": "Referenced document not in doc-ref.md",
+          "resolution": "Add missing document with proper categorization and status",
+          "escalation": "Check if document should be archived or relocated"
+        },
+        {
+          "conflict_type": "Doc-ref.md references non-existent file",
+          "resolution": "Remove dead reference or restore file from archive",
+          "validation": "Verify file restoration doesn't create duplicates"
+        }
+      ]
+    }
+  ],
+  
+  "project_structure_tracking": {
+    "monitoring_requirements": [
+      "Run 'tree -L 3' command to capture current structure snapshot",
+      "Store structure snapshot in project-index.md with timestamp",
+      "Compare with previous snapshot to identify significant changes",
+      "Update PROJECT_INDEX.json when structural changes exceed threshold (10+ files)",
+      "Monitor for file organization violations per docs/file-organization-framework.md"
+    ],
+    "change_detection": [
+      "New directories created in src/, docs/, or context/",
+      "Key files added or removed (components, services, migrations)",
+      "Component structure modifications affecting atomic design principles",
+      "Documentation organization changes in docs/ hierarchy",
+      "Root directory pollution (files not in allowed 15-file limit)"
+    ],
+    "documentation_updates": [
+      "Update 'Current Project Structure' section in planning.md",
+      "Add structure change events to event-stream.md with STRUCTURAL category",
+      "Update project-index.md if significant architectural changes occur",
+      "Notify documentation-maintainer of structural changes requiring doc updates",
+      "Trigger file-organization-framework.md enforcement for violations"
+    ]
+  },
+  
+  "knowledge_graph_integration": [
+    {
+      "operation": "create_entities",
+      "entity_specifications": [
+        {
+          "name": "Context Synchronization Check",
+          "type": "Validation",
+          "properties": {
+            "timestamp": "execution time in ISO-8601 format",
+            "files_checked": "array of context files validated",
+            "inconsistencies_found": "count and detailed description of issues",
+            "resolution_status": "resolved|escalated|pending",
+            "validation_score": "percentage score of context integrity"
+          }
+        },
+        {
+          "name": "Implementation Brief",
+          "type": "Document",
+          "properties": {
+            "brief_id": "unique identifier matching file naming convention",
+            "target_agent": "agent type for brief execution",
+            "complexity_score": "estimated implementation complexity (1-10)",
+            "dependencies": "array of prerequisite tasks or components"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "create_relations", 
+      "relation_specifications": [
+        {
+          "from": "Implementation Brief",
+          "to": "Task Entity",
+          "type": "implements",
+          "properties": {
+            "created_date": "brief generation timestamp",
+            "aggregated_specs": "count of input specifications from subagents",
+            "execution_status": "pending|in_progress|completed|failed"
+          }
+        },
+        {
+          "from": "Context File",
+          "to": "Validation Check",
+          "type": "validated_by",
+          "properties": {
+            "validation_timestamp": "when validation was performed",
+            "validation_result": "pass|fail|warning",
+            "issues_identified": "array of specific validation failures"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "file_organization_enforcement": {
+    "authorized_context_files": [
+      "event-stream.md",
+      "todo.md", 
+      "planning.md",
+      "conventions.md",
+      "requirements.md",
+      "doc-ref.md",
+      "CLAUDE_PROCESS.md",
+      "project-index.md",
+      "documentation-maintenance-handoff-brief.md"
+    ],
+    "violation_detection": [
+      "Scan for duplicate context files in root directory using glob patterns",
+      "Check for working_files/ directory existence (should not exist)",
+      "Identify context files in wrong locations outside context/ directory",
+      "Monitor for unauthorized context file creation violating naming conventions",
+      "Detect root directory pollution exceeding 15-file limit per framework"
+    ],
+    "enforcement_procedures": [
+      "Delete duplicate context files from root immediately with backup to archive/",
+      "Move misplaced context files to proper context/ location",
+      "Update file references and imports after file moves using search/replace",
+      "Log violations as ERROR level events in event-stream.md with detailed paths",
+      "Archive obsolete context files with timestamps to archive/YYYY-MM-DD/",
+      "Trigger documentation-maintainer for reference updates after moves"
+    ]
+  },
+  
+  "quality_assurance": {
+    "validation_checkpoints": [
+      "Before major implementation phases (per CLAUDE_PROCESS.md phases)",
+      "After significant context changes (>5 files modified)",
+      "When inconsistencies are detected by validation procedures",
+      "During regular maintenance cycles (weekly context health checks)",
+      "Before subagent parallel execution to ensure context isolation"
+    ],
+    "quality_metrics": [
+      "Context file consistency score (0-100% based on validation checks)",
+      "Implementation brief completeness rating (required fields present)",
+      "Synchronization lag time (minutes between todo update and planning sync)",
+      "Error resolution success rate (percentage of validation errors resolved)",
+      "File organization compliance rate (files in correct locations)"
+    ],
+    "continuous_improvement": [
+      "Track common inconsistency patterns to improve validation procedures",
+      "Optimize brief generation efficiency based on subagent feedback",
+      "Improve conflict resolution procedures based on escalation frequency",
+      "Enhance automated monitoring capabilities with hooks and triggers",
+      "Update specifications based on project evolution and complexity growth"
+    ]
+  },
+
+  "claude_process_integration": {
+    "phase_alignment": {
+      "context_gathering": "Always validate context files before phase start",
+      "analysis": "Update knowledge graph entities during analysis phase", 
+      "research_synthesis": "Store research findings in memory with context links",
+      "brainstorm_evaluation": "Archive brainstorm documents per lifecycle rules",
+      "planning": "Synchronize planning.md with todo.md task decomposition",
+      "execution": "Generate implementation briefs for all subagent invocations",
+      "review_reflection": "Update context files with review outcomes",
+      "delivery": "Archive completed phase documentation and cleanup contexts"
+    },
+    "mandatory_actions": {
+      "self_priming": "All agents must load PROJECT_INDEX.json and relevant context",
+      "documentation": "Update doc-ref.md after every documentation change",
+      "workflow_detection": "Check WORKFLOWS.md triggers and log detection results",
+      "event_logging": "Use mandatory description protocol for all events",
+      "parallel_execution": "Use context/subagent-contexts/ for isolation"
+    }
+  },
+
+  "project_specific_patterns": {
+    "skiin_switzerland_requirements": [
+      "Maintain Swiss healthcare regulatory compliance in all contexts",
+      "Preserve multi-language support context (EN/DE/FR/IT) in briefs",
+      "Include S&W Design system compliance in validation procedures",
+      "Validate WCAG 2.1 AA accessibility requirements in implementation briefs",
+      "Ensure protected component (TabNavigation) restrictions are enforced"
+    ],
+    "atomic_component_architecture": [
+      "Validate ≤50 line limits for atoms/molecules in implementation briefs",
+      "Track component dependencies in knowledge graph relationships",
+      "Ensure atomic design principles in context brief specifications",
+      "Monitor component refactoring progress against complexity reduction goals"
+    ],
+    "production_readiness": [
+      "Include security validation (P0 fixes) in implementation briefs",
+      "Track multi-panel review scores in validation metrics",
+      "Ensure performance targets (LCP < 2.5s) in quality assurance",
+      "Validate production deployment criteria before delivery phase"
+    ]
+  }
+}
