@@ -1,6 +1,18 @@
 # CLAUDE Process – Subagent‑Oriented Lifecycle
 
-This document defines the end‑to‑end lifecycle of the CLAUDE system under the subagent framework for the SKIIN Switzerland marketing website project. It outlines the phases, triggers, steps, outputs, loop conditions and the subagents invoked at each stage. This process emphasises **flexibility**, **context management**, **safety**, and **workflow reuse**. Each phase can loop or be revisited based on new information or requirement changes, and minor updates can be handled through mini‑cycles rather than restarting the entire sequence.
+This document defines the end‑to‑end lifecycle of the CLAUDE system under the subagent framework for the SKIIN Switzerland marketing website project. It outlines the phases, triggers, steps, outputs, loop conditions and the subagents invoked at each stage. This process emphasises **research-first methodology**, **flexibility**, **context management**, **safety**, and **workflow reuse**. Each phase can loop or be revisited based on new information or requirement changes, and minor updates can be handled through mini‑cycles rather than restarting the entire sequence.
+
+## Core Principle: Research-First Methodology
+
+**NO DELIVERABLES UNTIL RESEARCH IS COMPLETE**
+
+Every significant task must follow this mandatory sequence:
+1. **Research & Analysis** - Understand the problem space thoroughly
+2. **Design & Planning** - Create detailed specifications based on research
+3. **Implementation** - Execute only after research validates approach
+4. **Validation** - Verify against researched requirements
+
+This prevents wasted effort, ensures evidence-based decisions, and maintains high quality standards.
 
 ## General Process Characteristics
 
@@ -30,9 +42,15 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 **Mandatory Actions:**
 1. Check WORKFLOWS.md for keyword matches
-2. Load PROJECT_INDEX.json (~160KB) for code structure
-3. Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work involved
-4. Check memory MCP for relevant context
+2. Load Memory Bank files in this order:
+   - context/CLAUDE-activeContext.md (session state)
+   - context/CLAUDE-patterns.md (code patterns)
+   - context/CLAUDE-decisions.md (architecture decisions)
+   - context/CLAUDE-troubleshooting.md (known issues)
+   - context/CLAUDE-config-variables.md (configuration)
+3. Load PROJECT_INDEX.json (~160KB) for code structure
+4. Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work involved
+5. Check memory MCP for relevant context
 
 **Mandatory Steps:** 
 1. **Detect workflow triggers** by checking message against WORKFLOWS.md keyword matrix:
@@ -81,11 +99,27 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 **Triggers:** Completion of Context Gathering; need to organise knowledge; new entities discovered during later phases.
 
 **Steps:** 
-1. **Identify key entities** (requirements, tasks, components, subagents, workflows, user roles) and their relationships (depends_on, belongs_to, implements, uses, assigned_to). 
-2. **Invoke tree-of-thought-agent** to construct a Tree‑of‑Thought (ToT) diagram linking entities and showing hierarchies, dependencies and flows. Save to docs/analysis/TOT.md. 
-3. **Update the knowledge graph** with new entity and relation nodes using graph-memory-agent. Validate against schema. 
-4. **Persist analysis artifacts** to docs/analysis/TOT.md and record a KnowledgeCapture event. 
-5. **Log events:** PhaseChange to Analysis; Action for entity mapping; Observation for ToT creation.
+1. **Start TOT analysis in CLAUDE-temp.md** using the template:
+   ```markdown
+   ## Tree of Thought Analysis
+   - **Goal:** [What we're trying to achieve]
+   - **Current State:** [What exists now]
+   - **Constraints:** [Requirements and limitations]
+   
+   ### Branch 1: [Approach]
+   - Pros/Cons/Feasibility
+   
+   ### Branch 2: [Alternative]
+   - Pros/Cons/Feasibility
+   
+   ### Selected Path: [Decision with rationale]
+   ```
+2. **Identify key entities** (requirements, tasks, components, subagents, workflows, user roles) and their relationships (depends_on, belongs_to, implements, uses, assigned_to). 
+3. **Invoke tree-of-thought-agent** to construct a Tree‑of‑Thought (ToT) diagram linking entities and showing hierarchies, dependencies and flows. Work in context/CLAUDE-temp.md first. 
+4. **Update the knowledge graph** with new entity and relation nodes using graph-memory-agent. Validate against schema. 
+5. **Document significant decisions** in context/CLAUDE-decisions.md if they affect architecture.
+6. **Clear CLAUDE-temp.md** after transferring relevant content to permanent files.
+7. **Log events:** PhaseChange to Analysis; Action for entity mapping; Observation for ToT creation.
 
 **Outputs:** Comprehensive entity‑relation map (ToT diagram); enriched knowledge graph.
 
@@ -101,13 +135,27 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 **Steps:** 
 1. **Define research topics** based on entities and gaps (e.g. React patterns, TypeScript best practices, Tailwind utilities). Prioritise by importance and uncertainty. 
-2. **For each topic, iterate up to three times:** 
+2. **Document research in CLAUDE-temp.md** using the research template:
+   ```markdown
+   ## Research Findings
+   ### Source: [Authority/URL]
+   - Key insights:
+   - Applicable patterns:
+   - Implementation considerations:
+   
+   ### Synthesis
+   - Best practices identified:
+   - Recommended approach:
+   - Risk assessment:
+   ```
+3. **For each topic, iterate up to three times:** 
    a. **Invoke the researcher** to perform searches via browser tools and documentation lookups. 
    b. **Cross‑validate information** from at least two reputable sources. Note discrepancies and decide whether further research is needed. 
    c. **Extract relevant facts, guidelines and examples**; note their provenance and map them to entities in the knowledge graph. 
-   d. **Summarise findings** in docs/research/RESEARCH.md under appropriate headings with citations. 
-3. **Prioritise information** by relevance, authority and impact; mark critical findings for use in planning. 
-4. **Log events:** record Action for each research query; Observation for research results; KnowledgeCapture for summaries; PlanUpdate if new requirements or constraints are discovered.
+   d. **Update findings** in context/CLAUDE-temp.md during research (scratch work). 
+4. **Transfer validated patterns** to context/CLAUDE-patterns.md if they become established conventions.
+5. **Prioritise information** by relevance, authority and impact; mark critical findings for use in planning. 
+6. **Log events:** record Action for each research query; Observation for research results; KnowledgeCapture for summaries; PlanUpdate if new requirements or constraints are discovered.
 
 **Outputs:** Updated research report with citations; knowledge graph entries linking facts to entities; list of open questions (if any).
 
@@ -122,11 +170,29 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 **Triggers:** Completion of Research & Synthesis; requirement changes introducing new design space.
 
 **Steps:** 
-1. **Invoke the brainstormer** with the ToT diagram and research highlights. Encourage divergent thinking to propose multiple architectures, workflows, agents or features. 
-2. **Evaluate each idea** for feasibility, impact, alignment with goals and elegance. Score ideas (e.g. 1–10) and capture pros/cons and prerequisites. 
-3. **Record the ranked list** of ideas and rationales in docs/brainstorm/BRAINSTORM.md. Represent ideas as entities in the knowledge graph (type Concept) and link them to relevant requirements or tasks. 
-4. **Select top ideas** to carry forward into planning. Document justification and tag alternatives as optional enhancements. 
-5. **Log events:** Action for brainstorming session; Observation for idea scores; KnowledgeCapture for recorded insights.
+1. **Start brainstorming in CLAUDE-temp.md** using the template:
+   ```markdown
+   ## Brainstorm Session
+   ### Ideas Generated
+   1. [Solution A] - Score: X/10
+   2. [Solution B] - Score: X/10
+   
+   ### Evaluation Matrix
+   - Technical feasibility
+   - User impact
+   - Maintenance burden
+   - Compliance alignment
+   
+   ### Selected Solution
+   [Final decision with justification]
+   ```
+2. **Invoke the brainstormer** with the ToT diagram and research highlights. Encourage divergent thinking to propose multiple architectures, workflows, agents or features. 
+3. **Evaluate each idea** for feasibility, impact, alignment with goals and elegance. Score ideas (e.g. 1–10) and capture pros/cons and prerequisites in CLAUDE-temp.md. 
+4. **Transfer selected patterns** to context/CLAUDE-patterns.md if they establish new conventions.
+5. **Document architecture decisions** in context/CLAUDE-decisions.md for significant choices.
+6. **Select top ideas** to carry forward into planning. Document justification and tag alternatives as optional enhancements. 
+7. **Clear CLAUDE-temp.md** after transferring relevant content.
+8. **Log events:** Action for brainstorming session; Observation for idea scores; KnowledgeCapture for recorded insights.
 
 **Outputs:** Ranked solution ideas with evaluations; updated brainstorm document; new concept entities and relations.
 
@@ -143,9 +209,9 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 **Steps:** 
 1. **Synthesize inputs** from context, research, brainstorm results and user goals into a coherent execution plan. 
 2. **Invoke planning-task-agent** to break the project into phases and tasks, grouped by lifecycle stage (foundation, backend, frontend, testing, documentation, deployment). Define acceptance criteria, dependencies and responsible subagents for each task. 
-3. **Write the plan** to context/planning.md with numbered steps and narrative rationale. Generate context/todo.md as a hierarchical checklist of tasks with statuses ([ ] pending, [~] in progress, [x] complete). Link tasks to entities in the knowledge graph using the graph-memory-agent. 
-4. **Design invocation chains:** For complex features or multi‑agent flows, invoke the invocation-chain-generator to produce an ordered list of subagent calls with parallelism and conditions. Document chains in docs/invocation-chains/<chain-name>.md or within planning.md. 
-5. **Simulate expert panel review:** Internally (or via the reflection-agent), evaluate the plan from the perspectives of requirements, architecture, performance, tooling, design/UX, product vision and domain constraints. Adjust tasks based on feedback and document the rationale in planning.md. 
+3. **Write the plan** to context/CLAUDE-planning.md with numbered steps and narrative rationale. Generate context/CLAUDE-todo.md as a hierarchical checklist of tasks synchronized with TodoWrite tool with statuses ([ ] pending, [~] in progress, [x] complete). Link tasks to entities in the knowledge graph using the graph-memory-agent. 
+4. **Design invocation chains:** For complex features or multi‑agent flows, invoke the invocation-chain-generator to produce an ordered list of subagent calls with parallelism and conditions. Document chains in docs/invocation-chains/<chain-name>.md or within CLAUDE-planning.md. 
+5. **Simulate expert panel review:** Internally (or via the reflection-agent), evaluate the plan from the perspectives of requirements, architecture, performance, tooling, design/UX, product vision and domain constraints. Adjust tasks based on feedback and document the rationale in CLAUDE-planning.md. 
 6. **Persist the plan and tasks** in the knowledge graph; snapshot the event stream or graph state for traceability. 
 7. **Log events:** PlanUpdate for each significant change; KnowledgeCapture for expert feedback notes.
 
@@ -165,10 +231,10 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 - ⚡ User explicitly requests implementation
 
 **Mandatory Steps:** 
-1. **For EVERY task in todo.md:**
+1. **For EVERY task in CLAUDE-todo.md:**
    a. **MUST check workflow:** Match task against WORKFLOWS.md triggers
    b. **MUST self-prime agents:** Include `self_prime: true` in ALL invocations
-   c. **MUST track progress:** Update todo.md status immediately 
+   c. **MUST track progress:** Update CLAUDE-todo.md status immediately (via TodoWrite) 
    d. **Invoke agents with mandatory self-priming:**
       ```yaml
       - frontend-developer: 
@@ -197,12 +263,12 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
    d. **If failures occur** (e.g. tests fail, accessibility issues), log an Error event, attempt a fix and re‑run tests. Only proceed when the task's acceptance criteria are satisfied. 
    e. **MANDATORY post-implementation:**
       - ⚡ Invoke documentation-maintainer (self_prime: true)
-      - ⚡ Update todo.md (mark complete)
-      - ⚡ Update planning.md (reflect changes)
+      - ⚡ Update CLAUDE-todo.md (mark complete via TodoWrite)
+      - ⚡ Update CLAUDE-planning.md (reflect changes)
       - ⚡ Update event-stream.md (log all actions)
       - ⚡ Run `mcp__memory__create_entities()` for new components
       - ⚡ Archive obsolete docs to archive/ 
-2. **Synchronise context**: after each task, update planning and knowledge graph. Add any new tasks discovered during execution to todo.md and plan mini‑cycles if needed. 
+2. **Synchronise context**: after each task, update planning and knowledge graph. Add any new tasks discovered during execution to CLAUDE-todo.md (via TodoWrite) and plan mini‑cycles if needed. **CRITICAL**: Run @memory-bank-synchronizer after code changes. 
 3. **Log events** continuously: Action (tool usage), Observation (outcomes), PlanUpdate (status changes), KnowledgeCapture (new insights).
 
 **Outputs:** Implemented code or configuration; passing tests; updated docs and design artefacts; completed tasks; knowledge graph reflecting new entities and relations.
@@ -239,10 +305,10 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
    - Scale and perform well (LCP < 2.5s, CLS < 0.1)
    - Respect accessibility guidelines (WCAG 2.1 AA)
    - Align with product goals and medical compliance
-3. **Aggregate feedback**: identify critical issues (must be fixed) and minor suggestions (defer or archive). Create new tasks in todo.md and update the plan accordingly. Log a PlanUpdate event. 
+3. **Aggregate feedback**: identify critical issues (must be fixed) and minor suggestions (defer or archive). Create new tasks in CLAUDE-todo.md (via TodoWrite) and update the plan accordingly. Log a PlanUpdate event. 
 4. **Implement fixes**: for critical issues, return to Execution to address them. After fixes, re‑run tests and audits via testing-qa-agent and design-system-architect. 
 5. **Reflect on the process**: capture lessons learned and patterns observed as KnowledgeCapture events. Update conventions.md if new standards emerge. 
-6. **Update documents**: ensure planning.md and todo.md reflect changes; add notes to docs/reviews/ or a reflections section in planning.md.
+6. **Update documents**: ensure CLAUDE-planning.md and CLAUDE-todo.md reflect changes; add notes to docs/reviews/ or a reflections section in CLAUDE-planning.md.
 
 **Outputs:** Review report; prioritised issues and improvement tasks; updated plan and todo list; reflection notes captured in the knowledge graph.
 
@@ -257,7 +323,7 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 **Triggers:** All phases complete; user asks for results; all tasks and critical issues resolved.
 
 **Steps:** 
-1. **Verify task completion**: ensure that every item in todo.md is marked complete and all acceptance criteria are met. Confirm that planning.md is up to date. 
+1. **Verify task completion**: ensure that every item in CLAUDE-todo.md is marked complete and all acceptance criteria are met. Confirm that CLAUDE-planning.md is up to date. 
 2. **Gather deliverables**: updated CLAUDE.md, CLAUDE_PROCESS.md, context files, any code or configuration files required by the user. Include test results or performance metrics if relevant. 
 3. **Compose final summary**: explain what was accomplished, highlight key decisions and trade‑offs, and confirm that all objectives were met. Do not expose internal chain‑of‑thought or sensitive information. 
 4. **Log a Delivery event** in the event stream with a timestamp and summary of delivered items. 
@@ -273,9 +339,21 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
 
 * **Safety & Compliance:** Sanitise all external inputs, verify information, secure secrets and enforce user confirmation for side‑effect operations.
 
-* **Logging:** Claude appends structured events to event-stream.md after every user input, agent selection, tool call, observation, plan update, knowledge capture, error and delivery. Logging is centralised and always uses the standard event schema.
+* **Logging:** Claude appends structured events to event-stream.md after every user input, agent selection, tool call, observation, plan update, knowledge capture, error and delivery. Logging is centralised and always uses the standard event schema. Agent outputs are organized in context/agent-outputs/{request_id}/{agent-name}/ with linked metadata.
 
 * **Memory & Knowledge Graph Management:** The graph-memory-agent persists new entities/relations and ensures schema compliance. Summarisation and archival occur when context or memory thresholds are exceeded.
+
+* **Memory Bank System Protocol:**
+  - **Load Order**: Always read memory bank files in sequence:
+    1. CLAUDE-activeContext.md (session state)
+    2. CLAUDE-patterns.md (code patterns)
+    3. CLAUDE-decisions.md (architecture)
+    4. CLAUDE-troubleshooting.md (issues)
+    5. CLAUDE-config-variables.md (config)
+  - **Update Frequency**: After every significant task completion
+  - **CLAUDE-temp.md Usage**: Use for TOT, research, brainstorm scratch work only
+  - **Clear Policy**: Clear CLAUDE-temp.md after transferring relevant content
+  - **Persistence**: Never delete core memory bank files (CLAUDE-*.md)
 
 * **Automatic Documentation Protocol:** 
   - Trigger: AFTER EVERY code change, bug fix, or feature
@@ -288,6 +366,9 @@ This document defines the end‑to‑end lifecycle of the CLAUDE system under th
   - Action: Check against WORKFLOWS.md triggers
   - Log: Record detection result in event-stream.md
   - Fallback: Use Agent Selection Matrix if no match
+  - **Critical Agents:**
+    - @memory-bank-synchronizer: MUST run after code changes
+    - @code-searcher: MUST run before code modifications
 
 * **Self-Priming Protocol:**
   - Trigger: EVERY agent invocation
@@ -375,7 +456,7 @@ For efficient context management across the large codebase (2000+ files), use th
 - **Use 4-index system**: Load only indexes relevant to task
 - **Symbol-first navigation**: Use Serena MCP tools for precise code location
 - **Cache context briefs**: Store in memory MCP for reuse
-- **Isolated contexts**: Use `context/subagent-contexts/` for parallel execution
+- **Isolated contexts**: Create temporary context files for parallel execution
 - **Update triggers**: Run `./scripts/generate-indexes.sh` after structural changes
 
 ## Project-Specific Workflows

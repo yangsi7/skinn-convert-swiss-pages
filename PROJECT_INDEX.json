@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2025-08-25T08:03:39.664Z",
+  "generated": "2025-08-25T15:30:03.148Z",
   "project": "SKIIN Switzerland Marketing Website",
   "visualAssetsIndex": "VISUAL_ASSETS_INDEX.json",
   "directories": {
@@ -47,11 +47,6 @@
     ".claude/tdd-guard/data": {
       "path": ".claude/tdd-guard/data",
       "fileCount": 2,
-      "subdirs": []
-    },
-    ".claude_cache": {
-      "path": ".claude_cache",
-      "fileCount": 4,
       "subdirs": []
     },
     ".github": {
@@ -101,112 +96,87 @@
     },
     "context": {
       "path": "context",
-      "fileCount": 15,
-      "subdirs": []
-    },
-    "context/checkpoints": {
-      "path": "context/checkpoints",
-      "fileCount": 1,
+      "fileCount": 14,
       "subdirs": []
     },
     "context/subagent-contexts": {
       "path": "context/subagent-contexts",
-      "fileCount": 23,
+      "fileCount": 0,
       "subdirs": []
     },
     "docs": {
       "path": "docs",
-      "fileCount": 8,
+      "fileCount": 1,
+      "subdirs": []
+    },
+    "docs/agent-outputs": {
+      "path": "docs/agent-outputs",
+      "fileCount": 1,
+      "subdirs": []
+    },
+    "docs/agent-outputs/archived": {
+      "path": "docs/agent-outputs/archived",
+      "fileCount": 1,
       "subdirs": []
     },
     "docs/analysis": {
       "path": "docs/analysis",
-      "fileCount": 5,
-      "subdirs": []
-    },
-    "docs/api": {
-      "path": "docs/api",
-      "fileCount": 6,
+      "fileCount": 1,
       "subdirs": []
     },
     "docs/architecture": {
       "path": "docs/architecture",
-      "fileCount": 5,
+      "fileCount": 8,
       "subdirs": []
     },
     "docs/content": {
       "path": "docs/content",
+      "fileCount": 2,
+      "subdirs": []
+    },
+    "docs/content/translations": {
+      "path": "docs/content/translations",
+      "fileCount": 4,
+      "subdirs": []
+    },
+    "docs/database": {
+      "path": "docs/database",
       "fileCount": 5,
-      "subdirs": []
-    },
-    "docs/content/iterations": {
-      "path": "docs/content/iterations",
-      "fileCount": 3,
-      "subdirs": []
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2",
-      "fileCount": 6,
-      "subdirs": []
-    },
-    "docs/database-requirements-and-specs": {
-      "path": "docs/database-requirements-and-specs",
-      "fileCount": 9,
-      "subdirs": []
-    },
-    "docs/deployment": {
-      "path": "docs/deployment",
-      "fileCount": 1,
-      "subdirs": []
-    },
-    "docs/design": {
-      "path": "docs/design",
-      "fileCount": 7,
       "subdirs": []
     },
     "docs/design-system": {
       "path": "docs/design-system",
-      "fileCount": 6,
+      "fileCount": 5,
       "subdirs": []
     },
-    "docs/implementation": {
-      "path": "docs/implementation",
-      "fileCount": 2,
+    "docs/design-system/components": {
+      "path": "docs/design-system/components",
+      "fileCount": 3,
       "subdirs": []
     },
-    "docs/invocation-chains": {
-      "path": "docs/invocation-chains",
-      "fileCount": 4,
+    "docs/features": {
+      "path": "docs/features",
+      "fileCount": 3,
       "subdirs": []
     },
-    "docs/reports": {
-      "path": "docs/reports",
-      "fileCount": 22,
-      "subdirs": []
-    },
-    "docs/requirements": {
-      "path": "docs/requirements",
-      "fileCount": 1,
+    "docs/frontend": {
+      "path": "docs/frontend",
+      "fileCount": 3,
       "subdirs": []
     },
     "docs/research": {
       "path": "docs/research",
-      "fileCount": 3,
-      "subdirs": []
-    },
-    "docs/specs": {
-      "path": "docs/specs",
-      "fileCount": 5,
+      "fileCount": 1,
       "subdirs": []
     },
     "docs/standards": {
       "path": "docs/standards",
-      "fileCount": 13,
+      "fileCount": 2,
       "subdirs": []
     },
-    "docs/supabase_doc": {
-      "path": "docs/supabase_doc",
-      "fileCount": 8,
+    "docs/testing": {
+      "path": "docs/testing",
+      "fileCount": 3,
       "subdirs": []
     },
     "html": {
@@ -222,41 +192,6 @@
     "html/data": {
       "path": "html/data",
       "fileCount": 0,
-      "subdirs": []
-    },
-    "memory-bank-setup": {
-      "path": "memory-bank-setup",
-      "fileCount": 1,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-converted": {
-      "path": "memory-bank-setup/memory-bank-converted",
-      "fileCount": 9,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-converted/agents": {
-      "path": "memory-bank-setup/memory-bank-converted/agents",
-      "fileCount": 0,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-converted/slash-commands": {
-      "path": "memory-bank-setup/memory-bank-converted/slash-commands",
-      "fileCount": 1,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-instructions": {
-      "path": "memory-bank-setup/memory-bank-instructions",
-      "fileCount": 3,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-instructions/agents": {
-      "path": "memory-bank-setup/memory-bank-instructions/agents",
-      "fileCount": 4,
-      "subdirs": []
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands",
-      "fileCount": 6,
       "subdirs": []
     },
     "presentation": {
@@ -753,68 +688,73 @@
       "path": "tests/unit/hooks",
       "fileCount": 1,
       "subdirs": []
+    },
+    "user-uploads": {
+      "path": "user-uploads",
+      "fileCount": 3,
+      "subdirs": []
     }
   },
   "files": {
+    ".DS_Store": {
+      "path": ".DS_Store",
+      "size": 22532,
+      "extension": "",
+      "modified": "2025-08-25T15:22:30.738Z"
+    },
     ".claude/.DS_Store": {
       "path": ".claude/.DS_Store",
       "size": 8196,
       "extension": "",
-      "modified": "2025-08-22T09:33:18.101Z"
+      "modified": "2025-08-25T13:20:13.401Z"
     },
-    ".claude/agents/backend-developer.md": {
-      "path": ".claude/agents/backend-developer.md",
-      "size": 12582,
-      "extension": ".md",
-      "modified": "2025-08-25T07:21:51.771Z"
+    ".claude/agents/.DS_Store": {
+      "path": ".claude/agents/.DS_Store",
+      "size": 6148,
+      "extension": "",
+      "modified": "2025-08-25T14:15:56.207Z"
     },
     ".claude/agents/brainstormer.md": {
       "path": ".claude/agents/brainstormer.md",
-      "size": 8776,
+      "size": 8876,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.787Z"
+      "modified": "2025-08-25T13:16:46.537Z"
+    },
+    ".claude/agents/code-searcher.md": {
+      "path": ".claude/agents/code-searcher.md",
+      "size": 22733,
+      "extension": ".md",
+      "modified": "2025-08-25T14:25:24.381Z"
     },
     ".claude/agents/context-manager.md": {
       "path": ".claude/agents/context-manager.md",
-      "size": 15648,
+      "size": 16266,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.800Z"
-    },
-    ".claude/agents/database-supabase-agent.md": {
-      "path": ".claude/agents/database-supabase-agent.md",
-      "size": 12068,
-      "extension": ".md",
-      "modified": "2025-08-25T07:21:51.812Z"
+      "modified": "2025-08-25T14:28:06.270Z"
     },
     ".claude/agents/design-system-architect.md": {
       "path": ".claude/agents/design-system-architect.md",
-      "size": 10505,
+      "size": 11501,
       "extension": ".md",
-      "modified": "2025-08-25T07:20:55.279Z"
+      "modified": "2025-08-25T14:17:29.699Z"
     },
     ".claude/agents/documentation-maintainer.md": {
       "path": ".claude/agents/documentation-maintainer.md",
-      "size": 12292,
+      "size": 13436,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.827Z"
+      "modified": "2025-08-25T15:02:08.151Z"
     },
-    ".claude/agents/frontend-developer.md": {
-      "path": ".claude/agents/frontend-developer.md",
-      "size": 10109,
+    ".claude/agents/get-current-datetime.md": {
+      "path": ".claude/agents/get-current-datetime.md",
+      "size": 790,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.836Z"
+      "modified": "2025-08-24T19:00:50.794Z"
     },
     ".claude/agents/git-agent.md": {
       "path": ".claude/agents/git-agent.md",
       "size": 11142,
       "extension": ".md",
       "modified": "2025-08-25T07:21:51.845Z"
-    },
-    ".claude/agents/graph-memory-agent.md": {
-      "path": ".claude/agents/graph-memory-agent.md",
-      "size": 11689,
-      "extension": ".md",
-      "modified": "2025-08-25T07:21:51.854Z"
     },
     ".claude/agents/guardrails-agent.md": {
       "path": ".claude/agents/guardrails-agent.md",
@@ -824,15 +764,15 @@
     },
     ".claude/agents/invocation-chain-generator.md": {
       "path": ".claude/agents/invocation-chain-generator.md",
-      "size": 15375,
+      "size": 15682,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.872Z"
+      "modified": "2025-08-25T14:15:20.664Z"
     },
-    ".claude/agents/microcompact-manager.md": {
-      "path": ".claude/agents/microcompact-manager.md",
-      "size": 14964,
+    ".claude/agents/memory-bank-synchronizer.md": {
+      "path": ".claude/agents/memory-bank-synchronizer.md",
+      "size": 8788,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.885Z"
+      "modified": "2025-08-25T14:27:47.873Z"
     },
     ".claude/agents/multi-panel-review-agent.md": {
       "path": ".claude/agents/multi-panel-review-agent.md",
@@ -848,15 +788,9 @@
     },
     ".claude/agents/reflection-agent.md": {
       "path": ".claude/agents/reflection-agent.md",
-      "size": 13388,
+      "size": 13675,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.917Z"
-    },
-    ".claude/agents/repository-conformance-agent.md": {
-      "path": ".claude/agents/repository-conformance-agent.md",
-      "size": 20055,
-      "extension": ".md",
-      "modified": "2025-08-25T07:21:51.928Z"
+      "modified": "2025-08-25T14:14:53.299Z"
     },
     ".claude/agents/requirements-spec-agent.md": {
       "path": ".claude/agents/requirements-spec-agent.md",
@@ -870,23 +804,35 @@
       "extension": ".md",
       "modified": "2025-08-25T07:21:51.948Z"
     },
-    ".claude/agents/setup-new-project-agent.md": {
-      "path": ".claude/agents/setup-new-project-agent.md",
-      "size": 17469,
+    ".claude/agents/supabase-architect.md": {
+      "path": ".claude/agents/supabase-architect.md",
+      "size": 26411,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.958Z"
+      "modified": "2025-08-25T14:20:12.509Z"
+    },
+    ".claude/agents/supabase-implementation-engineer.md": {
+      "path": ".claude/agents/supabase-implementation-engineer.md",
+      "size": 25573,
+      "extension": ".md",
+      "modified": "2025-08-25T12:25:23.283Z"
     },
     ".claude/agents/testing-qa-agent.md": {
       "path": ".claude/agents/testing-qa-agent.md",
-      "size": 9832,
+      "size": 9839,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.969Z"
+      "modified": "2025-08-25T14:27:17.422Z"
     },
     ".claude/agents/tree-of-thought-agent.md": {
       "path": ".claude/agents/tree-of-thought-agent.md",
-      "size": 13345,
+      "size": 13642,
       "extension": ".md",
-      "modified": "2025-08-25T07:21:51.980Z"
+      "modified": "2025-08-25T14:13:45.441Z"
+    },
+    ".claude/agents/ux-design-expert.md": {
+      "path": ".claude/agents/ux-design-expert.md",
+      "size": 6888,
+      "extension": ".md",
+      "modified": "2025-08-24T19:00:54.870Z"
     },
     ".claude/hooks/.claude/hooks/update-event-stream.py": {
       "path": ".claude/hooks/.claude/hooks/update-event-stream.py",
@@ -926,39 +872,15 @@
     },
     ".claude/tdd-guard/data/modifications.json": {
       "path": ".claude/tdd-guard/data/modifications.json",
-      "size": 3215,
+      "size": 3222,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.258Z"
+      "modified": "2025-08-25T14:27:17.436Z"
     },
     ".claude/tdd-guard/data/test.json": {
       "path": ".claude/tdd-guard/data/test.json",
       "size": 346,
       "extension": ".json",
       "modified": "2025-08-24T17:52:54.840Z"
-    },
-    ".claude_cache/docs_.json": {
-      "path": ".claude_cache/docs_.json",
-      "size": 15528,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.258Z"
-    },
-    ".claude_cache/src_components.json": {
-      "path": ".claude_cache/src_components.json",
-      "size": 40063,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.259Z"
-    },
-    ".claude_cache/src_components_forms.json": {
-      "path": ".claude_cache/src_components_forms.json",
-      "size": 2679,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.259Z"
-    },
-    ".claude_cache/src_components_forms_eligibility.json": {
-      "path": ".claude_cache/src_components_forms_eligibility.json",
-      "size": 8480,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.259Z"
     },
     ".env": {
       "path": ".env",
@@ -1016,9 +938,9 @@
     },
     ".gitignore": {
       "path": ".gitignore",
-      "size": 961,
+      "size": 968,
       "extension": "",
-      "modified": "2025-08-24T18:08:58.260Z"
+      "modified": "2025-08-25T14:27:17.433Z"
     },
     ".husky/pre-commit": {
       "path": ".husky/pre-commit",
@@ -1088,9 +1010,9 @@
     },
     ".serena/memories/completion_and_quality_procedures.md": {
       "path": ".serena/memories/completion_and_quality_procedures.md",
-      "size": 3273,
+      "size": 3280,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.345Z"
+      "modified": "2025-08-25T14:27:17.430Z"
     },
     ".serena/memories/project_overview.md": {
       "path": ".serena/memories/project_overview.md",
@@ -1130,33 +1052,27 @@
     },
     "CLAUDE.md": {
       "path": "CLAUDE.md",
-      "size": 45379,
+      "size": 10468,
       "extension": ".md",
-      "modified": "2025-08-25T07:24:15.130Z"
+      "modified": "2025-08-25T15:29:16.805Z"
     },
     "PROJECT_INDEX.json": {
       "path": "PROJECT_INDEX.json",
-      "size": 160891,
+      "size": 161550,
       "extension": ".json",
-      "modified": "2025-08-25T06:44:46.517Z"
+      "modified": "2025-08-25T14:27:17.411Z"
     },
     "README.md": {
       "path": "README.md",
-      "size": 11871,
+      "size": 13491,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.351Z"
+      "modified": "2025-08-25T15:04:00.984Z"
     },
     "VISUAL_ASSETS_INDEX.json": {
       "path": "VISUAL_ASSETS_INDEX.json",
-      "size": 124762,
+      "size": 111734,
       "extension": ".json",
-      "modified": "2025-08-25T08:03:39.625Z"
-    },
-    "WORKFLOWS.md": {
-      "path": "WORKFLOWS.md",
-      "size": 23135,
-      "extension": ".md",
-      "modified": "2025-08-25T07:26:50.313Z"
+      "modified": "2025-08-25T15:30:03.105Z"
     },
     "bun.lockb": {
       "path": "bun.lockb",
@@ -1174,949 +1090,343 @@
       "path": "context/.DS_Store",
       "size": 6148,
       "extension": "",
-      "modified": "2025-08-24T18:16:57.560Z"
+      "modified": "2025-08-25T15:12:48.746Z"
+    },
+    "context/CLAUDE-activeContext.md": {
+      "path": "context/CLAUDE-activeContext.md",
+      "size": 4519,
+      "extension": ".md",
+      "modified": "2025-08-25T15:07:28.382Z"
+    },
+    "context/CLAUDE-config-variables.md": {
+      "path": "context/CLAUDE-config-variables.md",
+      "size": 7614,
+      "extension": ".md",
+      "modified": "2025-08-25T15:28:03.600Z"
+    },
+    "context/CLAUDE-decisions.md": {
+      "path": "context/CLAUDE-decisions.md",
+      "size": 6286,
+      "extension": ".md",
+      "modified": "2025-08-25T15:06:51.695Z"
+    },
+    "context/CLAUDE-patterns.md": {
+      "path": "context/CLAUDE-patterns.md",
+      "size": 9322,
+      "extension": ".md",
+      "modified": "2025-08-25T15:06:26.630Z"
+    },
+    "context/CLAUDE-planning.md": {
+      "path": "context/CLAUDE-planning.md",
+      "size": 3108,
+      "extension": ".md",
+      "modified": "2025-08-25T15:25:25.109Z"
+    },
+    "context/CLAUDE-temp.md": {
+      "path": "context/CLAUDE-temp.md",
+      "size": 4324,
+      "extension": ".md",
+      "modified": "2025-08-25T15:24:03.934Z"
+    },
+    "context/CLAUDE-todo.md": {
+      "path": "context/CLAUDE-todo.md",
+      "size": 1811,
+      "extension": ".md",
+      "modified": "2025-08-25T14:28:41.969Z"
+    },
+    "context/CLAUDE-troubleshooting.md": {
+      "path": "context/CLAUDE-troubleshooting.md",
+      "size": 6080,
+      "extension": ".md",
+      "modified": "2025-08-25T15:27:42.877Z"
     },
     "context/CLAUDE_PROCESS.md": {
       "path": "context/CLAUDE_PROCESS.md",
-      "size": 26688,
+      "size": 30093,
       "extension": ".md",
-      "modified": "2025-08-25T07:28:33.842Z"
+      "modified": "2025-08-25T15:29:51.885Z"
     },
-    "context/checkpoints/README.md": {
-      "path": "context/checkpoints/README.md",
-      "size": 2461,
+    "context/WORKFLOWS.md": {
+      "path": "context/WORKFLOWS.md",
+      "size": 23142,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.352Z"
-    },
-    "context/claude-best-practices-research-handoff.md": {
-      "path": "context/claude-best-practices-research-handoff.md",
-      "size": 6874,
-      "extension": ".md",
-      "modified": "2025-08-24T19:23:25.874Z"
-    },
-    "context/conventions.md": {
-      "path": "context/conventions.md",
-      "size": 14687,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.353Z"
-    },
-    "context/doc-ref.md": {
-      "path": "context/doc-ref.md",
-      "size": 6624,
-      "extension": ".md",
-      "modified": "2025-08-25T08:03:32.019Z"
-    },
-    "context/documentation-maintenance-handoff-brief.md": {
-      "path": "context/documentation-maintenance-handoff-brief.md",
-      "size": 5889,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.353Z"
-    },
-    "context/documentation-maintenance-spec.json": {
-      "path": "context/documentation-maintenance-spec.json",
-      "size": 12759,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.353Z"
-    },
-    "context/event-stream-api.py": {
-      "path": "context/event-stream-api.py",
-      "size": 1821,
-      "extension": ".py",
-      "modified": "2025-08-24T18:08:58.354Z"
+      "modified": "2025-08-25T14:27:17.419Z"
     },
     "context/event-stream.md": {
       "path": "context/event-stream.md",
-      "size": 47070,
+      "size": 32115,
       "extension": ".md",
-      "modified": "2025-08-25T08:03:32.234Z"
-    },
-    "context/memory-bank-integration-tot-specification.json": {
-      "path": "context/memory-bank-integration-tot-specification.json",
-      "size": 19065,
-      "extension": ".json",
-      "modified": "2025-08-24T19:28:50.513Z"
-    },
-    "context/planning.md": {
-      "path": "context/planning.md",
-      "size": 27230,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.354Z"
+      "modified": "2025-08-25T15:29:52.158Z"
     },
     "context/project-index.md": {
       "path": "context/project-index.md",
-      "size": 20873,
+      "size": 21229,
       "extension": ".md",
-      "modified": "2025-08-25T06:44:50.101Z"
+      "modified": "2025-08-25T14:27:17.406Z"
     },
     "context/project-tree.txt": {
       "path": "context/project-tree.txt",
-      "size": 34886,
+      "size": 26727,
       "extension": ".txt",
-      "modified": "2025-08-25T08:03:39.524Z"
-    },
-    "context/requirements.md": {
-      "path": "context/requirements.md",
-      "size": 6198,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.355Z"
-    },
-    "context/subagent-contexts/README.md": {
-      "path": "context/subagent-contexts/README.md",
-      "size": 1261,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.355Z"
-    },
-    "context/subagent-contexts/TEMPLATE.md": {
-      "path": "context/subagent-contexts/TEMPLATE.md",
-      "size": 2810,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.355Z"
-    },
-    "context/subagent-contexts/backend-developer-context.json": {
-      "path": "context/subagent-contexts/backend-developer-context.json",
-      "size": 620,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.355Z"
-    },
-    "context/subagent-contexts/brainstormer-context.json": {
-      "path": "context/subagent-contexts/brainstormer-context.json",
-      "size": 430,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.356Z"
-    },
-    "context/subagent-contexts/context-manager-context.json": {
-      "path": "context/subagent-contexts/context-manager-context.json",
-      "size": 894,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.356Z"
-    },
-    "context/subagent-contexts/design-system-architect-context.json": {
-      "path": "context/subagent-contexts/design-system-architect-context.json",
-      "size": 664,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.356Z"
-    },
-    "context/subagent-contexts/documentation-maintainer-context.json": {
-      "path": "context/subagent-contexts/documentation-maintainer-context.json",
-      "size": 1031,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.356Z"
-    },
-    "context/subagent-contexts/eligibility-system-context-brief.json": {
-      "path": "context/subagent-contexts/eligibility-system-context-brief.json",
-      "size": 21347,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.356Z"
-    },
-    "context/subagent-contexts/eligibility-verification-chain-spec.json": {
-      "path": "context/subagent-contexts/eligibility-verification-chain-spec.json",
-      "size": 14964,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.357Z"
-    },
-    "context/subagent-contexts/frontend-developer-context.json": {
-      "path": "context/subagent-contexts/frontend-developer-context.json",
-      "size": 967,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.357Z"
-    },
-    "context/subagent-contexts/git-agent-context.json": {
-      "path": "context/subagent-contexts/git-agent-context.json",
-      "size": 381,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.357Z"
-    },
-    "context/subagent-contexts/guardrails-agent-context.json": {
-      "path": "context/subagent-contexts/guardrails-agent-context.json",
-      "size": 615,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.357Z"
-    },
-    "context/subagent-contexts/invocation-chain-generator-context.json": {
-      "path": "context/subagent-contexts/invocation-chain-generator-context.json",
-      "size": 1053,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.357Z"
-    },
-    "context/subagent-contexts/multi-panel-review-agent-context.json": {
-      "path": "context/subagent-contexts/multi-panel-review-agent-context.json",
-      "size": 490,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.358Z"
-    },
-    "context/subagent-contexts/planning-task-agent-context.json": {
-      "path": "context/subagent-contexts/planning-task-agent-context.json",
-      "size": 636,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.358Z"
-    },
-    "context/subagent-contexts/rcc-002-research-context.json": {
-      "path": "context/subagent-contexts/rcc-002-research-context.json",
-      "size": 1775,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.358Z"
-    },
-    "context/subagent-contexts/reflection-agent-context.json": {
-      "path": "context/subagent-contexts/reflection-agent-context.json",
-      "size": 613,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.358Z"
-    },
-    "context/subagent-contexts/requirements-spec-agent-context.json": {
-      "path": "context/subagent-contexts/requirements-spec-agent-context.json",
-      "size": 664,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.358Z"
-    },
-    "context/subagent-contexts/researcher-context.json": {
-      "path": "context/subagent-contexts/researcher-context.json",
-      "size": 420,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.359Z"
-    },
-    "context/subagent-contexts/supabase-architect-context.json": {
-      "path": "context/subagent-contexts/supabase-architect-context.json",
-      "size": 798,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.359Z"
-    },
-    "context/subagent-contexts/supabase-implementation-engineer-context.json": {
-      "path": "context/subagent-contexts/supabase-implementation-engineer-context.json",
-      "size": 921,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.359Z"
-    },
-    "context/subagent-contexts/testing-qa-agent-context.json": {
-      "path": "context/subagent-contexts/testing-qa-agent-context.json",
-      "size": 767,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.359Z"
-    },
-    "context/subagent-contexts/tree-of-thought-agent-context.json": {
-      "path": "context/subagent-contexts/tree-of-thought-agent-context.json",
-      "size": 974,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.359Z"
-    },
-    "context/todo.md": {
-      "path": "context/todo.md",
-      "size": 13069,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.360Z"
+      "modified": "2025-08-25T15:30:03.026Z"
     },
     "docs/.DS_Store": {
       "path": "docs/.DS_Store",
-      "size": 18436,
+      "size": 14340,
       "extension": "",
-      "modified": "2025-08-25T08:01:03.855Z"
+      "modified": "2025-08-25T14:39:45.073Z"
     },
-    "docs/AGENT_COMPLIANCE_CHECKLIST.md": {
-      "path": "docs/AGENT_COMPLIANCE_CHECKLIST.md",
-      "size": 5696,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.360Z"
+    "docs/agent-outputs/.DS_Store": {
+      "path": "docs/agent-outputs/.DS_Store",
+      "size": 6148,
+      "extension": "",
+      "modified": "2025-08-25T14:39:45.074Z"
     },
-    "docs/COGNEE_MEMORY_PROTOCOL.md": {
-      "path": "docs/COGNEE_MEMORY_PROTOCOL.md",
-      "size": 17967,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.360Z"
-    },
-    "docs/COGNEE_TESTING_SPECIFICATION.md": {
-      "path": "docs/COGNEE_TESTING_SPECIFICATION.md",
-      "size": 13380,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.361Z"
-    },
-    "docs/analysis/FILE-ORGANIZATION-TOT.md": {
-      "path": "docs/analysis/FILE-ORGANIZATION-TOT.md",
-      "size": 7797,
-      "extension": ".md",
-      "modified": "2025-08-24T18:47:37.973Z"
-    },
-    "docs/analysis/GP-REFERRAL-TOT.md": {
-      "path": "docs/analysis/GP-REFERRAL-TOT.md",
-      "size": 18642,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.361Z"
-    },
-    "docs/analysis/file-organization-tot-specification.json": {
-      "path": "docs/analysis/file-organization-tot-specification.json",
-      "size": 11121,
+    "docs/agent-outputs/archived/supabase-agent-enhancement-brainstorm-spec.json": {
+      "path": "docs/agent-outputs/archived/supabase-agent-enhancement-brainstorm-spec.json",
+      "size": 14188,
       "extension": ".json",
-      "modified": "2025-08-24T18:46:42.969Z"
+      "modified": "2025-08-25T12:18:31.565Z"
     },
-    "docs/analysis/gp-referral-tot-summary.md": {
-      "path": "docs/analysis/gp-referral-tot-summary.md",
-      "size": 7270,
+    "docs/analysis/supabase-agents-gap-analysis-tot.md": {
+      "path": "docs/analysis/supabase-agents-gap-analysis-tot.md",
+      "size": 17597,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.361Z"
+      "modified": "2025-08-25T12:15:07.358Z"
     },
-    "docs/analysis/gp-referral-tree-of-thought-specification.json": {
-      "path": "docs/analysis/gp-referral-tree-of-thought-specification.json",
-      "size": 17146,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.361Z"
-    },
-    "docs/api/2025-08-22-gp-referral-implementation-roadmap.md": {
-      "path": "docs/api/2025-08-22-gp-referral-implementation-roadmap.md",
-      "size": 14250,
+    "docs/architecture/README.md": {
+      "path": "docs/architecture/README.md",
+      "size": 2097,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.362Z"
+      "modified": "2025-08-25T09:51:46.231Z"
     },
-    "docs/api/2025-08-22-gp-referral-security-compliance.md": {
-      "path": "docs/api/2025-08-22-gp-referral-security-compliance.md",
-      "size": 34881,
+    "docs/architecture/api.md": {
+      "path": "docs/architecture/api.md",
+      "size": 1723,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.362Z"
+      "modified": "2025-08-25T09:52:22.109Z"
     },
-    "docs/api/2025-08-22-gp-referral-system-api-specification.json": {
-      "path": "docs/api/2025-08-22-gp-referral-system-api-specification.json",
-      "size": 38559,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.362Z"
-    },
-    "docs/api/2025-08-22-gp-referral-technical-architecture.md": {
-      "path": "docs/api/2025-08-22-gp-referral-technical-architecture.md",
-      "size": 26356,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.362Z"
-    },
-    "docs/api/ROUTE_MAP.md": {
-      "path": "docs/api/ROUTE_MAP.md",
-      "size": 5337,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.363Z"
-    },
-    "docs/api/gp-referral-best-practices.md": {
-      "path": "docs/api/gp-referral-best-practices.md",
-      "size": 17561,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.363Z"
-    },
-    "docs/architecture/2025-08-19-copy-variant-system-architecture.md": {
-      "path": "docs/architecture/2025-08-19-copy-variant-system-architecture.md",
-      "size": 19714,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.363Z"
-    },
-    "docs/architecture/2025-08-22-atomic-component-architecture.md": {
-      "path": "docs/architecture/2025-08-22-atomic-component-architecture.md",
+    "docs/architecture/atomic-components.md": {
+      "path": "docs/architecture/atomic-components.md",
       "size": 13413,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.364Z"
+      "modified": "2025-08-25T14:58:20.214Z"
     },
     "docs/architecture/component-inventory.md": {
       "path": "docs/architecture/component-inventory.md",
       "size": 5306,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.856Z"
+      "modified": "2025-08-25T14:58:20.220Z"
+    },
+    "docs/architecture/copy-variant-system.md": {
+      "path": "docs/architecture/copy-variant-system.md",
+      "size": 19714,
+      "extension": ".md",
+      "modified": "2025-08-25T14:58:20.223Z"
+    },
+    "docs/architecture/database.md": {
+      "path": "docs/architecture/database.md",
+      "size": 2257,
+      "extension": ".md",
+      "modified": "2025-08-25T09:52:04.822Z"
     },
     "docs/architecture/system-architecture.md": {
       "path": "docs/architecture/system-architecture.md",
       "size": 6431,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.856Z"
+      "modified": "2025-08-25T14:58:20.212Z"
     },
     "docs/architecture/visual-architecture.md": {
       "path": "docs/architecture/visual-architecture.md",
       "size": 5112,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.856Z"
+      "modified": "2025-08-25T14:58:20.217Z"
     },
     "docs/content/.DS_Store": {
       "path": "docs/content/.DS_Store",
       "size": 6148,
       "extension": "",
-      "modified": "2025-07-22T08:03:00.151Z"
+      "modified": "2025-08-25T14:38:58.671Z"
     },
-    "docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md": {
-      "path": "docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md",
+    "docs/content/README.md": {
+      "path": "docs/content/README.md",
+      "size": 2048,
+      "extension": ".md",
+      "modified": "2025-08-25T09:56:58.020Z"
+    },
+    "docs/content/translations/SKIIN_WEBSITE_COPY_ENGLISH.md": {
+      "path": "docs/content/translations/SKIIN_WEBSITE_COPY_ENGLISH.md",
       "size": 19072,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.869Z"
+      "modified": "2025-08-25T09:56:37.081Z"
     },
-    "docs/content/SKIIN_WEBSITE_COPY_FRENCH.md": {
-      "path": "docs/content/SKIIN_WEBSITE_COPY_FRENCH.md",
+    "docs/content/translations/SKIIN_WEBSITE_COPY_FRENCH.md": {
+      "path": "docs/content/translations/SKIIN_WEBSITE_COPY_FRENCH.md",
       "size": 30430,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.870Z"
+      "modified": "2025-08-25T09:56:37.081Z"
     },
-    "docs/content/SKIIN_WEBSITE_COPY_GERMAN.md": {
-      "path": "docs/content/SKIIN_WEBSITE_COPY_GERMAN.md",
+    "docs/content/translations/SKIIN_WEBSITE_COPY_GERMAN.md": {
+      "path": "docs/content/translations/SKIIN_WEBSITE_COPY_GERMAN.md",
       "size": 19266,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.870Z"
+      "modified": "2025-08-25T09:56:37.081Z"
     },
-    "docs/content/SKIIN_WEBSITE_COPY_ITALIAN.md": {
-      "path": "docs/content/SKIIN_WEBSITE_COPY_ITALIAN.md",
+    "docs/content/translations/SKIIN_WEBSITE_COPY_ITALIAN.md": {
+      "path": "docs/content/translations/SKIIN_WEBSITE_COPY_ITALIAN.md",
       "size": 18479,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.870Z"
+      "modified": "2025-08-25T09:56:37.082Z"
     },
-    "docs/content/iterations/.DS_Store": {
-      "path": "docs/content/iterations/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-07-28T14:20:18.774Z"
-    },
-    "docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC.md": {
-      "path": "docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC.md",
-      "size": 9076,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.871Z"
-    },
-    "docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC_V2.1.md": {
-      "path": "docs/content/iterations/2025-01-22-COPY_UPDATE_SPEC_V2.1.md",
-      "size": 17962,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.871Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/COPY_REVIEW_REPORT.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/COPY_REVIEW_REPORT.md",
-      "size": 10102,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.871Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/CTA_PSYCHOLOGICAL_REVIEW.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/CTA_PSYCHOLOGICAL_REVIEW.md",
-      "size": 4558,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.871Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/CULTURAL_SENSITIVITY_REPORT.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/CULTURAL_SENSITIVITY_REPORT.md",
-      "size": 9880,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.871Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/MEDICAL_CLAIMS_REVIEW.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/MEDICAL_CLAIMS_REVIEW.md",
-      "size": 4077,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.872Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/PRICING_CONSISTENCY_REPORT.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/PRICING_CONSISTENCY_REPORT.md",
-      "size": 4034,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.872Z"
-    },
-    "docs/content/iterations/2025-01-22-copy-update-v2/V2_POLISH_AND_READINESS_REPORT.md": {
-      "path": "docs/content/iterations/2025-01-22-copy-update-v2/V2_POLISH_AND_READINESS_REPORT.md",
-      "size": 6435,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.872Z"
-    },
-    "docs/database-requirements-and-specs/.DS_Store": {
-      "path": "docs/database-requirements-and-specs/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-22T12:36:54.488Z"
-    },
-    "docs/database-requirements-and-specs/database-security-enhancement-specification.json": {
-      "path": "docs/database-requirements-and-specs/database-security-enhancement-specification.json",
-      "size": 30049,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.365Z"
-    },
-    "docs/database-requirements-and-specs/migration-guide-v2.md": {
-      "path": "docs/database-requirements-and-specs/migration-guide-v2.md",
+    "docs/database/migration-guide.md": {
+      "path": "docs/database/migration-guide.md",
       "size": 17003,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.365Z"
+      "modified": "2025-08-25T14:57:45.668Z"
     },
-    "docs/database-requirements-and-specs/overview.md": {
-      "path": "docs/database-requirements-and-specs/overview.md",
+    "docs/database/overview.md": {
+      "path": "docs/database/overview.md",
       "size": 9325,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.365Z"
+      "modified": "2025-08-25T14:57:45.670Z"
     },
-    "docs/database-requirements-and-specs/schema-diagram.md": {
-      "path": "docs/database-requirements-and-specs/schema-diagram.md",
-      "size": 10312,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.366Z"
-    },
-    "docs/database-requirements-and-specs/schema-specification-v2.md": {
-      "path": "docs/database-requirements-and-specs/schema-specification-v2.md",
+    "docs/database/schema-v2.md": {
+      "path": "docs/database/schema-v2.md",
       "size": 12848,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.366Z"
+      "modified": "2025-08-25T14:57:45.663Z"
     },
-    "docs/database-requirements-and-specs/specification-v2.md": {
-      "path": "docs/database-requirements-and-specs/specification-v2.md",
-      "size": 17958,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.366Z"
+    "docs/database/security-enhancement.json": {
+      "path": "docs/database/security-enhancement.json",
+      "size": 30049,
+      "extension": ".json",
+      "modified": "2025-08-25T14:57:45.666Z"
     },
-    "docs/database-requirements-and-specs/technical-specifications.md": {
-      "path": "docs/database-requirements-and-specs/technical-specifications.md",
+    "docs/database/technical-specifications.md": {
+      "path": "docs/database/technical-specifications.md",
       "size": 28723,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.366Z"
+      "modified": "2025-08-25T14:57:45.672Z"
     },
-    "docs/database-requirements-and-specs/updated_questionnaire_spec.md": {
-      "path": "docs/database-requirements-and-specs/updated_questionnaire_spec.md",
-      "size": 15820,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.370Z"
-    },
-    "docs/deployment/PRODUCTION_READINESS_REPORT.md": {
-      "path": "docs/deployment/PRODUCTION_READINESS_REPORT.md",
-      "size": 6431,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.370Z"
-    },
-    "docs/design/2025-07-29-design-system-implementation-review.md": {
-      "path": "docs/design/2025-07-29-design-system-implementation-review.md",
-      "size": 12062,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.873Z"
-    },
-    "docs/design/2025-07-29-myant-violet-palette-implementation.md": {
-      "path": "docs/design/2025-07-29-myant-violet-palette-implementation.md",
-      "size": 4142,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.873Z"
-    },
-    "docs/design/2025-07-30-design-token-usage-guide.md": {
-      "path": "docs/design/2025-07-30-design-token-usage-guide.md",
-      "size": 4200,
-      "extension": ".md",
-      "modified": "2025-08-24T17:52:54.873Z"
-    },
-    "docs/design/2025-08-19-eligibility-form-design-system.md": {
-      "path": "docs/design/2025-08-19-eligibility-form-design-system.md",
+    "docs/design-system/components/eligibility-form-design.md": {
+      "path": "docs/design-system/components/eligibility-form-design.md",
       "size": 29717,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
+      "modified": "2025-08-25T14:57:11.866Z"
     },
-    "docs/design/2025-08-19-form-component-specifications.md": {
-      "path": "docs/design/2025-08-19-form-component-specifications.md",
-      "size": 55198,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
-    },
-    "docs/design/minimalist-component-library.md": {
-      "path": "docs/design/minimalist-component-library.md",
-      "size": 6413,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
-    },
-    "docs/design/tokens.md": {
-      "path": "docs/design/tokens.md",
-      "size": 4824,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.373Z"
-    },
-    "docs/design-system/2025-08-22-eligibility-workflow-atomic-components.md": {
-      "path": "docs/design-system/2025-08-22-eligibility-workflow-atomic-components.md",
+    "docs/design-system/components/eligibility-workflow-atomic.md": {
+      "path": "docs/design-system/components/eligibility-workflow-atomic.md",
       "size": 11135,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.370Z"
+      "modified": "2025-08-25T14:57:11.869Z"
     },
-    "docs/design-system/PROTECTED_COMPONENTS_SPEC_v1.md": {
-      "path": "docs/design-system/PROTECTED_COMPONENTS_SPEC_v1.md",
-      "size": 9812,
+    "docs/design-system/components/form-specifications.md": {
+      "path": "docs/design-system/components/form-specifications.md",
+      "size": 55198,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.371Z"
+      "modified": "2025-08-25T14:57:11.863Z"
     },
-    "docs/design-system/modern-design-system-spec.md": {
-      "path": "docs/design-system/modern-design-system-spec.md",
-      "size": 10464,
+    "docs/design-system/implementation-review.md": {
+      "path": "docs/design-system/implementation-review.md",
+      "size": 12062,
       "extension": ".md",
-      "modified": "2025-08-24T17:52:54.872Z"
+      "modified": "2025-08-25T14:56:54.578Z"
     },
-    "docs/design-system/protected-components-usage.md": {
-      "path": "docs/design-system/protected-components-usage.md",
-      "size": 2797,
+    "docs/design-system/minimalist-component-library.md": {
+      "path": "docs/design-system/minimalist-component-library.md",
+      "size": 6413,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.371Z"
+      "modified": "2025-08-25T14:56:54.586Z"
     },
-    "docs/design-system/shadcn-integration-guidelines.md": {
-      "path": "docs/design-system/shadcn-integration-guidelines.md",
-      "size": 16690,
+    "docs/design-system/myant-violet-palette.md": {
+      "path": "docs/design-system/myant-violet-palette.md",
+      "size": 4142,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.371Z"
+      "modified": "2025-08-25T14:56:54.581Z"
     },
-    "docs/design-system/swiss-healthcare-eligibility-ui-specifications.json": {
-      "path": "docs/design-system/swiss-healthcare-eligibility-ui-specifications.json",
-      "size": 41789,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.372Z"
-    },
-    "docs/documentation-guidelines.md": {
-      "path": "docs/documentation-guidelines.md",
-      "size": 9137,
+    "docs/design-system/token-usage-guide.md": {
+      "path": "docs/design-system/token-usage-guide.md",
+      "size": 4200,
       "extension": ".md",
-      "modified": "2025-08-24T22:54:22.129Z"
+      "modified": "2025-08-25T14:56:54.583Z"
     },
-    "docs/file-organization-framework.md": {
-      "path": "docs/file-organization-framework.md",
-      "size": 8198,
+    "docs/design-system/tokens.md": {
+      "path": "docs/design-system/tokens.md",
+      "size": 4824,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.373Z"
+      "modified": "2025-08-25T14:56:34.212Z"
     },
-    "docs/implementation/.DS_Store": {
-      "path": "docs/implementation/.DS_Store",
-      "size": 8196,
-      "extension": "",
-      "modified": "2025-08-25T08:01:03.853Z"
-    },
-    "docs/implementation/2025-08-22-6-stage-eligibility-workflow-implementation.md": {
-      "path": "docs/implementation/2025-08-22-6-stage-eligibility-workflow-implementation.md",
-      "size": 7202,
+    "docs/features/README.md": {
+      "path": "docs/features/README.md",
+      "size": 1680,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.374Z"
+      "modified": "2025-08-25T09:54:04.225Z"
     },
-    "docs/invocation-chains/cognee-memory-integration-chain.json": {
-      "path": "docs/invocation-chains/cognee-memory-integration-chain.json",
-      "size": 20214,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.374Z"
-    },
-    "docs/invocation-chains/gp-referral-implementation-summary.md": {
-      "path": "docs/invocation-chains/gp-referral-implementation-summary.md",
-      "size": 7427,
+    "docs/features/eligibility.md": {
+      "path": "docs/features/eligibility.md",
+      "size": 2715,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.374Z"
+      "modified": "2025-08-25T09:54:24.598Z"
     },
-    "docs/invocation-chains/gp-referral-implementation.json": {
-      "path": "docs/invocation-chains/gp-referral-implementation.json",
-      "size": 17299,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.374Z"
-    },
-    "docs/invocation-chains/memory-bank-conversion-chain.json": {
-      "path": "docs/invocation-chains/memory-bank-conversion-chain.json",
-      "size": 15878,
-      "extension": ".json",
-      "modified": "2025-08-24T19:13:54.109Z"
-    },
-    "docs/reports/.DS_Store": {
-      "path": "docs/reports/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-25T07:59:39.156Z"
-    },
-    "docs/reports/2025-08-22-GP-REFERRAL-BUSINESS-CASE.md": {
-      "path": "docs/reports/2025-08-22-GP-REFERRAL-BUSINESS-CASE.md",
-      "size": 14290,
+    "docs/features/multi-language.md": {
+      "path": "docs/features/multi-language.md",
+      "size": 3907,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.375Z"
+      "modified": "2025-08-25T09:54:51.957Z"
     },
-    "docs/reports/2025-08-22-GP-REFERRAL-CEO-PRESENTATION-DECK.md": {
-      "path": "docs/reports/2025-08-22-GP-REFERRAL-CEO-PRESENTATION-DECK.md",
-      "size": 14056,
+    "docs/frontend/README.md": {
+      "path": "docs/frontend/README.md",
+      "size": 2142,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.375Z"
+      "modified": "2025-08-25T09:52:50.076Z"
     },
-    "docs/reports/2025-08-22-GP-REFERRAL-EXECUTIVE-SUMMARY.md": {
-      "path": "docs/reports/2025-08-22-GP-REFERRAL-EXECUTIVE-SUMMARY.md",
-      "size": 7810,
+    "docs/frontend/components.md": {
+      "path": "docs/frontend/components.md",
+      "size": 2912,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.375Z"
+      "modified": "2025-08-25T09:53:36.788Z"
     },
-    "docs/reports/2025-08-22-GP-REFERRAL-TECHNICAL-ARCHITECTURE-OVERVIEW.md": {
-      "path": "docs/reports/2025-08-22-GP-REFERRAL-TECHNICAL-ARCHITECTURE-OVERVIEW.md",
-      "size": 16348,
+    "docs/frontend/design-system.md": {
+      "path": "docs/frontend/design-system.md",
+      "size": 2457,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.375Z"
+      "modified": "2025-08-25T09:53:13.001Z"
     },
-    "docs/reports/2025-08-22-GP-REFERRAL-VISUAL-FLOWCHART.md": {
-      "path": "docs/reports/2025-08-22-GP-REFERRAL-VISUAL-FLOWCHART.md",
-      "size": 8609,
+    "docs/research/supabase-best-practices-comprehensive-guide.md": {
+      "path": "docs/research/supabase-best-practices-comprehensive-guide.md",
+      "size": 16884,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.376Z"
+      "modified": "2025-08-25T12:11:26.591Z"
     },
-    "docs/reports/2025-08-22-eligibility-questionnaire-quality-assessment-report.md": {
-      "path": "docs/reports/2025-08-22-eligibility-questionnaire-quality-assessment-report.md",
-      "size": 17417,
+    "docs/standards/accessibility-guidelines.md": {
+      "path": "docs/standards/accessibility-guidelines.md",
+      "size": 10843,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.376Z"
+      "modified": "2025-08-25T15:01:14.752Z"
     },
-    "docs/reports/2025-08-22-instruction-system-audit-report.md": {
-      "path": "docs/reports/2025-08-22-instruction-system-audit-report.md",
-      "size": 12991,
+    "docs/standards/coding-standards.md": {
+      "path": "docs/standards/coding-standards.md",
+      "size": 8470,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.376Z"
+      "modified": "2025-08-25T14:59:51.391Z"
     },
-    "docs/reports/2025-08-22-instruction-system-optimization-summary.md": {
-      "path": "docs/reports/2025-08-22-instruction-system-optimization-summary.md",
-      "size": 6618,
+    "docs/testing/README.md": {
+      "path": "docs/testing/README.md",
+      "size": 1729,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.376Z"
+      "modified": "2025-08-25T09:55:19.125Z"
     },
-    "docs/reports/2025-08-24-expanded-context-maintenance-research.md": {
-      "path": "docs/reports/2025-08-24-expanded-context-maintenance-research.md",
-      "size": 18065,
+    "docs/testing/e2e-tests.md": {
+      "path": "docs/testing/e2e-tests.md",
+      "size": 4398,
       "extension": ".md",
-      "modified": "2025-08-24T20:01:29.558Z"
+      "modified": "2025-08-25T09:56:15.182Z"
     },
-    "docs/reports/2025-08-24-hooks-automation-context-maintenance-report.md": {
-      "path": "docs/reports/2025-08-24-hooks-automation-context-maintenance-report.md",
-      "size": 19218,
+    "docs/testing/unit-tests.md": {
+      "path": "docs/testing/unit-tests.md",
+      "size": 3064,
       "extension": ".md",
-      "modified": "2025-08-24T18:54:37.089Z"
-    },
-    "docs/reports/2025-08-25-eligibility-questionnaire-review.md": {
-      "path": "docs/reports/2025-08-25-eligibility-questionnaire-review.md",
-      "size": 5064,
-      "extension": ".md",
-      "modified": "2025-08-25T07:42:10.326Z"
-    },
-    "docs/reports/2025-08-25-release-notes-v2.1.0.md": {
-      "path": "docs/reports/2025-08-25-release-notes-v2.1.0.md",
-      "size": 7289,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.351Z"
-    },
-    "docs/reports/2025-08-25-repository-cleanup-automation-report.md": {
-      "path": "docs/reports/2025-08-25-repository-cleanup-automation-report.md",
-      "size": 6577,
-      "extension": ".md",
-      "modified": "2025-08-24T22:55:18.266Z"
-    },
-    "docs/reports/CLAUDE_SYSTEM_ANALYSIS_REPORT.md": {
-      "path": "docs/reports/CLAUDE_SYSTEM_ANALYSIS_REPORT.md",
-      "size": 11971,
-      "extension": ".md",
-      "modified": "2025-08-24T19:19:08.947Z"
-    },
-    "docs/reports/ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_REPORT.md": {
-      "path": "docs/reports/ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_REPORT.md",
-      "size": 12974,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.348Z"
-    },
-    "docs/reports/SUPABASE_INTEGRATION_COMPLETE.md": {
-      "path": "docs/reports/SUPABASE_INTEGRATION_COMPLETE.md",
-      "size": 5259,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.376Z"
-    },
-    "docs/reports/SWISS_HEALTHCARE_ELIGIBILITY_DESIGN_SYSTEM_TEST_REPORT.md": {
-      "path": "docs/reports/SWISS_HEALTHCARE_ELIGIBILITY_DESIGN_SYSTEM_TEST_REPORT.md",
-      "size": 12213,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.351Z"
-    },
-    "docs/reports/cognee-mcp-analysis-report.md": {
-      "path": "docs/reports/cognee-mcp-analysis-report.md",
-      "size": 8872,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.377Z"
-    },
-    "docs/reports/design-system-validation-report.md": {
-      "path": "docs/reports/design-system-validation-report.md",
-      "size": 9818,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.377Z"
-    },
-    "docs/reports/supabase-critical-issues-report.md": {
-      "path": "docs/reports/supabase-critical-issues-report.md",
-      "size": 10184,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.377Z"
-    },
-    "docs/reports/supabase-database-validation-report.md": {
-      "path": "docs/reports/supabase-database-validation-report.md",
-      "size": 9511,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.377Z"
-    },
-    "docs/requirements/2025-08-25-eligibility-questionnaire-comprehensive-requirements-specification.json": {
-      "path": "docs/requirements/2025-08-25-eligibility-questionnaire-comprehensive-requirements-specification.json",
-      "size": 13148,
-      "extension": ".json",
-      "modified": "2025-08-25T07:09:04.748Z"
-    },
-    "docs/research/.DS_Store": {
-      "path": "docs/research/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-07-25T00:35:42.426Z"
-    },
-    "docs/research/CLAUDE-CODE-INDEXING-GUIDE.md": {
-      "path": "docs/research/CLAUDE-CODE-INDEXING-GUIDE.md",
-      "size": 7760,
-      "extension": ".md",
-      "modified": "2025-08-24T18:51:13.497Z"
-    },
-    "docs/research/claude-code-indexing-research-specification.json": {
-      "path": "docs/research/claude-code-indexing-research-specification.json",
-      "size": 8317,
-      "extension": ".json",
-      "modified": "2025-08-24T18:50:18.642Z"
-    },
-    "docs/specs/CLAUDE_BEST_PRACTICES_RESEARCH_SPECIFICATION.json": {
-      "path": "docs/specs/CLAUDE_BEST_PRACTICES_RESEARCH_SPECIFICATION.json",
-      "size": 9036,
-      "extension": ".json",
-      "modified": "2025-08-24T19:21:58.545Z"
-    },
-    "docs/specs/CONTEXT_MANAGEMENT_SPECIFICATION.json": {
-      "path": "docs/specs/CONTEXT_MANAGEMENT_SPECIFICATION.json",
-      "size": 16396,
-      "extension": ".json",
-      "modified": "2025-08-24T19:17:59.861Z"
-    },
-    "docs/specs/ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_SPECIFICATION.md": {
-      "path": "docs/specs/ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_SPECIFICATION.md",
-      "size": 17301,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.348Z"
-    },
-    "docs/specs/eligibility-questionnaire-test-automation-spec.json": {
-      "path": "docs/specs/eligibility-questionnaire-test-automation-spec.json",
-      "size": 15817,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.400Z"
-    },
-    "docs/specs/gp-referral-brainstorming-spec.json": {
-      "path": "docs/specs/gp-referral-brainstorming-spec.json",
-      "size": 21597,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.400Z"
-    },
-    "docs/standards/2025-08-22-accessibility-healthcare-compliance-research.md": {
-      "path": "docs/standards/2025-08-22-accessibility-healthcare-compliance-research.md",
-      "size": 1916,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.377Z"
-    },
-    "docs/standards/2025-08-22-architecture-i18n-database-standards-research.md": {
-      "path": "docs/standards/2025-08-22-architecture-i18n-database-standards-research.md",
-      "size": 2371,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.378Z"
-    },
-    "docs/standards/2025-08-22-code-quality-security-standards.md": {
-      "path": "docs/standards/2025-08-22-code-quality-security-standards.md",
-      "size": 43954,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.378Z"
-    },
-    "docs/standards/2025-08-22-component-architecture-i18n-database-standards.md": {
-      "path": "docs/standards/2025-08-22-component-architecture-i18n-database-standards.md",
-      "size": 52114,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.378Z"
-    },
-    "docs/standards/2025-08-22-performance-optimization-standards.md": {
-      "path": "docs/standards/2025-08-22-performance-optimization-standards.md",
-      "size": 26583,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.379Z"
-    },
-    "docs/standards/2025-08-22-rcc-002-comprehensive-standards-testing-specification.json": {
-      "path": "docs/standards/2025-08-22-rcc-002-comprehensive-standards-testing-specification.json",
-      "size": 10280,
-      "extension": ".json",
-      "modified": "2025-08-24T18:08:58.379Z"
-    },
-    "docs/standards/2025-08-22-react-18-best-practices-documentation.md": {
-      "path": "docs/standards/2025-08-22-react-18-best-practices-documentation.md",
-      "size": 14944,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.379Z"
-    },
-    "docs/standards/2025-08-22-react-typescript-performance-standards-research.md": {
-      "path": "docs/standards/2025-08-22-react-typescript-performance-standards-research.md",
-      "size": 1659,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.380Z"
-    },
-    "docs/standards/2025-08-22-swiss-healthcare-regulatory-compliance.md": {
-      "path": "docs/standards/2025-08-22-swiss-healthcare-regulatory-compliance.md",
-      "size": 37012,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.380Z"
-    },
-    "docs/standards/2025-08-22-testing-frameworks-methodologies.md": {
-      "path": "docs/standards/2025-08-22-testing-frameworks-methodologies.md",
-      "size": 36216,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.380Z"
-    },
-    "docs/standards/2025-08-22-testing-quality-security-standards-research.md": {
-      "path": "docs/standards/2025-08-22-testing-quality-security-standards-research.md",
-      "size": 1969,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.380Z"
-    },
-    "docs/standards/2025-08-22-typescript-5-strict-mode-standards.md": {
-      "path": "docs/standards/2025-08-22-typescript-5-strict-mode-standards.md",
-      "size": 19867,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.381Z"
-    },
-    "docs/standards/2025-08-22-wcag-accessibility-compliance-standards.md": {
-      "path": "docs/standards/2025-08-22-wcag-accessibility-compliance-standards.md",
-      "size": 37051,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.381Z"
-    },
-    "docs/supabase_doc/bootstrap_nextjs_app_with_supabase_auth.md": {
-      "path": "docs/supabase_doc/bootstrap_nextjs_app_with_supabase_auth.md",
-      "size": 7034,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.381Z"
-    },
-    "docs/supabase_doc/database_supabase_declarative_database_schema.md": {
-      "path": "docs/supabase_doc/database_supabase_declarative_database_schema.md",
-      "size": 2904,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.382Z"
-    },
-    "docs/supabase_doc/supabase-guides.txt": {
-      "path": "docs/supabase_doc/supabase-guides.txt",
-      "size": 1800839,
-      "extension": ".txt",
-      "modified": "2025-08-24T18:08:58.386Z"
-    },
-    "docs/supabase_doc/supabase_creating_rls_policies.md": {
-      "path": "docs/supabase_doc/supabase_creating_rls_policies.md",
-      "size": 8399,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.398Z"
-    },
-    "docs/supabase_doc/supabase_database_create_function.md": {
-      "path": "docs/supabase_doc/supabase_database_create_function.md",
-      "size": 3569,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.398Z"
-    },
-    "docs/supabase_doc/supabase_database_create_migration.md": {
-      "path": "docs/supabase_doc/supabase_database_create_migration.md",
-      "size": 2336,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.399Z"
-    },
-    "docs/supabase_doc/supabase_postgres_sql_style.md": {
-      "path": "docs/supabase_doc/supabase_postgres_sql_style.md",
-      "size": 3653,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.399Z"
-    },
-    "docs/supabase_doc/writing_supabase_edge_functions.md": {
-      "path": "docs/supabase_doc/writing_supabase_edge_functions.md",
-      "size": 4224,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.399Z"
-    },
-    "docs/test-migration-plan.md": {
-      "path": "docs/test-migration-plan.md",
-      "size": 8543,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.399Z"
-    },
-    "docs/testing-framework.md": {
-      "path": "docs/testing-framework.md",
-      "size": 10199,
-      "extension": ".md",
-      "modified": "2025-08-24T18:08:58.400Z"
+      "modified": "2025-08-25T09:55:45.447Z"
     },
     "eslint.config.js": {
       "path": "eslint.config.js",
@@ -2128,175 +1438,31 @@
       "path": "html/assets/index-D_ryMEPs.js",
       "size": 696555,
       "extension": ".js",
-      "modified": "2025-08-25T07:41:08.502Z"
+      "modified": "2025-08-25T08:07:35.070Z"
     },
     "html/assets/index-X8b7Z_4p.css": {
       "path": "html/assets/index-X8b7Z_4p.css",
       "size": 76825,
       "extension": ".css",
-      "modified": "2025-08-25T07:41:08.465Z"
+      "modified": "2025-08-25T08:07:35.069Z"
     },
     "html/html.meta.json.gz": {
       "path": "html/html.meta.json.gz",
-      "size": 27101,
+      "size": 34874,
       "extension": ".gz",
-      "modified": "2025-08-25T07:41:08.458Z"
+      "modified": "2025-08-25T08:07:35.067Z"
     },
     "html/index.html": {
       "path": "html/index.html",
       "size": 1241,
       "extension": ".html",
-      "modified": "2025-08-25T07:41:08.465Z"
+      "modified": "2025-08-25T08:07:35.070Z"
     },
     "index.html": {
       "path": "index.html",
       "size": 1359,
       "extension": ".html",
       "modified": "2025-08-24T17:52:54.924Z"
-    },
-    "memory-bank-setup/.DS_Store": {
-      "path": "memory-bank-setup/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-25T06:38:56.587Z"
-    },
-    "memory-bank-setup/memory-bank-converted/.DS_Store": {
-      "path": "memory-bank-setup/memory-bank-converted/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-25T06:44:39.981Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE-activeContext.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE-activeContext.md",
-      "size": 2433,
-      "extension": ".md",
-      "modified": "2025-08-24T19:31:24.073Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE-decisions.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE-decisions.md",
-      "size": 4998,
-      "extension": ".md",
-      "modified": "2025-08-24T19:34:57.448Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE-patterns.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE-patterns.md",
-      "size": 5263,
-      "extension": ".md",
-      "modified": "2025-08-24T19:32:09.379Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE-subagents.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE-subagents.md",
-      "size": 6840,
-      "extension": ".md",
-      "modified": "2025-08-24T19:33:08.843Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE-workflows.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE-workflows.md",
-      "size": 7589,
-      "extension": ".md",
-      "modified": "2025-08-24T19:34:07.818Z"
-    },
-    "memory-bank-setup/memory-bank-converted/CLAUDE.md": {
-      "path": "memory-bank-setup/memory-bank-converted/CLAUDE.md",
-      "size": 5874,
-      "extension": ".md",
-      "modified": "2025-08-24T19:30:53.299Z"
-    },
-    "memory-bank-setup/memory-bank-converted/INTEGRATION_REPORT.md": {
-      "path": "memory-bank-setup/memory-bank-converted/INTEGRATION_REPORT.md",
-      "size": 10463,
-      "extension": ".md",
-      "modified": "2025-08-24T19:36:33.889Z"
-    },
-    "memory-bank-setup/memory-bank-converted/README.md": {
-      "path": "memory-bank-setup/memory-bank-converted/README.md",
-      "size": 5480,
-      "extension": ".md",
-      "modified": "2025-08-24T19:38:23.152Z"
-    },
-    "memory-bank-setup/memory-bank-converted/slash-commands/sync-memory-bank.md": {
-      "path": "memory-bank-setup/memory-bank-converted/slash-commands/sync-memory-bank.md",
-      "size": 3115,
-      "extension": ".md",
-      "modified": "2025-08-24T19:37:30.231Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/.DS_Store": {
-      "path": "memory-bank-setup/memory-bank-instructions/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-24T19:04:33.811Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/CLAUDE.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/CLAUDE.md",
-      "size": 2515,
-      "extension": ".md",
-      "modified": "2025-08-24T19:02:16.402Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/README.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/README.md",
-      "size": 31349,
-      "extension": ".md",
-      "modified": "2025-08-24T19:02:23.399Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/agents/code-searcher.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/agents/code-searcher.md",
-      "size": 19118,
-      "extension": ".md",
-      "modified": "2025-08-24T19:00:46.644Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/agents/get-current-datetime.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/agents/get-current-datetime.md",
-      "size": 790,
-      "extension": ".md",
-      "modified": "2025-08-24T19:00:50.794Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/agents/memory-bank-synchronizer.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/agents/memory-bank-synchronizer.md",
-      "size": 3935,
-      "extension": ".md",
-      "modified": "2025-08-24T19:00:36.213Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/agents/ux-design-expert.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/agents/ux-design-expert.md",
-      "size": 6888,
-      "extension": ".md",
-      "modified": "2025-08-24T19:00:54.870Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/apply-thinking-to.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/apply-thinking-to.md",
-      "size": 12381,
-      "extension": ".md",
-      "modified": "2025-08-24T19:01:55.807Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/cleanup-context.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/cleanup-context.md",
-      "size": 7676,
-      "extension": ".md",
-      "modified": "2025-08-24T19:01:26.973Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/convert-to-todowrite-tasklist-prompt.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/convert-to-todowrite-tasklist-prompt.md",
-      "size": 24909,
-      "extension": ".md",
-      "modified": "2025-08-24T19:02:00.807Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/create-readme-section.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/create-readme-section.md",
-      "size": 2464,
-      "extension": ".md",
-      "modified": "2025-08-24T19:01:35.359Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/explain-architecture-pattern.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/explain-architecture-pattern.md",
-      "size": 4066,
-      "extension": ".md",
-      "modified": "2025-08-24T19:01:15.383Z"
-    },
-    "memory-bank-setup/memory-bank-instructions/slash-commands/update-memory-bank.md": {
-      "path": "memory-bank-setup/memory-bank-instructions/slash-commands/update-memory-bank.md",
-      "size": 47,
-      "extension": ".md",
-      "modified": "2025-08-24T19:02:07.136Z"
     },
     "package-lock.json": {
       "path": "package-lock.json",
@@ -2374,7 +1540,7 @@
       "path": "scripts/.DS_Store",
       "size": 6148,
       "extension": "",
-      "modified": "2025-07-25T20:57:32.597Z"
+      "modified": "2025-08-25T10:10:45.597Z"
     },
     "scripts/accessibility-audit.cjs": {
       "path": "scripts/accessibility-audit.cjs",
@@ -2412,6 +1578,12 @@
       "extension": ".cjs",
       "modified": "2025-08-24T18:08:58.424Z"
     },
+    "scripts/event-stream-api.py": {
+      "path": "scripts/event-stream-api.py",
+      "size": 1821,
+      "extension": ".py",
+      "modified": "2025-08-24T18:08:58.354Z"
+    },
     "scripts/file-organization-scanner.sh": {
       "path": "scripts/file-organization-scanner.sh",
       "size": 4547,
@@ -2426,15 +1598,9 @@
     },
     "scripts/generate-indexes.sh": {
       "path": "scripts/generate-indexes.sh",
-      "size": 18353,
+      "size": 18360,
       "extension": ".sh",
-      "modified": "2025-08-25T06:44:23.656Z"
-    },
-    "scripts/generate-indexes.sh.bak": {
-      "path": "scripts/generate-indexes.sh.bak",
-      "size": 7933,
-      "extension": ".bak",
-      "modified": "2025-08-25T06:42:06.137Z"
+      "modified": "2025-08-25T14:27:17.425Z"
     },
     "scripts/optimize-images.js": {
       "path": "scripts/optimize-images.js",
@@ -3230,9 +2396,9 @@
     },
     "src/components/layout/Navbar.test.tsx": {
       "path": "src/components/layout/Navbar.test.tsx",
-      "size": 2578,
+      "size": 2705,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:52:56.206Z"
+      "modified": "2025-08-25T08:07:10.106Z"
     },
     "src/components/layout/Navbar.tsx": {
       "path": "src/components/layout/Navbar.tsx",
@@ -4688,9 +3854,9 @@
     },
     "tests/unit/authService.test.ts": {
       "path": "tests/unit/authService.test.ts",
-      "size": 6783,
+      "size": 6835,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.468Z"
+      "modified": "2025-08-25T08:06:34.764Z"
     },
     "tests/unit/components/ContactForm.test.tsx": {
       "path": "tests/unit/components/ContactForm.test.tsx",
@@ -4722,6 +3888,24 @@
       "extension": ".json",
       "modified": "2025-07-10T14:23:02.151Z"
     },
+    "user-uploads/eligibility-form-supabase-schema-specs.md": {
+      "path": "user-uploads/eligibility-form-supabase-schema-specs.md",
+      "size": 22551,
+      "extension": ".md",
+      "modified": "2025-08-25T14:10:28.200Z"
+    },
+    "user-uploads/eligibility-questionnaire-technical-specs.md": {
+      "path": "user-uploads/eligibility-questionnaire-technical-specs.md",
+      "size": 20164,
+      "extension": ".md",
+      "modified": "2025-08-25T14:12:00.940Z"
+    },
+    "user-uploads/eligibility-questionnaire-user-journey.md": {
+      "path": "user-uploads/eligibility-questionnaire-user-journey.md",
+      "size": 11544,
+      "extension": ".md",
+      "modified": "2025-08-25T14:11:02.565Z"
+    },
     "vite.config.ts": {
       "path": "vite.config.ts",
       "size": 470,
@@ -4736,15 +3920,15 @@
     }
   },
   "stats": {
-    "totalFiles": 663,
-    "totalDirs": 150,
+    "totalFiles": 537,
+    "totalDirs": 138,
     "codeFiles": 349,
-    "docFiles": 164,
+    "docFiles": 85,
     "byExtension": {
-      "": 27,
-      ".md": 164,
+      "": 22,
+      ".md": 85,
       ".py": 3,
-      ".json": 61,
+      ".json": 21,
       ".orig": 1,
       ".example": 1,
       ".yml": 7,
@@ -4752,7 +3936,7 @@
       ".pkl": 1,
       ".yaml": 1,
       ".lockb": 1,
-      ".txt": 3,
+      ".txt": 2,
       ".js": 10,
       ".css": 3,
       ".gz": 1,
@@ -4760,7 +3944,6 @@
       ".pdf": 1,
       ".cjs": 6,
       ".sh": 5,
-      ".bak": 1,
       ".tsx": 250,
       ".ts": 89,
       ".backup": 1,
@@ -4769,6 +3952,6 @@
   },
   "structure": {
     "description": "Tree view excludes visual assets. See VISUAL_ASSETS_INDEX.json for images/videos.",
-    "tree": "./\n├── context/\n│   ├── checkpoints/\n│   │   └── README.md\n│   ├── subagent-contexts/\n│   │   ├── README.md\n│   │   ├── TEMPLATE.md\n│   │   ├── backend-developer-context.json\n│   │   ├── brainstormer-context.json\n│   │   ├── context-manager-context.json\n│   │   ├── design-system-architect-context.json\n│   │   ├── documentation-maintainer-context.json\n│   │   ├── eligibility-system-context-brief.json\n│   │   ├── eligibility-verification-chain-spec.json\n│   │   ├── frontend-developer-context.json\n│   │   ├── git-agent-context.json\n│   │   ├── guardrails-agent-context.json\n│   │   ├── invocation-chain-generator-context.json\n│   │   ├── multi-panel-review-agent-context.json\n│   │   ├── planning-task-agent-context.json\n│   │   ├── rcc-002-research-context.json\n│   │   ├── reflection-agent-context.json\n│   │   ├── requirements-spec-agent-context.json\n│   │   ├── researcher-context.json\n│   │   ├── supabase-architect-context.json\n│   │   ├── supabase-implementation-engineer-context.json\n│   │   ├── testing-qa-agent-context.json\n│   │   └── tree-of-thought-agent-context.json\n│   ├── CLAUDE_PROCESS.md\n│   ├── claude-best-practices-research-handoff.md\n│   ├── conventions.md\n│   ├── doc-ref.md\n│   ├── documentation-maintenance-handoff-brief.md\n│   ├── documentation-maintenance-spec.json\n│   ├── event-stream-api.py\n│   ├── event-stream.md\n│   ├── memory-bank-integration-tot-specification.json\n│   ├── planning.md\n│   ├── project-index.md\n│   ├── project-tree.txt\n│   ├── requirements.md\n│   └── todo.md\n├── docs/\n│   ├── analysis/\n│   │   ├── FILE-ORGANIZATION-TOT.md\n│   │   ├── GP-REFERRAL-TOT.md\n│   │   ├── file-organization-tot-specification.json\n│   │   ├── gp-referral-tot-summary.md\n│   │   └── gp-referral-tree-of-thought-specification.json\n│   ├── api/\n│   │   ├── 2025-08-22-gp-referral-implementation-roadmap.md\n│   │   ├── 2025-08-22-gp-referral-security-compliance.md\n│   │   ├── 2025-08-22-gp-referral-system-api-specification.json\n│   │   ├── 2025-08-22-gp-referral-technical-architecture.md\n│   │   ├── ROUTE_MAP.md\n│   │   └── gp-referral-best-practices.md\n│   ├── architecture/\n│   │   ├── 2025-08-19-copy-variant-system-architecture.md\n│   │   ├── 2025-08-22-atomic-component-architecture.md\n│   │   ├── component-inventory.md\n│   │   ├── system-architecture.md\n│   │   └── visual-architecture.md\n│   ├── content/\n│   │   ├── iterations/\n│   │   │   ├── 2025-01-22-copy-update-v2/\n│   │   │   │   ├── COPY_REVIEW_REPORT.md\n│   │   │   │   ├── CTA_PSYCHOLOGICAL_REVIEW.md\n│   │   │   │   ├── CULTURAL_SENSITIVITY_REPORT.md\n│   │   │   │   ├── MEDICAL_CLAIMS_REVIEW.md\n│   │   │   │   ├── PRICING_CONSISTENCY_REPORT.md\n│   │   │   │   └── V2_POLISH_AND_READINESS_REPORT.md\n│   │   │   ├── 2025-01-22-COPY_UPDATE_SPEC.md\n│   │   │   └── 2025-01-22-COPY_UPDATE_SPEC_V2.1.md\n│   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md\n│   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md\n│   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md\n│   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md\n│   ├── database-requirements-and-specs/\n│   │   ├── database-security-enhancement-specification.json\n│   │   ├── migration-guide-v2.md\n│   │   ├── overview.md\n│   │   ├── schema-diagram.md\n│   │   ├── schema-specification-v2.md\n│   │   ├── specification-v2.md\n│   │   ├── technical-specifications.md\n│   │   └── updated_questionnaire_spec.md\n│   ├── deployment/\n│   │   └── PRODUCTION_READINESS_REPORT.md\n│   ├── design/\n│   │   ├── 2025-07-29-design-system-implementation-review.md\n│   │   ├── 2025-07-29-myant-violet-palette-implementation.md\n│   │   ├── 2025-07-30-design-token-usage-guide.md\n│   │   ├── 2025-08-19-eligibility-form-design-system.md\n│   │   ├── 2025-08-19-form-component-specifications.md\n│   │   ├── minimalist-component-library.md\n│   │   └── tokens.md\n│   ├── design-system/\n│   │   ├── 2025-08-22-eligibility-workflow-atomic-components.md\n│   │   ├── PROTECTED_COMPONENTS_SPEC_v1.md\n│   │   ├── modern-design-system-spec.md"
+    "tree": "./\n├── context/\n│   ├── subagent-contexts/\n│   ├── CLAUDE-activeContext.md\n│   ├── CLAUDE-config-variables.md\n│   ├── CLAUDE-decisions.md\n│   ├── CLAUDE-patterns.md\n│   ├── CLAUDE-planning.md\n│   ├── CLAUDE-temp.md\n│   ├── CLAUDE-todo.md\n│   ├── CLAUDE-troubleshooting.md\n│   ├── CLAUDE_PROCESS.md\n│   ├── WORKFLOWS.md\n│   ├── event-stream.md\n│   ├── project-index.md\n│   └── project-tree.txt\n├── docs/\n│   ├── agent-outputs/\n│   │   └── archived/\n│   │       └── supabase-agent-enhancement-brainstorm-spec.json\n│   ├── analysis/\n│   │   └── supabase-agents-gap-analysis-tot.md\n│   ├── architecture/\n│   │   ├── README.md\n│   │   ├── api.md\n│   │   ├── atomic-components.md\n│   │   ├── component-inventory.md\n│   │   ├── copy-variant-system.md\n│   │   ├── database.md\n│   │   ├── system-architecture.md\n│   │   └── visual-architecture.md\n│   ├── content/\n│   │   ├── translations/\n│   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md\n│   │   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md\n│   │   └── README.md\n│   ├── database/\n│   │   ├── migration-guide.md\n│   │   ├── overview.md\n│   │   ├── schema-v2.md\n│   │   ├── security-enhancement.json\n│   │   └── technical-specifications.md\n│   ├── design-system/\n│   │   ├── components/\n│   │   │   ├── eligibility-form-design.md\n│   │   │   ├── eligibility-workflow-atomic.md\n│   │   │   └── form-specifications.md\n│   │   ├── implementation-review.md\n│   │   ├── minimalist-component-library.md\n│   │   ├── myant-violet-palette.md\n│   │   ├── token-usage-guide.md\n│   │   └── tokens.md\n│   ├── features/\n│   │   ├── README.md\n│   │   ├── eligibility.md\n│   │   └── multi-language.md\n│   ├── frontend/\n│   │   ├── README.md\n│   │   ├── components.md\n│   │   └── design-system.md\n│   ├── research/\n│   │   └── supabase-best-practices-comprehensive-guide.md\n│   ├── standards/\n│   │   ├── accessibility-guidelines.md\n│   │   └── coding-standards.md\n│   └── testing/\n│       ├── README.md\n│       ├── e2e-tests.md\n│       └── unit-tests.md\n├── html/\n│   ├── assets/\n│   │   ├── index-D_ryMEPs.js\n│   │   └── index-X8b7Z_4p.css\n│   ├── data/\n│   ├── html.meta.json.gz\n│   └── index.html\n├── presentation/\n│   ├── minimal-process.html\n│   └── technical-process.html\n├── public/\n│   ├── assets/\n│   │   ├── documents/\n│   │   │   └── ABPM-report.pdf\n│   │   ├── images/\n│   │   │   ├── design-examples/\n│   │   │   ├── documents/\n│   │   │   ├── marketing/\n│   │   │   ├── mvcp/\n│   │   │   ├── optimized/\n│   │   │   │   ├── design-examples/\n│   │   │   │   ├── documents/\n│   │   │   │   ├── mvcp/\n│   │   │   │   ├── product/\n│   │   │   │   ├── reports/\n│   │   │   │   ├── team/\n│   │   │   │   └── optimization-report.json\n│   │   │   ├── product/\n│   │   │   ├── products/"
   }
 }

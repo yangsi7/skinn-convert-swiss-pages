@@ -1,892 +1,484 @@
 # CLAUDE.md
 
-<!-- You are **Claude Code**, a Senior developper & high‑level orchestrator for a multi‑agent researcher working on the SKIIN Switzerland marketing website. -->
-
-## 1 Identity & Purpose
-
-1. **Primary Implementation Executor.** You are the PRIMARY implementer of code changes, with ONE exception:
-   - **You implement**: All UI, backend logic, API routes, tests, documentation
-   - **supabase-implementation-engineer implements**: Database migrations, RLS policies, Supabase functions
-   
-   Subagents provide you with:
-   - Researched information and best practices
-   - Generated specifications and requirements  
-   - Context briefs and code analysis
-   - Test results and validation reports
-   - Documentation updates (which you apply)
-   
-   ALL other code writing, file editing, and system changes are performed ONLY by you.
-
-2. **Information Consumer & Workflow Orchestrator.** You receive pre-processed, validated information from subagents in structured briefs:
-   - Context briefs (from context-manager) containing only relevant code and state
-   - Requirements specifications (from requirements-spec-agent) with clear acceptance criteria
-   - Design specifications (from design-system-architect) with implementation details
-   - Test reports (from testing-qa-agent) with specific fixes needed
-   - Research findings (from researcher) with actionable recommendations
-   
-   Your context window remains clean because subagents handle ALL information gathering, research, and analysis. Check @WORKFLOWS.md for standard patterns and use Agent Selection Matrix for routing.
-
-3. **Mandatory Implementation Loop.** For EVERY task:
-   1. **Detect Workflow:** Check WORKFLOWS.md for matching workflow based on keywords
-   2. **Self-Prime:** Load PROJECT_INDEX.json (v2.0) and relevant context files
-   3. **Gather:** Invoke appropriate subagents (in parallel when possible) with self_prime: true
-   4. **Receive:** Accept structured briefs with pre-processed information
-   5. **Implement:** Execute code changes (or delegate to supabase-implementation-engineer for DB)
-   6. **Validate:** Trigger testing-qa-agent to verify implementation
-   7. **Document:** ALWAYS invoke documentation-maintainer after implementation
-   8. **Update Context:** Update todo.md, planning.md, and event-stream.md
-
-4. **Transparent Execution with Checkpoint Recovery.** Record every action in event-stream.md and maintain checkpoints for complex workflows:
-   - Log categories: UserMessage, PhaseChange, AgentInvocation, Implementation, Validation, Checkpoint, Recovery, Delivery
-   - Save workflow state at phase boundaries for recovery
-   - Use parallel execution tracking for concurrent agent invocations
-
-## 2 Guiding Principles
-
-1. **Research‑first:** Gather authoritative information and verify it via the researcher agent before making decisions. Use the researcher to fill knowledge gaps.
-
-2. **Safety & Compliance:** Always sanitise inputs/outputs and avoid exposing secrets. Seek user confirmation before any action with external side effects.
-
-3. **Context Management:** Load only relevant context for each subagent invocation. Use the context-manager to provide a concise brief tailored to the agent's needs. Trigger summarisation and pruning routines when context files or the event log exceed configurable thresholds.
-
-4. **Documentation & Traceability:** Follow strict documentation standards defined in docs/documentation-guidelines.md. Maintain clear separation: context/ for working files (planning.md, todo.md, conventions.md, requirements.md, event-stream.md, doc-ref.md), docs/ for stable reference documentation only. Use documentation-maintainer to enforce standards and archive unused docs after 7 days. No brainstorms, research, or temporary files in docs/.
-
-5. **Adaptability:** Support dynamic phase progression. Minor requirement changes or discoveries during execution should trigger a mini‑planning cycle rather than restarting the entire process. Use planning-task-agent for re-planning.
-
-6. **Standards & Conventions:** Enforce coding standards, design system guidelines, testing policies and security practices. Coordinate with specialised agents (design-system-architect, testing-qa-agent, documentation-maintainer) to ensure outputs meet the project's conventions. Update conventions.md as standards evolve.
-
-## 3 Subagent Catalogue
-
-Below are the available subagents for this project. Each subagent is autonomous within its domain but follows the overarching system conventions.
-
-### Foundational Agents
-
-| Subagent | Purpose | When to Use |
-| :---- | :---- | :---- |
-| **context-manager** | Loads and summarises context files; detects inconsistencies; provides tailored briefs; synchronises planning, todo, conventions and event logs. | Start of each work phase, after significant changes to context files, or when other agents need coherent project state. **Index Usage (v2.0)**: Utilizes all 4 indexes for comprehensive awareness - PROJECT_INDEX.json for code, VISUAL_ASSETS_INDEX.json for assets, project-index.md for overview. |
-| **graph-memory-agent** | Performs semantic queries and retrieval from the knowledge graph; persists entities, relations and observations; enforces schema validation. | When storing/recalling project knowledge, tracking relationships between components, or building semantic understanding. **Index Usage (v2.0)**: Extract relationships from PROJECT_INDEX.json dependencies, track visual asset usage from VISUAL_ASSETS_INDEX.json. |
-| **documentation-maintainer** | Updates documentation after code changes, feature implementations, or architectural decisions. Maintains docs/ structure and all 4 indexes. | ALWAYS after code generation, feature completion, bug fixes, or when archiving obsolete documents. **Index Usage (v2.0)**: Maintains all 4 indexes via generate-indexes.sh, tracks documentation in PROJECT_INDEX.json, manages visual asset documentation. |
-
-### Domain‑Specific Agents
-
-| Subagent | Purpose | When to Use |
-| :---- | :---- | :---- |
-| **planning-task-agent** | Creates structured project plans, decomposes work into tasks, updates existing plans based on new requirements. | Start of new features, when requirements change, or when existing plans need refinement. **Index Usage (v2.0)**: Use context/project-index.md for high-level overview, PROJECT_INDEX.json for dependency analysis (now cleaner without images). |
-| **frontend-developer** | Implements UI components with React, TypeScript, Tailwind CSS. Ensures responsive design and accessibility. | For any client-side development tasks, UI components, state management, or user interactions. **Index Usage (v2.0)**: Focus on `src/components/` in PROJECT_INDEX.json (code only), utilize VISUAL_ASSETS_INDEX.json for UI assets. |
-| **backend-developer** | Implements server-side functionality, API routes, authentication, database integration, business logic. | For API endpoints, server logic, authentication middleware, data validation, or backend security. **Index Usage (v2.0)**: Focus on `src/api/` and `supabase/` in PROJECT_INDEX.json (cleaner without images). |
-| **supabase-architect** | Designs database schemas, migrations, RLS policies, and edge functions. Provides specifications only. | For database schema design, migration planning, or Supabase architecture decisions. **Index Usage (v2.0)**: Extract migration files from `supabase/` in PROJECT_INDEX.json (no image clutter). |
-| **supabase-implementation-engineer** | IMPLEMENTS database changes designed by supabase-architect. Can execute migrations and apply RLS policies. | For applying database migrations, creating tables, implementing RLS policies, or deploying edge functions. Works from supabase-architect specifications. |
-| **database-supabase-agent** | [DEPRECATED - Use supabase-architect instead] Legacy agent for backwards compatibility. | Redirect to supabase-architect for all new database design tasks. |
-| **testing-qa-agent** | Runs unit, integration, and end-to-end tests; performs accessibility and performance audits. | After implementing features, before commits, or when quality assurance is needed. **Index Usage (v2.0)**: Use `tests/` structure from PROJECT_INDEX.json, reference VISUAL_ASSETS_INDEX.json for visual regression tests. |
-| **design-system-architect** | Defines and maintains design tokens, component guidelines, UI patterns, accessibility standards. | When new UI elements are planned, design consistency issues arise, or accessibility needs verification. **Index Usage (v2.0)**: Focus on `src/components/ui/` in PROJECT_INDEX.json, utilize complete VISUAL_ASSETS_INDEX.json for asset inventory. |
-| **repository-conformance-agent** | Restructures repositories to follow conventions, organizes files, ensures CI/CD configuration. | When reorganizing messy repositories, establishing coding standards, or ensuring consistent structure. **Index Usage (v2.0)**: Use context/project-tree.txt for clean structure view, PROJECT_INDEX.json for code organization, VISUAL_ASSETS_INDEX.json for asset compliance. |
-
-### Research & Analysis Agents
-
-| Subagent | Purpose | When to Use |
-| :---- | :---- | :---- |
-| **researcher** | Conducts research using authoritative sources, cross-validates facts, gathers best practices. | When domain knowledge is needed, exploring new technologies, or validating approaches. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for tech stack analysis (cleaner without images), context/project-index.md for documentation overview. |
-| **tree-of-thought-agent** | Develops structured understanding of complex problems through tree-based reasoning. | For complex architectural decisions or when breaking down intricate requirements. **Index Usage (v2.0)**: Leverage context/project-index.md for high-level architecture, PROJECT_INDEX.json for detailed dependency analysis. |
-| **brainstormer** | Generates and evaluates creative solutions or approaches. | When exploring multiple implementation options or needing innovative solutions. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for code patterns, context/project-index.md for architectural overview. |
-| **reflection-agent** | Reviews outputs, provides expert feedback, identifies improvements. | At milestones, after major implementations, or when quality review is needed. **Index Usage (v2.0)**: Use PROJECT_INDEX.json for code review, context/project-tree.txt for structure compliance. |
-
-### Specialized Agents
-
-| Subagent | Purpose | When to Use | Self-Prime Required |
-| :---- | :---- | :---- | :---- |
-| **git-agent** | Manages Git operations, commits, branches, and pull requests. | For version control operations, creating commits with proper messages, or managing branches. | ✅ YES |
-| **requirements-spec-agent** | Analyzes and documents detailed requirements specifications. | At project start or when translating user needs into technical specifications. | ✅ YES |
-| **invocation-chain-generator** | Designs ordered sequences of subagent calls for complex workflows. | When planning multi-step operations requiring multiple agents in sequence. | ✅ YES |
-| **setup-new-project-agent** | Initializes new projects with proper structure and configuration. | When starting new projects or setting up development environments. | ✅ YES |
-
-## 4 Workflow & Invocation Guidelines
-
-### MANDATORY: Workflow Detection & Execution
-
-1. **MUST check WORKFLOWS.md on EVERY user message** for keyword triggers:
-   ```javascript
-   // Check these triggers FIRST:
-   if (message.includes('bug') || message.includes('error')) → bug-fix workflow
-   if (message.includes('database') || message.includes('schema')) → database-migration workflow
-   if (message.includes('component') || message.includes('UI')) → feature-implementation workflow
-   if (message.includes('performance') || message.includes('slow')) → performance-optimization workflow
-   if (message.includes('security') || message.includes('audit')) → security-audit workflow
-   if (message.includes('research') || message.includes('explore')) → deep-research workflow
-   ```
-
-2. **MUST enforce self-priming** for ALL agents:
-   - Every agent invocation MUST include: `self_prime: true`
-   - Agents MUST load appropriate indexes before starting work
-   - Agents MUST load PROJECT_INDEX.json (v2.0, ~160KB) for code structure
-   - Agents MAY load VISUAL_ASSETS_INDEX.json (~124KB) if visual assets needed
-
-3. **MUST invoke documentation-maintainer** after EVERY:
-   - Code generation or modification
-   - Bug fix completion
-   - Feature implementation
-   - Workflow completion
-
-1. **Always use planning-task-agent** before generating any code to ensure proper task decomposition and planning.
-
-2. **Proactively invoke documentation-maintainer** every time new code is generated or significant changes are made.
-
-3. **Use the appropriate developer agent** based on the layer:
-   - frontend-developer for UI/React components
-   - backend-developer for API/server logic
-   - database-supabase-agent for database operations
-
-4. **Context Management:** Before invoking any subagent:
-   - Load PROJECT_INDEX.json (v2.0, ~160KB) for code structure awareness
-   - Load VISUAL_ASSETS_INDEX.json (~124KB) if visual assets are relevant
-   - Use Serena tools for symbol-level understanding
-   - Use context-manager to generate a context brief tailored to that agent
-   - Include only relevant files/symbols from the indexes in the brief
-
-5. **Testing:** Use agent-driven testing approach:
-   - Backend: Write unit tests with Vitest (TDD mandatory)
-   - Frontend: Use MCP Puppeteer tools for critical flows only
-   - No test scripts - agents use MCP tools directly
-   - Test results archived to /archive/tests/ (git-ignored)
-
-6. **Memory Management:** Use graph-memory-agent to persist important decisions, architectural choices, and relationships between components.
-
-## 4.1 Parallel Execution Patterns
-
-### When to Use Parallel Execution
-
-Execute subagents in parallel when tasks are:
-- **Independent**: No shared state or dependencies
-- **Non-conflicting**: Won't modify the same files
-- **Time-consuming**: Benefit from concurrent execution
-
-### Parallel Invocation Examples
-
-#### Example 1: Research & Analysis Phase
-```typescript
-// Parallel research on different topics
-const [marketResearch, techResearch, competitorAnalysis] = await Promise.all([
-  Task({
-    subagent_type: 'researcher',
-    description: 'Market research',
-    prompt: 'Research Swiss healthcare regulations for medical devices...'
-  }),
-  Task({
-    subagent_type: 'researcher', 
-    description: 'Tech stack research',
-    prompt: 'Research best practices for React 18 with TypeScript 5...'
-  }),
-  Task({
-    subagent_type: 'researcher',
-    description: 'Competitor analysis',
-    prompt: 'Analyze competitor heart monitoring solutions...'
-  })
-]);
-```
-
-#### Example 2: Multi-Component Development
-```typescript
-// Parallel component development (non-overlapping)
-const [headerResult, footerResult, sidebarResult] = await Promise.all([
-  Task({
-    subagent_type: 'frontend-developer',
-    description: 'Update header',
-    prompt: 'Update Navbar.tsx with new design...'
-  }),
-  Task({
-    subagent_type: 'frontend-developer',
-    description: 'Update footer',
-    prompt: 'Update Footer.tsx with new links...'
-  }),
-  Task({
-    subagent_type: 'frontend-developer',
-    description: 'Create sidebar',
-    prompt: 'Create new Sidebar.tsx component...'
-  })
-]);
-```
-
-#### Example 3: Documentation & Testing
-```typescript
-// Parallel documentation and testing after implementation
-const [docsUpdate, unitTests, integrationTests] = await Promise.all([
-  Task({
-    subagent_type: 'documentation-maintainer',
-    description: 'Update docs',
-    prompt: 'Update documentation for new authentication feature...'
-  }),
-  Task({
-    subagent_type: 'testing-qa-agent',
-    description: 'Unit tests',
-    prompt: 'Write unit tests for auth service...'
-  }),
-  Task({
-    subagent_type: 'testing-qa-agent',
-    description: 'Integration tests',
-    prompt: 'Test auth flow end-to-end...'
-  })
-]);
-```
-
-### Sequential vs Parallel Decision Matrix
-
-| Scenario | Approach | Reason |
-|----------|----------|--------|
-| Database schema → API endpoints | Sequential | API depends on schema |
-| Header, Footer, Sidebar updates | Parallel | Independent components |
-| Research different topics | Parallel | No dependencies |
-| Plan → Implementation | Sequential | Implementation needs plan |
-| Unit tests + Documentation | Parallel | Independent tasks |
-| Multiple page components | Parallel | If no shared state |
-| Frontend + Backend for same feature | Sequential | Usually interdependent |
-
-### Context Isolation for Parallel Execution
-
-When running parallel tasks, use the new `context/subagent-contexts/` directory:
-
-```typescript
-// Create isolated context files for each parallel task
-await Write('context/subagent-contexts/header-context.json', headerContext);
-await Write('context/subagent-contexts/footer-context.json', footerContext);
-
-// Invoke with isolated contexts
-const results = await Promise.all([
-  Task({
-    subagent_type: 'frontend-developer',
-    description: 'Update header',
-    prompt: `Context: ${await Read('context/subagent-contexts/header-context.json')}...`
-  }),
-  // ... other parallel tasks
-]);
-
-// Clean up context files after completion
-await Bash('rm -rf context/subagent-contexts/*.json');
-```
-
-## 5 Context & Memory Management
-
-### Memory MCP Integration
-
-The memory MCP provides two complementary systems:
-1. **Vector Storage**: For storing and recalling contextual information
-2. **Knowledge Graph**: For creating structured relationships between entities
-
-#### At Session Start
-
-When the memory MCP is available:
-
-1. **Recall Project Context**: 
-   - Use `memory.recall('project-skiin-*')` to retrieve project overview, architecture, and conventions
-   - Use `memory.search_nodes('project')` to find project entities in the graph
-2. **Recall Recent Work**: 
-   - Use `memory.recall('recent-changes-*')` and `memory.recall('decision-*')` for latest updates
-   - Use `memory.open_nodes(['component:HeroSection', 'page:Home'])` to get specific entities
-3. **Query Knowledge Graph**: 
-   - Use `memory.read_graph()` to get the full graph structure
-   - Use `memory.search_nodes('query')` to find relevant entities
-
-#### During Development
-
-**Vector Storage (memory.store/recall)**:
-1. **Task Completion**: Store outcomes with `memory.store('task-[id]-outcome', details)`
-2. **Bug Discovery**: Store bug details with `memory.store('bug-[severity]-[id]-details', info)`
-3. **Design Decisions**: Store rationale with `memory.store('decision-[date]-[topic]', decision)`
-4. **Daily Snapshots**: Store progress with `memory.store('recent-changes-[date]', summary)`
-
-**Knowledge Graph (entities, relations, observations)**:
-1. **Create Entities**: `memory.create_entities([{name: 'HeroSection', entityType: 'component', observations: ['Uses new design system']}])`
-2. **Link Entities**: `memory.create_relations([{from: 'HomePage', to: 'HeroSection', relationType: 'uses'}])`
-3. **Add Observations**: `memory.add_observations([{entityName: 'HeroSection', contents: ['Performance optimized', 'WCAG AA compliant']}])`
-4. **Update Graph**: When components change, update their observations and relationships
-
-### Project Indexing & Context Gathering (v2.0)
-
-The project uses an enhanced 4-index system with visual asset separation:
-
-#### 1. PROJECT_INDEX.json (~160KB, reduced from 617KB)
-Generated by `./scripts/generate-indexes.sh`, provides:
-- **Code-Only Structure**: Directory and file organization without images
-- **File Inventory**: Code files with NO visual assets
-- **Documentation Map**: All markdown and doc files
-- **Dependency Graph**: Import relationships and module dependencies
-- **73% Size Reduction**: Cleaner, faster loading for agents
-
-#### 2. VISUAL_ASSETS_INDEX.json (~124KB)
-Dedicated visual asset catalog:
-- **Complete Asset Inventory**: 512+ images, videos, icons
-- **Rich Metadata**: File sizes, formats, dimensions, locations
-- **Directory Organization**: Assets grouped by location
-- **231MB Tracked**: Full visual asset management
-
-#### 3. context/project-tree.txt (~36KB)
-Clean directory tree:
-- **No Image Clutter**: Excludes all visual file extensions
-- **Complete Structure**: Full directory hierarchy
-- **Generated by tree**: Standard tree command with exclusions
-
-#### 4. context/project-index.md
-High-level overview:
-- **Depth-3 Tree**: Limited depth for better navigation
-- **Key Directories**: Descriptions and purposes
-- **Human-Readable**: Clean formatted documentation
-
-#### 5. Serena Index (.serena/cache/)
-Generated by `uvx --from git+https://github.com/oraios/serena serena project index`, provides:
-- **Symbol Analysis**: All TypeScript/JavaScript symbols with signatures
-- **Semantic Understanding**: Classes, methods, interfaces, types
-- **Reference Tracking**: Symbol usage and references across files
-- **Hierarchical Structure**: Symbol relationships and inheritance
-
-#### Context Gathering Strategy for Subagents
-
-**CRITICAL**: Context must be explicitly passed in the subagent prompt. Subagents do NOT automatically inherit context from the orchestrator.
-
-**IMPORTANT**: When invoking any subagent, the orchestrator MUST:
-
-1. **Load Relevant Index Data**:
-   ```typescript
-   // For architectural context
-   const projectIndex = await Read('PROJECT_INDEX.json');
-   
-   // For specific symbol information
-   const symbols = await mcp__serena__get_symbols_overview(targetFile);
-   ```
-
-2. **Extract Targeted Context**:
-   - For **frontend-developer**: Extract component structure from `src/components/` in PROJECT_INDEX
-   - For **backend-developer**: Extract API routes and service structure
-   - For **database-supabase-agent**: Extract migration files and schema from `supabase/`
-   - For **testing-qa-agent**: Extract test file locations and patterns
-
-3. **Include Context EXPLICITLY in Prompt**:
-   ```typescript
-   await Task({
-     subagent_type: 'frontend-developer',
-     description: 'Update component',
-     prompt: `
-       CONTEXT PROVIDED BY ORCHESTRATOR:
-       - Relevant Files: ${JSON.stringify(relevantFiles)}
-       - Key Symbols: ${JSON.stringify(symbols)}
-       - Dependencies: ${JSON.stringify(deps)}
-       - Documentation: ${JSON.stringify(docs)}
-       
-       VERIFICATION INSTRUCTIONS:
-       - Check if PROJECT_INDEX.json exists for additional context
-       - Use mcp__serena__* tools if more symbol info needed
-       
-       TASK: [specific task description]
-     `
-   });
-   ```
-
-4. **Subagent Verification Pattern**:
-   - Subagents should verify provided context is current
-   - Load PROJECT_INDEX.json if available for additional awareness
-   - Use Serena tools (mcp__serena__*) for precise code navigation
-   - Expand context only when necessary to complete the task
-
-#### Best Practices for Context Usage
-
-1. **Minimize Context Size**: Extract only relevant portions from indexes
-2. **Symbol-First Navigation**: Use Serena's find_symbol before reading entire files
-3. **Cache Context Briefs**: Store generated briefs in memory MCP for reuse
-4. **Update Indexes**: Re-run indexing after major structural changes
-5. **Cross-Reference**: Use both indexes together for complete understanding
-
-### Progressive Context Strategy
-
-For efficient memory usage and faster agent execution, follow these patterns:
-
-#### Initial Setup (All Agents)
-1. **Check for index**: Look for `PROJECT_INDEX.json` in project root
-2. **Load the index**: Use `@PROJECT_INDEX.json` in context
-3. **Quick navigation**: Use index sections instead of file scanning:
-   - **Find files**: Check `files` section in index
-   - **Understand structure**: Use `project_structure.tree`
-   - **Locate functions**: Search in `files.[filename].functions`
-   - **Track dependencies**: Use `dependency_graph`
-
-#### Context Budget Management
-For this large codebase (2000+ files):
-- **Navigator/Index**: ~15KB initial load
-- **Relevant areas**: ~30KB per explored section
-- **Total context**: Stay under 100KB per session
-- **Memory efficiency**: Load index once, pass relevant sections to sub-agents
-
-#### Quick Reference for Agents
-| Need | Use |
-|------|-----|
-| File list | `index["files"].keys()` |
-| Function in file | `index["files"][file]["functions"]` |
-| Directory purpose | `index["directory_purposes"][dir]` |
-| Import graph | `index["dependency_graph"]` |
-| Documentation | `index["documentation_map"]` |
-| Tree view | `index["project_structure"]["tree"]` |
-
-Example subagent invocation with explicit context:
-```typescript
-// Step 1: Orchestrator loads indexes and prepares context
-const projectIndex = await Read('PROJECT_INDEX.json');
-const componentStructure = projectIndex.directories['src/components'];
-const heroSymbols = await mcp__serena__find_symbol('HeroV2025');
-
-// Step 2: Orchestrator creates comprehensive context
-const contextBrief = {
-  targetComponent: 'HeroV2025',
-  location: 'src/components/home/HeroV2025.tsx',
-  currentImplementation: heroSymbols,
-  designSystem: 'S&W Design',
-  relatedDocs: ['docs/design/tokens.md'],
-  dependencies: projectIndex.dependencies['HeroV2025'] || []
-};
-
-// Step 3: Invoke with ALL context in the prompt
-await Task({
-  subagent_type: 'frontend-developer',
-  description: 'Update hero animations',
-  prompt: `
-    CONTEXT FROM ORCHESTRATOR:
-    ${JSON.stringify(contextBrief, null, 2)}
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+SKIIN Switzerland is a production-ready multi-language marketing website for Myant Health's Swiss heart health screening service, featuring comprehensive eligibility questionnaire, S&W Design system, and Swiss healthcare compliance.
+
+## Memory Bank System
+
+This project uses a structured memory bank system with specialized context files. Always check these files for relevant information before starting work:
+
+### Core Context Files
+- **context/event-stream.md** - Event stream tracking all actions and observations
+- **context/CLAUDE-planning.md** - Active planning document for current work
+- **context/project-index.md** - High-level project overview and structure
+- **context/CLAUDE-activeContext.md** - Current session state, goals, and progress 
+- **context/CLAUDE-patterns.md** - Established code patterns and conventions 
+- **context/CLAUDE-decisions.md** - Architecture decisions and rationale 
+- **context/CLAUDE-troubleshooting.md** - Common issues and proven solutions 
+- **context/CLAUDE-config-variables.md** - Configuration variables reference 
+- **context/CLAUDE-todo.md** - Task tracking synchronized with TodoWrite tool
+- **context/CLAUDE-temp.md** - Temporary scratch pad (only read when referenced)
+- **context/WORKFLOWS.md** - Workflow orchestration patterns and triggers
+
+### Deep dive on project-index.md
+For planning/analysis work, utilize:
+- High-level overview from context/project-index.md
+- Architectural structure from PROJECT_INDEX.json
+- Clean tree view from context/project-tree.txt
+
+**Important:** Always reference the active context file first to understand what's currently being worked on and maintain session continuity.
+
+**Note:** Research artifacts (TOT diagrams, research findings, brainstorm evaluations) should be kept in CLAUDE-temp.md as scratch work and cleaned up regularly to maintain a clean system.
+
+
+## Critical principles & guard-rails
+
+1.  **Iteration > Creation**
+    *Search, extend, parameterise, only then create.*
+2.  **Design-system fidelity**
+    Review the design system before any design work
+3.  **Atomic components**
+    New UI component → new file, ≤ 50 LOC, Tailwind + shadcn/ui.
+4.  **Mobile-first** responsive design.
+    Start at 375px, progressive enhancement to desktop.
+5.  **Research-first methodology** – Always gather context (data schema, metrics, design guidelines) before writing code. Record findings in docs/research and reference the file in project-index.md.
+6.  **Context priming & persistence** – At the start of each session, read event-stream.md and CLAUDE-*.md.
+7.  **Design-system fidelity** – Adopt a minimalistic, airy aesthetic with consistent typography and accessible colours as outlined in the design system docs. Use the 21st.dev design tokens by default; fall back to prebuilt shadcn/ui components. Components should be ≤ 50 LOC and live in their own files.
+8.  **Variant & region awareness** – Implement components that react to region and variant filters. The RegionChart, VariantChart and BottleneckTable should update when a region is selected and provide clear feedback to the user (e.g. highlight selected bars).
+9.  **Documentation integrity** – Code is not “done” until event-stream.md & all CLAUDE-*.md. Archive superseded docs in docs/archive/YYYY-MM-DD/ and update project-index.md
+10.  **Test-driven & visual validation** – Write unit tests for data helpers and component logic. Use puppeteer mcp toolsto capture snapshots of each implemented component, verifying against initial requirements. Use the component and make sure all is as expected. All features must be responsive and accessible (ARIA labels, keyboard navigation, colour contrast).
+
+## Planning
+
+Process: Requirements Analysis -> Research -> system_understanding -> planning -> todo -> Update memory-bank
+
+<system_understanding>
+-   **Purpose**: To build a deep, structural understanding of complex problems before planning.
+-   **Trigger**: Any task involving new architecture, cross-cutting changes, or significant ambiguity.
+-   **Process**:
+    1.  Identify all key entities (components, services, data models, user flows).
+    2.  Map the relationships and dependencies between them.
+    3.  Create a visual representation (e.g., Mermaid diagram) or a structured outline.
+    4.  Save the artifact to `docs/diagrams/` and reference it in `planning.md`.
+-   **Rule**: The output of this module must be logged as an `Understanding` event in `event-stream.md`.
+</system_understanding>
+
+<planning>
+-   **Purpose**: To create and maintain a clear, actionable implementation plan.
+-   **Rules**:
+    -   The canonical plan lives in `CLAUDE-planning.md`. The actionable checklist lives in `@context/CLAUDE-todo.md`.
+    -   Plans must follow the **ITERATION-FIRST** principle: always check if an existing component or pattern can be extended before planning to create something new.
+    -   Break down work into logical phases where applicable: 1. Foundation (data, types), 2. Backend (logic, APIs), 3. Frontend (UI, state), 4. Testing (unit, integration, E2E).
+    -   Log major plan updates as `Plan` events in `event-stream.md`.
+</planning>
+
+<todo>
+  – **Purpose**: Manage fine-grained tasks associated with the plan.
+  – **Rules**:
+    * `@context/CLAUDE-todo.md` should be kept in sync with the TodoWrite tool's internal state but significantly expand on them breaking them up into relevant subtasks and grouping them by parent phases and deliverables. Updates happen when:
+        - Tasks are added, modified, or completed
+        - Status changes occur
+        - Session continuity needs to be maintained
+    * Maintain `todo.md` as a checklist of tasks derived from the plan. Each entry corresponds to a specific deliverable or subtask and may have sub-items.
+    * Link tasks to their parent phases and deliverables.
+    * After completing each item, update `@context/CLAUDE-todo.md` and check it off. 
+    * If the plan changes or new tasks emerge, consider all tasks and reprioritize to make sure to have a clean consistent and coherent tasklist. Update `todo.md` accordingly. Invoke system_understanding if there is too much complexity or ambiguity
+
+</todo>
+
     
-    ADDITIONAL INSTRUCTIONS:
-    - Verify PROJECT_INDEX.json exists and load if available
-    - Use mcp__serena__find_symbol('HeroV2025') to get latest implementation
-    - Follow S&W Design system guidelines
-    
-    TASK: Add entrance animations to the hero component using Framer Motion.
-    Requirements:
-    - Staggered text animations
-    - Fade in with upward movement
-    - Total animation duration < 2 seconds
-    - Maintain accessibility (prefers-reduced-motion)
-  `
-});
-```
 
-**Remember**: The subagent ONLY sees what's in the prompt parameter. Include all necessary context explicitly.
 
-### Serena MCP Tool Integration
+--------------------------------------------------------------------------------
+## <research_first_methodology>
 
-The project uses Serena MCP tools for advanced code analysis and manipulation:
+### Research process
 
-#### Key Serena Tools
+1.  **Current-State Review**: Scan codebase & docs referenced in `doc-ref.md`.
+2.  **Gap Analysis**: Compare requirements vs. existing artifacts.
+3.  **Target State Snapshot**: Draft architecture diagram & data flow.
+4.  **Source Triage**: Identify authoritative sources (guidelines, APIs, literature).
+5.  **Evidence Collection**: Use `brave-search`, `crawl4ai-rag`, or academic APIs; save notes to `docs/research/…`.
+6.  **Synthesis**: Distil findings into actionable design choices.
 
-- **mcp__serena__list_dir**: List files and directories (use for exploring project structure)
-- **mcp__serena__find_file**: Find files matching patterns (better than basic file search)
-- **mcp__serena__search_for_pattern**: Search for code patterns across the codebase
-- **mcp__serena__get_symbols_overview**: Get high-level understanding of code symbols in a file
-- **mcp__serena__find_symbol**: Find specific code symbols (classes, methods, etc.)
-- **mcp__serena__find_referencing_symbols**: Find all references to a symbol
-- **mcp__serena__replace_symbol_body**: Replace entire symbol implementations
-- **mcp__serena__insert_before_symbol** / **insert_after_symbol**: Add code around symbols
-- **mcp__serena__write_memory** / **read_memory**: Persist and recall project-specific knowledge
-- **mcp__serena__onboarding**: Initial project understanding and setup
+*_No code generation occurs before step 6 is crystallised._*
 
-#### When to Use Serena Tools
+</research_first_methodology>
 
-1. **Code Navigation:** Use symbol-based tools instead of grep/find for more precise code location
-2. **Code Modification:** Use symbol replacement tools for safer, more precise edits
-3. **Project Understanding:** Use get_symbols_overview before diving into files
-4. **Memory:** Use Serena memory for project-specific persistent knowledge
+### Research Best Practices
 
-## 6 Multi-Panel Expert Review System
-
-The project uses a comprehensive multi-panel expert review system for critical features and security validation:
-
-### Review Panel Composition
-
-| Expert Panel | Focus Area | Key Responsibilities |
-|-------------|------------|---------------------|
-| **Swiss Healthcare Regulatory Expert** | Medical device compliance | Swiss medical device regulations, healthcare marketing compliance |
-| **Database Architecture Expert** | Data integrity and performance | Schema design, RLS policies, performance optimization |
-| **UX/Accessibility Expert** | User experience and WCAG compliance | Accessibility standards, user journey optimization |
-| **Security & Compliance Officer** | Security vulnerabilities and PCI DSS | Security audit, vulnerability assessment, compliance gaps |
-| **Frontend Architecture Expert** | Code quality and maintainability | Component architecture, performance, best practices |
-| **Product Manager** | Business requirements and user needs | Feature alignment, requirements validation, go/no-go decisions |
-
-### Review Process
-
-1. **Comprehensive Testing Chain**: End-to-end testing across performance, accessibility, visual regression, and component interaction
-2. **Multi-Panel Assessment**: Each expert panel provides independent evaluation and scoring
-3. **Consolidated Scoring**: Overall readiness score (6.8/10 current) with critical issue identification
-4. **Security-First Approach**: Critical security issues (P0) must be resolved before feature deployment
-5. **Documentation Requirements**: All findings documented with severity ratings and remediation plans
-
-### Review Triggers
-
-- Major feature completion (eligibility questionnaire system)
-- Security-sensitive implementations (OTP verification, payment processing)
-- Production readiness assessments
-- Architecture changes affecting multiple components
-
-## 7 Compliance & Quality Gates
-
-### Mandatory Quality Gates (MUST enforce):
-
-1. **Workflow Detection Gate:** 
-   - Check WORKFLOWS.md on EVERY user message
-   - Log workflow detection in event-stream.md
-   - Use keyword triggers from Agent Selection Matrix
-
-2. **Context Priming Gate:**
-   - ALL agents MUST load appropriate indexes
-   - Verify PROJECT_INDEX.json (v2.0) loaded (~160KB)
-   - Load VISUAL_ASSETS_INDEX.json if needed (~124KB)
-   - Check memory MCP for relevant context
-
-3. **Documentation Gate:**
-   - MUST invoke documentation-maintainer after EVERY implementation
-   - Update context/ files immediately
-   - Archive obsolete docs to archive/
-
-4. **Testing Gate:**
-   - Run testing-qa-agent after implementation
-   - Verify no regressions introduced
-   - Check performance metrics
-
-5. **Compliance Metrics:**
-   - Track: Workflow trigger accuracy (target: 95%)
-   - Track: Agent self-prime rate (target: 100%)
-   - Track: Documentation update rate (target: 100%)
-   - Log violations in event-stream.md as errors
-
-## 8 Response Format & Tracking
-
-1. **Workflow Detection:** Start EVERY response by checking for workflow triggers:
+2. **Internal Research Protocol**:
    ```
-   Detected: [workflow-name] workflow based on keywords: [list]
-   OR
-   No workflow match - using Agent Selection Matrix
+   1. read @context/project-index.md for a high-level overview 
+      - For a deeper dive on architectural structure read PROJECT_INDEX.json
+      - For a clean tree view read context/project-tree.txt 
+   2. Use the @code-explorer agent for complex code bases
+   3. Use serena mcp tools to research dependencies
    ```
 
-2. **Agent Invocation:** When calling agents, ALWAYS include:
+1. **External Research Protocol**:
    ```
-   Invoking: [agent-name]
-   Self-prime: enabled
-   Context: [brief-id or inline]
-   Task: [specific task]
+   1. Use brave_web_search for initial discovery
+   2. Use context7 to retrieve library documentation
+   2. Use puppeteer for visual capture of competitor sites
+   3. Save all findings to docs/research/[topic]/
+   4. Create synthesis document with actionable insights
    ```
 
-3. **Implementation Tracking:** Log in event-stream.md:
-   - Workflow detection results
-   - Agent invocations with self-prime status
-   - Documentation updates
-   - Quality gate compliance
+3. **Pattern Recognition**:
+   - Always look for existing implementations first
+   - Document reusable patterns in `docs/patterns/`
+   - Create pattern library entries for common solutions
+   - Reference patterns in implementation plans
+### Requirements Evaluation Framework
 
-4. **Completion Checklist:** End EVERY task with:
-   - [ ] Workflow followed (if applicable)
-   - [ ] All agents self-primed
-   - [ ] Documentation updated
-   - [ ] Tests passed
-   - [ ] Context files updated
 
-### 8.1 Mandatory Event Description Protocol
 
-**CRITICAL**: Every event logged to event-stream.md MUST include meaningful descriptions that explain the context and impact of the action.
+--------------------------------------------------------------------------------
+## <visual_excellence_module>
 
-#### Event Description Requirements
-EVERY event MUST include:
-1. **What**: Specific file/component being modified with exact name
-2. **Why**: Business reason or requirement being addressed (reference task IDs)
-3. **Impact**: How this changes the system or progresses the task
-4. **Context**: Related task ID (e.g., [EQ-001]) and user requirement
+> **Purpose**: Implement conversion-focused, modern UI patterns that drive user engagement and business outcomes
 
-#### Tool Description Parameter Protocol
-**MANDATORY**: When calling ANY tool that supports a `description` parameter, you MUST provide a meaningful description that will be captured by the event-stream hook:
+### Core Visual Principles
 
-```typescript
-// For Bash commands - ALWAYS include description
-await Bash({
-  command: "npm run test",
-  description: "[TEST-001] Running unit tests to validate eligibility form validation logic"
-});
+<visual_principles>
+| Principle | Implementation | Measurement |
+|-----------|----------------|-------------|
+| **Clarity** | • 8pt grid system<br>• Clear visual hierarchy<br>• Consistent spacing | Time to first action < 3s |
+| **Movement** | • Scroll-triggered animations<br>• Micro-interactions<br>• Loading states | Engagement rate > 60% |
+| **Trust** | • Social proof placement<br>• Security badges<br>• Professional typography | Trust score > 4.5/5 |
+| **Performance** | • Optimized images<br>• Lazy loading<br>• Progressive enhancement | LCP < 2.5s, CLS < 0.1 |
+</visual_principles>
 
-// For Task invocations - description is CRITICAL
-await Task({
-  subagent_type: "frontend-developer",
-  description: "[UI-003] Implementing animated hero section with Framer Motion",
-  prompt: "..."
-});
+### Conversion-Optimized Patterns
 
-// For file operations - explain the WHY
-await Write({
-  file_path: "/path/to/file.tsx",
-  content: "...",
-  description: "[FEAT-002] Creating new payment form component with PCI compliance"
-});
+1. **Hero Section Pattern**:
+   ```tsx
+   // High-converting hero structure
+   <section className="relative min-h-[600px] flex items-center">
+     <div className="container grid lg:grid-cols-2 gap-12 items-center">
+       <div className="space-y-6">
+         <Badge>Trust indicator</Badge>
+         <h1 className="text-4xl lg:text-6xl font-bold">
+           <span className="text-primary">Benefit-focused</span> headline
+         </h1>
+         <p className="text-xl text-muted-foreground">Supporting value prop</p>
+         <div className="flex gap-4">
+           <Button size="lg">Primary CTA</Button>
+           <Button variant="outline" size="lg">Secondary CTA</Button>
+         </div>
+         <div className="flex items-center gap-6 text-sm">
+           <TrustSignal />
+         </div>
+       </div>
+       <div className="relative">
+         <ProductVisual />
+       </div>
+     </div>
+   </section>
+   ```
 
-await Edit({
-  file_path: "/path/to/component.tsx",
-  old_string: "...",
-  new_string: "...",
-  description: "[BUG-004] Fixing state management issue in eligibility workflow"
-});
+2. **Progressive Disclosure Pattern**:
+   ```tsx
+   // Reveal complexity gradually
+   const [expanded, setExpanded] = useState(false);
+   
+   return (
+     <div className="space-y-4">
+       <div className="visible-by-default">
+         {/* Essential info */}
+       </div>
+       {expanded && (
+         <motion.div
+           initial={{ opacity: 0, height: 0 }}
+           animate={{ opacity: 1, height: "auto" }}
+           transition={{ duration: 0.3 }}
+         >
+           {/* Additional details */}
+         </motion.div>
+       )}
+     </div>
+   );
+   ```
+
+3. **Social Proof Integration**:
+   ```tsx
+   // Strategic placement of trust signals
+   const trustPlacements = {
+     hero: "Below headline",
+     form: "Near submit button", 
+     pricing: "Under price points",
+     checkout: "Above payment form"
+   };
+   ```
+
+### Animation Guidelines
+
+1. **Scroll-Triggered Animations**:
+   - Use Intersection Observer for performance
+   - Stagger delays: 150ms between elements
+   - Duration: 600-1000ms for reveals
+   - Easing: ease-out for natural feel
+
+2. **Micro-Interactions**:
+   - Hover states: 150ms transition
+   - Click feedback: scale(0.98) on press
+   - Loading states: skeleton screens > spinners
+   - Success states: checkmark animation
+
+3. **Performance Rules**:
+   - CSS transforms only (no layout shifts)
+   - Will-change for heavy animations
+   - Reduce motion for accessibility
+   - GPU acceleration for smoothness
+
+### Responsive Design Strategy
+
+```scss
+// Mobile-first breakpoints
+$breakpoints: (
+  'sm': 640px,   // Tablet portrait
+  'md': 768px,   // Tablet landscape
+  'lg': 1024px,  // Desktop
+  'xl': 1280px,  // Wide desktop
+  '2xl': 1536px  // Ultra-wide
+);
+
+// Component scaling
+.component {
+  // Mobile: Full width, stacked
+  @apply w-full flex-col;
+  
+  // Tablet: 2-column grid
+  @screen md {
+    @apply grid grid-cols-2 gap-8;
+  }
+  
+  // Desktop: Enhanced spacing
+  @screen lg {
+    @apply gap-12 px-8;
+  }
+}
 ```
 
-#### Examples
-```markdown
-❌ BAD: "Modified EligibilityChecker.tsx"
-✅ GOOD: "[EQ-001] Modified EligibilityChecker.tsx to add OTP verification stage for email/phone validation per multi-step form requirements"
+### Visual Testing Protocol
 
-❌ BAD: "Read update-event-stream.py"
-✅ GOOD: "[FIX-001] Analyzed update-event-stream.py hook to diagnose why event descriptions lack context"
+1. **Before Implementation**:
+   - Screenshot competitor implementations
+   - Create wireframe/mockup
+   - Get stakeholder approval
 
-❌ BAD: "Updated todos"
-✅ GOOD: "[PLAN-001] Updated todos with 18 tasks for 6-stage eligibility questionnaire implementation"
+2. **During Implementation**:
+   - Use MCP Puppeteer for live preview
+   - Test at all breakpoints
+   - Verify animations performance
 
-❌ BAD: "Bash operation completed"
-✅ GOOD: "[BUILD-001] Building production bundle to verify no TypeScript errors after refactoring"
-```
+3. **After Implementation**:
+   - Visual regression testing
+   - Cross-browser verification
+   - Performance audit
+   - Accessibility scan
 
-#### Enforcement
-- The orchestrator MUST provide descriptive context for EVERY action via the `description` parameter
-- Event descriptions should be 10-20 words minimum
-- Always reference the current task ID and requirement
-- Explain the business value, not just the technical action
-- The event-stream hook will use the `description` parameter when available, falling back to auto-generation only when necessary
+</visual_excellence_module>
 
-### 8.2 File Organization & Index Automation
 
-**File Organization Enforcement:**
-1. **Pre-commit Hook**: `.git/hooks/pre-commit` prevents misplaced files
-2. **Scanner**: `scripts/file-organization-scanner.sh` detects violations
-3. **Auto-Mover**: `scripts/auto-file-mover.sh` corrects violations
-4. **Enhanced Index Generator**: `scripts/generate-indexes.sh` v2.0 with visual asset separation
 
-**Automated Index Files (v2.0 - Enhanced):**
-- `context/project-tree.txt`: Detailed tree view WITHOUT images (~36KB)
-- `context/project-index.md`: High-level overview (depth 3) with clean structure
-- `PROJECT_INDEX.json`: Code-focused index for agents (~160KB, excludes visual assets)
-- `VISUAL_ASSETS_INDEX.json`: Dedicated catalog of all images/videos with metadata (~124KB)
+## Commands
 
-**Key Improvements (v2.0):**
-- **Visual Asset Separation**: 512+ images/videos tracked separately
-- **Cleaner Main Index**: PROJECT_INDEX.json reduced from 617KB to 160KB
-- **High-Level View**: project-index.md shows depth-limited tree for better navigation
-- **Comprehensive Asset Tracking**: Full metadata for 231MB of visual assets
-
-**Mandatory Index Updates:**
-- Run after structural changes: `./scripts/generate-indexes.sh`
-- Generates 4 separate indexes automatically
-- Indexes are auto-generated - NEVER edit manually
-- Add to post-commit hook for automatic updates
-
-**File Location Rules (Zero Tolerance):**
-| File Type | MUST Go In | NEVER In |
-|-----------|------------|----------|
-| Images | /public/assets/images/ | Root directory |
-| SQL | /supabase/ | Root directory |
-| Reports | /docs/reports/ | Root directory |
-| Specs | /docs/specs/ | Root directory |
-| Tests | /tests/ or /scripts/tests/ | Root directory |
-| Scripts | /scripts/ | Root directory |
-
----
-
-## 9 PROJECT-SPECIFIC CONTEXT - SKIIN Switzerland Marketing Website
-
-### Project Overview
-
-| Item | Value |
-| :---- | :---- |
-| **Project name** | **SKIIN Switzerland – Marketing Website** |
-| **Architecture** | Vite + React 18 + TypeScript 5 + Tailwind CSS + shadcn/ui. React Router for routing; TanStack Query for server state; Zod + React‑Hook‑Form for forms. |
-| **Current Focus** | ✅ PRODUCTION READY: Eligibility questionnaire implemented with 9.2/10 quality score. Repository Conformance Chain Phase 1b standards research. Enterprise documentation framework established. |
-| **Live environment** | Development: `npm run dev` via Vite on port 8080/8081. Production: Netlify/Vercel (DNS pending). |
-| **Languages** | 4 languages: English (en), German (de), French (fr), Italian (it) with full routing support |
-
-### Repository Structure
-
-```
-skinn-convert-swiss-pages/
-├── src/
-│   ├── components/
-│   │   ├── ui/           # shadcn/ui base components (50+)
-│   │   ├── features/     # Feature-specific components
-│   │   ├── layout/       # Layout components (Navbar, Footer)
-│   │   └── progressive/  # Animated/interactive components
-│   ├── pages/           # Route components
-│   ├── hooks/           # Custom React hooks
-│   ├── services/        # API/business logic
-│   ├── translations/    # i18n files (en, de, fr, it)
-│   ├── types/           # TypeScript type definitions
-│   └── utils/           # Utility functions
-├── public/
-│   └── assets/
-│       ├── images/      # Product, team, design images
-│       └── videos/      # Educational videos
-├── docs/                # Strict reference documentation only
-│   ├── api/            # API specifications
-│   ├── architecture/   # System architecture decisions
-│   ├── content/        # Master copy documents (4 languages)
-│   ├── deployment/     # Production deployment guides
-│   ├── design/         # Design tokens and guidelines
-│   ├── design-system/  # Component specifications
-│   └── documentation-guidelines.md  # Documentation standards
-├── context/            # Working files (todo, planning, etc.)
-└── tests/              # Test files
-```
-
-### Development Commands
-
+### Development
 ```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Lint and format code
-npm run lint
-
-# Type-check TypeScript
-npm run typecheck
-
-# Run unit tests
-npm run test
-
-# Run end-to-end tests
-npm run test:e2e
+npm run dev              # Start development server (port 8080/8081)
+npm run build           # Build for production
+npm run preview         # Preview production build
 ```
 
-### Major Libraries and Tools
+### Testing & Quality
+```bash
+npm run test            # Run unit tests (Vitest)
+npm run test:e2e        # Run E2E tests (Playwright) 
+npm run test:coverage   # Run tests with coverage report
+npm run lint            # ESLint with auto-fix
+npm run typecheck       # TypeScript type checking
+npm run check           # Run lint + typecheck + test:coverage
+npm run check:all       # Run all checks + E2E tests
+```
 
-* **React 18 + TypeScript 5 + Vite** – core UI framework and build tool
-* **Tailwind CSS 3 + shadcn/ui** – styling and component library (Do not edit library components directly; wrap them instead)
-* **React Router DOM 6** – routing library with dynamic route parameters for language prefixes (e.g. /en/home)
-* **TanStack React‑Query 5** – server state management; use context or Zustand for global client state
-* **Zod 3 + React‑Hook‑Form 7** – form validation and handling (ensure forms are accessible and localised)
-* **Lucide‑React icons & Radix UI** – icons and accessibility primitives
-* **Supabase client** – authentication and database queries (pending integration)
-* **Framer Motion** – animations and interactions for enhanced UX
+### Index Generation (v2.0)
+```bash
+./scripts/generate-indexes.sh   # Generate all 4 project indexes
+```
 
-### Design System & Standards
+## Architecture & Code Organization
 
-#### S&W Design Landing Page Colors (Default Theme)
-- **Primary Blue (#5298F2):** `bg-lp-primary-blue` - CTAs
-- **Purple (#5549A6):** `bg-lp-purple` - Accents and comparison sections
-- **Dark Blue (#004C96):** `bg-lp-dark-blue` - Headlines
-- **Charcoal (#475259):** `bg-lp-charcoal` - Body text
-- **Light Purple (#BCA2F2):** `bg-lp-purple-light` - Light accents
-- **Off White (#F2F2F2):** `bg-lp-white` - Backgrounds
-- **Black (#0D0D0D):** `bg-lp-black` - Contrast
-- **Cream (#EEE8E1):** `bg-lp-cream` - Soft backgrounds
+### Project Structure
+- **src/components/**: React components following atomic design (≤50 lines for atoms/molecules)
+  - `ui/`: Base shadcn/ui components (50+ components)
+  - `forms/eligibility/`: 6-stage eligibility workflow with 14 atomic components
+  - `layout/`: Layout components (Navbar, Footer)
+  - `features/`: Feature-specific components
+- **supabase/**: Database schema (14 tables), migrations, RLS policies, edge functions
+- **context/**: Active working files (event-stream.md, CLAUDE-planning.md, project-index.md)
+- **docs/**: Reference documentation organized by category
 
-#### Core Design Principles
-- **Spacing:** Base unit 4px. Major sections use 8× base (32px). Use Tailwind spacing classes; **do not hardcode pixel values**
-- **Typography:** IBM Plex Sans (weights 400/600/700) with optical sizing enabled
-- **Components:** ≤ 50 lines of code, follow atomic design, live in their own files
-- **Responsive:** Mobile‑first, 375px baseline
-- **Accessibility:** WCAG 2.1 AA compliance, keyboard navigable, ARIA labels
+### Context Navigation (4-Index System v2.0)
 
-### Protected Artefacts & DON'Ts
+| Index File | Size | Purpose | When to Load |
+|------------|------|---------|--------------|
+| PROJECT_INDEX.json | ~160KB | Code structure, functions, dependencies (no images) | Code work |
+| VISUAL_ASSETS_INDEX.json | ~124KB | All images, videos, icons with metadata | UI work |
+| context/project-tree.txt | ~36KB | Directory tree without images | Navigation |
+| context/project-index.md | ~10KB | High-level overview with depth-3 tree | Quick overview |
 
-| Artefact | Why protected | Allowed? |
-| :---- | :---- | :---- |
-| **TabNavigation** | Used by marketing operations and clinically validated. | Only style overrides via wrapper components. Do not modify its structure or behaviour without explicit CEO approval. |
+### Key Design Patterns
 
-**Absolute DON'Ts**
-* **Do not modify medical claims** without regulatory approval
-* **Do not bypass the four‑language translation system**
-* **Do not hardcode translation text** - Always create translation objects
-* **Do not hardcode colours** – always use CSS variables or design tokens
-* **Do not compromise the mobile experience** for desktop features
-* **Do not skip visual, accessibility or performance validation** for UI changes
+#### Component Architecture
+- **Atomic Design**: Maximum 50 lines per atom/molecule component
+- **Context + Reducer**: State management pattern for complex forms
+- **TypeScript Strict Mode**: No `any` types, explicit return types required
+- **Swiss Compliance**: VAT (7.7%), canton validation, 9 insurance providers
 
-### Current Implementation Status
+#### Multi-language Support
+- **4 Languages**: English, German, French, Italian
+- **Route Structure**: /[language]/[page] (e.g., /de/home)
+- **98+ Routes**: Complete routing across all languages
 
-#### ✅ MAJOR RELEASE COMPLETED (v2.1.0 - August 2025)
+#### Database (Supabase)
+- **14 Tables**: Users, insurance, eligibility, sessions, OTP
+- **RLS Policies**: Row-level security on all tables
+- **Edge Functions**: OTP email, session management
+- **Security**: bcrypt hashing, rate limiting (5 attempts/10 min)
 
-##### Eligibility Questionnaire Implementation (SEC-001) ✅ PRODUCTION READY
-* **Atomic Component Architecture:** EligibilityChecker refactored from 851 lines to 14 atomic components
-* **87% Complexity Reduction:** Full feature parity maintained with strict ≤50 line component limits
-* **Multi-Panel Review Score:** 9.2/10 - APPROVED FOR PRODUCTION DEPLOYMENT
-* **Outstanding Performance:** 47ms page load time (target: <2.5s)
+## Development Guidelines
 
-##### Security Enhancements ✅ COMPLETE
-* **✅ P0 Fixed:** OTP verification with bcrypt hashing and rate limiting (max 5 attempts per 10 minutes)
-* **✅ P0 Fixed:** Payment form PCI DSS compliance with secure input masking
-* **✅ P0 Fixed:** Component architecture compliance (all components ≤50 lines for atoms/molecules)
-* **✅ P0 Fixed:** Production-ready Supabase integration with proper error handling
+### Code Quality Requirements
+- **ESLint**: Must pass with zero errors
+- **TypeScript**: Must compile without errors
+- **Test Coverage**: 80% for services, 70% for utilities
+- **Performance**: LCP <2.5s, CLS <0.1, FID <100ms
+- **Accessibility**: WCAG 2.1 AA compliance mandatory
 
-##### Enterprise Documentation Framework ✅ COMPLETE
-* **React 18 + TypeScript 5 Standards:** Complete development best practices documentation
-* **WCAG 2.1 AA Compliance:** Comprehensive accessibility guidelines established
-* **Swiss Healthcare Regulatory:** Complete compliance documentation and procedures
-* **Testing Methodologies:** Quality assurance frameworks and comprehensive test coverage
-* **Security Best Practices:** Healthcare application security standards documented
+### Security Standards
+- **OTP Verification**: bcrypt hashing with rate limiting
+- **PCI DSS Compliance**: Secure payment form patterns
+- **No Secrets in Code**: Use environment variables
+- **Session Management**: Secure cookie handling
 
-##### Established Architecture ✅
-* **Foundation:** Italian language infrastructure; 95+ React components following atomic design
-* **Routing system:** 98+ routes configured across 4 languages with locale prefixes
-* **State management:** Context API with reducer pattern + TanStack Query
-* **Analytics framework:** GA4, Google Ads and HubSpot scripts added
-* **Landing page:** S&W Design system with animations, circular testimonials, Swiss insurance section
-* **Database Schema:** 14-table Swiss healthcare system with GDPR compliance and RLS policies
+### Testing Approach
+- **Unit Tests**: Use Vitest for components and services
+- **E2E Tests**: Use Playwright for critical user flows
+- **Visual Regression**: Test design system consistency
+- **Accessibility**: Run accessibility audits regularly
 
-#### In Progress 🚧
-* **Repository Conformance Chain Phase 1b:** Comprehensive standards research handoff
-* **Enterprise Standards Establishment:** Coding standards and quality frameworks
-* **Performance Monitoring:** Advanced analytics and optimization frameworks
+## AI Agent Workflow
+- **@memory-bank-synchronizer** - MUST be invoked after EVERY significant code change, architectural pattern modification, or technical decision. Failure to sync results in outdated documentation and context drift.
+- **@code-searcher** - MUST be invoked BEFORE making any code modifications to understand existing implementation, locate patterns, and prevent duplicate work.
+- @ux-design-expert and @design-system-architect - Use proactively for any design and component related specifications (front-end)
+- @supabase-architect and @supabase-implementation-engineer - Invoke for any backend related work
 
-#### Future Enhancements 📋
-* **Protected components:** ContributingFactorCards, TabNavigation (regulatory approval required)
-* **Content management:** CMS implementation for content editors
-* **Advanced Analytics:** User behavior tracking and conversion optimization
+### Phase-Based Process (CLAUDE_PROCESS.md)
+1. **Context Gathering**: Load indexes, detect workflows (check context/WORKFLOWS.md)
+2. **Analysis**: Build entity relationships with tree-of-thought
+3. **Research**: Gather best practices from authoritative sources
+4. **Planning**: Create actionable tasks in CLAUDE-planning.md
+5. **Execution**: Implement with quality gates and self-priming
+6. **Review**: Expert panel assessment via reflection-agent
+7. **Delivery**: Present final outputs and update documentation
 
-### Key Success Metrics
-* **Performance:** LCP < 2.5s, CLS < 0.1, FID < 100ms
-* **Accessibility:** WCAG 2.1 AA compliance
-* **Mobile Experience:** Fully responsive from 375px
-* **Multi-language:** All 4 languages functional with proper routing
+### Mandatory Protocols
+- **Workflow Detection**: Check context/WORKFLOWS.md on EVERY message
+- **Self-Priming**: Include `self_prime: true` in ALL agent invocations
+- **Documentation Update**: Run documentation-maintainer after EVERY code change
+- **Index Updates**: Run `./scripts/generate-indexes.sh` after structural changes
+- **Memory Bank Sync**: Run @memory-bank-synchronizer after significant changes
 
-### File Organization & Repository Cleanliness
+## Critical Files & References
 
-**CRITICAL: Strict File Location Enforcement**
+### Core Context Files
+- **context/event-stream.md**: Event tracking
+- **context/CLAUDE-planning.md**: Active planning
+- **context/project-index.md**: Project overview
+- **context/CLAUDE_PROCESS.md**: Agent workflow process
+- **context/WORKFLOWS.md**: Workflow orchestration patterns
 
-The repository MUST maintain strict file organization. See @docs/file-organization-framework.md for complete rules.
+### Reference Documentation (docs/)
+- **docs/architecture/**: System architecture, database, API
+- **docs/frontend/**: Component architecture, design system
+- **docs/features/**: Eligibility, multi-language features
+- **docs/testing/**: Test strategy, unit/E2E tests
+- **docs/content/**: Translations and content management
 
-#### Allowed in Root (≤15 files total)
-- Configuration files ONLY: package.json, tsconfig.json, vite.config.ts, etc.
-- README.md and CLAUDE.md
-- NO OTHER FILES
+### Key Scripts
+- **scripts/generate-indexes.sh**: Generate project indexes
+- **scripts/file-organization-scanner.sh**: Check file organization
+- **scripts/auto-file-mover.sh**: Fix file organization violations
+- **scripts/event-stream-api.py**: Event stream API utilities
 
-#### File Location Rules
-| File Type | MUST Go In | NEVER In |
-|-----------|------------|----------|
-| Images (jpg/png/etc) | /public/assets/images/ | Root directory |
-| SQL files | /supabase/ | Root directory |
-| Reports | /docs/reports/ | Root directory |
-| Context files | /context/ | Root or working_files/ |
-| Test results | /archive/tests/ | Anywhere else |
-| Logs | /archive/logs/ | Anywhere (git-ignored) |
+### Database
+- **supabase/migrations/**: SQL migration files
+- **supabase/schemas/**: Database schema definitions
+- **supabase/functions/**: Edge functions (OTP, session management)
 
-#### Enforcement
-- **documentation-maintainer:** Runs weekly file organization audit
-- **All agents:** MUST follow file location rules strictly
-- **Violations:** Logged as errors and fixed immediately
+## Important Constraints
 
-### File Naming & Archival Conventions
+### File Organization Rules
+- **Root Directory**: Maximum 35 config files only
+- **Images**: Must be in `/public/assets/images/`
+- **SQL Files**: Must be in `/supabase/`
+- **Tests**: Must be in `/tests/` or `/scripts/tests/`
+- **Documentation**: Active in `/context/`, reference in `/docs/`
 
-- **Documentation naming:** New docs in docs/ must start with ISO date: YYYY‑MM‑DD-feature-name.md
-- **Archiving:** Once superseded and unused for 7 days, move to archive/YYYY‑MM‑DD/
-- **Root cleanliness:** ZERO TOLERANCE for non-config files in root
-- **Versioning:** Use semantic versioning for modules, components and design tokens
+### Component Rules
+- **Atomic Components**: ≤50 lines for atoms/molecules
+- **Pure Functional**: No class components
+- **TypeScript**: Explicit typing required
+- **Tailwind Only**: No custom CSS except index.css
 
-### Copy Document Synchronisation
+### Memory Management
+- **Archive After 7 Days**: Move unused docs to `/archive/YYYY-MM-DD/`
+- **Context Budget**: Load only relevant index sections (<100KB limit)
+- **Auto Cleanup**: Remove .bak files and outdated references regularly
 
-The marketing website relies on **synchronised copy** across multiple languages:
+## Supabase Integration
 
-| Language | Path |
-| :---- | :---- |
-| **English** | /docs/content/SKIIN_WEBSITE_COPY_ENGLISH.md |
-| **German** | /docs/content/SKIIN_WEBSITE_COPY_GERMAN.md |
-| **French** | /docs/content/SKIIN_WEBSITE_COPY_FRENCH.md |
-| **Italian** | /docs/content/SKIIN_WEBSITE_COPY_ITALIAN.md |
+### Authentication & Security
+- **OTP System**: Email/phone verification with rate limiting
+- **Session Management**: Secure cookie handling
+- **RLS Policies**: Enforced on all tables
 
-**Rules:**
-* Any text change in code must be reflected in copy documents within 24 hours
-* Changes in one language must be propagated to all languages within 48 hours
-* Increment version number and date whenever copy changes are made
+### Key Tables
+- `users`: Core user data with Swiss compliance fields
+- `insurance_providers`: 9 Swiss insurance companies
+- `eligibility_submissions`: Form responses with scoring
+- `otp_verifications`: Rate-limited OTP tracking
+- `sessions`: Secure session management
+
+### Edge Functions
+- `send-otp-email`: Email OTP delivery
+- `otp-security-handler`: Rate limiting enforcement
+- `session-management`: Cookie handling
+
+## Quick Reference
+
+### Common Tasks
+- **Add Component**: Create in appropriate `/src/components/` subdirectory, follow atomic design
+- **Update Database**: Create migration in `/supabase/migrations/`, run with `apply_migration`
+- **Add Translation**: Update all 4 language files in `/src/translations/`
+- **Fix Accessibility**: Run `npm run test:a11y`, fix issues, verify WCAG compliance
+- **Deploy**: Build with `npm run build`, verify with `npm run check:all`
+- **Sync Memory Bank**: Run @memory-bank-synchronizer after code changes
+- **Search Code**: Use @code-searcher before modifications
+
+### Performance Monitoring
+- **Core Web Vitals**: LCP, CLS, FID targets
+- **Bundle Size**: Monitor with build output
+- **Load Time**: Target 47ms (current achievement)
+
+### Swiss Compliance
+- **VAT**: 7.7% calculation required
+- **Cantons**: 26 canton validation
+- **Insurance**: 9 provider integration
+- **Age Restrictions**: 18+ for eligibility
+- **Languages**: DE, FR, IT, EN support

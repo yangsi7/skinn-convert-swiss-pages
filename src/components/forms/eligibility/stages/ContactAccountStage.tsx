@@ -50,6 +50,19 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
   };
   
   const handleSendOTP = async (email: string) => {
+    /* ===== DEVELOPMENT BYPASS - TEMPORARY =====
+     * TO REVERT: Remove lines 54-57 (the if block below)
+     * REASON: OTP email service not configured in development
+     * PRODUCTION: This bypass MUST be removed - the authService is correctly configured
+     * TEST WITH: Use email containing 'test@' and OTP code '123456'
+     * =========================================== */
+    // Development bypass: Allow test emails to skip real OTP
+    if (import.meta.env.DEV && email.includes('test@')) {
+      console.log('Development mode: Bypassing OTP for test email');
+      return;
+    }
+    
+    // PRODUCTION CODE - Correctly configured, DO NOT modify
     const result = await authService.sendOTP(email);
     if (!result.success) {
       throw new Error(result.error || 'Failed to send OTP');
@@ -57,6 +70,19 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
   };
   
   const handleVerifyOTP = async (code: string) => {
+    /* ===== DEVELOPMENT BYPASS - TEMPORARY =====
+     * TO REVERT: Remove lines 72-75 (the if block below)
+     * REASON: Allows testing without actual email delivery
+     * PRODUCTION: This bypass MUST be removed - the authService verification works correctly
+     * TEST WITH: Use OTP code '123456' for any test@ email
+     * =========================================== */
+    // Development bypass: Accept "123456" as valid OTP for test emails
+    if (import.meta.env.DEV && email.includes('test@') && code === '123456') {
+      console.log('Development mode: Accepting test OTP');
+      return true;
+    }
+    
+    // PRODUCTION CODE - Correctly configured, DO NOT modify
     const result = await authService.verifyOTP(email, code);
     return result.success;
   };

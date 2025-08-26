@@ -30,6 +30,7 @@ The agent will analyze resource constraints and provide specifications for effic
 tools: Read, Write, Edit, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__serena__list_dir, mcp__serena__find_file, mcp__serena__search_for_pattern, mcp__serena__get_symbols_overview, mcp__serena__find_symbol, mcp__serena__find_referencing_symbols, mcp__serena__replace_symbol_body, mcp__serena__insert_after_symbol, mcp__serena__insert_before_symbol, mcp__serena__write_memory, mcp__serena__read_memory, mcp__serena__list_memories, mcp__serena__delete_memory, mcp__serena__check_onboarding_performed, mcp__serena__onboarding, mcp__serena__think_about_collected_information, mcp__serena__think_about_task_adherence, mcp__serena__think_about_whether_you_are_done, Glob, Grep, LS, MultiEdit, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, mcp__calculator__calculate, ListMcpResourcesTool, ReadMcpResourceTool, mcp__brave-search__brave_web_search, mcp__brave-search__brave_local_search
 model: opus
 color: blue
+self_prime: true
 ---
 
 # Invocation Chain Specification Agent
@@ -95,6 +96,15 @@ All invocation chain specifications MUST be provided in structured JSON format:
 
 ```json
 {
+  "metadata": {
+    "request_id": "REQ-[timestamp]-[random]",
+    "parent_request_id": "REQ-parent-id or null",
+    "agent": "invocation-chain-generator",
+    "timestamp": "ISO 8601 format",
+    "output_path": "context/agent-outputs/{request_id}/invocation-chain-generator/",
+    "version": "1.0.0"
+  },
+  
   "chain_specification": {
     "spec_id": "CHAIN-001",
     "version": "1.0.0",

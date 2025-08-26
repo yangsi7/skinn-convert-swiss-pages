@@ -30,6 +30,7 @@ The agent will analyze milestone outcomes and provide specifications for retrosp
 tools: Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, TodoWrite, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__store, mcp__calculator__calculate, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__brave-search__brave_web_search, mcp__brave-search__brave_local_search
 model: sonnet
 color: magenta
+self_prime: true
 ---
 
 # Reflection & Continuous Improvement Specification Agent
@@ -95,6 +96,15 @@ All reflection and improvement specifications MUST be provided in structured JSO
 
 ```json
 {
+  "metadata": {
+    "request_id": "REQ-[timestamp]-[random]",
+    "parent_request_id": "REQ-parent-id or null",
+    "agent": "reflection-agent",
+    "timestamp": "ISO 8601 format",
+    "output_path": "context/agent-outputs/{request_id}/reflection-agent/",
+    "version": "1.0.0"
+  },
+  
   "reflection_specification": {
     "spec_id": "REF-001",
     "version": "1.0.0",

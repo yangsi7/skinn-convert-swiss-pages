@@ -1,176 +1,74 @@
 ./
 ├── context/
-│   ├── checkpoints/
-│   │   └── README.md
 │   ├── subagent-contexts/
-│   │   ├── README.md
-│   │   ├── TEMPLATE.md
-│   │   ├── backend-developer-context.json
-│   │   ├── brainstormer-context.json
-│   │   ├── context-manager-context.json
-│   │   ├── design-system-architect-context.json
-│   │   ├── documentation-maintainer-context.json
-│   │   ├── eligibility-system-context-brief.json
-│   │   ├── eligibility-verification-chain-spec.json
-│   │   ├── frontend-developer-context.json
-│   │   ├── git-agent-context.json
-│   │   ├── guardrails-agent-context.json
-│   │   ├── invocation-chain-generator-context.json
-│   │   ├── multi-panel-review-agent-context.json
-│   │   ├── planning-task-agent-context.json
-│   │   ├── rcc-002-research-context.json
-│   │   ├── reflection-agent-context.json
-│   │   ├── requirements-spec-agent-context.json
-│   │   ├── researcher-context.json
-│   │   ├── supabase-architect-context.json
-│   │   ├── supabase-implementation-engineer-context.json
-│   │   ├── testing-qa-agent-context.json
-│   │   └── tree-of-thought-agent-context.json
+│   ├── CLAUDE-activeContext.md
+│   ├── CLAUDE-config-variables.md
+│   ├── CLAUDE-decisions.md
+│   ├── CLAUDE-patterns.md
+│   ├── CLAUDE-planning.md
+│   ├── CLAUDE-temp.md
+│   ├── CLAUDE-todo.md
+│   ├── CLAUDE-troubleshooting.md
 │   ├── CLAUDE_PROCESS.md
-│   ├── claude-best-practices-research-handoff.md
-│   ├── conventions.md
-│   ├── doc-ref.md
-│   ├── documentation-maintenance-handoff-brief.md
-│   ├── documentation-maintenance-spec.json
-│   ├── event-stream-api.py
+│   ├── WORKFLOWS.md
 │   ├── event-stream.md
-│   ├── memory-bank-integration-tot-specification.json
-│   ├── planning.md
 │   ├── project-index.md
-│   ├── project-tree.txt
-│   ├── requirements.md
-│   └── todo.md
+│   └── project-tree.txt
 ├── docs/
+│   ├── agent-outputs/
+│   │   └── archived/
+│   │       └── supabase-agent-enhancement-brainstorm-spec.json
 │   ├── analysis/
-│   │   ├── FILE-ORGANIZATION-TOT.md
-│   │   ├── GP-REFERRAL-TOT.md
-│   │   ├── file-organization-tot-specification.json
-│   │   ├── gp-referral-tot-summary.md
-│   │   └── gp-referral-tree-of-thought-specification.json
-│   ├── api/
-│   │   ├── 2025-08-22-gp-referral-implementation-roadmap.md
-│   │   ├── 2025-08-22-gp-referral-security-compliance.md
-│   │   ├── 2025-08-22-gp-referral-system-api-specification.json
-│   │   ├── 2025-08-22-gp-referral-technical-architecture.md
-│   │   ├── ROUTE_MAP.md
-│   │   └── gp-referral-best-practices.md
+│   │   └── supabase-agents-gap-analysis-tot.md
 │   ├── architecture/
-│   │   ├── 2025-08-19-copy-variant-system-architecture.md
-│   │   ├── 2025-08-22-atomic-component-architecture.md
+│   │   ├── README.md
+│   │   ├── api.md
+│   │   ├── atomic-components.md
 │   │   ├── component-inventory.md
+│   │   ├── copy-variant-system.md
+│   │   ├── database.md
 │   │   ├── system-architecture.md
 │   │   └── visual-architecture.md
 │   ├── content/
-│   │   ├── iterations/
-│   │   │   ├── 2025-01-22-copy-update-v2/
-│   │   │   │   ├── COPY_REVIEW_REPORT.md
-│   │   │   │   ├── CTA_PSYCHOLOGICAL_REVIEW.md
-│   │   │   │   ├── CULTURAL_SENSITIVITY_REPORT.md
-│   │   │   │   ├── MEDICAL_CLAIMS_REVIEW.md
-│   │   │   │   ├── PRICING_CONSISTENCY_REPORT.md
-│   │   │   │   └── V2_POLISH_AND_READINESS_REPORT.md
-│   │   │   ├── 2025-01-22-COPY_UPDATE_SPEC.md
-│   │   │   └── 2025-01-22-COPY_UPDATE_SPEC_V2.1.md
-│   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md
-│   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md
-│   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md
-│   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md
-│   ├── database-requirements-and-specs/
-│   │   ├── database-security-enhancement-specification.json
-│   │   ├── migration-guide-v2.md
+│   │   ├── translations/
+│   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md
+│   │   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md
+│   │   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md
+│   │   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md
+│   │   └── README.md
+│   ├── database/
+│   │   ├── migration-guide.md
 │   │   ├── overview.md
-│   │   ├── schema-diagram.md
-│   │   ├── schema-specification-v2.md
-│   │   ├── specification-v2.md
-│   │   ├── technical-specifications.md
-│   │   └── updated_questionnaire_spec.md
-│   ├── deployment/
-│   │   └── PRODUCTION_READINESS_REPORT.md
-│   ├── design/
-│   │   ├── 2025-07-29-design-system-implementation-review.md
-│   │   ├── 2025-07-29-myant-violet-palette-implementation.md
-│   │   ├── 2025-07-30-design-token-usage-guide.md
-│   │   ├── 2025-08-19-eligibility-form-design-system.md
-│   │   ├── 2025-08-19-form-component-specifications.md
-│   │   ├── minimalist-component-library.md
-│   │   └── tokens.md
+│   │   ├── schema-v2.md
+│   │   ├── security-enhancement.json
+│   │   └── technical-specifications.md
 │   ├── design-system/
-│   │   ├── 2025-08-22-eligibility-workflow-atomic-components.md
-│   │   ├── PROTECTED_COMPONENTS_SPEC_v1.md
-│   │   ├── modern-design-system-spec.md
-│   │   ├── protected-components-usage.md
-│   │   ├── shadcn-integration-guidelines.md
-│   │   └── swiss-healthcare-eligibility-ui-specifications.json
-│   ├── implementation/
-│   │   └── 2025-08-22-6-stage-eligibility-workflow-implementation.md
-│   ├── invocation-chains/
-│   │   ├── cognee-memory-integration-chain.json
-│   │   ├── gp-referral-implementation-summary.md
-│   │   ├── gp-referral-implementation.json
-│   │   └── memory-bank-conversion-chain.json
-│   ├── reports/
-│   │   ├── 2025-08-22-GP-REFERRAL-BUSINESS-CASE.md
-│   │   ├── 2025-08-22-GP-REFERRAL-CEO-PRESENTATION-DECK.md
-│   │   ├── 2025-08-22-GP-REFERRAL-EXECUTIVE-SUMMARY.md
-│   │   ├── 2025-08-22-GP-REFERRAL-TECHNICAL-ARCHITECTURE-OVERVIEW.md
-│   │   ├── 2025-08-22-GP-REFERRAL-VISUAL-FLOWCHART.md
-│   │   ├── 2025-08-22-eligibility-questionnaire-quality-assessment-report.md
-│   │   ├── 2025-08-22-instruction-system-audit-report.md
-│   │   ├── 2025-08-22-instruction-system-optimization-summary.md
-│   │   ├── 2025-08-24-expanded-context-maintenance-research.md
-│   │   ├── 2025-08-24-hooks-automation-context-maintenance-report.md
-│   │   ├── 2025-08-25-eligibility-questionnaire-review.md
-│   │   ├── 2025-08-25-release-notes-v2.1.0.md
-│   │   ├── 2025-08-25-repository-cleanup-automation-report.md
-│   │   ├── CLAUDE_SYSTEM_ANALYSIS_REPORT.md
-│   │   ├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_REPORT.md
-│   │   ├── SUPABASE_INTEGRATION_COMPLETE.md
-│   │   ├── SWISS_HEALTHCARE_ELIGIBILITY_DESIGN_SYSTEM_TEST_REPORT.md
-│   │   ├── cognee-mcp-analysis-report.md
-│   │   ├── design-system-validation-report.md
-│   │   ├── supabase-critical-issues-report.md
-│   │   └── supabase-database-validation-report.md
-│   ├── requirements/
-│   │   └── 2025-08-25-eligibility-questionnaire-comprehensive-requirements-specification.json
+│   │   ├── components/
+│   │   │   ├── eligibility-form-design.md
+│   │   │   ├── eligibility-workflow-atomic.md
+│   │   │   └── form-specifications.md
+│   │   ├── implementation-review.md
+│   │   ├── minimalist-component-library.md
+│   │   ├── myant-violet-palette.md
+│   │   ├── token-usage-guide.md
+│   │   └── tokens.md
+│   ├── features/
+│   │   ├── README.md
+│   │   ├── eligibility.md
+│   │   └── multi-language.md
+│   ├── frontend/
+│   │   ├── README.md
+│   │   ├── components.md
+│   │   └── design-system.md
 │   ├── research/
-│   │   ├── CLAUDE-CODE-INDEXING-GUIDE.md
-│   │   └── claude-code-indexing-research-specification.json
-│   ├── specs/
-│   │   ├── CLAUDE_BEST_PRACTICES_RESEARCH_SPECIFICATION.json
-│   │   ├── CONTEXT_MANAGEMENT_SPECIFICATION.json
-│   │   ├── ELIGIBILITY_QUESTIONNAIRE_COMPREHENSIVE_TEST_SPECIFICATION.md
-│   │   ├── eligibility-questionnaire-test-automation-spec.json
-│   │   └── gp-referral-brainstorming-spec.json
+│   │   └── supabase-best-practices-comprehensive-guide.md
 │   ├── standards/
-│   │   ├── 2025-08-22-accessibility-healthcare-compliance-research.md
-│   │   ├── 2025-08-22-architecture-i18n-database-standards-research.md
-│   │   ├── 2025-08-22-code-quality-security-standards.md
-│   │   ├── 2025-08-22-component-architecture-i18n-database-standards.md
-│   │   ├── 2025-08-22-performance-optimization-standards.md
-│   │   ├── 2025-08-22-rcc-002-comprehensive-standards-testing-specification.json
-│   │   ├── 2025-08-22-react-18-best-practices-documentation.md
-│   │   ├── 2025-08-22-react-typescript-performance-standards-research.md
-│   │   ├── 2025-08-22-swiss-healthcare-regulatory-compliance.md
-│   │   ├── 2025-08-22-testing-frameworks-methodologies.md
-│   │   ├── 2025-08-22-testing-quality-security-standards-research.md
-│   │   ├── 2025-08-22-typescript-5-strict-mode-standards.md
-│   │   └── 2025-08-22-wcag-accessibility-compliance-standards.md
-│   ├── supabase_doc/
-│   │   ├── bootstrap_nextjs_app_with_supabase_auth.md
-│   │   ├── database_supabase_declarative_database_schema.md
-│   │   ├── supabase-guides.txt
-│   │   ├── supabase_creating_rls_policies.md
-│   │   ├── supabase_database_create_function.md
-│   │   ├── supabase_database_create_migration.md
-│   │   ├── supabase_postgres_sql_style.md
-│   │   └── writing_supabase_edge_functions.md
-│   ├── AGENT_COMPLIANCE_CHECKLIST.md
-│   ├── COGNEE_MEMORY_PROTOCOL.md
-│   ├── COGNEE_TESTING_SPECIFICATION.md
-│   ├── documentation-guidelines.md
-│   ├── file-organization-framework.md
-│   ├── test-migration-plan.md
-│   └── testing-framework.md
+│   │   ├── accessibility-guidelines.md
+│   │   └── coding-standards.md
+│   └── testing/
+│       ├── README.md
+│       ├── e2e-tests.md
+│       └── unit-tests.md
 ├── html/
 │   ├── assets/
 │   │   ├── index-D_ryMEPs.js
@@ -178,34 +76,6 @@
 │   ├── data/
 │   ├── html.meta.json.gz
 │   └── index.html
-├── memory-bank-setup/
-│   ├── memory-bank-converted/
-│   │   ├── agents/
-│   │   ├── slash-commands/
-│   │   │   └── sync-memory-bank.md
-│   │   ├── CLAUDE-activeContext.md
-│   │   ├── CLAUDE-decisions.md
-│   │   ├── CLAUDE-patterns.md
-│   │   ├── CLAUDE-subagents.md
-│   │   ├── CLAUDE-workflows.md
-│   │   ├── CLAUDE.md
-│   │   ├── INTEGRATION_REPORT.md
-│   │   └── README.md
-│   └── memory-bank-instructions/
-│       ├── agents/
-│       │   ├── code-searcher.md
-│       │   ├── get-current-datetime.md
-│       │   ├── memory-bank-synchronizer.md
-│       │   └── ux-design-expert.md
-│       ├── slash-commands/
-│       │   ├── apply-thinking-to.md
-│       │   ├── cleanup-context.md
-│       │   ├── convert-to-todowrite-tasklist-prompt.md
-│       │   ├── create-readme-section.md
-│       │   ├── explain-architecture-pattern.md
-│       │   └── update-memory-bank.md
-│       ├── CLAUDE.md
-│       └── README.md
 ├── presentation/
 │   ├── minimal-process.html
 │   └── technical-process.html
@@ -243,10 +113,10 @@
 │   ├── comprehensive-accessibility-audit.js
 │   ├── comprehensive-design-system-test.cjs
 │   ├── design-system-validation-test.cjs
+│   ├── event-stream-api.py
 │   ├── file-organization-scanner.sh*
 │   ├── final-accessibility-audit.cjs
 │   ├── generate-indexes.sh*
-│   ├── generate-indexes.sh.bak*
 │   ├── optimize-images.js*
 │   ├── simplified-accessibility-audit.js
 │   ├── test-eligibility-visual.js
@@ -693,11 +563,14 @@
 │   │   │   └── useTranslation.test.ts
 │   │   └── authService.test.ts
 │   └── README.md
+├── user-uploads/
+│   ├── eligibility-form-supabase-schema-specs.md
+│   ├── eligibility-questionnaire-technical-specs.md
+│   └── eligibility-questionnaire-user-journey.md
 ├── CLAUDE.md
 ├── PROJECT_INDEX.json
 ├── README.md
 ├── VISUAL_ASSETS_INDEX.json
-├── WORKFLOWS.md
 ├── bun.lockb*
 ├── components.json
 ├── eslint.config.js
@@ -712,4 +585,4 @@
 ├── vite.config.ts
 └── vitest.config.ts
 
-132 directories, 581 files
+121 directories, 465 files

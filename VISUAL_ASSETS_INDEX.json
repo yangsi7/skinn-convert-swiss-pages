@@ -1,14 +1,14 @@
 {
   "version": "1.0",
-  "generated": "2025-08-25T08:03:39.565Z",
+  "generated": "2025-08-25T15:30:03.074Z",
   "summary": {
-    "totalAssets": 512,
-    "totalSize": 242399940,
+    "totalAssets": 463,
+    "totalSize": 211334601,
     "byType": {
       "images": {
-        "count": 506,
-        "size": 133617883,
-        "sizeFormatted": "127.43 MB"
+        "count": 461,
+        "size": 104511014,
+        "sizeFormatted": "99.67 MB"
       },
       "icons": {
         "count": 0,
@@ -16,52 +16,12 @@
         "sizeFormatted": "0 B"
       },
       "videos": {
-        "count": 6,
-        "size": 108782057,
-        "sizeFormatted": "103.74 MB"
+        "count": 2,
+        "size": 106823587,
+        "sizeFormatted": "101.87 MB"
       }
     },
     "byDirectory": {
-      "archive/2025-11-20/implementation": {
-        "count": 7,
-        "size": 7568366,
-        "sizeFormatted": "7.22 MB"
-      },
-      "archive/2025-11-20/test-cleanup/root-test-files": {
-        "count": 5,
-        "size": 120473,
-        "sizeFormatted": "117.65 KB"
-      },
-      "archive/2025-11-20/test-cleanup/test-results/eligibility-testing": {
-        "count": 12,
-        "size": 1539251,
-        "sizeFormatted": "1.47 MB"
-      },
-      "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-20f59-sponsive-at-mobile-375x667--chromium": {
-        "count": 5,
-        "size": 2600136,
-        "sizeFormatted": "2.48 MB"
-      },
-      "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-98ba3-nsive-at-desktop-1920x1080--chromium": {
-        "count": 5,
-        "size": 12201208,
-        "sizeFormatted": "11.64 MB"
-      },
-      "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-b4bbd-ponsive-at-tablet-768x1024--chromium": {
-        "count": 5,
-        "size": 5609807,
-        "sizeFormatted": "5.35 MB"
-      },
-      "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-d35d9--navigation-works-correctly-chromium": {
-        "count": 6,
-        "size": 1228251,
-        "sizeFormatted": "1.17 MB"
-      },
-      "archive/2025-11-20/test-cleanup/visual-tests/responsive-quick.spec.ts-snapshots": {
-        "count": 4,
-        "size": 197847,
-        "sizeFormatted": "193.21 KB"
-      },
       "html": {
         "count": 3,
         "size": 194134,
@@ -163,417 +123,9 @@
         "sizeFormatted": "101.87 MB"
       }
     },
-    "totalSizeFormatted": "231.17 MB"
+    "totalSizeFormatted": "201.54 MB"
   },
   "assets": {
-    "archive/2025-11-20/implementation": [
-      {
-        "file": "covered-by-swiss-health-inssurance.png",
-        "size": 1270981,
-        "sizeFormatted": "1.21 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.201Z"
-      },
-      {
-        "file": "design-colors.png",
-        "size": 321491,
-        "sizeFormatted": "313.96 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.208Z"
-      },
-      {
-        "file": "how-skiin-works.png",
-        "size": 948360,
-        "sizeFormatted": "926.13 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.223Z"
-      },
-      {
-        "file": "landing-page-hero-anotated.png",
-        "size": 520658,
-        "sizeFormatted": "508.46 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.231Z"
-      },
-      {
-        "file": "landing-page-hero-scrolling.png",
-        "size": 3942392,
-        "sizeFormatted": "3.76 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.271Z"
-      },
-      {
-        "file": "landingpage-hero.png",
-        "size": 541196,
-        "sizeFormatted": "528.51 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.280Z"
-      },
-      {
-        "file": "Myant_new_logo.png",
-        "size": 23288,
-        "sizeFormatted": "22.74 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-07-31T17:16:53.181Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/root-test-files": [
-      {
-        "file": "homepage-accessibility-audit.png",
-        "size": 47833,
-        "sizeFormatted": "46.71 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:45:13.853Z"
-      },
-      {
-        "file": "homepage-accessibility-fixed.png",
-        "size": 47650,
-        "sizeFormatted": "46.53 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:48:38.022Z"
-      },
-      {
-        "file": "homepage-de-accessibility.png",
-        "size": 8330,
-        "sizeFormatted": "8.13 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:48:48.823Z"
-      },
-      {
-        "file": "homepage-fr-accessibility.png",
-        "size": 8330,
-        "sizeFormatted": "8.13 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:48:59.855Z"
-      },
-      {
-        "file": "homepage-it-accessibility.png",
-        "size": 8330,
-        "sizeFormatted": "8.13 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:49:12.010Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/test-results/eligibility-testing": [
-      {
-        "file": "console-error-debug.png",
-        "size": 145675,
-        "sizeFormatted": "142.26 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:24:42.012Z"
-      },
-      {
-        "file": "eligibility-component.png",
-        "size": 146441,
-        "sizeFormatted": "143.01 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:24:56.762Z"
-      },
-      {
-        "file": "eligibility-desktop-full.png",
-        "size": 162013,
-        "sizeFormatted": "158.22 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:06.644Z"
-      },
-      {
-        "file": "eligibility-mobile.png",
-        "size": 64796,
-        "sizeFormatted": "63.28 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:07.682Z"
-      },
-      {
-        "file": "eligibility-tablet.png",
-        "size": 120359,
-        "sizeFormatted": "117.54 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:08.757Z"
-      },
-      {
-        "file": "insurance-component.png",
-        "size": 145011,
-        "sizeFormatted": "141.61 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:24:59.951Z"
-      },
-      {
-        "file": "main-desktop.png",
-        "size": 162013,
-        "sizeFormatted": "158.22 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:03.663Z"
-      },
-      {
-        "file": "main-mobile.png",
-        "size": 64796,
-        "sizeFormatted": "63.28 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:02.595Z"
-      },
-      {
-        "file": "otp-component.png",
-        "size": 140129,
-        "sizeFormatted": "136.84 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:24:58.346Z"
-      },
-      {
-        "file": "page-structure-inspection.png",
-        "size": 111848,
-        "sizeFormatted": "109.23 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:22:04.785Z"
-      },
-      {
-        "file": "payment-component.png",
-        "size": 155811,
-        "sizeFormatted": "152.16 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:25:01.546Z"
-      },
-      {
-        "file": "scroll-test-tablet.png",
-        "size": 120359,
-        "sizeFormatted": "117.54 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T22:17:09.815Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-20f59-sponsive-at-mobile-375x667--chromium": [
-      {
-        "file": "homepage-mobile-actual.png",
-        "size": 939059,
-        "sizeFormatted": "917.05 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.282Z"
-      },
-      {
-        "file": "homepage-mobile-diff.png",
-        "size": 375424,
-        "sizeFormatted": "366.63 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.286Z"
-      },
-      {
-        "file": "homepage-mobile-previous.png",
-        "size": 939178,
-        "sizeFormatted": "917.17 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.281Z"
-      },
-      {
-        "file": "test-failed-1.png",
-        "size": 44986,
-        "sizeFormatted": "43.93 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.344Z"
-      },
-      {
-        "file": "video.webm",
-        "size": 301489,
-        "sizeFormatted": "294.42 KB",
-        "format": "webm",
-        "type": "video",
-        "modified": "2025-08-19T07:18:42.380Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-98ba3-nsive-at-desktop-1920x1080--chromium": [
-      {
-        "file": "homepage-desktop-actual.png",
-        "size": 5135748,
-        "sizeFormatted": "4.9 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.958Z"
-      },
-      {
-        "file": "homepage-desktop-diff.png",
-        "size": 1417800,
-        "sizeFormatted": "1.35 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.972Z"
-      },
-      {
-        "file": "homepage-desktop-previous.png",
-        "size": 5136044,
-        "sizeFormatted": "4.9 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.943Z"
-      },
-      {
-        "file": "test-failed-1.png",
-        "size": 94109,
-        "sizeFormatted": "91.9 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:43.043Z"
-      },
-      {
-        "file": "video.webm",
-        "size": 417507,
-        "sizeFormatted": "407.72 KB",
-        "format": "webm",
-        "type": "video",
-        "modified": "2025-08-19T07:18:43.081Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-b4bbd-ponsive-at-tablet-768x1024--chromium": [
-      {
-        "file": "homepage-tablet-actual.png",
-        "size": 2254723,
-        "sizeFormatted": "2.15 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.274Z"
-      },
-      {
-        "file": "homepage-tablet-diff.png",
-        "size": 727045,
-        "sizeFormatted": "710 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.281Z"
-      },
-      {
-        "file": "homepage-tablet-previous.png",
-        "size": 2254848,
-        "sizeFormatted": "2.15 MB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.271Z"
-      },
-      {
-        "file": "test-failed-1.png",
-        "size": 68733,
-        "sizeFormatted": "67.12 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.341Z"
-      },
-      {
-        "file": "video.webm",
-        "size": 304458,
-        "sizeFormatted": "297.32 KB",
-        "format": "webm",
-        "type": "video",
-        "modified": "2025-08-19T07:18:42.379Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/test-results/responsive-quick-Responsiv-d35d9--navigation-works-correctly-chromium": [
-      {
-        "file": "language-english-actual.png",
-        "size": 37554,
-        "sizeFormatted": "36.67 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:29.603Z"
-      },
-      {
-        "file": "language-french-actual.png",
-        "size": 54083,
-        "sizeFormatted": "52.82 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:38.445Z"
-      },
-      {
-        "file": "language-german-actual.png",
-        "size": 53291,
-        "sizeFormatted": "52.04 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:34.096Z"
-      },
-      {
-        "file": "language-italian-actual.png",
-        "size": 52919,
-        "sizeFormatted": "51.68 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.795Z"
-      },
-      {
-        "file": "test-failed-1.png",
-        "size": 95388,
-        "sizeFormatted": "93.15 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.874Z"
-      },
-      {
-        "file": "video.webm",
-        "size": 935016,
-        "sizeFormatted": "913.1 KB",
-        "format": "webm",
-        "type": "video",
-        "modified": "2025-08-19T07:18:42.908Z"
-      }
-    ],
-    "archive/2025-11-20/test-cleanup/visual-tests/responsive-quick.spec.ts-snapshots": [
-      {
-        "file": "language-english-chromium-darwin.png",
-        "size": 37554,
-        "sizeFormatted": "36.67 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:29.603Z"
-      },
-      {
-        "file": "language-french-chromium-darwin.png",
-        "size": 54083,
-        "sizeFormatted": "52.82 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:38.444Z"
-      },
-      {
-        "file": "language-german-chromium-darwin.png",
-        "size": 53291,
-        "sizeFormatted": "52.04 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:34.095Z"
-      },
-      {
-        "file": "language-italian-chromium-darwin.png",
-        "size": 52919,
-        "sizeFormatted": "51.68 KB",
-        "format": "png",
-        "type": "image",
-        "modified": "2025-08-19T07:18:42.795Z"
-      }
-    ],
     "html": [
       {
         "file": "bg.png",
@@ -581,7 +133,7 @@
         "sizeFormatted": "186.46 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-25T07:41:08.474Z"
+        "modified": "2025-08-25T08:07:35.069Z"
       },
       {
         "file": "favicon.ico",
@@ -589,7 +141,7 @@
         "sizeFormatted": "814 B",
         "format": "ico",
         "type": "image",
-        "modified": "2025-08-25T07:41:08.462Z"
+        "modified": "2025-08-25T08:07:35.069Z"
       },
       {
         "file": "favicon.svg",
@@ -597,7 +149,7 @@
         "sizeFormatted": "2.33 KB",
         "format": "svg",
         "type": "image",
-        "modified": "2025-08-25T07:41:08.462Z"
+        "modified": "2025-08-25T08:07:35.069Z"
       }
     ],
     "public": [

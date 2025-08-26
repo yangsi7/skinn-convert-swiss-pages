@@ -70,15 +70,10 @@ export const EligibilityFormContainer: React.FC = () => {
       case 1: // Eligibility Gate
         return (
           <EligibilityGateStage
-            onEligibilityDetermined={(eligibility) => {
-              updateFormData({ eligibilityStatus: eligibility });
-              handleNext();
-            }}
-            onInsuranceModelSelected={(model) => {
-              updateFormData({ insuranceModel: model });
-            }}
-            contactData={state.formData}
-            contraindications={state.formData.contraindications}
+            data={state.formData}
+            onUpdate={updateFormData}
+            onNext={handleNext}
+            onBack={handleBack}
           />
         );
         
@@ -91,6 +86,7 @@ export const EligibilityFormContainer: React.FC = () => {
             }}
             symptoms={state.formData.symptoms || []}
             initialData={state.formData.detailedInfo}
+            onBack={handleBack}
           />
         );
         

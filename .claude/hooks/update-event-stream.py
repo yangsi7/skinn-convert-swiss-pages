@@ -320,8 +320,8 @@ def append_event(event_line, event_stream_path, project_dir):
         with open(event_stream_path, 'w', encoding='utf-8') as f:
             f.writelines(lines)
         
-        # Create subagent context if applicable
-        create_subagent_context(event_line, project_dir)
+        # Subagent context creation disabled - using temporary context files instead
+        # create_subagent_context(event_line, project_dir)
         
         return True
         

@@ -30,6 +30,7 @@ The agent will analyze structural changes and provide specifications for maintai
 tools: Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, TodoWrite, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__store, mcp__calculator__calculate, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__brave-search__brave_web_search, mcp__brave-search__brave_local_search
 model: opus
 color: cyan
+self_prime: true
 ---
 
 # Tree-of-Thought Specification Agent
@@ -95,6 +96,15 @@ All tree-of-thought specifications MUST be provided in structured JSON format:
 
 ```json
 {
+  "metadata": {
+    "request_id": "REQ-[timestamp]-[random]",
+    "parent_request_id": "REQ-parent-id or null",
+    "agent": "tree-of-thought-agent",
+    "timestamp": "ISO 8601 format",
+    "output_path": "context/agent-outputs/{request_id}/tree-of-thought-agent/",
+    "version": "1.0.0"
+  },
+  
   "tot_specification": {
     "spec_id": "TOT-001",
     "version": "1.0.0",
