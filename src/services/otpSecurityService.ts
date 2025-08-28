@@ -97,8 +97,7 @@ function logAuditEvent(
   if (auditLogs.length > 10000) {
     auditLogs.shift();
   }
-  
-  console.log(`[AUDIT] ${entry.timestamp} - ${action}: ${result}`, entry.details);
+  // Console statement removed by ESLint fix
 }
 
 function generateSecureOTP(): string {

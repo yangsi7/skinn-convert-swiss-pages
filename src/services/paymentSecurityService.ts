@@ -109,8 +109,7 @@ function logPaymentAuditEvent(
   if (auditLogs.length > 10000) {
     auditLogs.shift();
   }
-  
-  console.log(`[PAYMENT AUDIT] ${entry.timestamp} - ${action}: ${result}`, entry.details);
+  // Console statement removed by ESLint fix
 }
 
 function generateClientSecret(): string {
@@ -317,8 +316,7 @@ export class PaymentSecurityService {
       );
       
       // In production, this would interface with Stripe API
-      console.log(`[DEV] Payment intent created: ${paymentIntentId} for CHF ${validatedIntent.amountCents / 100}`);
-      
+  // Console statement removed by ESLint fix
       return {
         data: {
           clientSecret,
@@ -523,8 +521,7 @@ export class PaymentSecurityService {
       );
       
       // In production, would trigger email receipt and update database
-      console.log(`[DEV] Payment confirmed: ${paymentId} - ${invoiceNumber}`);
-      
+  // Console statement removed by ESLint fix
       return {
         data: {
           success: true,

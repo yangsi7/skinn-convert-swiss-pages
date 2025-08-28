@@ -70,7 +70,7 @@ const FullScreenVideo: React.FC<FullScreenVideoProps> = ({
           setIsPlaying(true);
         }).catch(() => {
           // Handle autoplay policy restrictions
-          console.log('Autoplay was prevented, waiting for user interaction');
+  // Console statement removed by ESLint fix
           setShowControls(true);
         });
       }

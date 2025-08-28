@@ -1,6 +1,5 @@
 ./
 ├── context/
-│   ├── subagent-contexts/
 │   ├── CLAUDE-activeContext.md
 │   ├── CLAUDE-config-variables.md
 │   ├── CLAUDE-decisions.md
@@ -12,14 +11,22 @@
 │   ├── CLAUDE_PROCESS.md
 │   ├── WORKFLOWS.md
 │   ├── event-stream.md
+│   ├── memory-bank-synchronization-results.json
 │   ├── project-index.md
 │   └── project-tree.txt
 ├── docs/
 │   ├── agent-outputs/
-│   │   └── archived/
-│   │       └── supabase-agent-enhancement-brainstorm-spec.json
+│   │   ├── REQ-20250826-1403-DOC-MAINTENANCE/
+│   │   │   └── documentation-maintenance-specification.json
+│   │   ├── archived/
+│   │   │   └── supabase-agent-enhancement-brainstorm-spec.json
+│   │   └── gp-referral-multi-panel-review-specification.json
 │   ├── analysis/
-│   │   └── supabase-agents-gap-analysis-tot.md
+│   │   ├── eligibility-form-gap-analysis.md
+│   │   ├── eligibility-questionnaire-tot-specification.json
+│   │   ├── supabase-agents-gap-analysis-tot.md
+│   │   ├── v2-memory-system-migration-brainstorming-specification.json
+│   │   └── v2-memory-system-migration-tot-specification.json
 │   ├── architecture/
 │   │   ├── README.md
 │   │   ├── api.md
@@ -37,6 +44,7 @@
 │   │   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md
 │   │   └── README.md
 │   ├── database/
+│   │   ├── gp-referral-system-specification.json
 │   │   ├── migration-guide.md
 │   │   ├── overview.md
 │   │   ├── schema-v2.md
@@ -44,17 +52,26 @@
 │   │   └── technical-specifications.md
 │   ├── design-system/
 │   │   ├── components/
-│   │   │   ├── eligibility-form-design.md
-│   │   │   ├── eligibility-workflow-atomic.md
 │   │   │   └── form-specifications.md
+│   │   ├── eligibility/
+│   │   │   ├── atomic-components.md
+│   │   │   ├── eligibility-form-design.md
+│   │   │   └── eligibility-workflow-atomic.md
+│   │   ├── shared/
+│   │   ├── website/
+│   │   │   ├── components.md
+│   │   │   └── myant-violet-palette.md
+│   │   ├── 2025-08-19-eligibility-form-design-system.md
+│   │   ├── 2025-08-19-form-component-specifications.md
+│   │   ├── README.md
+│   │   ├── design-tokens.md
 │   │   ├── implementation-review.md
-│   │   ├── minimalist-component-library.md
-│   │   ├── myant-violet-palette.md
 │   │   ├── token-usage-guide.md
 │   │   └── tokens.md
 │   ├── features/
 │   │   ├── README.md
 │   │   ├── eligibility.md
+│   │   ├── gp-referral-implementation-summary.md
 │   │   └── multi-language.md
 │   ├── frontend/
 │   │   ├── README.md
@@ -62,13 +79,21 @@
 │   │   └── design-system.md
 │   ├── research/
 │   │   └── supabase-best-practices-comprehensive-guide.md
+│   ├── specs/
+│   │   └── gp-referral-research-specification.json
 │   ├── standards/
 │   │   ├── accessibility-guidelines.md
 │   │   └── coding-standards.md
-│   └── testing/
-│       ├── README.md
-│       ├── e2e-tests.md
-│       └── unit-tests.md
+│   ├── testing/
+│   │   ├── README.md
+│   │   ├── bug-report-template.md
+│   │   ├── e2e-tests.md
+│   │   ├── gp-referral-system-test-specifications.json
+│   │   ├── gp-referral-test-plan.md
+│   │   ├── quality-metrics-specification.json
+│   │   └── unit-tests.md
+│   ├── GAP_ANALYSIS_ELIGIBILITY_FLOW.md
+│   └── memory-system-usage.md
 ├── html/
 │   ├── assets/
 │   │   ├── index-D_ryMEPs.js
@@ -76,9 +101,12 @@
 │   ├── data/
 │   ├── html.meta.json.gz
 │   └── index.html
-├── presentation/
-│   ├── minimal-process.html
-│   └── technical-process.html
+├── memory/
+│   ├── active.json
+│   ├── agent-groups.json
+│   ├── decisions.json
+│   ├── knowledge.json
+│   └── patterns.json
 ├── public/
 │   ├── assets/
 │   │   ├── documents/
@@ -124,12 +152,35 @@
 │   ├── test-otp-rate-limiting.cjs
 │   ├── test-supabase-auth.js
 │   └── update-agent-indexes.sh*
+├── specs/
+│   ├── features/
+│   │   └── FEAT-2025-001.json
+│   ├── migration/
+│   ├── schemas/
+│   │   ├── README.md
+│   │   ├── feature.schema.json
+│   │   ├── roadmap.schema.json
+│   │   └── vision.schema.json
+│   ├── roadmap.json
+│   └── vision.json
 ├── src/
 │   ├── api/
 │   │   ├── eligibilityRoutes.ts
 │   │   ├── otpRoutes.ts
 │   │   ├── paymentRoutes.ts
 │   │   └── server.ts
+│   ├── app/
+│   │   ├── [language]/
+│   │   │   └── referral/
+│   │   │       └── page.tsx
+│   │   └── api/
+│   │       └── referral/
+│   │           ├── generate-code/
+│   │           │   └── route.ts
+│   │           ├── upload/
+│   │           │   └── route.ts
+│   │           └── verify-code/
+│   │               └── route.ts
 │   ├── assets/
 │   │   └── images/
 │   │       └── german/
@@ -173,23 +224,92 @@
 │   │   │   └── index.ts
 │   │   ├── forms/
 │   │   │   ├── eligibility/
+│   │   │   │   ├── atoms/
+│   │   │   │   │   ├── AlertBox.tsx
+│   │   │   │   │   ├── CompactSymptomSelector.tsx
+│   │   │   │   │   ├── CostEstimateCard.tsx
+│   │   │   │   │   ├── DateInput.tsx
+│   │   │   │   │   ├── EmergencyHeader.tsx
+│   │   │   │   │   ├── EmergencyWarning.tsx
+│   │   │   │   │   ├── ExpiryNotice.tsx
+│   │   │   │   │   ├── FormError.tsx
+│   │   │   │   │   ├── FormField.tsx
+│   │   │   │   │   ├── FormLabel.tsx
+│   │   │   │   │   ├── ReferralCodeActions.tsx
+│   │   │   │   │   ├── ReferralCodeQR.tsx
+│   │   │   │   │   ├── ReferralCodeText.tsx
+│   │   │   │   │   ├── SafetyNotice.tsx
+│   │   │   │   │   ├── SeveritySlider.tsx
+│   │   │   │   │   ├── StatusIcon.tsx
+│   │   │   │   │   ├── StepNumber.tsx
+│   │   │   │   │   ├── SwissInsuranceSelector.tsx
+│   │   │   │   │   ├── TelmedAlert.tsx
+│   │   │   │   │   └── TrustBadge.tsx
 │   │   │   │   ├── components/
 │   │   │   │   │   ├── ContraindicationScreening.tsx
 │   │   │   │   │   ├── EligibilityStatusAlert.tsx
+│   │   │   │   │   ├── EligibilityStatusAlertRefactored.tsx
+│   │   │   │   │   ├── EmergencyDialog.tsx
+│   │   │   │   │   ├── EmergencyDialogRefactored.tsx
 │   │   │   │   │   ├── FamilyHistoryQuestion.tsx
 │   │   │   │   │   ├── InsuranceModelSelector.tsx
 │   │   │   │   │   ├── NextStepsCard.tsx
 │   │   │   │   │   ├── OTPVerification.tsx
+│   │   │   │   │   ├── ProgressIndicator.tsx
 │   │   │   │   │   ├── StageFooter.tsx
 │   │   │   │   │   ├── StageHeader.tsx
+│   │   │   │   │   ├── SwissHealthcareStepper.tsx
 │   │   │   │   │   └── SymptomSelector.tsx
-│   │   │   │   └── stages/
-│   │   │   │       ├── CompletionStage.tsx
-│   │   │   │       ├── ContactAccountStage.tsx
-│   │   │   │       ├── DetailedInfoStage.tsx
-│   │   │   │       ├── EligibilityGateStage.tsx
-│   │   │   │       ├── InsuredReviewStage.tsx
-│   │   │   │       └── SelfPayStage.tsx
+│   │   │   │   ├── doctor-upload/
+│   │   │   │   │   ├── CodeEntryStep.tsx
+│   │   │   │   │   ├── ConfirmationStep.tsx
+│   │   │   │   │   ├── DoctorDetailsStep.tsx
+│   │   │   │   │   └── DocumentUploadStep.tsx
+│   │   │   │   ├── hooks/
+│   │   │   │   │   └── useEligibilityLogic.ts
+│   │   │   │   ├── molecules/
+│   │   │   │   │   ├── ArrhythmiaHistorySection.tsx
+│   │   │   │   │   ├── ConsentCheckboxes.tsx
+│   │   │   │   │   ├── ConsentChecklistStep.tsx
+│   │   │   │   │   ├── ContraindicationSection.tsx
+│   │   │   │   │   ├── DateOfBirthSection.tsx
+│   │   │   │   │   ├── EmailSection.tsx
+│   │   │   │   │   ├── EmailVerificationSection.tsx
+│   │   │   │   │   ├── EmergencyContactCard.tsx
+│   │   │   │   │   ├── FamilyHistoryStep.tsx
+│   │   │   │   │   ├── GPChoiceSection.tsx
+│   │   │   │   │   ├── GPDetailsForm.tsx
+│   │   │   │   │   ├── InsuranceSection.tsx
+│   │   │   │   │   ├── InsuranceStep.tsx
+│   │   │   │   │   ├── MedicationSection.tsx
+│   │   │   │   │   ├── NameSection.tsx
+│   │   │   │   │   ├── NextStepsGrid.tsx
+│   │   │   │   │   ├── PaymentFormStep.tsx
+│   │   │   │   │   ├── PhoneVerificationStep.tsx
+│   │   │   │   │   ├── RecommendationsList.tsx
+│   │   │   │   │   ├── SafetyStep.tsx
+│   │   │   │   │   ├── ServicePackageCard.tsx
+│   │   │   │   │   ├── ShippingAddressStep.tsx
+│   │   │   │   │   ├── SymptomDetailsSection.tsx
+│   │   │   │   │   ├── SymptomSection.tsx
+│   │   │   │   │   └── SymptomsStep.tsx
+│   │   │   │   ├── stages/
+│   │   │   │   │   ├── CompletionStage.tsx
+│   │   │   │   │   ├── ContactAccountStage.tsx
+│   │   │   │   │   ├── ContactAccountStageRefactored.tsx
+│   │   │   │   │   ├── DetailedInfoStage.tsx
+│   │   │   │   │   ├── DetailedInfoStageRefactored.tsx
+│   │   │   │   │   ├── EligibilityGateStage.tsx
+│   │   │   │   │   ├── EligibilityGateStageRefactored.tsx
+│   │   │   │   │   ├── EligibilityGateStageTest.tsx
+│   │   │   │   │   ├── InsuredReviewStage.tsx
+│   │   │   │   │   ├── InsuredReviewStageRefactored.tsx
+│   │   │   │   │   ├── SelfPayStage.tsx
+│   │   │   │   │   └── SelfPayStageRefactored.tsx
+│   │   │   │   ├── utils/
+│   │   │   │   │   └── emergencyMessages.ts
+│   │   │   │   ├── DoctorUploadPortal.tsx
+│   │   │   │   └── ReferralCodeDisplay.tsx
 │   │   │   ├── MinimalInsuranceSelector.tsx
 │   │   │   ├── MinimalPaymentForm.tsx
 │   │   │   └── SimpleInsuranceInput.tsx
@@ -422,8 +542,10 @@
 │   │   │   ├── 10DayHeartScreening.tsx
 │   │   │   └── Tritest.tsx
 │   │   ├── ComponentShowcase.tsx
+│   │   ├── DoctorReferralUpload.tsx
 │   │   ├── EligibilityFlow.tsx
 │   │   ├── EligibilityTest.tsx
+│   │   ├── EligibilityTestDirect.tsx
 │   │   ├── Home2.tsx
 │   │   ├── Home2Enhanced.tsx
 │   │   ├── HomeV7.tsx
@@ -441,6 +563,7 @@
 │   │   ├── authService.ts
 │   │   ├── otpSecurityService.ts
 │   │   ├── paymentSecurityService.ts
+│   │   ├── referralService.ts
 │   │   └── swissHealthcareService.ts
 │   ├── test/
 │   │   └── setup.ts
@@ -574,6 +697,7 @@
 ├── bun.lockb*
 ├── components.json
 ├── eslint.config.js
+├── file-organization-report.txt
 ├── index.html
 ├── package-lock.json
 ├── package.json
@@ -585,4 +709,4 @@
 ├── vite.config.ts
 └── vitest.config.ts
 
-121 directories, 465 files
+142 directories, 568 files

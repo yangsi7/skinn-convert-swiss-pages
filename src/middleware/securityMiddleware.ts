@@ -124,8 +124,7 @@ function logSecurityEvent(
   if (auditLogs.length > 10000) {
     auditLogs.shift();
   }
-  
-  console.log(`[SECURITY AUDIT] ${entry.timestamp} - ${action}: ${result}`, entry.details);
+  // Console statement removed by ESLint fix
 }
 
 // Request/Response interface (simplified for this implementation)

@@ -22,7 +22,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 3. **Think–Act–Observe Loop:** Within each phase and task, the orchestrator follows a ReAct‑style loop: think (analyse current state), act (invoke subagent/tool), observe (interpret results) and reflexion (self‑critique or review invocation) before iterating.
 
-4. **Context & Memory Management:** Context follows a structured 4-index system (v2.0) for efficient navigation. Context is loaded via the context-manager at each phase start and summarised/pruned by the graph-memory-agent after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it. **4-Index System**: Load PROJECT_INDEX.json (~160KB) for code structure, VISUAL_ASSETS_INDEX.json (~124KB) for images/videos, context/project-tree.txt (~36KB) for directory navigation, context/project-index.md for high-level overview. Use Serena MCP tools for symbol-level understanding when needed.
+4. **Context & Memory Management:** Context follows a structured 4-index system (v2.0) for efficient navigation. Context is loaded via the context-manager at each phase start and summarised/pruned via memory MCP tools after each phase or when exceeding thresholds. The knowledge graph is the canonical data store; views (plan, tasks, docs) are generated from it. **4-Index System**: Load PROJECT_INDEX.json (~160KB) for code structure, VISUAL_ASSETS_INDEX.json (~124KB) for images/videos, context/project-tree.txt (~36KB) for directory navigation, context/project-index.md for high-level overview. Use Serena MCP tools for symbol-level understanding when needed.
 
 5. **Safety & Compliance:** External data processing, code execution or operations with side effects require validation. User confirmation is required for side‑effect actions.
 
@@ -42,15 +42,20 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Mandatory Actions:**
 1. Check WORKFLOWS.md for keyword matches
-2. Load Memory Bank files in this order:
-   - context/CLAUDE-activeContext.md (session state)
-   - context/CLAUDE-patterns.md (code patterns)
-   - context/CLAUDE-decisions.md (architecture decisions)
-   - context/CLAUDE-troubleshooting.md (known issues)
-   - context/CLAUDE-config-variables.md (configuration)
-3. Load PROJECT_INDEX.json (~160KB) for code structure
-4. Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work involved
-5. Check memory MCP for relevant context
+2. **DETECT PROJECT TYPE** (React Router vs Next.js):
+   - Check package.json for framework dependencies
+   - Verify routing structure (src/routes/ vs app/ or pages/)
+   - Identify build tool (vite.config.js vs next.config.js)
+   - Store detected type for consistent implementation patterns
+3. Load JSON Memory files in this order:
+   - memory/active.json (session state and event logs)
+   - memory/patterns.json (code patterns with confidence scores)
+   - memory/decisions.json (architecture decisions)
+   - memory/knowledge.json (troubleshooting and research)
+   - memory/agent-groups.json (agent capabilities)
+4. Load PROJECT_INDEX.json (~160KB) for code structure
+5. Load VISUAL_ASSETS_INDEX.json (~124KB) if UI work involved
+6. Use Context7 MCP for library documentation if needed
 
 **Mandatory Steps:** 
 1. **Detect workflow triggers** by checking message against WORKFLOWS.md keyword matrix:
@@ -64,18 +69,20 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
      'deep-research': ['research', 'investigate', 'explore']
    };
    ```
-2. **Self-prime the orchestrator**:
+2. **Self-prime the orchestrator with project type awareness**:
+   - Detect project type (React Router vs Next.js)
    - Load PROJECT_INDEX.json (~160KB) for code awareness
    - Load context/project-index.md for overview
-   - Check memory MCP: `mcp__memory__search_nodes('project')`
+   - Check memory/active.json for current session context
+   - Apply framework-specific patterns based on detected type
 3. **Call context-manager with self_prime: true** to load context files. **4-Index Loading Strategy (v2.0)**: Load the appropriate indexes based on task needs:
    - **PROJECT_INDEX.json** (~160KB): Code structure, functions, dependencies (no images)
    - **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
    - **context/project-tree.txt** (~36KB): Directory tree without images
    - **context/project-index.md**: High-level overview with depth-3 tree
-   Extract only relevant sections for the current task (e.g., frontend-developer needs `directories['src/components']`, database-supabase-agent needs `supabase/` structure). Use the graph-memory-agent to fetch related entities (tasks, phases, files, requirements) from the knowledge graph. 
+   Extract only relevant sections for the current task (e.g., frontend components need `directories['src/components']`, Supabase work needs `supabase/` structure). Check memory/active.json and memory/knowledge.json for related entities (tasks, phases, files, requirements). 
 4. **Update indexing** if any structural changes have occurred since last update. Run `./scripts/generate-indexes.sh` to regenerate all 4 indexes. The script automatically separates visual assets from code structure and creates optimized views for different agent needs.
-4. **Summarise the context** into a concise brief tailored to the next subagent. Apply context engineering: select only relevant history, compress long logs and isolate unrelated scratchpads. **Structured Brief Format**: Include relevant PROJECT_INDEX.json sections, current task context, related files/symbols, and dependencies. For parallel execution, create isolated context files in `context/subagent-contexts/` to prevent context pollution. Persist the brief via the graph-memory-agent and log a KnowledgeCapture event. 
+4. **Summarise the context** into a concise brief tailored to the next subagent. Apply context engineering: select only relevant history, compress long logs and isolate unrelated scratchpads. **Structured Brief Format**: Include relevant PROJECT_INDEX.json sections, current task context, related files/symbols, and dependencies. For parallel execution, create isolated context files in `context/subagent-contexts/` to prevent context pollution. Persist the brief in memory/active.json and log a KnowledgeCapture event. 
 5. **Identify missing information** and prepare follow‑up questions or research requests. If user clarification is needed, pause and ask. 
 6. **Log events:** record a UserMessage for the new request, a PhaseChange to Context Gathering, and a KnowledgeCapture for the context summary.
 
@@ -84,8 +91,8 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 **Loop condition:** If goals or context remain unclear, repeat Steps 1–4. Otherwise, transition to Analysis.
 
 **Subagents Invoked:** 
-- context-manager (self_prime: true)
-- graph-memory-agent (self_prime: true)
+- context-manager (self_prime: true) - Uses JSON memory directly
+- Context7 MCP for library documentation if needed
 
 **Quality Gate:** 
 - ✅ Workflow detection logged
@@ -116,7 +123,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
    ```
 2. **Identify key entities** (requirements, tasks, components, subagents, workflows, user roles) and their relationships (depends_on, belongs_to, implements, uses, assigned_to). 
 3. **Invoke tree-of-thought-agent** to construct a Tree‑of‑Thought (ToT) diagram linking entities and showing hierarchies, dependencies and flows. Work in context/CLAUDE-temp.md first. 
-4. **Update the knowledge graph** with new entity and relation nodes using graph-memory-agent. Validate against schema. 
+4. **Update memory/knowledge.json** with new entity and relation nodes. Validate against schema. 
 5. **Document significant decisions** in context/CLAUDE-decisions.md if they affect architecture.
 6. **Clear CLAUDE-temp.md** after transferring relevant content to permanent files.
 7. **Log events:** PhaseChange to Analysis; Action for entity mapping; Observation for ToT creation.
@@ -125,7 +132,9 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Loop condition:** If new entities or relations arise later (e.g. during research or planning), revisit Analysis to update the ToT and graph. Otherwise, move to Research & Synthesis.
 
-**Subagents Invoked:** tree-of-thought-agent, graph-memory-agent.
+**Subagents Invoked:** 
+- tree-of-thought-agent (uses Calculator MCP for complexity analysis)
+- JSON memory operations (no MCP)
 
 ## Phase 3 – Research & Synthesis
 
@@ -149,7 +158,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
    - Risk assessment:
    ```
 3. **For each topic, iterate up to three times:** 
-   a. **Invoke the researcher** to perform searches via browser tools and documentation lookups. 
+   a. **Invoke the researcher** using Brave Search MCP for web research and Context7 MCP for library documentation. 
    b. **Cross‑validate information** from at least two reputable sources. Note discrepancies and decide whether further research is needed. 
    c. **Extract relevant facts, guidelines and examples**; note their provenance and map them to entities in the knowledge graph. 
    d. **Update findings** in context/CLAUDE-temp.md during research (scratch work). 
@@ -161,7 +170,9 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Loop condition:** Continue researching until all critical topics have been addressed or iteration caps reached. Unresolved questions become tasks for future investigation. Then proceed to Brainstorm & Evaluation.
 
-**Subagents Invoked:** researcher, graph-memory-agent.
+**Subagents Invoked:** 
+- researcher (uses Brave Search MCP, Context7 MCP)
+- JSON memory updates to memory/knowledge.json
 
 ## Phase 4 – Brainstorm & Evaluation
 
@@ -198,7 +209,9 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Loop condition:** If the brainstorming session surfaces new questions or if none of the ideas meet constraints, revisit Research or Analysis. Otherwise, move to Planning.
 
-**Subagents Invoked:** brainstormer, graph-memory-agent.
+**Subagents Invoked:** 
+- brainstormer (uses Brave Search MCP for inspiration)
+- JSON memory updates to memory/patterns.json
 
 ## Phase 5 – Planning
 
@@ -209,7 +222,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 **Steps:** 
 1. **Synthesize inputs** from context, research, brainstorm results and user goals into a coherent execution plan. 
 2. **Invoke planning-task-agent** to break the project into phases and tasks, grouped by lifecycle stage (foundation, backend, frontend, testing, documentation, deployment). Define acceptance criteria, dependencies and responsible subagents for each task. 
-3. **Write the plan** to context/CLAUDE-planning.md with numbered steps and narrative rationale. Generate context/CLAUDE-todo.md as a hierarchical checklist of tasks synchronized with TodoWrite tool with statuses ([ ] pending, [~] in progress, [x] complete). Link tasks to entities in the knowledge graph using the graph-memory-agent. 
+3. **Write the plan** to context/CLAUDE-planning.md with numbered steps and narrative rationale. Generate context/CLAUDE-todo.md as a hierarchical checklist of tasks synchronized with TodoWrite tool with statuses ([ ] pending, [~] in progress, [x] complete). Link tasks to entities in memory/active.json and memory/patterns.json. 
 4. **Design invocation chains:** For complex features or multi‑agent flows, invoke the invocation-chain-generator to produce an ordered list of subagent calls with parallelism and conditions. Document chains in docs/invocation-chains/<chain-name>.md or within CLAUDE-planning.md. 
 5. **Simulate expert panel review:** Internally (or via the reflection-agent), evaluate the plan from the perspectives of requirements, architecture, performance, tooling, design/UX, product vision and domain constraints. Adjust tasks based on feedback and document the rationale in CLAUDE-planning.md. 
 6. **Persist the plan and tasks** in the knowledge graph; snapshot the event stream or graph state for traceability. 
@@ -219,7 +232,11 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Loop condition:** Revisit Planning when requirements change, major design flaws are found in Review, or new tasks emerge during execution. Mini‑planning cycles can adjust the plan locally without restarting earlier phases.
 
-**Subagents Invoked:** planning-task-agent, invocation-chain-generator, graph-memory-agent, reflection-agent.
+**Subagents Invoked:** 
+- planning-task-agent (uses Package Version MCP for dependency-aware planning)
+- invocation-chain-generator (documents MCP chaining patterns)
+- reflection-agent (uses Calculator MCP for metrics)
+- JSON memory operations (no MCP)
 
 ## Phase 6 – Execution
 
@@ -237,12 +254,8 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
    c. **MUST track progress:** Update CLAUDE-todo.md status immediately (via TodoWrite) 
    d. **Invoke agents with mandatory self-priming:**
       ```yaml
-      - frontend-developer: 
-          self_prime: true
-          context: PROJECT_INDEX.json#components
-      - backend-developer:
-          self_prime: true  
-          context: PROJECT_INDEX.json#api
+      # Note: Frontend and backend work is handled by the main agent
+      # Use specialized agents for specific domains:
       - supabase-architect: # For design
           self_prime: true
           context: PROJECT_INDEX.json#database
@@ -258,7 +271,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
       - Adhere to coding standards (TypeScript strict, atomic components)
       - Validate inputs and outputs for security
       - Write unit tests first (TDD) for backend logic
-      - Use MCP Puppeteer tools for frontend testing
+      - Use Playwright MCP tools for frontend testing
       - Use Serena MCP tools for precise code manipulation
    d. **If failures occur** (e.g. tests fail, accessibility issues), log an Error event, attempt a fix and re‑run tests. Only proceed when the task's acceptance criteria are satisfied. 
    e. **MANDATORY post-implementation:**
@@ -266,24 +279,22 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
       - ⚡ Update CLAUDE-todo.md (mark complete via TodoWrite)
       - ⚡ Update CLAUDE-planning.md (reflect changes)
       - ⚡ Update event-stream.md (log all actions)
-      - ⚡ Run `mcp__memory__create_entities()` for new components
+      - ⚡ Update memory/active.json with new components
       - ⚡ Archive obsolete docs to archive/ 
 2. **Synchronise context**: after each task, update planning and knowledge graph. Add any new tasks discovered during execution to CLAUDE-todo.md (via TodoWrite) and plan mini‑cycles if needed. **CRITICAL**: Run @memory-bank-synchronizer after code changes. 
 3. **Log events** continuously: Action (tool usage), Observation (outcomes), PlanUpdate (status changes), KnowledgeCapture (new insights).
 
 **Outputs:** Implemented code or configuration; passing tests; updated docs and design artefacts; completed tasks; knowledge graph reflecting new entities and relations.
 
-**Loop condition:** Continue until all tasks in todo.md for the current project or milestone are completed. If a contradiction or missing piece of information blocks execution, pause and return to Research or Planning as needed.
+**Loop condition:** Continue until all tasks in context/CLAUDE-todo.md for the current project or milestone are completed. If a contradiction or missing piece of information blocks execution, pause and return to Research or Planning as needed.
 
 **Subagents Invoked (ALL with self_prime: true):** 
-- frontend-developer
-- backend-developer  
-- supabase-architect (design)
-- supabase-implementation-engineer (implementation)
-- testing-qa-agent
-- design-system-architect
-- documentation-maintainer (MANDATORY after implementation)
-- graph-memory-agent
+- supabase-architect (uses Supabase MCP for database design)
+- supabase-implementation-engineer (uses Supabase MCP for implementation)
+- testing-qa-agent (uses Playwright MCP for E2E tests)
+- design-system-architect (uses Playwright MCP for visual validation)
+- documentation-maintainer (uses Package Version MCP)
+- Main agent uses Serena MCP for code manipulation
 
 **Quality Gates:**
 - ✅ All agents self-primed
@@ -331,7 +342,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 **Outputs:** Final deliverables sent to user; closing report/summary; system enters idle state.
 
-**Subagents Invoked:** documentation-maintainer, graph-memory-agent.
+**Subagents Invoked:** documentation-maintainer, memory MCP tools.
 
 ## Mandatory Continuous Enforcement
 
@@ -341,7 +352,7 @@ This prevents wasted effort, ensures evidence-based decisions, and maintains hig
 
 * **Logging:** Claude appends structured events to event-stream.md after every user input, agent selection, tool call, observation, plan update, knowledge capture, error and delivery. Logging is centralised and always uses the standard event schema. Agent outputs are organized in context/agent-outputs/{request_id}/{agent-name}/ with linked metadata.
 
-* **Memory & Knowledge Graph Management:** The graph-memory-agent persists new entities/relations and ensures schema compliance. Summarisation and archival occur when context or memory thresholds are exceeded.
+* **Memory & Knowledge Graph Management:** Memory MCP tools persist new entities/relations and ensure schema compliance. Summarisation and archival occur when context or memory thresholds are exceeded.
 
 * **Memory Bank System Protocol:**
   - **Load Order**: Always read memory bank files in sequence:
@@ -424,9 +435,9 @@ For efficient context management across the large codebase (2000+ files), use th
 3. **Extract relevant sections**: Use domain-specific patterns below
 
 ### Domain-Specific Context Patterns
-- **frontend-developer**: Focus on `directories['src/components']`, `files[filename].functions` for component APIs, `dependency_graph` for imports
-- **backend-developer**: Focus on API routes structure, service method signatures, service layer dependencies  
-- **database-supabase-agent**: Extract `supabase/` directory, migration files, schema definitions
+- **Main agent (frontend)**: Focus on `directories['src/components']`, `files[filename].functions` for component APIs, `dependency_graph` for imports
+- **Main agent (backend)**: Focus on API routes structure, service method signatures, service layer dependencies  
+- **supabase-architect**: Extract `supabase/` directory, migration files, schema definitions
 - **testing-qa-agent**: Use `files` section for test patterns, `dependency_graph` for coverage areas
 - **documentation-maintainer**: Focus on `documentation_map`, `directory_purposes`, all `.md` files
 
@@ -462,18 +473,18 @@ For efficient context management across the large codebase (2000+ files), use th
 ## Project-Specific Workflows
 
 ### Frontend Feature Workflow
-1. planning-task-agent → design-system-architect → frontend-developer → testing-qa-agent → documentation-maintainer
+1. planning-task-agent → design-system-architect → main agent (frontend) → testing-qa-agent → documentation-maintainer
 
 ### Backend API Workflow
-1. planning-task-agent → backend-developer → database-supabase-agent → testing-qa-agent → documentation-maintainer
+1. planning-task-agent → main agent (backend) → supabase-architect → supabase-implementation-engineer → testing-qa-agent → documentation-maintainer
 
 ### Full Stack Feature Workflow
-1. planning-task-agent → requirements-spec-agent → database-supabase-agent → backend-developer → frontend-developer → testing-qa-agent → documentation-maintainer
+1. planning-task-agent → requirements-spec-agent → supabase-architect → main agent (backend) → main agent (frontend) → testing-qa-agent → documentation-maintainer
 
 ### Bug Fix Workflow
-1. context-manager → tree-of-thought-agent → (frontend-developer OR backend-developer) → testing-qa-agent → git-agent → documentation-maintainer
+1. context-manager → tree-of-thought-agent → main agent → testing-qa-agent → git-agent → documentation-maintainer
 
 ### Design System Update Workflow
-1. design-system-architect → frontend-developer (for all affected components) → testing-qa-agent → documentation-maintainer
+1. design-system-architect → main agent (for all affected components) → testing-qa-agent → documentation-maintainer
 
 By following this process, the CLAUDE system leverages specialised subagents to deliver high‑quality outcomes while maintaining flexibility, safety, documentation integrity and adherence to the S&W Design system standards. The orchestrator coordinates subagents through transparent workflows, manages context and memory effectively, and adapts to changing requirements without sacrificing structure or traceability.

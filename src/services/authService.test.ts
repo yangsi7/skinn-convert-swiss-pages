@@ -37,7 +37,7 @@ describe('Supabase Auth OTP Integration - myant-europe', () => {
     
     // Note: In test environment, we can't actually receive the email
     // In production, user would receive email with OTP code
-    console.log('OTP sent to:', testEmail);
+  // Console statement removed by ESLint fix
   });
 
   it('should handle OTP verification flow', async () => {
@@ -92,7 +92,7 @@ describe('Supabase Auth OTP Integration - myant-europe', () => {
     // First 5 should succeed or at least not be rate limited
     // 6th might be rate limited (depends on Supabase Auth settings)
     const errors = results.filter(r => r.status === 'rejected');
-    console.log(`Rate limit test: ${errors.length} requests failed out of 6`);
+  // Console statement removed by ESLint fix
   });
 });
 

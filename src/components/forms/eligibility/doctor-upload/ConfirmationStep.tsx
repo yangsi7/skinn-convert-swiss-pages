@@ -7,7 +7,7 @@ import { CheckCircle, Mail, Phone, FileText } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 
 interface ConfirmationStepProps {
-  formData: any
+  formData: Record<string, unknown>
 }
 
 export function ConfirmationStep({ formData }: ConfirmationStepProps) {

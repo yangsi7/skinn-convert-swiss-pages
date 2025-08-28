@@ -14,17 +14,17 @@ const EligibilityTest: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState('');
 
   const handleOTPVerify = (otp: string) => {
-    console.log('OTP Verified:', otp);
+  // Console statement removed by ESLint fix
     alert(`OTP ${otp} verified successfully!`);
   };
 
   const handleOTPResend = () => {
-    console.log('OTP Resend requested');
+  // Console statement removed by ESLint fix
     alert('New OTP sent!');
   };
 
   const handlePaymentSubmit = (data: any) => {
-    console.log('Payment submitted:', data);
+  // Console statement removed by ESLint fix
     alert('Payment processing... (mocked)');
   };
 

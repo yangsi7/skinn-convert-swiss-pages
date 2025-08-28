@@ -462,8 +462,7 @@ export function setupPaymentRoutes(app: any) {
     
     res.status(response.status).json(response.body);
   });
-
-  console.log('✅ Payment API routes configured with PCI DSS compliance');
+  // Console statement removed by ESLint fix
 }
 
 // Development testing utilities
@@ -472,8 +471,7 @@ export const paymentTestUtils = {
    * Test payment intent creation with various scenarios
    */
   async testPaymentIntentCreation() {
-    console.log('🧪 Testing Payment Intent Creation...');
-    
+  // Console statement removed by ESLint fix
     const testUser = { id: 'test_user_123', sessionToken: 'test_token' };
     
     const testCases = [
@@ -540,9 +538,9 @@ export const paymentTestUtils = {
     ];
 
     for (const testCase of testCases) {
-      console.log(`\n📋 ${testCase.name}`);
+  // Console statement removed by ESLint fix
       const response = await createPaymentIntent(testCase.request);
-      console.log(`Status: ${response.status}`);
+  // Console statement removed by ESLint fix
       console.log(`Response:`, JSON.stringify(response.body, null, 2));
     }
   },
@@ -551,8 +549,7 @@ export const paymentTestUtils = {
    * Test PCI DSS compliance features
    */
   async testPCICompliance() {
-    console.log('\n🧪 Testing PCI DSS Compliance...');
-    
+  // Console statement removed by ESLint fix
     // Test card validation
     const cardTests = [
       { name: 'Valid Visa', number: '4111111111111111', expected: true },
@@ -562,16 +559,15 @@ export const paymentTestUtils = {
     ];
 
     for (const test of cardTests) {
-      console.log(`\n📋 Card Test: ${test.name}`);
-      
+  // Console statement removed by ESLint fix
       // This would test the internal card validation logic
       // In a real implementation, we'd call the validation method
       console.log(`Card Number: ${test.number.replace(/\d(?=\d{4})/g, '*')}`);
-      console.log(`Expected Valid: ${test.expected}`);
+  // Console statement removed by ESLint fix
     }
 
     // Test security headers
-    console.log('\n📋 Security Headers Test');
+  // Console statement removed by ESLint fix
     const response = await getPaymentMethods({
       method: 'GET',
       url: '/api/payment/methods',
@@ -579,11 +575,10 @@ export const paymentTestUtils = {
       ip: '127.0.0.1',
       userAgent: 'TestAgent/1.0'
     });
-    
-    console.log('Security Headers:');
+  // Console statement removed by ESLint fix
     Object.entries(response.headers).forEach(([key, value]) => {
       if (key.toLowerCase().includes('x-') || key.toLowerCase().includes('cache')) {
-        console.log(`  ${key}: ${value}`);
+  // Console statement removed by ESLint fix
       }
     });
   }

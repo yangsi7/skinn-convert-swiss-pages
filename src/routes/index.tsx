@@ -11,6 +11,7 @@ import EligibilityTest from '@/pages/EligibilityTest';
 import EligibilityFlow from '@/pages/EligibilityFlow';
 import TestSupabase from '@/pages/TestSupabase';
 import DoctorReferralUpload from '@/pages/DoctorReferralUpload';
+import EligibilityTestDirect from '@/pages/EligibilityTestDirect';
 
 // Solutions pages
 import Solutions10DayHeartScreening from '@/pages/solutions/10DayHeartScreening';
@@ -74,6 +75,7 @@ const AppRouter: React.FC = () => {
       <Route path="/eligibility" element={<EligibilityFlow />} />
       <Route path="/test-supabase" element={<TestSupabase />} />
       <Route path="/referral" element={<DoctorReferralUpload />} />
+      <Route path="/eligibility-test-direct" element={<EligibilityTestDirect />} />
       
       {/* Solutions Routes */}
       <Route path="/solutions/10-day-heart-screening" element={<Solutions10DayHeartScreening />} />

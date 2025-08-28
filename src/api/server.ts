@@ -76,8 +76,7 @@ export class SKIINAPIServer {
     this.routes.set('GET /api/eligibility/status', this.handleEligibilityStatus.bind(this));
     this.routes.set('GET /api/eligibility/insurance-providers', this.handleInsuranceProviders.bind(this));
     this.routes.set('GET /api/eligibility/health', this.handleEligibilityHealth.bind(this));
-
-    console.log(`✅ SKIIN API Server configured with ${this.routes.size} secure endpoints`);
+  // Console statement removed by ESLint fix
   }
 
   /**
@@ -458,8 +457,7 @@ export function setupExpressServer(app: any): void {
     
     res.status(response.status).json(response.body);
   });
-
-  console.log('✅ SKIIN API Server configured for Express.js deployment');
+  // Console statement removed by ESLint fix
 }
 
 /**
@@ -470,27 +468,26 @@ export const serverTestUtils = {
    * Comprehensive API test suite
    */
   async runTestSuite(): Promise<void> {
-    console.log('🧪 Running SKIIN API Server Test Suite...');
-    console.log('================================================');
-
+  // Console statement removed by ESLint fix
+  // Console statement removed by ESLint fix
     try {
       // Test OTP functionality
-      console.log('\n🔐 Testing OTP Security Service...');
+  // Console statement removed by ESLint fix
       await otpTestUtils.testOTPGeneration();
       await otpTestUtils.testRateLimiting();
 
       // Test payment functionality
-      console.log('\n💳 Testing Payment Security Service...');
+  // Console statement removed by ESLint fix
       await paymentTestUtils.testPaymentIntentCreation();
       await paymentTestUtils.testPCICompliance();
 
       // Test eligibility functionality
-      console.log('\n🏥 Testing Swiss Healthcare Service...');
+  // Console statement removed by ESLint fix
       await eligibilityTestUtils.testEligibilityCalculation();
       await eligibilityTestUtils.testSwissCompliance();
 
       // Test server health
-      console.log('\n🏥 Testing Server Health...');
+  // Console statement removed by ESLint fix
       const server = new SKIINAPIServer();
       const healthRequest = {
         method: 'GET',
@@ -501,21 +498,18 @@ export const serverTestUtils = {
       };
 
       const healthResponse = await server.handleRequest(healthRequest);
-      console.log(`Health Check Status: ${healthResponse.status}`);
-      
+  // Console statement removed by ESLint fix
       if (healthResponse.body.data?.services) {
-        console.log('Service Status:');
+  // Console statement removed by ESLint fix
         Object.entries(healthResponse.body.data.services).forEach(([service, status]: [string, any]) => {
-          console.log(`  ${service}: ${status.status}`);
+  // Console statement removed by ESLint fix
         });
       }
-
-      console.log('\n✅ All tests completed successfully!');
-      console.log('================================================');
-
+  // Console statement removed by ESLint fix
+  // Console statement removed by ESLint fix
     } catch (error) {
       console.error('\n❌ Test suite failed:', error);
-      console.log('================================================');
+  // Console statement removed by ESLint fix
     }
   },
 
@@ -523,8 +517,7 @@ export const serverTestUtils = {
    * Performance benchmark test
    */
   async benchmarkPerformance(): Promise<void> {
-    console.log('⚡ Running Performance Benchmark...');
-    
+  // Console statement removed by ESLint fix
     const server = new SKIINAPIServer();
     const testRequests = [
       { method: 'GET', url: '/api/health' },
@@ -551,11 +544,10 @@ export const serverTestUtils = {
       const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
       const maxTime = Math.max(...times);
       const minTime = Math.min(...times);
-
-      console.log(`\n📊 ${testReq.method} ${testReq.url}:`);
+  // Console statement removed by ESLint fix
       console.log(`  Average: ${avgTime.toFixed(1)}ms`);
-      console.log(`  Min: ${minTime}ms`);
-      console.log(`  Max: ${maxTime}ms`);
+  // Console statement removed by ESLint fix
+  // Console statement removed by ESLint fix
       console.log(`  Target: <200ms (${avgTime < 200 ? '✅ PASS' : '❌ FAIL'})`);
     }
   }

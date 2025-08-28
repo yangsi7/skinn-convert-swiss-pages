@@ -21,7 +21,7 @@ const schema = z.object({
 })
 
 interface DoctorDetailsStepProps {
-  formData: any
+  formData: Record<string, unknown>
   onNext: (data: any) => void
   onBack: () => void
 }

@@ -231,7 +231,7 @@ function logHealthcareAuditEvent(
     auditLogs.shift();
   }
   
-  console.log(`[HEALTHCARE AUDIT] ${entry.timestamp} - ${action}: ${result}`, entry.details);
+  // Healthcare audit logged
 }
 
 function calculateAge(dateOfBirth: string): number {
@@ -745,8 +745,9 @@ export class SwissHealthcareService {
     const recentLogs = auditLogs.filter(log => new Date(log.timestamp).getTime() > hourAgo);
     
     const eligibilityCalculations = recentLogs.filter(log => log.action === 'eligibility_calculated');
-    const averageScore = eligibilityCalculations.reduce((sum, log: any) => {
-      return sum + (log.details?.eligibilityScore || 0);
+    const averageScore = eligibilityCalculations.reduce((sum, log) => {
+      const details = log.details as { eligibilityScore?: number } | undefined;
+      return sum + (details?.eligibilityScore || 0);
     }, 0) / (eligibilityCalculations.length || 1);
     
     return {
@@ -754,15 +755,36 @@ export class SwissHealthcareService {
       gpReferralsGenerated: recentLogs.filter(log => log.action === 'gp_referral_generated').length,
       averageEligibilityScore: Math.round(averageScore),
       pathwayDistribution: {
-        reimbursed: eligibilityCalculations.filter((log: any) => log.details?.pathway === 'reimbursed').length,
-        gpReferralRequired: eligibilityCalculations.filter((log: any) => log.details?.pathway === 'gp_referral_required').length,
-        selfPay: eligibilityCalculations.filter((log: any) => log.details?.pathway === 'self_pay').length,
-        ineligible: eligibilityCalculations.filter((log: any) => log.details?.pathway === 'ineligible').length
+        reimbursed: eligibilityCalculations.filter((log) => {
+          const details = log.details as { pathway?: string } | undefined;
+          return details?.pathway === 'reimbursed';
+        }).length,
+        gpReferralRequired: eligibilityCalculations.filter((log) => {
+          const details = log.details as { pathway?: string } | undefined;
+          return details?.pathway === 'gp_referral_required';
+        }).length,
+        selfPay: eligibilityCalculations.filter((log) => {
+          const details = log.details as { pathway?: string } | undefined;
+          return details?.pathway === 'self_pay';
+        }).length,
+        ineligible: eligibilityCalculations.filter((log) => {
+          const details = log.details as { pathway?: string } | undefined;
+          return details?.pathway === 'ineligible';
+        }).length
       },
       urgencyDistribution: {
-        routine: eligibilityCalculations.filter((log: any) => log.details?.urgencyLevel === 'routine').length,
-        urgent: eligibilityCalculations.filter((log: any) => log.details?.urgencyLevel === 'urgent').length,
-        emergency: eligibilityCalculations.filter((log: any) => log.details?.urgencyLevel === 'emergency').length
+        routine: eligibilityCalculations.filter((log) => {
+          const details = log.details as { urgencyLevel?: string } | undefined;
+          return details?.urgencyLevel === 'routine';
+        }).length,
+        urgent: eligibilityCalculations.filter((log) => {
+          const details = log.details as { urgencyLevel?: string } | undefined;
+          return details?.urgencyLevel === 'urgent';
+        }).length,
+        emergency: eligibilityCalculations.filter((log) => {
+          const details = log.details as { urgencyLevel?: string } | undefined;
+          return details?.urgencyLevel === 'emergency';
+        }).length
       }
     };
   }

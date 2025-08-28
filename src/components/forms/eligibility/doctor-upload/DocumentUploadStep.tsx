@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label'
 import { Upload, FileText, ArrowRight, ArrowLeft, AlertCircle } from 'lucide-react'
 
 interface DocumentUploadStepProps {
-  formData: any
+  formData: Record<string, unknown>
   onNext: (data: any) => void
   onBack: () => void
 }

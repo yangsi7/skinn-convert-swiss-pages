@@ -6,33 +6,162 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SKIIN Switzerland is a production-ready multi-language marketing website for Myant Health's Swiss heart health screening service, featuring comprehensive eligibility questionnaire, S&W Design system, and Swiss healthcare compliance.
 
-## Memory Bank System
+## Memory System v2.0 (JSON-Based)
 
-This project uses a structured memory bank system with specialized context files. Always check these files for relevant information before starting work:
+This project uses a tiered JSON memory system for efficient context management and agent coordination:
 
-### Core Context Files
+### JSON Memory Architecture
+
+#### Core Memory Files (memory/)
+- **memory/active.json** (8K tokens) - Current session state, active tasks, event logs
+- **memory/patterns.json** (2K tokens) - Frequently used patterns with usage statistics
+- **memory/knowledge.json** (32K tokens) - Configuration, troubleshooting, research
+- **memory/decisions.json** (8K tokens) - Architecture decisions with confidence scores
+- **memory/agent-groups.json** (8K tokens) - Agent organization and capabilities
+
+#### Key Features
+- **Tiered Storage**: 2K/8K/32K token boundaries for efficient context loading
+- **Request Tracking**: Every operation includes request_id for traceability
+- **Auto-Persistence**: Session state preserved across invocations
+- **Confidence Scoring**: Patterns and decisions tracked with confidence metrics
+- **TTL Management**: Automatic expiry for time-sensitive decisions
+
+### Active Context Files
 - **context/event-stream.md** - Event stream tracking all actions and observations
-- **context/CLAUDE-planning.md** - Active planning document for current work
-- **context/project-index.md** - High-level project overview and structure
-- **context/CLAUDE-activeContext.md** - Current session state, goals, and progress 
-- **context/CLAUDE-patterns.md** - Established code patterns and conventions 
-- **context/CLAUDE-decisions.md** - Architecture decisions and rationale 
-- **context/CLAUDE-troubleshooting.md** - Common issues and proven solutions 
-- **context/CLAUDE-config-variables.md** - Configuration variables reference 
-- **context/CLAUDE-todo.md** - Task tracking synchronized with TodoWrite tool
-- **context/CLAUDE-temp.md** - Temporary scratch pad (only read when referenced)
 - **context/WORKFLOWS.md** - Workflow orchestration patterns and triggers
+- **context/project-index.md** - High-level project overview and structure
 
-### Deep dive on project-index.md
-For planning/analysis work, utilize:
+**@context/project-index.md** deep dive --> For planning/analysis work, utilize:
 - High-level overview from context/project-index.md
 - Architectural structure from PROJECT_INDEX.json
 - Clean tree view from context/project-tree.txt
 
-**Important:** Always reference the active context file first to understand what's currently being worked on and maintain session continuity.
 
-**Note:** Research artifacts (TOT diagrams, research findings, brainstorm evaluations) should be kept in CLAUDE-temp.md as scratch work and cleaned up regularly to maintain a clean system.
+**CRITICAL WORKFLOW:**
+1. Check memory/active.json for current session state
+2. Load relevant memory tier based on task complexity
+3. Update memory/active.json with progress after each significant step
+4. Record new patterns in patterns.json with confidence scores
+5. Document decisions in decisions.json with TTL and confidence
+6. Add troubleshooting to knowledge.json as issues arise 
+   
 
+**Important:** The JSON memory system automatically loads relevant tiers based on context needs. Session continuity is maintained through memory/active.json.
+
+**Note:** Research artifacts and findings are stored permanently in memory/knowledge.json under the 'research' section for future reference.
+
+### Memory System Management
+
+**Automatic Synchronization:**
+- Session state updates in real-time to memory/active.json
+- Pattern usage statistics updated with each implementation
+- Decision confidence scores adjusted based on outcomes
+- Knowledge base expands automatically with troubleshooting
+
+**Manual Synchronization Required:**
+- After major architectural changes
+- When deprecating patterns or decisions
+- After significant feature implementations
+- When reorganizing agent groups
+
+
+
+## MCP Tools Integration
+
+This project leverages Model Context Protocol (MCP) tools for enhanced capabilities. Each MCP serves specific purposes and should be used strategically.
+
+### Core MCP Tools
+
+#### 1. Serena MCP - Code Exploration & Symbolic Tools
+**Purpose**: Precise code navigation and manipulation
+**Key Tools**: 
+- `mcp__serena__find_symbol` - Locate specific symbols in codebase
+- `mcp__serena__search_for_pattern` - Find code patterns
+- `mcp__serena__get_symbols_overview` - Get project structure overview
+- `mcp__serena__find_referencing_symbols` - Find usage references
+**Used By**: code-searcher, main agents, testing-qa-agent
+**Best Practices**: Use for symbol-first navigation before file edits
+
+#### 2. Supabase MCP - Database Operations
+**Purpose**: All Supabase database interactions
+**Key Tools**:
+- `mcp__supabase__execute_sql` - Run SQL queries
+- `mcp__supabase__list_tables` - View database structure  
+- `mcp__supabase__apply_migration` - Apply schema changes
+- `mcp__supabase__list_edge_functions` - Manage edge functions
+**Used By**: supabase-architect, supabase-implementation-engineer
+**Best Practices**: Always use for database operations instead of raw SQL
+
+#### 3. Stripe MCP - Payment Integration
+**Purpose**: Stripe payment processing
+**Key Tools**:
+- `mcp__stripe__create_customer` - Customer management
+- `mcp__stripe__create_payment_intent` - Payment processing
+- `mcp__stripe__search_stripe_documentation` - API documentation
+**Used By**: main agent when handling payments
+**Best Practices**: Use for all payment-related operations
+
+#### 4. Playwright MCP - Frontend Testing
+**Purpose**: E2E testing and visual validation (replaces Puppeteer)
+**Key Tools**:
+- `mcp__playwright__navigate` - Navigate to pages
+- `mcp__playwright__screenshot` - Capture visual states
+- `mcp__playwright__evaluate` - Execute browser JS
+**Used By**: testing-qa-agent, main agent for visual verification
+**Best Practices**: Use for all E2E testing and visual regression
+
+#### 5. Brave Search MCP - External Research
+**Purpose**: Online information gathering
+**Key Tools**:
+- `mcp__brave-search__brave_web_search` - General web search
+- `mcp__brave-search__brave_local_search` - Local business search
+**Used By**: researcher, brainstormer
+**Best Practices**: Cross-reference multiple sources
+
+#### 6. Context7 MCP - Library Documentation
+**Purpose**: Fetch up-to-date library documentation
+**Key Tools**:
+- `mcp__context7__resolve-library-id` - Find library IDs
+- `mcp__context7__get-library-docs` - Get documentation
+**Used By**: researcher, code-searcher
+**Best Practices**: Always check latest docs before implementation
+
+#### 7. Calculator MCP - Mathematical Operations
+**Purpose**: Complex calculations and metrics
+**Key Tools**:
+- `mcp__calculator__calculate` - Evaluate expressions
+**Used By**: Any agent needing calculations
+**Best Practices**: Use for all non-trivial calculations
+
+#### 8. Package Version MCP - Dependency Management
+**Purpose**: Check and manage package versions
+**Key Tools**:
+- `mcp__package-version__check_npm_versions` - NPM packages
+- `mcp__package-version__check_python_versions` - Python packages
+**Used By**: main agent, documentation-maintainer
+**Best Practices**: Check before updating dependencies
+
+### MCP Usage Patterns
+
+1. **Code Modification Flow**:
+   - Use Serena MCP to find symbols
+   - Use Read/Edit tools for changes
+   - Use Playwright MCP to verify UI changes
+
+2. **Research Flow**:
+   - Use Brave Search for general research
+   - Use Context7 for library documentation
+   - Document findings in memory/knowledge.json
+
+3. **Database Flow**:
+   - Use supabase-architect for design
+   - Use Supabase MCP for implementation
+   - Document schemas in specs/
+
+4. **Testing Flow**:
+   - Use testing-qa-agent for test design
+   - Use Playwright MCP for E2E tests
+   - Store results in memory/active.json
 
 ## Critical principles & guard-rails
 
@@ -45,11 +174,74 @@ For planning/analysis work, utilize:
 4.  **Mobile-first** responsive design.
     Start at 375px, progressive enhancement to desktop.
 5.  **Research-first methodology** – Always gather context (data schema, metrics, design guidelines) before writing code. Record findings in docs/research and reference the file in project-index.md.
-6.  **Context priming & persistence** – At the start of each session, read event-stream.md and CLAUDE-*.md.
-7.  **Design-system fidelity** – Adopt a minimalistic, airy aesthetic with consistent typography and accessible colours as outlined in the design system docs. Use the 21st.dev design tokens by default; fall back to prebuilt shadcn/ui components. Components should be ≤ 50 LOC and live in their own files.
+6.  **Context priming & persistence** – At the start of each session, load relevant memory tiers from JSON files.
+7.  **Component quality standards** – Components must be ≤ 50 LOC, adopt minimalistic aesthetic with consistent typography and accessible colors. Use 21st.dev design tokens by default; fall back to prebuilt shadcn/ui components.
 8.  **Variant & region awareness** – Implement components that react to region and variant filters. The RegionChart, VariantChart and BottleneckTable should update when a region is selected and provide clear feedback to the user (e.g. highlight selected bars).
-9.  **Documentation integrity** – Code is not “done” until event-stream.md & all CLAUDE-*.md. Archive superseded docs in docs/archive/YYYY-MM-DD/ and update project-index.md
-10.  **Test-driven & visual validation** – Write unit tests for data helpers and component logic. Use puppeteer mcp toolsto capture snapshots of each implemented component, verifying against initial requirements. Use the component and make sure all is as expected. All features must be responsive and accessible (ARIA labels, keyboard navigation, colour contrast).
+9.  **Documentation integrity** – Code is not "done" until event-stream.md & all memory files updated. Archive superseded docs in docs/archive/YYYY-MM-DD/ and update project-index.md
+10.  **Test-driven & visual validation** – Write unit tests for data helpers and component logic. Use Playwright MCP to capture snapshots of each implemented component, verifying against initial requirements. Use the component and make sure all is as expected. All features must be responsive and accessible (ARIA labels, keyboard navigation, colour contrast).
+
+## Project Type Detection (MANDATORY)
+
+### Automatic Detection Requirements
+The system MUST detect project type before any implementation to prevent architecture mismatches:
+
+1. **Package.json Analysis**:
+   - React Router: Check for `"react-router-dom"` in dependencies
+   - Next.js: Check for `"next"` in dependencies
+   - Vite: Check for `"vite"` in devDependencies
+
+2. **Directory Structure Verification**:
+   - React Router: Look for `src/routes/` or `src/App.tsx` with `<Routes>` component
+   - Next.js: Look for `app/` or `pages/` directory structure
+   - Current Project: Uses `src/` with React Router routing
+
+3. **Configuration File Detection**:
+   - React Router + Vite: Presence of `vite.config.js` or `vite.config.ts`
+   - Next.js: Presence of `next.config.js` or `next.config.mjs`
+
+4. **Routing Pattern Recognition**:
+   - React Router: Client-side routing with `<BrowserRouter>`, `<Routes>`, `<Route>`
+   - Next.js: File-based routing with server-side rendering capabilities
+
+### Current Project Configuration
+**Framework**: React Router + Vite + TypeScript
+**Routing**: Client-side with react-router-dom v6
+**Build Tool**: Vite 5.x
+**Deployment**: Static site generation
+
+### Implementation Guidelines by Project Type
+
+#### For React Router Projects (Like This One):
+- Use `react-router-dom` for all routing
+- Implement client-side navigation patterns
+- Use `<Link>` components from react-router-dom
+- Define routes in `src/routes/index.tsx`
+- Use dynamic imports for code splitting
+
+#### For Next.js Projects (NOT This One):
+- Use file-based routing in `app/` directory
+- Implement server components where appropriate
+- Use `next/link` for navigation
+- Define API routes in `app/api/`
+- Use Next.js image optimization
+
+### Detection Implementation
+```typescript
+// Project type detection logic
+function detectProjectType(): 'react-router' | 'nextjs' | 'unknown' {
+  const packageJson = require('./package.json');
+  
+  if (packageJson.dependencies?.['next']) {
+    return 'nextjs';
+  }
+  
+  if (packageJson.dependencies?.['react-router-dom']) {
+    return 'react-router';
+  }
+  
+  return 'unknown';
+}
+```
 
 ## Planning
 
@@ -72,7 +264,7 @@ Process: Requirements Analysis -> Research -> system_understanding -> planning -
     -   The canonical plan lives in `CLAUDE-planning.md`. The actionable checklist lives in `@context/CLAUDE-todo.md`.
     -   Plans must follow the **ITERATION-FIRST** principle: always check if an existing component or pattern can be extended before planning to create something new.
     -   Break down work into logical phases where applicable: 1. Foundation (data, types), 2. Backend (logic, APIs), 3. Frontend (UI, state), 4. Testing (unit, integration, E2E).
-    -   Log major plan updates as `Plan` events in `event-stream.md`.
+    -   Log major plan updates as `Plan` events in `@context/event-stream.md`.
 </planning>
 
 <todo>
@@ -85,7 +277,7 @@ Process: Requirements Analysis -> Research -> system_understanding -> planning -
     * Maintain `todo.md` as a checklist of tasks derived from the plan. Each entry corresponds to a specific deliverable or subtask and may have sub-items.
     * Link tasks to their parent phases and deliverables.
     * After completing each item, update `@context/CLAUDE-todo.md` and check it off. 
-    * If the plan changes or new tasks emerge, consider all tasks and reprioritize to make sure to have a clean consistent and coherent tasklist. Update `todo.md` accordingly. Invoke system_understanding if there is too much complexity or ambiguity
+    * If the plan changes or new tasks emerge, consider all tasks and reprioritize to make sure to have a clean consistent and coherent tasklist. Update `@context/CLAUDE-todo.md` accordingly. Invoke system_understanding if there is too much complexity or ambiguity
 
 </todo>
 
@@ -300,16 +492,188 @@ npm run preview         # Preview production build
 npm run test            # Run unit tests (Vitest)
 npm run test:e2e        # Run E2E tests (Playwright) 
 npm run test:coverage   # Run tests with coverage report
-npm run lint            # ESLint with auto-fix
+npm run lint            # ESLint check
+npm run lint:fix        # ESLint with auto-fix
+npm run format          # Prettier formatting
 npm run typecheck       # TypeScript type checking
 npm run check           # Run lint + typecheck + test:coverage
 npm run check:all       # Run all checks + E2E tests
 ```
 
+### Linting & Code Quality
+
+**Zero-Tolerance Policy**: This project enforces strict linting rules with automated prevention:
+- **Pre-commit Hooks**: Husky + lint-staged automatically fix and validate code
+- **CI/CD Enforcement**: GitHub Actions block merges with linting errors
+- **Auto-fix on PRs**: Bot automatically fixes formatting issues
+
+**Key Rules**:
+- ❌ No `any` types - use `unknown` or proper interfaces
+- ❌ No console.log statements - only warn/error allowed
+- ❌ No unused variables - remove or prefix with underscore
+- ✅ Required Node.js 18+ (see `.nvmrc`)
+
+**Quick Fixes**:
+```bash
+npm run lint:fix                        # Auto-fix all issues
+node scripts/fix-eslint-issues.cjs     # Bulk fix common patterns
+```
+
+See [docs/standards/linting-guide.md](docs/standards/linting-guide.md) for complete guide.
+
 ### Index Generation (v2.0)
 ```bash
 ./scripts/generate-indexes.sh   # Generate all 4 project indexes
 ```
+
+## Git Workflow & Best Practices
+
+### Commit Standards
+Maintain high-quality git history with frequent, atomic commits:
+
+#### Commit Frequency
+- **When to commit**: After each logical unit of work is complete
+- **Atomic commits**: Each commit should represent one coherent change
+- **Work in progress**: Use local commits frequently, squash before PR if needed
+
+#### Commit Message Format
+Follow conventional commits specification:
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+**Types**:
+- `feat`: New feature or functionality
+- `fix`: Bug fix
+- `docs`: Documentation changes only
+- `style`: Code style changes (formatting, missing semi-colons, etc.)
+- `refactor`: Code refactoring without changing functionality
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks (updating dependencies, build scripts, etc.)
+- `perf`: Performance improvements
+
+**Examples**:
+```bash
+git commit -m "feat(eligibility): add multi-language support for questionnaire"
+git commit -m "fix(supabase): resolve OTP verification rate limiting issue"
+git commit -m "docs: update CLAUDE.md with project type detection"
+```
+
+### Pull Request Workflow
+
+#### When to Create PRs
+- **Feature complete**: Create PR when a feature is fully implemented and tested
+- **Major milestone**: After significant architectural changes or refactoring
+- **Bug fix batch**: Group related bug fixes into a single PR
+
+#### PR Best Practices
+1. **Branch naming conventions**:
+   ```
+   feature/[feature-name]    # New features
+   fix/[bug-description]      # Bug fixes
+   docs/[doc-topic]          # Documentation updates
+   refactor/[area]           # Code refactoring
+   test/[test-scope]         # Test additions
+   ```
+
+2. **PR Description Template**:
+   ```markdown
+   ## Summary
+   Brief description of changes
+   
+   ## Changes Made
+   - Detailed list of modifications
+   - File structure changes
+   - API changes
+   
+   ## Testing
+   - [ ] Unit tests pass
+   - [ ] E2E tests pass
+   - [ ] Manual testing completed
+   
+   ## Screenshots (if UI changes)
+   Before/After screenshots
+   
+   ## Related Issues
+   Closes #[issue-number]
+   ```
+
+3. **PR Size Guidelines**:
+   - Keep PRs focused and manageable (< 500 lines ideally)
+   - Split large features into multiple PRs if possible
+   - Review your own PR first before requesting reviews
+
+### Branch Management
+
+#### Branch Strategy
+```
+main (or master)
+├── feature/process-revamp     # Current feature branch
+├── feature/gp-referral        # Feature branches
+├── fix/auth-timeout          # Bug fix branches
+└── docs/api-documentation    # Documentation branches
+```
+
+#### Branch Protection Rules
+- **main branch**: Protected, requires PR reviews
+- **Feature branches**: Regular commits, rebase from main frequently
+- **Cleanup**: Delete branches after PR merge
+
+### Git Commands Reference
+
+#### Common Workflows
+```bash
+# Start new feature
+git checkout -b feature/new-feature
+
+# Regular commits during development
+git add .
+git commit -m "feat: implement new component"
+
+# Keep branch updated with main
+git fetch origin
+git rebase origin/main
+
+# Create PR
+git push -u origin feature/new-feature
+# Then create PR via GitHub/GitLab UI
+
+# After PR approval and merge
+git checkout main
+git pull origin main
+git branch -d feature/new-feature
+```
+
+#### Useful Commands
+```bash
+# View commit history
+git log --oneline --graph --all
+
+# Amend last commit
+git commit --amend
+
+# Interactive rebase to clean history
+git rebase -i HEAD~3
+
+# Stash work in progress
+git stash
+git stash pop
+
+# Check branch status
+git status
+git branch -a
+```
+
+### Integration with AI Workflow
+When working with AI agents:
+1. **Commit after each agent task completion**
+2. **Use descriptive commit messages that reference the task**
+3. **Create PR when a complete feature is ready**
+4. **Document architectural decisions in commit messages**
 
 ## Architecture & Code Organization
 
@@ -373,10 +737,14 @@ npm run check:all       # Run all checks + E2E tests
 - **Accessibility**: Run accessibility audits regularly
 
 ## AI Agent Workflow
-- **@memory-bank-synchronizer** - MUST be invoked after EVERY significant code change, architectural pattern modification, or technical decision. Failure to sync results in outdated documentation and context drift.
-- **@code-searcher** - MUST be invoked BEFORE making any code modifications to understand existing implementation, locate patterns, and prevent duplicate work.
-- @ux-design-expert and @design-system-architect - Use proactively for any design and component related specifications (front-end)
-- @supabase-architect and @supabase-implementation-engineer - Invoke for any backend related work
+
+### Critical Agent Usage with MCP Tools
+- **@memory-bank-synchronizer** - MUST be invoked after EVERY significant code change, architectural pattern modification, or technical decision. Uses JSON memory directly (no MCP tools).
+- **@code-searcher** - MUST be invoked BEFORE making any code modifications. Uses Serena MCP (`mcp__serena__*`) for precise code navigation and Context7 MCP for library docs.
+- **@ux-design-expert** and **@design-system-architect** - Use proactively for design specifications. Use Playwright MCP for visual validation and Package Version MCP for dependency checks.
+- **@supabase-architect** and **@supabase-implementation-engineer** - Invoke for backend work. Use full Supabase MCP toolkit (`mcp__supabase__*`) for database operations.
+- **@testing-qa-agent** - Use for test specifications. Uses Playwright MCP (`mcp__playwright__*`) for E2E testing (replaces Puppeteer).
+- **@researcher** - Use for information gathering. Uses Brave Search MCP for web research and Context7 MCP for documentation.
 
 ### Phase-Based Process (CLAUDE_PROCESS.md)
 1. **Context Gathering**: Load indexes, detect workflows (check context/WORKFLOWS.md)

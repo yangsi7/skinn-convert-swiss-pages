@@ -8,7 +8,7 @@ import { SelectOption } from '../data/types';
 
 interface EligibilityFormStepProps {
   step: number;
-  formData: any;
+  formData: Record<string, unknown>;
   onFormDataChange: (data: any) => void;
   onNext: () => void;
   onBack: () => void;

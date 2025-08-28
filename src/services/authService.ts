@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabase';
-import type { AuthError } from '@supabase/supabase-js';
+import type { AuthError, Session, User } from '@supabase/supabase-js';
 
 export class AuthService {
   private static instance: AuthService;
@@ -30,7 +30,7 @@ export class AuthService {
       });
 
       if (error) {
-        console.error('Error sending OTP:', error);
+        // Error sending OTP
         
         // Handle rate limiting
         if (error.message?.includes('rate') || error.message?.includes('too many')) {
@@ -57,7 +57,7 @@ export class AuthService {
 
       return { success: true };
     } catch (error) {
-      console.error('Network error sending OTP:', error);
+      // Network error sending OTP
       
       // Handle offline/network errors
       if (!navigator.onLine) {
@@ -79,8 +79,8 @@ export class AuthService {
    */
   async verifyOTP(email: string, token: string): Promise<{
     success: boolean;
-    session?: any;
-    user?: any;
+    session?: Session | null;
+    user?: User | null;
     error?: string;
   }> {
     try {
@@ -91,7 +91,7 @@ export class AuthService {
       });
 
       if (error) {
-        console.error('Error verifying OTP:', error);
+        // Error verifying OTP
         return { success: false, error: error.message };
       }
 
@@ -101,7 +101,7 @@ export class AuthService {
         user: data.user
       };
     } catch (error) {
-      console.error('Unexpected error verifying OTP:', error);
+      // Unexpected error verifying OTP
       return { success: false, error: 'Failed to verify code' };
     }
   }
@@ -113,7 +113,7 @@ export class AuthService {
     const { data: { session }, error } = await supabase.auth.getSession();
     
     if (error) {
-      console.error('Error getting session:', error);
+      // Error getting session
       return null;
     }
     
@@ -127,7 +127,7 @@ export class AuthService {
     const { data: { user }, error } = await supabase.auth.getUser();
     
     if (error) {
-      console.error('Error getting user:', error);
+      // Error getting user
       return null;
     }
     
@@ -142,13 +142,13 @@ export class AuthService {
       const { error } = await supabase.auth.signOut();
       
       if (error) {
-        console.error('Error signing out:', error);
+        // Error signing out
         return { success: false, error: error.message };
       }
       
       return { success: true };
     } catch (error) {
-      console.error('Unexpected error signing out:', error);
+      // Unexpected error signing out
       return { success: false, error: 'Failed to sign out' };
     }
   }
@@ -156,9 +156,9 @@ export class AuthService {
   /**
    * Update user metadata
    */
-  async updateUserMetadata(metadata: Record<string, any>): Promise<{
+  async updateUserMetadata(metadata: Record<string, unknown>): Promise<{
     success: boolean;
-    user?: any;
+    user?: User | null;
     error?: string;
   }> {
     try {
@@ -167,7 +167,7 @@ export class AuthService {
       });
 
       if (error) {
-        console.error('Error updating user metadata:', error);
+        // Error updating user metadata
         return { success: false, error: error.message };
       }
 
@@ -176,7 +176,7 @@ export class AuthService {
         user: data.user
       };
     } catch (error) {
-      console.error('Unexpected error updating metadata:', error);
+      // Unexpected error updating metadata
       return { success: false, error: 'Failed to update user data' };
     }
   }

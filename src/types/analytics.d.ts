@@ -3,11 +3,11 @@
 
 interface Window {
   // Google Analytics / Tag Manager
-  dataLayer?: any[];
-  gtag?: (...args: any[]) => void;
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
   
   // HubSpot
-  _hsq?: any[];
+  _hsq?: unknown[];
   hbspt?: {
     forms: {
       create: (options: any) => void;
