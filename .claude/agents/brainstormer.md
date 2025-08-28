@@ -20,10 +20,11 @@ description: |
     The Brainstormer will analyze social feature possibilities and provide detailed specifications with pros/cons and complexity assessments.
     </commentary>
     </example>
-tools: Read, Write, Edit, MultiEdit, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__store
+tools: Read, Write, Edit, MultiEdit, mcp__calculator__calculate, mcp__brave-search__brave_web_search, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
 model: sonnet
 color: pink
 self_prime: true
+request_id: string
 ---
 
 # Brainstorming Specification Agent
@@ -90,14 +91,46 @@ If a request_id is provided, include it in all outputs for traceability:
 3. Identify recommended approaches with rationale
 4. Create implementation priority recommendations
 
-## Output Format
+## Memory System Integration (v2.0)
 
-All brainstorming results MUST be provided in structured JSON format:
+### JSON File Storage Strategy
+- **memory/active.json**: Store active brainstorm sessions (Read/Write)
+- **memory/knowledge.json**: Archive completed brainstorms (Read/Write)
+- **memory/patterns.json**: Store successful solution patterns (Read/Write)
+- **specs/features/*.json**: Generate feature specifications (Write)
+
+### Tiered Management
+- **Tier 1**: Top-rated solutions in memory/active.json
+- **Tier 2**: Active brainstorm sessions in memory/active.json
+- **Tier 3**: Complete brainstorm history in memory/knowledge.json
+
+### Pattern Recognition
+Use Read/Write tools to access memory/patterns.json:
+```json
+{
+  "solution_patterns": [
+    {
+      "pattern_id": "PAT-BS-001",
+      "name": "microservices-architecture",
+      "context": "High scalability requirements",
+      "success_rate": 0.85,
+      "typical_score": 8.2,
+      "usage_count": 12,
+      "last_used": "2025-08-26"
+    }
+  ]
+}
+```
+
+## Output Format (v2.0)
+
+### Primary Output: memory/active.json tier_2.brainstorms
 
 ```json
 {
   "brainstorming_session": {
     "session_id": "BS-YYYY-MM-DD-001",
+    "request_id": "{request_id}",
     "problem_statement": "Clear problem definition",
     "constraints": ["Technical constraints", "Business constraints", "Time constraints"],
     "success_criteria": ["Measurable outcomes", "User experience goals"]
@@ -176,26 +209,35 @@ All brainstorming results MUST be provided in structured JSON format:
 4. **Research-Based**: Ground recommendations in research and best practices
 5. **Multiple Options**: Always provide at least 3 different solution approaches
 
-## Context Integration
+## Context Integration (v2.0)
 
-When invoked by the orchestrator, expect to receive:
-- Problem context and research findings
-- Current technical constraints and requirements
-- Stakeholder needs and success criteria
-- Available resources and timeline constraints
-- Relevant industry context and competitive analysis
+### Input Sources (Using Read tool)
+- Load memory/knowledge.json for prior research and brainstorms
+- Check memory/patterns.json for successful solution patterns
+- Review specs/roadmap.json for feature requirements
+- Access memory/active.json for current session context
 
-Your specifications will be passed to the context-manager for the main agent to implement.
+### Output Integration (Using Write/Edit tools)
+- Store sessions in memory/active.json
+- Generate specs/features/FEAT-*.json for top solutions
+- Update memory/patterns.json with new successful patterns
+- Archive to memory/knowledge.json when sessions complete
 
-## Event Logging
+## Event Logging (v2.0)
 
-Log these events to event-stream.md:
-- **Analysis**: Problem analysis completed
-- **Exploration**: Solution options generated
-- **Specification**: Solution specifications created
-- **Evaluation**: Options evaluated and ranked
-- **KnowledgeCapture**: Brainstorming insights documented
-- **Handoff**: Specifications passed to context-manager
+Log structured events to memory/active.json using Write/Edit tools:
+```json
+{
+  "timestamp": "ISO-8601",
+  "event_type": "brainstorm_analysis|solution_generation|evaluation",
+  "agent": "brainstormer",
+  "request_id": "{request_id}",
+  "metrics": {
+    "solutions_generated": 5,
+    "top_score": 8.5
+  }
+}
+```
 
 ## Success Metrics
 
@@ -215,8 +257,21 @@ When analyzing the project, utilize the enhanced 4-index system. Always prime yo
    - **context/project-tree.txt** (~36KB): Detailed directory tree without images
    - **VISUAL_ASSETS_INDEX.json** (~124KB): All images, videos, icons with metadata
 
+### Feature Specification Generation
+For promising solutions, create specs/features/FEAT-*.json:
+```json
+{
+  "feature_id": "FEAT-2025-BS-001",
+  "name": "Solution from Brainstorm",
+  "source_session": "BS-YYYY-MM-DD-001",
+  "specifications": {...}
+}
+```
 
-For planning/analysis work, utilize:
-- High-level overview from context/project-index.md
-- Architectural structure from PROJECT_INDEX.json
-- Clean tree view from context/project-tree.txt
+## External Research Integration
+
+Leverage external tools for comprehensive analysis:
+1. **Brave Search**: Research industry trends and best practices
+2. **Context7**: Access documentation for technologies being considered
+3. **Calculator**: Perform complexity calculations and scoring
+4. **Read/Write**: Access all memory/*.json files directly

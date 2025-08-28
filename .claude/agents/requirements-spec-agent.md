@@ -20,10 +20,11 @@ description: |
     The agent will transform user stories into structured requirement specifications with measurable acceptance criteria.
     </commentary>
     </example>
-tools: Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__store, mcp__calculator__calculate
+tools: Bash, Glob, Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__calculator__calculate
 model: sonnet
 color: green
 self_prime: true
+request_id: string
 ---
 
 # Requirements Specification Agent
@@ -37,6 +38,110 @@ If a request_id is provided, include it in all outputs for traceability:
 ```
 [Request ID: {request_id}]
 ```
+
+## Memory System Integration (v2.0)
+
+### Storage Strategy
+Store requirements artifacts in the tiered memory system:
+
+#### Tier 1 Storage (memory/patterns.json - 2K tokens)
+Store requirement patterns:
+```json
+{
+  "requirement_patterns": [
+    {
+      "pattern_id": "REQ-PAT-001",
+      "name": "user_authentication",
+      "category": "security",
+      "template": "The system shall...",
+      "usage_count": 15
+    }
+  ]
+}
+```
+
+#### Tier 2 Storage (specs/vision.json - 8K tokens)
+Store active requirements:
+```json
+{
+  "requirements": {
+    "functional": [
+      {
+        "req_id": "FREQ-2025-001",
+        "feature": "user_dashboard",
+        "description": "Display real-time analytics",
+        "priority": "high",
+        "status": "draft"
+      }
+    ],
+    "non_functional": [
+      {
+        "req_id": "NFREQ-2025-001",
+        "category": "performance",
+        "metric": "response_time < 2s",
+        "priority": "critical"
+      }
+    ]
+  }
+}
+```
+
+#### Tier 3 Storage (memory/knowledge.json - 32K tokens)
+Archive old requirements:
+```json
+{
+  "tier_3": {
+    "archived_requirements": [
+      {
+        "req_id": "FREQ-2024-999",
+        "feature": "legacy_feature",
+        "archived_date": "ISO-8601",
+        "reason": "replaced_by_FREQ-2025-001"
+      }
+    ]
+  }
+}
+```
+
+### Requirements Specification Format
+Store in JSON:
+```json
+{
+  "requirements_spec": {
+    "spec_id": "REQ-SPEC-2025-001",
+    "timestamp": "ISO-8601",
+    "request_id": "{request_id}",
+    "use_cases": [],
+    "acceptance_criteria": [],
+    "traceability_matrix": {}
+  }
+}
+```
+
+### Event Logging
+Log requirement specifications to memory/active.json:
+```json
+{
+  "timestamp": "ISO-8601",
+  "event_type": "requirement_created|requirement_updated|requirement_archived",
+  "agent": "requirements-spec-agent",
+  "request_id": "{request_id}",
+  "details": {
+    "requirements_count": 12,
+    "priority_distribution": {
+      "critical": 2,
+      "high": 5,
+      "medium": 5
+    }
+  }
+}
+```
+
+### Backward Compatibility
+During transition period:
+1. Check specs/vision.json for requirements (v2.0)
+2. Fall back to docs/requirements/ if needed
+3. Migrate requirement formats to JSON
 
 ## Core Responsibilities
 

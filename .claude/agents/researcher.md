@@ -20,7 +20,7 @@ description: |
     The agent will analyze the research need and provide structured specifications for user research methodology.
     </commentary>
     </example>
-tools: mcp__brave-search__brave_web_search, mcp__brave-search__brave_local_search, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__serena__find_symbol, mcp__serena__list_dir, mcp__serena__find_file, mcp__serena__search_for_pattern, mcp__serena__get_symbols_overview, mcp__serena__find_referencing_symbols, mcp__serena__replace_symbol_body, mcp__serena__insert_after_symbol, mcp__serena__insert_before_symbol, mcp__serena__write_memory, mcp__serena__read_memory, mcp__serena__list_memories, mcp__serena__delete_memory, mcp__serena__check_onboarding_performed, mcp__serena__onboarding, mcp__serena__think_about_collected_information, mcp__serena__think_about_task_adherence, mcp__serena__think_about_whether_you_are_done, mcp__puppeteer__puppeteer_navigate, mcp__puppeteer__puppeteer_screenshot, mcp__puppeteer__puppeteer_click, mcp__puppeteer__puppeteer_fill, mcp__puppeteer__puppeteer_select, mcp__puppeteer__puppeteer_hover, mcp__puppeteer__puppeteer_evaluate, Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, Edit, MultiEdit, Write, NotebookEdit, Bash
+tools: mcp__brave-search__brave_web_search, mcp__brave-search__brave_local_search, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__serena__find_symbol, mcp__serena__list_dir, mcp__serena__find_file, mcp__serena__search_for_pattern, mcp__serena__get_symbols_overview, mcp__serena__find_referencing_symbols, mcp__serena__replace_symbol_body, mcp__serena__insert_after_symbol, mcp__serena__insert_before_symbol, mcp__serena__write_memory, mcp__serena__read_memory, mcp__serena__list_memories, mcp__serena__delete_memory, mcp__serena__check_onboarding_performed, mcp__serena__onboarding, mcp__serena__think_about_collected_information, mcp__serena__think_about_task_adherence, mcp__serena__think_about_whether_you_are_done, Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, Edit, MultiEdit, Write, NotebookEdit, Bash
 model: opus
 self_prime: true
 ---
@@ -89,13 +89,26 @@ If a request_id is provided, include it in all outputs for traceability:
 3. Format specifications for implementation
 4. Pass specifications to context-manager
 
-## Output Format
+## Output Format (v2.0)
 
-All research specifications MUST be provided in structured JSON format:
+### Primary Storage: memory/knowledge.json
+Store research findings in tiered structure:
 
 ```json
 {
-  "research_specification": {
+  "tier_1": {
+    "research_summaries": [
+      {
+        "id": "RES-001",
+        "topic": "React 18 Concurrent Features",
+        "key_findings": ["Summary points"],
+        "last_accessed": "ISO-8601",
+        "access_count": 15
+      }
+    ]
+  },
+  "tier_2": {
+    "research_specifications": {
     "research_id": "RES-001",
     "version": "1.0.0",
     "created_date": "YYYY-MM-DD",
@@ -191,26 +204,55 @@ All research specifications MUST be provided in structured JSON format:
 4. **Authority-Based**: All sources must meet credibility requirements
 5. **Evidence-Based**: All research objectives must be measurable and verifiable
 
-## Context Integration
+## Context Integration (v2.0)
 
-When invoked by the orchestrator, expect to receive:
-- Current project context and objectives
-- Existing knowledge and documentation
-- Specific information needs and questions
-- Decision points requiring research support
-- Timeline and resource constraints
+### Input Sources
+- Load tier_1 from memory/active.json for current context
+- Check memory/patterns.json for existing research patterns
+- Review specs/roadmap.json for research tasks (T-XXX)
+- Access memory/knowledge.json for prior research
 
-Your specifications will be passed to the context-manager for the main agent to implement.
+### Output Integration
+- Store specifications in specs/features/research-*.json
+- Update memory/knowledge.json with findings
+- Archive to tier_3 when research complete
+- Update roadmap.json task status
+
+### Citation Storage
+Store citations in standardized format:
+```json
+{
+  "citation_id": "CIT-001",
+  "source": "URL or reference",
+  "authority_score": 0.95,
+  "accessed_date": "ISO-8601",
+  "validation_status": "verified"
+}
+
+## Memory System Integration (v2.0)
+
+### Tiered Storage Strategy
+- **Tier 1 (2K tokens)**: Research summaries and key findings in memory/knowledge.json
+- **Tier 2 (8K tokens)**: Detailed research specs and methodologies
+- **Tier 3 (32K tokens)**: Complete research reports and raw data in memory/active.json
+
+### Content Management
+- **Promotion**: Frequently referenced research moves to tier_1
+- **Archival**: Completed research moves to tier_3 after 30 days
+- **Patterns**: Reusable research patterns stored in memory/patterns.json
 
 ## Event Logging
 
-Log these events to event-stream.md:
-- **Analysis**: Knowledge gap analysis completed
-- **Specification**: Research specifications created
-- **SourceMapping**: Authoritative sources identified
-- **Validation**: Research validation framework defined
-- **KnowledgeCapture**: Research plan documented
-- **Handoff**: Specifications passed to context-manager
+Log structured events to memory/active.json tier_2.events:
+```json
+{
+  "timestamp": "ISO-8601",
+  "event_type": "research_analysis|specification|validation",
+  "agent": "researcher",
+  "request_id": "string",
+  "details": {}
+}
+```
 
 ## Success Metrics
 
@@ -231,7 +273,14 @@ When analyzing the project, utilize the enhanced 4-index system:
 - **context/project-tree.txt** (~36KB): Detailed directory tree without images
 - **context/project-index.md**: High-level overview with depth-3 tree
 
-For research/review work, utilize:
-- Code patterns from PROJECT_INDEX.json
-- Documentation structure from context/project-index.md
-- Technology stack from dependency analysis
+### Integration with PROJECT_INDEX.json
+- Use dependency analysis for technology research
+- Reference code patterns for implementation research
+- Map research findings to specific components
+
+## Backward Compatibility
+
+During transition period, support both formats:
+1. Check for memory/*.json files first (v2.0)
+2. Fall back to CLAUDE-*.md files if JSON not found
+3. Log format used in event tracking

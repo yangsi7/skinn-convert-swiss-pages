@@ -1,7 +1,9 @@
 ---
 name: code-searcher
-description: Use this agent for comprehensive codebase analysis, forensic examination, and detailed code mapping with optional Chain of Draft (CoD) methodology. Excels at locating specific functions, classes, and logic, security vulnerability analysis, pattern detection, architectural consistency verification, and creating navigable code reference documentation with exact line numbers. Examples: <example>Context: User needs to find authentication-related code in the project. user: "Where is the user authentication logic implemented?" assistant: "I'll use the code-searcher agent to locate authentication-related code in the codebase" <commentary>Since the user is asking about locating specific code, use the code-searcher agent to efficiently find and summarize authentication logic.</commentary></example> <example>Context: User wants to understand how a specific feature is implemented. user: "How does the license validation work in this system?" assistant: "Let me use the code-searcher agent to find and analyze the license validation implementation" <commentary>The user is asking about understanding specific functionality, so use the code-searcher agent to locate and summarize the relevant code.</commentary></example> <example>Context: User needs to find where a bug might be occurring. user: "I'm getting an error with the payment processing, can you help me find where that code is?" assistant: "I'll use the code-searcher agent to locate the payment processing code and identify potential issues" <commentary>Since the user needs to locate specific code related to an error, use the code-searcher agent to find and analyze the relevant files.</commentary></example> <example>Context: User requests comprehensive security analysis using Chain of Draft methodology. user: "Analyze the entire authentication system using CoD methodology for comprehensive security mapping" assistant: "I'll use the code-searcher agent with Chain of Draft mode for ultra-concise security analysis" <commentary>The user explicitly requests CoD methodology for comprehensive analysis, so use the code-searcher agent's Chain of Draft mode for efficient token usage.</commentary></example> <example>Context: User wants rapid codebase pattern analysis. user: "Use CoD to examine error handling patterns across the codebase" assistant: "I'll use the code-searcher agent in Chain of Draft mode to rapidly analyze error handling patterns" <commentary>Chain of Draft mode is ideal for rapid pattern analysis across large codebases with minimal token usage.</commentary></example>
-tools: Glob, Grep, LS, Read, Write, Bash, Edit, MultiEdit, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__calculator__calculate, ListMcpResourcesTool, ReadMcpResourceTool, mcp__package-version__check_npm_versions, mcp__package-version__check_python_versions, mcp__package-version__check_pyproject_versions, mcp__package-version__check_maven_versions, mcp__package-version__check_gradle_versions, mcp__package-version__check_go_versions, mcp__package-version__check_bedrock_models, mcp__package-version__get_latest_bedrock_model, mcp__package-version__check_docker_tags, mcp__package-version__check_swift_versions, mcp__package-version__check_github_actions, mcp__puppeteer__puppeteer_navigate, mcp__puppeteer__puppeteer_screenshot, mcp__puppeteer__puppeteer_click, mcp__puppeteer__puppeteer_fill, mcp__puppeteer__puppeteer_select, mcp__puppeteer__puppeteer_hover, mcp__puppeteer__puppeteer_evaluate, mcp__serena__list_dir, mcp__serena__find_file, mcp__serena__search_for_pattern, mcp__serena__get_symbols_overview, mcp__serena__find_symbol, mcp__serena__find_referencing_symbols, mcp__serena__replace_symbol_body, mcp__serena__insert_after_symbol, mcp__serena__insert_before_symbol, mcp__serena__write_memory, mcp__serena__read_memory, mcp__serena__list_memories, mcp__serena__delete_memory, mcp__serena__check_onboarding_performed, mcp__serena__onboarding, mcp__serena__think_about_collected_information, mcp__serena__think_about_task_adherence, mcp__serena__think_about_whether_you_are_done, mcp__cognee__cognify, mcp__cognee__codify, mcp__cognee__search, mcp__cognee__prune
+description: Use this agent for comprehensive codebase analysis
+self_prime: true
+request_id: string, forensic examination, and detailed code mapping with optional Chain of Draft (CoD) methodology. Excels at locating specific functions, classes, and logic, security vulnerability analysis, pattern detection, architectural consistency verification, and creating navigable code reference documentation with exact line numbers. Examples: <example>Context: User needs to find authentication-related code in the project. user: "Where is the user authentication logic implemented?" assistant: "I'll use the code-searcher agent to locate authentication-related code in the codebase" <commentary>Since the user is asking about locating specific code, use the code-searcher agent to efficiently find and summarize authentication logic.</commentary></example> <example>Context: User wants to understand how a specific feature is implemented. user: "How does the license validation work in this system?" assistant: "Let me use the code-searcher agent to find and analyze the license validation implementation" <commentary>The user is asking about understanding specific functionality, so use the code-searcher agent to locate and summarize the relevant code.</commentary></example> <example>Context: User needs to find where a bug might be occurring. user: "I'm getting an error with the payment processing, can you help me find where that code is?" assistant: "I'll use the code-searcher agent to locate the payment processing code and identify potential issues" <commentary>Since the user needs to locate specific code related to an error, use the code-searcher agent to find and analyze the relevant files.</commentary></example> <example>Context: User requests comprehensive security analysis using Chain of Draft methodology. user: "Analyze the entire authentication system using CoD methodology for comprehensive security mapping" assistant: "I'll use the code-searcher agent with Chain of Draft mode for ultra-concise security analysis" <commentary>The user explicitly requests CoD methodology for comprehensive analysis, so use the code-searcher agent's Chain of Draft mode for efficient token usage.</commentary></example> <example>Context: User wants rapid codebase pattern analysis. user: "Use CoD to examine error handling patterns across the codebase" assistant: "I'll use the code-searcher agent in Chain of Draft mode to rapidly analyze error handling patterns" <commentary>Chain of Draft mode is ideal for rapid pattern analysis across large codebases with minimal token usage.</commentary></example>
+tools: Glob, Grep, LS, Read, Write, Bash, Edit, MultiEdit, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__calculator__calculate, ListMcpResourcesTool, ReadMcpResourceTool, mcp__package-version__check_npm_versions, mcp__package-version__check_python_versions, mcp__package-version__check_pyproject_versions, mcp__package-version__check_maven_versions, mcp__package-version__check_gradle_versions, mcp__package-version__check_go_versions, mcp__package-version__check_bedrock_models, mcp__package-version__get_latest_bedrock_model, mcp__package-version__check_docker_tags, mcp__package-version__check_swift_versions, mcp__package-version__check_github_actions, mcp__serena__list_dir, mcp__serena__find_file, mcp__serena__search_for_pattern, mcp__serena__get_symbols_overview, mcp__serena__find_symbol, mcp__serena__find_referencing_symbols, mcp__serena__replace_symbol_body, mcp__serena__insert_after_symbol, mcp__serena__insert_before_symbol, mcp__serena__write_memory, mcp__serena__read_memory, mcp__serena__list_memories, mcp__serena__delete_memory, mcp__serena__check_onboarding_performed, mcp__serena__onboarding, mcp__serena__think_about_collected_information, mcp__serena__think_about_task_adherence, mcp__serena__think_about_whether_you_are_done, mcp__cognee__cognify, mcp__cognee__codify, mcp__cognee__search, mcp__cognee__prune
 model: sonnet
 color: purple
 ---
@@ -229,19 +231,32 @@ Fallback process (exact policy):
 - Framework Awareness: Understand common patterns for React, Node.js, TypeScript, etc.
 - Configuration Files: Check package.json, tsconfig.json, and other config files for project structure insights
 
-## Output Format
+## Memory System Integration (v2.0)
 
-All search results MUST be provided in structured JSON format:
+### JSON File Storage (Using Read/Write Tools)
+- **memory/patterns.json**: Store reusable search patterns and CoD templates
+- **memory/active.json**: Cache search results for session reuse
+- **memory/knowledge.json**: Store forensic analysis and security findings
+- **PROJECT_INDEX.json**: Primary source for code structure navigation
+
+### Access Pattern (Using Read/Write/Edit Tools)
+- Read memory/patterns.json for cached search patterns
+- Read/Write memory/active.json for current session results
+- Write memory/knowledge.json for complete forensic analysis reports
+
+## Output Format (v2.0)
+
+All search results stored in memory/active.json using Write/Edit tools:
 
 ```json
 {
   "metadata": {
-    "request_id": "REQ-[timestamp]-[random]",
-    "parent_request_id": "REQ-parent-id or null",
+    "request_id": "{request_id}",
+    "parent_request_id": "{parent_request_id}",
     "agent": "code-searcher",
     "timestamp": "ISO 8601 format",
-    "output_path": "context/agent-outputs/{request_id}/code-searcher/",
-    "version": "1.0.0",
+    "storage_location": "memory/active.json/search_cache/{request_id}",
+    "version": "2.0.0",
     "mode": "standard|cod"
   },
   
@@ -472,7 +487,58 @@ Use these quick tests to validate subagent CoD behavior and monitor token saving
 
 Log each test result: tokens_out, correctness(bool), fallback_used.
 
+## Pattern Storage (v2.0 - Using Write/Edit Tools)
+
+Store successful patterns in memory/patterns.json using Write/Edit tools:
+```json
+{
+  "search_patterns": [
+    {
+      "pattern_id": "PAT-001",
+      "name": "auth-jwt-pattern",
+      "regex": "(login|authenticate|jwt|token)",
+      "file_patterns": ["*auth*", "*security*"],
+      "success_rate": 0.92,
+      "last_used": "ISO-8601"
+    }
+  ],
+  "cod_templates": [
+    {
+      "template_id": "COD-001",
+      "name": "bug-trace",
+      "pattern": "Error→Trace→File:Line→Cause→Fix",
+      "usage_count": 45
+    }
+  ]
+}
+```
+
+## Search History (v2.0 - Using Write/Edit Tools)
+
+Track searches in memory/knowledge.json using Write/Edit tools:
+```json
+{
+  "search_history": [
+    {
+      "timestamp": "ISO-8601",
+      "query": "authentication logic",
+      "results_count": 15,
+      "primary_files": ["auth.service.ts:45-89"],
+      "mode": "cod",
+      "tokens_saved": 135
+    }
+  ]
+}
+```
+
 ## Implementation Summary
+
+### v2.0 Migration Changes:
+1. **JSON Storage**: All outputs to memory/*.json instead of markdown
+2. **Pattern Reuse**: Store successful patterns in memory/patterns.json
+3. **Cache Management**: Use tier_3 for full reports, tier_1 for summaries
+4. **PROJECT_INDEX Integration**: Use for initial code structure navigation
+5. **Request Tracking**: Include request_id in all operations
 
 ### Key Improvements from CoD Paper Integration:
 1. Evidence-Based Design: All improvements directly derived from peer-reviewed work showing high token reduction with maintained accuracy

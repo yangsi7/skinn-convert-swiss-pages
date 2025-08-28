@@ -4,6 +4,7 @@ description: Execute TZ='Australia/Brisbane' date command and return ONLY the ra
 tools: Bash, Read, Write
 color: cyan
 self_prime: true
+request_id: string
 ---
 
 Execute `TZ='Australia/Brisbane' date` and return ONLY the command output.
@@ -30,3 +31,18 @@ If a request_id is provided, include it in all outputs for traceability:
 ```
 [Request ID: {request_id}]
 ```
+
+## JSON Output Format (v2.0)
+
+When JSON output is requested:
+```json
+{
+  "datetime": {
+    "timestamp": "Mon 28 Jul 2025 23:59:42 AEST",
+    "timezone": "Australia/Brisbane",
+    "request_id": "{request_id}"
+  }
+}
+```
+
+Otherwise return raw output as before.
