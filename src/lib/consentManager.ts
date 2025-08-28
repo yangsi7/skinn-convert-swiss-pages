@@ -19,7 +19,7 @@ export function saveConsentPreferences(preferences: ConsentPreferences): void {
   
   try {
     localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(preferences));
-    console.log('[Consent] Saved preferences:', preferences);
+  // Console statement removed by ESLint fix
   } catch (error) {
     console.error('[Consent] Error saving preferences:', error);
   }

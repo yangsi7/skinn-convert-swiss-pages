@@ -46,8 +46,7 @@ const RequestDemo = () => {
   const onSubmit = async (data: RequestDemoFormData) => {
     try {
       // Here you would integrate with your backend API
-      console.log('Demo request submitted:', data);
-      
+  // Console statement removed by ESLint fix
       // Show success message
       toast.success('Demo request submitted successfully! We will contact you within 24 hours.');
       

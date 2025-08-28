@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { MinimalInput } from '@/components/ui/minimal-input';
 import { MinimalCard } from '@/components/ui/minimal-card';
-import { OTPVerification } from '../components/OTPVerification';
+import { EmailSection } from '../molecules/EmailSection';
+import { DateOfBirthSection } from '../molecules/DateOfBirthSection';
+import { EmailVerificationSection } from '../molecules/EmailVerificationSection';
 import { StageHeader } from '../components/StageHeader';
 import { StageFooter } from '../components/StageFooter';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calendar, CheckCircle } from 'lucide-react';
 import { authService } from '@/services/authService';
 
 interface ContactAccountStageProps {
@@ -50,6 +49,19 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
   };
   
   const handleSendOTP = async (email: string) => {
+    /* ===== DEVELOPMENT BYPASS - TEMPORARY =====
+     * TO REVERT: Remove lines 54-57 (the if block below)
+     * REASON: OTP email service not configured in development
+     * PRODUCTION: This bypass MUST be removed - the authService is correctly configured
+     * TEST WITH: Use email containing 'test@' and OTP code '123456'
+     * =========================================== */
+    // Development bypass: Allow test emails to skip real OTP
+    if (import.meta.env.DEV && email.includes('test@')) {
+  // Console statement removed by ESLint fix
+      return;
+    }
+    
+    // PRODUCTION CODE - Correctly configured, DO NOT modify
     const result = await authService.sendOTP(email);
     if (!result.success) {
       throw new Error(result.error || 'Failed to send OTP');
@@ -57,6 +69,19 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
   };
   
   const handleVerifyOTP = async (code: string) => {
+    /* ===== DEVELOPMENT BYPASS - TEMPORARY =====
+     * TO REVERT: Remove lines 72-75 (the if block below)
+     * REASON: Allows testing without actual email delivery
+     * PRODUCTION: This bypass MUST be removed - the authService verification works correctly
+     * TEST WITH: Use OTP code '123456' for any test@ email
+     * =========================================== */
+    // Development bypass: Accept "123456" as valid OTP for test emails
+    if (import.meta.env.DEV && email.includes('test@') && code === '123456') {
+  // Console statement removed by ESLint fix
+      return true;
+    }
+    
+    // PRODUCTION CODE - Correctly configured, DO NOT modify
     const result = await authService.verifyOTP(email, code);
     return result.success;
   };
@@ -86,47 +111,24 @@ export const ContactAccountStage: React.FC<ContactAccountStageProps> = ({
       />
       
       <div className="space-y-6">
-        <MinimalInput
-          id="email"
-          type="email"
-          label="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="your.email@example.com"
-          required
+        <EmailSection
+          email={email}
+          onChange={setEmail}
         />
         
-        {email && !emailVerified && (
-          <OTPVerification
-            email={email}
-            onVerified={handleEmailVerified}
-            onSendOTP={handleSendOTP}
-            onVerifyOTP={handleVerifyOTP}
-          />
-        )}
+        <EmailVerificationSection
+          email={email}
+          emailVerified={emailVerified}
+          onVerified={handleEmailVerified}
+          onSendOTP={handleSendOTP}
+          onVerifyOTP={handleVerifyOTP}
+        />
         
-        {emailVerified && (
-          <Alert className="bg-green-50 border-green-300">
-            <CheckCircle className="h-5 w-5 text-green-600" />
-            <AlertDescription className="text-green-800 font-ibm-plex-sans">
-              Email verified successfully
-            </AlertDescription>
-          </Alert>
-        )}
-        
-        <div className="relative">
-          <MinimalInput
-            id="dob"
-            type="date"
-            label="Date of Birth"
-            value={dob}
-            onChange={(e) => handleDobChange(e.target.value)}
-            max={new Date().toISOString().split('T')[0]}
-            error={ageError}
-            required
-          />
-          <Calendar className="absolute right-4 top-11 h-5 w-5 text-[#475259] pointer-events-none" />
-        </div>
+        <DateOfBirthSection
+          dateOfBirth={dob}
+          onChange={handleDobChange}
+          error={ageError}
+        />
       </div>
       
       <StageFooter

@@ -426,8 +426,7 @@ export function setupOTPRoutes(app: any) {
     
     res.status(response.status).json(response.body);
   });
-
-  console.log('✅ OTP API routes configured with P0 security fixes');
+  // Console statement removed by ESLint fix
 }
 
 // Development testing utilities
@@ -436,8 +435,7 @@ export const otpTestUtils = {
    * Test OTP generation with various scenarios
    */
   async testOTPGeneration() {
-    console.log('🧪 Testing OTP Generation...');
-    
+  // Console statement removed by ESLint fix
     const testCases = [
       {
         name: 'Valid email OTP',
@@ -487,9 +485,9 @@ export const otpTestUtils = {
     ];
 
     for (const testCase of testCases) {
-      console.log(`\n📋 ${testCase.name}`);
+  // Console statement removed by ESLint fix
       const response = await generateOTP(testCase.request);
-      console.log(`Status: ${response.status}`);
+  // Console statement removed by ESLint fix
       console.log(`Response:`, JSON.stringify(response.body, null, 2));
     }
   },
@@ -498,8 +496,7 @@ export const otpTestUtils = {
    * Test rate limiting behavior
    */
   async testRateLimiting() {
-    console.log('\n🧪 Testing Rate Limiting...');
-    
+  // Console statement removed by ESLint fix
     const request = {
       method: 'POST',
       url: '/api/otp/generate',
@@ -515,13 +512,12 @@ export const otpTestUtils = {
 
     // Send 7 requests to trigger rate limiting (limit is 5)
     for (let i = 1; i <= 7; i++) {
-      console.log(`\n📋 Request ${i}/7`);
+  // Console statement removed by ESLint fix
       const response = await generateOTP(request);
-      console.log(`Status: ${response.status}`);
-      
+  // Console statement removed by ESLint fix
       if (response.status === 429) {
-        console.log('✅ Rate limiting triggered as expected');
-        console.log(`Retry-After: ${response.headers['Retry-After']}`);
+  // Console statement removed by ESLint fix
+  // Console statement removed by ESLint fix
         break;
       }
     }

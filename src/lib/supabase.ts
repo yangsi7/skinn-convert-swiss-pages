@@ -45,7 +45,7 @@ export interface UserProfileV2 {
   email_verified: boolean
   health_insurance_number?: string
   preferred_language: 'de' | 'fr' | 'it' | 'en'
-  emergency_contact?: any
+  emergency_contact?: { name?: string; phone?: string; relationship?: string }
   medical_data_classification: 'public' | 'confidential' | 'secret'
   created_at: string
   updated_at: string
@@ -54,12 +54,12 @@ export interface UserProfileV2 {
 export interface FormSession {
   id: string
   user_id: string
-  form_data: any
+  form_data: Record<string, unknown>
   current_step: number
   total_steps: number
   completion_percentage: number
   status: 'active' | 'completed' | 'expired' | 'abandoned'
-  eligibility_result?: any
+  eligibility_result?: { eligible: boolean; pathway: string; reason: string; score?: number }
   session_token?: string
   expires_at: string
   last_activity_at: string
@@ -67,8 +67,8 @@ export interface FormSession {
   gp_referral_required: boolean
   submitted_at?: string
   completion_time_seconds?: number
-  recommendations?: any
-  next_steps?: any
+  recommendations?: string[]
+  next_steps?: string[]
   created_at: string
   updated_at: string
 }
@@ -83,7 +83,7 @@ export interface Payment {
   amount_cents: number
   currency: string
   status: 'pending' | 'processing' | 'succeeded' | 'failed' | 'cancelled'
-  billing_address: any
+  billing_address: { street?: string; city?: string; postalCode?: string; country?: string }
   vat_included: boolean
   vat_rate: number
   invoice_number?: string
@@ -109,7 +109,7 @@ export interface Document {
   mime_type: string
   document_type: 'referral' | 'invoice' | 'report' | 'upload' | 'ecg' | 'prescription' | 'insurance_card'
   template_used?: string
-  generation_parameters?: any
+  generation_parameters?: Record<string, unknown>
   patient_consent_required: boolean
   medical_data_classification: 'public' | 'confidential' | 'secret'
   retention_period_years: number
@@ -126,7 +126,7 @@ export interface Document {
 // Create secure form session using database function
 export const createSecureFormSession = async (
   userId: string,
-  initialData: any = {},
+  initialData: Record<string, unknown> = {},
   sessionType: string = 'eligibility_questionnaire'
 ): Promise<{success: boolean, sessionId?: string, sessionToken?: string, expiresAt?: string, error?: string}> => {
   if (!isSupabaseConfigured()) {
@@ -169,12 +169,12 @@ export const createSecureFormSession = async (
 export const saveFormProgress = async (
   sessionId: string,
   step: number,
-  formData: any,
+  formData: Record<string, unknown>,
   userId?: string
 ): Promise<{success: boolean, eligibilityResult?: any, error?: string}> => {
   if (!isSupabaseConfigured()) {
     // Mock implementation for development
-    console.log('Mock save progress:', { sessionId, step, formData })
+  // Console statement removed by ESLint fix
     return { success: true }
   }
 
@@ -247,11 +247,11 @@ export const createUserProfile = async (
   userId: string,
   dateOfBirth: string,
   phone?: string,
-  address?: any,
+  address?: { street?: string; city?: string; postalCode?: string; canton?: string },
   preferredLanguage: 'de' | 'fr' | 'it' | 'en' = 'de'
 ): Promise<{success: boolean, error?: string}> => {
   if (!isSupabaseConfigured()) {
-    console.log('Mock create profile:', { userId, dateOfBirth, phone, address, preferredLanguage })
+  // Console statement removed by ESLint fix
     return { success: true }
   }
 
@@ -286,12 +286,12 @@ export const processPaymentSecurely = async (
   formSessionId: string,
   stripePaymentIntentId: string,
   amountCents: number,
-  billingAddress: any,
+  billingAddress: { street?: string; city?: string; postalCode?: string; country?: string },
   idempotencyKey: string
-): Promise<{success: boolean, paymentId?: string, invoiceNumber?: string, amountBreakdown?: any, error?: string}> => {
+): Promise<{success: boolean, paymentId?: string, invoiceNumber?: string, amountBreakdown?: { total_cents: number; net_cents: number; vat_cents: number; vat_rate: number; currency: string }, error?: string}> => {
   if (!isSupabaseConfigured()) {
     // Mock payment processing
-    console.log('Mock payment processing:', { userId, amountCents, stripePaymentIntentId })
+  // Console statement removed by ESLint fix
     return {
       success: true,
       paymentId: `mock_payment_${Date.now()}`,
@@ -336,9 +336,9 @@ export const processPaymentSecurely = async (
 }
 
 // Export user data for GDPR compliance
-export const exportUserData = async (userId: string): Promise<{success: boolean, data?: any, error?: string}> => {
+export const exportUserData = async (userId: string): Promise<{success: boolean, data?: unknown, error?: string}> => {
   if (!isSupabaseConfigured()) {
-    console.log('Mock data export for user:', userId)
+  // Console statement removed by ESLint fix
     return { 
       success: true, 
       data: { 
@@ -425,7 +425,7 @@ export const signInWithOTP = async (
   contactValue: string
 ): Promise<{success: boolean, error?: string, userFriendlyError?: string}> => {
   if (!isSupabaseConfigured()) {
-    console.log('Mock OTP sent to:', contactMethod, contactValue)
+  // Console statement removed by ESLint fix
     return { success: true }
   }
 
@@ -590,7 +590,7 @@ export const signOut = async (): Promise<{success: boolean, error?: string}> => 
 }
 
 // Check eligibility using database function
-export const checkEligibility = async (formData: any): Promise<{success: boolean, result?: any, error?: string}> => {
+export const checkEligibility = async (formData: Record<string, unknown>): Promise<{success: boolean, result?: unknown, error?: string}> => {
   if (!isSupabaseConfigured()) {
     // Mock eligibility result
     return {

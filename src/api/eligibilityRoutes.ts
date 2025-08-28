@@ -655,8 +655,7 @@ export function setupEligibilityRoutes(app: any) {
     
     res.status(response.status).json(response.body);
   });
-
-  console.log('✅ Eligibility API routes configured with Swiss healthcare compliance');
+  // Console statement removed by ESLint fix
 }
 
 // Development testing utilities
@@ -665,8 +664,7 @@ export const eligibilityTestUtils = {
    * Test eligibility calculation with various scenarios
    */
   async testEligibilityCalculation() {
-    console.log('🧪 Testing Eligibility Calculation...');
-    
+  // Console statement removed by ESLint fix
     const testUser = { id: 'test_user_456', sessionToken: 'test_token_456' };
     
     const testCases = [
@@ -737,9 +735,9 @@ export const eligibilityTestUtils = {
     ];
 
     for (const testCase of testCases) {
-      console.log(`\n📋 ${testCase.name}`);
+  // Console statement removed by ESLint fix
       const response = await calculateEligibility(testCase.request);
-      console.log(`Status: ${response.status}`);
+  // Console statement removed by ESLint fix
       console.log(`Response:`, JSON.stringify(response.body, null, 2));
     }
   },
@@ -748,10 +746,9 @@ export const eligibilityTestUtils = {
    * Test Swiss healthcare compliance features
    */
   async testSwissCompliance() {
-    console.log('\n🧪 Testing Swiss Healthcare Compliance...');
-    
+  // Console statement removed by ESLint fix
     // Test insurance providers
-    console.log('\n📋 Swiss Insurance Providers');
+  // Console statement removed by ESLint fix
     const providersResponse = await getInsuranceProviders({
       method: 'GET',
       url: '/api/eligibility/insurance-providers',
@@ -759,17 +756,16 @@ export const eligibilityTestUtils = {
       ip: '127.0.0.1',
       userAgent: 'TestAgent/1.0'
     });
-    
-    console.log(`Status: ${providersResponse.status}`);
+  // Console statement removed by ESLint fix
     if (providersResponse.body.data?.providers) {
-      console.log(`Found ${providersResponse.body.data.providers.length} Swiss insurance providers`);
+  // Console statement removed by ESLint fix
       providersResponse.body.data.providers.slice(0, 3).forEach((provider: any) => {
         console.log(`  - ${provider.name} (${provider.shortName}): ${provider.models.join(', ')}`);
       });
     }
 
     // Test healthcare metrics
-    console.log('\n📋 Healthcare Service Health');
+  // Console statement removed by ESLint fix
     const healthResponse = await getHealthcareHealth({
       method: 'GET',
       url: '/api/eligibility/health',
@@ -777,12 +773,11 @@ export const eligibilityTestUtils = {
       ip: '127.0.0.1',
       userAgent: 'TestAgent/1.0'
     });
-    
-    console.log(`Status: ${healthResponse.status}`);
+  // Console statement removed by ESLint fix
     if (healthResponse.body.data?.metrics) {
-      console.log('Healthcare Metrics:');
+  // Console statement removed by ESLint fix
       Object.entries(healthResponse.body.data.metrics).forEach(([key, value]) => {
-        console.log(`  ${key}: ${value}`);
+  // Console statement removed by ESLint fix
       });
     }
   }

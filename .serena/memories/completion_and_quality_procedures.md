@@ -11,7 +11,7 @@
 
 2. **Update Context Files**
    - Update `context/todo.md` - mark tasks as completed
-   - Update `context/planning.md` - reflect progress and next phases
+   - Update `context/CLAUDE-planning.md` - reflect progress and next phases
    - Update `context/event-stream.md` - log completion event
    - Update `context/conventions.md` - if new patterns emerged
 

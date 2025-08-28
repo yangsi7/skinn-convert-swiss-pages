@@ -3,11 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -19,7 +25,21 @@
     "guard": "npx tdd-guard",
     "preview": "vite preview",
     "check": "npm run lint && npm run typecheck && npm run test:coverage",
-    "check:all": "npm run check && npm run test:e2e"
+    "check:all": "npm run check && npm run test:e2e",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -65,9 +85,11 @@
     "lucide-react": "^0.462.0",
     "netlify": "^22.3.0",
     "next-themes": "^0.3.0",
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.53.0",
     "react-resizable-panels": "^2.1.3",
@@ -100,9 +122,12 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "husky": "^8.0.3",
     "jsdom": "^26.1.0",
+    "lint-staged": "^14.0.1",
     "playwright": "^1.54.1",
     "postcss": "^8.4.47",
+    "prettier": "^3.6.2",
     "puppeteer": "^24.14.0",
     "tailwindcss": "^3.4.11",
     "tdd-guard": "^0.6.0",

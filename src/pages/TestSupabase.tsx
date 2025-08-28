@@ -29,7 +29,7 @@ export default function TestSupabase() {
     const results: Record<string, boolean | null> = {};
 
     // Test 1: Supabase Configuration
-    console.log('Testing Supabase configuration...');
+  // Console statement removed by ESLint fix
     results.connection = isSupabaseConfigured();
     
     if (results.connection) {
@@ -41,7 +41,7 @@ export default function TestSupabase() {
           .limit(1);
         
         results.tables = !error;
-        console.log('Database test:', error ? 'Failed' : 'Success');
+  // Console statement removed by ESLint fix
       } catch (e) {
         results.tables = false;
         console.error('Database error:', e);
@@ -70,7 +70,7 @@ export default function TestSupabase() {
         });
         
         results.edgeFunction = response.ok || response.status === 401; // 401 means it's reachable but needs auth
-        console.log('Edge function test:', response.status);
+  // Console statement removed by ESLint fix
       } catch (e) {
         results.edgeFunction = false;
         console.error('Edge function error:', e);
@@ -88,8 +88,7 @@ export default function TestSupabase() {
     }
 
     setLoading(true);
-    console.log('Sending OTP using new secure authService for:', email);
-    
+  // Console statement removed by ESLint fix
     const result = await authService.sendOTP(email);
     
     if (result.success) {

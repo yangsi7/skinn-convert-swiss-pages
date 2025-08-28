@@ -1,6 +1,6 @@
 import React from 'react';
 import { MinimalCard, MinimalCardContent } from '@/components/ui/minimal-card';
-import { EligibilityProgressBar } from '../atoms/EligibilityProgressBar';
+import { SwissHealthcareStepper } from '../../forms/eligibility/components/SwissHealthcareStepper';
 import { EligibilityFormStep } from './EligibilityFormStep';
 import { useEligibility } from '../context/EligibilityContext';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -11,12 +11,13 @@ import {
   getInsuranceModelOptions,
   SWISS_INSURERS 
 } from '../data/swissHealthcareData';
-// Import all 6-stage components
-import { ContactAccountStage } from '../../forms/eligibility/stages/ContactAccountStage';
-import { EligibilityGateStage } from '../../forms/eligibility/stages/EligibilityGateStage';
-import { DetailedInfoStage } from '../../forms/eligibility/stages/DetailedInfoStage';
-import { InsuredReviewStage } from '../../forms/eligibility/stages/InsuredReviewStage';
-import { SelfPayStage } from '../../forms/eligibility/stages/SelfPayStage';
+import { generateReferralPDF } from '@/utils/pdfGenerator';
+// Import all 6-stage components (using refactored versions)
+import { ContactAccountStageRefactored } from '../../forms/eligibility/stages/ContactAccountStageRefactored';
+import { EligibilityGateStage } from '../../forms/eligibility/stages/EligibilityGateStageRefactored';
+import { DetailedInfoStageRefactored } from '../../forms/eligibility/stages/DetailedInfoStageRefactored';
+import { InsuredReviewStageRefactored } from '../../forms/eligibility/stages/InsuredReviewStageRefactored';
+import { SelfPayStage } from '../../forms/eligibility/stages/SelfPayStageRefactored';
 import { CompletionStage } from '../../forms/eligibility/stages/CompletionStage';
 
 export const EligibilityFormContainer: React.FC = () => {
@@ -55,7 +56,7 @@ export const EligibilityFormContainer: React.FC = () => {
     switch (state.currentStep) {
       case 0: // Contact & Account
         return (
-          <ContactAccountStage
+          <ContactAccountStageRefactored
             onStageComplete={(data) => {
               updateFormData(data);
               handleNext();
@@ -64,33 +65,33 @@ export const EligibilityFormContainer: React.FC = () => {
               updateFormData({ email, emailVerified: verified });
             }}
             initialData={state.formData}
+            onSaveForLater={() => {
+  // Console statement removed by ESLint fix
+              // TODO: Implement save functionality with Supabase
+            }}
           />
         );
         
       case 1: // Eligibility Gate
         return (
           <EligibilityGateStage
-            onEligibilityDetermined={(eligibility) => {
-              updateFormData({ eligibilityStatus: eligibility });
-              handleNext();
-            }}
-            onInsuranceModelSelected={(model) => {
-              updateFormData({ insuranceModel: model });
-            }}
-            contactData={state.formData}
-            contraindications={state.formData.contraindications}
+            data={state.formData}
+            onUpdate={updateFormData}
+            onNext={handleNext}
+            onBack={handleBack}
           />
         );
         
       case 2: // Detailed Information
         return (
-          <DetailedInfoStage
+          <DetailedInfoStageRefactored
             onStageComplete={(data) => {
               updateFormData(data);
               handleNext();
             }}
             symptoms={state.formData.symptoms || []}
             initialData={state.formData.detailedInfo}
+            onBack={handleBack}
           />
         );
         
@@ -105,21 +106,31 @@ export const EligibilityFormContainer: React.FC = () => {
               }}
               onProcessPayment={async (paymentData) => {
                 // TODO: Integrate with actual payment processor
-                console.log('Processing payment:', paymentData);
+  // Console statement removed by ESLint fix
                 return true; // Mock success
               }}
             />
           );
         } else {
           return (
-            <InsuredReviewStage
+            <InsuredReviewStageRefactored
               insuranceModel={state.formData.insuranceModel}
               onStageComplete={(data) => {
                 updateFormData({ reviewData: data });
                 handleNext();
               }}
               onDownloadReferral={() => {
-                console.log('Downloading referral packet...');
+                // Generate PDF with current form data
+                generateReferralPDF({
+                  patientName: `${state.formData.firstName || ''} ${state.formData.lastName || ''}`.trim() || 'Patient',
+                  email: state.formData.email || '',
+                  dateOfBirth: state.formData.dateOfBirth || '',
+                  referralCode: 'REF' + Date.now().toString(36).toUpperCase().slice(-6),
+                  gpName: state.formData.reviewData?.gpName,
+                  practiceName: state.formData.reviewData?.practiceName,
+                  insuranceModel: state.formData.insuranceModel,
+                  symptoms: state.formData.symptoms
+                });
               }}
               onBookTeleconsult={() => {
                 window.open('https://medgate.ch/booking', '_blank');
@@ -137,7 +148,17 @@ export const EligibilityFormContainer: React.FC = () => {
             gpChoice={state.formData.reviewData?.gpChoice}
             email={state.formData.email}
             onDownloadReferral={() => {
-              console.log('Downloading referral packet...');
+              // Generate PDF for completion stage
+              generateReferralPDF({
+                patientName: `${state.formData.firstName || ''} ${state.formData.lastName || ''}`.trim() || 'Patient',
+                email: state.formData.email || '',
+                dateOfBirth: state.formData.dateOfBirth || '',
+                referralCode: 'REF' + Date.now().toString(36).toUpperCase().slice(-6),
+                gpName: state.formData.reviewData?.gpName,
+                practiceName: state.formData.reviewData?.practiceName,
+                insuranceModel: state.formData.insuranceModel,
+                symptoms: state.formData.symptoms
+              });
             }}
             onContactSupport={() => {
               window.location.href = 'mailto:support@skiin.ch';
@@ -175,7 +196,7 @@ export const EligibilityFormContainer: React.FC = () => {
         </p>
       </div>
 
-      <EligibilityProgressBar 
+      <SwissHealthcareStepper 
         currentStep={state.currentStep}
         totalSteps={6}
         className="mb-8"

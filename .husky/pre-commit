@@ -8,4 +8,4 @@ npx lint-staged
 npm run typecheck
 
 # Check for sensitive data
-npx secretlint "**/*"
+npx secretlint "**/*"npx lint-staged

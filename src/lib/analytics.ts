@@ -26,7 +26,7 @@ export function trackPageView(
           page_location: url,
           ...params
         });
-        console.log(`[Analytics] Tracked page view: ${title}`);
+  // Console statement removed by ESLint fix
       }
     } catch (error) {
       console.error('[Analytics] Error tracking page view:', error);
@@ -47,7 +47,7 @@ export function trackEvent(eventName: string, params?: EventParams) {
     try {
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', eventName, params);
-        console.log(`[Analytics] Tracked event: ${eventName}`, params);
+  // Console statement removed by ESLint fix
       }
     } catch (error) {
       console.error(`[Analytics] Error tracking event ${eventName}:`, error);
@@ -89,7 +89,7 @@ export function trackConversion(
           value: value,
           currency: 'CHF',
         });
-        console.log(`[Analytics] Tracked conversion: ${conversionLabel}`);
+  // Console statement removed by ESLint fix
       }
     } catch (error) {
       console.error('[Analytics] Error tracking conversion:', error);
@@ -124,7 +124,7 @@ export function storeUtmParams() {
   const utmParams = getUtmParams();
   if (Object.keys(utmParams).length > 0) {
     localStorage.setItem('skiin_utm_params', JSON.stringify(utmParams));
-    console.log('[Analytics] Stored UTM params:', utmParams);
+  // Console statement removed by ESLint fix
   }
 }
 
@@ -150,7 +150,7 @@ export function getStoredUtmParams(): Record<string, string> {
  */
 export function identifyUserInHubSpot(
   email: string, 
-  properties: Record<string, any> = {}
+  properties: Record<string, unknown> = {}
 ) {
   // Only identify if we have marketing consent
   if (hasConsent('marketing')) {
@@ -160,7 +160,7 @@ export function identifyUserInHubSpot(
           email: email,
           ...properties
         }]);
-        console.log('[Analytics] Identified user in HubSpot:', email);
+  // Console statement removed by ESLint fix
       }
     } catch (error) {
       console.error('[Analytics] Error identifying user in HubSpot:', error);

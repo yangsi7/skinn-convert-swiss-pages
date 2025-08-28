@@ -442,7 +442,7 @@ $HIGHLEVEL_TREE
 
 ### Working Context (\`/context/\`)
 - **Purpose**: Active working files
-- **Key Files**: todo.md, planning.md, conventions.md, requirements.md
+- **Key Files**: todo.md, CLAUDE-planning.md, conventions.md, requirements.md
 - **Event Tracking**: event-stream.md
 - **Checkpoints**: Workflow state management
 - **Subagent Contexts**: Agent-specific context files

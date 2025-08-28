@@ -18,6 +18,10 @@
             "/Users/yangsim/Nanoleq/sideProjects/memory/db/memory_skinn-convert-swiss-pages.jsonl"
           ]
         },
+        "stripe": {
+          "type": "http",
+          "url": "https://mcp.stripe.com/"
+        },
         "context7": {
           "command": "npx",
           "args": [
