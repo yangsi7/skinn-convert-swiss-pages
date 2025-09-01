@@ -28,21 +28,23 @@ PURPOSE: Predefined workflows for common development scenarios with parallel exe
 | **Code refactoring** | "refactor", "cleanup", "reorganize", "improve code" | repository-conformance-agent | design-system-architect | ⚠️ Partial | Refactoring plan | PROJECT_INDEX + tree |
 | **API development** | "API", "endpoint", "REST", "backend" | backend-developer | supabase-architect | ✅ Yes | API spec + implementation | PROJECT_INDEX |
 | **Testing** | "test", "verify", "validate", "QA" | testing-qa-agent | requirements-spec-agent | ✅ Yes | Test report + coverage | PROJECT_INDEX + VISUAL_ASSETS |
+| **Product Development** | "product", "feature", "spec", "roadmap", "mission", "/plan-product", "/create-spec", "/create-tasks" | planning-task-agent | researcher, tree-of-thought-agent | ❌ No | Product spec + roadmap | memory/product.json + specs/ |
 
 ## Standard Workflows
 
-### 1. Feature Implementation Workflow
+### 1. Feature Implementation Workflow (Progressive Elaboration)
 
 ```yaml
 name: feature-implementation
-description: Complete feature development from research to deployment
+description: Complete feature development with progressive elaboration
 phases:
   - name: research_and_analysis
     parallel: true
+    mandatory: true  # Research MUST complete before planning
     agents:
       - researcher: 
           task: "Research best practices for {feature_type}"
-          output: "best_practices_brief.json"
+          output: "context/planning/research-findings.md"
       - context-manager:
           task: "Load current architecture and dependencies"
           output: "architecture_context.json"
@@ -53,17 +55,33 @@ phases:
           task: "Analyze implementation complexity"
           output: "complexity_analysis.json"
   
-  - name: planning_and_design
+  - name: strategic_planning
     parallel: false
     checkpoint: true
+    progressive_elaboration: true  # Only high-level planning
     agents:
       - planning-task-agent:
-          task: "Create detailed implementation plan"
-          input: ["research_results", "requirements"]
-          output: "implementation_plan.json"
+          task: "Create strategic plan with WBS (3-4 levels max)"
+          input: ["research_findings", "requirements"]
+          output: "context/planning/strategic-plan.md"
+          elaboration_depth: "high_level"
       - invocation-chain-generator:
-          task: "Design optimal execution sequence"
+          task: "Design execution sequence for epics"
           output: "execution_chain.json"
+  
+  - name: sprint_planning
+    parallel: false
+    progressive_elaboration: true  # Detail only next 2 sprints
+    agents:
+      - planning-task-agent:
+          task: "Elaborate features for next sprint"
+          input: ["strategic_plan", "research_validation"]
+          output: "context/planning/current-sprint.md"
+          elaboration_depth: "detailed"
+          rules:
+            - "8/80 hour rule for tasks"
+            - "Maximum 5 subtasks per task"
+            - "Research must be complete"
   
   - name: specification_preparation
     parallel: true
@@ -693,6 +711,76 @@ steps:
   3. archive obsolete docs:
       - Move superseded docs to archive/
       - Update doc-ref.md index
+```
+
+### 7. Product Development Workflow (Agent OS Integration)
+
+```yaml
+name: product-development
+description: Spec-driven feature development with Agent OS patterns
+command_triggers: ["/plan-product", "/create-spec", "/create-tasks", "/execute-tasks"]
+phases:
+  - name: product_planning
+    parallel: false
+    command: "/plan-product"
+    agents:
+      - planning-task-agent:
+          task: "Define product mission, vision, and roadmap"
+          context_load: ["memory/product.json"]
+          output: "memory/product.json"
+          interactive: true
+          prompts:
+            - "What is the product's core mission?"
+            - "What features should we prioritize?"
+            - "What are the success metrics?"
+  
+  - name: spec_creation
+    parallel: true
+    command: "/create-spec"
+    agents:
+      - researcher:
+          task: "Research best practices for {feature}"
+          output: "memory/specs/{feature}/research.json"
+      - tree-of-thought-agent:
+          task: "Create feature specification structure"
+          output: "memory/specs/{feature}/spec.json"
+          includes:
+            - requirements
+            - acceptance_criteria
+            - technical_design
+            - ui_mockups
+  
+  - name: task_generation
+    parallel: false
+    command: "/create-tasks"
+    tools:
+      - TodoWrite:
+          task: "Generate tasks from specification"
+          input: "memory/specs/{feature}/spec.json"
+          output: "TodoWrite state + memory/active.json"
+          task_structure:
+            - parent_tasks: 3-5 major milestones
+            - subtasks: 5-8 per parent
+            - linking: Each task linked to spec section
+  
+  - name: execution
+    parallel: false
+    command: "/execute-tasks"
+    workflow: "feature-implementation"
+    context:
+      - spec: "memory/specs/{feature}/spec.json"
+      - tasks: "TodoWrite state"
+      - patterns: "memory/patterns.json"
+    quality_gates:
+      - spec_completeness: ">90%"
+      - task_coverage: "100%"
+      - test_coverage: ">80%"
+
+memory_updates:
+  - memory/product.json: Update roadmap status
+  - memory/specs/{feature}/spec.json: Mark as implemented
+  - memory/active.json: Update product_context
+  - memory/patterns.json: Record new patterns discovered
 ```
 
 ## Usage Guidelines

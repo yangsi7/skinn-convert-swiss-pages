@@ -1,0 +1,108 @@
+{
+  "version": "1.0",
+  "description": "Telemetry tracking for agent operations and index priming verification",
+  "last_updated": "2025-08-28T16:00:30Z",
+  "configuration": {
+    "retention_days": 30,
+    "max_sessions": 100,
+    "tracking_enabled": true,
+    "priming_verification": true
+  },
+  "statistics": {
+    "total_sessions": 3,
+    "total_tokens_saved": 140000,
+    "total_cache_hits": 0,
+    "total_priming_executions": 1,
+    "average_tokens_per_session": 0,
+    "priming_success_rate": 0
+  },
+  "sessions": [
+    {
+      "timestamp": "2025-08-28T16:00:30Z",
+      "agent": "main",
+      "operation": "task_completion",
+      "data": {
+        "task": "telemetry-system-implementation",
+        "success": true,
+        "components_added": 9
+      }
+    },
+    {
+      "timestamp": "2025-08-28T15:59:28Z",
+      "agent": "code-searcher",
+      "operation": "priming",
+      "data": {
+        "priming_executed": true,
+        "tokens_saved": 140000,
+        "cache_hits": 0,
+        "query_index_calls": 1
+      }
+    },
+    {
+      "timestamp": "2025-08-28T15:59:18Z",
+      "agent": "main",
+      "operation": "session_start",
+      "data": {
+        "workflow": "test-workflow",
+        "project_type": "react-router"
+      }
+    }
+  ],
+  "priming_history": [],
+  "error_log": [],
+  "performance_metrics": {
+    "query_index_response_times": [],
+    "cache_hit_rate": 0,
+    "average_query_time_ms": 0,
+    "peak_memory_usage_mb": 0
+  },
+  "agent_usage": {
+    "code-searcher": {
+      "invocations": 1,
+      "priming_count": 1,
+      "tokens_saved": 140000,
+      "last_used": "2025-08-28T15:59:28Z"
+    },
+    "ux-design-expert": {
+      "invocations": 0,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": null
+    },
+    "supabase-architect": {
+      "invocations": 0,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": null
+    },
+    "context-manager": {
+      "invocations": 0,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": null
+    },
+    "testing-qa-agent": {
+      "invocations": 0,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": null
+    },
+    "memory-bank-synchronizer": {
+      "invocations": 0,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": null
+    },
+    "main": {
+      "invocations": 2,
+      "priming_count": 0,
+      "tokens_saved": 0,
+      "last_used": "2025-08-28T16:00:30Z"
+    }
+  },
+  "compliance_checks": {
+    "last_check": null,
+    "violations": [],
+    "warnings": []
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "version": "1.0",
+  "framework": "CLAUDE System Testing Framework",
+  "created": "2025-08-28",
+  "baseline_compliance": 87.3,
+  
+  "test_configuration": {
+    "timeout_seconds": 300,
+    "retry_attempts": 3,
+    "parallel_execution": true,
+    "telemetry_enabled": true,
+    "detailed_logging": true
+  },
+  
+  "test_categories": {
+    "autonomy": {
+      "description": "Tests for autonomous operation capabilities",
+      "target_success_rate": 75,
+      "critical_threshold": 60,
+      "tests": [
+        {
+          "id": "AUT-001",
+          "name": "Single Prompt Complete Feature Challenge", 
+          "description": "System completes full feature from single prompt",
+          "target_duration_minutes": 120,
+          "expected_phases": ["Context Gathering", "Analysis", "Research", "Planning", "Execution", "Review", "Delivery"]
+        },
+        {
+          "id": "AUT-002",
+          "name": "Multi-Phase Workflow Navigation",
+          "description": "Autonomous progression through 8-phase lifecycle",
+          "target_duration_minutes": 60,
+          "quality_gates": ["research_confidence_70%", "test_passage", "documentation_complete"]
+        },
+        {
+          "id": "AUT-003", 
+          "name": "Parallel Agent Coordination",
+          "description": "Independent agent execution without context pollution",
+          "target_duration_minutes": 30,
+          "parallel_agents": 3
+        },
+        {
+          "id": "AUT-004",
+          "name": "Self-Correction and Recovery",
+          "description": "System detects failures and recovers automatically", 
+          "target_duration_minutes": 45,
+          "failure_scenarios": ["test_failures", "linting_errors", "dependency_conflicts"]
+        },
+        {
+          "id": "AUT-005",
+          "name": "Memory-Driven Decision Making",
+          "description": "Uses memory patterns for intelligent decisions",
+          "target_duration_minutes": 20,
+          "pattern_confidence_threshold": 0.9
+        }
+      ]
+    },
+    
+    "memory": {
+      "description": "Memory persistence and management tests",
+      "target_success_rate": 85,
+      "critical_threshold": 70,
+      "tests": [
+        {
+          "id": "MEM-001",
+          "name": "Session Continuity Test",
+          "description": "State preservation across session interruptions",
+          "target_duration_minutes": 15,
+          "memory_files": ["active.json", "patterns.json", "decisions.json"]
+        },
+        {
+          "id": "MEM-002", 
+          "name": "Tiered Memory Management",
+          "description": "Memory tier boundaries (2K/8K/32K tokens)",
+          "target_duration_minutes": 10,
+          "tier_boundaries": [2000, 8000, 32000]
+        },
+        {
+          "id": "MEM-003",
+          "name": "TTL Expiry and Lifecycle",
+          "description": "Decisions expire according to TTL configuration",
+          "target_duration_minutes": 30,
+          "test_ttl_hours": 1
+        }
+      ]
+    },
+    
+    "agents": {
+      "description": "Agent coordination and communication tests", 
+      "target_success_rate": 70,
+      "critical_threshold": 55,
+      "tests": [
+        {
+          "id": "AGT-001",
+          "name": "Self-Priming Protocol Test",
+          "description": "All agents execute self-priming before tasks",
+          "target_duration_minutes": 20,
+          "expected_agents": 27
+        },
+        {
+          "id": "AGT-002",
+          "name": "Context Isolation Test", 
+          "description": "Parallel agents with isolated contexts",
+          "target_duration_minutes": 25,
+          "isolation_directory": "context/subagent-contexts/"
+        },
+        {
+          "id": "AGT-003",
+          "name": "Fallback Chain Activation",
+          "description": "Backup agents activate on primary failures",
+          "target_duration_minutes": 35,
+          "max_fallback_depth": 3
+        }
+      ]
+    },
+    
+    "quality": {
+      "description": "Quality gate enforcement tests",
+      "target_success_rate": 90,
+      "critical_threshold": 80,
+      "tests": [
+        {
+          "id": "QUA-001",
+          "name": "Research Completion Gate",
+          "description": "Blocks planning until 70% research confidence",
+          "target_duration_minutes": 15,
+          "confidence_threshold": 0.7
+        },
+        {
+          "id": "QUA-002",
+          "name": "Test Gate Enforcement",
+          "description": "Failing tests block delivery progression",
+          "target_duration_minutes": 20,
+          "test_commands": ["npm test", "npm run typecheck", "npm run lint"]
+        },
+        {
+          "id": "QUA-003",
+          "name": "Documentation Completeness Gate",
+          "description": "Documentation updates mandatory before delivery",
+          "target_duration_minutes": 10,
+          "required_docs": ["implementation", "api", "changelog"]
+        }
+      ]
+    },
+    
+    "stress": {
+      "description": "System stress and performance tests",
+      "target_success_rate": 65,
+      "critical_threshold": 50,
+      "tests": [
+        {
+          "id": "STR-001",
+          "name": "Token Budget Overflow Test",
+          "description": "Graceful handling of context budget exhaustion",
+          "target_duration_minutes": 30,
+          "budget_threshold": 0.9
+        },
+        {
+          "id": "STR-002",
+          "name": "Concurrent Workflow Load Test",
+          "description": "Multiple simultaneous workflows",
+          "target_duration_minutes": 45,
+          "concurrent_workflows": 5
+        },
+        {
+          "id": "STR-003",
+          "name": "Error Cascade Handling",
+          "description": "Component failures don't cascade",
+          "target_duration_minutes": 40,
+          "failure_components": ["mcp_tools", "memory_system", "index_generation"]
+        }
+      ]
+    },
+    
+    "e2e": {
+      "description": "End-to-end scenario tests",
+      "target_success_rate": 75,
+      "critical_threshold": 60,
+      "tests": [
+        {
+          "id": "E2E-001",
+          "name": "Complete Bug Fix Workflow",
+          "description": "Bug analysis → fix → test → documentation",
+          "target_duration_minutes": 45,
+          "scenario": "Eligibility form date validation not working"
+        },
+        {
+          "id": "E2E-002",
+          "name": "Swiss Compliance Feature",
+          "description": "Add support for Liechtenstein insurance",
+          "target_duration_minutes": 180,
+          "compliance_requirements": ["multi_language", "vat_calculation", "canton_validation"]
+        },
+        {
+          "id": "E2E-003",
+          "name": "Performance Optimization",
+          "description": "Site loading slowly on mobile devices",
+          "target_duration_minutes": 90,
+          "performance_targets": {"lcp": "2.5s", "cls": "0.1", "fid": "100ms"}
+        },
+        {
+          "id": "E2E-004",
+          "name": "Database Migration",
+          "description": "Add audit trail for eligibility submissions",
+          "target_duration_minutes": 120,
+          "migration_steps": ["schema_design", "rls_policies", "testing", "deployment"]
+        },
+        {
+          "id": "E2E-005",
+          "name": "Multi-Language Content Update",
+          "description": "Update privacy policy for Swiss regulations",
+          "target_duration_minutes": 75,
+          "languages": ["en", "de", "fr", "it"]
+        }
+      ]
+    }
+  },
+  
+  "reporting": {
+    "output_directory": "tests/results",
+    "formats": ["markdown", "json", "csv"],
+    "include_telemetry": true,
+    "generate_charts": false,
+    "email_notifications": false
+  },
+  
+  "thresholds": {
+    "overall_success_rate": 75,
+    "critical_success_rate": 60,
+    "performance_degradation_limit": 20,
+    "memory_usage_limit": 0.8
+  },
+  
+  "environment": {
+    "node_version": "18+",
+    "python_version": "3.8+", 
+    "required_tools": ["npm", "python3", "jq"],
+    "memory_limit_gb": 8,
+    "timeout_limit_hours": 4
+  }
+}

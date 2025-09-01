@@ -1,0 +1,224 @@
+{
+  "version": "1.0",
+  "schema": "task-hierarchy-v1",
+  "metadata": {
+    "created": "[ISO-8601 timestamp]",
+    "updated": "[ISO-8601 timestamp]",
+    "project": "[Project name]",
+    "sprint": "[Current sprint]",
+    "elaboration_depth": "progressive"
+  },
+  "hierarchy": {
+    "epic": {
+      "id": "EPIC-###",
+      "title": "[Epic title]",
+      "description": "[What this epic achieves]",
+      "status": "discovery|planning|execution|review|complete",
+      "elaboration": "placeholder|partial|complete",
+      "success_criteria": [
+        "[Measurable outcome 1]",
+        "[Measurable outcome 2]"
+      ],
+      "constraints": [
+        "[Technical constraint]",
+        "[Resource constraint]"
+      ],
+      "estimated_duration": "[Duration in days/weeks]",
+      "features": []
+    }
+  },
+  "feature_template": {
+    "id": "FEAT-###",
+    "epic_id": "EPIC-###",
+    "title": "[Feature title]",
+    "description": "[Feature details]",
+    "status": "not_started|research|planning|in_progress|testing|complete",
+    "elaboration": "pending|ready_for_tasks|tasks_created",
+    "acceptance_criteria": [
+      {
+        "id": "AC-001",
+        "description": "[What must be true for completion]",
+        "testable": true,
+        "verified": false
+      }
+    ],
+    "dependencies": {
+      "upstream": ["FEAT-###"],
+      "downstream": ["FEAT-###"],
+      "external": ["[External dependency]"]
+    },
+    "estimated_effort": {
+      "size": "XS|S|M|L|XL",
+      "hours": null,
+      "confidence": "low|medium|high"
+    },
+    "tasks": []
+  },
+  "task_template": {
+    "id": "T###",
+    "feature_id": "FEAT-###",
+    "title": "[Task title]",
+    "description": "[Detailed task description]",
+    "type": "research|design|implementation|testing|documentation",
+    "status": "pending|in_progress|blocked|complete|cancelled",
+    "activeForm": "[Present continuous form for TodoWrite]",
+    "assigned_to": "[agent_name|main]",
+    "research_required": true,
+    "research_status": "not_started|in_progress|complete",
+    "research_findings": "context/planning/research-findings.md#[section]",
+    "acceptance_criteria": [
+      "[Specific measurable outcome]"
+    ],
+    "estimated_hours": {
+      "min": 8,
+      "max": 80,
+      "actual": null
+    },
+    "dependencies": {
+      "blocking": ["T###"],
+      "blocked_by": ["T###"]
+    },
+    "subtasks": []
+  },
+  "subtask_template": {
+    "id": "T###.#",
+    "parent_task": "T###",
+    "title": "[Subtask title]",
+    "description": "[Specific action to take]",
+    "status": "pending|in_progress|complete",
+    "activeForm": "[Present continuous form]",
+    "checklist": [
+      {
+        "item": "[Specific step]",
+        "completed": false
+      }
+    ],
+    "estimated_hours": {
+      "min": 2,
+      "max": 8,
+      "actual": null
+    },
+    "validation": {
+      "method": "[How to verify completion]",
+      "success_indicator": "[What success looks like]",
+      "test_command": "[Command to run if applicable]"
+    }
+  },
+  "progressive_elaboration": {
+    "rules": [
+      {
+        "rule": "near_term_detail",
+        "description": "Only detail tasks for next 14 days",
+        "enforcement": "mandatory"
+      },
+      {
+        "rule": "research_gate",
+        "description": "No task planning without research completion",
+        "enforcement": "mandatory"
+      },
+      {
+        "rule": "8_80_rule",
+        "description": "Tasks between 8-80 hours",
+        "enforcement": "recommended"
+      },
+      {
+        "rule": "subtask_limit",
+        "description": "Maximum 5 subtasks per task",
+        "enforcement": "recommended"
+      },
+      {
+        "rule": "wbs_depth",
+        "description": "Maximum 4 levels of hierarchy",
+        "enforcement": "mandatory"
+      }
+    ],
+    "triggers": {
+      "elaborate_next_feature": [
+        "Current feature 80% complete",
+        "Research phase complete",
+        "Sprint planning session"
+      ],
+      "create_subtasks": [
+        "Task moved to 'in_progress'",
+        "Research findings available",
+        "Dependencies resolved"
+      ],
+      "archive_completed": [
+        "All subtasks complete",
+        "Acceptance criteria verified",
+        "Sprint ends"
+      ]
+    }
+  },
+  "integration": {
+    "todo_write": {
+      "sync": true,
+      "fields": ["title", "status", "activeForm"],
+      "update_frequency": "on_change"
+    },
+    "memory_system": {
+      "patterns": "memory/patterns.json",
+      "decisions": "memory/decisions.json",
+      "knowledge": "memory/knowledge.json",
+      "active": "memory/active.json"
+    },
+    "telemetry": {
+      "track_elaboration": true,
+      "track_completion": true,
+      "track_velocity": true
+    }
+  },
+  "examples": {
+    "epic": {
+      "id": "EPIC-001",
+      "title": "User Authentication System",
+      "description": "Complete authentication with JWT, OAuth, and MFA",
+      "status": "planning",
+      "elaboration": "partial",
+      "success_criteria": [
+        "Users can register and login",
+        "JWT tokens are secure and refreshable",
+        "OAuth providers integrated"
+      ],
+      "estimated_duration": "3 weeks"
+    },
+    "feature": {
+      "id": "FEAT-001",
+      "epic_id": "EPIC-001",
+      "title": "JWT Token Implementation",
+      "status": "research",
+      "elaboration": "ready_for_tasks",
+      "estimated_effort": {
+        "size": "L",
+        "hours": 40,
+        "confidence": "high"
+      }
+    },
+    "task": {
+      "id": "T001",
+      "feature_id": "FEAT-001",
+      "title": "Research JWT best practices",
+      "type": "research",
+      "status": "in_progress",
+      "activeForm": "Researching JWT best practices",
+      "assigned_to": "researcher",
+      "estimated_hours": {
+        "min": 4,
+        "max": 8,
+        "actual": null
+      }
+    },
+    "subtask": {
+      "id": "T001.1",
+      "parent_task": "T001",
+      "title": "Analyze security requirements",
+      "status": "complete",
+      "activeForm": "Analyzing security requirements",
+      "estimated_hours": {
+        "min": 2,
+        "max": 4,
+        "actual": 3
+      }
+    }
+  }
+}

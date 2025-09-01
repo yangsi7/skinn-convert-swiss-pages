@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated": "2025-08-26T18:03:21.682Z",
+  "generated": "2025-08-28T15:59:59.116Z",
   "summary": {
     "totalAssets": 463,
     "totalSize": 211334601,
@@ -133,7 +133,7 @@
         "sizeFormatted": "186.46 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-25T08:07:35.069Z"
+        "modified": "2025-08-28T07:43:25.804Z"
       },
       {
         "file": "favicon.ico",
@@ -141,7 +141,7 @@
         "sizeFormatted": "814 B",
         "format": "ico",
         "type": "image",
-        "modified": "2025-08-25T08:07:35.069Z"
+        "modified": "2025-08-28T07:43:25.804Z"
       },
       {
         "file": "favicon.svg",
@@ -149,7 +149,7 @@
         "sizeFormatted": "2.33 KB",
         "format": "svg",
         "type": "image",
-        "modified": "2025-08-25T08:07:35.069Z"
+        "modified": "2025-08-28T07:43:25.805Z"
       }
     ],
     "public": [
@@ -175,7 +175,7 @@
         "sizeFormatted": "2.05 KB",
         "format": "svg",
         "type": "image",
-        "modified": "2025-08-24T17:56:27.145Z"
+        "modified": "2025-08-28T07:43:25.809Z"
       },
       {
         "file": "og-image.png",
@@ -361,7 +361,7 @@
         "sizeFormatted": "4.6 MB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T17:56:27.211Z"
+        "modified": "2025-08-28T07:43:25.849Z"
       },
       {
         "file": "Myant_new_logo_white.png",
@@ -369,7 +369,7 @@
         "sizeFormatted": "22.89 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T17:56:27.147Z"
+        "modified": "2025-08-28T07:43:25.811Z"
       },
       {
         "file": "Myant_new_logo.png",
@@ -377,7 +377,7 @@
         "sizeFormatted": "22.74 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T17:56:27.146Z"
+        "modified": "2025-08-28T07:43:25.810Z"
       },
       {
         "file": "woman-wear-skiin.png",
@@ -455,7 +455,7 @@
         "sizeFormatted": "9.51 KB",
         "format": "jpeg",
         "type": "image",
-        "modified": "2025-08-24T18:08:58.419Z"
+        "modified": "2025-08-28T07:43:25.852Z"
       },
       {
         "file": "to_favi.png",
@@ -463,7 +463,7 @@
         "sizeFormatted": "27.45 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T18:08:58.419Z"
+        "modified": "2025-08-28T07:43:25.852Z"
       }
     ],
     "public/assets/images/mvcp": [
@@ -3707,7 +3707,7 @@
         "sizeFormatted": "355.61 KB",
         "format": "jpg",
         "type": "image",
-        "modified": "2025-08-24T18:08:58.421Z"
+        "modified": "2025-08-28T07:43:25.856Z"
       },
       {
         "file": "wear-skiin-man-band-insert-pod.png",
@@ -3715,7 +3715,7 @@
         "sizeFormatted": "105.39 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T18:08:58.423Z"
+        "modified": "2025-08-28T07:43:25.856Z"
       }
     ],
     "public/assets/images/reports": [
@@ -3849,7 +3849,7 @@
         "sizeFormatted": "22.74 KB",
         "format": "png",
         "type": "image",
-        "modified": "2025-08-24T17:56:27.221Z"
+        "modified": "2025-08-28T07:43:25.856Z"
       }
     ],
     "public/assets/videos": [

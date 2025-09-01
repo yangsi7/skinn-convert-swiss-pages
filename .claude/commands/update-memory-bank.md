@@ -15,11 +15,15 @@ Update CLAUDE.md and JSON memory bank files (memory/*.json) following the tiered
 
 ### Phase 1: Context Gathering (MANDATORY)
 ```bash
-# Load current memory state
+# Load current memory state using smart query system
 1. Check memory/active.json for session context
 2. Load relevant memory tiers based on update scope
-3. Use PROJECT_INDEX.json for code structure awareness
+3. Use query-index.sh for code structure awareness:
+   - ./scripts/query-index.sh stats  # Overview first
+   - ./scripts/query-index.sh recent 24  # Recent changes
+   - ./scripts/query-index.sh tree memory 2  # Memory structure
 4. Detect workflow triggers from WORKFLOWS.md
+# NEVER load PROJECT_INDEX.json directly (151KB - too large)
 ```
 
 ### Phase 2: Analysis

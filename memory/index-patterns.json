@@ -1,0 +1,140 @@
+{
+  "query_patterns": [
+    {
+      "timestamp": "2025-08-28T15:13:15.805100",
+      "type": "tree",
+      "path": "src/components",
+      "tool": "Bash"
+    },
+    {
+      "timestamp": "2025-08-28T18:13:15.214990",
+      "type": "stats",
+      "path": ".",
+      "tool": "Bash"
+    },
+    {
+      "timestamp": "2025-08-28T22:13:00.546949",
+      "type": "-la",
+      "path": "scripts/query-index.sh",
+      "tool": "Bash"
+    },
+    {
+      "timestamp": "2025-08-28T22:13:07.037478",
+      "type": "stats",
+      "path": "2>&1",
+      "tool": "Bash"
+    },
+    {
+      "timestamp": "2025-08-28T22:17:33.900373",
+      "type": "stats",
+      "path": ".",
+      "tool": "Bash"
+    }
+  ],
+  "frequency": {
+    "tree:src/components": 1,
+    "stats:.": 2,
+    "-la:scripts/query-index.sh": 1,
+    "stats:2>&1": 1
+  },
+  "common_queries": {
+    "component_tree": {
+      "command": "tree src/components 2",
+      "description": "Get component directory structure",
+      "token_estimate": 500,
+      "use_case": "Understanding component organization"
+    },
+    "page_files": {
+      "command": "files src/pages tsx",
+      "description": "List all page components",
+      "token_estimate": 300,
+      "use_case": "Finding specific pages"
+    },
+    "database_tree": {
+      "command": "tree supabase 3",
+      "description": "Database structure overview",
+      "token_estimate": 400,
+      "use_case": "Understanding database schema"
+    },
+    "docs_stats": {
+      "command": "stats docs/",
+      "description": "Documentation statistics",
+      "token_estimate": 100,
+      "use_case": "Assessing documentation coverage"
+    },
+    "visual_assets": {
+      "command": "visual public/assets all",
+      "description": "All visual assets summary",
+      "token_estimate": 600,
+      "use_case": "UI/UX work preparation"
+    },
+    "project_overview": {
+      "command": "stats .",
+      "description": "Full project statistics",
+      "token_estimate": 150,
+      "use_case": "High-level project understanding"
+    },
+    "translations": {
+      "command": "tree src/translations 2",
+      "description": "Translation file structure",
+      "token_estimate": 300,
+      "use_case": "Multi-language work"
+    },
+    "hooks_list": {
+      "command": "files src/hooks ts",
+      "description": "List all React hooks",
+      "token_estimate": 200,
+      "use_case": "Finding reusable hooks"
+    }
+  },
+  "agent_patterns": {
+    "code-searcher": [
+      "tree src/components 2",
+      "files src/pages tsx",
+      "custom '.files | to_entries | map(select(.value.extension == \"tsx\")) | length'"
+    ],
+    "ux-design-expert": [
+      "visual public/assets image",
+      "tree src/components/ui 1",
+      "files src/components/landing tsx"
+    ],
+    "supabase-architect": [
+      "tree supabase 3",
+      "files supabase/migrations sql",
+      "stats supabase/"
+    ],
+    "testing-qa-agent": [
+      "tree tests 2",
+      "files tests test.ts",
+      "stats tests/"
+    ],
+    "documentation-maintainer": [
+      "tree docs 2",
+      "stats docs/",
+      "files docs md"
+    ]
+  },
+  "optimization_tips": {
+    "token_reduction": [
+      "Use specific paths instead of root queries",
+      "Limit depth to 2-3 for tree queries",
+      "Filter by extension when listing files",
+      "Use stats for quick overviews",
+      "Cache frequently used queries"
+    ],
+    "performance": [
+      "Queries are cached for 60 minutes",
+      "Use custom jq queries for complex filtering",
+      "Batch related queries together",
+      "Visual queries are separate from code queries"
+    ]
+  },
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-08-28T10:00:00Z",
+    "last_updated": "2025-08-28T22:17:33.900576",
+    "total_queries": 5,
+    "cache_ttl_minutes": 60,
+    "max_token_budget": 5000
+  }
+}

@@ -1,0 +1,830 @@
+{
+  "queries": {
+    "tree:src/components:2": {
+      "result": [
+        {
+          "path": "src/components",
+          "files": 2,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/about",
+          "files": 2,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/analytics",
+          "files": 5,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/auth",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/atoms",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/context",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/data",
+          "files": 2,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/molecules",
+          "files": 6,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/organisms",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/eligibility/utils",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/forms",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/forms/eligibility",
+          "files": 2,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/home",
+          "files": 39,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/landing",
+          "files": 28,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/layout",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/partners",
+          "files": 4,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/physicians",
+          "files": 5,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/protected",
+          "files": 4,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/test",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/tritest",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "src/components/ui",
+          "files": 82,
+          "subdirs": []
+        }
+      ],
+      "timestamp": 1756392834
+    },
+    "stats:src/components": {
+      "result": {
+        "files": 278,
+        "directories": 29,
+        "code_files": 0,
+        "total_size": 1015819,
+        "extensions": [
+          "",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "timestamp": 1756376127
+    },
+    "agent:code-searcher": {
+      "result": {
+        "components": 29,
+        "pages": 39,
+        "hooks": 7,
+        "services": 6,
+        "total_tsx": 0,
+        "total_ts": 0
+      },
+      "timestamp": 1756392834
+    },
+    "components:all": {
+      "result": [
+        {
+          "type": "about",
+          "count": 2,
+          "directories": 1
+        },
+        {
+          "type": "analytics",
+          "count": 5,
+          "directories": 1
+        },
+        {
+          "type": "auth",
+          "count": 1,
+          "directories": 1
+        },
+        {
+          "type": "eligibility",
+          "count": 19,
+          "directories": 7
+        },
+        {
+          "type": "forms",
+          "count": 82,
+          "directories": 9
+        },
+        {
+          "type": "home",
+          "count": 39,
+          "directories": 1
+        },
+        {
+          "type": "landing",
+          "count": 28,
+          "directories": 1
+        },
+        {
+          "type": "layout",
+          "count": 3,
+          "directories": 1
+        },
+        {
+          "type": "partners",
+          "count": 4,
+          "directories": 1
+        },
+        {
+          "type": "physicians",
+          "count": 5,
+          "directories": 1
+        },
+        {
+          "type": "protected",
+          "count": 4,
+          "directories": 1
+        },
+        {
+          "type": "root",
+          "count": 2,
+          "directories": 1
+        },
+        {
+          "type": "test",
+          "count": 1,
+          "directories": 1
+        },
+        {
+          "type": "tritest",
+          "count": 1,
+          "directories": 1
+        },
+        {
+          "type": "ui",
+          "count": 82,
+          "directories": 1
+        }
+      ],
+      "timestamp": 1756392834
+    },
+    "stats:.": {
+      "result": {
+        "total_files": 724,
+        "total_directories": 170,
+        "code_files": 0,
+        "total_size": 41862251,
+        "languages": [
+          "",
+          ".backup",
+          ".cjs",
+          ".css",
+          ".example",
+          ".gz",
+          ".html",
+          ".js",
+          ".json",
+          ".jsonl",
+          ".lockb",
+          ".md",
+          ".orig",
+          ".pdf",
+          ".pkl",
+          ".py",
+          ".sh",
+          ".sql",
+          ".toml",
+          ".ts",
+          ".tsx",
+          ".txt",
+          ".yaml",
+          ".yml"
+        ]
+      },
+      "timestamp": 1756411986
+    },
+    "tree:supabase:3": {
+      "result": [
+        {
+          "path": "supabase",
+          "files": 0,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/edge-functions",
+          "files": 0,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/edge-functions/send-otp-email",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/functions",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/functions/otp-security-handler",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/migrations",
+          "files": 12,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/policies",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/schemas",
+          "files": 2,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/scripts",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "supabase/storage",
+          "files": 1,
+          "subdirs": []
+        }
+      ],
+      "timestamp": 1756387417
+    },
+    "recent:24": {
+      "result": [],
+      "timestamp": 1756392834
+    },
+    "components:eligibility": {
+      "result": [
+        {
+          "path": "src/components/eligibility/EligibilityChecker.tsx",
+          "name": "EligibilityChecker.tsx",
+          "size": 1202,
+          "modified": "2025-08-24T18:08:58.429Z"
+        },
+        {
+          "path": "src/components/eligibility/context/EligibilityContext.tsx",
+          "name": "EligibilityContext.tsx",
+          "size": 2556,
+          "modified": "2025-08-24T18:08:58.430Z"
+        },
+        {
+          "path": "src/components/eligibility/organisms/EligibilityFormContainer.tsx",
+          "name": "EligibilityFormContainer.tsx",
+          "size": 6470,
+          "modified": "2025-08-26T17:58:22.845Z"
+        },
+        {
+          "path": "src/components/eligibility/organisms/EligibilityFormStep.tsx",
+          "name": "EligibilityFormStep.tsx",
+          "size": 2920,
+          "modified": "2025-08-24T18:08:58.432Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilityInsuranceInfo.tsx",
+          "name": "EligibilityInsuranceInfo.tsx",
+          "size": 582,
+          "modified": "2025-08-24T18:08:58.431Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilityInsurerSelector.tsx",
+          "name": "EligibilityInsurerSelector.tsx",
+          "size": 901,
+          "modified": "2025-08-24T18:08:58.431Z"
+        },
+        {
+          "path": "src/components/eligibility/atoms/EligibilityNextStepItem.tsx",
+          "name": "EligibilityNextStepItem.tsx",
+          "size": 588,
+          "modified": "2025-08-24T18:08:58.429Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilityNextStepsList.tsx",
+          "name": "EligibilityNextStepsList.tsx",
+          "size": 685,
+          "modified": "2025-08-24T18:08:58.431Z"
+        },
+        {
+          "path": "src/components/eligibility/atoms/EligibilityProgressBar.tsx",
+          "name": "EligibilityProgressBar.tsx",
+          "size": 1009,
+          "modified": "2025-08-26T10:25:12.746Z"
+        },
+        {
+          "path": "src/components/eligibility/atoms/EligibilityResultBadge.tsx",
+          "name": "EligibilityResultBadge.tsx",
+          "size": 546,
+          "modified": "2025-08-24T18:08:58.429Z"
+        },
+        {
+          "path": "src/components/eligibility/organisms/EligibilityResultCard.tsx",
+          "name": "EligibilityResultCard.tsx",
+          "size": 2685,
+          "modified": "2025-08-24T18:08:58.433Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilityResultIcon.tsx",
+          "name": "EligibilityResultIcon.tsx",
+          "size": 681,
+          "modified": "2025-08-24T18:08:58.431Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilityRiskFactorSelector.tsx",
+          "name": "EligibilityRiskFactorSelector.tsx",
+          "size": 1065,
+          "modified": "2025-08-24T18:08:58.432Z"
+        },
+        {
+          "path": "src/components/eligibility/molecules/EligibilitySymptomSelector.tsx",
+          "name": "EligibilitySymptomSelector.tsx",
+          "size": 1056,
+          "modified": "2025-08-24T18:08:58.432Z"
+        },
+        {
+          "path": "src/components/eligibility/eligibility-questionnaire-comprehensive.test.ts",
+          "name": "eligibility-questionnaire-comprehensive.test.ts",
+          "size": 5119,
+          "modified": "2025-08-24T18:08:58.430Z"
+        },
+        {
+          "path": "src/components/eligibility/utils/eligibilityCalculator.ts",
+          "name": "eligibilityCalculator.ts",
+          "size": 2084,
+          "modified": "2025-08-24T18:08:58.433Z"
+        },
+        {
+          "path": "src/components/eligibility/index.ts",
+          "name": "index.ts",
+          "size": 1515,
+          "modified": "2025-08-24T18:08:58.430Z"
+        },
+        {
+          "path": "src/components/eligibility/data/swissHealthcareData.ts",
+          "name": "swissHealthcareData.ts",
+          "size": 1529,
+          "modified": "2025-08-24T18:08:58.430Z"
+        },
+        {
+          "path": "src/components/eligibility/data/types.ts",
+          "name": "types.ts",
+          "size": 1764,
+          "modified": "2025-08-24T18:08:58.430Z"
+        }
+      ],
+      "timestamp": 1756392960
+    },
+    "tree:tests:3": {
+      "result": [
+        {
+          "path": "tests",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "tests/config",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "tests/integration",
+          "files": 3,
+          "subdirs": []
+        },
+        {
+          "path": "tests/unit",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "tests/unit/components",
+          "files": 1,
+          "subdirs": []
+        },
+        {
+          "path": "tests/unit/hooks",
+          "files": 1,
+          "subdirs": []
+        }
+      ],
+      "timestamp": 1756392965
+    },
+    "files:tests:": {
+      "result": [
+        {
+          "path": "tests/README.md",
+          "size": 4369,
+          "modified": "2025-08-24T18:08:58.467Z",
+          "extension": ".md"
+        },
+        {
+          "path": "tests/config/setup.ts",
+          "size": 1256,
+          "modified": "2025-08-24T18:08:58.467Z",
+          "extension": ".ts"
+        },
+        {
+          "path": "tests/integration/accessibility.test.ts",
+          "size": 4695,
+          "modified": "2025-08-24T18:08:58.468Z",
+          "extension": ".ts"
+        },
+        {
+          "path": "tests/integration/otp-verification.test.ts",
+          "size": 8848,
+          "modified": "2025-08-24T18:08:58.468Z",
+          "extension": ".ts"
+        },
+        {
+          "path": "tests/integration/performance.test.ts",
+          "size": 7873,
+          "modified": "2025-08-24T18:08:58.468Z",
+          "extension": ".ts"
+        },
+        {
+          "path": "tests/unit/authService.test.ts",
+          "size": 6835,
+          "modified": "2025-08-25T08:06:34.764Z",
+          "extension": ".ts"
+        },
+        {
+          "path": "tests/unit/components/ContactForm.test.tsx",
+          "size": 7044,
+          "modified": "2025-08-24T18:08:58.469Z",
+          "extension": ".tsx"
+        },
+        {
+          "path": "tests/unit/hooks/useTranslation.test.ts",
+          "size": 2874,
+          "modified": "2025-08-24T18:08:58.469Z",
+          "extension": ".ts"
+        }
+      ],
+      "timestamp": 1756392971
+    },
+    "stats:src/components/eligibility": {
+      "result": {
+        "files": 19,
+        "directories": 7,
+        "code_files": 0,
+        "total_size": 34957,
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "timestamp": 1756392976
+    },
+    "imports:src/components/eligibility/organisms/EligibilityFormContainer.tsx": {
+      "result": {
+        "file": "src/components/eligibility/organisms/EligibilityFormContainer.tsx",
+        "imports": [
+          "../../forms/eligibility/components/SwissHealthcareStepper;",
+          "../../forms/eligibility/stages/CompletionStage;",
+          "../../forms/eligibility/stages/ContactAccountStageRefactored;",
+          "../../forms/eligibility/stages/DetailedInfoStageRefactored;",
+          "../../forms/eligibility/stages/EligibilityGateStageRefactored;",
+          "../../forms/eligibility/stages/InsuredReviewStageRefactored;",
+          "../../forms/eligibility/stages/SelfPayStageRefactored;",
+          "../context/EligibilityContext;",
+          "../utils/eligibilityCalculator;",
+          "./EligibilityFormStep;",
+          "@/components/ui/minimal-card;",
+          "@/hooks/useTranslation;",
+          "@/utils/pdfGenerator;",
+          "import { ",
+          "react;"
+        ],
+        "count": 15,
+        "hasRelative": true,
+        "hasAbsolute": true
+      },
+      "timestamp": 1756392982
+    },
+    "recent:48": {
+      "result": [
+        {
+          "path": "VISUAL_ASSETS_INDEX.json",
+          "modified": "2025-08-26T18:03:21.713Z",
+          "extension": ".json",
+          "size": 111734
+        },
+        {
+          "path": "context/project-tree.txt",
+          "modified": "2025-08-26T18:03:21.638Z",
+          "extension": ".txt",
+          "size": 34231
+        },
+        {
+          "path": "context/event-stream.md",
+          "modified": "2025-08-26T18:03:15.432Z",
+          "extension": ".md",
+          "size": 35527
+        },
+        {
+          "path": ".claude/hooks/.DS_Store",
+          "modified": "2025-08-26T18:02:48.977Z",
+          "extension": "",
+          "size": 6148
+        },
+        {
+          "path": ".claude/.DS_Store",
+          "modified": "2025-08-26T18:02:43.892Z",
+          "extension": "",
+          "size": 8196
+        },
+        {
+          "path": "file-organization-report.txt",
+          "modified": "2025-08-26T18:02:23.763Z",
+          "extension": ".txt",
+          "size": 308
+        },
+        {
+          "path": "docs/memory-system-usage.md",
+          "modified": "2025-08-26T18:00:11.147Z",
+          "extension": ".md",
+          "size": 2635
+        },
+        {
+          "path": "CLAUDE.md",
+          "modified": "2025-08-26T17:58:54.305Z",
+          "extension": ".md",
+          "size": 28981
+        },
+        {
+          "path": "src/components/eligibility/organisms/EligibilityFormContainer.tsx",
+          "modified": "2025-08-26T17:58:22.845Z",
+          "extension": ".tsx",
+          "size": 6470
+        },
+        {
+          "path": ".aim/memory.jsonl",
+          "modified": "2025-08-26T17:57:05.226Z",
+          "extension": ".jsonl",
+          "size": 389
+        },
+        {
+          "path": "package-lock.json",
+          "modified": "2025-08-26T17:56:31.737Z",
+          "extension": ".json",
+          "size": 965926
+        },
+        {
+          "path": "package.json",
+          "modified": "2025-08-26T17:56:31.480Z",
+          "extension": ".json",
+          "size": 3919
+        },
+        {
+          "path": ".aim/memory-research.jsonl",
+          "modified": "2025-08-26T17:56:30.886Z",
+          "extension": ".jsonl",
+          "size": 244
+        },
+        {
+          "path": "docs/GAP_ANALYSIS_ELIGIBILITY_FLOW.md",
+          "modified": "2025-08-26T15:59:51.064Z",
+          "extension": ".md",
+          "size": 7151
+        },
+        {
+          "path": "context/CLAUDE-planning.md",
+          "modified": "2025-08-26T15:57:48.212Z",
+          "extension": ".md",
+          "size": 13203
+        },
+        {
+          "path": ".claude/agents/requirements-spec-agent.md",
+          "modified": "2025-08-26T15:57:10.119Z",
+          "extension": ".md",
+          "size": 12112
+        },
+        {
+          "path": ".claude/agents/get-current-datetime.md",
+          "modified": "2025-08-26T15:55:32.633Z",
+          "extension": ".md",
+          "size": 1215
+        },
+        {
+          "path": ".claude/agents/reflection-agent.md",
+          "modified": "2025-08-26T15:53:42.655Z",
+          "extension": ".md",
+          "size": 16452
+        },
+        {
+          "path": ".claude/agents/git-agent.md",
+          "modified": "2025-08-26T15:52:17.181Z",
+          "extension": ".md",
+          "size": 13570
+        },
+        {
+          "path": ".claude/agents/guardrails-agent.md",
+          "modified": "2025-08-26T15:48:06.141Z",
+          "extension": ".md",
+          "size": 17238
+        },
+        {
+          "path": ".claude/agents/testing-qa-agent.md",
+          "modified": "2025-08-26T15:47:13.608Z",
+          "extension": ".md",
+          "size": 13889
+        },
+        {
+          "path": ".claude/agents/multi-panel-review-agent.md",
+          "modified": "2025-08-26T15:46:11.403Z",
+          "extension": ".md",
+          "size": 20885
+        },
+        {
+          "path": "src/components/forms/eligibility/stages/ContactAccountStageRefactored.tsx",
+          "modified": "2025-08-26T15:45:55.165Z",
+          "extension": ".tsx",
+          "size": 5527
+        },
+        {
+          "path": ".claude/agents/supabase-implementation-engineer.md",
+          "modified": "2025-08-26T15:45:20.415Z",
+          "extension": ".md",
+          "size": 29679
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/NameSection.tsx",
+          "modified": "2025-08-26T15:45:13.323Z",
+          "extension": ".tsx",
+          "size": 948
+        },
+        {
+          "path": ".claude/agents/supabase-architect.md",
+          "modified": "2025-08-26T15:44:32.536Z",
+          "extension": ".md",
+          "size": 30095
+        },
+        {
+          "path": "src/components/forms/eligibility/stages/InsuredReviewStageRefactored.tsx",
+          "modified": "2025-08-26T15:21:01.683Z",
+          "extension": ".tsx",
+          "size": 3661
+        },
+        {
+          "path": "src/components/forms/eligibility/atoms/TelmedAlert.tsx",
+          "modified": "2025-08-26T15:20:33.354Z",
+          "extension": ".tsx",
+          "size": 1202
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/ConsentCheckboxes.tsx",
+          "modified": "2025-08-26T15:20:18.328Z",
+          "extension": ".tsx",
+          "size": 1621
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/GPDetailsForm.tsx",
+          "modified": "2025-08-26T15:20:02.068Z",
+          "extension": ".tsx",
+          "size": 1542
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/GPChoiceSection.tsx",
+          "modified": "2025-08-26T15:19:47.058Z",
+          "extension": ".tsx",
+          "size": 1059
+        },
+        {
+          "path": "src/components/forms/eligibility/stages/DetailedInfoStageRefactored.tsx",
+          "modified": "2025-08-26T15:19:05.043Z",
+          "extension": ".tsx",
+          "size": 2874
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/MedicationSection.tsx",
+          "modified": "2025-08-26T15:18:40.451Z",
+          "extension": ".tsx",
+          "size": 691
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/ArrhythmiaHistorySection.tsx",
+          "modified": "2025-08-26T15:18:28.587Z",
+          "extension": ".tsx",
+          "size": 2376
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/SymptomDetailsSection.tsx",
+          "modified": "2025-08-26T15:18:09.507Z",
+          "extension": ".tsx",
+          "size": 1671
+        },
+        {
+          "path": "src/components/forms/eligibility/atoms/SeveritySlider.tsx",
+          "modified": "2025-08-26T15:17:52.490Z",
+          "extension": ".tsx",
+          "size": 1151
+        },
+        {
+          "path": ".claude/agents/design-system-architect.md",
+          "modified": "2025-08-26T15:17:25.090Z",
+          "extension": ".md",
+          "size": 15477
+        },
+        {
+          "path": "src/components/forms/eligibility/components/EligibilityStatusAlertRefactored.tsx",
+          "modified": "2025-08-26T15:16:57.037Z",
+          "extension": ".tsx",
+          "size": 7354
+        },
+        {
+          "path": "src/components/forms/eligibility/atoms/CostEstimateCard.tsx",
+          "modified": "2025-08-26T15:16:09.405Z",
+          "extension": ".tsx",
+          "size": 910
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/ServicePackageCard.tsx",
+          "modified": "2025-08-26T15:15:56.717Z",
+          "extension": ".tsx",
+          "size": 1313
+        },
+        {
+          "path": ".claude/agents/ux-design-expert.md",
+          "modified": "2025-08-26T15:15:46.854Z",
+          "extension": ".md",
+          "size": 10582
+        },
+        {
+          "path": "src/components/forms/eligibility/molecules/NextStepsGrid.tsx",
+          "modified": "2025-08-26T15:15:42.900Z",
+          "extension": ".tsx",
+          "size": 1087
+        },
+        {
+          "path": "src/components/forms/eligibility/atoms/StatusIcon.tsx",
+          "modified": "2025-08-26T15:15:29.860Z",
+          "extension": ".tsx",
+          "size": 941
+        }
+      ],
+      "timestamp": 1756392988
+    }
+  },
+  "metadata": {
+    "created": "2025-08-28T10:15:08Z"
+  }
+}

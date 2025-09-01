@@ -1,17 +1,8 @@
 ./
 ├── context/
-│   ├── CLAUDE-activeContext.md
-│   ├── CLAUDE-config-variables.md
-│   ├── CLAUDE-decisions.md
-│   ├── CLAUDE-patterns.md
-│   ├── CLAUDE-planning.md
-│   ├── CLAUDE-temp.md
-│   ├── CLAUDE-todo.md
-│   ├── CLAUDE-troubleshooting.md
 │   ├── CLAUDE_PROCESS.md
 │   ├── WORKFLOWS.md
 │   ├── event-stream.md
-│   ├── memory-bank-synchronization-results.json
 │   ├── project-index.md
 │   └── project-tree.txt
 ├── docs/
@@ -22,8 +13,10 @@
 │   │   │   └── supabase-agent-enhancement-brainstorm-spec.json
 │   │   └── gp-referral-multi-panel-review-specification.json
 │   ├── analysis/
+│   │   ├── date-validation-issue-analysis.md
 │   │   ├── eligibility-form-gap-analysis.md
 │   │   ├── eligibility-questionnaire-tot-specification.json
+│   │   ├── react-hooks-refactoring-plan.md
 │   │   ├── supabase-agents-gap-analysis-tot.md
 │   │   ├── v2-memory-system-migration-brainstorming-specification.json
 │   │   └── v2-memory-system-migration-tot-specification.json
@@ -57,7 +50,6 @@
 │   │   │   ├── atomic-components.md
 │   │   │   ├── eligibility-form-design.md
 │   │   │   └── eligibility-workflow-atomic.md
-│   │   ├── shared/
 │   │   ├── website/
 │   │   │   ├── components.md
 │   │   │   └── myant-violet-palette.md
@@ -77,13 +69,19 @@
 │   │   ├── README.md
 │   │   ├── components.md
 │   │   └── design-system.md
+│   ├── reports/
+│   │   └── priming-verification-20250828.md
 │   ├── research/
+│   │   ├── react-date-validation-best-practices.md
 │   │   └── supabase-best-practices-comprehensive-guide.md
 │   ├── specs/
 │   │   └── gp-referral-research-specification.json
 │   ├── standards/
 │   │   ├── accessibility-guidelines.md
-│   │   └── coding-standards.md
+│   │   ├── coding-standards.md
+│   │   ├── event-stream-enhancement.md
+│   │   ├── index-query-guide.md
+│   │   └── linting-guide.md
 │   ├── testing/
 │   │   ├── README.md
 │   │   ├── bug-report-template.md
@@ -93,20 +91,23 @@
 │   │   ├── quality-metrics-specification.json
 │   │   └── unit-tests.md
 │   ├── GAP_ANALYSIS_ELIGIBILITY_FLOW.md
+│   ├── mcp-integration-summary.md
 │   └── memory-system-usage.md
 ├── html/
 │   ├── assets/
 │   │   ├── index-D_ryMEPs.js
 │   │   └── index-X8b7Z_4p.css
-│   ├── data/
 │   ├── html.meta.json.gz
 │   └── index.html
 ├── memory/
 │   ├── active.json
 │   ├── agent-groups.json
 │   ├── decisions.json
+│   ├── index-cache.json
+│   ├── index-patterns.json
 │   ├── knowledge.json
-│   └── patterns.json
+│   ├── patterns.json
+│   └── telemetry.json
 ├── public/
 │   ├── assets/
 │   │   ├── documents/
@@ -144,18 +145,23 @@
 │   ├── event-stream-api.py
 │   ├── file-organization-scanner.sh*
 │   ├── final-accessibility-audit.cjs
+│   ├── fix-eslint-issues.cjs*
 │   ├── generate-indexes.sh*
 │   ├── optimize-images.js*
+│   ├── query-index.sh*
+│   ├── record-telemetry.sh*
 │   ├── simplified-accessibility-audit.js
+│   ├── test-agent-priming.sh*
+│   ├── test-date-validation-visual.js
 │   ├── test-eligibility-visual.js
 │   ├── test-full-eligibility-flow.js
 │   ├── test-otp-rate-limiting.cjs
 │   ├── test-supabase-auth.js
-│   └── update-agent-indexes.sh*
+│   ├── update-agent-indexes.sh*
+│   └── verify-agent-priming.sh*
 ├── specs/
 │   ├── features/
 │   │   └── FEAT-2025-001.json
-│   ├── migration/
 │   ├── schemas/
 │   │   ├── README.md
 │   │   ├── feature.schema.json
@@ -238,6 +244,7 @@
 │   │   │   │   │   ├── ReferralCodeActions.tsx
 │   │   │   │   │   ├── ReferralCodeQR.tsx
 │   │   │   │   │   ├── ReferralCodeText.tsx
+│   │   │   │   │   ├── ReferralQRCode.tsx
 │   │   │   │   │   ├── SafetyNotice.tsx
 │   │   │   │   │   ├── SeveritySlider.tsx
 │   │   │   │   │   ├── StatusIcon.tsx
@@ -631,6 +638,7 @@
 │   │   ├── analytics.d.ts
 │   │   └── backend.ts
 │   ├── utils/
+│   │   ├── pdfGenerator.ts
 │   │   ├── performance.ts
 │   │   └── routeTranslations.ts
 │   ├── App.css
@@ -687,6 +695,50 @@
 │   │   └── authService.test.ts
 │   └── README.md
 ├── user-uploads/
+│   ├── agent-os/
+│   │   ├── claude-code/
+│   │   │   └── agents/
+│   │   │       ├── context-fetcher.md
+│   │   │       ├── date-checker.md
+│   │   │       ├── file-creator.md
+│   │   │       ├── git-workflow.md
+│   │   │       ├── project-manager.md
+│   │   │       └── test-runner.md
+│   │   ├── commands/
+│   │   │   ├── analyze-product.md
+│   │   │   ├── create-spec.md
+│   │   │   ├── create-tasks.md
+│   │   │   ├── execute-tasks.md
+│   │   │   └── plan-product.md
+│   │   ├── instructions/
+│   │   │   ├── core/
+│   │   │   │   ├── analyze-product.md
+│   │   │   │   ├── create-spec.md
+│   │   │   │   ├── create-tasks.md
+│   │   │   │   ├── execute-task.md
+│   │   │   │   ├── execute-tasks.md
+│   │   │   │   ├── plan-product.md
+│   │   │   │   └── post-execution-tasks.md
+│   │   │   └── meta/
+│   │   │       ├── post-flight.md
+│   │   │       └── pre-flight.md
+│   │   ├── setup/
+│   │   │   ├── base.sh*
+│   │   │   ├── functions.sh
+│   │   │   └── project.sh*
+│   │   ├── standards/
+│   │   │   ├── code-style/
+│   │   │   │   ├── css-style.md
+│   │   │   │   ├── html-style.md
+│   │   │   │   └── javascript-style.md
+│   │   │   ├── best-practices.md
+│   │   │   ├── code-style.md
+│   │   │   └── tech-stack.md
+│   │   ├── CHANGELOG.md
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── agent-os.md
+│   │   └── config.yml
 │   ├── eligibility-form-supabase-schema-specs.md
 │   ├── eligibility-questionnaire-technical-specs.md
 │   └── eligibility-questionnaire-user-journey.md
@@ -696,6 +748,7 @@
 ├── VISUAL_ASSETS_INDEX.json
 ├── bun.lockb*
 ├── components.json
+├── debug-date-error.cjs
 ├── eslint.config.js
 ├── file-organization-report.txt
 ├── index.html
@@ -703,10 +756,16 @@
 ├── package.json
 ├── postcss.config.js
 ├── tailwind.config.ts
+├── test-date-detailed.cjs
+├── test-date-final.cjs
+├── test-date-validation.cjs
+├── test-event-stream-system.md
+├── test-real-user-input.cjs
+├── test-with-logs.cjs
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── vite.config.ts
 └── vitest.config.ts
 
-142 directories, 568 files
+150 directories, 619 files

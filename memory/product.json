@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "created": "2025-08-29",
+  "last_updated": "2025-08-29",
+  "token_budget": "8K",
+  "mission": {
+    "statement": null,
+    "core_values": [],
+    "target_audience": null,
+    "success_metrics": [],
+    "last_reviewed": null
+  },
+  "vision": {
+    "statement": null,
+    "timeline": null,
+    "key_milestones": [],
+    "market_position": null,
+    "last_updated": null
+  },
+  "roadmap": {
+    "current_phase": null,
+    "phases": [
+      {
+        "id": "phase-1",
+        "name": "Foundation",
+        "status": "planning",
+        "features": [],
+        "target_date": null,
+        "completion": 0
+      }
+    ],
+    "backlog": [],
+    "completed_features": [],
+    "last_prioritization": null
+  },
+  "active_spec": null,
+  "completed_specs": [],
+  "spec_templates": {
+    "feature_spec": {
+      "id": "{feature-name}",
+      "name": null,
+      "description": null,
+      "requirements": {
+        "functional": [],
+        "non_functional": [],
+        "constraints": []
+      },
+      "acceptance_criteria": [],
+      "technical_design": {
+        "architecture": null,
+        "components": [],
+        "dependencies": [],
+        "data_model": null
+      },
+      "ui_design": {
+        "mockups": [],
+        "user_flows": [],
+        "accessibility": []
+      },
+      "implementation_plan": {
+        "phases": [],
+        "estimated_effort": null,
+        "risks": []
+      },
+      "testing_strategy": {
+        "unit_tests": [],
+        "integration_tests": [],
+        "e2e_tests": []
+      },
+      "status": "draft",
+      "created_date": null,
+      "last_updated": null,
+      "owner": null
+    }
+  },
+  "product_metrics": {
+    "features_completed": 0,
+    "features_in_progress": 0,
+    "features_planned": 0,
+    "average_completion_time": null,
+    "spec_compliance_rate": 0
+  },
+  "integration_points": {
+    "patterns_link": "memory/patterns.json#product_development",
+    "decisions_link": "memory/decisions.json",
+    "specs_directory": "memory/specs/",
+    "active_context": "memory/active.json#product_context"
+  }
+}

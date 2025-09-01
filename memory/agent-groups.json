@@ -220,6 +220,56 @@
       "context_tier": 1
     }
   },
+  "index_priming_requirements": {
+    "description": "Mandatory index priming sequences for each agent group to avoid loading full indexes (151KB+)",
+    "universal_first_step": "./scripts/query-index.sh stats",
+    "group_specific": {
+      "core": {
+        "priming_sequence": ["stats", "tree . 1", "recent 24"],
+        "rationale": "Need high-level awareness for orchestration"
+      },
+      "research": {
+        "priming_sequence": ["stats", "agent code-searcher", "tree src 2"],
+        "rationale": "Need code structure for analysis",
+        "special_note": "code-searcher MUST use agent-specific context"
+      },
+      "design": {
+        "priming_sequence": ["stats", "components all", "visual public/assets"],
+        "rationale": "Need component and visual asset awareness",
+        "special_note": "ux-design-expert needs visual asset metadata"
+      },
+      "database": {
+        "priming_sequence": ["stats", "tree supabase 3", "tree specs/features 2"],
+        "rationale": "Need database structure and existing specs",
+        "special_note": "supabase-architect MUST check existing specs first"
+      },
+      "quality": {
+        "priming_sequence": ["stats", "tree tests 2", "recent 24"],
+        "rationale": "Need test structure and recent changes"
+      },
+      "documentation": {
+        "priming_sequence": ["stats", "tree docs 2", "tree memory 2"],
+        "rationale": "Need documentation and memory structure"
+      },
+      "utility": {
+        "priming_sequence": ["stats", "tree context 2", "recent 48"],
+        "rationale": "Need context awareness and recent activity",
+        "special_note": "context-manager needs memory structure access"
+      }
+    },
+    "token_budgets": {
+      "initial_prime": 1000,
+      "max_per_query": 5000,
+      "session_total": 20000,
+      "cache_ttl_minutes": 60
+    },
+    "forbidden_operations": [
+      "NEVER read PROJECT_INDEX.json directly (151KB)",
+      "NEVER read VISUAL_ASSETS_INDEX.json directly (124KB)",
+      "NEVER skip the priming protocol",
+      "NEVER exceed 5000 tokens per query"
+    ]
+  },
   "invocation_strategies": {
     "parallel": {
       "description": "Execute agents simultaneously",

@@ -225,6 +225,104 @@
         "confidence": 1.0,
         "when_to_use": "Payment processing, subscription management, invoice generation"
       }
+    },
+    "product_development": {
+      "plan_product_command": {
+        "name": "/plan-product Command Adapter",
+        "rule": "Maps to planning-task-agent with product context from memory/product.json",
+        "example": "/plan-product Create dashboard analytics feature",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.9,
+        "implementation": {
+          "trigger": "/plan-product",
+          "agent": "planning-task-agent",
+          "context_load": ["memory/product.json", "memory/specs/"],
+          "output": "memory/product.json updates + roadmap.json"
+        }
+      },
+      "create_spec_command": {
+        "name": "/create-spec Command Adapter",
+        "rule": "Invokes researcher + tree-of-thought for spec generation",
+        "example": "/create-spec Dashboard Analytics",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.9,
+        "implementation": {
+          "trigger": "/create-spec",
+          "agents": ["researcher", "tree-of-thought-agent"],
+          "context_load": ["memory/product.json", "memory/patterns.json"],
+          "output": "memory/specs/{feature-name}.json"
+        }
+      },
+      "create_tasks_command": {
+        "name": "/create-tasks Command Adapter",
+        "rule": "Enhanced TodoWrite with spec-driven task generation",
+        "example": "/create-tasks from spec:dashboard-analytics",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.9,
+        "implementation": {
+          "trigger": "/create-tasks",
+          "tool": "TodoWrite",
+          "context_load": ["memory/specs/{spec-name}.json"],
+          "output": "TodoWrite updates + memory/active.json"
+        }
+      },
+      "execute_tasks_command": {
+        "name": "/execute-tasks Command Adapter",
+        "rule": "Maps to existing execution flow with spec awareness",
+        "example": "/execute-tasks spec:dashboard-analytics",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.9,
+        "implementation": {
+          "trigger": "/execute-tasks",
+          "workflow": "feature-implementation",
+          "context_load": ["memory/specs/{spec-name}.json", "TodoWrite state"],
+          "output": "Implementation + spec status update"
+        }
+      },
+      "three_layer_context": {
+        "name": "Three-Layer Context Model",
+        "rule": "Standards (how) → Product (what) → Specs (next)",
+        "example": "Standards in patterns.json, Product in product.json, Specs in specs/*.json",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 1.0,
+        "layers": {
+          "standards": "memory/patterns.json + memory/decisions.json",
+          "product": "memory/product.json (mission, vision, roadmap)",
+          "specs": "memory/specs/*.json (feature specifications)"
+        }
+      },
+      "spec_driven_development": {
+        "name": "Spec-Driven Development",
+        "rule": "All features must have specs before implementation",
+        "example": "Create spec → Generate tasks → Execute with spec context",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.95,
+        "workflow": [
+          "1. /plan-product - Define mission and roadmap",
+          "2. /create-spec - Generate feature specification",
+          "3. /create-tasks - Break down into tasks",
+          "4. /execute-tasks - Implement with spec guidance"
+        ]
+      },
+      "interactive_requirements": {
+        "name": "Interactive Requirements Gathering",
+        "rule": "Use MCP tools to gather context from user progressively",
+        "example": "context-fetcher pattern with mcp__playwright for UI mockups",
+        "usage_count": 0,
+        "last_used": null,
+        "confidence": 0.85,
+        "implementation": {
+          "tools": ["mcp__playwright__*", "WebFetch", "mcp__brave-search__*"],
+          "storage": "memory/specs/{feature}/requirements.json",
+          "progressive": true
+        }
+      }
     }
   },
   "deprecated_patterns": [

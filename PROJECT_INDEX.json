@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2025-08-26T18:03:21.782Z",
+  "generated": "2025-08-28T15:59:59.205Z",
   "project": "SKIIN Switzerland Marketing Website",
   "visualAssetsIndex": "VISUAL_ASSETS_INDEX.json",
   "directories": {
@@ -16,17 +16,22 @@
     },
     ".claude/agents": {
       "path": ".claude/agents",
-      "fileCount": 21,
+      "fileCount": 28,
+      "subdirs": []
+    },
+    ".claude/commands": {
+      "path": ".claude/commands",
+      "fileCount": 9,
       "subdirs": []
     },
     ".claude/hooks": {
       "path": ".claude/hooks",
-      "fileCount": 3,
+      "fileCount": 9,
       "subdirs": []
     },
     ".claude/hooks/.claude": {
       "path": ".claude/hooks/.claude",
-      "fileCount": 0,
+      "fileCount": 1,
       "subdirs": []
     },
     ".claude/hooks/.claude/hooks": {
@@ -61,12 +66,17 @@
     },
     ".github/workflows": {
       "path": ".github/workflows",
-      "fileCount": 5,
+      "fileCount": 6,
       "subdirs": []
     },
     ".husky": {
       "path": ".husky",
       "fileCount": 1,
+      "subdirs": []
+    },
+    ".husky/_": {
+      "path": ".husky/_",
+      "fileCount": 2,
       "subdirs": []
     },
     ".netlify": {
@@ -96,17 +106,17 @@
     },
     ".serena/memories": {
       "path": ".serena/memories",
-      "fileCount": 6,
+      "fileCount": 7,
       "subdirs": []
     },
     "context": {
       "path": "context",
-      "fileCount": 15,
+      "fileCount": 5,
       "subdirs": []
     },
     "docs": {
       "path": "docs",
-      "fileCount": 3,
+      "fileCount": 4,
       "subdirs": []
     },
     "docs/agent-outputs": {
@@ -126,7 +136,7 @@
     },
     "docs/analysis": {
       "path": "docs/analysis",
-      "fileCount": 5,
+      "fileCount": 7,
       "subdirs": []
     },
     "docs/architecture": {
@@ -164,11 +174,6 @@
       "fileCount": 3,
       "subdirs": []
     },
-    "docs/design-system/shared": {
-      "path": "docs/design-system/shared",
-      "fileCount": 0,
-      "subdirs": []
-    },
     "docs/design-system/website": {
       "path": "docs/design-system/website",
       "fileCount": 2,
@@ -184,9 +189,14 @@
       "fileCount": 3,
       "subdirs": []
     },
+    "docs/reports": {
+      "path": "docs/reports",
+      "fileCount": 1,
+      "subdirs": []
+    },
     "docs/research": {
       "path": "docs/research",
-      "fileCount": 1,
+      "fileCount": 2,
       "subdirs": []
     },
     "docs/specs": {
@@ -196,7 +206,7 @@
     },
     "docs/standards": {
       "path": "docs/standards",
-      "fileCount": 2,
+      "fileCount": 5,
       "subdirs": []
     },
     "docs/testing": {
@@ -214,14 +224,9 @@
       "fileCount": 2,
       "subdirs": []
     },
-    "html/data": {
-      "path": "html/data",
-      "fileCount": 0,
-      "subdirs": []
-    },
     "memory": {
       "path": "memory",
-      "fileCount": 5,
+      "fileCount": 8,
       "subdirs": []
     },
     "public": {
@@ -331,7 +336,7 @@
     },
     "scripts": {
       "path": "scripts",
-      "fileCount": 18,
+      "fileCount": 24,
       "subdirs": []
     },
     "scripts/tests": {
@@ -347,11 +352,6 @@
     "specs/features": {
       "path": "specs/features",
       "fileCount": 1,
-      "subdirs": []
-    },
-    "specs/migration": {
-      "path": "specs/migration",
-      "fileCount": 0,
       "subdirs": []
     },
     "specs/schemas": {
@@ -491,7 +491,7 @@
     },
     "src/components/forms/eligibility/atoms": {
       "path": "src/components/forms/eligibility/atoms",
-      "fileCount": 20,
+      "fileCount": 21,
       "subdirs": []
     },
     "src/components/forms/eligibility/components": {
@@ -716,7 +716,7 @@
     },
     "src/utils": {
       "path": "src/utils",
-      "fileCount": 2,
+      "fileCount": 3,
       "subdirs": []
     },
     "supabase": {
@@ -801,6 +801,56 @@
     },
     "user-uploads": {
       "path": "user-uploads",
+      "fileCount": 4,
+      "subdirs": []
+    },
+    "user-uploads/agent-os": {
+      "path": "user-uploads/agent-os",
+      "fileCount": 6,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/claude-code": {
+      "path": "user-uploads/agent-os/claude-code",
+      "fileCount": 0,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/claude-code/agents": {
+      "path": "user-uploads/agent-os/claude-code/agents",
+      "fileCount": 6,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/commands": {
+      "path": "user-uploads/agent-os/commands",
+      "fileCount": 5,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/instructions": {
+      "path": "user-uploads/agent-os/instructions",
+      "fileCount": 0,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/instructions/core": {
+      "path": "user-uploads/agent-os/instructions/core",
+      "fileCount": 7,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/instructions/meta": {
+      "path": "user-uploads/agent-os/instructions/meta",
+      "fileCount": 2,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/setup": {
+      "path": "user-uploads/agent-os/setup",
+      "fileCount": 3,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/standards": {
+      "path": "user-uploads/agent-os/standards",
+      "fileCount": 3,
+      "subdirs": []
+    },
+    "user-uploads/agent-os/standards/code-style": {
+      "path": "user-uploads/agent-os/standards/code-style",
       "fileCount": 3,
       "subdirs": []
     }
@@ -810,25 +860,25 @@
       "path": ".DS_Store",
       "size": 22532,
       "extension": "",
-      "modified": "2025-08-26T10:25:44.640Z"
+      "modified": "2025-08-28T15:32:33.210Z"
     },
     ".aim/memory-research.jsonl": {
       "path": ".aim/memory-research.jsonl",
       "size": 244,
       "extension": ".jsonl",
-      "modified": "2025-08-26T17:56:30.886Z"
+      "modified": "2025-08-28T07:43:25.715Z"
     },
     ".aim/memory.jsonl": {
       "path": ".aim/memory.jsonl",
       "size": 389,
       "extension": ".jsonl",
-      "modified": "2025-08-26T17:57:05.226Z"
+      "modified": "2025-08-28T07:43:25.715Z"
     },
     ".claude/.DS_Store": {
       "path": ".claude/.DS_Store",
-      "size": 8196,
+      "size": 10244,
       "extension": "",
-      "modified": "2025-08-26T18:02:43.892Z"
+      "modified": "2025-08-28T09:56:44.976Z"
     },
     ".claude/agents/.DS_Store": {
       "path": ".claude/agents/.DS_Store",
@@ -836,125 +886,221 @@
       "extension": "",
       "modified": "2025-08-25T14:15:56.207Z"
     },
+    ".claude/agents/Jenny.md": {
+      "path": ".claude/agents/Jenny.md",
+      "size": 5413,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.716Z"
+    },
     ".claude/agents/brainstormer.md": {
       "path": ".claude/agents/brainstormer.md",
-      "size": 10197,
+      "size": 10542,
       "extension": ".md",
-      "modified": "2025-08-26T13:56:57.712Z"
+      "modified": "2025-08-28T07:43:25.716Z"
+    },
+    ".claude/agents/claude-md-compliance-checker.md": {
+      "path": ".claude/agents/claude-md-compliance-checker.md",
+      "size": 5069,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.716Z"
+    },
+    ".claude/agents/code-quality-pragmatist.md": {
+      "path": ".claude/agents/code-quality-pragmatist.md",
+      "size": 6257,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.717Z"
     },
     ".claude/agents/code-searcher.md": {
       "path": ".claude/agents/code-searcher.md",
-      "size": 26153,
+      "size": 28279,
       "extension": ".md",
-      "modified": "2025-08-26T13:55:46.169Z"
+      "modified": "2025-08-28T14:46:49.900Z"
     },
     ".claude/agents/context-manager.md": {
       "path": ".claude/agents/context-manager.md",
-      "size": 17547,
+      "size": 19524,
       "extension": ".md",
-      "modified": "2025-08-26T13:17:34.831Z"
+      "modified": "2025-08-28T14:47:47.069Z"
     },
     ".claude/agents/design-system-architect.md": {
       "path": ".claude/agents/design-system-architect.md",
-      "size": 15477,
+      "size": 14068,
       "extension": ".md",
-      "modified": "2025-08-26T15:17:25.090Z"
+      "modified": "2025-08-28T07:43:25.721Z"
     },
     ".claude/agents/documentation-maintainer.md": {
       "path": ".claude/agents/documentation-maintainer.md",
-      "size": 14807,
+      "size": 14713,
       "extension": ".md",
-      "modified": "2025-08-26T13:19:16.388Z"
+      "modified": "2025-08-28T07:43:25.721Z"
     },
     ".claude/agents/get-current-datetime.md": {
       "path": ".claude/agents/get-current-datetime.md",
       "size": 1215,
       "extension": ".md",
-      "modified": "2025-08-26T15:55:32.633Z"
+      "modified": "2025-08-28T07:43:25.721Z"
     },
     ".claude/agents/git-agent.md": {
       "path": ".claude/agents/git-agent.md",
-      "size": 13570,
+      "size": 13396,
       "extension": ".md",
-      "modified": "2025-08-26T15:52:17.181Z"
+      "modified": "2025-08-28T07:43:25.721Z"
     },
     ".claude/agents/guardrails-agent.md": {
       "path": ".claude/agents/guardrails-agent.md",
-      "size": 17238,
+      "size": 17675,
       "extension": ".md",
-      "modified": "2025-08-26T15:48:06.141Z"
+      "modified": "2025-08-28T07:43:25.722Z"
     },
     ".claude/agents/invocation-chain-generator.md": {
       "path": ".claude/agents/invocation-chain-generator.md",
-      "size": 23313,
+      "size": 22293,
       "extension": ".md",
-      "modified": "2025-08-26T13:37:05.681Z"
+      "modified": "2025-08-28T07:43:25.722Z"
+    },
+    ".claude/agents/karen.md": {
+      "path": ".claude/agents/karen.md",
+      "size": 5768,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.722Z"
     },
     ".claude/agents/memory-bank-synchronizer.md": {
       "path": ".claude/agents/memory-bank-synchronizer.md",
-      "size": 9612,
+      "size": 9454,
       "extension": ".md",
-      "modified": "2025-08-26T13:15:52.353Z"
+      "modified": "2025-08-28T07:43:25.722Z"
     },
     ".claude/agents/multi-panel-review-agent.md": {
       "path": ".claude/agents/multi-panel-review-agent.md",
-      "size": 20885,
+      "size": 20744,
       "extension": ".md",
-      "modified": "2025-08-26T15:46:11.403Z"
+      "modified": "2025-08-28T07:43:25.723Z"
     },
     ".claude/agents/planning-task-agent.md": {
       "path": ".claude/agents/planning-task-agent.md",
-      "size": 14594,
+      "size": 14330,
       "extension": ".md",
-      "modified": "2025-08-26T13:28:54.708Z"
+      "modified": "2025-08-28T07:43:25.723Z"
     },
     ".claude/agents/reflection-agent.md": {
       "path": ".claude/agents/reflection-agent.md",
-      "size": 16452,
+      "size": 16168,
       "extension": ".md",
-      "modified": "2025-08-26T15:53:42.655Z"
+      "modified": "2025-08-28T07:43:25.724Z"
     },
     ".claude/agents/requirements-spec-agent.md": {
       "path": ".claude/agents/requirements-spec-agent.md",
-      "size": 12112,
+      "size": 11828,
       "extension": ".md",
-      "modified": "2025-08-26T15:57:10.119Z"
+      "modified": "2025-08-28T07:43:25.724Z"
     },
     ".claude/agents/researcher.md": {
       "path": ".claude/agents/researcher.md",
-      "size": 11868,
+      "size": 11457,
       "extension": ".md",
-      "modified": "2025-08-26T13:55:04.239Z"
+      "modified": "2025-08-28T07:43:25.724Z"
     },
     ".claude/agents/supabase-architect.md": {
       "path": ".claude/agents/supabase-architect.md",
-      "size": 30095,
+      "size": 31755,
       "extension": ".md",
-      "modified": "2025-08-26T15:44:32.536Z"
+      "modified": "2025-08-28T14:49:43.432Z"
     },
     ".claude/agents/supabase-implementation-engineer.md": {
       "path": ".claude/agents/supabase-implementation-engineer.md",
-      "size": 29679,
+      "size": 29298,
       "extension": ".md",
-      "modified": "2025-08-26T15:45:20.415Z"
+      "modified": "2025-08-28T07:43:25.727Z"
+    },
+    ".claude/agents/task-completion-validator.md": {
+      "path": ".claude/agents/task-completion-validator.md",
+      "size": 5424,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.727Z"
     },
     ".claude/agents/testing-qa-agent.md": {
       "path": ".claude/agents/testing-qa-agent.md",
-      "size": 13889,
+      "size": 16131,
       "extension": ".md",
-      "modified": "2025-08-26T15:47:13.608Z"
+      "modified": "2025-08-28T14:50:39.374Z"
     },
     ".claude/agents/tree-of-thought-agent.md": {
       "path": ".claude/agents/tree-of-thought-agent.md",
-      "size": 18747,
+      "size": 18463,
       "extension": ".md",
-      "modified": "2025-08-26T13:32:05.472Z"
+      "modified": "2025-08-28T07:43:25.728Z"
+    },
+    ".claude/agents/ui-comprehensive-tester.md": {
+      "path": ".claude/agents/ui-comprehensive-tester.md",
+      "size": 6035,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.728Z"
+    },
+    ".claude/agents/ultrathink-debugger.md": {
+      "path": ".claude/agents/ultrathink-debugger.md",
+      "size": 5551,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.728Z"
     },
     ".claude/agents/ux-design-expert.md": {
       "path": ".claude/agents/ux-design-expert.md",
-      "size": 10582,
+      "size": 13035,
       "extension": ".md",
-      "modified": "2025-08-26T15:15:46.854Z"
+      "modified": "2025-08-28T14:48:46.659Z"
+    },
+    ".claude/commands/.DS_Store": {
+      "path": ".claude/commands/.DS_Store",
+      "size": 6148,
+      "extension": "",
+      "modified": "2025-08-25T12:17:03.412Z"
+    },
+    ".claude/commands/apply-thinking-to.md": {
+      "path": ".claude/commands/apply-thinking-to.md",
+      "size": 13285,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.729Z"
+    },
+    ".claude/commands/cleanup-context.md": {
+      "path": ".claude/commands/cleanup-context.md",
+      "size": 9582,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.729Z"
+    },
+    ".claude/commands/convert-to-todowrite-tasklist-prompt.md": {
+      "path": ".claude/commands/convert-to-todowrite-tasklist-prompt.md",
+      "size": 25826,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.729Z"
+    },
+    ".claude/commands/create-readme-section.md": {
+      "path": ".claude/commands/create-readme-section.md",
+      "size": 3672,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.730Z"
+    },
+    ".claude/commands/docs.md": {
+      "path": ".claude/commands/docs.md",
+      "size": 1427,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.731Z"
+    },
+    ".claude/commands/explain-architecture-pattern.md": {
+      "path": ".claude/commands/explain-architecture-pattern.md",
+      "size": 5358,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.732Z"
+    },
+    ".claude/commands/index.md": {
+      "path": ".claude/commands/index.md",
+      "size": 4956,
+      "extension": ".md",
+      "modified": "2025-08-28T10:58:57.059Z"
+    },
+    ".claude/commands/update-memory-bank.md": {
+      "path": ".claude/commands/update-memory-bank.md",
+      "size": 5976,
+      "extension": ".md",
+      "modified": "2025-08-28T11:07:46.407Z"
     },
     ".claude/hooks/.DS_Store": {
       "path": ".claude/hooks/.DS_Store",
@@ -962,47 +1108,89 @@
       "extension": "",
       "modified": "2025-08-26T18:02:48.977Z"
     },
+    ".claude/hooks/.claude/.DS_Store": {
+      "path": ".claude/hooks/.claude/.DS_Store",
+      "size": 6148,
+      "extension": "",
+      "modified": "2025-08-28T09:56:51.539Z"
+    },
     ".claude/hooks/.claude/hooks/update-event-stream.py": {
       "path": ".claude/hooks/.claude/hooks/update-event-stream.py",
       "size": 4709,
       "extension": ".py",
-      "modified": "2025-08-24T18:08:58.257Z"
+      "modified": "2025-08-28T07:43:25.732Z"
     },
     ".claude/hooks/.claude/tdd-guard/data/modifications.json": {
       "path": ".claude/hooks/.claude/tdd-guard/data/modifications.json",
       "size": 5359,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.257Z"
+      "modified": "2025-08-28T07:43:25.733Z"
+    },
+    ".claude/hooks/enhance-events.py": {
+      "path": ".claude/hooks/enhance-events.py",
+      "size": 2529,
+      "extension": ".py",
+      "modified": "2025-08-28T12:14:48.984Z"
+    },
+    ".claude/hooks/periodic-enhance.py": {
+      "path": ".claude/hooks/periodic-enhance.py",
+      "size": 3880,
+      "extension": ".py",
+      "modified": "2025-08-28T14:45:22.154Z"
+    },
+    ".claude/hooks/session-cleanup.py": {
+      "path": ".claude/hooks/session-cleanup.py",
+      "size": 2614,
+      "extension": ".py",
+      "modified": "2025-08-28T14:02:44.630Z"
+    },
+    ".claude/hooks/start-run.py": {
+      "path": ".claude/hooks/start-run.py",
+      "size": 970,
+      "extension": ".py",
+      "modified": "2025-08-28T12:15:05.805Z"
+    },
+    ".claude/hooks/track-todos.py": {
+      "path": ".claude/hooks/track-todos.py",
+      "size": 2500,
+      "extension": ".py",
+      "modified": "2025-08-28T14:00:55.846Z"
     },
     ".claude/hooks/update-event-stream.py": {
       "path": ".claude/hooks/update-event-stream.py",
-      "size": 14611,
+      "size": 5553,
       "extension": ".py",
-      "modified": "2025-08-25T15:32:24.262Z"
+      "modified": "2025-08-28T14:01:37.345Z"
     },
     ".claude/hooks/update-event-stream.py.orig": {
       "path": ".claude/hooks/update-event-stream.py.orig",
       "size": 5917,
       "extension": ".orig",
-      "modified": "2025-08-24T18:08:58.257Z"
+      "modified": "2025-08-28T07:43:25.733Z"
+    },
+    ".claude/hooks/update-indexes.py": {
+      "path": ".claude/hooks/update-indexes.py",
+      "size": 6656,
+      "extension": ".py",
+      "modified": "2025-08-28T10:16:21.214Z"
     },
     ".claude/settings.json": {
       "path": ".claude/settings.json",
-      "size": 279,
+      "size": 1553,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.258Z"
+      "modified": "2025-08-28T14:56:22.349Z"
     },
     ".claude/settings.local.json": {
       "path": ".claude/settings.local.json",
-      "size": 947,
+      "size": 1389,
       "extension": ".json",
-      "modified": "2025-08-26T11:07:08.783Z"
+      "modified": "2025-08-28T14:01:34.877Z"
     },
     ".claude/tdd-guard/data/modifications.json": {
       "path": ".claude/tdd-guard/data/modifications.json",
       "size": 3222,
       "extension": ".json",
-      "modified": "2025-08-25T14:27:17.436Z"
+      "modified": "2025-08-28T07:43:25.734Z"
     },
     ".claude/tdd-guard/data/test.json": {
       "path": ".claude/tdd-guard/data/test.json",
@@ -1014,13 +1202,13 @@
       "path": ".env",
       "size": 423,
       "extension": "",
-      "modified": "2025-08-24T18:08:58.259Z"
+      "modified": "2025-08-28T07:43:25.734Z"
     },
     ".env.example": {
       "path": ".env.example",
       "size": 8882,
       "extension": ".example",
-      "modified": "2025-08-24T18:08:58.259Z"
+      "modified": "2025-08-28T07:43:25.736Z"
     },
     ".github/CODEOWNERS": {
       "path": ".github/CODEOWNERS",
@@ -1042,21 +1230,27 @@
     },
     ".github/workflows/claude-code-review.yml": {
       "path": ".github/workflows/claude-code-review.yml",
-      "size": 2771,
+      "size": 1893,
       "extension": ".yml",
-      "modified": "2025-08-24T17:52:54.841Z"
+      "modified": "2025-08-28T07:43:25.736Z"
     },
     ".github/workflows/claude.yml": {
       "path": ".github/workflows/claude.yml",
-      "size": 2081,
+      "size": 1947,
       "extension": ".yml",
-      "modified": "2025-08-24T17:52:54.841Z"
+      "modified": "2025-08-28T07:43:25.737Z"
     },
     ".github/workflows/core-web-vitals.yml": {
       "path": ".github/workflows/core-web-vitals.yml",
       "size": 2011,
       "extension": ".yml",
-      "modified": "2025-08-24T18:08:58.260Z"
+      "modified": "2025-08-28T07:43:25.737Z"
+    },
+    ".github/workflows/lint-and-test.yml": {
+      "path": ".github/workflows/lint-and-test.yml",
+      "size": 3707,
+      "extension": ".yml",
+      "modified": "2025-08-28T07:43:25.737Z"
     },
     ".github/workflows/pr-checks.yml": {
       "path": ".github/workflows/pr-checks.yml",
@@ -1068,13 +1262,25 @@
       "path": ".gitignore",
       "size": 968,
       "extension": "",
-      "modified": "2025-08-25T14:27:17.433Z"
+      "modified": "2025-08-28T07:43:25.737Z"
+    },
+    ".husky/_/.gitignore": {
+      "path": ".husky/_/.gitignore",
+      "size": 1,
+      "extension": "",
+      "modified": "2025-08-27T01:14:19.303Z"
+    },
+    ".husky/_/husky.sh": {
+      "path": ".husky/_/husky.sh",
+      "size": 717,
+      "extension": ".sh",
+      "modified": "2025-08-27T01:14:19.303Z"
     },
     ".husky/pre-commit": {
       "path": ".husky/pre-commit",
-      "size": 187,
+      "size": 203,
       "extension": "",
-      "modified": "2025-08-24T17:52:54.841Z"
+      "modified": "2025-08-28T07:43:25.738Z"
     },
     ".lintstagedrc.json": {
       "path": ".lintstagedrc.json",
@@ -1086,7 +1292,7 @@
       "path": ".mcp.json",
       "size": 2264,
       "extension": ".json",
-      "modified": "2025-08-25T19:16:26.827Z"
+      "modified": "2025-08-28T07:43:25.738Z"
     },
     ".netlify/netlify.toml": {
       "path": ".netlify/netlify.toml",
@@ -1098,7 +1304,7 @@
       "path": ".netlify/plugins/package-lock.json",
       "size": 525944,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.262Z"
+      "modified": "2025-08-28T07:43:25.739Z"
     },
     ".netlify/plugins/package.json": {
       "path": ".netlify/plugins/package.json",
@@ -1111,6 +1317,18 @@
       "size": 53,
       "extension": ".json",
       "modified": "2025-08-24T17:52:54.851Z"
+    },
+    ".nvmrc": {
+      "path": ".nvmrc",
+      "size": 7,
+      "extension": "",
+      "modified": "2025-08-28T07:43:25.739Z"
+    },
+    ".prettierrc": {
+      "path": ".prettierrc",
+      "size": 198,
+      "extension": "",
+      "modified": "2025-08-28T07:43:25.740Z"
     },
     ".serena/.DS_Store": {
       "path": ".serena/.DS_Store",
@@ -1126,51 +1344,57 @@
     },
     ".serena/cache/typescript/document_symbols_cache_v23-06-25.pkl": {
       "path": ".serena/cache/typescript/document_symbols_cache_v23-06-25.pkl",
-      "size": 21879802,
+      "size": 33886850,
       "extension": ".pkl",
-      "modified": "2025-08-26T11:18:39.216Z"
+      "modified": "2025-08-28T14:54:53.605Z"
     },
     ".serena/memories/coding_conventions_and_standards.md": {
       "path": ".serena/memories/coding_conventions_and_standards.md",
       "size": 2165,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.345Z"
+      "modified": "2025-08-28T07:43:25.774Z"
     },
     ".serena/memories/completion_and_quality_procedures.md": {
       "path": ".serena/memories/completion_and_quality_procedures.md",
       "size": 3280,
       "extension": ".md",
-      "modified": "2025-08-25T14:27:17.430Z"
+      "modified": "2025-08-28T07:43:25.776Z"
+    },
+    ".serena/memories/date-validation-research-specification.md": {
+      "path": ".serena/memories/date-validation-research-specification.md",
+      "size": 8020,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.776Z"
     },
     ".serena/memories/project_overview.md": {
       "path": ".serena/memories/project_overview.md",
       "size": 1968,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.346Z"
+      "modified": "2025-08-28T07:43:25.776Z"
     },
     ".serena/memories/project_structure_and_codebase.md": {
       "path": ".serena/memories/project_structure_and_codebase.md",
       "size": 3941,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.346Z"
+      "modified": "2025-08-28T07:43:25.776Z"
     },
     ".serena/memories/suggested_commands.md": {
       "path": ".serena/memories/suggested_commands.md",
       "size": 2385,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.346Z"
+      "modified": "2025-08-28T07:43:25.776Z"
     },
     ".serena/memories/tech_stack_and_dependencies.md": {
       "path": ".serena/memories/tech_stack_and_dependencies.md",
       "size": 1708,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.346Z"
+      "modified": "2025-08-28T07:43:25.777Z"
     },
     ".serena/project.yml": {
       "path": ".serena/project.yml",
       "size": 4519,
       "extension": ".yml",
-      "modified": "2025-08-24T18:08:58.346Z"
+      "modified": "2025-08-28T07:43:25.778Z"
     },
     ".tdd-guard.yaml": {
       "path": ".tdd-guard.yaml",
@@ -1180,27 +1404,27 @@
     },
     "CLAUDE.md": {
       "path": "CLAUDE.md",
-      "size": 28981,
+      "size": 46812,
       "extension": ".md",
-      "modified": "2025-08-26T17:58:54.305Z"
+      "modified": "2025-08-28T15:55:43.403Z"
     },
     "PROJECT_INDEX.json": {
       "path": "PROJECT_INDEX.json",
-      "size": 127002,
+      "size": 154998,
       "extension": ".json",
-      "modified": "2025-08-25T15:30:03.170Z"
+      "modified": "2025-08-28T07:43:25.780Z"
     },
     "README.md": {
       "path": "README.md",
       "size": 13491,
       "extension": ".md",
-      "modified": "2025-08-25T15:04:00.984Z"
+      "modified": "2025-08-28T07:43:25.780Z"
     },
     "VISUAL_ASSETS_INDEX.json": {
       "path": "VISUAL_ASSETS_INDEX.json",
       "size": 111734,
       "extension": ".json",
-      "modified": "2025-08-26T18:03:21.713Z"
+      "modified": "2025-08-28T15:59:59.151Z"
     },
     "bun.lockb": {
       "path": "bun.lockb",
@@ -1214,107 +1438,53 @@
       "extension": ".json",
       "modified": "2025-07-10T14:23:02.136Z"
     },
-    "context/.DS_Store": {
-      "path": "context/.DS_Store",
-      "size": 6148,
-      "extension": "",
-      "modified": "2025-08-25T15:12:48.746Z"
-    },
-    "context/CLAUDE-activeContext.md": {
-      "path": "context/CLAUDE-activeContext.md",
-      "size": 8528,
-      "extension": ".md",
-      "modified": "2025-08-26T12:08:51.489Z"
-    },
-    "context/CLAUDE-config-variables.md": {
-      "path": "context/CLAUDE-config-variables.md",
-      "size": 9128,
-      "extension": ".md",
-      "modified": "2025-08-25T15:41:22.866Z"
-    },
-    "context/CLAUDE-decisions.md": {
-      "path": "context/CLAUDE-decisions.md",
-      "size": 14362,
-      "extension": ".md",
-      "modified": "2025-08-26T12:08:03.541Z"
-    },
-    "context/CLAUDE-patterns.md": {
-      "path": "context/CLAUDE-patterns.md",
-      "size": 21237,
-      "extension": ".md",
-      "modified": "2025-08-26T12:07:44.546Z"
-    },
-    "context/CLAUDE-planning.md": {
-      "path": "context/CLAUDE-planning.md",
-      "size": 13203,
-      "extension": ".md",
-      "modified": "2025-08-26T15:57:48.212Z"
-    },
-    "context/CLAUDE-temp.md": {
-      "path": "context/CLAUDE-temp.md",
-      "size": 10793,
-      "extension": ".md",
-      "modified": "2025-08-26T09:11:17.337Z"
-    },
-    "context/CLAUDE-todo.md": {
-      "path": "context/CLAUDE-todo.md",
-      "size": 6066,
-      "extension": ".md",
-      "modified": "2025-08-26T10:50:46.505Z"
-    },
-    "context/CLAUDE-troubleshooting.md": {
-      "path": "context/CLAUDE-troubleshooting.md",
-      "size": 12975,
-      "extension": ".md",
-      "modified": "2025-08-26T12:09:14.008Z"
-    },
     "context/CLAUDE_PROCESS.md": {
       "path": "context/CLAUDE_PROCESS.md",
-      "size": 30398,
+      "size": 32488,
       "extension": ".md",
-      "modified": "2025-08-26T07:58:54.554Z"
+      "modified": "2025-08-28T15:57:20.329Z"
     },
     "context/WORKFLOWS.md": {
       "path": "context/WORKFLOWS.md",
       "size": 23142,
       "extension": ".md",
-      "modified": "2025-08-25T14:27:17.419Z"
+      "modified": "2025-08-28T07:43:25.781Z"
     },
     "context/event-stream.md": {
       "path": "context/event-stream.md",
-      "size": 35527,
+      "size": 57584,
       "extension": ".md",
-      "modified": "2025-08-26T18:03:15.432Z"
-    },
-    "context/memory-bank-synchronization-results.json": {
-      "path": "context/memory-bank-synchronization-results.json",
-      "size": 9030,
-      "extension": ".json",
-      "modified": "2025-08-25T21:52:46.992Z"
+      "modified": "2025-08-28T15:59:49.891Z"
     },
     "context/project-index.md": {
       "path": "context/project-index.md",
-      "size": 14025,
+      "size": 15733,
       "extension": ".md",
-      "modified": "2025-08-25T21:51:34.623Z"
+      "modified": "2025-08-28T07:43:25.782Z"
     },
     "context/project-tree.txt": {
       "path": "context/project-tree.txt",
-      "size": 34231,
+      "size": 37056,
       "extension": ".txt",
-      "modified": "2025-08-26T18:03:21.638Z"
+      "modified": "2025-08-28T15:59:59.078Z"
+    },
+    "debug-date-error.cjs": {
+      "path": "debug-date-error.cjs",
+      "size": 3482,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.783Z"
     },
     "docs/.DS_Store": {
       "path": "docs/.DS_Store",
-      "size": 18436,
+      "size": 14340,
       "extension": "",
-      "modified": "2025-08-26T10:21:46.052Z"
+      "modified": "2025-08-28T07:17:59.389Z"
     },
     "docs/GAP_ANALYSIS_ELIGIBILITY_FLOW.md": {
       "path": "docs/GAP_ANALYSIS_ELIGIBILITY_FLOW.md",
       "size": 7151,
       "extension": ".md",
-      "modified": "2025-08-26T15:59:51.064Z"
+      "modified": "2025-08-28T07:43:25.783Z"
     },
     "docs/agent-outputs/.DS_Store": {
       "path": "docs/agent-outputs/.DS_Store",
@@ -1326,67 +1496,79 @@
       "path": "docs/agent-outputs/REQ-20250826-1403-DOC-MAINTENANCE/documentation-maintenance-specification.json",
       "size": 17361,
       "extension": ".json",
-      "modified": "2025-08-26T12:04:23.048Z"
+      "modified": "2025-08-28T07:43:25.783Z"
     },
     "docs/agent-outputs/archived/supabase-agent-enhancement-brainstorm-spec.json": {
       "path": "docs/agent-outputs/archived/supabase-agent-enhancement-brainstorm-spec.json",
       "size": 14188,
       "extension": ".json",
-      "modified": "2025-08-25T12:18:31.565Z"
+      "modified": "2025-08-28T07:43:25.784Z"
     },
     "docs/agent-outputs/gp-referral-multi-panel-review-specification.json": {
       "path": "docs/agent-outputs/gp-referral-multi-panel-review-specification.json",
       "size": 36483,
       "extension": ".json",
-      "modified": "2025-08-25T16:48:34.552Z"
+      "modified": "2025-08-28T07:43:25.784Z"
+    },
+    "docs/analysis/date-validation-issue-analysis.md": {
+      "path": "docs/analysis/date-validation-issue-analysis.md",
+      "size": 10204,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.784Z"
     },
     "docs/analysis/eligibility-form-gap-analysis.md": {
       "path": "docs/analysis/eligibility-form-gap-analysis.md",
       "size": 7824,
       "extension": ".md",
-      "modified": "2025-08-26T07:34:45.716Z"
+      "modified": "2025-08-28T07:43:25.784Z"
     },
     "docs/analysis/eligibility-questionnaire-tot-specification.json": {
       "path": "docs/analysis/eligibility-questionnaire-tot-specification.json",
       "size": 12781,
       "extension": ".json",
-      "modified": "2025-08-26T09:13:48.253Z"
+      "modified": "2025-08-28T07:43:25.784Z"
+    },
+    "docs/analysis/react-hooks-refactoring-plan.md": {
+      "path": "docs/analysis/react-hooks-refactoring-plan.md",
+      "size": 8718,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.785Z"
     },
     "docs/analysis/supabase-agents-gap-analysis-tot.md": {
       "path": "docs/analysis/supabase-agents-gap-analysis-tot.md",
       "size": 17597,
       "extension": ".md",
-      "modified": "2025-08-25T12:15:07.358Z"
+      "modified": "2025-08-28T07:43:25.785Z"
     },
     "docs/analysis/v2-memory-system-migration-brainstorming-specification.json": {
       "path": "docs/analysis/v2-memory-system-migration-brainstorming-specification.json",
       "size": 15112,
       "extension": ".json",
-      "modified": "2025-08-26T13:02:44.767Z"
+      "modified": "2025-08-28T07:43:25.785Z"
     },
     "docs/analysis/v2-memory-system-migration-tot-specification.json": {
       "path": "docs/analysis/v2-memory-system-migration-tot-specification.json",
       "size": 19229,
       "extension": ".json",
-      "modified": "2025-08-26T13:00:02.630Z"
+      "modified": "2025-08-28T07:43:25.786Z"
     },
     "docs/architecture/README.md": {
       "path": "docs/architecture/README.md",
       "size": 2097,
       "extension": ".md",
-      "modified": "2025-08-25T09:51:46.231Z"
+      "modified": "2025-08-28T07:43:25.786Z"
     },
     "docs/architecture/api.md": {
       "path": "docs/architecture/api.md",
       "size": 1723,
       "extension": ".md",
-      "modified": "2025-08-25T09:52:22.109Z"
+      "modified": "2025-08-28T07:43:25.786Z"
     },
     "docs/architecture/atomic-components.md": {
       "path": "docs/architecture/atomic-components.md",
       "size": 13413,
       "extension": ".md",
-      "modified": "2025-08-25T14:58:20.214Z"
+      "modified": "2025-08-28T07:43:25.787Z"
     },
     "docs/architecture/component-inventory.md": {
       "path": "docs/architecture/component-inventory.md",
@@ -1398,13 +1580,13 @@
       "path": "docs/architecture/copy-variant-system.md",
       "size": 19714,
       "extension": ".md",
-      "modified": "2025-08-25T14:58:20.223Z"
+      "modified": "2025-08-28T07:43:25.787Z"
     },
     "docs/architecture/database.md": {
       "path": "docs/architecture/database.md",
       "size": 2257,
       "extension": ".md",
-      "modified": "2025-08-25T09:52:04.822Z"
+      "modified": "2025-08-28T07:43:25.787Z"
     },
     "docs/architecture/system-architecture.md": {
       "path": "docs/architecture/system-architecture.md",
@@ -1428,295 +1610,331 @@
       "path": "docs/content/README.md",
       "size": 2048,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:58.020Z"
+      "modified": "2025-08-28T07:43:25.787Z"
     },
     "docs/content/translations/SKIIN_WEBSITE_COPY_ENGLISH.md": {
       "path": "docs/content/translations/SKIIN_WEBSITE_COPY_ENGLISH.md",
       "size": 19072,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:37.081Z"
+      "modified": "2025-08-28T07:43:25.788Z"
     },
     "docs/content/translations/SKIIN_WEBSITE_COPY_FRENCH.md": {
       "path": "docs/content/translations/SKIIN_WEBSITE_COPY_FRENCH.md",
       "size": 30430,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:37.081Z"
+      "modified": "2025-08-28T07:43:25.788Z"
     },
     "docs/content/translations/SKIIN_WEBSITE_COPY_GERMAN.md": {
       "path": "docs/content/translations/SKIIN_WEBSITE_COPY_GERMAN.md",
       "size": 19266,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:37.081Z"
+      "modified": "2025-08-28T07:43:25.788Z"
     },
     "docs/content/translations/SKIIN_WEBSITE_COPY_ITALIAN.md": {
       "path": "docs/content/translations/SKIIN_WEBSITE_COPY_ITALIAN.md",
       "size": 18479,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:37.082Z"
+      "modified": "2025-08-28T07:43:25.789Z"
     },
     "docs/database/gp-referral-system-specification.json": {
       "path": "docs/database/gp-referral-system-specification.json",
       "size": 33968,
       "extension": ".json",
-      "modified": "2025-08-25T16:23:24.228Z"
+      "modified": "2025-08-28T07:43:25.789Z"
     },
     "docs/database/migration-guide.md": {
       "path": "docs/database/migration-guide.md",
       "size": 17003,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:45.668Z"
+      "modified": "2025-08-28T07:43:25.789Z"
     },
     "docs/database/overview.md": {
       "path": "docs/database/overview.md",
       "size": 9325,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:45.670Z"
+      "modified": "2025-08-28T07:43:25.789Z"
     },
     "docs/database/schema-v2.md": {
       "path": "docs/database/schema-v2.md",
       "size": 12848,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:45.663Z"
+      "modified": "2025-08-28T07:43:25.790Z"
     },
     "docs/database/security-enhancement.json": {
       "path": "docs/database/security-enhancement.json",
       "size": 30049,
       "extension": ".json",
-      "modified": "2025-08-25T14:57:45.666Z"
+      "modified": "2025-08-28T07:43:25.790Z"
     },
     "docs/database/technical-specifications.md": {
       "path": "docs/database/technical-specifications.md",
       "size": 28723,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:45.672Z"
+      "modified": "2025-08-28T07:43:25.790Z"
     },
     "docs/design-system/2025-08-19-eligibility-form-design-system.md": {
       "path": "docs/design-system/2025-08-19-eligibility-form-design-system.md",
       "size": 29717,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
+      "modified": "2025-08-28T07:43:25.791Z"
     },
     "docs/design-system/2025-08-19-form-component-specifications.md": {
       "path": "docs/design-system/2025-08-19-form-component-specifications.md",
       "size": 55198,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
+      "modified": "2025-08-28T07:43:25.791Z"
     },
     "docs/design-system/README.md": {
       "path": "docs/design-system/README.md",
       "size": 3042,
       "extension": ".md",
-      "modified": "2025-08-26T12:10:54.455Z"
+      "modified": "2025-08-28T07:43:25.791Z"
     },
     "docs/design-system/components/form-specifications.md": {
       "path": "docs/design-system/components/form-specifications.md",
       "size": 55198,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:11.863Z"
+      "modified": "2025-08-28T07:43:25.792Z"
     },
     "docs/design-system/design-tokens.md": {
       "path": "docs/design-system/design-tokens.md",
       "size": 7085,
       "extension": ".md",
-      "modified": "2025-08-26T12:14:46.262Z"
+      "modified": "2025-08-28T07:43:25.792Z"
     },
     "docs/design-system/eligibility/atomic-components.md": {
       "path": "docs/design-system/eligibility/atomic-components.md",
       "size": 6133,
       "extension": ".md",
-      "modified": "2025-08-26T12:12:10.461Z"
+      "modified": "2025-08-28T07:43:25.792Z"
     },
     "docs/design-system/eligibility/eligibility-form-design.md": {
       "path": "docs/design-system/eligibility/eligibility-form-design.md",
       "size": 29717,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:11.866Z"
+      "modified": "2025-08-28T07:43:25.792Z"
     },
     "docs/design-system/eligibility/eligibility-workflow-atomic.md": {
       "path": "docs/design-system/eligibility/eligibility-workflow-atomic.md",
       "size": 11135,
       "extension": ".md",
-      "modified": "2025-08-25T14:57:11.869Z"
+      "modified": "2025-08-28T07:43:25.793Z"
     },
     "docs/design-system/implementation-review.md": {
       "path": "docs/design-system/implementation-review.md",
       "size": 12062,
       "extension": ".md",
-      "modified": "2025-08-25T14:56:54.578Z"
+      "modified": "2025-08-28T07:43:25.793Z"
     },
     "docs/design-system/token-usage-guide.md": {
       "path": "docs/design-system/token-usage-guide.md",
       "size": 4200,
       "extension": ".md",
-      "modified": "2025-08-25T14:56:54.583Z"
+      "modified": "2025-08-28T07:43:25.793Z"
     },
     "docs/design-system/tokens.md": {
       "path": "docs/design-system/tokens.md",
       "size": 4824,
       "extension": ".md",
-      "modified": "2025-08-25T14:56:34.212Z"
+      "modified": "2025-08-28T07:43:25.793Z"
     },
     "docs/design-system/website/components.md": {
       "path": "docs/design-system/website/components.md",
       "size": 6413,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.372Z"
+      "modified": "2025-08-28T07:43:25.794Z"
     },
     "docs/design-system/website/myant-violet-palette.md": {
       "path": "docs/design-system/website/myant-violet-palette.md",
       "size": 4142,
       "extension": ".md",
-      "modified": "2025-08-25T14:56:54.581Z"
+      "modified": "2025-08-28T07:43:25.794Z"
     },
     "docs/features/README.md": {
       "path": "docs/features/README.md",
       "size": 1680,
       "extension": ".md",
-      "modified": "2025-08-25T09:54:04.225Z"
+      "modified": "2025-08-28T07:43:25.794Z"
     },
     "docs/features/eligibility.md": {
       "path": "docs/features/eligibility.md",
       "size": 2715,
       "extension": ".md",
-      "modified": "2025-08-25T09:54:24.598Z"
+      "modified": "2025-08-28T07:43:25.794Z"
     },
     "docs/features/gp-referral-implementation-summary.md": {
       "path": "docs/features/gp-referral-implementation-summary.md",
       "size": 9395,
       "extension": ".md",
-      "modified": "2025-08-26T07:40:11.511Z"
+      "modified": "2025-08-28T07:43:25.795Z"
     },
     "docs/features/multi-language.md": {
       "path": "docs/features/multi-language.md",
       "size": 3907,
       "extension": ".md",
-      "modified": "2025-08-25T09:54:51.957Z"
+      "modified": "2025-08-28T07:43:25.795Z"
     },
     "docs/frontend/README.md": {
       "path": "docs/frontend/README.md",
       "size": 2142,
       "extension": ".md",
-      "modified": "2025-08-25T09:52:50.076Z"
+      "modified": "2025-08-28T07:43:25.795Z"
     },
     "docs/frontend/components.md": {
       "path": "docs/frontend/components.md",
       "size": 2912,
       "extension": ".md",
-      "modified": "2025-08-25T09:53:36.788Z"
+      "modified": "2025-08-28T07:43:25.795Z"
     },
     "docs/frontend/design-system.md": {
       "path": "docs/frontend/design-system.md",
       "size": 2457,
       "extension": ".md",
-      "modified": "2025-08-25T09:53:13.001Z"
+      "modified": "2025-08-28T07:43:25.796Z"
+    },
+    "docs/mcp-integration-summary.md": {
+      "path": "docs/mcp-integration-summary.md",
+      "size": 4550,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.796Z"
     },
     "docs/memory-system-usage.md": {
       "path": "docs/memory-system-usage.md",
       "size": 2635,
       "extension": ".md",
-      "modified": "2025-08-26T18:00:11.147Z"
+      "modified": "2025-08-28T07:43:25.796Z"
+    },
+    "docs/reports/priming-verification-20250828.md": {
+      "path": "docs/reports/priming-verification-20250828.md",
+      "size": 1195,
+      "extension": ".md",
+      "modified": "2025-08-28T15:59:37.092Z"
+    },
+    "docs/research/react-date-validation-best-practices.md": {
+      "path": "docs/research/react-date-validation-best-practices.md",
+      "size": 13613,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.796Z"
     },
     "docs/research/supabase-best-practices-comprehensive-guide.md": {
       "path": "docs/research/supabase-best-practices-comprehensive-guide.md",
       "size": 16884,
       "extension": ".md",
-      "modified": "2025-08-25T12:11:26.591Z"
+      "modified": "2025-08-28T07:43:25.797Z"
     },
     "docs/specs/gp-referral-research-specification.json": {
       "path": "docs/specs/gp-referral-research-specification.json",
       "size": 10945,
       "extension": ".json",
-      "modified": "2025-08-25T16:03:34.691Z"
+      "modified": "2025-08-28T07:43:25.797Z"
     },
     "docs/standards/accessibility-guidelines.md": {
       "path": "docs/standards/accessibility-guidelines.md",
       "size": 10843,
       "extension": ".md",
-      "modified": "2025-08-25T15:01:14.752Z"
+      "modified": "2025-08-28T07:43:25.797Z"
     },
     "docs/standards/coding-standards.md": {
       "path": "docs/standards/coding-standards.md",
       "size": 8470,
       "extension": ".md",
-      "modified": "2025-08-25T14:59:51.391Z"
+      "modified": "2025-08-28T07:43:25.798Z"
+    },
+    "docs/standards/event-stream-enhancement.md": {
+      "path": "docs/standards/event-stream-enhancement.md",
+      "size": 3775,
+      "extension": ".md",
+      "modified": "2025-08-28T12:16:59.678Z"
+    },
+    "docs/standards/index-query-guide.md": {
+      "path": "docs/standards/index-query-guide.md",
+      "size": 4346,
+      "extension": ".md",
+      "modified": "2025-08-28T10:27:00.830Z"
+    },
+    "docs/standards/linting-guide.md": {
+      "path": "docs/standards/linting-guide.md",
+      "size": 5286,
+      "extension": ".md",
+      "modified": "2025-08-28T07:43:25.798Z"
     },
     "docs/testing/README.md": {
       "path": "docs/testing/README.md",
       "size": 4598,
       "extension": ".md",
-      "modified": "2025-08-25T21:41:06.350Z"
+      "modified": "2025-08-28T07:43:25.798Z"
     },
     "docs/testing/bug-report-template.md": {
       "path": "docs/testing/bug-report-template.md",
       "size": 7418,
       "extension": ".md",
-      "modified": "2025-08-25T21:39:22.703Z"
+      "modified": "2025-08-28T07:43:25.798Z"
     },
     "docs/testing/e2e-tests.md": {
       "path": "docs/testing/e2e-tests.md",
       "size": 4398,
       "extension": ".md",
-      "modified": "2025-08-25T09:56:15.182Z"
+      "modified": "2025-08-28T07:43:25.799Z"
     },
     "docs/testing/gp-referral-system-test-specifications.json": {
       "path": "docs/testing/gp-referral-system-test-specifications.json",
       "size": 54134,
       "extension": ".json",
-      "modified": "2025-08-25T21:37:21.715Z"
+      "modified": "2025-08-28T07:43:25.799Z"
     },
     "docs/testing/gp-referral-test-plan.md": {
       "path": "docs/testing/gp-referral-test-plan.md",
       "size": 11779,
       "extension": ".md",
-      "modified": "2025-08-25T21:38:38.712Z"
+      "modified": "2025-08-28T07:43:25.799Z"
     },
     "docs/testing/quality-metrics-specification.json": {
       "path": "docs/testing/quality-metrics-specification.json",
       "size": 14727,
       "extension": ".json",
-      "modified": "2025-08-25T21:40:30.665Z"
+      "modified": "2025-08-28T07:43:25.800Z"
     },
     "docs/testing/unit-tests.md": {
       "path": "docs/testing/unit-tests.md",
       "size": 3064,
       "extension": ".md",
-      "modified": "2025-08-25T09:55:45.447Z"
+      "modified": "2025-08-28T07:43:25.800Z"
     },
     "eslint.config.js": {
       "path": "eslint.config.js",
       "size": 1241,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.400Z"
+      "modified": "2025-08-28T07:43:25.800Z"
     },
     "file-organization-report.txt": {
       "path": "file-organization-report.txt",
       "size": 308,
       "extension": ".txt",
-      "modified": "2025-08-26T18:02:23.763Z"
+      "modified": "2025-08-28T07:43:25.800Z"
     },
     "html/assets/index-D_ryMEPs.js": {
       "path": "html/assets/index-D_ryMEPs.js",
       "size": 696555,
       "extension": ".js",
-      "modified": "2025-08-25T08:07:35.070Z"
+      "modified": "2025-08-28T07:43:25.803Z"
     },
     "html/assets/index-X8b7Z_4p.css": {
       "path": "html/assets/index-X8b7Z_4p.css",
       "size": 76825,
       "extension": ".css",
-      "modified": "2025-08-25T08:07:35.069Z"
+      "modified": "2025-08-28T07:43:25.803Z"
     },
     "html/html.meta.json.gz": {
       "path": "html/html.meta.json.gz",
       "size": 34874,
       "extension": ".gz",
-      "modified": "2025-08-25T08:07:35.067Z"
+      "modified": "2025-08-28T07:43:25.805Z"
     },
     "html/index.html": {
       "path": "html/index.html",
       "size": 1241,
       "extension": ".html",
-      "modified": "2025-08-25T08:07:35.070Z"
+      "modified": "2025-08-28T07:43:25.806Z"
     },
     "index.html": {
       "path": "index.html",
@@ -1726,45 +1944,63 @@
     },
     "memory/active.json": {
       "path": "memory/active.json",
-      "size": 1449,
+      "size": 4502,
       "extension": ".json",
-      "modified": "2025-08-26T11:21:47.708Z"
+      "modified": "2025-08-28T07:43:25.806Z"
     },
     "memory/agent-groups.json": {
       "path": "memory/agent-groups.json",
-      "size": 8342,
+      "size": 11970,
       "extension": ".json",
-      "modified": "2025-08-26T11:26:48.674Z"
+      "modified": "2025-08-28T11:07:15.503Z"
     },
     "memory/decisions.json": {
       "path": "memory/decisions.json",
-      "size": 4891,
+      "size": 7566,
       "extension": ".json",
-      "modified": "2025-08-26T11:23:15.801Z"
+      "modified": "2025-08-28T07:43:25.806Z"
+    },
+    "memory/index-cache.json": {
+      "path": "memory/index-cache.json",
+      "size": 22907,
+      "extension": ".json",
+      "modified": "2025-08-28T14:56:28.192Z"
+    },
+    "memory/index-patterns.json": {
+      "path": "memory/index-patterns.json",
+      "size": 3195,
+      "extension": ".json",
+      "modified": "2025-08-28T13:13:15.807Z"
     },
     "memory/knowledge.json": {
       "path": "memory/knowledge.json",
-      "size": 6808,
+      "size": 30312,
       "extension": ".json",
-      "modified": "2025-08-26T11:24:07.036Z"
+      "modified": "2025-08-28T07:43:25.807Z"
     },
     "memory/patterns.json": {
       "path": "memory/patterns.json",
-      "size": 5447,
+      "size": 8864,
       "extension": ".json",
-      "modified": "2025-08-26T11:22:34.077Z"
+      "modified": "2025-08-28T07:43:25.807Z"
+    },
+    "memory/telemetry.json": {
+      "path": "memory/telemetry.json",
+      "size": 2284,
+      "extension": ".json",
+      "modified": "2025-08-28T15:59:28.547Z"
     },
     "package-lock.json": {
       "path": "package-lock.json",
-      "size": 965926,
+      "size": 984710,
       "extension": ".json",
-      "modified": "2025-08-26T17:56:31.737Z"
+      "modified": "2025-08-28T07:43:25.809Z"
     },
     "package.json": {
       "path": "package.json",
-      "size": 3919,
+      "size": 4455,
       "extension": ".json",
-      "modified": "2025-08-26T17:56:31.480Z"
+      "modified": "2025-08-28T07:43:25.809Z"
     },
     "postcss.config.js": {
       "path": "postcss.config.js",
@@ -1830,55 +2066,61 @@
       "path": "scripts/auto-file-mover.sh",
       "size": 5394,
       "extension": ".sh",
-      "modified": "2025-08-24T22:48:32.067Z"
+      "modified": "2025-08-28T07:43:25.857Z"
     },
     "scripts/cleanup-old-hooks.sh": {
       "path": "scripts/cleanup-old-hooks.sh",
       "size": 1212,
       "extension": ".sh",
-      "modified": "2025-08-25T06:26:52.349Z"
+      "modified": "2025-08-28T07:43:25.857Z"
     },
     "scripts/comprehensive-accessibility-audit.js": {
       "path": "scripts/comprehensive-accessibility-audit.js",
       "size": 19472,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.423Z"
+      "modified": "2025-08-28T07:43:25.857Z"
     },
     "scripts/comprehensive-design-system-test.cjs": {
       "path": "scripts/comprehensive-design-system-test.cjs",
       "size": 28998,
       "extension": ".cjs",
-      "modified": "2025-08-24T18:08:58.423Z"
+      "modified": "2025-08-28T07:43:25.858Z"
     },
     "scripts/design-system-validation-test.cjs": {
       "path": "scripts/design-system-validation-test.cjs",
       "size": 21486,
       "extension": ".cjs",
-      "modified": "2025-08-24T18:08:58.424Z"
+      "modified": "2025-08-28T07:43:25.858Z"
     },
     "scripts/event-stream-api.py": {
       "path": "scripts/event-stream-api.py",
       "size": 1821,
       "extension": ".py",
-      "modified": "2025-08-24T18:08:58.354Z"
+      "modified": "2025-08-28T07:43:25.858Z"
     },
     "scripts/file-organization-scanner.sh": {
       "path": "scripts/file-organization-scanner.sh",
       "size": 4547,
       "extension": ".sh",
-      "modified": "2025-08-24T22:56:03.509Z"
+      "modified": "2025-08-28T07:43:25.859Z"
     },
     "scripts/final-accessibility-audit.cjs": {
       "path": "scripts/final-accessibility-audit.cjs",
       "size": 40717,
       "extension": ".cjs",
-      "modified": "2025-08-24T18:08:58.424Z"
+      "modified": "2025-08-28T07:43:25.859Z"
+    },
+    "scripts/fix-eslint-issues.cjs": {
+      "path": "scripts/fix-eslint-issues.cjs",
+      "size": 4420,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.859Z"
     },
     "scripts/generate-indexes.sh": {
       "path": "scripts/generate-indexes.sh",
       "size": 18360,
       "extension": ".sh",
-      "modified": "2025-08-25T14:27:17.425Z"
+      "modified": "2025-08-28T07:43:25.860Z"
     },
     "scripts/optimize-images.js": {
       "path": "scripts/optimize-images.js",
@@ -1886,95 +2128,125 @@
       "extension": ".js",
       "modified": "2025-08-24T17:52:56.185Z"
     },
+    "scripts/query-index.sh": {
+      "path": "scripts/query-index.sh",
+      "size": 20464,
+      "extension": ".sh",
+      "modified": "2025-08-28T10:19:41.316Z"
+    },
+    "scripts/record-telemetry.sh": {
+      "path": "scripts/record-telemetry.sh",
+      "size": 5255,
+      "extension": ".sh",
+      "modified": "2025-08-28T15:54:52.668Z"
+    },
     "scripts/simplified-accessibility-audit.js": {
       "path": "scripts/simplified-accessibility-audit.js",
       "size": 23676,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.425Z"
+      "modified": "2025-08-28T07:43:25.860Z"
+    },
+    "scripts/test-agent-priming.sh": {
+      "path": "scripts/test-agent-priming.sh",
+      "size": 6634,
+      "extension": ".sh",
+      "modified": "2025-08-28T14:52:33.178Z"
+    },
+    "scripts/test-date-validation-visual.js": {
+      "path": "scripts/test-date-validation-visual.js",
+      "size": 3063,
+      "extension": ".js",
+      "modified": "2025-08-28T07:43:25.860Z"
     },
     "scripts/test-eligibility-visual.js": {
       "path": "scripts/test-eligibility-visual.js",
       "size": 8864,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.425Z"
+      "modified": "2025-08-28T07:43:25.861Z"
     },
     "scripts/test-full-eligibility-flow.js": {
       "path": "scripts/test-full-eligibility-flow.js",
       "size": 6305,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.426Z"
+      "modified": "2025-08-28T07:43:25.861Z"
     },
     "scripts/test-otp-rate-limiting.cjs": {
       "path": "scripts/test-otp-rate-limiting.cjs",
       "size": 9631,
       "extension": ".cjs",
-      "modified": "2025-08-24T18:08:58.426Z"
+      "modified": "2025-08-28T07:43:25.861Z"
     },
     "scripts/test-supabase-auth.js": {
       "path": "scripts/test-supabase-auth.js",
       "size": 3357,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.426Z"
+      "modified": "2025-08-28T07:43:25.861Z"
     },
     "scripts/tests/test-eligibility-flow-frontend.cjs": {
       "path": "scripts/tests/test-eligibility-flow-frontend.cjs",
       "size": 10084,
       "extension": ".cjs",
-      "modified": "2025-08-24T18:08:58.466Z"
+      "modified": "2025-08-28T07:43:25.862Z"
     },
     "scripts/tests/test-eligibility-flow-frontend.js": {
       "path": "scripts/tests/test-eligibility-flow-frontend.js",
       "size": 14487,
       "extension": ".js",
-      "modified": "2025-08-24T18:08:58.466Z"
+      "modified": "2025-08-28T07:43:25.862Z"
     },
     "scripts/update-agent-indexes.sh": {
       "path": "scripts/update-agent-indexes.sh",
       "size": 4049,
       "extension": ".sh",
-      "modified": "2025-08-25T07:21:41.648Z"
+      "modified": "2025-08-28T07:43:25.862Z"
+    },
+    "scripts/verify-agent-priming.sh": {
+      "path": "scripts/verify-agent-priming.sh",
+      "size": 8654,
+      "extension": ".sh",
+      "modified": "2025-08-28T15:58:29.812Z"
     },
     "specs/features/FEAT-2025-001.json": {
       "path": "specs/features/FEAT-2025-001.json",
       "size": 6197,
       "extension": ".json",
-      "modified": "2025-08-26T13:09:31.245Z"
+      "modified": "2025-08-28T07:43:25.862Z"
     },
     "specs/roadmap.json": {
       "path": "specs/roadmap.json",
       "size": 9275,
       "extension": ".json",
-      "modified": "2025-08-26T13:08:23.727Z"
+      "modified": "2025-08-28T07:43:25.863Z"
     },
     "specs/schemas/README.md": {
       "path": "specs/schemas/README.md",
       "size": 3316,
       "extension": ".md",
-      "modified": "2025-08-26T13:14:02.144Z"
+      "modified": "2025-08-28T07:43:25.863Z"
     },
     "specs/schemas/feature.schema.json": {
       "path": "specs/schemas/feature.schema.json",
       "size": 7526,
       "extension": ".json",
-      "modified": "2025-08-26T13:13:28.277Z"
+      "modified": "2025-08-28T07:43:25.863Z"
     },
     "specs/schemas/roadmap.schema.json": {
       "path": "specs/schemas/roadmap.schema.json",
       "size": 5823,
       "extension": ".json",
-      "modified": "2025-08-26T13:12:33.175Z"
+      "modified": "2025-08-28T07:43:25.863Z"
     },
     "specs/schemas/vision.schema.json": {
       "path": "specs/schemas/vision.schema.json",
       "size": 3458,
       "extension": ".json",
-      "modified": "2025-08-26T13:11:49.237Z"
+      "modified": "2025-08-28T07:43:25.864Z"
     },
     "specs/vision.json": {
       "path": "specs/vision.json",
       "size": 8666,
       "extension": ".json",
-      "modified": "2025-08-26T13:06:53.800Z"
+      "modified": "2025-08-28T07:43:25.864Z"
     },
     "src/.DS_Store": {
       "path": "src/.DS_Store",
@@ -1992,55 +2264,55 @@
       "path": "src/App.tsx",
       "size": 1737,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.426Z"
+      "modified": "2025-08-28T07:43:25.864Z"
     },
     "src/api/eligibilityRoutes.ts": {
       "path": "src/api/eligibilityRoutes.ts",
-      "size": 22992,
+      "size": 22799,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.427Z"
+      "modified": "2025-08-28T07:43:25.865Z"
     },
     "src/api/otpRoutes.ts": {
       "path": "src/api/otpRoutes.ts",
-      "size": 14316,
+      "size": 14205,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.427Z"
+      "modified": "2025-08-28T07:43:25.865Z"
     },
     "src/api/paymentRoutes.ts": {
       "path": "src/api/paymentRoutes.ts",
-      "size": 16595,
+      "size": 16496,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.428Z"
+      "modified": "2025-08-28T07:43:25.865Z"
     },
     "src/api/server.ts": {
       "path": "src/api/server.ts",
-      "size": 18123,
+      "size": 17794,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.428Z"
+      "modified": "2025-08-28T07:43:25.866Z"
     },
     "src/app/[language]/referral/page.tsx": {
       "path": "src/app/[language]/referral/page.tsx",
       "size": 461,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:12:57.103Z"
+      "modified": "2025-08-28T07:43:25.866Z"
     },
     "src/app/api/referral/generate-code/route.ts": {
       "path": "src/app/api/referral/generate-code/route.ts",
       "size": 1424,
       "extension": ".ts",
-      "modified": "2025-08-25T17:15:47.621Z"
+      "modified": "2025-08-28T07:43:25.866Z"
     },
     "src/app/api/referral/upload/route.ts": {
       "path": "src/app/api/referral/upload/route.ts",
       "size": 2604,
       "extension": ".ts",
-      "modified": "2025-08-25T17:16:31.998Z"
+      "modified": "2025-08-28T07:43:25.866Z"
     },
     "src/app/api/referral/verify-code/route.ts": {
       "path": "src/app/api/referral/verify-code/route.ts",
       "size": 1731,
       "extension": ".ts",
-      "modified": "2025-08-25T17:16:06.674Z"
+      "modified": "2025-08-28T07:43:25.867Z"
     },
     "src/assets/images/german/.DS_Store": {
       "path": "src/assets/images/german/.DS_Store",
@@ -2106,613 +2378,619 @@
       "path": "src/components/auth/MinimalOTPVerification.tsx",
       "size": 7649,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.428Z"
+      "modified": "2025-08-28T07:43:25.867Z"
     },
     "src/components/eligibility/EligibilityChecker.tsx": {
       "path": "src/components/eligibility/EligibilityChecker.tsx",
       "size": 1202,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.429Z"
+      "modified": "2025-08-28T07:43:25.867Z"
     },
     "src/components/eligibility/atoms/EligibilityNextStepItem.tsx": {
       "path": "src/components/eligibility/atoms/EligibilityNextStepItem.tsx",
       "size": 588,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.429Z"
+      "modified": "2025-08-28T07:43:25.867Z"
     },
     "src/components/eligibility/atoms/EligibilityProgressBar.tsx": {
       "path": "src/components/eligibility/atoms/EligibilityProgressBar.tsx",
       "size": 1009,
       "extension": ".tsx",
-      "modified": "2025-08-26T10:25:12.746Z"
+      "modified": "2025-08-28T07:43:25.867Z"
     },
     "src/components/eligibility/atoms/EligibilityResultBadge.tsx": {
       "path": "src/components/eligibility/atoms/EligibilityResultBadge.tsx",
       "size": 546,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.429Z"
+      "modified": "2025-08-28T07:43:25.868Z"
     },
     "src/components/eligibility/context/EligibilityContext.tsx": {
       "path": "src/components/eligibility/context/EligibilityContext.tsx",
       "size": 2556,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.430Z"
+      "modified": "2025-08-28T07:43:25.868Z"
     },
     "src/components/eligibility/data/swissHealthcareData.ts": {
       "path": "src/components/eligibility/data/swissHealthcareData.ts",
       "size": 1529,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.430Z"
+      "modified": "2025-08-28T07:43:25.868Z"
     },
     "src/components/eligibility/data/types.ts": {
       "path": "src/components/eligibility/data/types.ts",
       "size": 1764,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.430Z"
+      "modified": "2025-08-28T07:43:25.868Z"
     },
     "src/components/eligibility/eligibility-questionnaire-comprehensive.test.ts": {
       "path": "src/components/eligibility/eligibility-questionnaire-comprehensive.test.ts",
       "size": 5119,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.430Z"
+      "modified": "2025-08-28T07:43:25.869Z"
     },
     "src/components/eligibility/index.ts": {
       "path": "src/components/eligibility/index.ts",
       "size": 1515,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.430Z"
+      "modified": "2025-08-28T07:43:25.869Z"
     },
     "src/components/eligibility/molecules/EligibilityInsuranceInfo.tsx": {
       "path": "src/components/eligibility/molecules/EligibilityInsuranceInfo.tsx",
       "size": 582,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.431Z"
+      "modified": "2025-08-28T07:43:25.869Z"
     },
     "src/components/eligibility/molecules/EligibilityInsurerSelector.tsx": {
       "path": "src/components/eligibility/molecules/EligibilityInsurerSelector.tsx",
       "size": 901,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.431Z"
+      "modified": "2025-08-28T07:43:25.869Z"
     },
     "src/components/eligibility/molecules/EligibilityNextStepsList.tsx": {
       "path": "src/components/eligibility/molecules/EligibilityNextStepsList.tsx",
       "size": 685,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.431Z"
+      "modified": "2025-08-28T07:43:25.869Z"
     },
     "src/components/eligibility/molecules/EligibilityResultIcon.tsx": {
       "path": "src/components/eligibility/molecules/EligibilityResultIcon.tsx",
       "size": 681,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.431Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/molecules/EligibilityRiskFactorSelector.tsx": {
       "path": "src/components/eligibility/molecules/EligibilityRiskFactorSelector.tsx",
       "size": 1065,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.432Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/molecules/EligibilitySymptomSelector.tsx": {
       "path": "src/components/eligibility/molecules/EligibilitySymptomSelector.tsx",
       "size": 1056,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.432Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/organisms/EligibilityFormContainer.tsx": {
       "path": "src/components/eligibility/organisms/EligibilityFormContainer.tsx",
-      "size": 6470,
+      "size": 7694,
       "extension": ".tsx",
-      "modified": "2025-08-26T17:58:22.845Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/organisms/EligibilityFormStep.tsx": {
       "path": "src/components/eligibility/organisms/EligibilityFormStep.tsx",
-      "size": 2920,
+      "size": 2940,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.432Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/organisms/EligibilityResultCard.tsx": {
       "path": "src/components/eligibility/organisms/EligibilityResultCard.tsx",
       "size": 2685,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.433Z"
+      "modified": "2025-08-28T07:43:25.870Z"
     },
     "src/components/eligibility/utils/eligibilityCalculator.ts": {
       "path": "src/components/eligibility/utils/eligibilityCalculator.ts",
       "size": 2084,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.433Z"
+      "modified": "2025-08-28T07:43:25.871Z"
     },
     "src/components/forms/MinimalInsuranceSelector.tsx": {
       "path": "src/components/forms/MinimalInsuranceSelector.tsx",
       "size": 8919,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.433Z"
+      "modified": "2025-08-28T07:43:25.871Z"
     },
     "src/components/forms/MinimalPaymentForm.tsx": {
       "path": "src/components/forms/MinimalPaymentForm.tsx",
       "size": 13179,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.433Z"
+      "modified": "2025-08-28T07:43:25.871Z"
     },
     "src/components/forms/SimpleInsuranceInput.tsx": {
       "path": "src/components/forms/SimpleInsuranceInput.tsx",
       "size": 1641,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.433Z"
+      "modified": "2025-08-28T07:43:25.871Z"
     },
     "src/components/forms/eligibility/DoctorUploadPortal.tsx": {
       "path": "src/components/forms/eligibility/DoctorUploadPortal.tsx",
       "size": 2956,
       "extension": ".tsx",
-      "modified": "2025-08-25T22:43:22.777Z"
+      "modified": "2025-08-28T07:43:25.872Z"
     },
     "src/components/forms/eligibility/ReferralCodeDisplay.tsx": {
       "path": "src/components/forms/eligibility/ReferralCodeDisplay.tsx",
       "size": 1607,
       "extension": ".tsx",
-      "modified": "2025-08-25T22:43:01.150Z"
+      "modified": "2025-08-28T07:43:25.872Z"
     },
     "src/components/forms/eligibility/atoms/AlertBox.tsx": {
       "path": "src/components/forms/eligibility/atoms/AlertBox.tsx",
       "size": 1145,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:19:54.868Z"
+      "modified": "2025-08-28T07:43:25.872Z"
     },
     "src/components/forms/eligibility/atoms/CompactSymptomSelector.tsx": {
       "path": "src/components/forms/eligibility/atoms/CompactSymptomSelector.tsx",
       "size": 1677,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:39:56.096Z"
+      "modified": "2025-08-28T07:43:25.872Z"
     },
     "src/components/forms/eligibility/atoms/CostEstimateCard.tsx": {
       "path": "src/components/forms/eligibility/atoms/CostEstimateCard.tsx",
       "size": 910,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:16:09.405Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/DateInput.tsx": {
       "path": "src/components/forms/eligibility/atoms/DateInput.tsx",
       "size": 1278,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:07:26.112Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/EmergencyHeader.tsx": {
       "path": "src/components/forms/eligibility/atoms/EmergencyHeader.tsx",
       "size": 1310,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:40:00.189Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/EmergencyWarning.tsx": {
       "path": "src/components/forms/eligibility/atoms/EmergencyWarning.tsx",
       "size": 783,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:17:28.923Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/ExpiryNotice.tsx": {
       "path": "src/components/forms/eligibility/atoms/ExpiryNotice.tsx",
       "size": 793,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:11:55.465Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/FormError.tsx": {
       "path": "src/components/forms/eligibility/atoms/FormError.tsx",
       "size": 709,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:19:40.592Z"
+      "modified": "2025-08-28T07:43:25.873Z"
     },
     "src/components/forms/eligibility/atoms/FormField.tsx": {
       "path": "src/components/forms/eligibility/atoms/FormField.tsx",
       "size": 2153,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:09:02.812Z"
+      "modified": "2025-08-28T07:43:25.874Z"
     },
     "src/components/forms/eligibility/atoms/FormLabel.tsx": {
       "path": "src/components/forms/eligibility/atoms/FormLabel.tsx",
       "size": 750,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:19:31.534Z"
+      "modified": "2025-08-28T07:43:25.874Z"
     },
     "src/components/forms/eligibility/atoms/ReferralCodeActions.tsx": {
       "path": "src/components/forms/eligibility/atoms/ReferralCodeActions.tsx",
       "size": 1243,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:12:13.087Z"
+      "modified": "2025-08-28T07:43:25.874Z"
     },
     "src/components/forms/eligibility/atoms/ReferralCodeQR.tsx": {
       "path": "src/components/forms/eligibility/atoms/ReferralCodeQR.tsx",
       "size": 724,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:11:24.687Z"
+      "modified": "2025-08-28T07:43:25.874Z"
     },
     "src/components/forms/eligibility/atoms/ReferralCodeText.tsx": {
       "path": "src/components/forms/eligibility/atoms/ReferralCodeText.tsx",
       "size": 1091,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:11:41.340Z"
+      "modified": "2025-08-28T07:43:25.875Z"
+    },
+    "src/components/forms/eligibility/atoms/ReferralQRCode.tsx": {
+      "path": "src/components/forms/eligibility/atoms/ReferralQRCode.tsx",
+      "size": 1440,
+      "extension": ".tsx",
+      "modified": "2025-08-28T07:43:25.875Z"
     },
     "src/components/forms/eligibility/atoms/SafetyNotice.tsx": {
       "path": "src/components/forms/eligibility/atoms/SafetyNotice.tsx",
       "size": 959,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:40:49.592Z"
+      "modified": "2025-08-28T07:43:25.875Z"
     },
     "src/components/forms/eligibility/atoms/SeveritySlider.tsx": {
       "path": "src/components/forms/eligibility/atoms/SeveritySlider.tsx",
       "size": 1151,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:17:52.490Z"
+      "modified": "2025-08-28T07:43:25.876Z"
     },
     "src/components/forms/eligibility/atoms/StatusIcon.tsx": {
       "path": "src/components/forms/eligibility/atoms/StatusIcon.tsx",
       "size": 941,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:15:29.860Z"
+      "modified": "2025-08-28T07:43:25.876Z"
     },
     "src/components/forms/eligibility/atoms/StepNumber.tsx": {
       "path": "src/components/forms/eligibility/atoms/StepNumber.tsx",
       "size": 422,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:17:14.876Z"
+      "modified": "2025-08-28T07:43:25.876Z"
     },
     "src/components/forms/eligibility/atoms/SwissInsuranceSelector.tsx": {
       "path": "src/components/forms/eligibility/atoms/SwissInsuranceSelector.tsx",
       "size": 2390,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:37:45.090Z"
+      "modified": "2025-08-28T07:43:25.877Z"
     },
     "src/components/forms/eligibility/atoms/TelmedAlert.tsx": {
       "path": "src/components/forms/eligibility/atoms/TelmedAlert.tsx",
       "size": 1202,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:20:33.354Z"
+      "modified": "2025-08-28T07:43:25.877Z"
     },
     "src/components/forms/eligibility/atoms/TrustBadge.tsx": {
       "path": "src/components/forms/eligibility/atoms/TrustBadge.tsx",
       "size": 587,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:17:03.288Z"
+      "modified": "2025-08-28T07:43:25.877Z"
     },
     "src/components/forms/eligibility/components/ContraindicationScreening.tsx": {
       "path": "src/components/forms/eligibility/components/ContraindicationScreening.tsx",
       "size": 3500,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.434Z"
+      "modified": "2025-08-28T07:43:25.877Z"
     },
     "src/components/forms/eligibility/components/EligibilityStatusAlert.tsx": {
       "path": "src/components/forms/eligibility/components/EligibilityStatusAlert.tsx",
       "size": 9573,
       "extension": ".tsx",
-      "modified": "2025-08-26T07:59:56.730Z"
+      "modified": "2025-08-28T07:43:25.878Z"
     },
     "src/components/forms/eligibility/components/EligibilityStatusAlertRefactored.tsx": {
       "path": "src/components/forms/eligibility/components/EligibilityStatusAlertRefactored.tsx",
       "size": 7354,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:16:57.037Z"
+      "modified": "2025-08-28T07:43:25.878Z"
     },
     "src/components/forms/eligibility/components/EmergencyDialog.tsx": {
       "path": "src/components/forms/eligibility/components/EmergencyDialog.tsx",
       "size": 8890,
       "extension": ".tsx",
-      "modified": "2025-08-26T08:00:50.281Z"
+      "modified": "2025-08-28T07:43:25.878Z"
     },
     "src/components/forms/eligibility/components/EmergencyDialogRefactored.tsx": {
       "path": "src/components/forms/eligibility/components/EmergencyDialogRefactored.tsx",
       "size": 3211,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:41:39.694Z"
+      "modified": "2025-08-28T07:43:25.878Z"
     },
     "src/components/forms/eligibility/components/FamilyHistoryQuestion.tsx": {
       "path": "src/components/forms/eligibility/components/FamilyHistoryQuestion.tsx",
       "size": 2004,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.434Z"
+      "modified": "2025-08-28T07:43:25.879Z"
     },
     "src/components/forms/eligibility/components/InsuranceModelSelector.tsx": {
       "path": "src/components/forms/eligibility/components/InsuranceModelSelector.tsx",
       "size": 9577,
       "extension": ".tsx",
-      "modified": "2025-08-26T07:59:06.202Z"
+      "modified": "2025-08-28T07:43:25.879Z"
     },
     "src/components/forms/eligibility/components/NextStepsCard.tsx": {
       "path": "src/components/forms/eligibility/components/NextStepsCard.tsx",
       "size": 1246,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.435Z"
+      "modified": "2025-08-28T07:43:25.879Z"
     },
     "src/components/forms/eligibility/components/OTPVerification.tsx": {
       "path": "src/components/forms/eligibility/components/OTPVerification.tsx",
       "size": 1976,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.435Z"
+      "modified": "2025-08-28T07:43:25.879Z"
     },
     "src/components/forms/eligibility/components/ProgressIndicator.tsx": {
       "path": "src/components/forms/eligibility/components/ProgressIndicator.tsx",
       "size": 3179,
       "extension": ".tsx",
-      "modified": "2025-08-26T10:25:34.836Z"
+      "modified": "2025-08-28T07:43:25.879Z"
     },
     "src/components/forms/eligibility/components/StageFooter.tsx": {
       "path": "src/components/forms/eligibility/components/StageFooter.tsx",
       "size": 1359,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.435Z"
+      "modified": "2025-08-28T07:43:25.880Z"
     },
     "src/components/forms/eligibility/components/StageHeader.tsx": {
       "path": "src/components/forms/eligibility/components/StageHeader.tsx",
       "size": 449,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.435Z"
+      "modified": "2025-08-28T07:43:25.880Z"
     },
     "src/components/forms/eligibility/components/SwissHealthcareStepper.tsx": {
       "path": "src/components/forms/eligibility/components/SwissHealthcareStepper.tsx",
       "size": 11409,
       "extension": ".tsx",
-      "modified": "2025-08-26T10:35:09.600Z"
+      "modified": "2025-08-28T07:43:25.880Z"
     },
     "src/components/forms/eligibility/components/SymptomSelector.tsx": {
       "path": "src/components/forms/eligibility/components/SymptomSelector.tsx",
       "size": 6463,
       "extension": ".tsx",
-      "modified": "2025-08-26T07:57:58.721Z"
+      "modified": "2025-08-28T07:43:25.880Z"
     },
     "src/components/forms/eligibility/doctor-upload/CodeEntryStep.tsx": {
       "path": "src/components/forms/eligibility/doctor-upload/CodeEntryStep.tsx",
       "size": 3012,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:13:51.411Z"
+      "modified": "2025-08-28T07:43:25.880Z"
     },
     "src/components/forms/eligibility/doctor-upload/ConfirmationStep.tsx": {
       "path": "src/components/forms/eligibility/doctor-upload/ConfirmationStep.tsx",
-      "size": 3423,
+      "size": 3443,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:15:28.733Z"
+      "modified": "2025-08-28T07:43:25.881Z"
     },
     "src/components/forms/eligibility/doctor-upload/DoctorDetailsStep.tsx": {
       "path": "src/components/forms/eligibility/doctor-upload/DoctorDetailsStep.tsx",
-      "size": 3936,
+      "size": 3956,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:14:23.386Z"
+      "modified": "2025-08-28T07:43:25.881Z"
     },
     "src/components/forms/eligibility/doctor-upload/DocumentUploadStep.tsx": {
       "path": "src/components/forms/eligibility/doctor-upload/DocumentUploadStep.tsx",
-      "size": 4671,
+      "size": 4691,
       "extension": ".tsx",
-      "modified": "2025-08-25T17:15:00.593Z"
+      "modified": "2025-08-28T07:43:25.881Z"
     },
     "src/components/forms/eligibility/hooks/useEligibilityLogic.ts": {
       "path": "src/components/forms/eligibility/hooks/useEligibilityLogic.ts",
       "size": 1911,
       "extension": ".ts",
-      "modified": "2025-08-26T13:24:42.000Z"
+      "modified": "2025-08-28T07:43:25.881Z"
     },
     "src/components/forms/eligibility/molecules/ArrhythmiaHistorySection.tsx": {
       "path": "src/components/forms/eligibility/molecules/ArrhythmiaHistorySection.tsx",
       "size": 2376,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:18:28.587Z"
+      "modified": "2025-08-28T07:43:25.881Z"
     },
     "src/components/forms/eligibility/molecules/ConsentCheckboxes.tsx": {
       "path": "src/components/forms/eligibility/molecules/ConsentCheckboxes.tsx",
       "size": 1621,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:20:18.328Z"
+      "modified": "2025-08-28T07:43:25.882Z"
     },
     "src/components/forms/eligibility/molecules/ConsentChecklistStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/ConsentChecklistStep.tsx",
       "size": 2741,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:38:13.362Z"
+      "modified": "2025-08-28T07:43:25.882Z"
     },
     "src/components/forms/eligibility/molecules/ContraindicationSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/ContraindicationSection.tsx",
       "size": 778,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:40:31.327Z"
+      "modified": "2025-08-28T07:43:25.882Z"
     },
     "src/components/forms/eligibility/molecules/DateOfBirthSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/DateOfBirthSection.tsx",
       "size": 681,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:20:14.599Z"
+      "modified": "2025-08-28T07:43:25.882Z"
     },
     "src/components/forms/eligibility/molecules/EmailSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/EmailSection.tsx",
       "size": 482,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:20:04.080Z"
+      "modified": "2025-08-28T07:43:25.882Z"
     },
     "src/components/forms/eligibility/molecules/EmailVerificationSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/EmailVerificationSection.tsx",
       "size": 967,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:20:28.257Z"
+      "modified": "2025-08-28T07:43:25.883Z"
     },
     "src/components/forms/eligibility/molecules/EmergencyContactCard.tsx": {
       "path": "src/components/forms/eligibility/molecules/EmergencyContactCard.tsx",
       "size": 1868,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:40:19.685Z"
+      "modified": "2025-08-28T07:43:25.883Z"
     },
     "src/components/forms/eligibility/molecules/FamilyHistoryStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/FamilyHistoryStep.tsx",
       "size": 678,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:24:16.687Z"
+      "modified": "2025-08-28T07:43:25.883Z"
     },
     "src/components/forms/eligibility/molecules/GPChoiceSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/GPChoiceSection.tsx",
       "size": 1059,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:19:47.058Z"
+      "modified": "2025-08-28T07:43:25.883Z"
     },
     "src/components/forms/eligibility/molecules/GPDetailsForm.tsx": {
       "path": "src/components/forms/eligibility/molecules/GPDetailsForm.tsx",
       "size": 1542,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:20:02.068Z"
+      "modified": "2025-08-28T07:43:25.883Z"
     },
     "src/components/forms/eligibility/molecules/InsuranceSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/InsuranceSection.tsx",
       "size": 771,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:38:07.909Z"
+      "modified": "2025-08-28T07:43:25.884Z"
     },
     "src/components/forms/eligibility/molecules/InsuranceStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/InsuranceStep.tsx",
       "size": 902,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:17:45.058Z"
+      "modified": "2025-08-28T07:43:25.884Z"
     },
     "src/components/forms/eligibility/molecules/MedicationSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/MedicationSection.tsx",
       "size": 691,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:18:40.451Z"
+      "modified": "2025-08-28T07:43:25.884Z"
     },
     "src/components/forms/eligibility/molecules/NameSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/NameSection.tsx",
       "size": 948,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:45:13.323Z"
+      "modified": "2025-08-28T07:43:25.884Z"
     },
     "src/components/forms/eligibility/molecules/NextStepsGrid.tsx": {
       "path": "src/components/forms/eligibility/molecules/NextStepsGrid.tsx",
       "size": 1087,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:15:42.900Z"
+      "modified": "2025-08-28T07:43:25.885Z"
     },
     "src/components/forms/eligibility/molecules/PaymentFormStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/PaymentFormStep.tsx",
-      "size": 2740,
+      "size": 3775,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:37:44.829Z"
+      "modified": "2025-08-28T07:43:25.885Z"
     },
     "src/components/forms/eligibility/molecules/PhoneVerificationStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/PhoneVerificationStep.tsx",
       "size": 1561,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:36:52.306Z"
+      "modified": "2025-08-28T07:43:25.885Z"
     },
     "src/components/forms/eligibility/molecules/RecommendationsList.tsx": {
       "path": "src/components/forms/eligibility/molecules/RecommendationsList.tsx",
       "size": 1112,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:40:35.228Z"
+      "modified": "2025-08-28T07:43:25.885Z"
     },
     "src/components/forms/eligibility/molecules/SafetyStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/SafetyStep.tsx",
       "size": 681,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:20:09.067Z"
+      "modified": "2025-08-28T07:43:25.885Z"
     },
     "src/components/forms/eligibility/molecules/ServicePackageCard.tsx": {
       "path": "src/components/forms/eligibility/molecules/ServicePackageCard.tsx",
       "size": 1313,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:15:56.717Z"
+      "modified": "2025-08-28T07:43:25.886Z"
     },
     "src/components/forms/eligibility/molecules/ShippingAddressStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/ShippingAddressStep.tsx",
       "size": 2055,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:37:16.649Z"
+      "modified": "2025-08-28T07:43:25.886Z"
     },
     "src/components/forms/eligibility/molecules/SymptomDetailsSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/SymptomDetailsSection.tsx",
       "size": 1671,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:18:09.507Z"
+      "modified": "2025-08-28T07:43:25.886Z"
     },
     "src/components/forms/eligibility/molecules/SymptomSection.tsx": {
       "path": "src/components/forms/eligibility/molecules/SymptomSection.tsx",
       "size": 1037,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:40:19.617Z"
+      "modified": "2025-08-28T07:43:25.886Z"
     },
     "src/components/forms/eligibility/molecules/SymptomsStep.tsx": {
       "path": "src/components/forms/eligibility/molecules/SymptomsStep.tsx",
       "size": 1085,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:24:03.706Z"
+      "modified": "2025-08-28T07:43:25.887Z"
     },
     "src/components/forms/eligibility/stages/CompletionStage.tsx": {
       "path": "src/components/forms/eligibility/stages/CompletionStage.tsx",
       "size": 5631,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.436Z"
+      "modified": "2025-08-28T07:43:25.887Z"
     },
     "src/components/forms/eligibility/stages/ContactAccountStage.tsx": {
       "path": "src/components/forms/eligibility/stages/ContactAccountStage.tsx",
-      "size": 4665,
+      "size": 4627,
       "extension": ".tsx",
-      "modified": "2025-08-26T11:20:50.286Z"
+      "modified": "2025-08-28T07:43:25.887Z"
     },
     "src/components/forms/eligibility/stages/ContactAccountStageRefactored.tsx": {
       "path": "src/components/forms/eligibility/stages/ContactAccountStageRefactored.tsx",
-      "size": 5527,
+      "size": 6012,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:45:55.165Z"
+      "modified": "2025-08-28T07:43:25.887Z"
     },
     "src/components/forms/eligibility/stages/DetailedInfoStage.tsx": {
       "path": "src/components/forms/eligibility/stages/DetailedInfoStage.tsx",
       "size": 5942,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.436Z"
+      "modified": "2025-08-28T07:43:25.887Z"
     },
     "src/components/forms/eligibility/stages/DetailedInfoStageRefactored.tsx": {
       "path": "src/components/forms/eligibility/stages/DetailedInfoStageRefactored.tsx",
       "size": 2874,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:19:05.043Z"
+      "modified": "2025-08-28T07:43:25.888Z"
     },
     "src/components/forms/eligibility/stages/EligibilityGateStage.tsx": {
       "path": "src/components/forms/eligibility/stages/EligibilityGateStage.tsx",
-      "size": 11003,
+      "size": 11005,
       "extension": ".tsx",
-      "modified": "2025-08-26T08:02:42.043Z"
+      "modified": "2025-08-28T07:43:25.888Z"
     },
     "src/components/forms/eligibility/stages/EligibilityGateStageRefactored.tsx": {
       "path": "src/components/forms/eligibility/stages/EligibilityGateStageRefactored.tsx",
-      "size": 6575,
+      "size": 6577,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:25:52.514Z"
+      "modified": "2025-08-28T07:43:25.888Z"
     },
     "src/components/forms/eligibility/stages/EligibilityGateStageTest.tsx": {
       "path": "src/components/forms/eligibility/stages/EligibilityGateStageTest.tsx",
       "size": 129,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:26:44.684Z"
+      "modified": "2025-08-28T07:43:25.888Z"
     },
     "src/components/forms/eligibility/stages/InsuredReviewStage.tsx": {
       "path": "src/components/forms/eligibility/stages/InsuredReviewStage.tsx",
       "size": 6331,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.437Z"
+      "modified": "2025-08-28T07:43:25.889Z"
     },
     "src/components/forms/eligibility/stages/InsuredReviewStageRefactored.tsx": {
       "path": "src/components/forms/eligibility/stages/InsuredReviewStageRefactored.tsx",
-      "size": 3661,
+      "size": 5071,
       "extension": ".tsx",
-      "modified": "2025-08-26T15:21:01.683Z"
+      "modified": "2025-08-28T07:43:25.889Z"
     },
     "src/components/forms/eligibility/stages/SelfPayStage.tsx": {
       "path": "src/components/forms/eligibility/stages/SelfPayStage.tsx",
       "size": 8693,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.437Z"
+      "modified": "2025-08-28T07:43:25.889Z"
     },
     "src/components/forms/eligibility/stages/SelfPayStageRefactored.tsx": {
       "path": "src/components/forms/eligibility/stages/SelfPayStageRefactored.tsx",
-      "size": 6546,
+      "size": 6533,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:39:06.410Z"
+      "modified": "2025-08-28T07:43:25.889Z"
     },
     "src/components/forms/eligibility/utils/emergencyMessages.ts": {
       "path": "src/components/forms/eligibility/utils/emergencyMessages.ts",
       "size": 1779,
       "extension": ".ts",
-      "modified": "2025-08-26T13:41:10.062Z"
+      "modified": "2025-08-28T07:43:25.890Z"
     },
     "src/components/home/CEOQuote.tsx": {
       "path": "src/components/home/CEOQuote.tsx",
@@ -2778,7 +3056,7 @@
       "path": "src/components/home/EligibilityChecker.tsx",
       "size": 324,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.438Z"
+      "modified": "2025-08-28T07:43:25.890Z"
     },
     "src/components/home/EnhancedComparison.tsx": {
       "path": "src/components/home/EnhancedComparison.tsx",
@@ -2952,187 +3230,187 @@
       "path": "src/components/landing/CircularTestimonialsSection.tsx",
       "size": 2773,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.238Z"
+      "modified": "2025-08-28T07:43:25.890Z"
     },
     "src/components/landing/ClinicalEvidenceStats.tsx": {
       "path": "src/components/landing/ClinicalEvidenceStats.tsx",
       "size": 2172,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.438Z"
+      "modified": "2025-08-28T07:43:25.891Z"
     },
     "src/components/landing/ClinicalEvidenceViz.tsx": {
       "path": "src/components/landing/ClinicalEvidenceViz.tsx",
       "size": 6987,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.239Z"
+      "modified": "2025-08-28T07:43:25.891Z"
     },
     "src/components/landing/ComfortSection.tsx": {
       "path": "src/components/landing/ComfortSection.tsx",
       "size": 3160,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.239Z"
+      "modified": "2025-08-28T07:43:25.891Z"
     },
     "src/components/landing/ComparisonSection.tsx": {
       "path": "src/components/landing/ComparisonSection.tsx",
       "size": 7445,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.240Z"
+      "modified": "2025-08-28T07:43:25.892Z"
     },
     "src/components/landing/FullScreenQuote.tsx": {
       "path": "src/components/landing/FullScreenQuote.tsx",
       "size": 1082,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.240Z"
+      "modified": "2025-08-28T07:43:25.892Z"
     },
     "src/components/landing/HeroFullScreen.tsx": {
       "path": "src/components/landing/HeroFullScreen.tsx",
       "size": 4244,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.240Z"
+      "modified": "2025-08-28T07:43:25.892Z"
     },
     "src/components/landing/HeroMinimal.tsx": {
       "path": "src/components/landing/HeroMinimal.tsx",
       "size": 1577,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.240Z"
+      "modified": "2025-08-28T07:43:25.892Z"
     },
     "src/components/landing/HeroV2025.tsx": {
       "path": "src/components/landing/HeroV2025.tsx",
       "size": 5062,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.439Z"
+      "modified": "2025-08-28T07:43:25.893Z"
     },
     "src/components/landing/HowSKIINCompares.tsx": {
       "path": "src/components/landing/HowSKIINCompares.tsx",
       "size": 3996,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.241Z"
+      "modified": "2025-08-28T07:43:25.893Z"
     },
     "src/components/landing/HowSKIINWorks.tsx": {
       "path": "src/components/landing/HowSKIINWorks.tsx",
       "size": 3340,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.241Z"
+      "modified": "2025-08-28T07:43:25.893Z"
     },
     "src/components/landing/HowSKIINWorksV2.tsx": {
       "path": "src/components/landing/HowSKIINWorksV2.tsx",
       "size": 6132,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.439Z"
+      "modified": "2025-08-28T07:43:25.893Z"
     },
     "src/components/landing/InsuranceCoverageFlow.tsx": {
       "path": "src/components/landing/InsuranceCoverageFlow.tsx",
       "size": 7352,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.242Z"
+      "modified": "2025-08-28T07:43:25.894Z"
     },
     "src/components/landing/JourneyTimeline.tsx": {
       "path": "src/components/landing/JourneyTimeline.tsx",
       "size": 10766,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.440Z"
+      "modified": "2025-08-28T07:43:25.894Z"
     },
     "src/components/landing/MinimalBenefits.tsx": {
       "path": "src/components/landing/MinimalBenefits.tsx",
       "size": 6380,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.440Z"
+      "modified": "2025-08-28T07:43:25.894Z"
     },
     "src/components/landing/MinimalCTA.tsx": {
       "path": "src/components/landing/MinimalCTA.tsx",
       "size": 1641,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.440Z"
+      "modified": "2025-08-28T07:43:25.894Z"
     },
     "src/components/landing/MinimalComparison.tsx": {
       "path": "src/components/landing/MinimalComparison.tsx",
       "size": 3605,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.440Z"
+      "modified": "2025-08-28T07:43:25.895Z"
     },
     "src/components/landing/MinimalFeatures.tsx": {
       "path": "src/components/landing/MinimalFeatures.tsx",
       "size": 2295,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.441Z"
+      "modified": "2025-08-28T07:43:25.895Z"
     },
     "src/components/landing/MinimalHero.tsx": {
       "path": "src/components/landing/MinimalHero.tsx",
       "size": 2243,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.441Z"
+      "modified": "2025-08-28T07:43:25.895Z"
     },
     "src/components/landing/MinimalInsurance.tsx": {
       "path": "src/components/landing/MinimalInsurance.tsx",
       "size": 3904,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.441Z"
+      "modified": "2025-08-28T07:43:25.895Z"
     },
     "src/components/landing/MinimalPricing.tsx": {
       "path": "src/components/landing/MinimalPricing.tsx",
       "size": 8589,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.441Z"
+      "modified": "2025-08-28T07:43:25.896Z"
     },
     "src/components/landing/MinimalProcess.tsx": {
       "path": "src/components/landing/MinimalProcess.tsx",
       "size": 2223,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.442Z"
+      "modified": "2025-08-28T07:43:25.896Z"
     },
     "src/components/landing/MinimalStatistics.tsx": {
       "path": "src/components/landing/MinimalStatistics.tsx",
       "size": 1732,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.442Z"
+      "modified": "2025-08-28T07:43:25.896Z"
     },
     "src/components/landing/MinimalTechStack.tsx": {
       "path": "src/components/landing/MinimalTechStack.tsx",
       "size": 6475,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.442Z"
+      "modified": "2025-08-28T07:43:25.896Z"
     },
     "src/components/landing/MinimalTestimonials.tsx": {
       "path": "src/components/landing/MinimalTestimonials.tsx",
       "size": 2271,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.442Z"
+      "modified": "2025-08-28T07:43:25.896Z"
     },
     "src/components/landing/SwissHealthInsurance.tsx": {
       "path": "src/components/landing/SwissHealthInsurance.tsx",
       "size": 4666,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.245Z"
+      "modified": "2025-08-28T07:43:25.897Z"
     },
     "src/components/landing/TestimonialsV2.tsx": {
       "path": "src/components/landing/TestimonialsV2.tsx",
       "size": 7454,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.245Z"
+      "modified": "2025-08-28T07:43:25.897Z"
     },
     "src/components/landing/TimelineProcess.tsx": {
       "path": "src/components/landing/TimelineProcess.tsx",
       "size": 8805,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.245Z"
+      "modified": "2025-08-28T07:43:25.897Z"
     },
     "src/components/layout/Footer.tsx": {
       "path": "src/components/layout/Footer.tsx",
       "size": 10226,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.246Z"
+      "modified": "2025-08-28T07:43:25.898Z"
     },
     "src/components/layout/Navbar.test.tsx": {
       "path": "src/components/layout/Navbar.test.tsx",
       "size": 2705,
       "extension": ".tsx",
-      "modified": "2025-08-25T08:07:10.106Z"
+      "modified": "2025-08-28T07:43:25.898Z"
     },
     "src/components/layout/Navbar.tsx": {
       "path": "src/components/layout/Navbar.tsx",
       "size": 16834,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.443Z"
+      "modified": "2025-08-28T07:43:25.898Z"
     },
     "src/components/partners/ClinicianResourcesHub.tsx": {
       "path": "src/components/partners/ClinicianResourcesHub.tsx",
@@ -3216,7 +3494,7 @@
       "path": "src/components/test/ThemeTest.tsx",
       "size": 4237,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.247Z"
+      "modified": "2025-08-28T07:43:25.898Z"
     },
     "src/components/tritest/TriTestReport.tsx": {
       "path": "src/components/tritest/TriTestReport.tsx",
@@ -3228,55 +3506,55 @@
       "path": "src/components/ui/AnimatedCounter.tsx",
       "size": 1139,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.247Z"
+      "modified": "2025-08-28T07:43:25.899Z"
     },
     "src/components/ui/AnimatedSection.tsx": {
       "path": "src/components/ui/AnimatedSection.tsx",
       "size": 1646,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.247Z"
+      "modified": "2025-08-28T07:43:25.899Z"
     },
     "src/components/ui/FullScreenVideo.tsx": {
       "path": "src/components/ui/FullScreenVideo.tsx",
-      "size": 9893,
+      "size": 9859,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.248Z"
+      "modified": "2025-08-28T07:43:25.899Z"
     },
     "src/components/ui/InteractiveBenefitCard.tsx": {
       "path": "src/components/ui/InteractiveBenefitCard.tsx",
       "size": 1773,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.248Z"
+      "modified": "2025-08-28T07:43:25.899Z"
     },
     "src/components/ui/MyantLogo.tsx": {
       "path": "src/components/ui/MyantLogo.tsx",
       "size": 349,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.248Z"
+      "modified": "2025-08-28T07:43:25.900Z"
     },
     "src/components/ui/ParallaxSection.tsx": {
       "path": "src/components/ui/ParallaxSection.tsx",
       "size": 1188,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.248Z"
+      "modified": "2025-08-28T07:43:25.900Z"
     },
     "src/components/ui/ScrollProgress.tsx": {
       "path": "src/components/ui/ScrollProgress.tsx",
       "size": 2450,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.249Z"
+      "modified": "2025-08-28T07:43:25.900Z"
     },
     "src/components/ui/ScrollToTop.tsx": {
       "path": "src/components/ui/ScrollToTop.tsx",
       "size": 1550,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.249Z"
+      "modified": "2025-08-28T07:43:25.901Z"
     },
     "src/components/ui/SmartButton.tsx": {
       "path": "src/components/ui/SmartButton.tsx",
       "size": 4293,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.249Z"
+      "modified": "2025-08-28T07:43:25.901Z"
     },
     "src/components/ui/accordion.tsx": {
       "path": "src/components/ui/accordion.tsx",
@@ -3360,7 +3638,7 @@
       "path": "src/components/ui/circular-testimonials.tsx",
       "size": 10863,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.443Z"
+      "modified": "2025-08-28T07:43:25.901Z"
     },
     "src/components/ui/collapsible.tsx": {
       "path": "src/components/ui/collapsible.tsx",
@@ -3396,7 +3674,7 @@
       "path": "src/components/ui/copy-variant-selector.tsx",
       "size": 2685,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.444Z"
+      "modified": "2025-08-28T07:43:25.901Z"
     },
     "src/components/ui/dialog.tsx": {
       "path": "src/components/ui/dialog.tsx",
@@ -3432,7 +3710,7 @@
       "path": "src/components/ui/horizontal-scroll-carousel.tsx",
       "size": 3020,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.250Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/hover-card.tsx": {
       "path": "src/components/ui/hover-card.tsx",
@@ -3480,31 +3758,31 @@
       "path": "src/components/ui/minimal-button.tsx",
       "size": 2262,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.444Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/minimal-card.tsx": {
       "path": "src/components/ui/minimal-card.tsx",
       "size": 3427,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.444Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/minimal-input.tsx": {
       "path": "src/components/ui/minimal-input.tsx",
       "size": 3207,
       "extension": ".tsx",
-      "modified": "2025-08-25T07:37:47.475Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/minimal-select.tsx": {
       "path": "src/components/ui/minimal-select.tsx",
       "size": 4643,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.444Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/minimal-textarea.tsx": {
       "path": "src/components/ui/minimal-textarea.tsx",
       "size": 2976,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.445Z"
+      "modified": "2025-08-28T07:43:25.902Z"
     },
     "src/components/ui/navigation-menu.tsx": {
       "path": "src/components/ui/navigation-menu.tsx",
@@ -3660,7 +3938,7 @@
       "path": "src/components/ui/testimonial-scroll-carousel.tsx",
       "size": 5949,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.445Z"
+      "modified": "2025-08-28T07:43:25.903Z"
     },
     "src/components/ui/textarea.tsx": {
       "path": "src/components/ui/textarea.tsx",
@@ -3720,7 +3998,7 @@
       "path": "src/contexts/CopyVariantContext.tsx",
       "size": 1358,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.445Z"
+      "modified": "2025-08-28T07:43:25.903Z"
     },
     "src/contexts/LanguageContext.tsx": {
       "path": "src/contexts/LanguageContext.tsx",
@@ -3732,7 +4010,7 @@
       "path": "src/contexts/ThemeContext.tsx",
       "size": 2594,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.251Z"
+      "modified": "2025-08-28T07:43:25.903Z"
     },
     "src/docs/ArchitectureOverview.md": {
       "path": "src/docs/ArchitectureOverview.md",
@@ -3768,7 +4046,7 @@
       "path": "src/hooks/useScrollAnimation.ts",
       "size": 1158,
       "extension": ".ts",
-      "modified": "2025-08-24T17:56:27.252Z"
+      "modified": "2025-08-28T07:43:25.903Z"
     },
     "src/hooks/useThemeContent.ts": {
       "path": "src/hooks/useThemeContent.ts",
@@ -3792,25 +4070,25 @@
       "path": "src/index.css",
       "size": 14414,
       "extension": ".css",
-      "modified": "2025-08-26T10:26:19.890Z"
+      "modified": "2025-08-28T07:43:25.904Z"
     },
     "src/lib/analytics.ts": {
       "path": "src/lib/analytics.ts",
-      "size": 4735,
+      "size": 4620,
       "extension": ".ts",
-      "modified": "2025-07-17T09:19:19.880Z"
+      "modified": "2025-08-28T07:43:25.904Z"
     },
     "src/lib/consentManager.ts": {
       "path": "src/lib/consentManager.ts",
-      "size": 2432,
+      "size": 2415,
       "extension": ".ts",
-      "modified": "2025-07-17T09:19:19.905Z"
+      "modified": "2025-08-28T07:43:25.904Z"
     },
     "src/lib/supabase.ts": {
       "path": "src/lib/supabase.ts",
-      "size": 18057,
+      "size": 18441,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.446Z"
+      "modified": "2025-08-28T07:43:25.904Z"
     },
     "src/lib/utils.ts": {
       "path": "src/lib/utils.ts",
@@ -3822,13 +4100,13 @@
       "path": "src/main.tsx",
       "size": 861,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.448Z"
+      "modified": "2025-08-28T07:43:25.905Z"
     },
     "src/middleware/securityMiddleware.ts": {
       "path": "src/middleware/securityMiddleware.ts",
-      "size": 24040,
+      "size": 23990,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.450Z"
+      "modified": "2025-08-28T07:43:25.905Z"
     },
     "src/pages/.DS_Store": {
       "path": "src/pages/.DS_Store",
@@ -3840,37 +4118,37 @@
       "path": "src/pages/ComponentShowcase.tsx",
       "size": 13106,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.253Z"
+      "modified": "2025-08-28T07:43:25.905Z"
     },
     "src/pages/DoctorReferralUpload.tsx": {
       "path": "src/pages/DoctorReferralUpload.tsx",
       "size": 986,
       "extension": ".tsx",
-      "modified": "2025-08-25T22:43:57.139Z"
+      "modified": "2025-08-28T07:43:25.905Z"
     },
     "src/pages/EligibilityFlow.tsx": {
       "path": "src/pages/EligibilityFlow.tsx",
       "size": 969,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.451Z"
+      "modified": "2025-08-28T07:43:25.906Z"
     },
     "src/pages/EligibilityTest.tsx": {
       "path": "src/pages/EligibilityTest.tsx",
-      "size": 6773,
+      "size": 6783,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.451Z"
+      "modified": "2025-08-28T07:43:25.906Z"
     },
     "src/pages/EligibilityTestDirect.tsx": {
       "path": "src/pages/EligibilityTestDirect.tsx",
       "size": 745,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:29:43.453Z"
+      "modified": "2025-08-28T07:43:25.906Z"
     },
     "src/pages/Home2.tsx": {
       "path": "src/pages/Home2.tsx",
       "size": 24888,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.254Z"
+      "modified": "2025-08-28T07:43:25.907Z"
     },
     "src/pages/Home2Enhanced.tsx": {
       "path": "src/pages/Home2Enhanced.tsx",
@@ -3894,13 +4172,13 @@
       "path": "src/pages/LandingPageV2025.tsx",
       "size": 7744,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:56:27.254Z"
+      "modified": "2025-08-28T07:43:25.907Z"
     },
     "src/pages/MinimalistShowcase.tsx": {
       "path": "src/pages/MinimalistShowcase.tsx",
       "size": 12587,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.451Z"
+      "modified": "2025-08-28T07:43:25.907Z"
     },
     "src/pages/NotFound.tsx": {
       "path": "src/pages/NotFound.tsx",
@@ -3916,15 +4194,15 @@
     },
     "src/pages/RequestDemo.tsx": {
       "path": "src/pages/RequestDemo.tsx",
-      "size": 12789,
+      "size": 12775,
       "extension": ".tsx",
-      "modified": "2025-08-24T17:52:56.216Z"
+      "modified": "2025-08-28T07:43:25.907Z"
     },
     "src/pages/TestSupabase.tsx": {
       "path": "src/pages/TestSupabase.tsx",
-      "size": 9896,
+      "size": 9814,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.451Z"
+      "modified": "2025-08-28T07:43:25.908Z"
     },
     "src/pages/about/Blog.tsx": {
       "path": "src/pages/about/Blog.tsx",
@@ -4056,7 +4334,7 @@
       "path": "src/pages/solutions/10DayHeartScreening.tsx",
       "size": 15511,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.452Z"
+      "modified": "2025-08-28T07:43:25.908Z"
     },
     "src/pages/solutions/Tritest.tsx": {
       "path": "src/pages/solutions/Tritest.tsx",
@@ -4068,49 +4346,49 @@
       "path": "src/routes/index.tsx",
       "size": 8985,
       "extension": ".tsx",
-      "modified": "2025-08-26T13:30:32.983Z"
+      "modified": "2025-08-28T07:43:25.909Z"
     },
     "src/services/authService.test.ts": {
       "path": "src/services/authService.test.ts",
-      "size": 3919,
+      "size": 3886,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.452Z"
+      "modified": "2025-08-28T07:43:25.909Z"
     },
     "src/services/authService.ts": {
       "path": "src/services/authService.ts",
-      "size": 6420,
+      "size": 6236,
       "extension": ".ts",
-      "modified": "2025-08-25T07:27:52.309Z"
+      "modified": "2025-08-28T07:43:25.909Z"
     },
     "src/services/otpSecurityService.ts": {
       "path": "src/services/otpSecurityService.ts",
-      "size": 16307,
+      "size": 16266,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.453Z"
+      "modified": "2025-08-28T07:43:25.909Z"
     },
     "src/services/paymentSecurityService.ts": {
       "path": "src/services/paymentSecurityService.ts",
-      "size": 23144,
+      "size": 22976,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.454Z"
+      "modified": "2025-08-28T07:43:25.910Z"
     },
     "src/services/referralService.ts": {
       "path": "src/services/referralService.ts",
       "size": 5320,
       "extension": ".ts",
-      "modified": "2025-08-25T17:17:17.110Z"
+      "modified": "2025-08-28T07:43:25.910Z"
     },
     "src/services/swissHealthcareService.ts": {
       "path": "src/services/swissHealthcareService.ts",
-      "size": 25065,
+      "size": 25758,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.455Z"
+      "modified": "2025-08-28T07:43:25.910Z"
     },
     "src/test/setup.ts": {
       "path": "src/test/setup.ts",
       "size": 386,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.456Z"
+      "modified": "2025-08-28T07:43:25.910Z"
     },
     "src/translations/about/de.ts": {
       "path": "src/translations/about/de.ts",
@@ -4390,15 +4668,21 @@
     },
     "src/types/analytics.d.ts": {
       "path": "src/types/analytics.d.ts",
-      "size": 271,
+      "size": 283,
       "extension": ".ts",
-      "modified": "2025-07-17T09:19:18.720Z"
+      "modified": "2025-08-28T07:43:25.911Z"
     },
     "src/types/backend.ts": {
       "path": "src/types/backend.ts",
       "size": 7369,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.456Z"
+      "modified": "2025-08-28T07:43:25.911Z"
+    },
+    "src/utils/pdfGenerator.ts": {
+      "path": "src/utils/pdfGenerator.ts",
+      "size": 10851,
+      "extension": ".ts",
+      "modified": "2025-08-28T07:43:25.911Z"
     },
     "src/utils/performance.ts": {
       "path": "src/utils/performance.ts",
@@ -4422,211 +4706,247 @@
       "path": "supabase/edge-functions/send-otp-email/index.ts",
       "size": 15333,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.456Z"
+      "modified": "2025-08-28T07:43:25.911Z"
     },
     "supabase/functions/otp-security-handler/index.ts": {
       "path": "supabase/functions/otp-security-handler/index.ts",
       "size": 11514,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.457Z"
+      "modified": "2025-08-28T07:43:25.912Z"
     },
     "supabase/functions/otp-verification.sql": {
       "path": "supabase/functions/otp-verification.sql",
       "size": 20950,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.457Z"
+      "modified": "2025-08-28T07:43:25.912Z"
     },
     "supabase/functions/payment-processing.sql": {
       "path": "supabase/functions/payment-processing.sql",
       "size": 22023,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.458Z"
+      "modified": "2025-08-28T07:43:25.912Z"
     },
     "supabase/functions/session-management.sql": {
       "path": "supabase/functions/session-management.sql",
       "size": 17904,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.458Z"
+      "modified": "2025-08-28T07:43:25.913Z"
     },
     "supabase/migrations/001_initial_schema.sql": {
       "path": "supabase/migrations/001_initial_schema.sql",
       "size": 18284,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.458Z"
+      "modified": "2025-08-28T07:43:25.913Z"
     },
     "supabase/migrations/002_rls_policies.sql": {
       "path": "supabase/migrations/002_rls_policies.sql",
       "size": 13916,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.459Z"
+      "modified": "2025-08-28T07:43:25.913Z"
     },
     "supabase/migrations/003_functions_and_storage.sql": {
       "path": "supabase/migrations/003_functions_and_storage.sql",
       "size": 22371,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.459Z"
+      "modified": "2025-08-28T07:43:25.913Z"
     },
     "supabase/migrations/004_secure_otp_implementation.sql": {
       "path": "supabase/migrations/004_secure_otp_implementation.sql",
       "size": 18888,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.459Z"
+      "modified": "2025-08-28T07:43:25.914Z"
     },
     "supabase/migrations/005_secure_session_management.sql": {
       "path": "supabase/migrations/005_secure_session_management.sql",
       "size": 24016,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.460Z"
+      "modified": "2025-08-28T07:43:25.914Z"
     },
     "supabase/migrations/006_comprehensive_audit_trail.sql": {
       "path": "supabase/migrations/006_comprehensive_audit_trail.sql",
       "size": 22053,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.460Z"
+      "modified": "2025-08-28T07:43:25.914Z"
     },
     "supabase/migrations/007_core_user_tables.sql": {
       "path": "supabase/migrations/007_core_user_tables.sql",
       "size": 13751,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.461Z"
+      "modified": "2025-08-28T07:43:25.914Z"
     },
     "supabase/migrations/008_swiss_insurance_tables.sql": {
       "path": "supabase/migrations/008_swiss_insurance_tables.sql",
       "size": 18268,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.461Z"
+      "modified": "2025-08-28T07:43:25.915Z"
     },
     "supabase/migrations/009_schema_v2_consolidation.sql": {
       "path": "supabase/migrations/009_schema_v2_consolidation.sql",
       "size": 12543,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.461Z"
+      "modified": "2025-08-28T07:43:25.915Z"
     },
     "supabase/migrations/010_business_logic_functions.sql": {
       "path": "supabase/migrations/010_business_logic_functions.sql",
       "size": 19370,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.462Z"
+      "modified": "2025-08-28T07:43:25.915Z"
     },
     "supabase/migrations/011_otp_functions.sql": {
       "path": "supabase/migrations/011_otp_functions.sql",
       "size": 6719,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.462Z"
+      "modified": "2025-08-28T07:43:25.915Z"
     },
     "supabase/migrations/011_otp_security_hardening.sql": {
       "path": "supabase/migrations/011_otp_security_hardening.sql",
       "size": 5933,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.462Z"
+      "modified": "2025-08-28T07:43:25.916Z"
     },
     "supabase/policies/row_level_security.sql": {
       "path": "supabase/policies/row_level_security.sql",
       "size": 15472,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.463Z"
+      "modified": "2025-08-28T07:43:25.916Z"
     },
     "supabase/schemas/database-schema.sql": {
       "path": "supabase/schemas/database-schema.sql",
       "size": 2757,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.463Z"
+      "modified": "2025-08-28T07:43:25.916Z"
     },
     "supabase/schemas/eligibility_questionnaire.sql": {
       "path": "supabase/schemas/eligibility_questionnaire.sql",
       "size": 21978,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.464Z"
+      "modified": "2025-08-28T07:43:25.917Z"
     },
     "supabase/scripts/supabase-performance-tests.sql": {
       "path": "supabase/scripts/supabase-performance-tests.sql",
       "size": 11822,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.464Z"
+      "modified": "2025-08-28T07:43:25.917Z"
     },
     "supabase/scripts/supabase-setup-guide.md": {
       "path": "supabase/scripts/supabase-setup-guide.md",
       "size": 14940,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.465Z"
+      "modified": "2025-08-28T07:43:25.917Z"
     },
     "supabase/scripts/supabase-test-data.sql": {
       "path": "supabase/scripts/supabase-test-data.sql",
       "size": 20425,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.465Z"
+      "modified": "2025-08-28T07:43:25.918Z"
     },
     "supabase/storage/storage_buckets.sql": {
       "path": "supabase/storage/storage_buckets.sql",
       "size": 14439,
       "extension": ".sql",
-      "modified": "2025-08-24T18:08:58.466Z"
+      "modified": "2025-08-28T07:43:25.918Z"
     },
     "tailwind.config.ts": {
       "path": "tailwind.config.ts",
       "size": 4862,
       "extension": ".ts",
-      "modified": "2025-08-24T17:56:27.266Z"
+      "modified": "2025-08-28T07:43:25.918Z"
+    },
+    "test-date-detailed.cjs": {
+      "path": "test-date-detailed.cjs",
+      "size": 2728,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.919Z"
+    },
+    "test-date-final.cjs": {
+      "path": "test-date-final.cjs",
+      "size": 3514,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.919Z"
+    },
+    "test-date-validation.cjs": {
+      "path": "test-date-validation.cjs",
+      "size": 2921,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.919Z"
+    },
+    "test-event-stream-system.md": {
+      "path": "test-event-stream-system.md",
+      "size": 2395,
+      "extension": ".md",
+      "modified": "2025-08-28T14:45:59.595Z"
+    },
+    "test-real-user-input.cjs": {
+      "path": "test-real-user-input.cjs",
+      "size": 3415,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.919Z"
+    },
+    "test-with-logs.cjs": {
+      "path": "test-with-logs.cjs",
+      "size": 1839,
+      "extension": ".cjs",
+      "modified": "2025-08-28T07:43:25.919Z"
     },
     "tests/README.md": {
       "path": "tests/README.md",
       "size": 4369,
       "extension": ".md",
-      "modified": "2025-08-24T18:08:58.467Z"
+      "modified": "2025-08-28T07:43:25.920Z"
     },
     "tests/config/setup.ts": {
       "path": "tests/config/setup.ts",
       "size": 1256,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.467Z"
+      "modified": "2025-08-28T07:43:25.920Z"
     },
     "tests/integration/accessibility.test.ts": {
       "path": "tests/integration/accessibility.test.ts",
       "size": 4695,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.468Z"
+      "modified": "2025-08-28T07:43:25.920Z"
     },
     "tests/integration/otp-verification.test.ts": {
       "path": "tests/integration/otp-verification.test.ts",
       "size": 8848,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.468Z"
+      "modified": "2025-08-28T07:43:25.921Z"
     },
     "tests/integration/performance.test.ts": {
       "path": "tests/integration/performance.test.ts",
       "size": 7873,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.468Z"
+      "modified": "2025-08-28T07:43:25.921Z"
     },
     "tests/unit/authService.test.ts": {
       "path": "tests/unit/authService.test.ts",
       "size": 6835,
       "extension": ".ts",
-      "modified": "2025-08-25T08:06:34.764Z"
+      "modified": "2025-08-28T07:43:25.921Z"
     },
     "tests/unit/components/ContactForm.test.tsx": {
       "path": "tests/unit/components/ContactForm.test.tsx",
       "size": 7044,
       "extension": ".tsx",
-      "modified": "2025-08-24T18:08:58.469Z"
+      "modified": "2025-08-28T07:43:25.922Z"
     },
     "tests/unit/hooks/useTranslation.test.ts": {
       "path": "tests/unit/hooks/useTranslation.test.ts",
       "size": 2874,
       "extension": ".ts",
-      "modified": "2025-08-24T18:08:58.469Z"
+      "modified": "2025-08-28T07:43:25.922Z"
     },
     "tsconfig.app.json": {
       "path": "tsconfig.app.json",
       "size": 647,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.469Z"
+      "modified": "2025-08-28T07:43:25.922Z"
     },
     "tsconfig.json": {
       "path": "tsconfig.json",
       "size": 398,
       "extension": ".json",
-      "modified": "2025-08-24T18:08:58.470Z"
+      "modified": "2025-08-28T07:43:25.923Z"
     },
     "tsconfig.node.json": {
       "path": "tsconfig.node.json",
@@ -4634,23 +4954,239 @@
       "extension": ".json",
       "modified": "2025-07-10T14:23:02.151Z"
     },
+    "user-uploads/.DS_Store": {
+      "path": "user-uploads/.DS_Store",
+      "size": 6148,
+      "extension": "",
+      "modified": "2025-08-28T10:14:10.033Z"
+    },
+    "user-uploads/agent-os/.gitignore": {
+      "path": "user-uploads/agent-os/.gitignore",
+      "size": 288,
+      "extension": "",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/CHANGELOG.md": {
+      "path": "user-uploads/agent-os/CHANGELOG.md",
+      "size": 17265,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/LICENSE": {
+      "path": "user-uploads/agent-os/LICENSE",
+      "size": 1091,
+      "extension": "",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/README.md": {
+      "path": "user-uploads/agent-os/README.md",
+      "size": 1273,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/agent-os.md": {
+      "path": "user-uploads/agent-os/agent-os.md",
+      "size": 26433,
+      "extension": ".md",
+      "modified": "2025-08-28T10:13:23.875Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/context-fetcher.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/context-fetcher.md",
+      "size": 2237,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/date-checker.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/date-checker.md",
+      "size": 2801,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/file-creator.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/file-creator.md",
+      "size": 6731,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.440Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/git-workflow.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/git-workflow.md",
+      "size": 3733,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/project-manager.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/project-manager.md",
+      "size": 1768,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/claude-code/agents/test-runner.md": {
+      "path": "user-uploads/agent-os/claude-code/agents/test-runner.md",
+      "size": 1693,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/commands/analyze-product.md": {
+      "path": "user-uploads/agent-os/commands/analyze-product.md",
+      "size": 169,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/commands/create-spec.md": {
+      "path": "user-uploads/agent-os/commands/create-spec.md",
+      "size": 198,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/commands/create-tasks.md": {
+      "path": "user-uploads/agent-os/commands/create-tasks.md",
+      "size": 185,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/commands/execute-tasks.md": {
+      "path": "user-uploads/agent-os/commands/execute-tasks.md",
+      "size": 134,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/commands/plan-product.md": {
+      "path": "user-uploads/agent-os/commands/plan-product.md",
+      "size": 167,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/config.yml": {
+      "path": "user-uploads/agent-os/config.yml",
+      "size": 628,
+      "extension": ".yml",
+      "modified": "2025-08-28T10:09:58.441Z"
+    },
+    "user-uploads/agent-os/instructions/core/analyze-product.md": {
+      "path": "user-uploads/agent-os/instructions/core/analyze-product.md",
+      "size": 6298,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.442Z"
+    },
+    "user-uploads/agent-os/instructions/core/create-spec.md": {
+      "path": "user-uploads/agent-os/instructions/core/create-spec.md",
+      "size": 10963,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.442Z"
+    },
+    "user-uploads/agent-os/instructions/core/create-tasks.md": {
+      "path": "user-uploads/agent-os/instructions/core/create-tasks.md",
+      "size": 2792,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.442Z"
+    },
+    "user-uploads/agent-os/instructions/core/execute-task.md": {
+      "path": "user-uploads/agent-os/instructions/core/execute-task.md",
+      "size": 7652,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.442Z"
+    },
+    "user-uploads/agent-os/instructions/core/execute-tasks.md": {
+      "path": "user-uploads/agent-os/instructions/core/execute-tasks.md",
+      "size": 5521,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.442Z"
+    },
+    "user-uploads/agent-os/instructions/core/plan-product.md": {
+      "path": "user-uploads/agent-os/instructions/core/plan-product.md",
+      "size": 8261,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.443Z"
+    },
+    "user-uploads/agent-os/instructions/core/post-execution-tasks.md": {
+      "path": "user-uploads/agent-os/instructions/core/post-execution-tasks.md",
+      "size": 6946,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.443Z"
+    },
+    "user-uploads/agent-os/instructions/meta/post-flight.md": {
+      "path": "user-uploads/agent-os/instructions/meta/post-flight.md",
+      "size": 693,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.443Z"
+    },
+    "user-uploads/agent-os/instructions/meta/pre-flight.md": {
+      "path": "user-uploads/agent-os/instructions/meta/pre-flight.md",
+      "size": 659,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.443Z"
+    },
+    "user-uploads/agent-os/setup/base.sh": {
+      "path": "user-uploads/agent-os/setup/base.sh",
+      "size": 5663,
+      "extension": ".sh",
+      "modified": "2025-08-28T10:09:58.443Z"
+    },
+    "user-uploads/agent-os/setup/functions.sh": {
+      "path": "user-uploads/agent-os/setup/functions.sh",
+      "size": 5451,
+      "extension": ".sh",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/setup/project.sh": {
+      "path": "user-uploads/agent-os/setup/project.sh",
+      "size": 11614,
+      "extension": ".sh",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/best-practices.md": {
+      "path": "user-uploads/agent-os/standards/best-practices.md",
+      "size": 1773,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/code-style/css-style.md": {
+      "path": "user-uploads/agent-os/standards/code-style/css-style.md",
+      "size": 1228,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/code-style/html-style.md": {
+      "path": "user-uploads/agent-os/standards/code-style/html-style.md",
+      "size": 870,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/code-style/javascript-style.md": {
+      "path": "user-uploads/agent-os/standards/code-style/javascript-style.md",
+      "size": 25,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/code-style.md": {
+      "path": "user-uploads/agent-os/standards/code-style.md",
+      "size": 3067,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
+    "user-uploads/agent-os/standards/tech-stack.md": {
+      "path": "user-uploads/agent-os/standards/tech-stack.md",
+      "size": 1110,
+      "extension": ".md",
+      "modified": "2025-08-28T10:09:58.444Z"
+    },
     "user-uploads/eligibility-form-supabase-schema-specs.md": {
       "path": "user-uploads/eligibility-form-supabase-schema-specs.md",
       "size": 22551,
       "extension": ".md",
-      "modified": "2025-08-25T14:10:28.200Z"
+      "modified": "2025-08-28T07:43:25.923Z"
     },
     "user-uploads/eligibility-questionnaire-technical-specs.md": {
       "path": "user-uploads/eligibility-questionnaire-technical-specs.md",
       "size": 20164,
       "extension": ".md",
-      "modified": "2025-08-25T14:12:00.940Z"
+      "modified": "2025-08-28T07:43:25.923Z"
     },
     "user-uploads/eligibility-questionnaire-user-journey.md": {
       "path": "user-uploads/eligibility-questionnaire-user-journey.md",
       "size": 11544,
       "extension": ".md",
-      "modified": "2025-08-25T14:11:02.565Z"
+      "modified": "2025-08-28T07:43:25.923Z"
     },
     "vite.config.ts": {
       "path": "vite.config.ts",
@@ -4662,43 +5198,43 @@
       "path": "vitest.config.ts",
       "size": 891,
       "extension": ".ts",
-      "modified": "2025-08-25T07:28:45.628Z"
+      "modified": "2025-08-28T07:43:25.924Z"
     }
   },
   "stats": {
-    "totalFiles": 643,
-    "totalDirs": 160,
-    "codeFiles": 420,
-    "docFiles": 97,
+    "totalFiles": 724,
+    "totalDirs": 170,
+    "codeFiles": 423,
+    "docFiles": 143,
     "byExtension": {
-      "": 23,
+      "": 30,
       ".jsonl": 2,
-      ".md": 97,
-      ".py": 3,
-      ".json": 42,
+      ".md": 143,
+      ".py": 9,
+      ".json": 44,
       ".orig": 1,
       ".example": 1,
-      ".yml": 7,
+      ".yml": 9,
+      ".sh": 13,
       ".toml": 1,
       ".pkl": 1,
       ".yaml": 1,
       ".lockb": 1,
       ".txt": 3,
-      ".js": 10,
+      ".cjs": 13,
+      ".js": 11,
       ".css": 3,
       ".gz": 1,
       ".html": 2,
       ".pdf": 1,
-      ".cjs": 6,
-      ".sh": 5,
-      ".tsx": 315,
-      ".ts": 95,
+      ".tsx": 316,
+      ".ts": 96,
       ".backup": 1,
       ".sql": 21
     }
   },
   "structure": {
     "description": "Tree view excludes visual assets. See VISUAL_ASSETS_INDEX.json for images/videos.",
-    "tree": "./\n├── context/\n│   ├── CLAUDE-activeContext.md\n│   ├── CLAUDE-config-variables.md\n│   ├── CLAUDE-decisions.md\n│   ├── CLAUDE-patterns.md\n│   ├── CLAUDE-planning.md\n│   ├── CLAUDE-temp.md\n│   ├── CLAUDE-todo.md\n│   ├── CLAUDE-troubleshooting.md\n│   ├── CLAUDE_PROCESS.md\n│   ├── WORKFLOWS.md\n│   ├── event-stream.md\n│   ├── memory-bank-synchronization-results.json\n│   ├── project-index.md\n│   └── project-tree.txt\n├── docs/\n│   ├── agent-outputs/\n│   │   ├── REQ-20250826-1403-DOC-MAINTENANCE/\n│   │   │   └── documentation-maintenance-specification.json\n│   │   ├── archived/\n│   │   │   └── supabase-agent-enhancement-brainstorm-spec.json\n│   │   └── gp-referral-multi-panel-review-specification.json\n│   ├── analysis/\n│   │   ├── eligibility-form-gap-analysis.md\n│   │   ├── eligibility-questionnaire-tot-specification.json\n│   │   ├── supabase-agents-gap-analysis-tot.md\n│   │   ├── v2-memory-system-migration-brainstorming-specification.json\n│   │   └── v2-memory-system-migration-tot-specification.json\n│   ├── architecture/\n│   │   ├── README.md\n│   │   ├── api.md\n│   │   ├── atomic-components.md\n│   │   ├── component-inventory.md\n│   │   ├── copy-variant-system.md\n│   │   ├── database.md\n│   │   ├── system-architecture.md\n│   │   └── visual-architecture.md\n│   ├── content/\n│   │   ├── translations/\n│   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md\n│   │   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md\n│   │   └── README.md\n│   ├── database/\n│   │   ├── gp-referral-system-specification.json\n│   │   ├── migration-guide.md\n│   │   ├── overview.md\n│   │   ├── schema-v2.md\n│   │   ├── security-enhancement.json\n│   │   └── technical-specifications.md\n│   ├── design-system/\n│   │   ├── components/\n│   │   │   └── form-specifications.md\n│   │   ├── eligibility/\n│   │   │   ├── atomic-components.md\n│   │   │   ├── eligibility-form-design.md\n│   │   │   └── eligibility-workflow-atomic.md\n│   │   ├── shared/\n│   │   ├── website/\n│   │   │   ├── components.md\n│   │   │   └── myant-violet-palette.md\n│   │   ├── 2025-08-19-eligibility-form-design-system.md\n│   │   ├── 2025-08-19-form-component-specifications.md\n│   │   ├── README.md\n│   │   ├── design-tokens.md\n│   │   ├── implementation-review.md\n│   │   ├── token-usage-guide.md\n│   │   └── tokens.md\n│   ├── features/\n│   │   ├── README.md\n│   │   ├── eligibility.md\n│   │   ├── gp-referral-implementation-summary.md\n│   │   └── multi-language.md\n│   ├── frontend/\n│   │   ├── README.md\n│   │   ├── components.md\n│   │   └── design-system.md\n│   ├── research/\n│   │   └── supabase-best-practices-comprehensive-guide.md\n│   ├── specs/\n│   │   └── gp-referral-research-specification.json\n│   ├── standards/\n│   │   ├── accessibility-guidelines.md\n│   │   └── coding-standards.md\n│   ├── testing/\n│   │   ├── README.md\n│   │   ├── bug-report-template.md\n│   │   ├── e2e-tests.md\n│   │   ├── gp-referral-system-test-specifications.json\n│   │   ├── gp-referral-test-plan.md\n│   │   ├── quality-metrics-specification.json\n│   │   └── unit-tests.md\n│   ├── GAP_ANALYSIS_ELIGIBILITY_FLOW.md\n│   └── memory-system-usage.md\n├── html/\n│   ├── assets/\n│   │   ├── index-D_ryMEPs.js\n│   │   └── index-X8b7Z_4p.css"
+    "tree": "./\n├── context/\n│   ├── CLAUDE_PROCESS.md\n│   ├── WORKFLOWS.md\n│   ├── event-stream.md\n│   ├── project-index.md\n│   └── project-tree.txt\n├── docs/\n│   ├── agent-outputs/\n│   │   ├── REQ-20250826-1403-DOC-MAINTENANCE/\n│   │   │   └── documentation-maintenance-specification.json\n│   │   ├── archived/\n│   │   │   └── supabase-agent-enhancement-brainstorm-spec.json\n│   │   └── gp-referral-multi-panel-review-specification.json\n│   ├── analysis/\n│   │   ├── date-validation-issue-analysis.md\n│   │   ├── eligibility-form-gap-analysis.md\n│   │   ├── eligibility-questionnaire-tot-specification.json\n│   │   ├── react-hooks-refactoring-plan.md\n│   │   ├── supabase-agents-gap-analysis-tot.md\n│   │   ├── v2-memory-system-migration-brainstorming-specification.json\n│   │   └── v2-memory-system-migration-tot-specification.json\n│   ├── architecture/\n│   │   ├── README.md\n│   │   ├── api.md\n│   │   ├── atomic-components.md\n│   │   ├── component-inventory.md\n│   │   ├── copy-variant-system.md\n│   │   ├── database.md\n│   │   ├── system-architecture.md\n│   │   └── visual-architecture.md\n│   ├── content/\n│   │   ├── translations/\n│   │   │   ├── SKIIN_WEBSITE_COPY_ENGLISH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_FRENCH.md\n│   │   │   ├── SKIIN_WEBSITE_COPY_GERMAN.md\n│   │   │   └── SKIIN_WEBSITE_COPY_ITALIAN.md\n│   │   └── README.md\n│   ├── database/\n│   │   ├── gp-referral-system-specification.json\n│   │   ├── migration-guide.md\n│   │   ├── overview.md\n│   │   ├── schema-v2.md\n│   │   ├── security-enhancement.json\n│   │   └── technical-specifications.md\n│   ├── design-system/\n│   │   ├── components/\n│   │   │   └── form-specifications.md\n│   │   ├── eligibility/\n│   │   │   ├── atomic-components.md\n│   │   │   ├── eligibility-form-design.md\n│   │   │   └── eligibility-workflow-atomic.md\n│   │   ├── website/\n│   │   │   ├── components.md\n│   │   │   └── myant-violet-palette.md\n│   │   ├── 2025-08-19-eligibility-form-design-system.md\n│   │   ├── 2025-08-19-form-component-specifications.md\n│   │   ├── README.md\n│   │   ├── design-tokens.md\n│   │   ├── implementation-review.md\n│   │   ├── token-usage-guide.md\n│   │   └── tokens.md\n│   ├── features/\n│   │   ├── README.md\n│   │   ├── eligibility.md\n│   │   ├── gp-referral-implementation-summary.md\n│   │   └── multi-language.md\n│   ├── frontend/\n│   │   ├── README.md\n│   │   ├── components.md\n│   │   └── design-system.md\n│   ├── reports/\n│   │   └── priming-verification-20250828.md\n│   ├── research/\n│   │   ├── react-date-validation-best-practices.md\n│   │   └── supabase-best-practices-comprehensive-guide.md\n│   ├── specs/\n│   │   └── gp-referral-research-specification.json\n│   ├── standards/\n│   │   ├── accessibility-guidelines.md\n│   │   ├── coding-standards.md\n│   │   ├── event-stream-enhancement.md\n│   │   ├── index-query-guide.md\n│   │   └── linting-guide.md\n│   ├── testing/\n│   │   ├── README.md\n│   │   ├── bug-report-template.md\n│   │   ├── e2e-tests.md\n│   │   ├── gp-referral-system-test-specifications.json\n│   │   ├── gp-referral-test-plan.md\n│   │   ├── quality-metrics-specification.json\n│   │   └── unit-tests.md\n│   ├── GAP_ANALYSIS_ELIGIBILITY_FLOW.md\n│   ├── mcp-integration-summary.md\n│   └── memory-system-usage.md\n├── html/\n│   ├── assets/\n│   │   ├── index-D_ryMEPs.js\n│   │   └── index-X8b7Z_4p.css\n│   ├── html.meta.json.gz"
   }
 }

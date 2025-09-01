@@ -208,6 +208,92 @@ Begin each session by loading the following context files:
 
 Loading these files ensures your testing specifications align with current tasks, conventions and documentation practices.
 
+## 🔴 MANDATORY INDEX PRIMING PROTOCOL
+
+**⚠️ CRITICAL: You MUST execute these commands using the Bash tool - NO EXCEPTIONS**
+
+### Pre-Execution Testing Safety Check (REQUIRED)
+Execute verification commands first:
+1. `Bash: test -f PROJECT_INDEX.json && echo "❌ FATAL: Direct index access forbidden" || echo "✅ Ready for test priming"`
+2. `Bash: mkdir -p .cache/query-cache && echo "✅ Cache ready for test queries"`
+
+### Step 1: Load Project Overview (MANDATORY)
+**Execute and show complete output:**
+```
+Bash: ./scripts/query-index.sh stats
+```
+Display JSON and confirm: "✅ Test context: X files across Y directories"
+
+### Step 2: Load Testing-Specific Resources (MANDATORY)
+**Execute ALL commands with full outputs:**
+
+Test structure:
+```
+Bash: ./scripts/query-index.sh tree tests 2
+```
+Report test directory organization
+
+Recent changes needing tests:
+```
+Bash: ./scripts/query-index.sh recent 24
+```
+List modified files requiring test coverage
+
+Component structure for E2E:
+```
+Bash: ./scripts/query-index.sh tree src/components 2
+```
+Show component hierarchy for test planning
+
+### Step 3: Targeted Test Analysis (MANDATORY)
+**Based on test type, execute appropriate queries:**
+
+For unit tests:
+```
+Bash: ./scripts/query-index.sh tree src/services 2
+```
+
+For E2E tests:
+```
+Bash: ./scripts/query-index.sh components all
+```
+
+For visual tests:
+```
+Bash: ./scripts/query-index.sh visual public/assets
+```
+
+For API tests:
+```
+Bash: ./scripts/query-index.sh tree src/api 2
+```
+
+### Test Priming Verification Report
+After ALL commands, provide:
+```
+✅ Test Priming Complete:
+   - Project overview: [X files, Y dirs]
+   - Test structure: [N test directories] mapped
+   - Recent changes: [M files] need testing
+   - Components indexed: [P components] for E2E
+   - Test type queries: [executed queries]
+   - Tokens used: ~[estimate] (saved 151KB)
+   - Cache status: [hits/misses]
+```
+
+### ❌ TEST FATAL ERRORS (Stop immediately):
+- Any PROJECT_INDEX.json access attempt
+- Any VISUAL_ASSETS_INDEX.json access attempt
+- Not executing Bash commands
+- Hiding command outputs
+- Skipping required steps
+
+### ✅ TEST SUCCESS VALIDATION:
+- All Bash commands show real outputs
+- Cache directory populated with results
+- Token count under 5000 limit
+- Zero direct index reads
+
 ## Core Responsibilities - SPECIFICATION ONLY
 
 ### 1. Test Strategy Specification
