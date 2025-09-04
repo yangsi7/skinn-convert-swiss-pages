@@ -22,34 +22,38 @@ export function MedicalAdvisors({ className }: MedicalAdvisorsProps) {
       title: 'Chairman of Cardiology',
       institution: 'University Hospital Zurich',
       image: '/assets/images/team/dr-frank-ruschitzka-faceshot.jpeg',
-      specialty: 'Heart Failure & Transplantation'
+      specialty: 'Heart Failure & Transplantation',
+      bio: 'Leading authority in cardiovascular medicine and heart failure management',
     },
     {
       name: 'PD Dr. med. Mehdi Namdar',
       title: 'Senior Cardiologist',
       institution: 'University Hospital Geneva',
       image: '/assets/images/team/pd-dr-med-mehdi-namdar-faceshot.jpg',
-      specialty: 'Cardiac Imaging & Electrophysiology'
+      specialty: 'Cardiac Imaging & Electrophysiology',
+      bio: 'Expert in advanced cardiac imaging techniques and arrhythmia management',
     },
     {
-      name: 'Dr. Mathias Wilhelm',
-      title: 'Sports Cardiologist',
-      institution: 'Swiss Olympic Medical Center',
-      image: '/assets/images/team/dr-mathias-wilhelm-faceshot.jpg',
-      specialty: 'Sports Cardiology & Prevention'
+      name: 'PD Dr. med. Patrick Badertscher',
+      title: 'Associate Professor & Senior Cardiologist',
+      institution: 'University Hospital Basel',
+      image: '/assets/images/team/Badertscher-Patrick.jpg',
+      specialty: 'Cardiac Electrophysiology & Digital Health',
+      bio: 'Pioneer of the "Wearable Clinic" initiative, with 200+ publications on digital cardiac',
     },
     {
       name: 'Dr. Michiel Winter',
-      title: 'Digital Health Expert',
-      institution: 'SKIIN Medical Advisory Board',
+      title: 'Cardiologist & Digital Health Pioneer',
+      institution: 'Amsterdam University Medical Center, Netherlands',
       image: '/assets/images/team/dr-michiel-winter-faceshot.jpg',
-      specialty: 'Digital Cardiology & Innovation'
-    }
+      specialty: 'Digital Cardiology & Remote Patient Monitoring',
+      bio: 'Head of Board for Cardiologie Centra Nederland, leading 12 outpatient clinics in digital transformation of cardiac care',
+    },
   ];
 
   return (
-    <section 
-      className={cn("section-padding bg-gradient-to-b from-background to-secondary/5", className)}
+    <section
+      className={cn('section-padding bg-gradient-to-b from-background to-secondary/5', className)}
       data-testid="medical-advisors-section"
     >
       <div className="container-custom">
@@ -59,7 +63,7 @@ export function MedicalAdvisors({ className }: MedicalAdvisorsProps) {
             Trusted by Leading Cardiologists
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our medical advisory board includes Switzerland's most respected cardiac specialists, 
+            Our medical advisory board includes Switzerland's most respected cardiac specialists,
             ensuring SKIIN meets the highest standards of clinical excellence
           </p>
         </div>
@@ -67,14 +71,14 @@ export function MedicalAdvisors({ className }: MedicalAdvisorsProps) {
         {/* Advisors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {advisors.map((advisor, index) => (
-            <Card 
+            <Card
               key={index}
               className="overflow-hidden group hover:shadow-lg transition-all duration-300"
               data-testid={`medical-advisor-${index + 1}`}
             >
               <div className="aspect-square relative overflow-hidden bg-secondary/10">
-                <img 
-                  src={advisor.image} 
+                <img
+                  src={advisor.image}
                   alt={advisor.name}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
@@ -82,18 +86,15 @@ export function MedicalAdvisors({ className }: MedicalAdvisorsProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="p-6">
-                <h3 className="font-semibold text-lg text-foreground mb-1">
-                  {advisor.name}
-                </h3>
-                <p className="text-sm text-medical-teal font-medium mb-2">
-                  {advisor.title}
-                </p>
-                <p className="text-xs text-muted-foreground mb-1">
-                  {advisor.institution}
-                </p>
-                <p className="text-xs text-muted-foreground italic">
-                  {advisor.specialty}
-                </p>
+                <h3 className="font-semibold text-lg text-foreground mb-1">{advisor.name}</h3>
+                <p className="text-sm text-medical-teal font-medium mb-2">{advisor.title}</p>
+                <p className="text-xs text-muted-foreground mb-1">{advisor.institution}</p>
+                <p className="text-xs text-muted-foreground italic mb-2">{advisor.specialty}</p>
+                {advisor.bio && (
+                  <p className="text-xs text-muted-foreground/80 mt-3 pt-3 border-t border-gray-100">
+                    {advisor.bio}
+                  </p>
+                )}
               </div>
             </Card>
           ))}
@@ -101,14 +102,66 @@ export function MedicalAdvisors({ className }: MedicalAdvisorsProps) {
 
         {/* CTA */}
         <div className="text-center">
-          <Button 
-            variant="outline" 
-            className="group"
-            data-testid="view-team-button"
-          >
+          <Button variant="outline" className="group" data-testid="view-team-button">
             View Full Medical Team
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
+        </div>
+
+        {/* Partner Institutions */}
+        <div className="mt-16">
+          <h3 className="text-center text-lg font-semibold text-muted-foreground mb-8">
+            Partner Institutions
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {/* USZ Logo */}
+            <div className="group relative">
+              <div className="w-32 h-16 md:w-40 md:h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 transition-all duration-300 hover:shadow-lg hover:bg-white">
+                <img
+                  src="/assets/images/hospitals/Logo-usz.png"
+                  alt="University Hospital Zurich"
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* HUG Logo */}
+            <div className="group relative">
+              <div className="w-32 h-16 md:w-40 md:h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 transition-all duration-300 hover:shadow-lg hover:bg-white">
+                <img
+                  src="/assets/images/hospitals/hug-logo-notext.png"
+                  alt="Geneva University Hospitals"
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* USB Logo */}
+            <div className="group relative">
+              <div className="w-32 h-16 md:w-40 md:h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 transition-all duration-300 hover:shadow-lg hover:bg-white">
+                <img
+                  src="/assets/images/hospitals/logo-usb-text.svg"
+                  alt="University Hospital Basel"
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Amsterdam UMC Logo */}
+            <div className="group relative">
+              <div className="w-36 h-16 md:w-44 md:h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 transition-all duration-300 hover:shadow-lg hover:bg-white">
+                <img
+                  src="/assets/images/hospitals/amsterdam-umc-logo.png"
+                  alt="Amsterdam University Medical Center"
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Trust Indicator */}
